@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" 
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:uml="http://schema.omg.org/spec/UML/2.1.1" 
+    xsi:schemaLocation="http://schema.omg.org/spec/UML/2.1.1 http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_s42IlY_BEd2fQsBAaQEa9g" name="Executable UML Tests">
+  <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_s42Ilo_BEd2fQsBAaQEa9g" source="http://www.eclipse.org/emf/2002/Ecore"/>
+  </xmi:Extension>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_s42Il4_BEd2fQsBAaQEa9g">
+    <importedPackage xmi:type="uml:Model" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_s4_4wI_BEd2fQsBAaQEa9g" name="SimpleDecision">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_s4_4wY_BEd2fQsBAaQEa9g" name="testValue"/>
+    <ownedBehavior xmi:type="uml:Activity" xmi:id="_s4_4wo_BEd2fQsBAaQEa9g" name="Read(testValue)"/>
+    <ownedParameter xmi:type="uml:Parameter" xmi:id="_s4_4w4_BEd2fQsBAaQEa9g" name="Parameter_0" direction="out">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s4_4xI_BEd2fQsBAaQEa9g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s4_4xY_BEd2fQsBAaQEa9g"/>
+    </ownedParameter>
+    <ownedParameter xmi:type="uml:Parameter" xmi:id="_s4_4xo_BEd2fQsBAaQEa9g" name="Parameter_1" direction="out">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s4_4x4_BEd2fQsBAaQEa9g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s4_4yI_BEd2fQsBAaQEa9g"/>
+    </ownedParameter>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_s4_4yY_BEd2fQsBAaQEa9g" name="ReadSelf">
+      <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_s4_4yo_BEd2fQsBAaQEa9g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      </xmi:Extension>
+      <result xmi:type="uml:OutputPin" xmi:id="_s4_4y4_BEd2fQsBAaQEa9g" name="ReadSelf.result" outgoing="_s4_42I_BEd2fQsBAaQEa9g">
+        <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s4_4zI_BEd2fQsBAaQEa9g" value="1024"/>
+      </result>
+    </node>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_s4_4zY_BEd2fQsBAaQEa9g" name="Read(testValue)" behavior="_s4_4wo_BEd2fQsBAaQEa9g">
+      <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_s4_4zo_BEd2fQsBAaQEa9g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      </xmi:Extension>
+      <argument xmi:type="uml:InputPin" xmi:id="_s4_4z4_BEd2fQsBAaQEa9g" name="Read(testValue).object" incoming="_s4_42I_BEd2fQsBAaQEa9g">
+        <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s4_40I_BEd2fQsBAaQEa9g" value="1024"/>
+      </argument>
+      <result xmi:type="uml:OutputPin" xmi:id="_s4_40Y_BEd2fQsBAaQEa9g" name="Read(testValue).result" outgoing="_s4_424_BEd2fQsBAaQEa9g">
+        <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s4_40o_BEd2fQsBAaQEa9g" value="1024"/>
+      </result>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_s4_404_BEd2fQsBAaQEa9g" name="DecisionNode" outgoing="_s4_43o_BEd2fQsBAaQEa9g _s4_44Y_BEd2fQsBAaQEa9g" incoming="_s4_424_BEd2fQsBAaQEa9g" decisionInput="_s42ImI_BEd2fQsBAaQEa9g"/>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_s4_41I_BEd2fQsBAaQEa9g" name="ParameterNode_0" incoming="_s4_43o_BEd2fQsBAaQEa9g" parameter="_s4_4w4_BEd2fQsBAaQEa9g">
+      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s4_41Y_BEd2fQsBAaQEa9g" value="1024"/>
+    </node>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_s4_41o_BEd2fQsBAaQEa9g" name="ParameterNode_1" incoming="_s4_44Y_BEd2fQsBAaQEa9g" parameter="_s4_4xo_BEd2fQsBAaQEa9g">
+      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s4_414_BEd2fQsBAaQEa9g" value="1024"/>
+    </node>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_s4_42I_BEd2fQsBAaQEa9g" source="_s4_4y4_BEd2fQsBAaQEa9g" target="_s4_4z4_BEd2fQsBAaQEa9g">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_s4_42Y_BEd2fQsBAaQEa9g"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s4_42o_BEd2fQsBAaQEa9g" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_s4_424_BEd2fQsBAaQEa9g" source="_s4_40Y_BEd2fQsBAaQEa9g" target="_s4_404_BEd2fQsBAaQEa9g">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_s4_43I_BEd2fQsBAaQEa9g"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s4_43Y_BEd2fQsBAaQEa9g" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_s4_43o_BEd2fQsBAaQEa9g" name="guard_0" source="_s4_404_BEd2fQsBAaQEa9g" target="_s4_41I_BEd2fQsBAaQEa9g">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_s4_434_BEd2fQsBAaQEa9g">
+        <body>0</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s4_44I_BEd2fQsBAaQEa9g" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_s4_44Y_BEd2fQsBAaQEa9g" name="guard_1" source="_s4_404_BEd2fQsBAaQEa9g" target="_s4_41o_BEd2fQsBAaQEa9g">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_s4_44o_BEd2fQsBAaQEa9g">
+        <body>1</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s4_444_BEd2fQsBAaQEa9g" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_s42ImI_BEd2fQsBAaQEa9g" name="Copier">
+    <ownedParameter xmi:type="uml:Parameter" xmi:id="_s42ImY_BEd2fQsBAaQEa9g" name="input">
+      <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s42Imo_BEd2fQsBAaQEa9g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s42Im4_BEd2fQsBAaQEa9g"/>
+    </ownedParameter>
+    <ownedParameter xmi:type="uml:Parameter" xmi:id="_s42InI_BEd2fQsBAaQEa9g" name="output" direction="out">
+      <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s42InY_BEd2fQsBAaQEa9g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s42Ino_BEd2fQsBAaQEa9g"/>
+    </ownedParameter>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_s42In4_BEd2fQsBAaQEa9g" name="InputNode" outgoing="_s42Io4_BEd2fQsBAaQEa9g" parameter="_s42ImY_BEd2fQsBAaQEa9g">
+      <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s42IoI_BEd2fQsBAaQEa9g" value="1024"/>
+    </node>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_s42IoY_BEd2fQsBAaQEa9g" name="OutputNode" incoming="_s42Io4_BEd2fQsBAaQEa9g" parameter="_s42InI_BEd2fQsBAaQEa9g">
+      <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s42Ioo_BEd2fQsBAaQEa9g" value="1024"/>
+    </node>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_s42Io4_BEd2fQsBAaQEa9g" source="_s42In4_BEd2fQsBAaQEa9g" target="_s42IoY_BEd2fQsBAaQEa9g">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_s42IpI_BEd2fQsBAaQEa9g"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s42IpY_BEd2fQsBAaQEa9g" value="1"/>
+    </edge>
+  </packagedElement>
+
+</uml:Model>

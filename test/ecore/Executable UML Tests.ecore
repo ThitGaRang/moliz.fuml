@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ExecutableUMLTests"
+    nsURI="http:///ExecutableUMLTests.ecore" nsPrefix="ExecutableUMLTests">
+  <eClassifiers xsi:type="ecore:EClass" name="Copier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CopierCaller"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleDecision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testValue" ordered="false"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadtestValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ForkJoin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DecisionJoin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ForkMerge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ForkMergeData"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action_A"/>
+</ecore:EPackage>

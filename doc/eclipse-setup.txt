@@ -1,0 +1,8 @@
+
+1.) Create a new Eclipse Java project using 'create using existing source' in the new project wizard. Make the
+project name 'fuml'. 
+2.) Add /target/fuml/src as a source folder. This is where generated source is located. 
+3.) Set  default output folder in the project 
+properties->'Java Build Path'->'Default Output Folder'to: fuml/target/eclipse/classes
+4.) Set Eclipse Java compiler to 1.6
+5.) Make sure every jar file int the /lib directory and subdirectories has been added to the build path 

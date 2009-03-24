@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:Hierarchy="http://www.eclipse.org/hyades/models/hierarchy.xmi" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/hyades/models/hierarchy.xmi">
+  <xsd:annotation>
+    <xsd:documentation>Internal package, please do not extend or use.
+The "hierarchy" package is used to capture the base topology used to provide a hierarchical view that is used to organize and interact with the various  agent contents.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="XMI.xsd"/>
+  <xsd:simpleType name="TRCCollectionMode">
+    <xsd:annotation>
+      <xsd:documentation>
+
+
+
+
+
+
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="HEAP_STATISTICS_ONLY"/>
+      <xsd:enumeration value="HEAP_FULL"/>
+      <xsd:enumeration value="HEAP_AND_EXECUTION_FULL"/>
+      <xsd:enumeration value="HEAP_AND_EXECUTION_STATISTICS_ONLY"/>
+      <xsd:enumeration value="EXECUTION_STATISTICS_ONLY"/>
+      <xsd:enumeration value="EXECUTION_NO_INSTANCES"/>
+      <xsd:enumeration value="EXECUTION_FULL"/>
+      <xsd:enumeration value="HEAP_FULL_AND_EXECUTION_STATISTICS_ONLY"/>
+      <xsd:enumeration value="HEAP_STATISTICS_AND_EXECUTION_NO_INSTANCES"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="TRCProcessProxy">
+    <xsd:annotation>
+      <xsd:documentation>The proxy for a real OS process. Has properties that represent the execution context. The reason this is referred to as a proxy is that if an agent is actually collecting an execution trace, it will contain the relevant details at runtime of the process that is being monitored.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="execParameters" type="Hierarchy:TRCExecParameter"/>
+      <xsd:element name="environmentVariables" type="Hierarchy:TRCEnvironmentVariable"/>
+      <xsd:element name="node" type="Hierarchy:TRCNode"/>
+      <xsd:element name="agentProxies" type="Hierarchy:TRCAgentProxy"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="runtimeId" type="xsd:string"/>
+    <xsd:attribute name="pid" type="xsd:int"/>
+    <xsd:attribute name="classpath" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The process classpath</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="parameters" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The process command-line parameters</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="launchMode" type="xsd:int">
+      <xsd:annotation>
+        <xsd:documentation>The launching mode for the current process,
+1 if the trace was attached to the process, 0 if the
+process was launched by the trace process.
+</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="location" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The initial current directory for the process</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="vmArguments" type="xsd:string"/>
+    <xsd:attribute name="active" type="xsd:boolean"/>
+    <xsd:attribute name="node" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCProcessProxy" type="Hierarchy:TRCProcessProxy">
+    <xsd:annotation>
+      <xsd:documentation>The proxy for a real OS process. Has properties that represent the execution context. The reason this is referred to as a proxy is that if an agent is actually collecting an execution trace, it will contain the relevant details at runtime of the process that is being monitored.
+</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCOption">
+    <xsd:annotation>
+      <xsd:documentation>This is a name/value pair, used to define options for the profiling agent. Eg.: key="ALLOCATION_INFORMATION" optionValue="all"</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="key" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A name used to identify an option</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="value" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The value of the option</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="TRCOption" type="Hierarchy:TRCOption">
+    <xsd:annotation>
+      <xsd:documentation>This is a name/value pair, used to define options for the profiling agent. Eg.: key="ALLOCATION_INFORMATION" optionValue="all"</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCAgent">
+    <xsd:annotation>
+      <xsd:documentation>An agent is analogous to a "trace file". An agent is typed to hold a particular type of trace, and the TRCAgent object owns by value the instances of the trace data. Because agents are typed, there can be zero or more agents associated with a given TRCMonitor, TRCNode or TRCProcessProxy. However, a given agent instance can only be associated with one of those objects.
+
+This agent is the model entity for a data provider.  Providers provide metadata as a collection of descriptors and the data itself as observations. 
+
+The agent is also the granularity of persistence.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="defaultEvents" type="Hierarchy:AbstractDefaultEvent"/>
+      <xsd:element name="view" type="Hierarchy:AbstractTRCView"/>
+      <xsd:element name="descriptor" type="Hierarchy:AbstractTRCDescription"/>
+      <xsd:element name="process" type="Hierarchy:AbstractTRCProcess"/>
+      <xsd:element name="agentProxy" type="Hierarchy:TRCAgentProxy"/>
+      <xsd:element name="unresolvedCorrelations" type="Hierarchy:UnresolvedCorrelation"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A descriptive agent name, like "Java Profiler Agent"</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="type" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The type of the agent, eg. "Profiler"</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="runtimeId" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A GUID based ID to identify an monitoring agent instance</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="startTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>Marks the starting point of the collecting session</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="stopTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>Marks the end point of the collecting session</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="collectionMode" type="Hierarchy:TRCCollectionMode">
+      <xsd:annotation>
+        <xsd:documentation>Defines different collection modes (some include filtering of data on agent side some on loader side and some are combined). This is used by loaders and UI to decide the model building algorithms and the presentation mode. This is has the same value as TRCAgentProxy.collectionMode attribute.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="version" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The version of an agent (for example "1.0.0")</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="agentProxy" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCAgent" type="Hierarchy:TRCAgent">
+    <xsd:annotation>
+      <xsd:documentation>An agent is analogous to a "trace file". An agent is typed to hold a particular type of trace, and the TRCAgent object owns by value the instances of the trace data. Because agents are typed, there can be zero or more agents associated with a given TRCMonitor, TRCNode or TRCProcessProxy. However, a given agent instance can only be associated with one of those objects.
+
+This agent is the model entity for a data provider.  Providers provide metadata as a collection of descriptors and the data itself as observations. 
+
+The agent is also the granularity of persistence.
+</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCAgentProxy">
+    <xsd:annotation>
+      <xsd:documentation>A TRCAgent proxy, to enable support for loading and unloading the agent resource. This class shadows most of the properties of the TRCAgent: please check the documentation on TRCAgent for duplicated fields.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="configurations" type="Hierarchy:TRCConfiguration"/>
+      <xsd:element name="agent" type="Hierarchy:TRCAgent"/>
+      <xsd:element name="internalCorrelations" type="Hierarchy:CorrelationContainerProxy"/>
+      <xsd:element name="annotations" type="Hierarchy:TRCAnnotation"/>
+      <xsd:element name="relatedAgentProxies" type="Hierarchy:TRCAgentProxy"/>
+      <xsd:element name="derivedAgentProxies" type="Hierarchy:TRCAgentProxy"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="type" type="xsd:string"/>
+    <xsd:attribute name="runtimeId" type="xsd:string"/>
+    <xsd:attribute name="startTime" type="xsd:double"/>
+    <xsd:attribute name="stopTime" type="xsd:double"/>
+    <xsd:attribute name="collectionMode" type="Hierarchy:TRCCollectionMode">
+      <xsd:annotation>
+        <xsd:documentation>Defines different collection modes (some include filtering of data on agent side some on loader side and some are combined). This is used by loaders and UI to decide the model building algorithms and the presentation mode.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="deltaTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>Used to synchronize entry, exit events between different agents, on a distributed application. It is in microseconds.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="agent" type="xsd:string"/>
+    <xsd:attribute name="internalCorrelations" type="xsd:string"/>
+    <xsd:attribute name="relatedAgentProxies" type="xsd:string"/>
+    <xsd:attribute name="derivedAgentProxies" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCAgentProxy" type="Hierarchy:TRCAgentProxy">
+    <xsd:annotation>
+      <xsd:documentation>A TRCAgent proxy, to enable support for loading and unloading the agent resource. This class shadows most of the properties of the TRCAgent: please check the documentation on TRCAgent for duplicated fields.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCConfiguration">
+    <xsd:annotation>
+      <xsd:documentation>A configuration is used to hold a set of options and filters. This would normally be used to capture a set of options and filters that are active for a given agent.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="options" type="Hierarchy:TRCOption"/>
+      <xsd:element name="filters" type="Hierarchy:TRCFilter"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="active" type="xsd:boolean"/>
+  </xsd:complexType>
+  <xsd:element name="TRCConfiguration" type="Hierarchy:TRCConfiguration">
+    <xsd:annotation>
+      <xsd:documentation>A configuration is used to hold a set of options and filters. This would normally be used to capture a set of options and filters that are active for a given agent.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCEnvironmentVariable">
+    <xsd:annotation>
+      <xsd:documentation>A name-value pair to capture an environment variable. For example classpath</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCEnvironmentVariable" type="Hierarchy:TRCEnvironmentVariable">
+    <xsd:annotation>
+      <xsd:documentation>A name-value pair to capture an environment variable. For example classpath</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCExecParameter">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="key" type="xsd:string"/>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCExecParameter" type="Hierarchy:TRCExecParameter"/>
+  <xsd:complexType name="TRCFilter">
+    <xsd:annotation>
+      <xsd:documentation>A filter describes a pattern that can be used during data collection to control the data being collected.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="type" type="xsd:string"/>
+    <xsd:attribute name="pattern" type="xsd:string"/>
+    <xsd:attribute name="mode" type="xsd:string"/>
+    <xsd:attribute name="active" type="xsd:boolean"/>
+    <xsd:attribute name="operation" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCFilter" type="Hierarchy:TRCFilter">
+    <xsd:annotation>
+      <xsd:documentation>A filter describes a pattern that can be used during data collection to control the data being collected.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCNode">
+    <xsd:annotation>
+      <xsd:documentation>A Node is a machine, or at least a machine execution partition. It owns process proxies for processes with agents attached and data collected.
+There is one server/service installed for each Node. An analogy is a service running on NT that hooks to the process being monitored.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="monitor" type="Hierarchy:TRCMonitor"/>
+      <xsd:element name="processProxies" type="Hierarchy:TRCProcessProxy"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="runtimeId" type="xsd:string"/>
+    <xsd:attribute name="timezone" type="xsd:double"/>
+    <xsd:attribute name="port" type="xsd:int"/>
+    <xsd:attribute name="deltaTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>Used to synchronize entry, exit events between different nodes, on a distributed application. It is in microseconds.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The machine/host name </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="ipAddress" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The IP address of the node</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="monitor" type="xsd:string"/>
+    <xsd:attribute name="processProxies" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCNode" type="Hierarchy:TRCNode">
+    <xsd:annotation>
+      <xsd:documentation>A Node is a machine, or at least a machine execution partition. It owns process proxies for processes with agents attached and data collected.
+There is one server/service installed for each Node. An analogy is a service running on NT that hooks to the process being monitored.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCMonitor">
+    <xsd:annotation>
+      <xsd:documentation>A monitor is in effect a complete set of traces that may have been collected from one or more agents. It is the logical root for a persisted model instance that may reflect a complete distributed application or simply a set of data collection points.
+			
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="nodes" type="Hierarchy:TRCNode"/>
+      <xsd:element name="correlationContainerProxies" type="Hierarchy:CorrelationContainerProxy"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A user provider name</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="startTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>The overall start time (the earliest start time of all the agents in this monitor)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="stopTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>The overall stop time (the latest stop time of all the agents in this monitor)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="nodes" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCMonitor" type="Hierarchy:TRCMonitor">
+    <xsd:annotation>
+      <xsd:documentation>A monitor is in effect a complete set of traces that may have been collected from one or more agents. It is the logical root for a persisted model instance that may reflect a complete distributed application or simply a set of data collection points.
+			
+</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractDefaultEvent">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractDefaultEvent" type="Hierarchy:AbstractDefaultEvent">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractTRCView">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractTRCView" type="Hierarchy:AbstractTRCView">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractTRCDescription">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractTRCDescription" type="Hierarchy:AbstractTRCDescription">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractTRCProcess">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractTRCProcess" type="Hierarchy:AbstractTRCProcess">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractTRCCollectionBoundary">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="configuration" type="Hierarchy:TRCConfiguration"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="startTime" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>The creation time of this object, relative to hierarchy.TRCAgent.startTime</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="collectionMode" type="Hierarchy:TRCCollectionMode">
+      <xsd:annotation>
+        <xsd:documentation>Defines different collection modes (some include filtering of data on agent side some on loader side and some are combined). This is used by loaders and UI to decide the model building algorithms and the presentation mode.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="configuration" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractTRCCollectionBoundary" type="Hierarchy:AbstractTRCCollectionBoundary">
+    <xsd:annotation>
+      <xsd:documentation>This class allows for a clean plugin dependency packaging. Hyades needs to allow different plugins for each model sub-package in order to avoid all of them having to always be present and possibly loaded.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="UnresolvedCorrelation">
+    <xsd:annotation>
+      <xsd:documentation>Class used to persist the unresolved correlations. When a correlation is  resolved the object should be removed form the list.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="sourceInfos" type="Hierarchy:CorrelationSourceInfo"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="contextId" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>String based look-up key (eg. in Trace submodel case this is a concatenation of runtimeIds, ticket, sequence and threadId). The schema of this ID can be arbitrary chosen and has to be know by both the producer the consumer of this class.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="UnresolvedCorrelation" type="Hierarchy:UnresolvedCorrelation">
+    <xsd:annotation>
+      <xsd:documentation>Class used to persist the unresolved correlations. When a correlation is  resolved the object should be removed form the list.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationSourceInfo">
+    <xsd:annotation>
+      <xsd:documentation>Describes the known information from the received event.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="owner" type="ecore:EObject"/>
+      <xsd:element name="reference" type="ecore:EReference"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="owner" type="xsd:string"/>
+    <xsd:attribute name="reference" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="CorrelationSourceInfo" type="Hierarchy:CorrelationSourceInfo">
+    <xsd:annotation>
+      <xsd:documentation>Describes the known information from the received event.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationContainer">
+    <xsd:annotation>
+      <xsd:documentation>This is a root in a correlation instance resource. For example the correlation instance is created when a correlation operation/action is used or by the loaders when an AssciationEngine event is received.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="correlations" type="Hierarchy:CorrelationEntry"/>
+      <xsd:element name="correlationContainerProxy" type="Hierarchy:CorrelationContainerProxy"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="correlationContainerProxy" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="CorrelationContainer" type="Hierarchy:CorrelationContainer">
+    <xsd:annotation>
+      <xsd:documentation>This is a root in a correlation instance resource. For example the correlation instance is created when a correlation operation/action is used or by the loaders when an AssciationEngine event is received.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationContainerProxy">
+    <xsd:annotation>
+      <xsd:documentation>A UI proxy class, to avoid loading the whole correlation instance resource.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="correlationContainer" type="Hierarchy:CorrelationContainer"/>
+      <xsd:element name="correlatedAgents" type="Hierarchy:TRCAgentProxy"/>
+      <xsd:element name="correlationEngine" type="Hierarchy:CorrelationEngine"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="creationTime" type="xsd:long"/>
+    <xsd:attribute name="correlationContainer" type="xsd:string"/>
+    <xsd:attribute name="correlatedAgents" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="CorrelationContainerProxy" type="Hierarchy:CorrelationContainerProxy">
+    <xsd:annotation>
+      <xsd:documentation>A UI proxy class, to avoid loading the whole correlation instance resource.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationEntry">
+    <xsd:annotation>
+      <xsd:documentation>Represents a 1-many relation between a source event and it's associated events (an event can be a CBE, method invocation etc)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="key" type="ecore:EObject"/>
+      <xsd:element name="value" type="ecore:EObject"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="key" type="xsd:string"/>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="CorrelationEntry" type="Hierarchy:CorrelationEntry">
+    <xsd:annotation>
+      <xsd:documentation>Represents a 1-many relation between a source event and it's associated events (an event can be a CBE, method invocation etc)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationEngine">
+    <xsd:annotation>
+      <xsd:documentation>The id should uniquely identify the engine.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="type" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Engines are typed with this attribute. Examples of types are 
+"Correlation based on URI", "root"</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Each engine has a name. This is not ensured to be unique. The name is intended to be human readable.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The id of an engine is something that uniquely identifes the engine from all other engines installed.
+The uniqueness is managed outside the model and is the responsibility of the engine provider.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The description of this engine</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="CorrelationEngine" type="Hierarchy:CorrelationEngine">
+    <xsd:annotation>
+      <xsd:documentation>The id should uniquely identify the engine.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TRCAnnotation">
+    <xsd:annotation>
+      <xsd:documentation>Generic annotation mechanism, can be used to add metadata information on specific classes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="values" nillable="true" type="xsd:string"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TRCAnnotation" type="Hierarchy:TRCAnnotation">
+    <xsd:annotation>
+      <xsd:documentation>Generic annotation mechanism, can be used to add metadata information on specific classes.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

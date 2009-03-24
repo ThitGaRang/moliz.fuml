@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<project name="fuml" default="build-dev" basedir=".">
+
+    <description>
+        build file
+    </description>
+    
+    <!-- set global properties for this build -->
+    <property name="src.dir" value="./src"/>
+    <property name="lib.dir" value="./lib"/>
+    <property name="bin.dir" value="./bin"/>
+    <property name="doc.dir" value="./doc"/>
+    <property name="target.dir" value="./target/${ant.project.name}"/>
+    <property name="build.dir" value="${target.dir}"/>
+    <property name="gen.java.dir" value="${target.dir}/src"/>
+    <property name="src.java.dir" value="${src.dir}/java"/>
+    <property name="schema.dir" value="${src.dir}/xsd"/>
+    <property name="schema.config.dir" value="${schema.dir}/config"/>
+    <property name="schema.model.dir" value="${schema.dir}/model"/>
+    <property name="uml.dir" value="${src.dir}/uml"/>
+    <property name="uml.library.dir" value="${src.dir}/uml/library"/>
+    <property name="template.dir" value="${src.dir}/xsl"/>
+    <property name="xml.dir" value="${src.dir}/xml"/>
+    <property name="xml.config.dir" value="${xml.dir}/config"/>
+    <property name="xml.model.dir" value="${xml.dir}/model"/>
+    <property name="test.dir" value="./test"/>
+    <property name="test.java.dir" value="./test"/>
+    <property name="classes.dir" value="${target.dir}/classes"/>
+    <property name="eclipse.classes.dir" value="./target/eclipse/classes"/> <!-- NOTE: make this dir your eclipse default output dir -->
+    <property name="dist.dir" value="${target.dir}/dist"/>
+    
+    <property name="test.dir" value="./test"/>
+    <property name="test.xmi.dir" value="${test.dir}/xmi"/>
+    <property name="test.output.dir" value="${target.dir}/testoutput"/>
+    <property name="unzip.dir" value="${target.dir}/temp"/>
+    
+    <property environment="env"/>
+    <property name="release.suffix" value="SNAPSHOT-03-2009"/>
+        
+   
+    <target name="build-dev" depends="init, generate, compile, expand" description="build the components for dev"/>
+
+    <fileset id="local.libs" dir="${lib.dir}">
+       <include name="junit.jar"/>   
+       <include name="commons-logging.jar"/>   
+       <include name="log4j.jar"/>
+       <include name="jdom.jar"/>
+       <include name="Tidy.jar"/>
+    </fileset>
+
+    <fileset id="jaxb.libs" dir="${lib.dir}">
+       <include name="jaxb-api.jar"/>   
+       <include name="jaxb-impl.jar"/>   
+       <include name="jaxb-xjc.jar"/>
+    </fileset>
+
+    <fileset id="stax.libs" dir="${lib.dir}">
+       <include name="sjsxp-1.0.1.jar"/>
+       <include name="stax-utils.jar"/>
+       <include name="jsr173_api.jar"/> <!-- only for Java 1.5 -->
+    </fileset>  
+    
+    <fileset id="java.core.tools" dir="${env.JAVA_HOME}/lib">
+       <include name="tools.jar"/>   
+    </fileset>
+
+    <fileset id="magicdraw.libs" dir="${lib.dir}/magicdraw">
+       <include name="*.jar"/>   
+    </fileset>
+
+    <fileset id="fuml.libs" dir="${dist.dir}">
+       <include name="fuml.jar"/>   
+    </fileset>
+    
+    <path id="cp">
+       <pathelement location="." />       
+       <pathelement location="${classes.dir}" />       
+       <fileset refid="java.core.tools"/>
+       <fileset refid="local.libs"/>
+       <fileset refid="jaxb.libs"/>
+       <fileset refid="stax.libs"/>
+       <fileset refid="magicdraw.libs"/>
+    </path>
+        
+    <target name="init">
+         <!-- Create the time stamp -->
+        <tstamp/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/uml"/>
+        <mkdir dir="${gen.java.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${test.output.dir}"/>
+    </target>    
+    
+    <target name="generate" depends="init, copy-schemas-and-templates">
+       <echo message="Generating config classes from XMLSchema..."/>
+
+       <mkdir dir="${classes.dir}"/>
+       <mkdir dir="${gen.java.dir}"/>
+       <antcall target="generate-model"/>
+       <antcall target="generate-config"/>
+    </target>
+    
+    <target name="generate-model">
+      <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+        <classpath refid="cp" />
+      </taskdef>   
+      <echo message="${gen.java.dir}"/>         
+      <xjc 
+        extension="true"
+        target="2.0" 
+        destdir="${gen.java.dir}"
+        removeOldOutput="no">
+        <schema dir="${schema.model.dir}" includes="CmofextensionXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CmofreflectionXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CommonXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="IdentityXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="EMOFXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CmofXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="FUMLXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="MagicDrawXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="ModelConfig.xsd"/>
+        <binding dir="${schema.model.dir}" includes="jaxb-bindings.xml"/>
+      </xjc>
+    </target>        
+
+    <target name="generate-config">
+      <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+        <classpath refid="cp" />
+      </taskdef>   
+      <echo message="${gen.java.dir}"/>         
+      <xjc 
+        extension="true"
+        target="2.0" 
+        destdir="${gen.java.dir}"
+        removeOldOutput="no">
+        <schema dir="${schema.config.dir}" includes="*.xsd"/>
+        <binding dir="${schema.config.dir}" includes="jaxb-bindings.xml"/>
+      </xjc>
+    </target>        
+    
+    <!--  if="compilation.required" -->
+    <target name="compile" depends="init">
+      <echo message="compiling..."/>
+      <mkdir dir="${classes.dir}"/>
+      <javac destdir="${classes.dir}" 
+        debug="on"> 
+        <classpath refid="cp" /> 
+        <src path="${src.java.dir}"/>
+        <src path="${gen.java.dir}"/>
+        <src path="${test.java.dir}"/>
+      </javac>                          
+    </target>
+    
+    <target name="copy-schemas-and-templates">
+       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/model">
+            <fileset dir="${schema.model.dir}">                         
+                <include name="*.xsd"/>     
+            </fileset>                                             
+            <fileset dir="${xml.model.dir}">                         
+                <include name="*.xml"/>     
+            </fileset>                                             
+            <fileset dir="${uml.dir}">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+            <fileset dir="${build.dir}/uml">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+            <fileset dir="${template.dir}">                         
+                <include name="*.xsl"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/model">
+            <fileset dir="${schema.model.dir}">                         
+                <include name="*.xsd"/>     
+            </fileset>                                             
+            <fileset dir="${xml.model.dir}">                         
+                <include name="*.xml"/>     
+            </fileset>                                             
+            <fileset dir="${uml.dir}">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+            <fileset dir="${build.dir}/uml">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+            <fileset dir="${template.dir}">                         
+                <include name="*.xsl"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/library">
+            <fileset dir="${uml.library.dir}">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/library">
+            <fileset dir="${uml.library.dir}">                         
+                <include name="*.uml"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/config">
+            <fileset dir="${schema.config.dir}">                         
+                <include name="*.xsd"/>     
+            </fileset>                                             
+            <fileset dir="${xml.config.dir}">                         
+                <include name="*.xml"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/config">
+            <fileset dir="${schema.config.dir}">                         
+                <include name="*.xsd"/>     
+            </fileset>                                             
+            <fileset dir="${xml.config.dir}">                         
+                <include name="*.xml"/>     
+            </fileset>                                             
+       </copy>
+       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/xmi/validation">
+          <fileset dir="${src.java.dir}/org/modeldriven/fuml/xmi/validation">
+              <include name="*.properties"/>
+          </fileset>    
+       </copy>  
+       <copy overwrite="yes" todir="${eclipse.classes.dir}/org/modeldriven/fuml/xmi/validation">
+          <fileset dir="${src.java.dir}/org/modeldriven/fuml/xmi/validation">
+              <include name="*.properties"/>
+          </fileset>    
+       </copy>          
+    </target>
+        
+    <target name="expand" depends="init">
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="Superstructure.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="Infrastructure.uml"/>
+        </antcall>
+        
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML_Semantics.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML_Syntax.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML-LibraryImplementation.uml"/>
+        </antcall>
+    </target>
+    
+    <target name="expand-xmi">
+        <echo message="expanding XMI file: ${file.name}"/>
+        <java failonerror="yes"                                             
+            fork="yes"                                                      
+            classname="org.modeldriven.fuml.common.xsl.XSLTUtils">   
+            <classpath refid="cp"/>
+            <arg value="${build.dir}/uml/expanded-${file.name}" />
+            <arg value="${file.dir}/${file.name}" />
+            <arg value="${template.dir}/ExpandXMI.xsl" />
+        </java>    
+    </target>
+
+    <target name="preprocess" depends="init">
+        <antcall target="move-owned-comment-body">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML.uml"/>
+        </antcall>
+    </target>
+    
+    <target name="move-owned-comment-body">
+        <echo message="preprocessing XMI file: ${file.name}"/>
+        <java failonerror="yes"                                             
+            fork="yes"                                                      
+            classname="org.modeldriven.fuml.common.xsl.XSLTUtils">   
+            <classpath refid="cp"/>
+            <arg value="${build.dir}/uml/pre-processed-${file.name}" />
+            <arg value="${file.dir}/${file.name}" />
+            <arg value="${template.dir}/MoveOwnedCommentBody.xsl" />
+        </java>    
+    </target>    
+
+    <target name="dist" depends="copy-schemas-and-templates">
+      <echo message="archiving..."/>
+      <mkdir dir="${dist.dir}"/>
+        
+      <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/plugin/magicdraw">
+        <fileset dir="${src.dir}/images">                         
+            <include name="*.gif"/>     
+        </fileset>                            
+      </copy>
+      <jar destfile="${dist.dir}/fuml.jar">
+        <fileset dir="${classes.dir}" />
+      </jar>
+        
+    </target>
+    
+    <target name="pack" depends="dist">
+      <echo message="packing..."/>
+      <mkdir dir="${dist.dir}"/>
+        
+      <zip destfile="${dist.dir}/fuml-${release.suffix}.zip">
+        <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
+        <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/bin" />
+        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
+      </zip>                
+
+      <zip destfile="${dist.dir}/fuml-${release.suffix}-src.zip">
+        <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
+        <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/bin" />
+        <zipfileset dir="${src.dir}" prefix="fuml-${release.suffix}/src" />
+        <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/test" />
+        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
+        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
+      </zip>                
+
+      <zip destfile="${dist.dir}/fuml-${release.suffix}-plugin.zip">
+        <zipfileset dir="${bin.dir}" includes="*.properties" prefix="org.modeldriven.fuml.execution" />
+        <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
+        <zipfileset dir="${dist.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution" />
+        <zipfileset dir="${xml.dir}/plugin" includes="*.xml" prefix="org.modeldriven.fuml.execution" />
+        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
+      </zip>                
+
+    </target>
+    
+    <target name="deploy" depends="dist,pack">
+      <echo message="deploying..."/>
+        
+      <unzip src="${dist.dir}/fuml-${release.suffix}.zip" dest="/">
+      </unzip>
+                
+    </target>
+        
+    <target name="clean">
+      <echo message="deleting: ${build.dir}"/>
+      <delete includeEmptyDirs="true" verbose="false">
+      <fileset dir="${build.dir}"/>
+      </delete>
+    </target>
+
+    <target name="test">
+        <antcall target="test-model"/>
+        <antcall target="test-library"/>
+        <antcall target="test-validate"/>
+        <antcall target="test-execution"/>
+        <antcall target="test-magic-draw-execution"/>
+        <antcall target="test-external-reference"/>
+        <antcall target="test-function-execution"/>
+        <antcall target="test-incremental-validation"/>
+        <antcall target="run-test-reports"/>
+    </target>
+
+    <target name="run-built-in-tests">
+        <antcall target="test-simple-activities"/>
+        <antcall target="test-hello-world"/>
+        <antcall target="test-signal-send"/>
+        <antcall target="test-super-call"/>
+        <antcall target="test-polymorphic-call"/>
+    </target>
+    
+    <target name="test-simple-activities">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.SimpleActivitiesTestCase"/>
+        </antcall>
+    </target>
+    
+    <target name="test-hello-world">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.HelloWorldTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-signal-send">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.SignalSendTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-super-call">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.SuperCallTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-polymorphic-call">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.PolymorphicCallTestCase"/>
+        </antcall>
+    </target>
+     
+    <target name="test-binding-unmarshal" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.UnmarshalTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-validate" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.ValidateTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-execution" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.ExecutionTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-external-reference" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.ExternalReferenceTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-magic-draw-execution" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.MagicDrawExecutionTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-function-execution" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.FunctionExecutionTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-model" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.ModelTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-library" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.LibraryTestCase"/>
+        </antcall>
+    </target>
+
+    <target name="test-incremental-validation" depends="copy-schemas-and-templates">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.IncrementalValidationTestCase"/>
+        </antcall>
+    </target>
+    
+    <target name="run-test" description="Run a single unit test">
+      <junit showoutput="yes" printsummary="yes">          
+        <!--                                                                         
+        <jvmarg line="${remote.debug.line}"/>                                        
+        -->                                                                          
+        <jvmarg value="-Djava.security.manager"/>                                    
+        <jvmarg value="-Dlog4j.configuration=log4j.properties"/>  
+        <jvmarg value="-Xloggc:fuml-gc.log"/> <!-- doesn't work!! WTF! -->                                 
+        <jvmarg value="-XX:+PrintGCDetails"/>                                  
+        <sysproperty key="log4j.debug" value="false"/>
+        <sysproperty key="log4j.configuration" value="file:log4j.properties"/>
+        <classpath>                                                                  
+          <path refid="cp"/>                                                         
+        </classpath>     
+        <formatter type="plain" usefile="true"/>                                     
+        <formatter type="xml" usefile="true"/>                                           
+        <test name="${test}" todir="${test.output.dir}" fork="false" />       
+      </junit>                                                                       
+    </target>
+    
+    <target name="run-test-reports">
+           <junitreport todir="${test.output.dir}">
+              <fileset dir="${test.output.dir}">
+                <include name="*.xml"/>
+              </fileset>
+              <report format="frames" todir="${test.output.dir}"/>
+            </junitreport>
+     </target>
+    
+
+  
+</project>
+
