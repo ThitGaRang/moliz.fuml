@@ -43,8 +43,8 @@ The implementation build requires the following to be installed:
 To build from the command line:
 
 1. In a Windows/DOS command window, navigate to the 'root' reference
-implementation directory.
-This directory is where the Apache Ant 'build.xml' file can be found.
+implementation directory. (This directory is where the Apache Ant 'build.xml'
+file can be found.)
 
 2. Use the following command:
 
