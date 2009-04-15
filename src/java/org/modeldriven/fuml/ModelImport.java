@@ -1,8 +1,12 @@
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
- * in the file entitled Licensing-Information. 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except
+ * as stated in the file entitled Licensing-Information.
+ *
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
+ * in the file entitled Licensing-Information.
  *
  * Contributors:
  *   MDS - initial API and implementation
@@ -25,6 +29,7 @@ import org.modeldriven.fuml.xmi.validation.ValidationError;
 import org.modeldriven.fuml.xmi.validation.ValidationErrorCollector;
 
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
+import fUML.Syntax.Classes.Kernel.Association;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
@@ -36,29 +41,30 @@ import fUML.Syntax.CommonBehaviors.Communications.Signal;
 public class ModelImport extends AbsractImport implements Import {
 
     private static Log log = LogFactory.getLog(ModelImport.class);
-            
+
     public ModelImport() {
     }
-    
+
     public ModelImport(ImportRegistry registry) {
         super(registry);
     }
-    
+
     protected AssemblerResultsProfile createProfile()
     {
         Model model = Model.getInstance();
         return new AssemblerResultsProfile(
-            new UmlClass[] { 
-                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Model.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(Activity.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier("Class"), // fUML name is 'Class_'                
-                (UmlClass)model.getClassifier(Operation.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(Property.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(DataType.class.getSimpleName()),                 
-                (UmlClass)model.getClassifier(Signal.class.getSimpleName()),                 
-            });                     
+            new UmlClass[] {
+                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Model.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Activity.class.getSimpleName()),
+                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),
+                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
+                (UmlClass)model.getClassifier("Class"), // fUML name is 'Class_'
+                (UmlClass)model.getClassifier(Operation.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Property.class.getSimpleName()),
+                (UmlClass)model.getClassifier(DataType.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Signal.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Association.class.getSimpleName()),
+            });
     }
 
     /**
@@ -67,60 +73,60 @@ public class ModelImport extends AbsractImport implements Import {
     public String[] getElementNames()
     {
         return new String[] {
-            "Model"    
-        };    
+            "Model"
+        };
     }
-    
+
     public void nodeCreated(StreamNodeEvent event) {
         // not interested
     }
-    
+
     public void nodeCompleted(StreamNodeEvent event) {
-                
+
         if (event.getParent() != null)
             if (!event.getParent().getLocalName().equals("XMI"))
                 return;
-        
+
         if (!event.getSource().getContext().getUmlNamespace().getNamespaceURI().equals(
                 event.getSource().getNamespaceURI()))
             return; // not in UML namespace
-        
+
         if (log.isDebugEnabled())
-            log.debug("validating: " 
+            log.debug("validating: "
                 + event.getSource().getXmiType() + "("
                 + event.getSource().getXmiId() + ")");
-        
+
         ValidationErrorCollector errorCollector = new ValidationErrorCollector(
                 event.getSource());
         errorCollector.validate();
-        
+
         int count = errorCollector.getErrorCount();
         if (count == 0) // valid
         {
-            ElementGraphAssembler assembler = 
-                new ElementGraphAssembler(event.getSource(), getProfile());                          
-            
+            ElementGraphAssembler assembler =
+                new ElementGraphAssembler(event.getSource(), getProfile());
+
             Iterator<String> ids = assembler.getResultsXmiIds().iterator();
             while (ids.hasNext())
-            {    
+            {
                 String id = ids.next();
                 Element element = assembler.lookupResult(id);
                 if (element instanceof NamedElement)
                     if (log.isDebugEnabled())
                         log.debug("loading element: " + ((NamedElement)element).name
-                            + " (" + id + ")"); 
+                            + " (" + id + ")");
                 else
                     if (log.isDebugEnabled())
                         log.debug("loading element: (" + id + ")");
-                
+
                 if (this.importRegistry != null)
                     this.importRegistry.register(id, element);
                 else
                     Environment.getInstance().add(id, element);
             }
-            assembler.clear();            
+            assembler.clear();
         }
-        else 
+        else
         {
             Iterator<ValidationError> errors = errorCollector.getErrors().iterator();
             while (errors.hasNext())
@@ -137,6 +143,6 @@ public class ModelImport extends AbsractImport implements Import {
             }
             if (errorCollector.getErrorCount(ErrorSeverity.FATAL) > 0)
                 throw new FumlException("fatal validation errors encountered");
-        }                                        
-    }                
+        }
+    }
 }

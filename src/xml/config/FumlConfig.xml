@@ -22,6 +22,7 @@
 
     <!-- adapters -->
     <Adapter type="assembly" className="OpaqueExpression" adapterClassName="org.modeldriven.fuml.assembly.OpaqueExpressionAdapter"/>    
+    <Adapter type="assembly" className="Profile" adapterClassName="org.modeldriven.fuml.assembly.ProfileAdapter"/>    
     
   </ImportConfiguration>
   

@@ -1,8 +1,12 @@
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
- * in the file entitled Licensing-Information. 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except
+ * as stated in the file entitled Licensing-Information.
+ *
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
+ * in the file entitled Licensing-Information.
  *
  * Contributors:
  *   MDS - initial API and implementation
@@ -46,17 +50,17 @@ import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
 import org.modeldriven.fuml.model.uml2.UmlProperty;
 
 /**
- * A visitor pattern implementation class that walks a given XmiNode hierarchy checking for 
- * various error conditions, creating and gathering ValidationError instances into a collection 
- * helpful for user feedback. This class can be initialized with an initial list of errors gathered 
- * from another context, and errors may be added to it's collection ad-hoc. This class heavily 
- * leverages the fuml.model package. For more information on runtime metadata, see the fuml.model 
+ * A visitor pattern implementation class that walks a given XmiNode hierarchy checking for
+ * various error conditions, creating and gathering ValidationError instances into a collection
+ * helpful for user feedback. This class can be initialized with an initial list of errors gathered
+ * from another context, and errors may be added to it's collection ad-hoc. This class heavily
+ * leverages the fuml.model package. For more information on runtime metadata, see the fuml.model
  * package documentation.
- * 
+ *
  * @author Scott Cinnamond
  */
-public class ValidationErrorCollector extends AbstractXmiNodeVisitor 
-    implements XmiNodeVisitor 
+public class ValidationErrorCollector extends AbstractXmiNodeVisitor
+    implements XmiNodeVisitor
 {
     private static Log log = LogFactory.getLog(ValidationErrorCollector.class);
 	private List<ValidationError> errors = new ArrayList<ValidationError>();
@@ -65,83 +69,89 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	@SuppressWarnings("unused")
 	private ValidationErrorCollector() {
 	}
-	
+
 	public ValidationErrorCollector(XmiNode root) {
 		this.root = root;
 		modelSupport = new ModelSupport();
 	}
-	
+
+	/**
+	 * Traverses the entire given graph ala. the visitor pattern, gathering any validation
+	 * errors, other than reference errors. References are added to
+	 * a collection to be validated subsequently, outside of the
+	 * visitor.
+	 */
 	public void validate()
 	{
-		this.root.accept(this); // traverse
-		this.validateReferences();		
+		this.root.accept(this);
+		this.validateReferences();
 	}
-	
-	public void visit(XmiNode target, XmiNode source, String sourceKey, 
-	        XmiNodeVisitorStatus status, int level) 
-	{	
+
+	public void visit(XmiNode target, XmiNode source, String sourceKey,
+	        XmiNodeVisitorStatus status, int level)
+	{
         if (log.isDebugEnabled())
             if (source != null)
-                log.debug("visit: " + target.getLocalName() 
+                log.debug("visit: " + target.getLocalName()
                     + " \t\tsource: " + source.getLocalName());
             else
                 log.debug("visit: " + target.getLocalName());
-        
+
         StreamNode eventNode = (StreamNode)target;
 
         if (target.getXmiId() != null)
-        {    
+        {
             if (this.nodeMap.get(target.getXmiId()) == null)
         	    this.nodeMap.put(target.getXmiId(), target);
             else
-                addError(ErrorCode.DUPLICATE_REFERENCE, 
+                addError(ErrorCode.DUPLICATE_REFERENCE,
                         ErrorSeverity.FATAL, eventNode);
-        }       
+        }
 
 		UmlClassifier classifier = findClassifier(target, source);
 		if (classifier == null)
-		{	
-            addError(ErrorCode.UNDEFINED_CLASS, 
+		{
+            addError(ErrorCode.UNDEFINED_CLASS,
                     ErrorSeverity.FATAL, eventNode);
-		    return; // We're done w/this node. No way to examine further without a classifier. 
+		    return; // We're done w/this node. No way to examine further without a classifier.
 		}
-		
+
     	if (log.isDebugEnabled())
     		log.debug("identified element '" + target.getLocalName() + "' as classifier, "
     			+ classifier.getName());
     	classifierMap.put(target, classifier);
-    	
+
         boolean hasAttributes = eventNode.hasAttributes();
     	if (isPrimitiveTypeElement(eventNode, classifier, hasAttributes))
-    		return;  
-    	  
+    		return;
+
     	if (isInternalReferenceElement(eventNode, classifier, hasAttributes))
     	{
-    		references.add(new XmiInternalReferenceElement(eventNode)); 
+    		references.add(new XmiInternalReferenceElement(eventNode));
         	return;
-    	}	
+    	}
 
         if (isExternalReferenceElement(eventNode, classifier, hasAttributes))
         {
-            references.add(new XmiExternalReferenceElement(eventNode)); 
+            references.add(new XmiExternalReferenceElement(eventNode));
             return;
-        }   
-    	
+        }
+
     	if (isAbstract(classifier))
-    	{	
-            addError(ErrorCode.ABSTRACT_CLASS_INSTANTIATION, 
+    	{
+            addError(ErrorCode.ABSTRACT_CLASS_INSTANTIATION,
                     ErrorSeverity.FATAL, eventNode);
-        	return; 
-    	}	
-		    	
+        	return;
+    	}
+
     	if (eventNode.hasAttributes())
     	    validateAttributes(eventNode, source, classifier, eventNode.getAttributes());
-    	
+
     	validateAttributesAgainstModel(eventNode, source, classifier);
 	}
-	
-	private void validateAttributes(StreamNode target, XmiNode source, 
-	        UmlClassifier classifier, 
+
+	private void validateAttributes(StreamNode target, XmiNode source,
+	        UmlClassifier classifier,
 			Iterator<Attribute> attributes)
 	{
         // look at XML attributes
@@ -152,87 +162,120 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             QName name = xmlAttrib.getName();
             String prefix = name.getPrefix();
             if (prefix != null && prefix.length() > 0)
-                continue; // not applicable to current element/association-end.                 
+                continue; // not applicable to current element/association-end.
             if ("href".equals(name.getLocalPart()))
                 continue; // FIXME: why is this "special" ?
-            UmlProperty property = Model.getInstance().findAttribute((UmlClass) classifier, 
+            UmlProperty property = Model.getInstance().findAttribute((UmlClass) classifier,
                     name.getLocalPart());
             if (property == null)
             {
-                addError(ErrorCode.UNDEFINED_PROPERTY, 
+                addError(ErrorCode.UNDEFINED_PROPERTY,
                         ErrorSeverity.FATAL, target, name.getLocalPart());
                 continue;
             }
-            
+
             if (isReferenceAttribute(property))
             {
-    		    XmiReferenceAttribute reference = new XmiReferenceAttribute(target, 
+    		    XmiReferenceAttribute reference = new XmiReferenceAttribute(target,
         				xmlAttrib);
-        		this.references.add(reference);            	
+        		this.references.add(reference);
             }
-        }  	
+            // TODO: when this error is commented out, an erroneous 'invalid internal reference' validation
+            // error was seen to be thrown during assembly. This seems to be a bug
+        	if (Model.getInstance().isDerived((UmlClass) classifier, property))
+                if (checkDerivedPropertyInstantiationError(target, source, classifier, property)) {
+                    addError(ErrorCode.DERIVED_PROPERTY_INSTANTIATION,
+                            ErrorSeverity.FATAL, target, property.getName());
+                }
+
+        }
 	}
-	
-	private void validateAttributesAgainstModel(StreamNode target, XmiNode source, 
+
+	private boolean checkDerivedPropertyInstantiationError(StreamNode target, XmiNode source,
+	        UmlClassifier classifier, UmlProperty property)
+	{
+		boolean error = false;
+
+    	String value = target.getAttributeValue(property.getName());
+        if (value != null && value.trim().length() > 0)
+        {
+        	error = true;
+        }
+        else if (target.findChildByName(property.getName()) != null)
+        	error = true;
+
+		return error;
+	}
+
+	private void validateAttributesAgainstModel(StreamNode target, XmiNode source,
 	        UmlClassifier classifier)
 	{
-        // check for required properties where no attrib or (child) element exists and no
-        // model default is found
         UmlProperty[] properties = Model.getInstance().getAttributes((UmlClass) classifier);
         for (int i = 0; i < properties.length; i++)
         {
-        	if (!Model.getInstance().isRequired((UmlClass) classifier, properties[i]))
-        		continue;   
-        	
-        	boolean requiredPropertyError = true;
-        	
-        	// check attributes
-        	String value = target.getAttributeValue(properties[i].getName());
-            if (value != null && value.trim().length() > 0)
-            {
-            	requiredPropertyError = false;
-            }
-            else // or we have a default
-            {
-                String defaultValue = Model.getInstance().findAttributeDefault(properties[i]);
-                if (defaultValue != null)
-                	requiredPropertyError = false;
-            }
-
-            if (target.findChildByName(properties[i].getName()) != null)
-                requiredPropertyError = false;
-            
-            // check configured mappings
-            if (requiredPropertyError && FumlConfiguration.getInstance().hasReferenceMapping(
-                    classifier, properties[i]))
-            {
-                ReferenceMappingType mappingType = 
-                    FumlConfiguration.getInstance().getReferenceMappingType(
-                            classifier, properties[i]);
-                if (mappingType == ReferenceMappingType.PARENT)
-                {
-                    // All right if the value of this reference property can be derived
-                    // from it's "parent", does the parent have an XMI id to
-                    // supply the value??
-                    if (source.getXmiId() != null && source.getXmiId().length() > 0) 
-                        requiredPropertyError = false;
-                    else
-                        log.warn("no parent XMI id found for, "
-                            + classifier.getName() + "." + properties[i].getName());
-                }
-                else
-                    log.warn("unrecognized mapping type, " 
-                            + mappingType.value() + " ignoring mapping for, "
-                            + classifier.getName() + "." + properties[i].getName());
-            }
-
-            if (requiredPropertyError) {
-                addError(ErrorCode.PROPERTY_REQUIRED, 
-                        ErrorSeverity.FATAL, target, properties[i].getName());
-            }        
-        }				
+        	if (Model.getInstance().isRequired((UmlClass) classifier, properties[i]))
+	            if (checkRequiredPropertyError(target, source, classifier, properties[i])) {
+	                addError(ErrorCode.PROPERTY_REQUIRED,
+	                        ErrorSeverity.FATAL, target, properties[i].getName());
+	            }
+        	// other checks??
+        }
 	}
-	
+
+	private boolean checkRequiredPropertyError(StreamNode target, XmiNode source,
+	        UmlClassifier classifier, UmlProperty property)
+	{
+		boolean error = true;
+
+    	if (Model.getInstance().isDerived((UmlClass) classifier, property))
+    	{
+    		error = false;
+    		return error;
+    	}
+
+    	String value = target.getAttributeValue(property.getName());
+        if (value != null && value.trim().length() > 0)
+        {
+        	error = false;
+        }
+        else // or we have a default
+        {
+            String defaultValue = Model.getInstance().findAttributeDefault(property);
+            if (defaultValue != null)
+            	error = false;
+        }
+
+        if (target.findChildByName(property.getName()) != null)
+        	error = false;
+
+        // check configured mappings
+        if (error && FumlConfiguration.getInstance().hasReferenceMapping(
+                classifier, property))
+        {
+            ReferenceMappingType mappingType =
+                FumlConfiguration.getInstance().getReferenceMappingType(
+                        classifier, property);
+            if (mappingType == ReferenceMappingType.PARENT)
+            {
+                // All right if the value of this reference property can be derived
+                // from it's "parent", does the parent have an XMI id to
+                // supply the value??
+                if (source.getXmiId() != null && source.getXmiId().length() > 0)
+                	error = false;
+                else
+                    log.warn("no parent XMI id found for, "
+                        + classifier.getName() + "." + property.getName());
+            }
+            else
+                log.warn("unrecognized mapping type, "
+                        + mappingType.value() + " ignoring mapping for, "
+                        + classifier.getName() + "." + property.getName());
+        }
+
+        return error;
+
+	}
+
 	private void validateReferences()
 	{
         // validate references post traversal
@@ -244,55 +287,55 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             while (refIter.hasNext())
             {
                 String id = refIter.next();
-                
+
                 if (reference instanceof XmiExternalReferenceElement)
                 {
                     if (validateExternalReferences)
-                    {    
+                    {
                         if (Library.getInstance().lookup(id) != null)
                             continue; // happy
-                        else if (id != null && id.startsWith("pathmap:")) // FIXME: resolve these references inside/outside of lib(s)  
+                        else if (id != null && id.startsWith("pathmap:")) // FIXME: resolve these references inside/outside of lib(s)
                             continue;
                     }
                     else
                         continue;
-                    
+
                     errors.add(new ValidationError(reference, id,
-                            ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));                 
+                            ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
                 }
                 else // internal reference
-                {    
+                {
                     if (nodeMap.get(id) != null)
                         continue; // it's an internal reference relative to this validation frame
-                    
+
                     if (Environment.getInstance().findElementById(id) != null)
-                        continue; // it's an already loaded internal reference 
-                    
+                        continue; // it's an already loaded internal reference
+
                     errors.add(new ValidationError(reference, id,
-                            ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));                 
+                            ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));
                 }
-                
+
             }
-        }	    
+        }
 	}
-	
+
 	private void addError(ErrorCode code, ErrorSeverity severity, StreamNode eventNode)
 	{
         if (log.isDebugEnabled())
-            log.debug("adding " + code.toString() 
+            log.debug("adding " + code.toString()
                 + " error for element '" + eventNode.getLocalName() + "'");
         errors.add(new ValidationError(eventNode, code, severity));
 	}
-	
-    private void addError(ErrorCode code, ErrorSeverity severity, 
+
+    private void addError(ErrorCode code, ErrorSeverity severity,
             StreamNode eventNode, String name)
     {
         if (log.isDebugEnabled())
-            log.debug("adding " + code.toString() 
+            log.debug("adding " + code.toString()
                 + " error for element '" + eventNode.getLocalName() + "'");
         errors.add(new ValidationError(eventNode, name, code, severity));
     }
-	
+
 	public List<ValidationError> getErrors() {
 		return errors;
 	}
@@ -300,7 +343,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     public int getErrorCount() {
         return errors.size();
     }
-	
+
     public List<ValidationError> getErrors(ErrorCode code) {
         List<ValidationError> results = new ArrayList<ValidationError>();
         Iterator<ValidationError> iter = errors.iterator();
@@ -316,7 +359,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     public int getErrorCount(ErrorCode code) {
         return getErrors(code).size();
     }
-    
+
     public List<ValidationError> getErrors(ErrorCategory category) {
         List<ValidationError> results = new ArrayList<ValidationError>();
         Iterator<ValidationError> iter = errors.iterator();
@@ -332,7 +375,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     public int getErrorCount(ErrorCategory category) {
         return getErrors(category).size();
     }
-    
+
     public List<ValidationError> getErrors(ErrorSeverity severity) {
         List<ValidationError> results = new ArrayList<ValidationError>();
         Iterator<ValidationError> iter = errors.iterator();
@@ -356,6 +399,6 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     public void setValidateExternalReferences(boolean validateExternalReferences) {
         this.validateExternalReferences = validateExternalReferences;
     }
-    
-	
+
+
 }

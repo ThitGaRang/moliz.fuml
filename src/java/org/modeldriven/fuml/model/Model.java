@@ -1,8 +1,12 @@
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
- * in the file entitled Licensing-Information. 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except
+ * as stated in the file entitled Licensing-Information.
+ *
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
+ * in the file entitled Licensing-Information.
  *
  * Contributors:
  *   MDS - initial API and implementation
@@ -65,22 +69,22 @@ public class Model {
 
     private static Log log = LogFactory.getLog(Model.class);
     private static Model instance = null;
-    private static String configFileName = "ModelConfig.xml";    
-    
+    private static String configFileName = "ModelConfig.xml";
+
     private ModelConfig config;
-    
-    
+
+
     private UmlPackage fuml;
-    private Map<String, UmlClassifier> classifierNameToClassifierMap = new HashMap<String, UmlClassifier>(); 
-    private Map<String, UmlClassifier> qualifiedClassifierNameToClassifierMap = new HashMap<String, UmlClassifier>(); 
-    private Map<String, String> classifierNameToPackageNameMap = new HashMap<String, String>(); 
-    private Map<String, String> qualifiedClassifierNameToPackageNameMap = new HashMap<String, String>(); 
-    private Map<String, XmiBindingNode> xmiIdToXmiObjectMap = new HashMap<String, XmiBindingNode>(); 
-    private Map<String, Map<String, UmlProperty>> classNameToAttributeMap = new HashMap<String, Map<String, UmlProperty>>(); 
-    private Map<String, Map<String, UmlOperation>> classNameToOperationMap = new HashMap<String, Map<String, UmlOperation>>(); 
-    private Map<String, IgnoredPackage> ignoredPackageNameMap = new HashMap<String, IgnoredPackage>(); 
-    private Map<String, IgnoredClass> ignoredClassNameMap = new HashMap<String, IgnoredClass>(); 
-    
+    private Map<String, UmlClassifier> classifierNameToClassifierMap = new HashMap<String, UmlClassifier>();
+    private Map<String, UmlClassifier> qualifiedClassifierNameToClassifierMap = new HashMap<String, UmlClassifier>();
+    private Map<String, String> classifierNameToPackageNameMap = new HashMap<String, String>();
+    private Map<String, String> qualifiedClassifierNameToPackageNameMap = new HashMap<String, String>();
+    private Map<String, XmiBindingNode> xmiIdToXmiObjectMap = new HashMap<String, XmiBindingNode>();
+    private Map<String, Map<String, UmlProperty>> classNameToAttributeMap = new HashMap<String, Map<String, UmlProperty>>();
+    private Map<String, Map<String, UmlOperation>> classNameToOperationMap = new HashMap<String, Map<String, UmlOperation>>();
+    private Map<String, IgnoredPackage> ignoredPackageNameMap = new HashMap<String, IgnoredPackage>();
+    private Map<String, IgnoredClass> ignoredClassNameMap = new HashMap<String, IgnoredClass>();
+
     private Model()
     {
         log.info("initializing...");
@@ -94,15 +98,15 @@ public class Model {
 	        {
 	        	IgnoredPackage pkg = packages.next();
 	        	ignoredPackageNameMap.put(pkg.getName(), pkg);
-	        } 	        
+	        }
 
             Iterator<IgnoredClass> classes = config.getIgnoredClass().iterator();
             while (classes.hasNext())
             {
                 IgnoredClass c = classes.next();
                 ignoredClassNameMap.put(c.getName(), c);
-            }           
-	        
+            }
+
 	        ModelDataBinding modelBinding = new ModelDataBinding(
 	                new XmiValidationEventHandler(false));
 	        Iterator<Artifact> artifacts = config.getArtifact().iterator();
@@ -110,7 +114,7 @@ public class Model {
 	        {
 	        	Artifact artifact = artifacts.next();
 	            loadModel(artifact.getName(), modelBinding);
-	        } 
+	        }
         }
         catch (SAXException e) {
             throw new ModelException(e);
@@ -119,7 +123,7 @@ public class Model {
             throw new ModelException(e);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     private ModelConfig unmarshalConfig(String configFileName, ModelConfigDataBinding binding)
     {
@@ -128,7 +132,7 @@ public class Model {
 	        if (stream == null)
 	            throw new ModelException("cannot find resource '" + configFileName + "'");
 	        JAXBElement root = (JAXBElement)binding.validate(stream);
-	        
+
 	        ModelConfig result = (ModelConfig)root.getValue();
             return result;
     	}
@@ -139,7 +143,7 @@ public class Model {
             throw new ModelException(e);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     private void loadModel(String modelFileName, ModelDataBinding binding)
     {
@@ -155,7 +159,7 @@ public class Model {
         if (iter.hasNext())
             throw new ModelException("expected single model");
         this.fuml.acceptBreadthFirst(new ModelVisitor());
-        this.construct();	
+        this.construct();
     }
 
     public static Model getInstance()
@@ -165,64 +169,64 @@ public class Model {
             initializeInstance();
         return instance;
     }
-    
+
     private static synchronized void initializeInstance()
         throws ModelException
     {
         if (instance == null)
             instance = new Model();
-    } 
-    
+    }
+
     private void mergeClass(UmlClass target, UmlClass source) {
-        
+
         Iterator<UmlProperty> sourceIter =  source.getOwnedAttribute().iterator();
         while (sourceIter.hasNext())
-        {    
+        {
             UmlProperty sourceProp = sourceIter.next();
-            
+
             boolean found = false;
             Iterator<UmlProperty> targetIter =  target.getOwnedAttribute().iterator();
             while (targetIter.hasNext())
-            {    
+            {
                 UmlProperty targetProp = targetIter.next();
                 if (!targetProp.getName().equals(sourceProp.getName()))
                     continue;
                 found = true;
-                mergeProperty(targetProp, sourceProp); 
+                mergeProperty(targetProp, sourceProp);
                 break;
             }
             if (!found)
                 target.getOwnedAttribute().add(sourceProp);
         }
-    }    
-    
-    private void mergeProperty(UmlProperty target, UmlProperty source) 
+    }
+
+    private void mergeProperty(UmlProperty target, UmlProperty source)
     {
         // merge defaults
         UmlValueSpecification sourceValueSpec = findDefaultValueSpecification(source);
         if (sourceValueSpec != null)
-        {    
+        {
             UmlValueSpecification targetValueSpec = findDefaultValueSpecification(target);
             if (targetValueSpec == null)
                 target.getDefaultValue().addAll(source.getDefaultValue());
             else
                 mergeValueSpecification(targetValueSpec, sourceValueSpec);
-        }    
+        }
     }
-    
+
     private void mergeValueSpecification(UmlValueSpecification target, UmlValueSpecification source)
     {
-        // NOTE; this is scary. 
-        if (!target.getClass().equals(source.getClass())) 
-            if (log.isDebugEnabled()) 
-                log.warn("merging unequal value specification classes, " 
-                        + source.getClass().getSimpleName() + " to " 
+        // NOTE; this is scary.
+        if (!target.getClass().equals(source.getClass()))
+            if (log.isDebugEnabled())
+                log.warn("merging unequal value specification classes, "
+                        + source.getClass().getSimpleName() + " to "
                         + target.getClass().getSimpleName());
         String value = getValue(source);
         if (value != null && value.trim().length() > 0)
             setValue(target, value);
     }
-    
+
     public UmlClassifier getClassifier(String name)
     {
         return getClassifier(name, false);
@@ -232,7 +236,7 @@ public class Model {
     {
         return getClassifier(name, true);
     }
-    
+
     private UmlClassifier getClassifier(String name, boolean supressErrors)
     {
     	UmlClassifier result = null;
@@ -240,13 +244,13 @@ public class Model {
 	    	result = this.classifierNameToClassifierMap.get(name);
     	else
     		result = this.qualifiedClassifierNameToClassifierMap.get(name);
-    	
+
         if (result == null && !supressErrors)
-            throw new ModelException("no classifier found for name, '" 
+            throw new ModelException("no classifier found for name, '"
                     + name + "'");
         return result;
     }
-    
+
     public String getPackageForClass(String className)
     {
         return getPackageForClass(className, false);
@@ -256,34 +260,34 @@ public class Model {
     {
         return getPackageForClass(name, true);
     }
-    
+
     private String getPackageForClass(String name, boolean supressErrors)
-    {   
+    {
     	String result = null;
     	if (name.indexOf(".") == -1)
             result = this.classifierNameToPackageNameMap.get(name);
     	else
             result = this.qualifiedClassifierNameToPackageNameMap.get(name);
-    	
+
         if (result == null && !supressErrors)
             throw new XmiException("no package found for class, " + name);
         return result;
-    } 
+    }
 
     public boolean isIgnoredClassifier(String classifierName)
     {
-        return this.ignoredClassNameMap.get(classifierName) != null;          
+        return this.ignoredClassNameMap.get(classifierName) != null;
     }
-    
+
     public boolean isIgnoredClassifier(UmlClassifier classifier)
     {
     	String packageName = getPackageForClass(classifier.getName());
     	if (isIgnoredPackage(packageName))
     	    return true;
-    	else 
-    	    return this.ignoredClassNameMap.get(classifier.getName()) != null;    	    
+    	else
+    	    return this.ignoredClassNameMap.get(classifier.getName()) != null;
     }
-    
+
     public boolean isIgnoredPackage(String packageName)
     {
         return this.ignoredPackageNameMap.get(packageName) != null;
@@ -293,12 +297,12 @@ public class Model {
     {
         return getAttribute(umlClass, name, false);
     }
- 
+
     public UmlProperty findAttribute(UmlClass umlClass, String name)
     {
         return getAttribute(umlClass, name, true);
     }
-    
+
     private UmlProperty getAttribute(UmlClass umlClass, String name, boolean supressErrors)
     {
         UmlProperty result = null;
@@ -306,9 +310,9 @@ public class Model {
                 umlClass.getName());
         if (map != null)
             result = map.get(name);
-            
-        if (result == null && !supressErrors)    
-            throw new XmiException("no attribute found for, " 
+
+        if (result == null && !supressErrors)
+            throw new XmiException("no attribute found for, "
                     + umlClass.getName() + "." + name);
         return result;
     }
@@ -319,15 +323,15 @@ public class Model {
         Map<String, UmlProperty> map = this.classNameToAttributeMap.get(
                 umlClass.getName());
         if (map != null)
-        {    
+        {
             result = new UmlProperty[map.size()];
-            Iterator<String> keys = map.keySet().iterator(); 
+            Iterator<String> keys = map.keySet().iterator();
             for (int i = 0; keys.hasNext(); i++)
-                result[i] = map.get(keys.next());   
-        }    
+                result[i] = map.get(keys.next());
+        }
         return result;
     }
-    
+
     public String getAttributeDefault(UmlProperty property)
     {
         return getAttributeDefaultValue(property, false);
@@ -337,13 +341,13 @@ public class Model {
     {
         return getAttributeDefaultValue(property, true);
     }
-        
+
     public boolean hasAttributeDefaultValue(UmlProperty property)
     {
         String value = getAttributeDefaultValue(property, true);
         return value != null && value.trim().length() > 0;
-    }    
-    
+    }
+
     private String getAttributeDefaultValue(UmlProperty property, boolean supressErrors)
     {
         UmlValueSpecification valueSpec = findDefaultValueSpecification(property);
@@ -351,7 +355,7 @@ public class Model {
             return getValue(valueSpec);
         else
             return null;
-    }    
+    }
 
     private String getValue(UmlValueSpecification valueSpec)
     {
@@ -372,7 +376,7 @@ public class Model {
             return ((UmlOpaqueExpression)valueSpec).getBody();
         }
     }
-    
+
     private void setValue(UmlValueSpecification valueSpec, String value)
     {
         if (UmlLiteralString.class.isAssignableFrom(valueSpec.getClass()) ||
@@ -391,15 +395,15 @@ public class Model {
         {
             ((UmlOpaqueExpression)valueSpec).setBody(value);
         }
-    }        
-    
+    }
+
     private UmlValueSpecification findDefaultValueSpecification(UmlProperty property)
     {
         List<UmlValueSpecificationAssociationEnd> list = property.getDefaultValue();
         if (list != null && list.size() > 0)
         {
             UmlValueSpecificationAssociationEnd assocEnd = list.get(0); // defined as zero-to-1
-            
+
             UmlValueSpecification result = (UmlValueSpecification)
                 assocEnd.getLiteralUnlimitedNaturalOrLiteralIntegerOrLiteralString();
             if (result == null)
@@ -407,18 +411,18 @@ public class Model {
             return result;
         }
         return null;
-    }    
-    
+    }
+
     public UmlOperation getOperation(UmlClass umlClass, String name)
     {
         return getOperation(umlClass, name, false);
     }
- 
+
     public UmlOperation findOperation(UmlClass umlClass, String name)
     {
         return getOperation(umlClass, name, true);
     }
-    
+
     private UmlOperation getOperation(UmlClass umlClass, String name, boolean supressErrors)
     {
         UmlOperation result = null;
@@ -426,9 +430,9 @@ public class Model {
                 umlClass.getName());
         if (map != null)
             result = map.get(name);
-            
-        if (result == null && !supressErrors)    
-            throw new XmiException("no operation found for, " 
+
+        if (result == null && !supressErrors)
+            throw new XmiException("no operation found for, "
                     + umlClass.getName() + "." + name);
         return result;
     }
@@ -439,15 +443,15 @@ public class Model {
         Map<String, UmlOperation> map = this.classNameToOperationMap.get(
                 umlClass.getName());
         if (map != null)
-        {    
+        {
             result = new UmlOperation[map.size()];
-            Iterator<String> keys = map.keySet().iterator(); 
+            Iterator<String> keys = map.keySet().iterator();
             for (int i = 0; keys.hasNext(); i++)
-                result[i] = map.get(keys.next());   
-        }    
+                result[i] = map.get(keys.next());
+        }
         return result;
     }
-    
+
     public UmlClassifier getType(UmlProperty property)
     {
         return getType(property, false);
@@ -457,14 +461,14 @@ public class Model {
     {
         return getType(property, true);
     }
-    
+
     private UmlClassifier getType(UmlProperty property, boolean supressErrors)
     {
         UmlClassifier result = null;
-        String typeXmiId = property.getStructuralFeatureTypeAttribute(); // type reference 
+        String typeXmiId = property.getStructuralFeatureTypeAttribute(); // type reference
         if (typeXmiId != null)
         {
-            result = (UmlClassifier)this.xmiIdToXmiObjectMap.get(typeXmiId); 
+            result = (UmlClassifier)this.xmiIdToXmiObjectMap.get(typeXmiId);
             if (result == null && !supressErrors)
                 throw new InvalidReferenceException(typeXmiId);
         }
@@ -478,25 +482,29 @@ public class Model {
             } //else covered below
         }
         if (result == null && !supressErrors)
-            throw new ModelException("no type found for property, " 
+            throw new ModelException("no type found for property, "
                     + property.getName());
         return result;
     }
-    
+
     public boolean isRequired(UmlClass cls, UmlProperty property) {
-         return getLowerValue(cls, property) > 0;   
+         return getLowerValue(cls, property) > 0;
     }
 
     public boolean isSingular(UmlClass cls, UmlProperty property) {
-        return "1".equals(getUpperValue(cls, property));   
+        return "1".equals(getUpperValue(cls, property));
     }
 
     public boolean isAbstract(UmlClassifier cls) {
-        return "true".equals(cls.getIsAbstract());   
+        return "true".equals(cls.getIsAbstract());
     }
-    
+
+    public boolean isDerived(UmlClass cls, UmlProperty property) {
+        return "true".equals(property.getIsDerived());
+    }
+
     private String getUpperValue(UmlClass cls, UmlProperty property)
-    {                
+    {
         List<UmlValueSpecificationAssociationEnd> list = property.getUpperValue();
         if (list == null || list.size() == 0) {
             // Literal* classes don't have upper/lower value metadata!
@@ -504,10 +512,10 @@ public class Model {
             if (cls.getName().startsWith("Literal") && "value".equals(property.getName()))
                 return "1";
             else
-            {    
+            {
             	if (log.isDebugEnabled())
                     log.debug("expected upper value association end for property, "
-                        + cls.getName() + "." + property.getName() 
+                        + cls.getName() + "." + property.getName()
                         + ", assuming upper value '1'");
                 return "1";
             }
@@ -520,9 +528,9 @@ public class Model {
         if (literalUpper == null)
             throw new ModelException("expected literal unlimited natural as lower value for property, "
                     + cls.getName() + "." + property.getName());
-        return literalUpper.getValue().trim();        
+        return literalUpper.getValue().trim();
     }
-    
+
     private int getLowerValue(UmlClass cls, UmlProperty property)
     {
         List<UmlValueSpecificationAssociationEnd> list = property.getLowerValue();
@@ -531,19 +539,19 @@ public class Model {
             // FIXME: pre-process and cache this crap
         	// FIXME: UML spec defines the 'value' ownedAttribute as 1-to-1 for these!!!
             if (cls.getName().startsWith("Literal") && "value".equals(property.getName()))
-            { 
-                if (cls.getName().equals("LiteralUnlimitedNatural") || 
-                    cls.getName().equals("LiteralInteger") || 
+            {
+                if (cls.getName().equals("LiteralUnlimitedNatural") ||
+                    cls.getName().equals("LiteralInteger") ||
                     cls.getName().equals("LiteralBoolean"))
                     return 1;
                 else
                     return 0;
-            }    
+            }
             else
-            {    
+            {
             	if (log.isDebugEnabled())
                     log.debug("expected upper lower association end for property, "
-                        + cls.getName() + "." + property.getName() 
+                        + cls.getName() + "." + property.getName()
                         + ", assuming upper value 0");
                 return 0;
             }
@@ -552,7 +560,7 @@ public class Model {
             throw new ModelException("expected single lower value association end for property, "
                     + cls.getName() + "." + property.getName());
         UmlValueSpecificationAssociationEnd lowerAssoc = list.get(0);
-        UmlLiteralInteger literalLower = 
+        UmlLiteralInteger literalLower =
             (UmlLiteralInteger)lowerAssoc.getLiteralUnlimitedNaturalOrLiteralIntegerOrLiteralString();
         if (literalLower == null)
             throw new ModelException("expected literal integer as lower value for property, "
@@ -562,7 +570,7 @@ public class Model {
             value = "0";
         return Integer.valueOf(value);
     }
-    
+
     private void construct()
     {
         Iterator<String> classes = classifierNameToClassifierMap.keySet().iterator();
@@ -582,16 +590,16 @@ public class Model {
 
         }
     }
-    
+
     private void collectAttributes(UmlClass umlClass, Map<String, UmlProperty> attributes)
     {
         Iterator<UmlProperty> iter =  umlClass.getOwnedAttribute().iterator();
         while (iter.hasNext())
-        {    
+        {
             UmlProperty attrib = iter.next();
             attributes.put(attrib.getName(), attrib);
         }
-        
+
         Iterator<UmlGeneralization> generalizations = umlClass.getGeneralization().iterator();
         while (generalizations.hasNext())
         {
@@ -599,25 +607,25 @@ public class Model {
             String superclassXmiId = generalization.getGeneral();
             XmiBindingNode obj = xmiIdToXmiObjectMap.get(superclassXmiId);
             if (obj == null)
-            {    
+            {
                 throw new InvalidReferenceException(superclassXmiId);
                 //log.warn("invalid reference: " + superclassXmiId);
                 //continue;
-            }    
+            }
             UmlClass umlSuperClass = (UmlClass)obj;
             collectAttributes(umlSuperClass, attributes);
         }
     }
- 
+
     private void collectOperations(UmlClass umlClass, Map<String, UmlOperation> operations)
     {
         Iterator<UmlOperation> iter =  umlClass.getOwnedOperation().iterator();
         while (iter.hasNext())
-        {    
+        {
             UmlOperation oper = iter.next();
             operations.put(oper.getName(), oper);
         }
-        
+
         Iterator<UmlGeneralization> generalizations = umlClass.getGeneralization().iterator();
         while (generalizations.hasNext())
         {
@@ -625,22 +633,22 @@ public class Model {
             String superclassXmiId = generalization.getGeneral();
             XmiBindingNode obj = xmiIdToXmiObjectMap.get(superclassXmiId);
             if (obj == null)
-            {    
+            {
                 throw new InvalidReferenceException(superclassXmiId);
                 //log.warn("invalid reference: " + superclassXmiId);
                 //continue;
-            }    
+            }
             UmlClass umlSuperClass = (UmlClass)obj;
             collectOperations(umlSuperClass, operations);
         }
     }
-    
+
     private class ModelVisitor implements XmiBindingNodeVisitor
     {
         private Stack<UmlPackage> packages = new Stack<UmlPackage>();
         private String currentPackageName;
-        
-        public void begin(XmiBindingNode target, XmiBindingNode source, 
+
+        public void begin(XmiBindingNode target, XmiBindingNode source,
                     String sourceKey, int level)
         {
             if (!(target instanceof XmiBindingObject))
@@ -649,7 +657,7 @@ public class Model {
                 //    log.debug("ignoring instance, " + target.getClass().getName());
                 return;
             }
-            
+
             XmiBindingObject element = (XmiBindingObject)target;
             String xmiId = element.getId();
             if (xmiId == null || xmiId.length() == 0)
@@ -664,33 +672,33 @@ public class Model {
                 xmiIdToXmiObjectMap.put(xmiId, element);
 
             if (target instanceof UmlClass)
-            {    
+            {
                 UmlClass c = (UmlClass)target;
                 if (log.isDebugEnabled())
                     log.debug("mapping class, " + currentPackageName + "." + c.getName());
-                
+
                 UmlClassifier existing = classifierNameToClassifierMap.get(c.getName());
                 if (existing != null && existing instanceof UmlClass)
                     mergeClass(c, (UmlClass)existing);
-                
+
                 classifierNameToClassifierMap.put(c.getName(), c);
                 qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + c.getName(), c);
                 classifierNameToPackageNameMap.put(c.getName(), currentPackageName);
                 qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + c.getName(), currentPackageName);
-            }    
+            }
             else if (target instanceof UmlPrimitiveType)
-            {    
+            {
             	UmlPrimitiveType c = (UmlPrimitiveType)target;
                 if (log.isDebugEnabled())
-                    log.debug("mapping type, " + currentPackageName + "." 
+                    log.debug("mapping type, " + currentPackageName + "."
                             + c.getClass().getSimpleName());
                 classifierNameToClassifierMap.put(c.getName(), c);
                 qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + c.getName(), c);
                 classifierNameToPackageNameMap.put(c.getName(), currentPackageName);
                 qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + c.getName(), currentPackageName);
-            }    
+            }
             else if (target instanceof UmlEnumeration)
-            {    
+            {
                 UmlEnumeration e = (UmlEnumeration)target;
                 if (log.isDebugEnabled())
                     log.debug("mapping enumeration, " + currentPackageName + "." + e.getName());
@@ -698,9 +706,9 @@ public class Model {
                 qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + e.getName(), e);
                 classifierNameToPackageNameMap.put(e.getName(), currentPackageName);
                 qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + e.getName(), currentPackageName);
-            }    
+            }
             else if (target instanceof UmlPackage)
-            {    
+            {
                 UmlPackage pkg = (UmlPackage)target;
                 if (log.isDebugEnabled())
                     log.debug("begin package, " + pkg.getName());
@@ -708,18 +716,18 @@ public class Model {
                 currentPackageName = currentQualifiedPackageName();
             }
         }
-        public void end(XmiBindingNode target, XmiBindingNode source, 
+        public void end(XmiBindingNode target, XmiBindingNode source,
                 String sourceKey, int level)
         {
             if (target instanceof UmlPackage)
-            {    
+            {
                 UmlPackage pkg = (UmlPackage)target;
                 if (log.isDebugEnabled())
                     log.debug("end package, " + pkg.getName());
                 packages.pop();
             }
-        }  
-        
+        }
+
         private String currentQualifiedPackageName()
         {
             StringBuffer result = new StringBuffer();
@@ -733,7 +741,7 @@ public class Model {
             }
             return result.toString();
         }
-        
+
     }
-    
+
 }
