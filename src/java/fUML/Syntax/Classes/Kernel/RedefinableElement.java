@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,70 +23,70 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
+ 		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::Classes::Kernel::RedefinableElement</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::RedefinableElement</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link RedefinableElement#setIsLeaf <em>setIsLeaf</em>}</li>
- * <li>{@link RedefinableElement#addRedefinedElement <em>addRedefinedElement
- * </em>}</li>
- * <li>{@link RedefinableElement#addRedefinitionContext <em>
- * addRedefinitionContext</em>}</li>
- * <li>{@link RedefinableElement#isLeaf <em>isLeaf</em>}</li>
- * <li>{@link RedefinableElement#redefinedElement <em>redefinedElement</em>}</li>
- * <li>{@link RedefinableElement#redefinitionContext <em>redefinitionContext
- * </em>}</li>
- * </ul>
+ 	 *   <li>{@link RedefinableElement#setIsLeaf <em>setIsLeaf</em>}</li>
+	 *   <li>{@link RedefinableElement#addRedefinedElement <em>addRedefinedElement</em>}</li>
+	 *   <li>{@link RedefinableElement#addRedefinitionContext <em>addRedefinitionContext</em>}</li>
+	 	 *   <li>{@link RedefinableElement#isLeaf <em>isLeaf</em>}</li>
+	 *   <li>{@link RedefinableElement#redefinedElement <em>redefinedElement</em>}</li>
+	 *   <li>{@link RedefinableElement#redefinitionContext <em>redefinitionContext</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public abstract class RedefinableElement extends fUML.Syntax.Classes.Kernel.NamedElement {
 
-    // Attributes
-    public boolean isLeaf = false;
-    public fUML.Syntax.Classes.Kernel.RedefinableElementList redefinedElement = new fUML.Syntax.Classes.Kernel.RedefinableElementList();
-    public fUML.Syntax.Classes.Kernel.ClassifierList redefinitionContext = new fUML.Syntax.Classes.Kernel.ClassifierList();
+public  abstract class RedefinableElement    extends fUML.Syntax.Classes.Kernel.NamedElement    {
+ 	    
+	// Attributes
+ 	 		public   boolean isLeaf = 	false	;
+	 		public   fUML.Syntax.Classes.Kernel.RedefinableElementList redefinedElement = 	new fUML.Syntax.Classes.Kernel.RedefinableElementList()	;
+	 		public   fUML.Syntax.Classes.Kernel.ClassifierList redefinitionContext = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
+	    
+// Operations of the class
+	  /**
+   * operation setIsLeaf
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation setIsLeaf <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void setIsLeaf(boolean isLeaf)   {
+	 		 	 			this.isLeaf = isLeaf;
 
-    public void setIsLeaf(boolean isLeaf) {
-        this.isLeaf = isLeaf;
+								    			  }
+	
+	  /**
+   * operation addRedefinedElement
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
+	protected      void addRedefinedElement(fUML.Syntax.Classes.Kernel.RedefinableElement redefinedElement)   {
+	 		 	 			this.redefinedElement.addValue(redefinedElement);
 
-    /**
-     * operation addRedefinedElement <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     * 
-     * @generated
-     */
+								    			  }
+	
+	  /**
+   * operation addRedefinitionContext
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    protected void addRedefinedElement(
-            fUML.Syntax.Classes.Kernel.RedefinableElement redefinedElement) {
-        this.redefinedElement.addValue(redefinedElement);
+	protected      void addRedefinitionContext(fUML.Syntax.Classes.Kernel.Classifier redefinitionContext)   {
+	 		 	 			this.redefinitionContext.addValue(redefinitionContext);
 
-    }
-
-    /**
-     * operation addRedefinitionContext <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
-
-    protected void addRedefinitionContext(fUML.Syntax.Classes.Kernel.Classifier redefinitionContext) {
-        this.redefinitionContext.addValue(redefinitionContext);
-
-    }
-
-} // RedefinableElement
+								    			  }
+	
+} //RedefinableElement

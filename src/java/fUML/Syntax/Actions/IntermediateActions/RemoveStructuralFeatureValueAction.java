@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,59 +23,59 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
+ 		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::Actions::IntermediateActions::RemoveStructuralFeatureValueAction</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Syntax::Actions::IntermediateActions::RemoveStructuralFeatureValueAction</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link RemoveStructuralFeatureValueAction#setIsRemoveDuplicates <em>
- * setIsRemoveDuplicates</em>}</li>
- * <li>{@link RemoveStructuralFeatureValueAction#setRemoveAt <em>setRemoveAt
- * </em>}</li>
- * <li>{@link RemoveStructuralFeatureValueAction#isRemoveDuplicates <em>
- * isRemoveDuplicates</em>}</li>
- * <li>{@link RemoveStructuralFeatureValueAction#removeAt <em>removeAt</em>}</li>
- * </ul>
+ 	 *   <li>{@link RemoveStructuralFeatureValueAction#setIsRemoveDuplicates <em>setIsRemoveDuplicates</em>}</li>
+	 *   <li>{@link RemoveStructuralFeatureValueAction#setRemoveAt <em>setRemoveAt</em>}</li>
+	 	 *   <li>{@link RemoveStructuralFeatureValueAction#isRemoveDuplicates <em>isRemoveDuplicates</em>}</li>
+	 *   <li>{@link RemoveStructuralFeatureValueAction#removeAt <em>removeAt</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class RemoveStructuralFeatureValueAction extends
-        fUML.Syntax.Actions.IntermediateActions.WriteStructuralFeatureAction {
 
-    // Attributes
-    public boolean isRemoveDuplicates = false;
-    public fUML.Syntax.Actions.BasicActions.InputPin removeAt = new fUML.Syntax.Actions.BasicActions.InputPin();
+public   class RemoveStructuralFeatureValueAction    extends fUML.Syntax.Actions.IntermediateActions.WriteStructuralFeatureAction    {
+ 	    
+	// Attributes
+ 	 		public   boolean isRemoveDuplicates = 	false	;
+	 		public   fUML.Syntax.Actions.BasicActions.InputPin removeAt = 	 null	;
+	    
+// Operations of the class
+	  /**
+   * operation setIsRemoveDuplicates
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation setIsRemoveDuplicates <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     * 
-     * @generated
-     */
+	public      void setIsRemoveDuplicates(boolean isRemoveDuplicates)   {
+	 		 	 			this.isRemoveDuplicates = isRemoveDuplicates;
 
-    public void setIsRemoveDuplicates(boolean isRemoveDuplicates) {
-        this.isRemoveDuplicates = isRemoveDuplicates;
+								    			  }
+	
+	  /**
+   * operation setRemoveAt
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
+	public      void setRemoveAt(fUML.Syntax.Actions.BasicActions.InputPin removeAt)   {
+	 		 	 			if (removeAt != null) {
+    super.addInput(removeAt);
+}
 
-    /**
-     * operation setRemoveAt <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+this.removeAt = removeAt;
 
-    public void setRemoveAt(fUML.Syntax.Actions.BasicActions.InputPin removeAt) {
-        if (removeAt != null) {
-            super.addInput(removeAt);
-        }
-
-        this.removeAt = removeAt;
-
-    }
-
-} // RemoveStructuralFeatureValueAction
+								    			  }
+	
+} //RemoveStructuralFeatureValueAction

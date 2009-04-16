@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,96 +23,103 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
+ 		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::Activities::IntermediateActivities::Activity</b></em>'.
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Syntax::Activities::IntermediateActivities::Activity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link Activity#setIsReadOnly <em>setIsReadOnly</em>}</li>
- * <li>{@link Activity#addNode <em>addNode</em>}</li>
- * <li>{@link Activity#addEdge <em>addEdge</em>}</li>
- * <li>{@link Activity#_setContext <em>_setContext</em>}</li>
- * <li>{@link Activity#structuredNode <em>structuredNode</em>}</li>
- * <li>{@link Activity#node <em>node</em>}</li>
- * <li>{@link Activity#isReadOnly <em>isReadOnly</em>}</li>
- * <li>{@link Activity#edge <em>edge</em>}</li>
- * <li>{@link Activity#isSingleExecution <em>isSingleExecution</em>}</li>
- * </ul>
+ 	 *   <li>{@link Activity#setIsReadOnly <em>setIsReadOnly</em>}</li>
+	 *   <li>{@link Activity#addNode <em>addNode</em>}</li>
+	 *   <li>{@link Activity#addEdge <em>addEdge</em>}</li>
+	 *   <li>{@link Activity#_setContext <em>_setContext</em>}</li>
+	 	 *   <li>{@link Activity#structuredNode <em>structuredNode</em>}</li>
+	 *   <li>{@link Activity#node <em>node</em>}</li>
+	 *   <li>{@link Activity#isReadOnly <em>isReadOnly</em>}</li>
+	 *   <li>{@link Activity#edge <em>edge</em>}</li>
+	 *   <li>{@link Activity#isSingleExecution <em>isSingleExecution</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class Activity extends fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior {
 
-    // Attributes
-    public fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList structuredNode = new fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList();
-    public fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList();
-    public boolean isReadOnly = false;
-    public fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList();
-    public boolean isSingleExecution = false;
+public   class Activity    extends fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior    {
+ 	    
+	// Attributes
+ 	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList structuredNode = 	new fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList()	;
+	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList()	;
+	 		public   boolean isReadOnly = 	false	;
+	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList()	;
+	 		public   boolean isSingleExecution = 	false	;
+	    
+// Operations of the class
+	  /**
+   * operation setIsReadOnly
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation setIsReadOnly <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void setIsReadOnly(boolean isReadOnly)   {
+	 		 	 			this.isReadOnly = isReadOnly;
 
-    public void setIsReadOnly(boolean isReadOnly) {
-        this.isReadOnly = isReadOnly;
+								    			  }
+	
+	  /**
+   * operation addNode
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
+	public      void addNode(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
+	 		 	 			super.addOwnedElement(node);
+
+this.node.addValue(node);
+node.activity = this;
+
+
+								    			  }
+	
+	  /**
+   * operation addEdge
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+
+	public      void addEdge(fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge)   {
+	 		 	 			super.addOwnedElement(edge);
+
+this.edge.addValue(edge);
+edge.activity = this;
+
+								    			  }
+	
+	  /**
+   * operation _setContext
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+
+	public      void _setContext(fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context)   {
+	 		 	 			// Note: The context of an activity should be set only _after_ all nodes have been added to the activity.
+
+super._setContext(context);
+
+for (int i = 0; i < this.node.size(); i++) {
+    ActivityNode node = this.node.getValue(i);
+    if (node instanceof fUML.Syntax.Actions.BasicActions.Action) {
+        ((fUML.Syntax.Actions.BasicActions.Action)node).context = context;
     }
+}
 
-    /**
-     * operation addNode <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public void addNode(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node) {
-        super.addOwnedElement(node);
-
-        this.node.addValue(node);
-        node.activity = this;
-
-    }
-
-    /**
-     * operation addEdge <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public void addEdge(fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge) {
-        super.addOwnedElement(edge);
-
-        this.edge.addValue(edge);
-        edge.activity = this;
-
-    }
-
-    /**
-     * operation _setContext <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public void _setContext(fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context) {
-        // Note: The context of an activity should be set only _after_ all nodes
-        // have been added to the activity.
-
-        super._setContext(context);
-
-        for (int i = 0; i < this.node.size(); i++) {
-            ActivityNode node = this.node.getValue(i);
-            if (node instanceof fUML.Syntax.Actions.BasicActions.Action) {
-                ((fUML.Syntax.Actions.BasicActions.Action) node).context = context;
-            }
-        }
-
-    }
-
-} // Activity
+								    			  }
+	
+} //Activity

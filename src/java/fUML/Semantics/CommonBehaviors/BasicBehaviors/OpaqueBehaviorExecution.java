@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 				    		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -23,72 +31,75 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
+
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::OpaqueBehaviorExecution</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::OpaqueBehaviorExecution</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link OpaqueBehaviorExecution#execute <em>execute</em>}</li>
- * <li>{@link OpaqueBehaviorExecution#doBody <em>doBody</em>}</li>
- * </ul>
+ 	 *   <li>{@link OpaqueBehaviorExecution#execute <em>execute</em>}</li>
+	 *   <li>{@link OpaqueBehaviorExecution#doBody <em>doBody</em>}</li>
+	 	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public abstract class OpaqueBehaviorExecution extends
-        fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution {
 
-    // Attributes
+public  abstract class OpaqueBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution    {
+ 	    
+	// Attributes
+ 	    
+// Operations of the class
+	  /**
+   * operation execute
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void execute()   {
+	 		 	 			// Execute the body of the opaque behavior.
 
-    public void execute() {
-        // Execute the body of the opaque behavior.
+Debug.println("[execute] Opaque behavior " + this.getBehavior().name + "...");
 
-        Debug.println("[execute] Opaque behavior " + this.getBehavior().name + "...");
+ParameterList parameters = this.getBehavior().ownedParameter;
 
-        ParameterList parameters = this.getBehavior().ownedParameter;
+ParameterValueList inputs = new ParameterValueList();
+ParameterValueList outputs = new ParameterValueList();
 
-        ParameterValueList inputs = new ParameterValueList();
-        ParameterValueList outputs = new ParameterValueList();
+for (int i = 0; i < parameters.size(); i++) {
+    Parameter parameter = parameters.getValue(i);
 
-        for (int i = 0; i < parameters.size(); i++) {
-            Parameter parameter = parameters.getValue(i);
-
-            if ((parameter.direction == ParameterDirectionKind.in)
-                    | (parameter.direction == ParameterDirectionKind.inout)) {
-                inputs.addValue(this.getParameterValue(parameter));
-            }
-
-            if ((parameter.direction == ParameterDirectionKind.inout)
-                    | (parameter.direction == ParameterDirectionKind.out)
-                    | (parameter.direction == ParameterDirectionKind.return_)) {
-                ParameterValue parameterValue = new ParameterValue();
-                parameterValue.parameter = parameter;
-                this.setParameterValue(parameterValue);
-                outputs.addValue(parameterValue);
-            }
-        }
-
-        this.doBody(inputs, outputs);
-
+    if ((parameter.direction == ParameterDirectionKind.in) |
+        (parameter.direction == ParameterDirectionKind.inout)) {
+        inputs.addValue(this.getParameterValue(parameter));
     }
 
-    /**
-     * operation doBody <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+    if ((parameter.direction == ParameterDirectionKind.inout) |
+        (parameter.direction == ParameterDirectionKind.out) |
+        (parameter.direction == ParameterDirectionKind.return_)) {
+        ParameterValue parameterValue = new ParameterValue();
+        parameterValue.parameter = parameter;
+        this.setParameterValue(parameterValue);
+        outputs.addValue(parameterValue);
+    }
+}
 
-    public abstract void doBody(
-            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
-            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters);
-} // OpaqueBehaviorExecution
+this.doBody(inputs, outputs);
+
+								    			  }
+	
+	  /**
+   * operation doBody
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+
+	public  abstract    void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)  ;
+} //OpaqueBehaviorExecution

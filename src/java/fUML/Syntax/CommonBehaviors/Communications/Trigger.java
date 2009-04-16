@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,36 +23,40 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
+ 		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::CommonBehaviors::Communications::Trigger</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Syntax::CommonBehaviors::Communications::Trigger</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link Trigger#setEvent <em>setEvent</em>}</li>
- * <li>{@link Trigger#event <em>event</em>}</li>
- * </ul>
+ 	 *   <li>{@link Trigger#setEvent <em>setEvent</em>}</li>
+	 	 *   <li>{@link Trigger#event <em>event</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class Trigger extends fUML.Syntax.Classes.Kernel.NamedElement {
 
-    // Attributes
-    public fUML.Syntax.CommonBehaviors.Communications.Event event = null;
+public   class Trigger    extends fUML.Syntax.Classes.Kernel.NamedElement    {
+ 	    
+	// Attributes
+ 	 		public   fUML.Syntax.CommonBehaviors.Communications.Event event = 	 null	;
+	    
+// Operations of the class
+	  /**
+   * operation setEvent
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation setEvent <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void setEvent(fUML.Syntax.CommonBehaviors.Communications.Event event)   {
+	 		 	 			this.event = event;
 
-    public void setEvent(fUML.Syntax.CommonBehaviors.Communications.Event event) {
-        this.event = event;
-
-    }
-
-} // Trigger
+								    			  }
+	
+} //Trigger

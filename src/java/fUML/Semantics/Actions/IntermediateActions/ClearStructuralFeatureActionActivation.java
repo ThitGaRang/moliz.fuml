@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 				    		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -30,49 +38,49 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
+
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * 
- * <em><b>fUML::Semantics::Actions::IntermediateActions::ClearStructuralFeatureActionActivation</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ClearStructuralFeatureActionActivation</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link ClearStructuralFeatureActionActivation#doAction <em>doAction</em>}
- * </li>
- * </ul>
+ 	 *   <li>{@link ClearStructuralFeatureActionActivation#doAction <em>doAction</em>}</li>
+	 	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class ClearStructuralFeatureActionActivation extends
-        fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation {
 
-    // Attributes
+public   class ClearStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
+ 	    
+	// Attributes
+ 	    
+// Operations of the class
+	  /**
+   * operation doAction
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void doAction()   {
+	 		 	 			// Get the value of the object input pin. If it is not a structured value, then do nothing.
+// Otherwise, set the appropriate feature of the input value to be empty.
 
-    public void doAction() {
-        // Get the value of the object input pin. If it is not a structured
-        // value, then do nothing.
-        // Otherwise, set the appropriate feature of the input value to be
-        // empty.
+ClearStructuralFeatureAction action = (ClearStructuralFeatureAction)(this.node);
 
-        ClearStructuralFeatureAction action = (ClearStructuralFeatureAction) (this.node);
+Value value = this.getTokens(action.object).getValue(0);
 
-        Value value = this.getTokens(action.object).getValue(0);
+if (value instanceof StructuredValue) {
+    ((StructuredValue)value).setFeatureValue(action.structuralFeature, new ValueList(), 0);
+    this.putToken(action.result, value);
+}
 
-        if (value instanceof StructuredValue) {
-            ((StructuredValue) value).setFeatureValue(action.structuralFeature, new ValueList(), 0);
-            this.putToken(action.result, value);
-        }
-
-    }
-
-} // ClearStructuralFeatureActionActivation
+								    			  }
+	
+} //ClearStructuralFeatureActionActivation

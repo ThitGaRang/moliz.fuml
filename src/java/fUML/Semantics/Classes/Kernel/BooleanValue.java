@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,111 +23,121 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 				    		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
+
+
+
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Classes::Kernel::BooleanValue</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::BooleanValue</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link BooleanValue#specify <em>specify</em>}</li>
- * <li>{@link BooleanValue#equals <em>equals</em>}</li>
- * <li>{@link BooleanValue#copy <em>copy</em>}</li>
- * <li>{@link BooleanValue#new_ <em>new_</em>}</li>
- * <li>{@link BooleanValue#toString <em>toString</em>}</li>
- * <li>{@link BooleanValue#value <em>value</em>}</li>
- * </ul>
+ 	 *   <li>{@link BooleanValue#specify <em>specify</em>}</li>
+	 *   <li>{@link BooleanValue#equals <em>equals</em>}</li>
+	 *   <li>{@link BooleanValue#copy <em>copy</em>}</li>
+	 *   <li>{@link BooleanValue#new_ <em>new_</em>}</li>
+	 *   <li>{@link BooleanValue#toString <em>toString</em>}</li>
+	 	 *   <li>{@link BooleanValue#value <em>value</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class BooleanValue extends fUML.Semantics.Classes.Kernel.PrimitiveValue {
 
-    // Attributes
-    public boolean value = false;
+public   class BooleanValue    extends fUML.Semantics.Classes.Kernel.PrimitiveValue    {
+ 	    
+	// Attributes
+ 	 		public   boolean value = 	false	;
+	    
+// Operations of the class
+	  /**
+   * operation specify
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation specify <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
+	 		 	 			// Return a literal boolean with the value of this boolean value.
 
-    public fUML.Syntax.Classes.Kernel.ValueSpecification specify() {
-        // Return a literal boolean with the value of this boolean value.
+LiteralBoolean literal = new LiteralBoolean();
 
-        LiteralBoolean literal = new LiteralBoolean();
+literal.type = this.type;
+literal.value = this.value;
 
-        literal.type = this.type;
-        literal.value = this.value;
+return literal;
 
-        return literal;
+								    			  }
+	
+	  /**
+   * operation equals
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
+	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
+	 		 	 			// Test if this boolean value is equal to the otherValue. 
+// To be equal, the otherValue must have the same value as this boolean value.
 
-    /**
-     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+boolean isEqual = false;
+if (otherValue instanceof BooleanValue) {
+    isEqual = ((BooleanValue)otherValue).value == this.value;
+}
 
-    public boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue) {
-        // Test if this boolean value is equal to the otherValue.
-        // To be equal, the otherValue must have the same value as this boolean
-        // value.
+return isEqual;
 
-        boolean isEqual = false;
-        if (otherValue instanceof BooleanValue) {
-            isEqual = ((BooleanValue) otherValue).value == this.value;
-        }
+								    			  }
+	
+	  /**
+   * operation copy
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        return isEqual;
+	public     fUML.Semantics.Classes.Kernel.Value copy()   {
+	 		 	 			// Create a new boolean value with the same value as this boolean value.
 
-    }
+BooleanValue newValue = (BooleanValue)(super.copy());
 
-    /**
-     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+newValue.value = this.value;
+return newValue;
 
-    public fUML.Semantics.Classes.Kernel.Value copy() {
-        // Create a new boolean value with the same value as this boolean value.
+								    			  }
+	
+	  /**
+   * operation new_
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        BooleanValue newValue = (BooleanValue) (super.copy());
+	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
+	 		 	 			// Return a new boolean value with no value.
 
-        newValue.value = this.value;
-        return newValue;
+return new BooleanValue();
+								    			  }
+	
+	  /**
+   * operation toString
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
-
-    /**
-     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    protected fUML.Semantics.Classes.Kernel.Value new_() {
-        // Return a new boolean value with no value.
-
-        return new BooleanValue();
-    }
-
-    /**
-     * operation toString <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public String toString() {
-        return String.valueOf(this.value);
-    }
-
-} // BooleanValue
+	public     String toString()   {
+	 		 	 			return String.valueOf(this.value);
+								    			  }
+	
+} //BooleanValue

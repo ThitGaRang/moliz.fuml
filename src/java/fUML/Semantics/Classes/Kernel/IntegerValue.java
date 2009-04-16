@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,110 +23,120 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 				    		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
+
+
+
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Classes::Kernel::IntegerValue</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::IntegerValue</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link IntegerValue#specify <em>specify</em>}</li>
- * <li>{@link IntegerValue#equals <em>equals</em>}</li>
- * <li>{@link IntegerValue#copy <em>copy</em>}</li>
- * <li>{@link IntegerValue#new_ <em>new_</em>}</li>
- * <li>{@link IntegerValue#toString <em>toString</em>}</li>
- * <li>{@link IntegerValue#value <em>value</em>}</li>
- * </ul>
+ 	 *   <li>{@link IntegerValue#specify <em>specify</em>}</li>
+	 *   <li>{@link IntegerValue#equals <em>equals</em>}</li>
+	 *   <li>{@link IntegerValue#copy <em>copy</em>}</li>
+	 *   <li>{@link IntegerValue#new_ <em>new_</em>}</li>
+	 *   <li>{@link IntegerValue#toString <em>toString</em>}</li>
+	 	 *   <li>{@link IntegerValue#value <em>value</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class IntegerValue extends fUML.Semantics.Classes.Kernel.PrimitiveValue {
 
-    // Attributes
-    public int value = 0;
+public   class IntegerValue    extends fUML.Semantics.Classes.Kernel.PrimitiveValue    {
+ 	    
+	// Attributes
+ 	 		public   int value = 	0	;
+	    
+// Operations of the class
+	  /**
+   * operation specify
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation specify <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
+	 		 	 			// Return a literal integer with the value of this integer value.
 
-    public fUML.Syntax.Classes.Kernel.ValueSpecification specify() {
-        // Return a literal integer with the value of this integer value.
+LiteralInteger literal = new LiteralInteger();
 
-        LiteralInteger literal = new LiteralInteger();
+literal.type = this.type;
+literal.value = this.value;
 
-        literal.type = this.type;
-        literal.value = this.value;
+return literal;
+								    			  }
+	
+	  /**
+   * operation equals
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        return literal;
-    }
+	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
+	 		 	 			// Test if this integer value is equal to the otherValue. 
+// To be equal, the otherValue must have the same value as this integer value.
 
-    /**
-     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+boolean isEqual = false;
+if (otherValue instanceof IntegerValue) {
+    isEqual = ((IntegerValue)otherValue).value == this.value;
+}
 
-    public boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue) {
-        // Test if this integer value is equal to the otherValue.
-        // To be equal, the otherValue must have the same value as this integer
-        // value.
+return isEqual;
 
-        boolean isEqual = false;
-        if (otherValue instanceof IntegerValue) {
-            isEqual = ((IntegerValue) otherValue).value == this.value;
-        }
+								    			  }
+	
+	  /**
+   * operation copy
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        return isEqual;
+	public     fUML.Semantics.Classes.Kernel.Value copy()   {
+	 		 	 			// Create a new integer value with the same value as this integer value.
 
-    }
+IntegerValue newValue = (IntegerValue)(super.copy());
 
-    /**
-     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+newValue.value = this.value;
+return newValue;
 
-    public fUML.Semantics.Classes.Kernel.Value copy() {
-        // Create a new integer value with the same value as this integer value.
+								    			  }
+	
+	  /**
+   * operation new_
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        IntegerValue newValue = (IntegerValue) (super.copy());
+	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
+	 		 	 			// Create a new integer value with no value.
 
-        newValue.value = this.value;
-        return newValue;
+return new IntegerValue();
+								    			  }
+	
+	  /**
+   * operation toString
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
-
-    /**
-     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    protected fUML.Semantics.Classes.Kernel.Value new_() {
-        // Create a new integer value with no value.
-
-        return new IntegerValue();
-    }
-
-    /**
-     * operation toString <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public String toString() {
-        return String.valueOf(this.value);
-    }
-
-} // IntegerValue
+	public     String toString()   {
+	 		 	 			return String.valueOf(this.value);
+								    			  }
+	
+} //IntegerValue

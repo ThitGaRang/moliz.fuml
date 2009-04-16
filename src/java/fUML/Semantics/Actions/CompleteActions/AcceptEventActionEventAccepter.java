@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 				    		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -32,55 +40,59 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
+
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Actions::CompleteActions::AcceptEventActionEventAccepter</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::Actions::CompleteActions::AcceptEventActionEventAccepter</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link AcceptEventActionEventAccepter#accept <em>accept</em>}</li>
- * <li>{@link AcceptEventActionEventAccepter#match <em>match</em>}</li>
- * <li>{@link AcceptEventActionEventAccepter#actionActivation <em>
- * actionActivation</em>}</li>
- * </ul>
+ 	 *   <li>{@link AcceptEventActionEventAccepter#accept <em>accept</em>}</li>
+	 *   <li>{@link AcceptEventActionEventAccepter#match <em>match</em>}</li>
+	 	 *   <li>{@link AcceptEventActionEventAccepter#actionActivation <em>actionActivation</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class AcceptEventActionEventAccepter extends
-        fUML.Semantics.CommonBehaviors.Communications.EventAccepter {
 
-    // Attributes
-    public fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation actionActivation = new fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation();
+public   class AcceptEventActionEventAccepter    extends fUML.Semantics.CommonBehaviors.Communications.EventAccepter    {
+ 	    
+	// Attributes
+ 	 		public   fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation actionActivation = 	 null
+	;
+	    
+// Operations of the class
+	  /**
+   * operation accept
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation accept <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public      void accept(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
+	 		 	 				    		 	 			// Accept a signal occurance for the given signal instance.
+// Forward the signal occuranceto the action activation.
 
-    public void accept(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance) {
-        // Accept a signal occurance for the given signal instance.
-        // Forward the signal occuranceto the action activation.
+this.actionActivation.accept(signalInstance);
+								    			  }
+	
+	  /**
+   * operation match
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-        this.actionActivation.accept(signalInstance);
-    }
+	public     boolean match(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
+	 		 	 				    		 	 			// Return true if the given signal instance matches a trigger of the accept action of the action activation.
 
-    /**
-     * operation match <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+return this.actionActivation.match(signalInstance);
 
-    public boolean match(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance) {
-        // Return true if the given signal instance matches a trigger of the
-        // accept action of the action activation.
-
-        return this.actionActivation.match(signalInstance);
-
-    }
-
-} // AcceptEventActionEventAccepter
+								    			  }
+	
+} //AcceptEventActionEventAccepter

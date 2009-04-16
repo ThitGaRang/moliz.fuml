@@ -1,7 +1,15 @@
+
+
+
+
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -15,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-import fUML.Syntax.*;
+ 		 	 			import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -25,74 +33,80 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
+								    		
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::CommonBehaviors::Communications::SignalInstance</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::Communications::SignalInstance</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link SignalInstance#getTypes <em>getTypes</em>}</li>
- * <li>{@link SignalInstance#new_ <em>new_</em>}</li>
- * <li>{@link SignalInstance#copy <em>copy</em>}</li>
- * <li>{@link SignalInstance#type <em>type</em>}</li>
- * </ul>
+ 	 *   <li>{@link SignalInstance#getTypes <em>getTypes</em>}</li>
+	 *   <li>{@link SignalInstance#new_ <em>new_</em>}</li>
+	 *   <li>{@link SignalInstance#copy <em>copy</em>}</li>
+	 	 *   <li>{@link SignalInstance#type <em>type</em>}</li>
+	 * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 
-public class SignalInstance extends fUML.Semantics.Classes.Kernel.CompoundValue {
 
-    // Attributes
-    public fUML.Syntax.CommonBehaviors.Communications.Signal type = new fUML.Syntax.CommonBehaviors.Communications.Signal();
+public   class SignalInstance    extends fUML.Semantics.Classes.Kernel.CompoundValue    {
+ 	    
+	// Attributes
+ 	 		public   fUML.Syntax.CommonBehaviors.Communications.Signal type = 	 null
+	;
+	    
+// Operations of the class
+	  /**
+   * operation getTypes
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    // Operations of the class
-    /**
-     * operation getTypes <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
+	 		 	 			// Return the single type of this signal instance.
 
-    public fUML.Syntax.Classes.Kernel.ClassifierList getTypes() {
-        // Return the single type of this signal instance.
+ClassifierList types = new ClassifierList();
 
-        ClassifierList types = new ClassifierList();
+types.addValue(this.type);
 
-        types.addValue(this.type);
+return types;
 
-        return types;
+								    			  }
+	
+	  /**
+   * operation new_
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    }
+	public     fUML.Semantics.Classes.Kernel.Value new_()   {
+	 		 	 			// Create a new signal instance with no type or feature values.
 
-    /**
-     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+return new SignalInstance();
+								    			  }
+	
+	  /**
+   * operation copy
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
 
-    public fUML.Semantics.Classes.Kernel.Value new_() {
-        // Create a new signal instance with no type or feature values.
+	public     fUML.Semantics.Classes.Kernel.Value copy()   {
+	 		 	 			// Create a new signal instance with the same type and feature values as this signal instance.
 
-        return new SignalInstance();
-    }
+SignalInstance newValue = (SignalInstance)(super.copy());
 
-    /**
-     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+newValue.type = this.type;
 
-    public fUML.Semantics.Classes.Kernel.Value copy() {
-        // Create a new signal instance with the same type and feature values as
-        // this signal instance.
+return newValue;
 
-        SignalInstance newValue = (SignalInstance) (super.copy());
-
-        newValue.type = this.type;
-
-        return newValue;
-
-    }
-
-} // SignalInstance
+								    			  }
+	
+} //SignalInstance
