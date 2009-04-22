@@ -325,8 +325,8 @@
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution" />
         <zipfileset dir="${xml.dir}/plugin" includes="*.xml" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
-      </zip>                
+        <zipfileset dir="${basedir}" includes="*.txt" prefix="org.modeldriven.fuml.execution" />
+      </zip>               
 
     </target>
     
