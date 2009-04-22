@@ -91,32 +91,36 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 
 
 #macro( defaultValue $feature)
-	#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end${feature.default}
-	#elseif(${feature.upper}!=1)new #type(${feature})()
-	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false
-	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0
-	#elseif(${feature.type.isAbstract()}||${feature.type.eClass().name}=="Enumeration")null
-	#else
-		#set( $foundOp = false )
-		#set( $foundEmptyConstructor = false )
-		#foreach($op in ${feature.type.ownedOperations})
-			#if(${op.name}==${feature.type.name}&&${op.ownedParameters.size()}!=0)
-				#set( $foundOp = true)
-			#end
-			#if(${op.name}==${feature.type.name}&&${op.ownedParameters.size()}==0)
-				#set( $foundEmptyConstructor = true)
-			#end
-		#end 
-		#set( $foundOneToOneOptionalTarget = false )
-		#if(${feature.upper}==1&&${feature.lower}!=1)
-		    #foreach($attrib in ${feature.type.ownedAttributes})
-		        #if(${feature.association}==${attrib.association})
-				    #set( $foundOneToOneOptionalTarget = true)
-			    #end
-		    #end
-		#end 
-		#if(${foundOp}&&!${foundEmptyConstructor})null#elseif(${foundOneToOneOptionalTarget})null#else new #type(${feature})()#end
+	#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end${feature.default}##
+	#elseif(${feature.upper}!=1)new #type(${feature})()##
+	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
+	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
+	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
+	#elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
+	#else null##
 	#end
+##	#elseif(${feature.type.isAbstract()}||${feature.type.eClass().name}=="Enumeration")null
+##	#else
+##		#set( $foundOp = false )
+##		#set( $foundEmptyConstructor = false )
+##		#foreach($op in ${feature.type.ownedOperations})
+##			#if(${op.name}==${feature.type.name}&&${op.ownedParameters.size()}!=0)
+##				#set( $foundOp = true)
+##			#end
+##			#if(${op.name}==${feature.type.name}&&${op.ownedParameters.size()}==0)
+##				#set( $foundEmptyConstructor = true)
+##			#end
+##		#end 
+##		#set( $foundOneToOneOptionalTarget = false )
+##		#if(${feature.upper}==1&&${feature.lower}!=1)
+##		    #foreach($attrib in ${feature.type.ownedAttributes})
+##		        #if(${feature.association}==${attrib.association})
+##				    #set( $foundOneToOneOptionalTarget = true)
+##			    #end
+##		    #end
+##		#end 
+##		#if(${foundOp}&&!${foundEmptyConstructor})null#elseif(${foundOneToOneOptionalTarget})null#else new #type(${feature})()#end
+##	#end 
 #end
 
 #macro( listablePrimitiveName $primitive )#name(${primitive.name})#end
