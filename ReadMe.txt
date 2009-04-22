@@ -8,9 +8,9 @@ implementation is intended to implement the execution semantics of UML activity
 models, accepting an XMI file from a conformant UML model as its input and
 providing an execution trace of the selected activity model(s) as its output.
 
-The reference implementation was developed as part of a Lockheed Martin
-Corporation funded project with Model Driven Solutions (a division of Data
-Access Technologies) in 2008. The objectives for making this reference
+The reference implementation was originally developed as part of a Lockheed
+Martin Corporation funded project with Model Driven Solutions (a division of
+Data Access Technologies) in 2008. The objectives for making this reference
 implementation open source are to:
 
 a) encourage tool vendors to implement this standard in their tools
@@ -30,6 +30,14 @@ Licensing
 
 For licensing information, please see the file Licensing-Information.txt and the
 associated files Common-Public-License-1.0.txt and Apache-License-2.0.txt.
+
+Conformance
+-----------
+
+The fUML Specification recommends that the conformance of an execution tool to
+the specification be summarized in a "conformance statement". For the
+conformance statement for the Reference Implementation, please see the file
+Conformance-Statement.txt.
 
 Building
 --------
