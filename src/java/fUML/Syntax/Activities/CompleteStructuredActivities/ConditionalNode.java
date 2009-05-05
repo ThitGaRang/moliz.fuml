@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -46,63 +46,54 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ConditionalNode    extends fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isDeterminate = 	false	;
-	 		public   boolean isAssured = 	false	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList clause = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList result = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isDeterminate = false;
+	public   boolean isAssured = false;
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList clause = new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList();
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList result = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+    
+	// Operations of the class
+  /**
    * operation setIsDeterminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsDeterminate(boolean isDeterminate)   {
-	 		 	 			this.isDeterminate = isDeterminate;
-								    			  }
-	
-	  /**
+this.isDeterminate = isDeterminate;	  } // setIsDeterminate
+
+  /**
    * operation setIsAssured
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsAssured(boolean isAssured)   {
-	 		 	 			this.isAssured = isAssured;
+this.isAssured = isAssured;
+	  } // setIsAssured
 
-								    			  }
-	
-	  /**
+  /**
    * operation addClause
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addClause(fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause)   {
-	 		 	 			super.addOwnedElement(clause);
+super.addOwnedElement(clause);
 this.clause.addValue(clause);
+	  } // addClause
 
-								    			  }
-	
-	  /**
+  /**
    * operation addResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result.addValue(result);
+	  } // addResult
 
-								    			  }
-	
 } //ConditionalNode

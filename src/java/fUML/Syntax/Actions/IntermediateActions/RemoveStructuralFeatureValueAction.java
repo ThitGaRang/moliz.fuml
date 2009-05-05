@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,40 +42,35 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class RemoveStructuralFeatureValueAction    extends fUML.Syntax.Actions.IntermediateActions.WriteStructuralFeatureAction    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isRemoveDuplicates = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin removeAt = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isRemoveDuplicates = false;
+	public   fUML.Syntax.Actions.BasicActions.InputPin removeAt =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsRemoveDuplicates
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsRemoveDuplicates(boolean isRemoveDuplicates)   {
-	 		 	 			this.isRemoveDuplicates = isRemoveDuplicates;
+this.isRemoveDuplicates = isRemoveDuplicates;
+	  } // setIsRemoveDuplicates
 
-								    			  }
-	
-	  /**
+  /**
    * operation setRemoveAt
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setRemoveAt(fUML.Syntax.Actions.BasicActions.InputPin removeAt)   {
-	 		 	 			if (removeAt != null) {
+if (removeAt != null) {
     super.addInput(removeAt);
 }
 
 this.removeAt = removeAt;
+	  } // setRemoveAt
 
-								    			  }
-	
 } //RemoveStructuralFeatureValueAction

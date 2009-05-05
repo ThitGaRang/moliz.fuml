@@ -23,9 +23,8 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -45,53 +44,43 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ChannelObject    extends fUML.Library.LibraryClassImplementation.ImplementationObject    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   String getName()  ;
-	  /**
+	public  abstract   String getName()  ;  /**
    * operation open
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void open()  ;
-	  /**
+	public  abstract    void open()  ;  /**
    * operation close
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void close()  ;
-	  /**
+	public  abstract    void close()  ;  /**
    * operation isOpen
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   boolean isOpen()  ;
-	  /**
+	public  abstract   boolean isOpen()  ;  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)   {
-	 		 	 			String name = execution.getOperationName();
+String name = execution.getOperationName();
 
 if (name.equals("getName")) {
     StringValue nameValue = new StringValue();
@@ -109,7 +98,6 @@ else if (name.equals("isOpen")) {
     isOpenValue.value = this.isOpen();
     execution.setParameterValue("result", isOpenValue);
 }
+	  } // execute
 
-								     				    			  }
-	
 } //ChannelObject

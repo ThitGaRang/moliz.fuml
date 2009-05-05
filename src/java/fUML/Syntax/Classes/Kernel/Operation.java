@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -52,42 +52,38 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Operation    extends fUML.Syntax.Classes.Kernel.BehavioralFeature    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isQuery = 	false	;
-	 		public   boolean isOrdered = 	false	;
-	 		public   boolean isUnique = 	true	;
-	 		public   int lower = 	0	;
-	 		public   fUML.Syntax.Classes.Kernel.UnlimitedNatural upper = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Class_ class_ = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.OperationList redefinedOperation = 	new fUML.Syntax.Classes.Kernel.OperationList()	;
-	 		public   fUML.Syntax.Classes.Kernel.DataType datatype = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Type type = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = 	new fUML.Syntax.Classes.Kernel.ParameterList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isQuery = false;
+	public   boolean isOrdered = false;
+	public   boolean isUnique = true;
+	public   int lower = 0;
+	public   fUML.Syntax.Classes.Kernel.UnlimitedNatural upper =  null;
+	public   fUML.Syntax.Classes.Kernel.Class_ class_ =  null;
+	public   fUML.Syntax.Classes.Kernel.OperationList redefinedOperation = new fUML.Syntax.Classes.Kernel.OperationList();
+	public   fUML.Syntax.Classes.Kernel.DataType datatype =  null;
+	public   fUML.Syntax.Classes.Kernel.Type type =  null;
+	public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = new fUML.Syntax.Classes.Kernel.ParameterList();
+    
+	// Operations of the class
+  /**
    * operation setIsQuery
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsQuery(boolean isQuery)   {
-	 		 	 			this.isQuery = isQuery;
-								    			  }
-	
-	  /**
+this.isQuery = isQuery;	  } // setIsQuery
+
+  /**
    * operation addOwnedParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedParameter(fUML.Syntax.Classes.Kernel.Parameter ownedParameter)   {
-	 		 	 			super.addOwnedParameter(ownedParameter);
+super.addOwnedParameter(ownedParameter);
 this.ownedParameter.addValue(ownedParameter);
 ownedParameter.operation = this;
 
@@ -98,37 +94,32 @@ if (ownedParameter.direction == ParameterDirectionKind.return_) {
     this.upper = ownedParameter.multiplicityElement.upper;
     this.type = ownedParameter.type;
 }
+	  } // addOwnedParameter
 
-								    			  }
-	
-	  /**
+  /**
    * operation addRedefinedOperation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addRedefinedOperation(fUML.Syntax.Classes.Kernel.Operation redefinedOperation)   {
-	 		 	 			super.addRedefinedElement(redefinedOperation);
+super.addRedefinedElement(redefinedOperation);
 this.redefinedOperation.addValue(redefinedOperation);
+	  } // addRedefinedOperation
 
-								    			  }
-	
-	  /**
+  /**
    * operation addMethod
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addMethod(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior method)   {
-	 		 	 			// Note: To have a method, an operation must be owned by a class. The method must be an owned behavior of the class.
+// Note: To have a method, an operation must be owned by a class. The method must be an owned behavior of the class.
 
 this.method.addValue(method);
 method.specification = this;
 
 
+	  } // addMethod
 
-								    			  }
-	
 } //Operation

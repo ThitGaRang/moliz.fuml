@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,11 +39,10 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class JoinNode    extends fUML.Syntax.Activities.IntermediateActivities.ControlNode    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isCombineDuplicate = 	true	;
-	    
-// Operations of the class
+	public   boolean isCombineDuplicate = true;
+    
+	// Operations of the class
 } //JoinNode

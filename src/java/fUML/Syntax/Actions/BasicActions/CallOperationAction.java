@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,37 +42,32 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class CallOperationAction    extends fUML.Syntax.Actions.BasicActions.CallAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Operation operation = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin target = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.Operation operation =  null;
+	public   fUML.Syntax.Actions.BasicActions.InputPin target =  null;
+    
+	// Operations of the class
+  /**
    * operation setTarget
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setTarget(fUML.Syntax.Actions.BasicActions.InputPin target)   {
-	 		 	 			super.addInput(target);
+super.addInput(target);
 this.target = target;
+	  } // setTarget
 
-								    			  }
-	
-	  /**
+  /**
    * operation setOperation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setOperation(fUML.Syntax.Classes.Kernel.Operation operation)   {
-	 		 	 			this.operation = operation;
+this.operation = operation;
+	  } // setOperation
 
-								    			  }
-	
 } //CallOperationAction

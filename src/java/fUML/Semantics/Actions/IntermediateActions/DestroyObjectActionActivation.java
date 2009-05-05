@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,43 +56,39 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class DestroyObjectActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value on the target input pin.
+// Get the value on the target input pin.
 // If the value is not a reference, then the action has no effect. Otherwise, do the following.
 // If isDestroyLinks is true, destroy all links in which the referent participates.
 // If isDestroyOwnedObjects is true, destroy all objects owned by the referent via composition links.
 // Destroy the referent object.
 
 DestroyObjectAction action = (DestroyObjectAction)(this.node);
-Value value = this.getTokens(action.target).getValue(0);
+Value value = this.takeTokens(action.target).getValue(0);
 
 this.destroyObject(value, action.isDestroyLinks, action.isDestroyOwnedObjects);
 
+	  } // doAction
 
-								    			  }
-	
-	  /**
+  /**
    * operation destroyObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void destroyObject(fUML.Semantics.Classes.Kernel.Value value, boolean isDestroyLinks, boolean isDestroyOwnedObjects)   {
-	 		 	 			// If the given value is a reference, then destroy the referenced object, per the given destroy action attribute values.
+// If the given value is a reference, then destroy the referenced object, per the given destroy action attribute values.
 
 // Debug.println("[destroyObject] object = " + value.objectId());
 
@@ -134,18 +129,16 @@ if (value instanceof Reference) {
 
     reference.destroy();
 }
+	  } // destroyObject
 
-								    			  }
-	
-	  /**
+  /**
    * operation objectIsComposite
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean objectIsComposite(fUML.Semantics.Classes.Kernel.Reference reference, fUML.Semantics.Classes.Kernel.Link link)   {
-	 		 	 			// Test whether the given reference participates in the given link as a composite.
+// Test whether the given reference participates in the given link as a composite.
 
 FeatureValueList linkFeatureValues = link.getFeatureValues();
 
@@ -161,7 +154,6 @@ while (!isComposite & i <= linkFeatureValues.size()) {
 
 return isComposite;
 
+	  } // objectIsComposite
 
-								    			  }
-	
 } //DestroyObjectActionActivation

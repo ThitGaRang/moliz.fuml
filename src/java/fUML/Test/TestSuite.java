@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -33,7 +33,6 @@ import fUML.Syntax.Actions.BasicActions.*;
 import fUML.Syntax.Actions.IntermediateActions.*;
 import fUML.Syntax.Actions.CompleteActions.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +47,7 @@ import fUML.Syntax.Actions.CompleteActions.*;
 	 *   <li>{@link TestSuite#testPolymorphicOperationCall <em>testPolymorphicOperationCall</em>}</li>
 	 *   <li>{@link TestSuite#testSuperCall <em>testSuperCall</em>}</li>
 	 *   <li>{@link TestSuite#testSignalSend <em>testSignalSend</em>}</li>
+	 *   <li>{@link TestSuite#testLinkCreator <em>testLinkCreator</em>}</li>
 	 	 *   <li>{@link TestSuite#activityFactory <em>activityFactory</em>}</li>
 	 *   <li>{@link TestSuite#classifierFactory <em>classifierFactory</em>}</li>
 	 *   <li>{@link TestSuite#executorTest <em>executorTest</em>}</li>
@@ -57,42 +57,35 @@ import fUML.Syntax.Actions.CompleteActions.*;
  * @generated
  */
 
-
 public   class TestSuite    extends fUML.Test.Test    {
- 	    
+    
 	// Attributes
- 	 		private   fUML.Test.ActivityFactory activityFactory = 	 null
-	;
-	 		private   fUML.Test.ClassifierFactory classifierFactory = 	 null
-	;
-	 		private   fUML.Test.ExecutorTest executorTest = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	private   fUML.Test.ActivityFactory activityFactory =  null;
+	private   fUML.Test.ClassifierFactory classifierFactory =  null;
+	private   fUML.Test.ExecutorTest executorTest =  null;
+    
+	// Operations of the class
+  /**
    * operation TestSuite
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      TestSuite(fUML.Test.TestEnvironment environment, fUML.Test.ActivityFactory activityFactory, fUML.Test.ClassifierFactory classifierFactory, fUML.Test.ExecutorTest executorTest)   {
-	 		 	 			this.environment = environment;
+this.environment = environment;
 this.activityFactory = activityFactory;
 this.classifierFactory = classifierFactory;
 this.executorTest = executorTest;
+	  } // TestSuite
 
-								    			  }
-	
-	  /**
+  /**
    * operation testSimpleActivites
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testSimpleActivites()   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println("[testSimpleActivites] Setting up...");
 
 this.activityFactory.createCopier();
@@ -118,18 +111,16 @@ this.executorTest.testExecute("ForkMergeData");
 this.executorTest.testExecute("SelfReader");
 
 Debug.println("[testSimpleActivities] Done!");
+	  } // testSimpleActivites
 
-								    			  }
-	
-	  /**
+  /**
    * operation testHelloWorld
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testHelloWorld()   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println("[testHelloWorld] Setting up...");
 this.activityFactory.createHelloWorld2();
 
@@ -138,18 +129,16 @@ this.executorTest.testExecute("HelloWorld2");
 
 Debug.println("[testHelloWorld] Done!");
 
+	  } // testHelloWorld
 
-								    			  }
-	
-	  /**
+  /**
    * operation testPolymorphicOperationCall
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testPolymorphicOperationCall(String superclassMethodName, String subclassMethodName)   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println("[testPolymorphicOperationCall] Setting up...");
 
 if (activityFactory.getActivity(superclassMethodName)==null) return;
@@ -182,18 +171,16 @@ this.executorTest.testExecute(subclassName + superclassName + "testCaller");
 
 Debug.println("[testPolymorphicOperationCall] Done!");
 
+	  } // testPolymorphicOperationCall
 
-								    			  }
-	
-	  /**
+  /**
    * operation testSuperCall
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testSuperCall(String superclassMethodName, String subclassMethodName)   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println("[testSuperCall] Setting up...");
 
 if (activityFactory.getActivity(superclassMethodName)==null) return;
@@ -240,18 +227,16 @@ this.executorTest.testExecute(subclassName+"callTestCaller");
 
 Debug.println("[testSuperCall] Done!");
 
+	  } // testSuperCall
 
-								    			  }
-	
-	  /**
+  /**
    * operation testSignalSend
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testSignalSend()   {
-	 		 	 			Debug.println("[testSignalSend] Setting up...");
+Debug.println("[testSignalSend] Setting up...");
 
 classifierFactory.createSignal("TestSignal");
 activityFactory.createSender("TestSignal");
@@ -261,7 +246,30 @@ Debug.println("[testSignalSend] Testing...");
 executorTest.testExecute("TestSignalSender");
 
 Debug.println("[testSignalSend] Done!");
+	  } // testSignalSend
 
-								    			  }
-	
+  /**
+   * operation testLinkCreator
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+	public      void testLinkCreator()   {
+Debug.println("[testLinkCreator] Setting up...");
+
+classifierFactory.createClass("A");
+classifierFactory.createClass("B");
+
+classifierFactory.createAssociation("AB");
+classifierFactory.addEnd("AB", "a", "A", false);
+classifierFactory.addEnd("AB", "b", "B", false);
+
+activityFactory.createLinkCreator("AB");
+
+Debug.println("[testLinkCreator] Testing...");
+
+executorTest.testExecute("ABLinkCreator");
+
+Debug.println("[testLinkCreator] Done!");	  } // testLinkCreator
+
 } //TestSuite

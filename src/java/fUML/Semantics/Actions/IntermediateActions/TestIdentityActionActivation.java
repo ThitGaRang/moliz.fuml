@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,32 +54,29 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class TestIdentityActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the values from the first and second input pins and test if they are equal. (Note the equality of references is defined to be that they have identical referents.)
+// Get the values from the first and second input pins and test if they are equal. (Note the equality of references is defined to be that they have identical referents.)
 // If they are equal, place true on the pin execution for the result output pin, otherwise place false.
 
 TestIdentityAction action = (TestIdentityAction)(this.node);
 
-Value firstValue = this.getTokens(action.first).getValue(0);
-Value secondValue = this.getTokens(action.second).getValue(0);
+Value firstValue = this.takeTokens(action.first).getValue(0);
+Value secondValue = this.takeTokens(action.second).getValue(0);
 
 Value testResult = this.makeBooleanValue(firstValue.equals(secondValue));
 this.putToken(action.result, testResult);
 
+	  } // doAction
 
-								    			  }
-	
 } //TestIdentityActionActivation

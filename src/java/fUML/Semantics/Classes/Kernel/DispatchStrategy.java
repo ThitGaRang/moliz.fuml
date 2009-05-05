@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -41,45 +41,38 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class DispatchStrategy    extends fUML.Semantics.Loci.SemanticStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			// Dispatch strategies are always named "dispatch".
+// Dispatch strategies are always named "dispatch".
 
 return "dispatch";
+	  } // getName
 
-								    			  }
-	
-	  /**
+  /**
    * operation dispatch
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(fUML.Semantics.Classes.Kernel.Object_ object, fUML.Syntax.Classes.Kernel.Operation operation)   {
-	 		 	 			// Get the behavior for the given operation as determined by the type(s) of the given object, compile the behavior at the locus of the object, and return the resulting execution object.
+// Get the behavior for the given operation as determined by the type(s) of the given object, compile the behavior at the locus of the object, and return the resulting execution object.
 
-return object.locus.factory.createExecution(this.getMethod(object,operation), object);
-								    			  }
-	
-	  /**
+return object.locus.factory.createExecution(this.getMethod(object,operation), object);	  } // dispatch
+
+  /**
    * operation getMethod
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getMethod(fUML.Semantics.Classes.Kernel.Object_ object, fUML.Syntax.Classes.Kernel.Operation operation)  ;
-} //DispatchStrategy
+	public  abstract   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getMethod(fUML.Semantics.Classes.Kernel.Object_ object, fUML.Syntax.Classes.Kernel.Operation operation)  ;} //DispatchStrategy

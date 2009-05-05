@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class SendSignalAction    extends fUML.Syntax.Actions.BasicActions.InvocationAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.InputPin target = 	 null	;
-	 		public   fUML.Syntax.CommonBehaviors.Communications.Signal signal = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.InputPin target =  null;
+	public   fUML.Syntax.CommonBehaviors.Communications.Signal signal =  null;
+    
+	// Operations of the class
+  /**
    * operation setTarget
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setTarget(fUML.Syntax.Actions.BasicActions.InputPin target)   {
-	 		 	 			super.addInput(target);
-this.target = target;
-								    			  }
-	
-	  /**
+super.addInput(target);
+this.target = target;	  } // setTarget
+
+  /**
    * operation setSignal
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setSignal(fUML.Syntax.CommonBehaviors.Communications.Signal signal)   {
-	 		 	 			this.signal = signal;
+this.signal = signal;
+	  } // setSignal
 
-								    			  }
-	
 } //SendSignalAction

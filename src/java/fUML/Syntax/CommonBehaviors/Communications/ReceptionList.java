@@ -45,4 +45,4 @@ public class ReceptionList extends ArrayList<fUML.Syntax.CommonBehaviors.Communi
   public void removeValue(int i){
     remove(i);
   }
-} //Reception
+} //ReceptionList

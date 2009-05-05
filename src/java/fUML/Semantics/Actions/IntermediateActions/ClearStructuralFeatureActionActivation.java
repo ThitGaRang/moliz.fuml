@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,32 +54,31 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ClearStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value of the object input pin. If it is not a structured value, then do nothing.
+// Get the value of the object input pin. If it is not a structured value, then do nothing.
 // Otherwise, set the appropriate feature of the input value to be empty.
 
 ClearStructuralFeatureAction action = (ClearStructuralFeatureAction)(this.node);
 
-Value value = this.getTokens(action.object).getValue(0);
+Value value = this.takeTokens(action.object).getValue(0);
 
 if (value instanceof StructuredValue) {
     ((StructuredValue)value).setFeatureValue(action.structuralFeature, new ValueList(), 0);
-    this.putToken(action.result, value);
+    if (action.result != null) {
+        this.putToken(action.result, value);
+    }
 }
+	  } // doAction
 
-								    			  }
-	
 } //ClearStructuralFeatureActionActivation

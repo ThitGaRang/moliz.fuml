@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,25 +51,22 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class FeatureValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.StructuralFeature feature = 	 null
-	;
-	 		public   fUML.Semantics.Classes.Kernel.ValueList values = 	new fUML.Semantics.Classes.Kernel.ValueList()	;
-	 		public   int position = 	0	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.StructuralFeature feature =  null;
+	public   fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
+	public   int position = 0;
+    
+	// Operations of the class
+  /**
    * operation hasEqualValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean hasEqualValues(fUML.Semantics.Classes.Kernel.FeatureValue other)   {
-	 		 	 			// Determine if this feature value has an equal set of values as another feature value.
+// Determine if this feature value has an equal set of values as another feature value.
 // If the feature is ordered, then the values also have to be in the same order.
 
 boolean equal = true;
@@ -80,7 +76,7 @@ if (this.values.size() != other.values.size()) {
 
 } else {
 
-    Debug.println("[hasEqualValues] feature = " + this.feature.name + ", " + this.values.size() + " value(s).");
+    // Debug.println("[hasEqualValues] feature = " + this.feature.name + ", " + this.values.size() + " value(s).");
 
     if (this.feature.multiplicityElement.isOrdered) {
         int i = 1;
@@ -90,24 +86,26 @@ if (this.values.size() != other.values.size()) {
         }
 
     } else {
-        ValueList otherValues = new ValueList();
+        // Note: otherFeatureValues is used here solely as a holder for a copy of the list of other values,
+        // since the Java to UML mapping conventions do not allow "remove" on a local list variable.
+        FeatureValue otherFeatureValues = new FeatureValue();
         ValueList values = other.values;
         for (int i=0; i < values.size(); i++) {
             Value value = values.getValue(i);
-            otherValues.addValue(value);
+            otherFeatureValues.values.addValue(value);
         }
 
         int i = 1;
         while (equal & i <= this.values.size()) {
-            Debug.println("[hasEqualValues] This value [" + (i-1) + "] = " + this.values.getValue(i-1));
+            // Debug.println("[hasEqualValues] This value [" + (i-1) + "] = " + this.values.getValue(i-1));
 
             boolean  matched = false;
             int j = 1;
-            while (!matched & j <= otherValues.size()) {
-                 if (this.values.getValue(i-1).equals(otherValues.getValue(j-1))) {
-                    Debug.println("[hasEqualValues] Other value [" + (j-1) + "] = " + otherValues.getValue(j-1));
+            while (!matched & j <= otherFeatureValues.values.size()) {
+                 if (this.values.getValue(i-1).equals(otherFeatureValues.values.getValue(j-1))) {
+                    // Debug.println("[hasEqualValues] Other value [" + (j-1) + "] = " + otherFeatureValues.values.getValue(j-1));
                     matched = true;
-                    otherValues.remove(j-1);
+                    otherFeatureValues.values.remove(j-1);
                 }
                 j = j + 1;
             }
@@ -119,18 +117,16 @@ if (this.values.size() != other.values.size()) {
 }
 
 return equal;
+	  } // hasEqualValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.FeatureValue copy()   {
-	 		 	 			// Create a copy of this feature value.
+// Create a copy of this feature value.
 
 FeatureValue newValue = new FeatureValue();
 
@@ -144,7 +140,6 @@ for (int i = 0; i < values.size(); i ++) {
 }
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
 } //FeatureValue

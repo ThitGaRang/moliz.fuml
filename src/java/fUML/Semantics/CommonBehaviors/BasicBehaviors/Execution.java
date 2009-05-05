@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -32,7 +32,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,46 +56,39 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class Execution    extends fUML.Semantics.Classes.Kernel.Object_    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Classes.Kernel.Object_ context = 	 null
-	;
-	 		public   fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList parameterValues = 	new fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Classes.Kernel.Object_ context =  null;
+	public   fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList parameterValues = new fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList();
+    
+	// Operations of the class
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void execute()  ;
-	  /**
+	public  abstract    void execute()  ;  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate an ongoing execution. By default, do nothing.
+// Terminate an ongoing execution. By default, do nothing.
 
 return;
+	  } // terminate
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new execution that has the same behavior and parameterValues as this execution.
+// Create a new execution that has the same behavior and parameterValues as this execution.
 
 // Debug.println("[Copy] execution = " + this);
 
@@ -113,26 +105,22 @@ for (int i = 0; i < parameterValues.size(); i++) {
 // Debug.println("[Copy] Done.");
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.Value new_()  ;
-	  /**
+	public  abstract   fUML.Semantics.Classes.Kernel.Value new_()  ;  /**
    * operation setParameterValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setParameterValue(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue parameterValue)   {
-	 		 	 			// Set the given parameter value for this execution.
+// Set the given parameter value for this execution.
 // If a parameter value already existed for the parameter of the given parameter value, then replace its value.
 
 // Debug.println("[setParameterValue] parameter = " + parameterValue.parameter.name + " with " + parameterValue.values.size() + " values");
@@ -146,18 +134,16 @@ else {
     existingParameterValue.values = parameterValue.values;
 }
 
+	  } // setParameterValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation getParameterValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue getParameterValue(fUML.Syntax.Classes.Kernel.Parameter parameter)   {
-	 		 	 			// Get the parameter value of this execution corresponding to the given parameter (if any).
+// Get the parameter value of this execution corresponding to the given parameter (if any).
 
 ParameterValue parameterValue = null;
 int i = 1;
@@ -170,18 +156,16 @@ while (parameterValue == null & i <= this.parameterValues.size()) {
 
 return parameterValue;
 
+	  } // getParameterValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation getOutputParameterValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList getOutputParameterValues()   {
-	 		 	 			// Return the parameter values for output (in-out, out and return) parameters.
+// Return the parameter values for output (in-out, out and return) parameters.
 
 ParameterValueList outputs = new ParameterValueList();
 ParameterValueList parameterValues = this.parameterValues;
@@ -196,20 +180,17 @@ for (int i = 0; i < parameterValues.size(); i++) {
 }
 
 return outputs;
+	  } // getOutputParameterValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation getBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getBehavior()   {
-	 		 	 			// Get the behavior that is the type of this execution.
+// Get the behavior that is the type of this execution.
 
-return (Behavior)(this.getTypes().getValue(0));
-								    			  }
-	
+return (Behavior)(this.getTypes().getValue(0));	  } // getBehavior
+
 } //Execution

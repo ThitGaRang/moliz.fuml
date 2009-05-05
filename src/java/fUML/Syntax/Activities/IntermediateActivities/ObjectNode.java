@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,25 +42,22 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ObjectNode    extends fUML.Syntax.Activities.IntermediateActivities.ActivityNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind ordering = 	fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind.FIFO	;
-	 		public   boolean isControlType = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.TypedElement typedElement = 	new fUML.Syntax.Classes.Kernel.TypedElement()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind ordering = fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind.FIFO;
+	public   boolean isControlType = false;
+	public   fUML.Syntax.Classes.Kernel.TypedElement typedElement = new fUML.Syntax.Classes.Kernel.TypedElement();
+    
+	// Operations of the class
+  /**
    * operation setType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setType(fUML.Syntax.Classes.Kernel.Type type)   {
-	 		 	 			this.typedElement.type = type;
+this.typedElement.type = type;
+	  } // setType
 
-								    			  }
-	
 } //ObjectNode

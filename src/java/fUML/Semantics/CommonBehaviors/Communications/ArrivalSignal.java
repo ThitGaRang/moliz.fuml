@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +38,9 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ArrivalSignal    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //ArrivalSignal

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -41,34 +41,29 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class UnlimitedNatural    {
- 	    
+    
 	// Attributes
- 	 		public   int naturalValue = 	0	;
-	    
-// Operations of the class
-	  /**
+	public   int naturalValue = 0;
+    
+	// Operations of the class
+  /**
    * operation UnlimitedNatural
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      UnlimitedNatural(int naturalValue)   {
-	 		 	 			this.naturalValue = naturalValue;
+this.naturalValue = naturalValue;
+	  } // UnlimitedNatural
 
-								    			  }
-	
-	  /**
+  /**
    * operation UnlimitedNatural
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      UnlimitedNatural()   {
-	 		 	 			this.naturalValue = 0;
-								    			  }
-	
+this.naturalValue = 0;	  } // UnlimitedNatural
+
 } //UnlimitedNatural

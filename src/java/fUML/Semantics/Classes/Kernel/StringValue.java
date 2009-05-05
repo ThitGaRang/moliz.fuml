@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -53,41 +52,36 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class StringValue    extends fUML.Semantics.Classes.Kernel.PrimitiveValue    {
- 	    
+    
 	// Attributes
- 	 		public   String value = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   String value = "";
+    
+	// Operations of the class
+  /**
    * operation specify
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
-	 		 	 			// Return a literal string with the value of this string value.
+// Return a literal string with the value of this string value.
 
 LiteralString literal = new LiteralString();
 
 literal.type = this.type;
 literal.value = this.value;
 
-return literal;
-								    			  }
-	
-	  /**
+return literal;	  } // specify
+
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
-	 		 	 			// Test if this string value is equal to the otherValue. 
+// Test if this string value is equal to the otherValue. 
 // To be equal, the otherValue must have the same value as this string value.
 
 boolean isEqual = false;
@@ -95,49 +89,42 @@ if (otherValue instanceof StringValue) {
     isEqual = ((StringValue)otherValue).value.equals(this.value);
 }
 
-return isEqual;
-								    			  }
-	
-	  /**
+return isEqual;	  } // equals
+
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new string value with the same value as this string value.
+// Create a new string value with the same value as this string value.
 
 StringValue newValue = (StringValue)(super.copy());
 
 newValue.value = this.value;
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new string value with no value.
+// Create a new string value with no value.
 
 return new StringValue();
+	  } // new_
 
-								    			  }
-	
-	  /**
+  /**
    * operation toString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String toString()   {
-	 		 	 			return value;
-								    			  }
-	
+return value;	  } // toString
+
 } //StringValue

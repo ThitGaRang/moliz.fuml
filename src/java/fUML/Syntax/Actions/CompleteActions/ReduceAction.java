@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -46,64 +46,55 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ReduceAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior reducer = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPin result = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin collection = 	 null	;
-	 		public   boolean isOrdered = 	false	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior reducer =  null;
+	public   fUML.Syntax.Actions.BasicActions.OutputPin result =  null;
+	public   fUML.Syntax.Actions.BasicActions.InputPin collection =  null;
+	public   boolean isOrdered = false;
+    
+	// Operations of the class
+  /**
    * operation setIsOrdered
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsOrdered(boolean isOrdered)   {
-	 		 	 			this.isOrdered = isOrdered;
+this.isOrdered = isOrdered;
+	  } // setIsOrdered
 
-								    			  }
-	
-	  /**
+  /**
    * operation setReducer
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setReducer(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior reducer)   {
-	 		 	 			this.reducer = reducer;
+this.reducer = reducer;
+	  } // setReducer
 
-								    			  }
-	
-	  /**
+  /**
    * operation setCollection
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setCollection(fUML.Syntax.Actions.BasicActions.InputPin collection)   {
-	 		 	 			super.addInput(collection);
+super.addInput(collection);
 this.collection = collection;
+	  } // setCollection
 
-								    			  }
-	
-	  /**
+  /**
    * operation setResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result = result;
+	  } // setResult
 
-								    			  }
-	
 } //ReduceAction

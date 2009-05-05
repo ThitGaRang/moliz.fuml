@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ExpansionNode    extends fUML.Syntax.Activities.IntermediateActivities.ObjectNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionRegion regionAsOutput = 	 null	;
-	 		public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionRegion regionAsInput = 	 null	;
-	    
-// Operations of the class
+	public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionRegion regionAsOutput =  null;
+	public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionRegion regionAsInput =  null;
+    
+	// Operations of the class
 } //ExpansionNode

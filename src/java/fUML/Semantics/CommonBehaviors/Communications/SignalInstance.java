@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -33,7 +33,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,61 +51,53 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class SignalInstance    extends fUML.Semantics.Classes.Kernel.CompoundValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.Communications.Signal type = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.Communications.Signal type =  null;
+    
+	// Operations of the class
+  /**
    * operation getTypes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-	 		 	 			// Return the single type of this signal instance.
+// Return the single type of this signal instance.
 
 ClassifierList types = new ClassifierList();
 
 types.addValue(this.type);
 
 return types;
+	  } // getTypes
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new signal instance with no type or feature values.
+// Create a new signal instance with no type or feature values.
 
-return new SignalInstance();
-								    			  }
-	
-	  /**
+return new SignalInstance();	  } // new_
+
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new signal instance with the same type and feature values as this signal instance.
+// Create a new signal instance with the same type and feature values as this signal instance.
 
 SignalInstance newValue = (SignalInstance)(super.copy());
 
 newValue.type = this.type;
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
 } //SignalInstance

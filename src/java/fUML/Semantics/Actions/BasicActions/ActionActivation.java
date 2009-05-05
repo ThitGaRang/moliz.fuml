@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.*;
+import java.util.*;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +63,7 @@ import fUML.Semantics.Loci.*;
 	 *   <li>{@link ActionActivation#putToken <em>putToken</em>}</li>
 	 *   <li>{@link ActionActivation#putTokens <em>putTokens</em>}</li>
 	 *   <li>{@link ActionActivation#getTokens <em>getTokens</em>}</li>
+	 *   <li>{@link ActionActivation#takeTokens <em>takeTokens</em>}</li>
 	 *   <li>{@link ActionActivation#isSourceFor <em>isSourceFor</em>}</li>
 	 *   <li>{@link ActionActivation#valueParticipatesInLink <em>valueParticipatesInLink</em>}</li>
 	 *   <li>{@link ActionActivation#makeBooleanValue <em>makeBooleanValue</em>}</li>
@@ -74,39 +74,35 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class ActionActivation    extends fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Actions.BasicActions.PinActivationList pinActivations = 	new fUML.Semantics.Actions.BasicActions.PinActivationList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Actions.BasicActions.PinActivationList pinActivations = new fUML.Semantics.Actions.BasicActions.PinActivationList();
+    
+	// Operations of the class
+  /**
    * operation run
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void run()   {
-	 		 	 			// Run this action activation and any outoging fork node attached to it.
+// Run this action activation and any outoging fork node attached to it.
 
 super.run();
 
 if (this.outgoingEdges.size() > 0) {
     this.outgoingEdges.getValue(0).target.run();
-}
-								    			  }
-	
-	  /**
+}	  } // run
+
+  /**
    * operation takeOfferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.TokenList takeOfferedTokens()   {
-	 		 	 			// Take any incoming offers of control tokens, then concurrently fire all input pin activations.
+// Take any incoming offers of control tokens, then concurrently fire all input pin activations.
 
 ActivityEdgeInstanceList incomingEdges = this.incomingEdges;
 for (int i = 0; i < incomingEdges.size(); i++) {
@@ -131,60 +127,66 @@ for (Iterator i = inputPins.iterator(); i.hasNext();) {
 }
 
 return new TokenList();
+	  } // takeOfferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Do the main action behavior then oncurrently fire all output pin activations and offer a single control token.
+// Do the main action behavior then oncurrently fire all output pin activations and offer a single control token.
 
 Debug.println("[fire] Action " + this.node.name + "...");
 
 this.doAction();
 this.sendOffers();
 
-// Activate the action again, if prerequisites are still satisfied (i.e., when tokens have been left on input pins).
+// Activate the action again, if tokens have been left on input pins and the action has no incoming control flows.
 Debug.println("[fire] Checking if " + this.node.name + " should fire again...");
-if (((Action)(this.node)).input.size() > 0) {
-    this.receiveOffer();
+if (((Action)(this.node)).input.size() > 0 & this.node.incoming.size() == 0) {
+
+    boolean fireAgain = true;
+    InputPinList inputPins = ((Action)(this.node)).input;
+    int j = 1;
+    while (fireAgain & j <= inputPins.size()) {
+        PinActivation inputPinActivation = this.getPinActivation(inputPins.getValue(j-1));
+        fireAgain = inputPinActivation.isReady() & inputPinActivation.countUnofferedTokens() > 0;
+        j = j + 1;
+    }
+
+    if (fireAgain) {
+        this.fire(new TokenList());
+    }
 }
 
+	  } // fire
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate this action activation and any outgoing fork node attached to it.
+// Terminate this action activation and any outgoing fork node attached to it.
 
 super.terminate();
 
 if (this.outgoingEdges.size() > 0) {
     this.outgoingEdges.getValue(0).target.terminate();
 }
+	  } // terminate
 
-								    			  }
-	
-	  /**
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// In addition to the default condition, check that the sources of all incoming edges (control flows) have offers and all input pin activations are ready.
+// In addition to the default condition, check that the sources of all incoming edges (control flows) have offers and all input pin activations are ready.
 // [This assumes that all edges directly incoming to the action are control flows.]
 
 boolean ready = super.isReady();
@@ -203,26 +205,22 @@ while (ready & j <= inputPins.size()) {
 }
 
 return ready;
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void doAction()  ;
-	  /**
+	public  abstract    void doAction()  ;  /**
    * operation sendOffers
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void sendOffers()   {
-	 		 	 			// Fire all output pins and send offers on all outgoing control flows.
+// Fire all output pins and send offers on all outgoing control flows.
 
 Action action = (Action)(this.node);
 
@@ -241,18 +239,16 @@ if (this.outgoingEdges.size() > 0) {
     this.addTokens(tokens);
     this.outgoingEdges.getValue(0).sendOffer(tokens);
 }
+	  } // sendOffers
 
-								    			  }
-	
-	  /**
+  /**
    * operation createNodeActivations
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createNodeActivations()   {
-	 		 	 			// Create node activations for the input and output pins of the action for this activation.
+// Create node activations for the input and output pins of the action for this activation.
 // [Note: Pins are owned by their actions, not by the enclosing activity (or group), so they must be activated through the action activation.]
 
 Action action = (Action)(this.node);
@@ -284,22 +280,20 @@ for (int i = 0; i < outputPinNodes.size(); i++) {
     ActivityNode node = outputPinNodes.getValue(i);
     this.addPinActivation((PinActivation)(this.group.getNodeActivation(node)));
 }
+	  } // createNodeActivations
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOutgoingEdge
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOutgoingEdge(fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstance edge)   {
-	 		 	 			// If there are no outgoing activity edge instances, create a single activity edge instance with a fork node execution at the other end.
+// If there are no outgoing activity edge instances, create a single activity edge instance with a fork node execution at the other end.
 // Add the give edge to the fork node execution that is the target of the activity edge instance out of this action execution.
 // [This assumes that all edges directly outgoing from the action are control flows, with an implicit fork for offers out of the action.]
 
-ActivityNodeActivation forkNodeActivation = null;
+ActivityNodeActivation forkNodeActivation;
 
 if (this.outgoingEdges.size() == 0) {
     forkNodeActivation = new ForkNodeActivation();
@@ -312,33 +306,29 @@ else {
 }
 
 forkNodeActivation.addOutgoingEdge(edge);
+	  } // addOutgoingEdge
 
-								    			  }
-	
-	  /**
+  /**
    * operation addPinActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addPinActivation(fUML.Semantics.Actions.BasicActions.PinActivation pinActivation)   {
-	 		 	 			// Add a pin activation to this action activation.
+// Add a pin activation to this action activation.
 
 this.pinActivations.addValue(pinActivation);
 pinActivation.actionActivation = this;
+	  } // addPinActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation getPinActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Actions.BasicActions.PinActivation getPinActivation(fUML.Syntax.Actions.BasicActions.Pin pin)   {
-	 		 	 			// Precondition: The given pin is owned by the action of the action activation.
+// Precondition: The given pin is owned by the action of the action activation.
 // Return the pin activation corresponding to the given pin.
 
 PinActivation pinActivation = null;
@@ -353,18 +343,16 @@ while (pinActivation == null & i <= this.pinActivations.size()) {
 
 return pinActivation;
 
+	  } // getPinActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation putToken
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void putToken(fUML.Syntax.Actions.BasicActions.OutputPin pin, fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 			 	 			// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
+// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
 // Place a token for the given value on the pin activation corresponding to the given output pin.
 
 Debug.println("[putToken] node = " + this.node.name);
@@ -374,18 +362,16 @@ token.value = value;
 PinActivation pinActivation = this.getPinActivation(pin);
 pinActivation.addToken(token);
 
+	  } // putToken
 
-								    			  }
-	
-	  /**
+  /**
    * operation putTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void putTokens(fUML.Syntax.Actions.BasicActions.OutputPin pin, fUML.Semantics.Classes.Kernel.ValueList values)   {
-	 		 	 			// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
+// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
 // Place tokens for the given values on the pin activation corresponding to the given output pin.
 
 // Debug.println("[putTokens] node = " + this.node.name);
@@ -395,24 +381,23 @@ for (int i = 0; i < values.size(); i++) {
     this.putToken(pin, value);
 }
 
+	  } // putTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation getTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.ValueList getTokens(fUML.Syntax.Actions.BasicActions.InputPin pin)   {
-	 		 	 			// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
-// Take any tokens held by the pin activation corresponding to the given input pin and return them.
+// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
+// Get any tokens held by the pin activation corresponding to the given input pin and return them 
+// (but leave the tokens on the pin).
 
-Debug.println("[getTokens] node = " + this.node.name);
+Debug.println("[getTokens] node = " + this.node.name + ", pin = " + pin.name);
 
 PinActivation pinActivation = this.getPinActivation(pin);
-TokenList tokens = pinActivation.takeTokens();
+TokenList tokens = pinActivation.getUnofferedTokens();
 
 ValueList values = new ValueList();
 for (int i = 0; i < tokens.size(); i++) {
@@ -424,18 +409,43 @@ for (int i = 0; i < tokens.size(); i++) {
 }
 
 return values;
+	  } // getTokens
 
-								    			  }
-	
-	  /**
+  /**
+   * operation takeTokens
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+	public     fUML.Semantics.Classes.Kernel.ValueList takeTokens(fUML.Syntax.Actions.BasicActions.InputPin pin)   {
+// Precondition: The action execution has fired and the given pin is owned by the action of the action execution.
+// Take any tokens held by the pin activation corresponding to the given input pin and return them.
+
+Debug.println("[takeTokens] node = " + this.node.name + ", pin = " + pin.name);
+
+PinActivation pinActivation = this.getPinActivation(pin);
+TokenList tokens = pinActivation.takeUnofferedTokens();
+
+ValueList values = new ValueList();
+for (int i = 0; i < tokens.size(); i++) {
+    Token token = tokens.getValue(i);
+    Value value = ((ObjectToken)token).value;
+    if (value != null) {
+        values.addValue(value);
+    }
+}
+
+return values;
+	  } // takeTokens
+
+  /**
    * operation isSourceFor
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isSourceFor(fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstance edgeInstance)   {
-	 		 	 			// If this action has an outgoing fork node, check that the fork node is the source of the given edge instance.
+// If this action has an outgoing fork node, check that the fork node is the source of the given edge instance.
 
 boolean isSource = false;
 if (this.outgoingEdges.size() > 0) {
@@ -443,18 +453,16 @@ if (this.outgoingEdges.size() > 0) {
 }
 
 return isSource;
+	  } // isSourceFor
 
-								    			  }
-	
-	  /**
+  /**
    * operation valueParticipatesInLink
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean valueParticipatesInLink(fUML.Semantics.Classes.Kernel.Value value, fUML.Semantics.Classes.Kernel.Link link)   {
-	 		 	 			// Test if the given value participates in the given link.
+// Test if the given value participates in the given link.
 
 FeatureValueList linkFeatureValues = link.getFeatureValues();
 
@@ -466,24 +474,21 @@ while (!participates & i <= linkFeatureValues.size()) {
 }
 
 return participates;
+	  } // valueParticipatesInLink
 
-								    			  }
-	
-	  /**
+  /**
    * operation makeBooleanValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.BooleanValue makeBooleanValue(boolean value)   {
-	 		 	 			// Make a Boolean value using the built-in Boolean primitive type.
+// Make a Boolean value using the built-in Boolean primitive type.
 // [This ensures that Boolean values created internally are the same as the default used for evaluating Boolean literals.]
 
 LiteralBoolean booleanLiteral = new LiteralBoolean();
 booleanLiteral.value = value;
 return (BooleanValue)(this.getExecutionLocus().executor.evaluate(booleanLiteral));
+	  } // makeBooleanValue
 
-								    			  }
-	
 } //ActionActivation

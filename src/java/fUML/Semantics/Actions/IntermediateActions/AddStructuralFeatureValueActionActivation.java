@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		 	 				    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,32 +54,30 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class AddStructuralFeatureValueActionActivation    extends fUML.Semantics.Actions.IntermediateActions.WriteStructuralFeatureActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value of the object input pin. If it is not a structural value, do nothing. Otherwise do the following.
+// Get the value of the object input pin. If it is not a structural value, do nothing. Otherwise do the following.
 // Get the value on the value input pin.
 // If isReplaceAll is true, set the appropriate feature of the input object to the input values.
 // Otherwise, get the current values of the feature and insert the input value at the position given by the value of the insertAt pin.
 
 AddStructuralFeatureValueAction action = (AddStructuralFeatureValueAction)(this.node);
 
-Value value = this.getTokens(action.object).getValue(0);
+Value value = this.takeTokens(action.object).getValue(0);
 
 if (value instanceof StructuredValue) {
     StructuredValue structuredValue = (StructuredValue)value;
-    ValueList inputValues = this.getTokens(action.value);
+    ValueList inputValues = this.takeTokens(action.value);
             
     if (action.isReplaceAll) {
         structuredValue.setFeatureValue(action.structuralFeature, inputValues, 0);
@@ -93,7 +90,7 @@ if (value instanceof StructuredValue) {
                 // *** If there is no insertAt pin, then the structural feature must be unordered, and the insertion position is immaterial. ***
                 insertAt = ((ChoiceStrategy)this.getExecutionLocus().factory.getStrategy("choice")).choose(featureValue.values.size());
             } else {
-                insertAt = ((UnlimitedNaturalValue)this.getTokens(action.insertAt).getValue(0)).value.naturalValue;
+                insertAt = ((UnlimitedNaturalValue)this.takeTokens(action.insertAt).getValue(0)).value.naturalValue;
             }
         }
 
@@ -118,10 +115,11 @@ if (value instanceof StructuredValue) {
         }
     }
 
-   this.putToken(action.result, value);
+    if (action.result != null) {
+        this.putToken(action.result, value);
+    }
 }
 
+	  } // doAction
 
-								    			  }
-	
 } //AddStructuralFeatureValueActionActivation

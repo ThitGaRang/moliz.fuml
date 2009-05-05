@@ -23,9 +23,8 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -42,21 +41,19 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class IntegerFunctionBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)   {
-	 		 	 			// Extract integer arguments and perform an integer function on them.
+// Extract integer arguments and perform an integer function on them.
 
 intList integerArguments = new intList();
 
@@ -76,15 +73,12 @@ values.addValue(result);
 outputParameters.getValue(0).values = values;
 
 
+	  } // doBody
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation doIntegerFunction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   int doIntegerFunction(UMLPrimitiveTypes.intList arguments)  ;
-} //IntegerFunctionBehaviorExecution
+	public  abstract   int doIntegerFunction(UMLPrimitiveTypes.intList arguments)  ;} //IntegerFunctionBehaviorExecution

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -43,37 +43,32 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Generalization    extends fUML.Syntax.Classes.Kernel.Element    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isSubstitutable = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.Classifier specific = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Classifier general = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isSubstitutable = false;
+	public   fUML.Syntax.Classes.Kernel.Classifier specific =  null;
+	public   fUML.Syntax.Classes.Kernel.Classifier general =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsSubstitutable
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsSubstitutable(boolean isSubstitutable)   {
-	 		 	 			this.isSubstitutable = isSubstitutable;
+this.isSubstitutable = isSubstitutable;
+	  } // setIsSubstitutable
 
-								    			  }
-	
-	  /**
+  /**
    * operation setGeneral
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setGeneral(fUML.Syntax.Classes.Kernel.Classifier general)   {
-	 		 	 			this.general = general;
+this.general = general;
+	  } // setGeneral
 
-								    			  }
-	
 } //Generalization

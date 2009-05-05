@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -49,37 +49,32 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class PipeInputChannelObject    extends fUML.Library.ChannelImplementation.InputChannelObject    {
- 	    
+    
 	// Attributes
- 	 		private   fUML.Semantics.Classes.Kernel.ValueList values = 	new fUML.Semantics.Classes.Kernel.ValueList()	;
-	 		private   boolean opened = 	false	;
-	 		private   String name = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	private   fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
+	private   boolean opened = false;
+	private   String name = "";
+    
+	// Operations of the class
+  /**
    * operation hasMore
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean hasMore()   {
-	 		 	 			return this.isOpen() && !(this.values.size() == 0);
+return this.isOpen() && !(this.values.size() == 0);
+	  } // hasMore
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation read
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value read()   {
-	 		 	 			if (this.hasMore()) {
+if (this.hasMore()) {
     fUML.Semantics.Classes.Kernel.Value value = this.values.getValue(0);
     this.values.remove(0);
     return value;
@@ -87,80 +82,67 @@ public   class PipeInputChannelObject    extends fUML.Library.ChannelImplementat
 else {
     return null;
 }
+	  } // read
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation receive
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void receive(fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			this.values.addValue(value);
+this.values.addValue(value);
 
 
+	  } // receive
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation open
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void open()   {
-	 		 	 			opened = true;
-								     				    			  }
-	
-	  /**
+opened = true;	  } // open
+
+  /**
    * operation close
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void close()   {
-	 		 	 			opened = false;
+opened = false;
+	  } // close
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation isOpen
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isOpen()   {
-	 		 	 			return opened;
+return opened;
+	  } // isOpen
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			return name;
-								     				    			  }
-	
-	  /**
+return name;	  } // getName
+
+  /**
    * operation PipeInputChannelObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      PipeInputChannelObject(String name)   {
-	 		 	 			this.name = name;
+this.name = name;
 this.opened = true;
+	  } // PipeInputChannelObject
 
-								     				    			  }
-	
 } //PipeInputChannelObject

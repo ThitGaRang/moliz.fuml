@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,25 +44,23 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class NamedElement    extends fUML.Syntax.Classes.Kernel.Element    {
- 	    
+    
 	// Attributes
- 	 		public   String name = 	""	;
-	 		public   fUML.Syntax.Classes.Kernel.VisibilityKind visibility = 	 null	;
-	 		public   String qualifiedName = 	""	;
-	 		public   fUML.Syntax.Classes.Kernel.Namespace namespace = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   String name = "";
+	public   fUML.Syntax.Classes.Kernel.VisibilityKind visibility =  null;
+	public   String qualifiedName = "";
+	public   fUML.Syntax.Classes.Kernel.Namespace namespace =  null;
+    
+	// Operations of the class
+  /**
    * operation setName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setName(String name)   {
-	 		 	 			this.name = name;
+this.name = name;
 
 if (name != null) {
     if (this.namespace == null) {
@@ -72,19 +70,16 @@ if (name != null) {
     }
 }
 
-        
-								    			  }
-	
-	  /**
+        	  } // setName
+
+  /**
    * operation setVisibility
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setVisibility(fUML.Syntax.Classes.Kernel.VisibilityKind visibility)   {
-	 		 	 			this.visibility = visibility;
+this.visibility = visibility;
+	  } // setVisibility
 
-								    			  }
-	
 } //NamedElement

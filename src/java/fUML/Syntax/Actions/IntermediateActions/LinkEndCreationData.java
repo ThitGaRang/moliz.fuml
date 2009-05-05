@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LinkEndCreationData    extends fUML.Syntax.Actions.IntermediateActions.LinkEndData    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isReplaceAll = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin insertAt = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isReplaceAll = false;
+	public   fUML.Syntax.Actions.BasicActions.InputPin insertAt =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsReplaceAll
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReplaceAll(boolean isReplaceAll)   {
-	 		 	 			this.isReplaceAll = isReplaceAll;
+this.isReplaceAll = isReplaceAll;
+	  } // setIsReplaceAll
 
-								    			  }
-	
-	  /**
+  /**
    * operation setInsertAt
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setInsertAt(fUML.Syntax.Actions.BasicActions.InputPin insertAt)   {
-	 		 	 			this.insertAt = insertAt;
+this.insertAt = insertAt;
+	  } // setInsertAt
 
-								    			  }
-	
 } //LinkEndCreationData

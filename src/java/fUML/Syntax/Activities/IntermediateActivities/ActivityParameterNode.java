@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ActivityParameterNode    extends fUML.Syntax.Activities.IntermediateActivities.ObjectNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Parameter parameter = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.Parameter parameter =  null;
+    
+	// Operations of the class
+  /**
    * operation setParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setParameter(fUML.Syntax.Classes.Kernel.Parameter parameter)   {
-	 		 	 			this.parameter = parameter;
+this.parameter = parameter;
+	  } // setParameter
 
-								    			  }
-	
 } //ActivityParameterNode

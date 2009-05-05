@@ -45,4 +45,4 @@ public class GeneralizationList extends ArrayList<fUML.Syntax.Classes.Kernel.Gen
   public void removeValue(int i){
     remove(i);
   }
-} //Generalization
+} //GeneralizationList

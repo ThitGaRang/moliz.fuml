@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,38 +42,33 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class WriteStructuralFeatureAction    extends fUML.Syntax.Actions.IntermediateActions.StructuralFeatureAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.InputPin value = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPin result = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.InputPin value =  null;
+	public   fUML.Syntax.Actions.BasicActions.OutputPin result =  null;
+    
+	// Operations of the class
+  /**
    * operation setResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result = result;
+	  } // setResult
 
-								    			  }
-	
-	  /**
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(fUML.Syntax.Actions.BasicActions.InputPin value)   {
-	 		 	 			super.addInput(value);
+super.addInput(value);
 this.value = value;
+	  } // setValue
 
-								    			  }
-	
 } //WriteStructuralFeatureAction

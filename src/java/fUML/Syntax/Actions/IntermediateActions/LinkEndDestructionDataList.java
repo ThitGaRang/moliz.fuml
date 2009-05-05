@@ -45,4 +45,4 @@ public class LinkEndDestructionDataList extends ArrayList<fUML.Syntax.Actions.In
   public void removeValue(int i){
     remove(i);
   }
-} //LinkEndDestructionData
+} //LinkEndDestructionDataList

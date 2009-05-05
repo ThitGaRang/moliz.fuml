@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -37,7 +37,6 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -54,32 +53,28 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class PinActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Actions.BasicActions.ActionActivation actionActivation = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Actions.BasicActions.ActionActivation actionActivation =  null;
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Take tokens from all incoming edges.
+// Add all incoming tokens to the pin.
 // [Note that a pin will consume all tokens offered to it, even if this is more than the multiplicity upper bound, but will only offer tokens up to that upper bound.]
 
 Debug.println("[fire] Pin " + this.node.name + "...");
 
 this.addTokens(incomingTokens);
-this.sendUnofferedTokens();
 
 
 
-								    			  }
-	
+	  } // fire
+
 } //PinActivation

@@ -37,7 +37,6 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   enum VisibilityKind{
  			public_,
 			private_,

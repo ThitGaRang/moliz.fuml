@@ -37,7 +37,6 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   enum ExpansionKind{
  			parallel,
 			iterative,

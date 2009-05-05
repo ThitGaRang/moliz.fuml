@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -35,7 +35,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -63,26 +62,23 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ObjectActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.CommonBehaviors.Communications.ClassifierBehaviorExecutionList classifierBehaviorExecutions = 	new fUML.Semantics.CommonBehaviors.Communications.ClassifierBehaviorExecutionList()	;
-	 		public   fUML.Semantics.CommonBehaviors.Communications.EventAccepterList waitingEventAccepters = 	new fUML.Semantics.CommonBehaviors.Communications.EventAccepterList()	;
-	 		public   fUML.Semantics.CommonBehaviors.Communications.SignalInstanceList eventPool = 	new fUML.Semantics.CommonBehaviors.Communications.SignalInstanceList()	;
-	 		public   fUML.Semantics.Classes.Kernel.Object_ object = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.CommonBehaviors.Communications.ClassifierBehaviorExecutionList classifierBehaviorExecutions = new fUML.Semantics.CommonBehaviors.Communications.ClassifierBehaviorExecutionList();
+	public   fUML.Semantics.CommonBehaviors.Communications.EventAccepterList waitingEventAccepters = new fUML.Semantics.CommonBehaviors.Communications.EventAccepterList();
+	public   fUML.Semantics.CommonBehaviors.Communications.SignalInstanceList eventPool = new fUML.Semantics.CommonBehaviors.Communications.SignalInstanceList();
+	public   fUML.Semantics.Classes.Kernel.Object_ object =  null;
+    
+	// Operations of the class
+  /**
    * operation startBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void startBehavior(fUML.Syntax.Classes.Kernel.Class_ classifier, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputs)   {
-	 		 	 			// Start the event dispatch loop for this object activation (if it has not already been started).
+// Start the event dispatch loop for this object activation (if it has not already been started).
 // If a classifier is given that is a type of the object of this object activation and there is not already a classifier behavior execution for it, 
 //     then create a classifier behavior execution for it.
 // Otherwise, create a classifier behavior execution for each of the types of the object of this object activation which has a classifier behavior or which is a behavior itself 
@@ -119,18 +115,16 @@ else {
         newExecution.execute(classifier, inputs);
     }
 }
+	  } // startBehavior
 
-								    			  }
-	
-	  /**
+  /**
    * operation stop
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void stop()   {
-	 		 	 			// Stop this object activation by terminating all classifier behavior executions.
+// Stop this object activation by terminating all classifier behavior executions.
 
 ClassifierBehaviorExecutionList classifierBehaviorExecutions = this.classifierBehaviorExecutions;
 for (int i = 0; i < classifierBehaviorExecutions.size(); i++) {
@@ -138,35 +132,31 @@ for (int i = 0; i < classifierBehaviorExecutions.size(); i++) {
     classifierBehaviorExecution.terminate();
 }
 
+	  } // stop
 
-								    			  }
-	
-	  /**
+  /**
    * operation register
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void register(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter)   {
-	 		 	 			// Register the given event accepter to wait for a dispatched signal event.
+// Register the given event accepter to wait for a dispatched signal event.
 
 Debug.println("[register] object = " + this.object);
 Debug.println("[register] accepter = " + accepter);
 
 this.waitingEventAccepters.addValue(accepter);
+	  } // register
 
-								    			  }
-	
-	  /**
+  /**
    * operation unregister
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void unregister(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter)   {
-	 		 	 			// Remove the given event accepter for the list of waiting event accepters.
+// Remove the given event accepter for the list of waiting event accepters.
 
 Debug.println("[unregister] object = " + this.object);
 Debug.println("[unregister] accepter = " + accepter);
@@ -181,35 +171,31 @@ while (notFound & i <= this.waitingEventAccepters.size()) {
     i = i + 1;
 }
 
+	  } // unregister
 
-								    			  }
-	
-	  /**
+  /**
    * operation send
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void send(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-	 		 	 			// Add the given signal instance to the event pool and signal that a new signal instance has arrived.
+// Add the given signal instance to the event pool and signal that a new signal instance has arrived.
 
 this.eventPool.addValue((SignalInstance)(signalInstance.copy()));
 _send(new ArrivalSignal());
 
 
+	  } // send
 
-								    			  }
-	
-	  /**
+  /**
    * operation dispatchNextEvent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void dispatchNextEvent()   {
-	 		 	 			// Get the next signal instance out of the event pool.
+// Get the next signal instance out of the event pool.
 // If there is one or more waiting event accepters with triggers that match the signal instance, then dispatch it to exactly one of those waiting accepters.
 
 if (this.eventPool.size() > 0) {
@@ -234,49 +220,42 @@ if (this.eventPool.size() > 0) {
         selectedEventAccepter.accept(signalInstance);
     }
 }
+	  } // dispatchNextEvent
 
-								    			  }
-	
-	  /**
+  /**
    * operation getNextEvent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent()   {
-	 		 	 			// Get the next event from the event pool, using a get next event strategy.
+// Get the next event from the event pool, using a get next event strategy.
 
 return ((GetNextEventStrategy)this.object.locus.factory.getStrategy("getNextEvent")).getNextEvent(this);
+	  } // getNextEvent
 
-								    			  }
-	
-	  /**
+  /**
    * operation _startObjectBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void _startObjectBehavior()   {
-	 		 	 			// *** This should start the EventDispatchLoop ***
+// *** This should start the EventDispatchLoop ***
 
-return;
-								    			  }
-	
-	  /**
+return;	  } // _startObjectBehavior
+
+  /**
    * operation _send
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void _send(fUML.Semantics.CommonBehaviors.Communications.ArrivalSignal signal)   {
-	 		 	 			// Signal the arrival of a new signal instance in the event pool.
+// Signal the arrival of a new signal instance in the event pool.
 
 // *** This should send an ArrivalSignal to the EventDispatchLoop to do the following asynchronously. ***
 this.dispatchNextEvent();
+	  } // _send
 
-								    			  }
-	
 } //ObjectActivation

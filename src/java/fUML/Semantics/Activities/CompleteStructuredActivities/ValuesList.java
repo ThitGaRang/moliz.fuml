@@ -45,4 +45,4 @@ public class ValuesList extends ArrayList<fUML.Semantics.Activities.CompleteStru
   public void removeValue(int i){
     remove(i);
   }
-} //Values
+} //ValuesList

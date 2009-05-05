@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,45 +54,39 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class EnumerationValue    extends fUML.Semantics.Classes.Kernel.Value    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.EnumerationLiteral literal = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.Enumeration type = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.EnumerationLiteral literal =  null;
+	public   fUML.Syntax.Classes.Kernel.Enumeration type =  null;
+    
+	// Operations of the class
+  /**
    * operation specify
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
-	 		 	 			// Return an instance value with literal as the instance.
+// Return an instance value with literal as the instance.
 
 InstanceValue instanceValue = new InstanceValue();
 InstanceSpecification instance = new InstanceSpecification();
 
 instanceValue.type = this.type;
-instanceValue.instance = literal;
+instanceValue.instance = this.literal;
 
 return instanceValue;
+	  } // specify
 
-								    			  }
-	
-	  /**
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
-	 		 	 			// Test if this enumeration value is equal to the otherValue. 
+// Test if this enumeration value is equal to the otherValue. 
 // To be equal, the otherValue must also be an enumeration value with the same literal as this enumeration value.
 
 boolean isEqual = false;
@@ -102,18 +95,16 @@ if (otherValue instanceof EnumerationValue) {
 }
 
 return isEqual;
+	  } // equals
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new enumeration value with the same literal as this enumeration value.
+// Create a new enumeration value with the same literal as this enumeration value.
 
 EnumerationValue newValue = (EnumerationValue)(super.copy());
 
@@ -121,50 +112,43 @@ newValue.type = this.type;
 newValue.literal = this.literal;
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new enumeration value with no literal.
+// Create a new enumeration value with no literal.
 
 return new EnumerationValue();
+	  } // new_
 
-								    			  }
-	
-	  /**
+  /**
    * operation getTypes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-	 		 	 			// Return the single type of this enumeration value.
+// Return the single type of this enumeration value.
 
 ClassifierList types = new ClassifierList();
 types.addValue(this.type);
 
 return types;
+	  } // getTypes
 
-								    			  }
-	
-	  /**
+  /**
    * operation toString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String toString()   {
-	 		 	 			return literal.name;
+return literal.name;
+	  } // toString
 
-								    			  }
-	
 } //EnumerationValue

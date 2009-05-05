@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,25 +40,22 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class StartObjectBehaviorAction    extends fUML.Syntax.Actions.BasicActions.CallAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.InputPin object = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.InputPin object =  null;
+    
+	// Operations of the class
+  /**
    * operation setObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setObject(fUML.Syntax.Actions.BasicActions.InputPin object)   {
-	 		 	 			super.addInput(object);
+super.addInput(object);
 this.object = object;
 
+	  } // setObject
 
-								    			  }
-	
 } //StartObjectBehaviorAction

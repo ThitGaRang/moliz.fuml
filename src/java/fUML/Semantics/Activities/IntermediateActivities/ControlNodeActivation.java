@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,28 +51,25 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class ControlNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// By default, offer all tokens on all outgoing edges.
+// By default, offer all tokens on all outgoing edges.
 
 if (this.node != null) {
     Debug.println("[fire] Control node " + this.node.name + "...");
 }
 
 this.sendOffers(incomingTokens);
+	  } // fire
 
-								    			  }
-	
 } //ControlNodeActivation

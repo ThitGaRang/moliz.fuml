@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,34 +40,29 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class SemanticVisitor    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation _endIsolation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public    static  void _endIsolation()   {
-	 		 	 			Debug.println("[_endIsolation] End isolation.");
+Debug.println("[_endIsolation] End isolation.");
+	  } // _endIsolation
 
-								    			  }
-	
-	  /**
+  /**
    * operation _beginIsolation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public    static  void _beginIsolation()   {
-	 		 	 			Debug.println("[_beginIsolation] Begin isolation.");
+Debug.println("[_beginIsolation] Begin isolation.");
+	  } // _beginIsolation
 
-								    			  }
-	
 } //SemanticVisitor

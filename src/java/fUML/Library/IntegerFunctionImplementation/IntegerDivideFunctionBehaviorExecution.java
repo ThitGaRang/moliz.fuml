@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,38 +40,33 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class IntegerDivideFunctionBehaviorExecution    extends fUML.Library.IntegerFunctionImplementation.IntegerFunctionBehaviorExecution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doIntegerFunction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int doIntegerFunction(UMLPrimitiveTypes.intList arguments)   {
-	 		 	 			// Compute the integer divide function.
+// Compute the integer divide function.
 
 return arguments.getValue(0) / arguments.getValue(1);
+	  } // doIntegerFunction
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new instance of this kind of function behavior execution.
+// Create a new instance of this kind of function behavior execution.
 
 return new IntegerDivideFunctionBehaviorExecution();
+	  } // new_
 
-								     				    			  }
-	
 } //IntegerDivideFunctionBehaviorExecution

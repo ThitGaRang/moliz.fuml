@@ -45,4 +45,4 @@ public class PrimitiveTypeList extends ArrayList<fUML.Syntax.Classes.Kernel.Prim
   public void removeValue(int i){
     remove(i);
   }
-} //PrimitiveType
+} //PrimitiveTypeList

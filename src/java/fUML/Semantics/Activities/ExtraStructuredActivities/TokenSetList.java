@@ -45,4 +45,4 @@ public class TokenSetList extends ArrayList<fUML.Semantics.Activities.ExtraStruc
   public void removeValue(int i){
     remove(i);
   }
-} //TokenSet
+} //TokenSetList

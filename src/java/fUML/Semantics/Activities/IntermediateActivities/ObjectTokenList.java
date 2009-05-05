@@ -45,4 +45,4 @@ public class ObjectTokenList extends ArrayList<fUML.Semantics.Activities.Interme
   public void removeValue(int i){
     remove(i);
   }
-} //ObjectToken
+} //ObjectTokenList

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +38,9 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class PackageableElement    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //PackageableElement

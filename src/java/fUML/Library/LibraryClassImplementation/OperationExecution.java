@@ -23,13 +23,12 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.Classes.Kernel.*;
+import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,21 +51,19 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public   class OperationExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation set
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void set(fUML.Library.LibraryClassImplementation.ImplementationObject context, fUML.Syntax.Classes.Kernel.Operation operation)   {
-	 		 	 			this.context = context;
+this.context = context;
 
 OpaqueBehavior method = new OpaqueBehavior();
 method.specification = operation;
@@ -82,53 +79,45 @@ for (int i = 0; i < operation.ownedParameter.size(); i++) {
 }
 
 this.types.addValue(method);
+	  } // set
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			return (Value)(new OperationExecution());
+return (Value)(new OperationExecution());
+	  } // new_
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute()   {
-	 		 	 			((ImplementationObject)(this.context)).execute(this);
+((ImplementationObject)(this.context)).execute(this);
+	  } // execute
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getOperationName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getOperationName()   {
-	 		 	 			return this.getBehavior().specification.name;
-								     				    			  }
-	
-	  /**
+return this.getBehavior().specification.name;	  } // getOperationName
+
+  /**
    * operation getParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.Parameter getParameter(String parameterName)   {
-	 		 	 			// MexSystem.println("[getParameter] parameterName = " + parameterName);
+// MexSystem.println("[getParameter] parameterName = " + parameterName);
 
 Behavior method = this.getBehavior();
 
@@ -142,48 +131,41 @@ for (int i = 0; i < method.ownedParameter.size(); i++) {
 
 // MexSystem.println("[getParameter] Parameter not found.");
 return null;
+	  } // getParameter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getParameterValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue getParameterValue(String parameterName)   {
-	 		 	 			return this.getParameterValue(this.getParameter(parameterName));
-								     				    			  }
-	
-	  /**
+return this.getParameterValue(this.getParameter(parameterName));	  } // getParameterValue
+
+  /**
    * operation setParameterValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setParameterValue(String parameterName, fUML.Semantics.Classes.Kernel.ValueList values)   {
-	 		 	 			ParameterValue parameterValue = new ParameterValue();
+ParameterValue parameterValue = new ParameterValue();
 parameterValue.parameter = this.getParameter(parameterName);
 parameterValue.values = values;
 
 this.setParameterValue(parameterValue);
+	  } // setParameterValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setParameterValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setParameterValue(String parameterName, fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			ValueList valueList = new ValueList();
+ValueList valueList = new ValueList();
 valueList.addValue(value);
 this.setParameterValue(parameterName, valueList);
+	  } // setParameterValue
 
-								     				    			  }
-	
 } //OperationExecution

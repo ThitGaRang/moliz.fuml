@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,49 +44,42 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ExpansionRegion    extends fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionKind mode = 	fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionKind.iterative	;
-	 		public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList outputElement = 	new fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList()	;
-	 		public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList inputElement = 	new fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionKind mode = fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionKind.iterative;
+	public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList outputElement = new fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList();
+	public   fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList inputElement = new fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNodeList();
+    
+	// Operations of the class
+  /**
    * operation setMode
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setMode(fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionKind mode)   {
-	 		 	 			this.mode = mode;
+this.mode = mode;
+	  } // setMode
 
-								    			  }
-	
-	  /**
+  /**
    * operation addInputElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addInputElement(fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNode inputElement)   {
-	 		 	 			this.inputElement.addValue(inputElement);
-inputElement.regionAsInput = this;
-								    			  }
-	
-	  /**
+this.inputElement.addValue(inputElement);
+inputElement.regionAsInput = this;	  } // addInputElement
+
+  /**
    * operation addOutputElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOutputElement(fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNode outputElement)   {
-	 		 	 			this.outputElement.addValue(outputElement);
-outputElement.regionAsOutput = this;
-								    			  }
-	
+this.outputElement.addValue(outputElement);
+outputElement.regionAsOutput = this;	  } // addOutputElement
+
 } //ExpansionRegion

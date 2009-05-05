@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,21 +51,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class JoinNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// Check that all incoming edges have sources that are offering tokens.
+// Check that all incoming edges have sources that are offering tokens.
 
 boolean ready = true;
 int i = 1;
@@ -76,7 +73,6 @@ while (ready & i <=this.incomingEdges.size()) {
 }
 
 return ready;
+	  } // isReady
 
-								    			  }
-	
 } //JoinNodeActivation

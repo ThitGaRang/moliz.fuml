@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,52 +45,45 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class BehavioralFeature    extends fUML.Syntax.Classes.Kernel.Feature    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = 	new fUML.Syntax.Classes.Kernel.ParameterList()	;
-	 		public   boolean isAbstract = 	false	;
-	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList method = 	new fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList()	;
-	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.CallConcurrencyKind concurrency = 	fUML.Syntax.CommonBehaviors.BasicBehaviors.CallConcurrencyKind.sequential	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = new fUML.Syntax.Classes.Kernel.ParameterList();
+	public   boolean isAbstract = false;
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList method = new fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList();
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.CallConcurrencyKind concurrency = fUML.Syntax.CommonBehaviors.BasicBehaviors.CallConcurrencyKind.sequential;
+    
+	// Operations of the class
+  /**
    * operation setIsAbstract
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsAbstract(boolean isAbstract)   {
-	 		 	 			this.isAbstract = isAbstract;
+this.isAbstract = isAbstract;
+	  } // setIsAbstract
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOwnedParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedParameter(fUML.Syntax.Classes.Kernel.Parameter ownedParameter)   {
-	 		 	 			// this.addOwnedMember(ownedParameter);  [Note: BehavioralFeature is not a Namespace in fUML, to avoid multiple inheritance.]
+// this.addOwnedMember(ownedParameter);  [Note: BehavioralFeature is not a Namespace in fUML, to avoid multiple inheritance.]
 
 this.ownedParameter.addValue(ownedParameter);
+	  } // addOwnedParameter
 
-								    			  }
-	
-	  /**
+  /**
    * operation addMethod
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addMethod(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior method)   {
-	 		 	 			method.specification = this;
-this.method.addValue(method);
-								    			  }
-	
+method.specification = this;
+this.method.addValue(method);	  } // addMethod
+
 } //BehavioralFeature

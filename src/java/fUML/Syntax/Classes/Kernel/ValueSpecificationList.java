@@ -45,4 +45,4 @@ public class ValueSpecificationList extends ArrayList<fUML.Syntax.Classes.Kernel
   public void removeValue(int i){
     remove(i);
   }
-} //ValueSpecification
+} //ValueSpecificationList

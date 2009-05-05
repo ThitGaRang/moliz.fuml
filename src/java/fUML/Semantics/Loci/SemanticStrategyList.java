@@ -45,4 +45,4 @@ public class SemanticStrategyList extends ArrayList<fUML.Semantics.Loci.Semantic
   public void removeValue(int i){
     remove(i);
   }
-} //SemanticStrategy
+} //SemanticStrategyList

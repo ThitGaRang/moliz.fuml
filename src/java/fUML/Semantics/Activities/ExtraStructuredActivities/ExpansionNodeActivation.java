@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Activities.CompleteStructuredActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -61,65 +60,57 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ExpansionNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Take tokens from all incoming edges.
+// Take tokens from all incoming edges.
 
 Debug.println("[fire] Expansion node " + this.node.name + "...");
 
 this.addTokens(incomingTokens);
 
+	  } // fire
 
-								    			  }
-	
-	  /**
+  /**
    * operation receiveOffer
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void receiveOffer()   {
-	 		 	 			// Forward the offer on to the expansion region.
+// Forward the offer on to the expansion region.
 
 this.getExpansionRegionActivation().receiveOffer();
+	  } // receiveOffer
 
-								    			  }
-	
-	  /**
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// An expansion node is always fired by its expansion region.
+// An expansion node is always fired by its expansion region.
 
-return false;
-								    			  }
-	
-	  /**
+return false;	  } // isReady
+
+  /**
    * operation countUnofferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int countUnofferedTokens()   {
-	 		 	 			// Count the number of tokens being offered to the expansion node.
+// Count the number of tokens being offered to the expansion node.
 
 int totalTokenCount = super.countUnofferedTokens();
 int i = 1;
@@ -129,18 +120,16 @@ while (i <= this.incomingEdges.size()) {
 }
 
 return totalTokenCount;
+	  } // countUnofferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation getExpansionRegionActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionRegionActivation getExpansionRegionActivation()   {
-	 		 	 			// Return the expansion region activation corresponding to this expansion node, in the context of the activity node activation group this expansion node activation is in.
+// Return the expansion region activation corresponding to this expansion node, in the context of the activity node activation group this expansion node activation is in.
 
 ExpansionNode node = (ExpansionNode)(this.node);
 
@@ -151,7 +140,6 @@ if (region == null) {
 
 return (ExpansionRegionActivation)(this.group.getNodeActivation(region));
 
+	  } // getExpansionRegionActivation
 
-								    			  }
-	
 } //ExpansionNodeActivation

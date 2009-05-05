@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class LinkAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endData = 	new fUML.Syntax.Actions.IntermediateActions.LinkEndDataList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPinList inputValue = 	new fUML.Syntax.Actions.BasicActions.InputPinList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endData = new fUML.Syntax.Actions.IntermediateActions.LinkEndDataList();
+	public   fUML.Syntax.Actions.BasicActions.InputPinList inputValue = new fUML.Syntax.Actions.BasicActions.InputPinList();
+    
+	// Operations of the class
+  /**
    * operation addEndData
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addEndData(fUML.Syntax.Actions.IntermediateActions.LinkEndData endData)   {
-	 		 	 			this.endData.addValue(endData);
-								    			  }
-	
-	  /**
+this.endData.addValue(endData);	  } // addEndData
+
+  /**
    * operation addInputValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addInputValue(fUML.Syntax.Actions.BasicActions.InputPin inputValue)   {
-	 		 	 			super.addInput(inputValue);
+super.addInput(inputValue);
 this.inputValue.addValue(inputValue);
+	  } // addInputValue
 
-								    			  }
-	
 } //LinkAction

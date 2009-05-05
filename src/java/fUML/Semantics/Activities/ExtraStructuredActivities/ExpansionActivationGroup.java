@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Activities.CompleteStructuredActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -61,26 +60,23 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ExpansionActivationGroup    extends fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList regionInputs = 	new fUML.Semantics.Actions.BasicActions.OutputPinActivationList()	;
-	 		public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList groupInputs = 	new fUML.Semantics.Actions.BasicActions.OutputPinActivationList()	;
-	 		public   fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionRegionActivation regionActivation = 	 null
-	;
-	 		public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList groupOutputs = 	new fUML.Semantics.Actions.BasicActions.OutputPinActivationList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList regionInputs = new fUML.Semantics.Actions.BasicActions.OutputPinActivationList();
+	public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList groupInputs = new fUML.Semantics.Actions.BasicActions.OutputPinActivationList();
+	public   fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionRegionActivation regionActivation =  null;
+	public   fUML.Semantics.Actions.BasicActions.OutputPinActivationList groupOutputs = new fUML.Semantics.Actions.BasicActions.OutputPinActivationList();
+    
+	// Operations of the class
+  /**
    * operation getNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation getNodeActivation(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			// If the given node is an input pin of the expansion region, then return the corresponding region-input output-pin activation.
+// If the given node is an input pin of the expansion region, then return the corresponding region-input output-pin activation.
 // If the given node is an input expansion node of the expansion region, then return the corresponding group-input output-pin activation.
 // If the given node is an output expansion node of the expansion region, then return the corresponding group-output output-pin activation.
 // Otherwise return the node activation from the activation group, as usual.
@@ -119,7 +115,6 @@ if (activation == null) {
 }
 
 return activation;
+	  } // getNodeActivation
 
-								    			  }
-	
 } //ExpansionActivationGroup

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,21 +54,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class WriteStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation position
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int position(fUML.Semantics.Classes.Kernel.Value value, fUML.Semantics.Classes.Kernel.ValueList list, int startAt)   {
-	 		 	 			// Return the position (counting from 1) of the first occurance of the given value in the given list at or after the starting index, or 0 if it is not found.
+// Return the position (counting from 1) of the first occurance of the given value in the given list at or after the starting index, or 0 if it is not found.
 
 boolean found = false;
 int i = startAt;
@@ -83,7 +80,6 @@ if (!found) {
 }
 
 return i - 1;
+	  } // position
 
-								    			  }
-	
 } //WriteStructuralFeatureActionActivation

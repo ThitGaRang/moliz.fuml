@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -43,39 +43,34 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Action    extends fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList output = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	 		public   fUML.Syntax.Classes.Kernel.Classifier context = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPinList input = 	new fUML.Syntax.Actions.BasicActions.InputPinList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList output = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+	public   fUML.Syntax.Classes.Kernel.Classifier context =  null;
+	public   fUML.Syntax.Actions.BasicActions.InputPinList input = new fUML.Syntax.Actions.BasicActions.InputPinList();
+    
+	// Operations of the class
+  /**
    * operation addInput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addInput(fUML.Syntax.Actions.BasicActions.InputPin input)   {
-	 		 	 			super.addOwnedElement(input);
+super.addOwnedElement(input);
 this.input.addValue(input);
+	  } // addInput
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOutput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addOutput(fUML.Syntax.Actions.BasicActions.OutputPin output)   {
-	 		 	 			super.addOwnedElement(output);
+super.addOwnedElement(output);
 this.output.addValue(output);
+	  } // addOutput
 
-								    			  }
-	
 } //Action

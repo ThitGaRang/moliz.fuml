@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Feature    extends fUML.Syntax.Classes.Kernel.RedefinableElement    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isStatic = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.ClassifierList featuringClassifier = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	    
-// Operations of the class
+	public   boolean isStatic = false;
+	public   fUML.Syntax.Classes.Kernel.ClassifierList featuringClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+    
+	// Operations of the class
 } //Feature

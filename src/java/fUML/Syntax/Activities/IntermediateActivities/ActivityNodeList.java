@@ -45,4 +45,4 @@ public class ActivityNodeList extends ArrayList<fUML.Syntax.Activities.Intermedi
   public void removeValue(int i){
     remove(i);
   }
-} //ActivityNode
+} //ActivityNodeList

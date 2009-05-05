@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -49,132 +49,111 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class StandardOutputChannelObject    extends fUML.Library.ChannelImplementation.TextOutputChannelObject    {
- 	    
+    
 	// Attributes
- 	 		private   boolean opened = 	false	;
-	    
-// Operations of the class
-	  /**
+	private   boolean opened = false;
+    
+	// Operations of the class
+  /**
    * operation writeLine
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeLine(String value)   {
-	 		 	 			this.writeString(value);
+this.writeString(value);
+	  } // writeLine
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			return "StandardOutput";
+return "StandardOutput";
+	  } // getName
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation open
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void open()   {
-	 		 	 			this.opened = true;
+this.opened = true;
+	  } // open
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation close
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void close()   {
-	 		 	 			this.opened = false;
+this.opened = false;
+	  } // close
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation isOpen
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isOpen()   {
-	 		 	 			return opened;
+return opened;
+	  } // isOpen
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation write
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void write(fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			this.writeString(value.toString());
-								     				    			  }
-	
-	  /**
+this.writeString(value.toString());	  } // write
+
+  /**
    * operation writeString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeString(String value)   {
-	 		 	 			if (this.isOpen()) {
+if (this.isOpen()) {
     Debug.println(">>>>>>>> " + value);
 }
 
+	  } // writeString
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation writeNewLine
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeNewLine()   {
-	 		 	 			this.writeLine("");
+this.writeLine("");
+	  } // writeNewLine
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			return (fUML.Semantics.Classes.Kernel.Value)(new StandardOutputChannelObject());
+return (fUML.Semantics.Classes.Kernel.Value)(new StandardOutputChannelObject());
+	  } // new_
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation isFull
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isFull()   {
-	 		 	 			return false;
-								     				    			  }
-	
+return false;	  } // isFull
+
 } //StandardOutputChannelObject

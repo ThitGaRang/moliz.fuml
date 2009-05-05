@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -31,7 +31,6 @@ import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -47,21 +46,19 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public   class InstanceValueEvaluation    extends fUML.Semantics.Classes.Kernel.Evaluation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation evaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value evaluate()   {
-	 		 	 			// If the instance specification is for an enumeration, then return the identified enumeration literal.
+// If the instance specification is for an enumeration, then return the identified enumeration literal.
 // If the instance specification is for a data type (but not a primitive value or an enumeration), then create a data value of the given data type.
 // If the instance specification is for an object, then create an object at the current locus with the specified types.
 // Set each feature of the created value to the result of evaluating the value specifications for the specified slot for the feature.
@@ -74,7 +71,7 @@ Classifier myType = types.getValue(0);
 
 Debug.println("[evaluate] type = " + myType.name);
 
-Value value = null;
+Value value;
 if (instance instanceof EnumerationLiteral) {
     // Debug.println("[evaluate] Type is an enumeration."); 
     EnumerationValue enumerationValue = new EnumerationValue();
@@ -98,7 +95,7 @@ else {
             object = this.locus.factory.createExecution((Behavior)myType, null);
         }
         else {
-            // Debug.println("[evaluate] Type is an class.");
+            // Debug.println("[evaluate] Type is a class.");
             object = new Object_();
             for (int i = 0; i < types.size(); i++) {
                 Classifier type = types.getValue(i);
@@ -136,7 +133,6 @@ else {
 }
 
 return value;
+	  } // evaluate
 
-								    			  }
-	
 } //InstanceValueEvaluation

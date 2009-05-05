@@ -45,4 +45,4 @@ public class VariableList extends ArrayList<fUML.Test.Variable>
   public void removeValue(int i){
     remove(i);
   }
-} //Variable
+} //VariableList

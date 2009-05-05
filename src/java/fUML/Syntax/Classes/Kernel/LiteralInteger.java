@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LiteralInteger    extends fUML.Syntax.Classes.Kernel.LiteralSpecification    {
- 	    
+    
 	// Attributes
- 	 		public   int value = 	0	;
-	    
-// Operations of the class
-	  /**
+	public   int value = 0;
+    
+	// Operations of the class
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(int value)   {
-	 		 	 			this.value = value;
+this.value = value;
+	  } // setValue
 
-								    			  }
-	
 } //LiteralInteger

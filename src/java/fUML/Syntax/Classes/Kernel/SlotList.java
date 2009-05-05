@@ -45,4 +45,4 @@ public class SlotList extends ArrayList<fUML.Syntax.Classes.Kernel.Slot>
   public void removeValue(int i){
     remove(i);
   }
-} //Slot
+} //SlotList

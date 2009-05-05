@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -50,38 +49,33 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class ExtensionalValue    extends fUML.Semantics.Classes.Kernel.CompoundValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Loci.Locus locus = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Loci.Locus locus =  null;
+    
+	// Operations of the class
+  /**
    * operation destroy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void destroy()   {
-	 		 	 			// Remove this value from its locus (if it has not already been destroyed).
+// Remove this value from its locus (if it has not already been destroyed).
 
 if (this.locus != null) {
     this.locus.remove(this);
-}
-								    			  }
-	
-	  /**
+}	  } // destroy
+
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new extensional value with the same feature values at the same locus as this one.
+// Create a new extensional value with the same feature values at the same locus as this one.
 
 ExtensionalValue newValue = (ExtensionalValue)(super.copy());
 
@@ -90,7 +84,6 @@ if (this.locus != null) {
 }
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
 } //ExtensionalValue

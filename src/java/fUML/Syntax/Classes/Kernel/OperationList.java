@@ -45,4 +45,4 @@ public class OperationList extends ArrayList<fUML.Syntax.Classes.Kernel.Operatio
   public void removeValue(int i){
     remove(i);
   }
-} //Operation
+} //OperationList

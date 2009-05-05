@@ -45,4 +45,4 @@ public class StructuredActivityNodeList extends ArrayList<fUML.Syntax.Activities
   public void removeValue(int i){
     remove(i);
   }
-} //StructuredActivityNode
+} //StructuredActivityNodeList

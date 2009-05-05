@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,40 +42,35 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class AddStructuralFeatureValueAction    extends fUML.Syntax.Actions.IntermediateActions.WriteStructuralFeatureAction    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isReplaceAll = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin insertAt = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isReplaceAll = false;
+	public   fUML.Syntax.Actions.BasicActions.InputPin insertAt =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsReplaceAll
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReplaceAll(boolean isReplaceAll)   {
-	 		 	 			this.isReplaceAll = isReplaceAll;
+this.isReplaceAll = isReplaceAll;
+	  } // setIsReplaceAll
 
-								    			  }
-	
-	  /**
+  /**
    * operation setInsertAt
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setInsertAt(fUML.Syntax.Actions.BasicActions.InputPin insertAt)   {
-	 		 	 			if (insertAt != null) {
+if (insertAt != null) {
     super.addInput(insertAt);
 }
 
 this.insertAt = insertAt;
+	  } // setInsertAt
 
-								    			  }
-	
 } //AddStructuralFeatureValueAction

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,24 +40,21 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Package    extends fUML.Syntax.Classes.Kernel.Namespace    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.PackageableElementList packageElement = 	new fUML.Syntax.Classes.Kernel.PackageableElementList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.PackageableElementList packageElement = new fUML.Syntax.Classes.Kernel.PackageableElementList();
+    
+	// Operations of the class
+  /**
    * operation addPackageElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addPackageElement(fUML.Syntax.Classes.Kernel.PackageableElement packageElement)   {
-	 		 	 			super.addOwnedMember(packageElement);
+super.addOwnedMember(packageElement);
 this.packageElement.addValue(packageElement);
+	  } // addPackageElement
 
-								    			  }
-	
 } //Package

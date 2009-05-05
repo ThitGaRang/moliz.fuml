@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -38,7 +38,6 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -63,23 +62,20 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class StructuredActivityNodeActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup activationGroup = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup activationGroup =  null;
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// If the structured activity node has mustIsolate=true, then carry out its behavior with isolation.
+// If the structured activity node has mustIsolate=true, then carry out its behavior with isolation.
 // Otherwise just activate it normally.
 
 if (((StructuredActivityNode)(this.node)).mustIsolate) {
@@ -90,65 +86,61 @@ if (((StructuredActivityNode)(this.node)).mustIsolate) {
     this.doStructuredActivity();
 }
 
+	  } // doAction
 
-								    			  }
-	
-	  /**
+  /**
    * operation doStructuredActivity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doStructuredActivity()   {
-	 		 	 			// Run all activations of contained nodes. When this is complete, return.
+// Run all activations of contained nodes. When this is complete, return.
 // (This is the default behavior for a structured activity node used simply as a group. It is overridden for the execution of conditional and loop nodes.)
 
 this.activationGroup.run(this.activationGroup.nodeActivations);
+	  } // doStructuredActivity
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate the execution of all contained node activations (which completes the performance of the structured activity node activation).
+// Terminate the execution of all contained node activations (which completes the performance of the structured activity node activation).
 
 this.activationGroup.terminateAll();
-super.terminate();
-								    			  }
-	
-	  /**
+super.terminate();	  } // terminate
+
+  /**
    * operation getNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation getNodeActivation(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			// If this structured activity node activation is not for the given node, then check if there is an activation for the node in the activation group.
+// If this structured activity node activation is not for the given node, then check if there is an activation for the node in the activation group.
 
-ActivityNodeActivation activation = super.getNodeActivation(node);
-if (activation == null) {
+ActivityNodeActivation thisActivation = super.getNodeActivation(node);
+
+ActivityNodeActivation activation;
+if (thisActivation != null) {
+    activation = thisActivation;
+} else {
     activation = this.activationGroup.getNodeActivation(node);
 }
 
-return activation;
-								    			  }
-	
-	  /**
+return activation;	  } // getNodeActivation
+
+  /**
    * operation makeActivityNodeList
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList makeActivityNodeList(fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList nodes)   {
-	 		 	 			// Return an activity node list containing the given list of executable nodes.
+// Return an activity node list containing the given list of executable nodes.
 
 ActivityNodeList activityNodes = new ActivityNodeList();
 
@@ -158,18 +150,16 @@ for (int i = 0; i < nodes.size(); i++) {
 }
 
 return activityNodes;
+	  } // makeActivityNodeList
 
-								    			  }
-	
-	  /**
+  /**
    * operation getPinValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.ValueList getPinValues(fUML.Syntax.Actions.BasicActions.OutputPin pin)   {
-	 		 	 			// Return the values of the tokens on the pin activation corresponding to the given pin in the internal activation group for this node activation.
+// Return the values of the tokens on the pin activation corresponding to the given pin in the internal activation group for this node activation.
 
 PinActivation pinActivation = (PinActivation)(this.activationGroup.getNodeActivation(pin));
 TokenList tokens = pinActivation.getTokens();
@@ -184,18 +174,16 @@ for (int i = 0; i < tokens.size(); i++) {
 }
 
 return values;
+	  } // getPinValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation putPinValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void putPinValues(fUML.Syntax.Actions.BasicActions.OutputPin pin, fUML.Semantics.Classes.Kernel.ValueList values)   {
-	 		 	 			// Place tokens for the given values on the pin activation corresponding to the given output pin on the internal activation group for this node activation.
+// Place tokens for the given values on the pin activation corresponding to the given output pin on the internal activation group for this node activation.
 
 PinActivation pinActivation = (PinActivation)(this.activationGroup.getNodeActivation(pin));
 
@@ -206,38 +194,33 @@ for (int i = 0; i < values.size(); i++) {
     pinActivation.addToken(token);
 }
 
+	  } // putPinValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation createNodeActivations
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createNodeActivations()   {
-	 		 	 			// Create an activation group and create node activations for all the nodes within the structured activity node.
+// Create an activation group and create node activations for all the nodes within the structured activity node.
 
 this.activationGroup = new ActivityNodeActivationGroup();
 this.activationGroup.containingNodeActivation = this;
 this.activationGroup.createNodeActivations(((StructuredActivityNode)(this.node)).node);
 
+	  } // createNodeActivations
 
-								    			  }
-	
-	  /**
+  /**
    * operation createEdgeInstances
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createEdgeInstances()   {
-	 		 	 			// Create instances for all edges owned by this node.
+// Create instances for all edges owned by this node.
 
 this.activationGroup.createEdgeInstances(((StructuredActivityNode)(this.node)).edge);
+	  } // createEdgeInstances
 
-								    			  }
-	
 } //StructuredActivityNodeActivation

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -53,41 +52,36 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class UnlimitedNaturalValue    extends fUML.Semantics.Classes.Kernel.PrimitiveValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value =  null;
+    
+	// Operations of the class
+  /**
    * operation specify
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
-	 		 	 			// Return a literal unlimited natural with the value of this unlimited natural value.
+// Return a literal unlimited natural with the value of this unlimited natural value.
 
 LiteralUnlimitedNatural literal = new LiteralUnlimitedNatural();
 
 literal.type = this.type;
 literal.value = this.value;
 
-return literal;
-								    			  }
-	
-	  /**
+return literal;	  } // specify
+
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
-	 		 	 			// Test if this unlimited natural value is equal to the otherValue. 
+// Test if this unlimited natural value is equal to the otherValue. 
 // To be equal, the otherValue must have the same value as this unlimited natural value.
 
 boolean isEqual = false;
@@ -96,51 +90,52 @@ if (otherValue instanceof UnlimitedNaturalValue) {
 }
 
 return isEqual;
+	  } // equals
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new unlimited natural value with the same value as this value.
+// Create a new unlimited natural value with the same value as this value.
 
 UnlimitedNaturalValue newValue = (UnlimitedNaturalValue)(super.copy());
 
 newValue.value = this.value;
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new unlimited natural value with no value.
+// Create a new unlimited natural value with no value.
 
 return new UnlimitedNaturalValue();
+	  } // new_
 
-								    			  }
-	
-	  /**
+  /**
    * operation toString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String toString()   {
-	 		 	 			if (this.value.naturalValue < 0) return "*";
-return String.valueOf(this.value.naturalValue);
+String stringValue = "*";
 
-								    			  }
-	
+if (this.value.naturalValue >= 0) {
+    IntegerValue integerValue = new IntegerValue();
+    integerValue.value = this.value.naturalValue;
+    stringValue = integerValue.toString();
+}
+
+return stringValue;
+
+	  } // toString
+
 } //UnlimitedNaturalValue

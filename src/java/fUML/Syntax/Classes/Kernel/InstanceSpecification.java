@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,38 +42,33 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class InstanceSpecification    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ClassifierList classifier = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	 		public   fUML.Syntax.Classes.Kernel.SlotList slot = 	new fUML.Syntax.Classes.Kernel.SlotList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.ClassifierList classifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+	public   fUML.Syntax.Classes.Kernel.SlotList slot = new fUML.Syntax.Classes.Kernel.SlotList();
+    
+	// Operations of the class
+  /**
    * operation addClassifier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addClassifier(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			this.classifier.addValue(classifier);
+this.classifier.addValue(classifier);
+	  } // addClassifier
 
-								    			  }
-	
-	  /**
+  /**
    * operation addSlot
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addSlot(fUML.Syntax.Classes.Kernel.Slot slot)   {
-	 		 	 			this.addOwnedElement(slot);
+this.addOwnedElement(slot);
 this.slot.addValue(slot);
 slot.owningInstance = this;
+	  } // addSlot
 
-								    			  }
-	
 } //InstanceSpecification

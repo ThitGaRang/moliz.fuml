@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,64 +54,63 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class CompoundValue    extends fUML.Semantics.Classes.Kernel.StructuredValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Classes.Kernel.FeatureValueList featureValues = 	new fUML.Semantics.Classes.Kernel.FeatureValueList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Classes.Kernel.FeatureValueList featureValues = new fUML.Semantics.Classes.Kernel.FeatureValueList();
+    
+	// Operations of the class
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
-	 		 	 			// Test if this data value is equal to the otherValue. 
+// Test if this data value is equal to the otherValue. 
 // To be equal, the otherValue must also be a compund value with the same types and equal values for each feature.
 
-//x.Util.println("[equals] CompoundValue...");
 // Debug.println("[equals] othervalue instanceof CompoundValue = " + (otherValue instanceof CompoundValue));
 // Debug.println("[equals] super.equals(otherValue) = " + super.equals(otherValue));
-if (!((otherValue instanceof CompoundValue) && super.equals(otherValue) && ((CompoundValue)otherValue).featureValues.size() == this.featureValues.size())) return false;
 
-CompoundValue otherCompoundValue = (CompoundValue)otherValue;
-boolean isEqual = true;
+boolean isEqual = otherValue instanceof CompoundValue;
 
-// Debug.println("[equals] " + this.featureValues.size() + " feature(s).");
+ if (isEqual) {
 
-int i = 1;
-while (isEqual & i <= this.featureValues.size()) {
-    FeatureValue thisFeatureValue = this.featureValues.getValue(i-1);
+    CompoundValue otherCompoundValue = (CompoundValue)otherValue;
+    // Debug.println("[equals] " + this.featureValues.size() + " feature(s).");
 
-    boolean matched = false;
-    int j = 1;
-    while (!matched & j <= otherCompoundValue.featureValues.size()) {
-        FeatureValue otherFeatureValue = otherCompoundValue.featureValues.getValue(j-1);
-        if (thisFeatureValue.feature == otherFeatureValue.feature) {
-            matched = thisFeatureValue.hasEqualValues(otherFeatureValue);
+    isEqual = super.equals(otherValue) & otherCompoundValue.featureValues.size() == this.featureValues.size();
+ 
+    int i = 1;
+    while (isEqual & i <= this.featureValues.size()) {
+        FeatureValue thisFeatureValue = this.featureValues.getValue(i-1);
+
+        boolean matched = false;
+        int j = 1;
+        while (!matched & j <= otherCompoundValue.featureValues.size()) {
+            FeatureValue otherFeatureValue = otherCompoundValue.featureValues.getValue(j-1);
+            if (thisFeatureValue.feature == otherFeatureValue.feature) {
+                matched = thisFeatureValue.hasEqualValues(otherFeatureValue);
+            }
+            j = j + 1;
         }
-        j = j + 1;
-    }
 
-    isEqual = matched;
-    i = i + 1;
+        isEqual = matched;
+        i = i + 1;
+    }
 }
 
-return isEqual;
-								    			  }
-	
-	  /**
+return isEqual;	  } // equals
+
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new data value with the same featureValues as this data value.
+// Create a new data value with the same featureValues as this data value.
 
 CompoundValue newValue = (CompoundValue)(super.copy());
 
@@ -123,18 +121,16 @@ for (int i = 0; i < featureValues.size(); i++) {
 }
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation getFeatureValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.FeatureValue getFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature)   {
-	 		 	 			// Get the value(s) of the member of featureValues for the given feature.
+// Get the value(s) of the member of featureValues for the given feature.
 
 FeatureValue featureValue = null;
 int i = 1; 
@@ -146,18 +142,16 @@ while (featureValue == null & i <= this.featureValues.size()) {
 }
 
 return featureValue;
+	  } // getFeatureValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setFeatureValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature, fUML.Semantics.Classes.Kernel.ValueList values, int position)   {
-	 		 	 			// Set the value(s) of the member of featureValues for the given feature.
+// Set the value(s) of the member of featureValues for the given feature.
 
 FeatureValue featureValue = this.getFeatureValue(feature);
 
@@ -170,33 +164,29 @@ featureValue.feature = feature;
 featureValue.values = values;
 featureValue.position = position;
 
+	  } // setFeatureValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation getFeatureValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.FeatureValueList getFeatureValues()   {
-	 		 	 			// Return the feature values for this compound value.
+// Return the feature values for this compound value.
 
 return this.featureValues;
 
+	  } // getFeatureValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation removeFeatureValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void removeFeatureValues(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			// Remove all feature values for features whose type is the given classifier.
+// Remove all feature values for features whose type is the given classifier.
 
 int i = 1;
 while (i <= this.featureValues.size()) {
@@ -207,18 +197,16 @@ while (i <= this.featureValues.size()) {
         i = i + 1;
     }
 }
-    
-								    			  }
-	
-	  /**
+    	  } // removeFeatureValues
+
+  /**
    * operation toString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String toString()   {
-	 		 	 			String buffer = "(" + this.objectId() + ":";
+String buffer = "(" + this.objectId() + ":";
 
 ClassifierList types = this.getTypes();
 
@@ -243,7 +231,6 @@ while (k <= this.featureValues.size()) {
 }
 
 return buffer + ")";
+	  } // toString
 
-								    			  }
-	
 } //CompoundValue

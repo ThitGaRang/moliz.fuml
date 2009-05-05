@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,21 +56,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ReclassifyObjectActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value of the object input pin. If it is not a reference, then do nothing. Otherwise, do the following.
+// Get the value of the object input pin. If it is not a reference, then do nothing. Otherwise, do the following.
 // Remove all types from the referent object that are in the set of old classifiers but not the set of new classifiers (or just all types that are not new classifiers, if isReplaceAll is true).
 // Remove the feature values from the referent object for all classifiers that are removed.
 // Add all new classifiers as types of the referent object that are not already types.
@@ -81,7 +78,7 @@ ReclassifyObjectAction action = (ReclassifyObjectAction)(this.node);
 ClassifierList newClassifiers = action.newClassifier;
 ClassifierList oldClassifiers = action.oldClassifier;
 
-Value input = this.getTokens(action.object).getValue(0);
+Value input = this.takeTokens(action.object).getValue(0);
 
 if (input instanceof Reference) {
     Object_ object = ((Reference)input).referent;
@@ -137,7 +134,6 @@ if (input instanceof Reference) {
         }
     }
 }
+	  } // doAction
 
-								    			  }
-	
 } //ReclassifyObjectActionActivation

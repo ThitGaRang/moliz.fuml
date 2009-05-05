@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -59,30 +58,27 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ReduceActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution currentExecution = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution currentExecution =  null;
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the values of the collection input pin.
+// Get the values of the collection input pin.
 // If the input pin has no values, then do nothing. Otherwise, do the following.
 // Repeatedly invoke the reducer behavior on successive pairs to reduce the collection to a single value, and place that value on the result pin.
 // To invoke the reducer behavior, compile it to create an execution, make the execution the current execution, place the appropriate values on its input parameters, and execute it.
 
 ReduceAction action = (ReduceAction)(this.node);
 
-ValueList values = this.getTokens(action.collection);
+ValueList values = this.takeTokens(action.collection);
 
 if (values.size() > 0) {
     ParameterList parameters = action.reducer.ownedParameter;
@@ -133,25 +129,22 @@ if (values.size() > 0) {
 
     this.putTokens(action.result, parameterValue1.values);
 }
+	  } // doAction
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// If there is a current execution, terminate it. Then terminate self.
+// If there is a current execution, terminate it. Then terminate self.
 
 if (this.currentExecution != null) {
     this.currentExecution.terminate();
 }
 
 super.terminate();
+	  } // terminate
 
-								    			  }
-	
 } //ReduceActionActivation

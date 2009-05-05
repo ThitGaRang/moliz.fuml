@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,21 +47,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class LiteralEvaluation    extends fUML.Semantics.Classes.Kernel.Evaluation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.PrimitiveType getType(String builtInTypeName)   {
-	 		 	 			// Get the type of the specification. If that is null, then use the built-in type of the given name.
+// Get the type of the specification. If that is null, then use the built-in type of the given name.
 
 PrimitiveType type = (PrimitiveType)(this.specification.type);
 
@@ -71,7 +68,6 @@ if (type == null) {
 }
 
 return type;
+	  } // getType
 
-								    			  }
-	
 } //LiteralEvaluation

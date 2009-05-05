@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,26 +40,23 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Enumeration    extends fUML.Syntax.Classes.Kernel.DataType    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.EnumerationLiteralList ownedLiteral = 	new fUML.Syntax.Classes.Kernel.EnumerationLiteralList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.EnumerationLiteralList ownedLiteral = new fUML.Syntax.Classes.Kernel.EnumerationLiteralList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedLiteral
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedLiteral(fUML.Syntax.Classes.Kernel.EnumerationLiteral ownedLiteral)   {
-	 		 	 			super.addOwnedMember(ownedLiteral);
+super.addOwnedMember(ownedLiteral);
 
 this.ownedLiteral.addValue(ownedLiteral);
 ownedLiteral.enumeration = this;
+	  } // addOwnedLiteral
 
-								    			  }
-	
 } //Enumeration

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,21 +47,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class LiteralStringEvaluation    extends fUML.Semantics.Classes.Kernel.LiteralEvaluation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation evaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value evaluate()   {
-	 		 	 			// Evaluate a literal string, producing a string value.
+// Evaluate a literal string, producing a string value.
 
 LiteralString literal = (LiteralString)specification;
 StringValue stringValue = new StringValue();
@@ -70,7 +67,6 @@ stringValue.type = this.getType("String");
 stringValue.value = literal.value;
 
 return stringValue;
+	  } // evaluate
 
-								    			  }
-	
 } //LiteralStringEvaluation

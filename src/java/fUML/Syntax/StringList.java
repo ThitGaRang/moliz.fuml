@@ -45,4 +45,4 @@ public class StringList extends ArrayList<String>
   public void removeValue(int i){
     remove(i);
   }
-} //String
+} //StringList

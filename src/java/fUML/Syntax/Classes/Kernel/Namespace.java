@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,46 +42,41 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Namespace    extends fUML.Syntax.Classes.Kernel.PackageableElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.NamedElementList member = 	new fUML.Syntax.Classes.Kernel.NamedElementList()	;
-	 		public   fUML.Syntax.Classes.Kernel.NamedElementList ownedMember = 	new fUML.Syntax.Classes.Kernel.NamedElementList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.NamedElementList member = new fUML.Syntax.Classes.Kernel.NamedElementList();
+	public   fUML.Syntax.Classes.Kernel.NamedElementList ownedMember = new fUML.Syntax.Classes.Kernel.NamedElementList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedMember
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addOwnedMember(fUML.Syntax.Classes.Kernel.NamedElement ownedMember)   {
-	 		 	 			this.addOwnedElement(ownedMember);
+this.addOwnedElement(ownedMember);
 
 this.ownedMember.addValue(ownedMember);
 ownedMember.namespace = this;
 
 this.addMember(ownedMember);
+	  } // addOwnedMember
 
-								    			  }
-	
-	  /**
+  /**
    * operation addMember
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addMember(fUML.Syntax.Classes.Kernel.NamedElement member)   {
-	 		 	 			// Note: This operation should not be used for owned members. The operation addOwnedMember should be used instead.
+// Note: This operation should not be used for owned members. The operation addOwnedMember should be used instead.
 
 // Debug.println("[addMember] member is a " + member.getClass().getName() + "; name = " + member.name);
 
 this.member.addValue(member);
 
+	  } // addMember
 
-								    			  }
-	
 } //Namespace

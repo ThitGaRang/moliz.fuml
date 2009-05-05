@@ -45,4 +45,4 @@ public class PinActivationList extends ArrayList<fUML.Semantics.Actions.BasicAct
   public void removeValue(int i){
     remove(i);
   }
-} //PinActivation
+} //PinActivationList

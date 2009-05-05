@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Trigger    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.Communications.Event event = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.Communications.Event event =  null;
+    
+	// Operations of the class
+  /**
    * operation setEvent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setEvent(fUML.Syntax.CommonBehaviors.Communications.Event event)   {
-	 		 	 			this.event = event;
+this.event = event;
+	  } // setEvent
 
-								    			  }
-	
 } //Trigger

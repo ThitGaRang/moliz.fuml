@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,37 +42,32 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class CreateObjectAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.OutputPin result = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Classifier classifier = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.OutputPin result =  null;
+	public   fUML.Syntax.Classes.Kernel.Classifier classifier =  null;
+    
+	// Operations of the class
+  /**
    * operation setClassifier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setClassifier(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			this.classifier = classifier;
+this.classifier = classifier;
+	  } // setClassifier
 
-								    			  }
-	
-	  /**
+  /**
    * operation setResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result = result;
+	  } // setResult
 
-								    			  }
-	
 } //CreateObjectAction

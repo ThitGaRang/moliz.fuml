@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -38,7 +38,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -69,27 +68,23 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ActivityNodeActivationGroup    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstanceList edgeInstances = 	new fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstanceList()	;
-	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList nodeActivations = 	new fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList()	;
-	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityExecution activityExecution = 	 null
-	;
-	 		public   fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation containingNodeActivation = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstanceList edgeInstances = new fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstanceList();
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList nodeActivations = new fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList();
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityExecution activityExecution =  null;
+	public   fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation containingNodeActivation =  null;
+    
+	// Operations of the class
+  /**
    * operation run
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void run(fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList activations)   {
-	 		 	 			// Run the given node activations and then (concurrently) send an offer to all activations for nodes with no incoming edges within the given set.
+// Run the given node activations and then (concurrently) send an offer to all activations for nodes with no incoming edges within the given set.
 
 for (int i = 0; i < activations.size(); i++) {
     ActivityNodeActivation activation = activations.getValue(i);
@@ -106,7 +101,7 @@ for (int i = 0; i < activations.size(); i++) {
 
     Debug.println("[run] Checking node " + activation.node.name + "...");
 
-    boolean isEnabled = false;
+    boolean isEnabled;
     if (activation instanceof ActionActivation) {
         isEnabled = ((Action)activation.node).input.size() == 0;
     } else {
@@ -138,18 +133,16 @@ for (Iterator i = enabledActivations.iterator(); i.hasNext();) {
     ActivityNodeActivation activation = (ActivityNodeActivation)i.next();
     Debug.println("[run] Sending offer to node " + activation.node.name + ".");
     activation.receiveOffer();
-}
-								    			  }
-	
-	  /**
+}	  } // run
+
+  /**
    * operation runNodes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void runNodes(fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList nodes)   {
-	 		 	 			// Run the node activations associated with the given nodes in this activation group.
+// Run the node activations associated with the given nodes in this activation group.
 
 ActivityNodeActivationList nodeActivations = new ActivityNodeActivationList();
 
@@ -162,36 +155,32 @@ for (int i = 0; i < nodes.size(); i++) {
 }
 
 this.run(nodeActivations);
+	  } // runNodes
 
-								    			  }
-	
-	  /**
+  /**
    * operation activate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void activate(fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList nodes, fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edges)   {
-	 		 	 			// Activate and run the given set of nodes with the given set of edges, within this activation group.
+// Activate and run the given set of nodes with the given set of edges, within this activation group.
 
 this.createNodeActivations(nodes);
 this.createEdgeInstances(edges);
 this.run(this.nodeActivations);
 
 // Debug.println("[activate] Exiting.");
+	  } // activate
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminateAll
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminateAll()   {
-	 		 	 			// Terminate all node activations in the group.
+// Terminate all node activations in the group.
 
 Debug.println("[terminateAll] Terminating activation group for " + 
                      (this.activityExecution != null? "activity " + this.activityExecution.getTypes().getValue(0).name: "node " + this.containingNodeActivation.node.name) + 
@@ -203,18 +192,16 @@ for (int i = 0; i < nodeActivations.size(); i++) {
     nodeActivation.terminate();
 }
 
+	  } // terminateAll
 
-								    			  }
-	
-	  /**
+  /**
    * operation createNodeActivations
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createNodeActivations(fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList nodes)   {
-	 		 	 			// Add activity node activations for the given set of nodes to this group and create edge instances between them.
+// Add activity node activations for the given set of nodes to this group and create edge instances between them.
 
 for (int i = 0; i < nodes.size(); i++) {
     ActivityNode node = nodes.getValue(i);
@@ -224,20 +211,18 @@ for (int i = 0; i < nodes.size(); i++) {
 
 }
 
+	  } // createNodeActivations
 
-								    			  }
-	
-	  /**
+  /**
    * operation createNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation createNodeActivation(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			// Create an activity node activation for a given activity node in this activity node activation group.
+// Create an activity node activation for a given activity node in this activity node activation group.
 
-ActivityNodeActivation activation = (ActivityNodeActivation)(this.getActivityExecution().locus.factory.instantiateVisitor(node,"Activation"));
+ActivityNodeActivation activation = (ActivityNodeActivation)(this.getActivityExecution().locus.factory.instantiateVisitor(node));
 activation.node = node;
 activation.running = false;
 
@@ -246,33 +231,29 @@ this.addNodeActivation(activation);
 activation.createNodeActivations();
 
 return activation;
+	  } // createNodeActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation addNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addNodeActivation(fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation activation)   {
-	 		 	 			// Add the given node activation to this group.
+// Add the given node activation to this group.
 
 activation.group = this;
 this.nodeActivations.addValue(activation);
+	  } // addNodeActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation getNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation getNodeActivation(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			// Return the node activation (if any) in this group, or any nested group, corresponding to the given activity node.
+// Return the node activation (if any) in this group, or any nested group, corresponding to the given activity node.
 
 ActivityNodeActivation activation = null;
 int i = 1;
@@ -282,18 +263,16 @@ while (activation == null & i <= this.nodeActivations.size()) {
 }
 
 return activation;
+	  } // getNodeActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation createEdgeInstances
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createEdgeInstances(fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edges)   {
-	 		 	 			// Create instance edges for the given activity edges, as well as for edge instances within any nodes activated in this group.
+// Create instance edges for the given activity edges, as well as for edge instances within any nodes activated in this group.
 
 for (int i = 0; i < edges.size(); i++) {
     ActivityEdge edge = edges.getValue(i);
@@ -317,33 +296,29 @@ for (int i = 0; i < nodeActivations.size(); i++) {
 }
 
 // Debug.println("[createEdgeInstances] Done creating edge instances.");
+	  } // createEdgeInstances
 
-								    			  }
-	
-	  /**
+  /**
    * operation addEdgeInstance
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addEdgeInstance(fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstance instance)   {
-	 		 	 			// Add the given edge instance to this group.
+// Add the given edge instance to this group.
 
 instance.group = this;
 this.edgeInstances.addValue(instance);
+	  } // addEdgeInstance
 
-								    			  }
-	
-	  /**
+  /**
    * operation getActivityExecution
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityExecution getActivityExecution()   {
-	 		 	 			// Return the activity execution to which this group belongs, directly or indirectly.
+// Return the activity execution to which this group belongs, directly or indirectly.
 
 ActivityExecution activityExecution = this.activityExecution;
 if (activityExecution == null) {
@@ -353,18 +328,16 @@ if (activityExecution == null) {
 // Debug.println("[getActivityExecution] activityExecution = " + activityExecution);
 
 return activityExecution;
+	  } // getActivityExecution
 
-								    			  }
-	
-	  /**
+  /**
    * operation getOutputParameterNodeActivations
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityParameterNodeActivationList getOutputParameterNodeActivations()   {
-	 		 	 			// Return the set of all activations in this group of activity parameter nodes for output (inout, out and return) parameters.
+// Return the set of all activations in this group of activity parameter nodes for output (inout, out and return) parameters.
 
 ActivityParameterNodeActivationList parameterNodeActivations = new ActivityParameterNodeActivationList();
 ActivityNodeActivationList nodeActivations = this.nodeActivations;
@@ -381,7 +354,6 @@ for (int i = 0; i < nodeActivations.size(); i++) {
 }
 
 return parameterNodeActivations;
+	  } // getOutputParameterNodeActivations
 
-								    			  }
-	
 } //ActivityNodeActivationGroup

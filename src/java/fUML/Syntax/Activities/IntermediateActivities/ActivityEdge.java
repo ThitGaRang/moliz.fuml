@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -46,56 +46,49 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ActivityEdge    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.IntermediateActivities.Activity activity = 	 null	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode source = 	 null	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode target = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.ValueSpecification guard = 	 null	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Activities.IntermediateActivities.Activity activity =  null;
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode source =  null;
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode target =  null;
+	public   fUML.Syntax.Classes.Kernel.ValueSpecification guard =  null;
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode =  null;
+    
+	// Operations of the class
+  /**
    * operation setTarget
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setTarget(fUML.Syntax.Activities.IntermediateActivities.ActivityNode target)   {
-	 		 	 			this.target = target;
+this.target = target;
 target.incoming.addValue(this);
+	  } // setTarget
 
-								    			  }
-	
-	  /**
+  /**
    * operation setSource
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setSource(fUML.Syntax.Activities.IntermediateActivities.ActivityNode source)   {
-	 		 	 			this.source = source;
+this.source = source;
 source.outgoing.addValue(this);
+	  } // setSource
 
-								    			  }
-	
-	  /**
+  /**
    * operation setGuard
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setGuard(fUML.Syntax.Classes.Kernel.ValueSpecification guard)   {
-	 		 	 			if (guard != null) {
+if (guard != null) {
     super.addOwnedElement(guard);
 }
 
-this.guard = guard;
-								    			  }
-	
+this.guard = guard;	  } // setGuard
+
 } //ActivityEdge

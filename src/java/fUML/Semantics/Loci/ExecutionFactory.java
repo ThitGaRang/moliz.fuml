@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -31,7 +31,6 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -60,36 +59,33 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public   class ExecutionFactory    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Loci.Locus locus = 	 null
-	;
-	 		public   fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecutionList primitiveBehaviorPrototypes = 	new fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecutionList()	;
-	 		public   fUML.Syntax.Classes.Kernel.PrimitiveTypeList builtInTypes = 	new fUML.Syntax.Classes.Kernel.PrimitiveTypeList()	;
-	 		public   fUML.Semantics.Loci.SemanticStrategyList strategies = 	new fUML.Semantics.Loci.SemanticStrategyList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Loci.Locus locus =  null;
+	public   fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecutionList primitiveBehaviorPrototypes = new fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecutionList();
+	public   fUML.Syntax.Classes.Kernel.PrimitiveTypeList builtInTypes = new fUML.Syntax.Classes.Kernel.PrimitiveTypeList();
+	public   fUML.Semantics.Loci.SemanticStrategyList strategies = new fUML.Semantics.Loci.SemanticStrategyList();
+    
+	// Operations of the class
+  /**
    * operation createExecution
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution createExecution(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior behavior, fUML.Semantics.Classes.Kernel.Object_ context)   {
-	 		 	 			// Create an execution object for a given behavior. 
+// Create an execution object for a given behavior. 
 // The execution will take place at the locus of the factory in the given context.
 // If the context is empty, the execution is assumed to provide its own context.
 
-Execution execution = null;
+Execution execution;
 
 if (behavior instanceof OpaqueBehavior) {
     execution = this.instantiateOpaqueBehaviorExecution((OpaqueBehavior)behavior);
 }
 else {
-    execution = (Execution)(this.instantiateVisitor(behavior,"Execution"));
+    execution = (Execution)(this.instantiateVisitor(behavior));
     execution.types.addValue(behavior);
     execution.createFeatureValues();
 }
@@ -104,39 +100,37 @@ else {
 }
 
 return execution;
+	  } // createExecution
 
-								    			  }
-	
-	  /**
+  /**
    * operation createEvaluation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Evaluation createEvaluation(fUML.Syntax.Classes.Kernel.ValueSpecification specification)   {
-	 		 	 			// Create an evaluation object for a given value specification. 
+// Create an evaluation object for a given value specification. 
 // The evaluation will take place at the locus of the factory.
 
-Evaluation evaluation = (Evaluation)(this.instantiateVisitor(specification,"Evaluation"));
+Evaluation evaluation = (Evaluation)(this.instantiateVisitor(specification));
 
 evaluation.specification = specification;
 evaluation.locus = this.locus;
 
 return evaluation;
 
+	  } // createEvaluation
 
-								    			  }
-	
-	  /**
+  /**
    * operation instantiateVisitor
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
+	public     fUML.Semantics.Loci.SemanticVisitor instantiateVisitor(fUML.Syntax.Classes.Kernel.Element element)   {
+// Instantiate a visitor object for the given element.
 
-	public     fUML.Semantics.Loci.SemanticVisitor instantiateVisitor(fUML.Syntax.Classes.Kernel.Element element, String suffix)   {
-	 		 	 				    		 	 			SemanticVisitor visitor = null;
+SemanticVisitor visitor = null;
 
 if (element instanceof fUML.Syntax.Classes.Kernel.LiteralBoolean) {
   visitor = new fUML.Semantics.Classes.Kernel.LiteralBooleanEvaluation();
@@ -315,18 +309,16 @@ if (element instanceof fUML.Syntax.Actions.CompleteActions.ReadExtentAction) {
 }
 
 return visitor;
+	  } // instantiateVisitor
 
-								    			  }
-	
-	  /**
+  /**
    * operation instantiateOpaqueBehaviorExecution
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution instantiateOpaqueBehaviorExecution(fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior behavior)   {
-	 		 	 			// Return a copy of the prototype for the primitive  behavior execution of the given opaque behavior.
+// Return a copy of the prototype for the primitive  behavior execution of the given opaque behavior.
 
 OpaqueBehaviorExecution execution = null;
 int i = 1;
@@ -344,48 +336,42 @@ if (execution == null) {
 }
 
 return execution;
+	  } // instantiateOpaqueBehaviorExecution
 
-								    			  }
-	
-	  /**
+  /**
    * operation addPrimitiveBehaviorPrototype
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addPrimitiveBehaviorPrototype(fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution execution)   {
-	 		 	 			// Add an opaque behavior execution to use as a prototype for instantiating the corresponding primitive opaque behavior.
+// Add an opaque behavior execution to use as a prototype for instantiating the corresponding primitive opaque behavior.
 // Precondition: No primitive behavior prototype for the type of the given execution should already exist.
 
 this.primitiveBehaviorPrototypes.addValue(execution);
+	  } // addPrimitiveBehaviorPrototype
 
-								    			  }
-	
-	  /**
+  /**
    * operation addBuiltInType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addBuiltInType(fUML.Syntax.Classes.Kernel.PrimitiveType type)   {
-	 		 	 			// Add the given primitive type as a built-in type.
+// Add the given primitive type as a built-in type.
 // Precondition: No built-in type with the same name should already exist.
 
 this.builtInTypes.addValue(type);
+	  } // addBuiltInType
 
-								    			  }
-	
-	  /**
+  /**
    * operation getBuiltInType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.PrimitiveType getBuiltInType(String name)   {
-	 		 	 			// Return the built-in type with the given name.
+// Return the built-in type with the given name.
 
 PrimitiveType type = null;
 int i = 1;
@@ -398,18 +384,16 @@ while (type == null & i <= this.builtInTypes.size()) {
 }
 
 return type;
+	  } // getBuiltInType
 
-								    			  }
-	
-	  /**
+  /**
    * operation setStrategy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setStrategy(fUML.Semantics.Loci.SemanticStrategy strategy)   {
-	 		 	 			// Set the strategy for a semantic variation point. Any existing strategy for the same SVP is replaced.
+// Set the strategy for a semantic variation point. Any existing strategy for the same SVP is replaced.
 
 int i = this.getStrategyIndex(strategy.getName());
 
@@ -418,18 +402,16 @@ if (i <= this.strategies.size()) {
 }
 
 this.strategies.addValue(strategy);
+	  } // setStrategy
 
-								    			  }
-	
-	  /**
+  /**
    * operation getStrategy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Loci.SemanticStrategy getStrategy(String name)   {
-	 		 	 			// Get the strategy with the given name.
+// Get the strategy with the given name.
 
 int i = this.getStrategyIndex(name);
 
@@ -439,19 +421,17 @@ if (i <= this.strategies.size()) {
 }
 
 return strategy;
+	  } // getStrategy
 
-								    			  }
-	
-	  /**
+  /**
    * operation getStrategyIndex
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int getStrategyIndex(String name)   {
-	 		 	 			// Get the index of the strategy with the given name.
-// If there is not such strategy, return the size of the strategies list.
+// Get the index of the strategy with the given name.
+// If there is no such strategy, return the size of the strategies list.
 
 SemanticStrategyList strategies = this.strategies;
 
@@ -468,7 +448,6 @@ while (unmatched & (i <= strategies.size())) {
 return i;
 
 
+	  } // getStrategyIndex
 
-								    			  }
-	
 } //ExecutionFactory

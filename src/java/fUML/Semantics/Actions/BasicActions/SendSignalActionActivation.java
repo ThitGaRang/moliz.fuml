@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,25 +51,23 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class SendSignalActionActivation    extends fUML.Semantics.Actions.BasicActions.InvocationActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value from the target pin. If the value is not a reference, then do nothing.
+// Get the value from the target pin. If the value is not a reference, then do nothing.
 // Otherwise, construct a signal using the values from the argument pins and send it to the referent object.
 
 SendSignalAction action = (SendSignalAction)(this.node);
-Value target = this.getTokens(action.target).getValue(0);
+Value target = this.takeTokens(action.target).getValue(0);
 
 if (target instanceof Reference) {
     Signal signal = action.signal;
@@ -83,13 +80,12 @@ if (target instanceof Reference) {
     for (int i = 0; i < attributes.size(); i++) {
         Property attribute = attributes.getValue(i);
         InputPin argumentPin = argumentPins.getValue(i);
-        ValueList values = this.getTokens(argumentPin);
+        ValueList values = this.takeTokens(argumentPin);
         signalInstance.setFeatureValue(attribute, values, 0);
     }
 
     ((Reference)target).send(signalInstance);
 }
+	  } // doAction
 
-								    			  }
-	
 } //SendSignalActionActivation

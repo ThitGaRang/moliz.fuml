@@ -45,4 +45,4 @@ public class TriggerList extends ArrayList<fUML.Syntax.CommonBehaviors.Communica
   public void removeValue(int i){
     remove(i);
   }
-} //Trigger
+} //TriggerList

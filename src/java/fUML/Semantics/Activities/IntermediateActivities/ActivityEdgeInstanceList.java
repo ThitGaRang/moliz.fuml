@@ -45,4 +45,4 @@ public class ActivityEdgeInstanceList extends ArrayList<fUML.Semantics.Activitie
   public void removeValue(int i){
     remove(i);
   }
-} //ActivityEdgeInstance
+} //ActivityEdgeInstanceList

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -59,23 +58,20 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class Token    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder =  null;
+    
+	// Operations of the class
+  /**
    * operation transfer
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.Token transfer(fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder)   {
-	 		 	 			// if this token does not have any holder, make the given holder its holder.
+// if this token does not have any holder, make the given holder its holder.
 // Otherwise, remove this token from its holder and return a copy of it transfered to a new holder.
 
 Token token = this;
@@ -86,71 +82,58 @@ if (this.holder != null) {
 
 token.holder = holder;
 return token;
+	  } // transfer
 
-								    			  }
-	
-	  /**
+  /**
    * operation withdraw
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void withdraw()   {
-	 		 	 			// Remove this token from its holder, withdrawing any offers for it.
+// Remove this token from its holder, withdrawing any offers for it.
 
 if (!this.isWithdrawn()) {
     // Debug.println("[withdraw] Taking token with value = " + this.getValue());
     this.holder.removeToken(this);
     this.holder = null;
 }
+	  } // withdraw
 
-								    			  }
-	
-	  /**
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)  ;
-	  /**
+	public  abstract   boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)  ;  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Activities.IntermediateActivities.Token copy()  ;
-	  /**
+	public  abstract   fUML.Semantics.Activities.IntermediateActivities.Token copy()  ;  /**
    * operation isWithdrawn
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isWithdrawn()   {
-	 		 	 			// Test if this token has been withdrawn.
+// Test if this token has been withdrawn.
 
 return this.holder == null;
+	  } // isWithdrawn
 
-								    			  }
-	
-	  /**
+  /**
    * operation isControl
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   boolean isControl()  ;
-	  /**
+	public  abstract   boolean isControl()  ;  /**
    * operation getValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.Value getValue()  ;
-} //Token
+	public  abstract   fUML.Semantics.Classes.Kernel.Value getValue()  ;} //Token

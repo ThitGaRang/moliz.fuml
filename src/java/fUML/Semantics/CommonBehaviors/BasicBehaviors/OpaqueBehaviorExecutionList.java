@@ -45,4 +45,4 @@ public class OpaqueBehaviorExecutionList extends ArrayList<fUML.Semantics.Common
   public void removeValue(int i){
     remove(i);
   }
-} //OpaqueBehaviorExecution
+} //OpaqueBehaviorExecutionList

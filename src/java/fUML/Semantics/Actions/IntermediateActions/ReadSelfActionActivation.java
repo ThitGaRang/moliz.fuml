@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,21 +54,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ReadSelfActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the context object of the activity execution containing this action activation and place a reference to it on the result output pin.
+// Get the context object of the activity execution containing this action activation and place a reference to it on the result output pin.
 
 // Debug.println("[ReadSelfActionActivation] Start...");
 
@@ -80,7 +77,6 @@ Debug.println("[ReadSelfActionActivation] context object = " + context.referent)
 
 OutputPin resultPin = ((ReadSelfAction)(this.node)).result;
 this.putToken(resultPin, context);
+	  } // doAction
 
-								    			  }
-	
 } //ReadSelfActionActivation

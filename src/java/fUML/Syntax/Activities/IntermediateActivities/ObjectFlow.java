@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ObjectFlow    extends fUML.Syntax.Activities.IntermediateActivities.ActivityEdge    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isMulticast = 	false	;
-	 		public   boolean isMultireceive = 	false	;
-	    
-// Operations of the class
+	public   boolean isMulticast = false;
+	public   boolean isMultireceive = false;
+    
+	// Operations of the class
 } //ObjectFlow

@@ -45,4 +45,4 @@ public class FeatureValueList extends ArrayList<fUML.Semantics.Classes.Kernel.Fe
   public void removeValue(int i){
     remove(i);
   }
-} //FeatureValue
+} //FeatureValueList

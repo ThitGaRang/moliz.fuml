@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,21 +47,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class LiteralIntegerEvaluation    extends fUML.Semantics.Classes.Kernel.LiteralEvaluation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation evaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value evaluate()   {
-	 		 	 			// Evaluate a literal integer, producing an integer value.
+// Evaluate a literal integer, producing an integer value.
 
 LiteralInteger literal = (LiteralInteger)specification;
 IntegerValue integerValue = new IntegerValue();
@@ -71,7 +68,6 @@ integerValue.value = literal.value;
 
 return integerValue;
 
+	  } // evaluate
 
-								    			  }
-	
 } //LiteralIntegerEvaluation

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,52 +44,45 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class TestIdentityAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.InputPin second = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPin result = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin first = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.InputPin second =  null;
+	public   fUML.Syntax.Actions.BasicActions.OutputPin result =  null;
+	public   fUML.Syntax.Actions.BasicActions.InputPin first =  null;
+    
+	// Operations of the class
+  /**
    * operation setFirst
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setFirst(fUML.Syntax.Actions.BasicActions.InputPin first)   {
-	 		 	 			super.addInput(first);
+super.addInput(first);
 this.first = first;
+	  } // setFirst
 
-								    			  }
-	
-	  /**
+  /**
    * operation setSecond
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setSecond(fUML.Syntax.Actions.BasicActions.InputPin second)   {
-	 		 	 			super.addInput(second);
+super.addInput(second);
 this.second = second;
+	  } // setSecond
 
-								    			  }
-	
-	  /**
+  /**
    * operation setResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result = result;
+	  } // setResult
 
-								    			  }
-	
 } //TestIdentityAction

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -51,10 +50,9 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class MergeNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //MergeNodeActivation

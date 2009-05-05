@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,34 +40,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class StandardOutputWriteExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)   {
-	 				// call out to operation
-		 fUML.utility.operations.StandardOutputWriteExecutionOperations.doBody(this, inputParameters, outputParameters);
-		  }
-	
-	  /**
+// call out to operation
+ fUML.utility.operations.StandardOutputWriteExecutionOperations.doBody(this, inputParameters, outputParameters);
+	  } // doBody
+
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 				// call out to operation
-		return  fUML.utility.operations.StandardOutputWriteExecutionOperations.new_(this);
-		  }
-	
+// call out to operation
+return  fUML.utility.operations.StandardOutputWriteExecutionOperations.new_(this);
+	  } // new_
+
 } //StandardOutputWriteExecution

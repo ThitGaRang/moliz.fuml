@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LinkEndDestructionData    extends fUML.Syntax.Actions.IntermediateActions.LinkEndData    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isDestroyDuplicates = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin destroyAt = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isDestroyDuplicates = false;
+	public   fUML.Syntax.Actions.BasicActions.InputPin destroyAt =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsDestroyDuplicates
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsDestroyDuplicates(boolean isDestroyDuplicates)   {
-	 		 	 			this.isDestroyDuplicates = isDestroyDuplicates;
+this.isDestroyDuplicates = isDestroyDuplicates;
+	  } // setIsDestroyDuplicates
 
-								    			  }
-	
-	  /**
+  /**
    * operation setDestroyAt
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDestroyAt(fUML.Syntax.Actions.BasicActions.InputPin destroyAt)   {
-	 		 	 			this.destroyAt = destroyAt;
+this.destroyAt = destroyAt;
+	  } // setDestroyAt
 
-								    			  }
-	
 } //LinkEndDestructionData

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,27 +54,25 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ClearAssociationActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the extent, at the current execution locus, of the given association.
+// Get the extent, at the current execution locus, of the given association.
 // Read the object input pin. Destroy all links in which the object participates.
 
 ClearAssociationAction action = (ClearAssociationAction)(this.node);
 
 ExtensionalValueList extent = this.getExecutionLocus().getExtent(action.association);
-Value objectValue = this.getTokens(action.object).getValue(0);
+Value objectValue = this.takeTokens(action.object).getValue(0);
 
 for (int i = 0; i < extent.size(); i++) {
     Link link = (Link)(extent.getValue(i));
@@ -83,7 +80,6 @@ for (int i = 0; i < extent.size(); i++) {
         link.destroy();
     }
 }
+	  } // doAction
 
-								    			  }
-	
 } //ClearAssociationActionActivation

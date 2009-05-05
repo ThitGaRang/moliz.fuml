@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,28 +54,25 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ValueSpecificationActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Evaluate the value specification for the action and place the result on the result pin of the action.
+// Evaluate the value specification for the action and place the result on the result pin of the action.
 
 ValueSpecificationAction action = (ValueSpecificationAction)(this.node);
 
 Value value = this.getExecutionLocus().executor.evaluate(action.value);
 this.putToken(action.result, value);
 
+	  } // doAction
 
-								    			  }
-	
 } //ValueSpecificationActionActivation

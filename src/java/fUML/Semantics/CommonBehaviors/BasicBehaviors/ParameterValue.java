@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -31,7 +31,6 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -49,24 +48,21 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ParameterValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Parameter parameter = 	 null
-	;
-	 		public   fUML.Semantics.Classes.Kernel.ValueList values = 	new fUML.Semantics.Classes.Kernel.ValueList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.Parameter parameter =  null;
+	public   fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
+    
+	// Operations of the class
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue copy()   {
-	 		 	 			// Create a new parameter value for the same parameter as this parameter value, but with copies of the values of this parameter value.
+// Create a new parameter value for the same parameter as this parameter value, but with copies of the values of this parameter value.
 
 ParameterValue newValue = new ParameterValue();
 
@@ -79,7 +75,6 @@ for (int i = 0; i < values.size(); i++) {
 }
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
 } //ParameterValue

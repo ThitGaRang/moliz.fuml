@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -50,22 +49,17 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class Evaluation    extends fUML.Semantics.Loci.SemanticVisitor    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ValueSpecification specification = 	 null
-	;
-	 		public   fUML.Semantics.Loci.Locus locus = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.ValueSpecification specification =  null;
+	public   fUML.Semantics.Loci.Locus locus =  null;
+    
+	// Operations of the class
+  /**
    * operation evaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.Value evaluate()  ;
-} //Evaluation
+	public  abstract   fUML.Semantics.Classes.Kernel.Value evaluate()  ;} //Evaluation

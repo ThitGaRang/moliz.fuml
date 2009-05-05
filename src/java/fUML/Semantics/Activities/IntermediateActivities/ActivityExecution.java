@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -56,23 +55,20 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ActivityExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup activationGroup = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup activationGroup =  null;
+    
+	// Operations of the class
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute()   {
-	 		 	 			// Execute the activity for this execution by creating an activity node activation group and activating all the activity nodes in the activity.
+// Execute the activity for this execution by creating an activity node activation group and activating all the activity nodes in the activity.
 // When this is complete, copy the values on the tokens offered by output parameter nodes to the corresponding output parameters.
 
 Activity activity = (Activity)(this.getTypes().getValue(0));
@@ -109,50 +105,43 @@ for (int i = 0; i < outputActivations.size(); i++) {
 }
 
 Debug.println("[execute] Activity " + activity.name + " completed.");
+	  } // execute
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new activity execution that is a copy of this execution.
-// [Note: This currently just returns a non-executing execution for the same behavior as this execution.]
+// Create a new activity execution that is a copy of this execution.
+// [Note: This currently just returns a non-executing execution for the same activity as this execution.]
 
 return super.copy();
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new activity execution with empty properties.
+// Create a new activity execution with empty properties.
 
 return new ActivityExecution();
+	  } // new_
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate all node activations (which will ultimately result in the activity execution completing).
+// Terminate all node activations (which will ultimately result in the activity execution completing).
 
 this.activationGroup.terminateAll();
+	  } // terminate
 
-								    			  }
-	
 } //ActivityExecution

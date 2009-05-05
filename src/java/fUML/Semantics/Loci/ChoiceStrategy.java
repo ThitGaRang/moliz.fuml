@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,32 +40,27 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ChoiceStrategy    extends fUML.Semantics.Loci.SemanticStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			// The name of a choice strategy is always "choice".
+// The name of a choice strategy is always "choice".
 
 return "choice";
+	  } // getName
 
-								    			  }
-	
-	  /**
+  /**
    * operation choose
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   int choose(int size)  ;
-} //ChoiceStrategy
+	public  abstract   int choose(int size)  ;} //ChoiceStrategy

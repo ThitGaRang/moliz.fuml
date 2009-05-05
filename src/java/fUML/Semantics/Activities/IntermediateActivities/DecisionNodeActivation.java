@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -63,23 +62,20 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class DecisionNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution decisionInputExecution = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution decisionInputExecution =  null;
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Get the decision values and test them on each guard.
+// Get the decision values and test them on each guard.
 // Forward the offer over the edges for which the test succeeds.
 
 Debug.println("[fire] Decision node " + this.node.name + "...");
@@ -110,18 +106,16 @@ for (int i = 0; i < outgoingEdges.size(); i++) {
         edgeInstance.sendOffer(offeredTokens);
     }
 }
+	  } // fire
 
-								    			  }
-	
-	  /**
+  /**
    * operation getDecisionValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.ValueList getDecisionValues(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// If there is neither a decision input flow nor a decision input behavior, then return the set of values from the incoming tokens. 
+// If there is neither a decision input flow nor a decision input behavior, then return the set of values from the incoming tokens. 
 //        [In this case, the single incoming edge must be an object flow.]
 // If there is a decision input flow, but no decision input behavior, then return a list of the decision input values equal in size to the number of incoming tokens.
 // If there is both a decision input flow and a decision input behavior, then execute the decision input behavior once for each incoming token and return the set of resulting values.
@@ -145,18 +139,16 @@ for (int i = 0; i < decisionValues.size(); i++) {
 }
 
 return decisionValues;
+	  } // getDecisionValues
 
-								    			  }
-	
-	  /**
+  /**
    * operation executeDecisionInputBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value executeDecisionInputBehavior(fUML.Semantics.Classes.Kernel.Value inputValue, fUML.Semantics.Classes.Kernel.Value decisionInputValue)   {
-	 		 	 			// Create the decision input execution from the decision input behavior.
+// Create the decision input execution from the decision input behavior.
 // If the behavior has input parameter(s), set the input parameter(s) of the execution to the given value(s).
 // Execute the decision input execution and then remove it.
 // Return the value of the output parameter of the execution.
@@ -211,36 +203,32 @@ if (decisionInputBehavior == null) {
 
 }
 
-return decisionInputResult;
-								    			  }
-	
-	  /**
+return decisionInputResult;	  } // executeDecisionInputBehavior
+
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate the decision input execution, if any, and then terminate this activation.
+// Terminate the decision input execution, if any, and then terminate this activation.
 
 if (this.decisionInputExecution != null) {
     this.decisionInputExecution.terminate();
 }
 
 super.terminate();
+	  } // terminate
 
-								    			  }
-	
-	  /**
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// Check that all incoming edges have sources that are offering tokens.
+// Check that all incoming edges have sources that are offering tokens.
 // [This should be at most two incoming edges, if there is a decision input flow.]
 
 int i = 1;
@@ -251,18 +239,16 @@ while (ready & i <= this.incomingEdges.size()) {
 }
 
 return ready;
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation takeOfferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.TokenList takeOfferedTokens()   {
-	 		 	 			// Get tokens from the incoming edge that is not the decision input flow.
+// Get tokens from the incoming edge that is not the decision input flow.
 
 ObjectFlow decisionInputFlow = ((DecisionNode)(this.node)).decisionInputFlow;
 
@@ -279,18 +265,16 @@ for (int i = 0; i < incomingEdges.size(); i++) {
 }
 
 return allTokens;
+	  } // takeOfferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation getDecisionInputFlowValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value getDecisionInputFlowValue()   {
-	 		 	 			// Take the next token available on the decision input flow, if any, and return its value.
+// Take the next token available on the decision input flow, if any, and return its value.
 
 ActivityEdgeInstance decisionInputFlowInstance = this.getDecisionInputFlowInstance();
 
@@ -303,18 +287,16 @@ if (decisionInputFlowInstance != null) {
 }
 
 return value;
+	  } // getDecisionInputFlowValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation getDecisionInputFlowInstance
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.ActivityEdgeInstance getDecisionInputFlowInstance()   {
-	 		 	 			// Get the activity edge instance for the decision input flow, if any.
+// Get the activity edge instance for the decision input flow, if any.
 
 ActivityEdge decisionInputFlow = ((DecisionNode)(this.node)).decisionInputFlow;
 
@@ -331,18 +313,16 @@ if (decisionInputFlow != null) {
 }
 
 return edgeInstance;
+	  } // getDecisionInputFlowInstance
 
-								    			  }
-	
-	  /**
+  /**
    * operation test
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean test(fUML.Syntax.Classes.Kernel.ValueSpecification guard, fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			// Test if the given value matches the guard. If there is no guard, return true.
+// Test if the given value matches the guard. If there is no guard, return true.
 
 boolean guardResult = true;
 if (guard != null) {
@@ -351,18 +331,16 @@ if (guard != null) {
 }
 
 return guardResult;
+	  } // test
 
-								    			  }
-	
-	  /**
+  /**
    * operation removeJoinedControlTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.TokenList removeJoinedControlTokens(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// If the primary incoming edge is an object flow, then remove any control tokens from the incoming tokens and return them.
+// If the primary incoming edge is an object flow, then remove any control tokens from the incoming tokens and return them.
 // [Control tokens may effectively be offered on an object flow outgoing from a join node that has both control and object flows incoming.]
 
 TokenList removedControlTokens = new TokenList();
@@ -380,18 +358,16 @@ if (this.hasObjectFlowInput()) {
     }
 }
 
-return removedControlTokens;
-								    			  }
-	
-	  /**
+return removedControlTokens;	  } // removeJoinedControlTokens
+
+  /**
    * operation hasObjectFlowInput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean hasObjectFlowInput()   {
-	 		 	 			// Check that the primary incoming edge is an object flow.
+// Check that the primary incoming edge is an object flow.
 
 ActivityEdge decisionInputFlow = ((DecisionNode)(this.node)).decisionInputFlow;
 
@@ -404,7 +380,6 @@ while (!isObjectFlow & i <= this.incomingEdges.size()) {
 }
 
 return isObjectFlow;
+	  } // hasObjectFlowInput
 
-								    			  }
-	
 } //DecisionNodeActivation

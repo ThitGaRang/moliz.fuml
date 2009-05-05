@@ -45,4 +45,4 @@ public class PropertyList extends ArrayList<fUML.Syntax.Classes.Kernel.Property>
   public void removeValue(int i){
     remove(i);
   }
-} //Property
+} //PropertyList

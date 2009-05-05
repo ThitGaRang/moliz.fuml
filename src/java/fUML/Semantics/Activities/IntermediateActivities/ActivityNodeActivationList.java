@@ -45,4 +45,4 @@ public class ActivityNodeActivationList extends ArrayList<fUML.Semantics.Activit
   public void removeValue(int i){
     remove(i);
   }
-} //ActivityNodeActivation
+} //ActivityNodeActivationList

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,33 +40,28 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ImplementationObject    extends fUML.Semantics.Classes.Kernel.Object_    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)  ;
-	  /**
+	public  abstract    void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)  ;  /**
    * operation dispatch
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(fUML.Syntax.Classes.Kernel.Operation operation)   {
-	 		 	 			OperationExecution execution = new OperationExecution();
+OperationExecution execution = new OperationExecution();
 this.locus.add(execution);
 execution.set(this, operation);
 return execution;
+	  } // dispatch
 
-								     				    			  }
-	
 } //ImplementationObject

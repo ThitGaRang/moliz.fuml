@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,26 +40,23 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Signal    extends fUML.Syntax.Classes.Kernel.Classifier    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = new fUML.Syntax.Classes.Kernel.PropertyList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedAttribute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedAttribute(fUML.Syntax.Classes.Kernel.Property ownedAttribute)   {
-	 		 	 			super.addAttribute(ownedAttribute);
+super.addAttribute(ownedAttribute);
 super.addOwnedMember(ownedAttribute);
 
 this.ownedAttribute.addValue(ownedAttribute);
+	  } // addOwnedAttribute
 
-								    			  }
-	
 } //Signal

@@ -23,9 +23,8 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -43,37 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class InputChannelObject    extends fUML.Library.ChannelImplementation.ChannelObject    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation hasMore
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   boolean hasMore()  ;
-	  /**
+	public  abstract   boolean hasMore()  ;  /**
    * operation read
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.Value read()  ;
-	  /**
+	public  abstract   fUML.Semantics.Classes.Kernel.Value read()  ;  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)   {
-	 		 	 			String name = execution.getOperationName();
+String name = execution.getOperationName();
 
 if (name.equals("hasMore")) { 
     BooleanValue hasMoreValue = new BooleanValue();
@@ -86,7 +79,6 @@ else if (name.equals("read")) {
 else {
     super.execute(execution);
 }
+	  } // execute
 
-								     				    			  }
-	
 } //InputChannelObject

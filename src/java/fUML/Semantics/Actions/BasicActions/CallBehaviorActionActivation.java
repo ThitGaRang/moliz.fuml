@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -37,7 +37,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -53,29 +52,29 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class CallBehaviorActionActivation    extends fUML.Semantics.Actions.BasicActions.CallActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getCallExecution
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution getCallExecution()   {
-	 		 	 			// Create and execution for the given behavior at the current locus and return the resulting execution object.
+// Create and execution for the given behavior at the current locus and return the resulting execution object.
 // If the given behavior is in the context of a classifier, then pass the current context object as the context for the call.
 // Otherwise, use a null context.
 // [Note that this requires the behavior context to be compatible with the type of the current contect object.]
 
 Behavior behavior = ((CallBehaviorAction)(this.node)).behavior;
 
-Object_  context = null;
-if (behavior.context != null) {
+Object_  context;
+if (behavior.context == null) {
+    context = null;
+} else {
     // Debug.println("[getCallExecution] behavior context = " + behavior.context.name);
     context = this.getExecutionContext();
 }
@@ -84,7 +83,6 @@ if (behavior.context != null) {
 
 return this.getExecutionLocus().factory.createExecution(behavior, context);
 
+	  } // getCallExecution
 
-								    			  }
-	
 } //CallBehaviorActionActivation

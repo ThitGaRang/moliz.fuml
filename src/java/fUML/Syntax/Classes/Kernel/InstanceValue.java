@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class InstanceValue    extends fUML.Syntax.Classes.Kernel.ValueSpecification    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.InstanceSpecification instance = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.InstanceSpecification instance =  null;
+    
+	// Operations of the class
+  /**
    * operation setInstance
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setInstance(fUML.Syntax.Classes.Kernel.InstanceSpecification instance)   {
-	 		 	 			this.instance = instance;
+this.instance = instance;
+	  } // setInstance
 
-								    			  }
-	
 } //InstanceValue

@@ -23,12 +23,11 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.Classes.Kernel.*;
+import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -59,89 +58,77 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public   class VariableUtility    extends fUML.Test.Test    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation VariableUtility
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      VariableUtility(fUML.Test.TestEnvironment environment)   {
-	 		 	 			this.environment = environment;
+this.environment = environment;
+	  } // VariableUtility
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(String variable, boolean value)   {
-	 		 	 			BooleanValue newValue = new BooleanValue();
+BooleanValue newValue = new BooleanValue();
 newValue.type = environment.primitiveTypes.Boolean;
 newValue.value = value;
-environment.setVariable(variable, newValue);
-								     				    			  }
-	
-	  /**
+environment.setVariable(variable, newValue);	  } // setValue
+
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(String variable, int value)   {
-	 		 	 			IntegerValue newValue = new IntegerValue();
+IntegerValue newValue = new IntegerValue();
 newValue.type = environment.primitiveTypes.Integer;
 newValue.value = value;
-environment.setVariable(variable, newValue);
-								     				    			  }
-	
-	  /**
+environment.setVariable(variable, newValue);	  } // setValue
+
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(String variable, String value)   {
-	 		 	 			StringValue newValue = new StringValue();
+StringValue newValue = new StringValue();
 newValue.type = environment.primitiveTypes.String;
 newValue.value = value;
-environment.setVariable(variable, newValue);
-								     				    			  }
-	
-	  /**
+environment.setVariable(variable, newValue);	  } // setValue
+
+  /**
    * operation clearValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void clearValue(String variable)   {
-	 		 	 			environment.setVariable(variable, null);
+environment.setVariable(variable, null);
 
 
+	  } // clearValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation copyValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void copyValue(String target, String source)   {
-	 		 	 			Variable sourceVariable = environment.getVariable(source);
+Variable sourceVariable = environment.getVariable(source);
 
 if (sourceVariable == null) {
     Debug.println("[copyValue] Variable " + source + " not found.");
@@ -150,18 +137,16 @@ if (sourceVariable == null) {
 
 environment.setVariable(target, sourceVariable.value.copy());
 
+	  } // copyValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setEnumerationValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setEnumerationValue(String variable, String typeName, String literalName)   {
-	 		 	 			NamedElement element =environment.getElement(typeName);
+NamedElement element =environment.getElement(typeName);
 
 if (element == null) {
     Debug.println("[createEnumerationValue] " + typeName + " not found.");
@@ -183,18 +168,16 @@ else {
     }
 
     Debug.println("[createEnumerationValue] " + literalName + " is not an owned literal of " + typeName + ".");
-}
-								     				    			  }
-	
-	  /**
+}	  } // setEnumerationValue
+
+  /**
    * operation setDefaultValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDefaultValue(String variable, String typeName)   {
-	 		 	 			Classifier type = environment.getType(typeName);
+Classifier type = environment.getType(typeName);
 
 if (type == null) {
     Debug.println("[setDefaultValue] " + typeName + " not found or not a classifier.");
@@ -205,18 +188,16 @@ Value value = environment.makeValue(type);
 environment.setVariable(variable, value);
 
 Debug.println(value.toString());
+	  } // setDefaultValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation printVariables
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void printVariables()   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println(this.environment.variables.size() + " variable(s)");
 Debug.println("----------");
 
@@ -242,18 +223,16 @@ for (int i = 0; i < this.environment.variables.size(); i++)
 }
 
 Debug.println("");
+	  } // printVariables
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation printVariable
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void printVariable(String variableName)   {
-	 		 	 			Variable variable = this.environment.getVariable(variableName);
+Variable variable = this.environment.getVariable(variableName);
 
 if (variable == null) {
     Debug.println("[printVariable] " + variableName + "does not exist.");
@@ -261,18 +240,16 @@ if (variable == null) {
 }
 
 Debug.println(variableName + " = " + variable.value);
+	  } // printVariable
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation copyToAttribute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void copyToAttribute(String target, String attributeName, String source)   {
-	 		 	 			Variable sourceVariable = this.environment.getVariable(source);
+Variable sourceVariable = this.environment.getVariable(source);
 
 if (sourceVariable == null) {
     Debug.println("[copyToAttribute] " + source + " does not exist.");
@@ -281,18 +258,16 @@ if (sourceVariable == null) {
 
 this.setAttributeValue(target, attributeName, sourceVariable.value.copy());
 
+	  } // copyToAttribute
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setAttributeValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void setAttributeValue(String target, String attributeName, fUML.Semantics.Classes.Kernel.Value sourceValue)   {
-	 		 	 			Variable targetVariable = this.environment.getVariable(target);
+Variable targetVariable = this.environment.getVariable(target);
 
 if (targetVariable == null) {
     Debug.println("[setAttribute] " + target + " does not exist.");
@@ -329,64 +304,56 @@ if (attribute == null) {
 ValueList values = new ValueList();
 values.addValue(sourceValue);
 targetValue.setFeatureValue(attribute, values, 0);
+	  } // setAttributeValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setAttributeValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setAttributeValue(String target, String attributeName, int value)   {
-	 		 	 			IntegerValue integerValue = new IntegerValue();
+IntegerValue integerValue = new IntegerValue();
 integerValue.value = value;
 
 this.setAttributeValue(target, attributeName, integerValue);
 
+	  } // setAttributeValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setAttributeValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setAttributeValue(String target, String attributeName, boolean value)   {
-	 		 	 			BooleanValue booleanValue = new BooleanValue();
+BooleanValue booleanValue = new BooleanValue();
 booleanValue.value = value;
 
 this.setAttributeValue(target, attributeName, booleanValue);
+	  } // setAttributeValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setAttributeValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setAttributeValue(String target, String attributeName, String value)   {
-	 		 	 			StringValue stringValue = new StringValue();
+StringValue stringValue = new StringValue();
 stringValue.value = value;
 
 this.setAttributeValue(target, attributeName, stringValue);
+	  } // setAttributeValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation run
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void run(String variableName)   {
-	 		 	 			Variable variable = this.environment. getVariable(variableName);
+Variable variable = this.environment. getVariable(variableName);
 
 if (variable == null || variable.value == null || !(variable.value instanceof Reference) || 
     !(((Reference)(variable.value)).referent instanceof Execution)) {
@@ -419,7 +386,6 @@ Debug.println("[run] Executing " + variableName + "...");
 
 Debug.println("");
 
+	  } // run
 
-								     				    			  }
-	
 } //VariableUtility

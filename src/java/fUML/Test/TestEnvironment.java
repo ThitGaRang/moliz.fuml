@@ -23,12 +23,11 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.Classes.Kernel.*;
+import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -64,33 +63,26 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class TestEnvironment    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Test.VariableList variables = 	new fUML.Test.VariableList()	;
-	 		public   fUML.Library.PrimitiveTypes primitiveTypes = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.NamedElementList elements = 	new fUML.Syntax.Classes.Kernel.NamedElementList()	;
-	 		public   fUML.Semantics.Loci.Locus locus = 	 null
-	;
-	 		public   fUML.Library.IntegerFunctions integerFunctions = 	 null
-	;
-	 		public   fUML.Library.SystemIO systemIO = 	 null
-	;
-	 		public   fUML.Library.StandardIOClasses standardIO = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Test.VariableList variables = new fUML.Test.VariableList();
+	public   fUML.Library.PrimitiveTypes primitiveTypes =  null;
+	public   fUML.Syntax.Classes.Kernel.NamedElementList elements = new fUML.Syntax.Classes.Kernel.NamedElementList();
+	public   fUML.Semantics.Loci.Locus locus =  null;
+	public   fUML.Library.IntegerFunctions integerFunctions =  null;
+	public   fUML.Library.SystemIO systemIO =  null;
+	public   fUML.Library.StandardIOClasses standardIO =  null;
+    
+	// Operations of the class
+  /**
    * operation TestEnvironment
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      TestEnvironment()   {
-	 		 	 			try {
+try {
 
 this.locus = new Locus();
 this.locus.setFactory(new ExecutionFactory());
@@ -144,18 +136,16 @@ catch (Throwable e) {
     if (stackTrace.length > 0) Debug.println(stackTrace[0] + ".");
 }
    
+	  } // TestEnvironment
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation makePrimitiveValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.PrimitiveValue makePrimitiveValue(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			PrimitiveType type = (PrimitiveType)classifier;
+PrimitiveType type = (PrimitiveType)classifier;
 PrimitiveValue primitiveValue = null;
 
 // Debug.println("[makePrimitiveValue] type = " + type.name);
@@ -184,35 +174,31 @@ else {
 // Debug.println("[makePrimitiveValue] value = " + primitiveValue);
 
 return primitiveValue;
+	  } // makePrimitiveValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation makeEnumerationValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.EnumerationValue makeEnumerationValue(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			Enumeration type = (Enumeration)classifier;
+Enumeration type = (Enumeration)classifier;
 EnumerationValue enumerationValue = new EnumerationValue();
 
 enumerationValue.type = type;
 enumerationValue.literal = type.ownedLiteral.getValue(0);
 
-return enumerationValue;
-								     				    			  }
-	
-	  /**
+return enumerationValue;	  } // makeEnumerationValue
+
+  /**
    * operation makeStructuredValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.StructuredValue makeStructuredValue(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			Classifier type = classifier;
+Classifier type = classifier;
 StructuredValue structuredValue = null;
 PropertyList attributes = null;
 
@@ -239,18 +225,16 @@ for (int i = 0; i < featureValues.size(); i ++) {
 
 return structuredValue;
 
+	  } // makeStructuredValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation makeValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value makeValue(fUML.Syntax.Classes.Kernel.Classifier type)   {
-	 		 	 			// if (type == null) {
+// if (type == null) {
 //    Debug.println("[makeValue} type is null");
 // } else {
 //    Debug.println("[makeValue] type = " + type.name);
@@ -268,67 +252,59 @@ else if (type instanceof Enumeration) {
 else {
     return this.makeStructuredValue(type);
 }
+	  } // makeValue
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addElement(fUML.Syntax.Classes.Kernel.NamedElement element)   {
-	 		 	 			if (this.getElement(element.name) == null) {
+if (this.getElement(element.name) == null) {
     this.elements.addValue(element);
 }
 else {
     Debug.println("[addElement] There is already an element named " + element.name + ".");
 }
+	  } // addElement
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.NamedElement getElement(String name)   {
-	 		 	 			for (int i = 0; i < elements.size(); i++) {
+for (int i = 0; i < elements.size(); i++) {
     if (elements.getValue(i).name.equals(name)) return elements.getValue(i);
 }
 return null;
+	  } // getElement
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation removeElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void removeElement(fUML.Syntax.Classes.Kernel.NamedElement element)   {
-	 		 	 			for (int i = 0; i < this.elements.size(); i++) {
+for (int i = 0; i < this.elements.size(); i++) {
     if (this.elements.getValue(i) == element) {
         this.elements.remove(i);
         return;
     }
 }
+	  } // removeElement
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setVariable
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setVariable(String name, fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			Variable variable = this.getVariable(name);
+Variable variable = this.getVariable(name);
 
 if (variable == null) {
     variable = new Variable();
@@ -337,36 +313,32 @@ if (variable == null) {
 }
 
 variable.value = value;
+	  } // setVariable
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getVariable
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Test.Variable getVariable(String name)   {
-	 		 	 			for (int i = 0; i < this.variables.size(); i++) {
+for (int i = 0; i < this.variables.size(); i++) {
     if (this.variables.getValue(i).name.equals(name)) {
         return this.variables.getValue(i);
     }
 }
 
 return null;
+	  } // getVariable
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.Classifier getType(String typeName)   {
-	 		 	 			NamedElement element = this.getElement(typeName);
+NamedElement element = this.getElement(typeName);
 
 if ((element == null) || !(element instanceof Classifier)) {
     return null;
@@ -374,36 +346,32 @@ if ((element == null) || !(element instanceof Classifier)) {
 else {
     return (Classifier)element;
 }
+	  } // getType
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation printElements
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void printElements()   {
-	 		 	 			Debug.println("");
+Debug.println("");
 Debug.println(elements.size() + " element(s)");
 Debug.println("---------");
 
 for (int i = 0; i < elements.size(); i++) {
     Debug.println(elements.getValue(i).name + ": " + elements.getValue(i).getClass().getName());
 }
+	  } // printElements
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation printExtent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void printExtent(String classifierName)   {
-	 		 	 			Element element = this.getElement(classifierName);
+Element element = this.getElement(classifierName);
 
 if (element == null) {
     Debug.println("[printExtent] " + classifierName + " not found.");
@@ -423,25 +391,22 @@ Debug.println(classifierName + " has " + extent.size() + " instance(s):");
 for (int i = 0; i < extent.size(); i++) {
     Debug.println("[" + i + "] " + extent.getValue(i));
 }
+	  } // printExtent
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation removeElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void removeElement(String elementName)   {
-	 		 	 			NamedElement element = this.getElement(elementName);
+NamedElement element = this.getElement(elementName);
 
 if (element!=null) {
     this.removeElement(element);
 } else {
     Debug.println("[removeElement] " + elementName + " does not exist.");
 }
+	  } // removeElement
 
-								    			  }
-	
 } //TestEnvironment

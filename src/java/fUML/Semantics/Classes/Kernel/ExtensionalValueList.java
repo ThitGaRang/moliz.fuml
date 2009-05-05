@@ -45,4 +45,4 @@ public class ExtensionalValueList extends ArrayList<fUML.Semantics.Classes.Kerne
   public void removeValue(int i){
     remove(i);
   }
-} //ExtensionalValue
+} //ExtensionalValueList

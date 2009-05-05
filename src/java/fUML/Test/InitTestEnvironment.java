@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,33 +45,25 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class InitTestEnvironment    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Test.TestEnvironment environment = 	 null
-	;
-	 		public   fUML.Test.ExecutorTest executorTest = 	 null
-	;
-	 		public   fUML.Test.ActivityFactory activityFactory = 	 null
-	;
-	 		public   fUML.Test.VariableUtility variableUtility = 	 null
-	;
-	 		public   fUML.Test.ClassifierFactory classifierFactory = 	 null
-	;
-	 		public   fUML.Test.TestSuite testSuite = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Test.TestEnvironment environment =  null;
+	public   fUML.Test.ExecutorTest executorTest =  null;
+	public   fUML.Test.ActivityFactory activityFactory =  null;
+	public   fUML.Test.VariableUtility variableUtility =  null;
+	public   fUML.Test.ClassifierFactory classifierFactory =  null;
+	public   fUML.Test.TestSuite testSuite =  null;
+    
+	// Operations of the class
+  /**
    * operation InitTestEnvironment
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      InitTestEnvironment()   {
-	 		 	 			// Debug.println("[InitTestEnvironment] Start...");
+// Debug.println("[InitTestEnvironment] Start...");
 
 environment = new TestEnvironment();
 executorTest = new ExecutorTest(environment);
@@ -87,7 +79,6 @@ testSuite = new TestSuite(environment,activityFactory,classifierFactory,executor
 
 
 
+	  } // InitTestEnvironment
 
-								     				    			  }
-	
 } //InitTestEnvironment

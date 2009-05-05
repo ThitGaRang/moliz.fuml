@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -38,9 +38,8 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ClassifierBehaviorExecutionActivity    {
- 	 		 			/**
+/**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::Communications::ClassifierBehaviorExecutionActivity::OwnedBehaviorActivity1</b></em>'.
  * <!-- end-user-doc -->
@@ -53,15 +52,14 @@ public   class ClassifierBehaviorExecutionActivity    {
  * @generated
  */
 
-
 public   class OwnedBehaviorActivity1    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //OwnedBehaviorActivity1
- 			    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //ClassifierBehaviorExecutionActivity

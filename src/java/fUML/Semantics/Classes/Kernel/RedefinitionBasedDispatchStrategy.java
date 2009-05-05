@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -34,7 +34,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -51,21 +50,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class RedefinitionBasedDispatchStrategy    extends fUML.Semantics.Classes.Kernel.DispatchStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getMethod
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getMethod(fUML.Semantics.Classes.Kernel.Object_ object, fUML.Syntax.Classes.Kernel.Operation operation)   {
-	 		 	 			// Get the method that corresponds to the given operation for the given object.
+// Get the method that corresponds to the given operation for the given object.
 // [If there is more than one type with a method for the operation, then the first one is arbitrarily chosen.]
 
 Behavior method = null;
@@ -88,18 +85,16 @@ while (method == null & i <= object.types.size()) {
 }
 
 return method;
+	  } // getMethod
 
-								    			  }
-	
-	  /**
+  /**
    * operation operationsMatch
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean operationsMatch(fUML.Syntax.Classes.Kernel.Operation ownedOperation, fUML.Syntax.Classes.Kernel.Operation baseOperation)   {
-	 		 	 			// Check if the owned operation is equal to or a redefinition (direcly or indirectly) of the base operation.
+// Check if the owned operation is equal to or a redefinition (directly or indirectly) of the base operation.
 
 boolean matches = false;
 if (ownedOperation == baseOperation) {
@@ -113,7 +108,6 @@ if (ownedOperation == baseOperation) {
 }
 
 return matches;
+	  } // operationsMatch
 
-								    			  }
-	
 } //RedefinitionBasedDispatchStrategy

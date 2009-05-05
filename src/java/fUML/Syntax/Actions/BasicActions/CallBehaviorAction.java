@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class CallBehaviorAction    extends fUML.Syntax.Actions.BasicActions.CallAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior behavior = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior behavior =  null;
+    
+	// Operations of the class
+  /**
    * operation setBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setBehavior(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior behavior)   {
-	 		 	 			this.behavior = behavior;
+this.behavior = behavior;
+	  } // setBehavior
 
-								    			  }
-	
 } //CallBehaviorAction

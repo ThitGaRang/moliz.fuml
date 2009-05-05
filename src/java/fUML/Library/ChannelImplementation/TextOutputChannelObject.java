@@ -23,10 +23,9 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,73 +47,61 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public  abstract class TextOutputChannelObject    extends fUML.Library.ChannelImplementation.OutputChannelObject    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation writeString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void writeString(String value)  ;
-	  /**
+	public  abstract    void writeString(String value)  ;  /**
    * operation writeNewLine
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void writeNewLine()  ;
-	  /**
+	public  abstract    void writeNewLine()  ;  /**
    * operation writeLine
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeLine(String value)   {
-	 		 	 			this.writeString(value);
+this.writeString(value);
 this.writeNewLine();
+	  } // writeLine
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation writeInteger
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeInteger(int value)   {
-	 		 	 			this.writeString(Integer.toString(value));
-								     				    			  }
-	
-	  /**
+this.writeString(Integer.toString(value));	  } // writeInteger
+
+  /**
    * operation writeBoolean
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeBoolean(boolean value)   {
-	 		 	 			this.writeString(Boolean.toString(value));
+this.writeString(Boolean.toString(value));
+	  } // writeBoolean
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation writeUnlimitedNatural
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void writeUnlimitedNatural(fUML.Syntax.Classes.Kernel.UnlimitedNatural value)   {
-	 		 	 			int naturalValue = value.naturalValue;
+int naturalValue = value.naturalValue;
 
 if (naturalValue < 0) {
     this.writeString("*");
@@ -122,18 +109,16 @@ if (naturalValue < 0) {
 else {
     this.writeString(Integer.toString(naturalValue));
 }
+	  } // writeUnlimitedNatural
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)   {
-	 		 	 			String name = execution.getOperationName();
+String name = execution.getOperationName();
 // Debug.println("[execute] operation = " + name);
 
 ParameterValue parameterValue = execution.getParameterValue("value");
@@ -162,7 +147,6 @@ else if (name.equals("writeUnlimitedNatural")) {
 else {
     super.execute(execution);
 }
+	  } // execute
 
-								     				    			  }
-	
 } //TextOutputChannelObject

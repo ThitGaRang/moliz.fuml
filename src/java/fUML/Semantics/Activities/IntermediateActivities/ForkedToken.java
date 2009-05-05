@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -58,38 +57,33 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ForkedToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.Token baseToken = 	 null
-	;
-	 		public   int remainingOffersCount = 	0	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.Token baseToken =  null;
+	public   int remainingOffersCount = 0;
+    
+	// Operations of the class
+  /**
    * operation isControl
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isControl()   {
-	 		 	 			// Test if the base token is a control token.
+// Test if the base token is a control token.
 
 return this.baseToken.isControl();
+	  } // isControl
 
-								    			  }
-	
-	  /**
+  /**
    * operation withdraw
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void withdraw()   {
-	 		 	 			// If the base token is not withdrawn, then withdraw it.
+// If the base token is not withdrawn, then withdraw it.
 // Decrement the remaining offers count. 
 // When the remaining number of offers is zero, then remove this token from its holder.
 
@@ -103,49 +97,42 @@ if (this.remainingOffersCount > 0) {
 
 if (this.remainingOffersCount == 0) {
     super.withdraw();
-}
-								    			  }
-	
-	  /**
+}	  } // withdraw
+
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-	 		 	 			// Return a copy of the base token.
+// Return a copy of the base token.
 
 return this.baseToken.copy();
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token otherToken)   {
-	 		 	 			// Test if this token is equal to another token.
+// Test if this token is equal to another token.
 
 return this == otherToken;
+	  } // equals
 
-								    			  }
-	
-	  /**
+  /**
    * operation getValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-	 		 	 			// Return the value of the base token.
+// Return the value of the base token.
 
 return this.baseToken.getValue();
+	  } // getValue
 
-								    			  }
-	
 } //ForkedToken

@@ -45,4 +45,4 @@ public class ExpansionActivationGroupList extends ArrayList<fUML.Semantics.Activ
   public void removeValue(int i){
     remove(i);
   }
-} //ExpansionActivationGroup
+} //ExpansionActivationGroupList

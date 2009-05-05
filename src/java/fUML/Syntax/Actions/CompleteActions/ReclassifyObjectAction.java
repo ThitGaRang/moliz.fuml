@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -46,64 +46,55 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ReclassifyObjectAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isReplaceAll = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.ClassifierList oldClassifier = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin object = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.ClassifierList newClassifier = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isReplaceAll = false;
+	public   fUML.Syntax.Classes.Kernel.ClassifierList oldClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+	public   fUML.Syntax.Actions.BasicActions.InputPin object =  null;
+	public   fUML.Syntax.Classes.Kernel.ClassifierList newClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+    
+	// Operations of the class
+  /**
    * operation setIsReplaceAll
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReplaceAll(boolean isReplaceAll)   {
-	 		 	 			this.isReplaceAll = isReplaceAll;
+this.isReplaceAll = isReplaceAll;
+	  } // setIsReplaceAll
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOldClassifier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOldClassifier(fUML.Syntax.Classes.Kernel.Classifier oldClassifier)   {
-	 		 	 			this.oldClassifier.addValue(oldClassifier);
+this.oldClassifier.addValue(oldClassifier);
+	  } // addOldClassifier
 
-								    			  }
-	
-	  /**
+  /**
    * operation addNewClassifier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addNewClassifier(fUML.Syntax.Classes.Kernel.Classifier newClassifier)   {
-	 		 	 			this.newClassifier.addValue(newClassifier);
+this.newClassifier.addValue(newClassifier);
+	  } // addNewClassifier
 
-								    			  }
-	
-	  /**
+  /**
    * operation setObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setObject(fUML.Syntax.Actions.BasicActions.InputPin object)   {
-	 		 	 			super.addInput(object);
+super.addInput(object);
 this.object = object;
 
+	  } // setObject
 
-								    			  }
-	
 } //ReclassifyObjectAction

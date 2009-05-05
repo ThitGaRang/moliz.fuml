@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -41,35 +41,30 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LiteralUnlimitedNatural    extends fUML.Syntax.Classes.Kernel.LiteralSpecification    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value = 	new UnlimitedNatural(0)	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value = new UnlimitedNatural(0);
+    
+	// Operations of the class
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(fUML.Syntax.Classes.Kernel.UnlimitedNatural value)   {
-	 		 	 			this.value = value;
+this.value = value;
+	  } // setValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(int value)   {
-	 		 	 			this.setValue(new UnlimitedNatural(value));
+this.setValue(new UnlimitedNatural(value));
+	  } // setValue
 
-								    			  }
-	
 } //LiteralUnlimitedNatural

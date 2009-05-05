@@ -45,4 +45,4 @@ public class NamedElementList extends ArrayList<fUML.Syntax.Classes.Kernel.Named
   public void removeValue(int i){
     remove(i);
   }
-} //NamedElement
+} //NamedElementList

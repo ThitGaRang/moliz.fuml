@@ -45,4 +45,4 @@ public class TypeList extends ArrayList<fUML.Syntax.Classes.Kernel.Type>
   public void removeValue(int i){
     remove(i);
   }
-} //Type
+} //TypeList

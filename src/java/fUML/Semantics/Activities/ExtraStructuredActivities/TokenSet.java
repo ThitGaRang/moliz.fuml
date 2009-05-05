@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,11 +39,10 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class TokenSet    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.TokenList tokens = 	new fUML.Semantics.Activities.IntermediateActivities.TokenList()	;
-	    
-// Operations of the class
+	public   fUML.Semantics.Activities.IntermediateActivities.TokenList tokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
+    
+	// Operations of the class
 } //TokenSet

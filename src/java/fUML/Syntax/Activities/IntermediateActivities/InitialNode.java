@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +38,9 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class InitialNode    extends fUML.Syntax.Activities.IntermediateActivities.ControlNode    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //InitialNode

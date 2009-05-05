@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +38,9 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
-public  abstract class Event    {
- 	    
+public  abstract class Event    extends fUML.Syntax.Classes.Kernel.PackageableElement    {
+    
 	// Attributes
- 	    
-// Operations of the class
+    
+	// Operations of the class
 } //Event

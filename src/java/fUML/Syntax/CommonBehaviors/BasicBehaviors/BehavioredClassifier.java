@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,43 +42,38 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class BehavioredClassifier    extends fUML.Syntax.Classes.Kernel.Classifier    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList ownedBehavior = 	new fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList()	;
-	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior classifierBehavior = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList ownedBehavior = new fUML.Syntax.CommonBehaviors.BasicBehaviors.BehaviorList();
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior classifierBehavior =  null;
+    
+	// Operations of the class
+  /**
    * operation addOwnedBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedBehavior(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior ownedBehavior)   {
-	 		 	 			super.addOwnedMember(ownedBehavior);
+super.addOwnedMember(ownedBehavior);
 
 this.ownedBehavior.addValue(ownedBehavior);
 ownedBehavior._setContext(this);
 
 
+	  } // addOwnedBehavior
 
-								    			  }
-	
-	  /**
+  /**
    * operation setClassifierBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setClassifierBehavior(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior classifierBehavior)   {
-	 		 	 			// Note: The classifier behavior must also be added as an owned behavior using addOwnedBehavior.
+// Note: The classifier behavior must also be added as an owned behavior using addOwnedBehavior.
 
 this.classifierBehavior = classifierBehavior;
+	  } // setClassifierBehavior
 
-								    			  }
-	
 } //BehavioredClassifier

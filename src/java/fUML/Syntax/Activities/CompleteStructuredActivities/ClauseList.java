@@ -45,4 +45,4 @@ public class ClauseList extends ArrayList<fUML.Syntax.Activities.CompleteStructu
   public void removeValue(int i){
     remove(i);
   }
-} //Clause
+} //ClauseList

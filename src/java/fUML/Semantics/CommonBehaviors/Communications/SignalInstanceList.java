@@ -45,4 +45,4 @@ public class SignalInstanceList extends ArrayList<fUML.Semantics.CommonBehaviors
   public void removeValue(int i){
     remove(i);
   }
-} //SignalInstance
+} //SignalInstanceList

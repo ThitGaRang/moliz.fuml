@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,49 +44,42 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class AcceptEventAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isUnmarshall = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList result = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	 		public   fUML.Syntax.CommonBehaviors.Communications.TriggerList trigger = 	new fUML.Syntax.CommonBehaviors.Communications.TriggerList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isUnmarshall = false;
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList result = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+	public   fUML.Syntax.CommonBehaviors.Communications.TriggerList trigger = new fUML.Syntax.CommonBehaviors.Communications.TriggerList();
+    
+	// Operations of the class
+  /**
    * operation setIsUnmarshall
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsUnmarshall(boolean isUnmarshall)   {
-	 		 	 			this.isUnmarshall = isUnmarshall;
-								    			  }
-	
-	  /**
+this.isUnmarshall = isUnmarshall;	  } // setIsUnmarshall
+
+  /**
    * operation addTrigger
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addTrigger(fUML.Syntax.CommonBehaviors.Communications.Trigger trigger)   {
-	 		 	 			this.trigger.addValue(trigger);
+this.trigger.addValue(trigger);
+	  } // addTrigger
 
-								    			  }
-	
-	  /**
+  /**
    * operation addResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result.addValue(result);
+	  } // addResult
 
-								    			  }
-	
 } //AcceptEventAction

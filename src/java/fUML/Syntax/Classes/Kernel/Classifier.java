@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -51,55 +51,49 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Classifier    extends fUML.Syntax.Classes.Kernel.Type    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isAbstract = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.GeneralizationList generalization = 	new fUML.Syntax.Classes.Kernel.GeneralizationList()	;
-	 		public   fUML.Syntax.Classes.Kernel.FeatureList feature = 	new fUML.Syntax.Classes.Kernel.FeatureList()	;
-	 		public   fUML.Syntax.Classes.Kernel.NamedElementList inheritedMember = 	new fUML.Syntax.Classes.Kernel.NamedElementList()	;
-	 		public   fUML.Syntax.Classes.Kernel.PropertyList attribute = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	 		public   fUML.Syntax.Classes.Kernel.ClassifierList general = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isAbstract = false;
+	public   fUML.Syntax.Classes.Kernel.GeneralizationList generalization = new fUML.Syntax.Classes.Kernel.GeneralizationList();
+	public   fUML.Syntax.Classes.Kernel.FeatureList feature = new fUML.Syntax.Classes.Kernel.FeatureList();
+	public   fUML.Syntax.Classes.Kernel.NamedElementList inheritedMember = new fUML.Syntax.Classes.Kernel.NamedElementList();
+	public   fUML.Syntax.Classes.Kernel.PropertyList attribute = new fUML.Syntax.Classes.Kernel.PropertyList();
+	public   fUML.Syntax.Classes.Kernel.ClassifierList general = new fUML.Syntax.Classes.Kernel.ClassifierList();
+    
+	// Operations of the class
+  /**
    * operation addFeature
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addFeature(fUML.Syntax.Classes.Kernel.Feature feature)   {
-	 		 	 			// Note: This operation should not be used directly to add Properties. The addAttribute operation should be used instead.
+// Note: This operation should not be used directly to add Properties. The addAttribute operation should be used instead.
 
 this.feature.addValue(feature);
 feature.featuringClassifier.add(this);
+	  } // addFeature
 
-								    			  }
-	
-	  /**
+  /**
    * operation addAttribute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addAttribute(fUML.Syntax.Classes.Kernel.Property attribute)   {
-	 		 	 			this.addFeature(attribute);
+this.addFeature(attribute);
 this.attribute.addValue(attribute);
+	  } // addAttribute
 
-								    			  }
-	
-	  /**
+  /**
    * operation addGeneralization
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addGeneralization(fUML.Syntax.Classes.Kernel.Generalization generalization)   {
-	 		 	 			this.addOwnedElement(generalization);
+this.addOwnedElement(generalization);
 this.generalization.addValue(generalization);
 generalization.specific = this;
 this.general.addValue(generalization.general);
@@ -111,30 +105,26 @@ for (int i = 0; i < inheritedMembers.size(); i++) {
     this.addMember(inheritedMember);
     this.inheritedMember.addValue(inheritedMember);
 }
+	  } // addGeneralization
 
-								    			  }
-	
-	  /**
+  /**
    * operation setIsAbstract
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsAbstract(boolean isAbstract)   {
-	 		 	 			this.isAbstract = isAbstract;
+this.isAbstract = isAbstract;
+	  } // setIsAbstract
 
-								    			  }
-	
-	  /**
+  /**
    * operation inherit
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.NamedElementList inherit(fUML.Syntax.Classes.Kernel.NamedElementList inhs)   {
-	 		 	 			NamedElementList inheritedElements = new NamedElementList();
+NamedElementList inheritedElements = new NamedElementList();
 
 for (int i = 0; i < inhs.size(); i++) {
     inheritedElements.addValue(inhs.getValue(i));
@@ -142,18 +132,16 @@ for (int i = 0; i < inhs.size(); i++) {
 
 return inheritedElements;
 
+	  } // inherit
 
-								    			  }
-	
-	  /**
+  /**
    * operation inheritableMembers
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.NamedElementList inheritableMembers(fUML.Syntax.Classes.Kernel.Classifier c)   {
-	 		 	 			NamedElementList inheritable = new NamedElementList();
+NamedElementList inheritable = new NamedElementList();
 
 for (int i = 0; i < this.member.size(); i++) {
     NamedElement m = this.member.getValue(i);
@@ -163,25 +151,22 @@ for (int i = 0; i < this.member.size(); i++) {
 }
 
 return inheritable;
+	  } // inheritableMembers
 
-								    			  }
-	
-	  /**
+  /**
    * operation hasVisibilityOf
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean hasVisibilityOf(fUML.Syntax.Classes.Kernel.NamedElement n)   {
-	 		 	 			for (int i = 0; i < this.inheritedMember.size(); i++) {
+for (int i = 0; i < this.inheritedMember.size(); i++) {
     if (this.inheritedMember.getValue(i) == n) {
         return n.visibility != VisibilityKind.private_;
     }
 }
 
 return true;
+	  } // hasVisibilityOf
 
-								    			  }
-	
 } //Classifier

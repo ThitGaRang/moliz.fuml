@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -32,7 +32,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,56 +56,48 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public   class Locus    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Loci.Executor executor = 	 null
-	;
-	 		public   fUML.Semantics.Loci.ExecutionFactory factory = 	 null
-	;
-	 		public   fUML.Semantics.Classes.Kernel.ExtensionalValueList extensionalValues = 	new fUML.Semantics.Classes.Kernel.ExtensionalValueList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Loci.Executor executor =  null;
+	public   fUML.Semantics.Loci.ExecutionFactory factory =  null;
+	public   fUML.Semantics.Classes.Kernel.ExtensionalValueList extensionalValues = new fUML.Semantics.Classes.Kernel.ExtensionalValueList();
+    
+	// Operations of the class
+  /**
    * operation setExecutor
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setExecutor(fUML.Semantics.Loci.Executor executor)   {
-	 		 	 			// Set the executor for this locus.
+// Set the executor for this locus.
 
 this.executor = executor;
 this.executor.locus = this;
+	  } // setExecutor
 
-								    			  }
-	
-	  /**
+  /**
    * operation setFactory
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setFactory(fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			// Set the factory for this locus.
+// Set the factory for this locus.
 
 this.factory = factory;
 this.factory.locus = this;
+	  } // setFactory
 
-								    			  }
-	
-	  /**
+  /**
    * operation getExtent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.ExtensionalValueList getExtent(fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			// Return the set of extensional values at this locus which have the given classifier as a type.
+// Return the set of extensional values at this locus which have the given classifier as a type.
 
 ExtensionalValueList extent = new ExtensionalValueList();
 
@@ -128,33 +119,29 @@ for (int i = 0; i < extensionalValues.size(); i++) {
 }
 
 return extent;
+	  } // getExtent
 
-								    			  }
-	
-	  /**
+  /**
    * operation add
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void add(fUML.Semantics.Classes.Kernel.ExtensionalValue value)   {
-	 		 	 			// Add the given extensional value to this locus
+// Add the given extensional value to this locus
 
 value.locus = this;
 this.extensionalValues.addValue(value);
+	  } // add
 
-								    			  }
-	
-	  /**
+  /**
    * operation remove
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void remove(fUML.Semantics.Classes.Kernel.ExtensionalValue value)   {
-	 		 	 			// Remove the given extensional value from this locus.
+// Remove the given extensional value from this locus.
 
 value.locus = null;
 
@@ -167,18 +154,16 @@ while (notFound & i <= this.extensionalValues.size()) {
     }
     i = i + 1;
 }
+	  } // remove
 
-								    			  }
-	
-	  /**
+  /**
    * operation instantiate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Object_ instantiate(fUML.Syntax.Classes.Kernel.Class_ type)   {
-	 		 	 			// Instantiate the given class at this locus.
+// Instantiate the given class at this locus.
 
 Object_ object = null;
 
@@ -194,18 +179,16 @@ else {
 }
 
 return object;
+	  } // instantiate
 
-								    			  }
-	
-	  /**
+  /**
    * operation conforms
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean conforms(fUML.Syntax.Classes.Kernel.Classifier type, fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-	 		 	 			// Test if a type conforms to a given classifier, that is, the type is equal to or a descendant of the classifier.
+// Test if a type conforms to a given classifier, that is, the type is equal to or a descendant of the classifier.
 
 boolean doesConform = false;
 
@@ -222,7 +205,6 @@ if (type == classifier) {
 return doesConform;
 
 
+	  } // conforms
 
-								    			  }
-	
 } //Locus

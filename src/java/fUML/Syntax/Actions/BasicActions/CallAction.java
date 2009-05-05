@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -41,25 +41,22 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class CallAction    extends fUML.Syntax.Actions.BasicActions.InvocationAction    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isSynchronous = 	true	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList result = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isSynchronous = true;
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList result = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+    
+	// Operations of the class
+  /**
    * operation addResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result.addValue(result);
+	  } // addResult
 
-								    			  }
-	
 } //CallAction

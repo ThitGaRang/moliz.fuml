@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -37,7 +37,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -47,30 +46,41 @@ import fUML.Semantics.Loci.*;
  * The following features are implemented:
  * <ul>
  	 *   <li>{@link OutputPinActivation#isReady <em>isReady</em>}</li>
+	 *   <li>{@link OutputPinActivation#fire <em>fire</em>}</li>
 	 	 * </ul>
  * </p>
  *
  * @generated
  */
 
-
 public   class OutputPinActivation    extends fUML.Semantics.Actions.BasicActions.PinActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// Always return false. [The pin will be fired by its associated action.]
+// Always return false. [The pin will be fired by its associated action.]
 
 return false;
+	  } // isReady
 
-								    			  }
-	
+  /**
+   * operation fire
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
+// Add incoming tokens and send offers on outgoing edges.
+
+super.fire(incomingTokens);
+this.sendUnofferedTokens();
+	  } // fire
+
 } //OutputPinActivation

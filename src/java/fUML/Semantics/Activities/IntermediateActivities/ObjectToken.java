@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -56,72 +55,62 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ObjectToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Classes.Kernel.Value value = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Classes.Kernel.Value value =  null;
+    
+	// Operations of the class
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)   {
-	 		 	 			// Test if this object token is the same as the other token.
+// Test if this object token is the same as the other token.
 
 return this == other;
+	  } // equals
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-	 		 	 			// Return a new object token with the same value as this token.
+// Return a new object token with the same value as this token.
 // [Note: the holder of the copy is not set.]
 
 ObjectToken copy = new ObjectToken();
 copy.value = this.value;
 
 return copy;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation isControl
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isControl()   {
-	 		 	 			// Return false for an object token.
+// Return false for an object token.
 
 return false;
+	  } // isControl
 
-								    			  }
-	
-	  /**
+  /**
    * operation getValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-	 		 	 			// Return the value of this object token.
+// Return the value of this object token.
 
 return this.value;
+	  } // getValue
 
-								    			  }
-	
 } //ObjectToken

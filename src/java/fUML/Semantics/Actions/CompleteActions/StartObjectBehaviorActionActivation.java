@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,27 +56,25 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class StartObjectBehaviorActionActivation    extends fUML.Semantics.Actions.BasicActions.InvocationActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value on the object input pin. If it is not a reference, then do nothing.
+// Get the value on the object input pin. If it is not a reference, then do nothing.
 // Start the behavior of the referent object for the classifier given as the type of the object input pin, with parameter values taken from the argument input pins.
 // If the object input pin has no type, then start the classifier behaviors of all types of the referent object.
 
 StartObjectBehaviorAction action = (StartObjectBehaviorAction)(this.node);
 
-Value object = this.getTokens(action.object).getValue(0);
+Value object = this.takeTokens(action.object).getValue(0);
 
 if (object instanceof Reference) {
     Class_ type = (Class_)(action.object.typedElement.type);
@@ -86,7 +83,7 @@ if (object instanceof Reference) {
     ParameterValueList inputs = new ParameterValueList();
 
     if (type != null) {
-        Behavior behavior = null;
+        Behavior behavior;
 
         if (type instanceof Behavior) {
             behavior = (Behavior)type;
@@ -106,7 +103,7 @@ if (object instanceof Reference) {
                     parameter.direction == ParameterDirectionKind.inout) {
                     ParameterValue parameterValue = new ParameterValue();
                     parameterValue.parameter = parameter;
-                    parameterValue.values = this.getTokens(argumentPins.getValue(j-1));
+                    parameterValue.values = this.takeTokens(argumentPins.getValue(j-1));
                     inputs.addValue(parameterValue);
                     j = j + 1;
                 }
@@ -118,7 +115,6 @@ if (object instanceof Reference) {
 
     ((Reference)object).startBehavior(type, inputs);
 }
+	  } // doAction
 
-								    			  }
-	
 } //StartObjectBehaviorActionActivation

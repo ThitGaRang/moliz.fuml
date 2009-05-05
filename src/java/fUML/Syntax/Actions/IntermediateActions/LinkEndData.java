@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LinkEndData    extends fUML.Syntax.Classes.Kernel.Element    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.InputPin value = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Property end = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.InputPin value =  null;
+	public   fUML.Syntax.Classes.Kernel.Property end =  null;
+    
+	// Operations of the class
+  /**
    * operation setEnd
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setEnd(fUML.Syntax.Classes.Kernel.Property end)   {
-	 		 	 			this.end = end;
+this.end = end;
+	  } // setEnd
 
-								    			  }
-	
-	  /**
+  /**
    * operation setValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setValue(fUML.Syntax.Actions.BasicActions.InputPin value)   {
-	 		 	 			this.value = value;
+this.value = value;
+	  } // setValue
 
-								    			  }
-	
 } //LinkEndData

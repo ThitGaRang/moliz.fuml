@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class TypedElement    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Type type = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.Type type =  null;
+    
+	// Operations of the class
+  /**
    * operation setType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setType(fUML.Syntax.Classes.Kernel.Type type)   {
-	 		 	 			this.type = type;
+this.type = type;
+	  } // setType
 
-								    			  }
-	
 } //TypedElement

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -50,44 +50,39 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Property    extends fUML.Syntax.Classes.Kernel.StructuralFeature    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isDerived = 	false	;
-	 		public   boolean isReadOnly = 	false	;
-	 		public   boolean isDerivedUnion = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.AggregationKind aggregation = 	fUML.Syntax.Classes.Kernel.AggregationKind.none	;
-	 		public   boolean isComposite = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.Association owningAssociation = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.DataType datatype = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Association association = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Class_ class_ = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Property opposite = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isDerived = false;
+	public   boolean isReadOnly = false;
+	public   boolean isDerivedUnion = false;
+	public   fUML.Syntax.Classes.Kernel.AggregationKind aggregation = fUML.Syntax.Classes.Kernel.AggregationKind.none;
+	public   boolean isComposite = false;
+	public   fUML.Syntax.Classes.Kernel.Association owningAssociation =  null;
+	public   fUML.Syntax.Classes.Kernel.DataType datatype =  null;
+	public   fUML.Syntax.Classes.Kernel.Association association =  null;
+	public   fUML.Syntax.Classes.Kernel.Class_ class_ =  null;
+	public   fUML.Syntax.Classes.Kernel.Property opposite =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsReadOnly
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReadOnly(boolean isReadOnly)   {
-	 		 	 			this.isReadOnly = isReadOnly;
-								    			  }
-	
-	  /**
+this.isReadOnly = isReadOnly;	  } // setIsReadOnly
+
+  /**
    * operation setAggregation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setAggregation(fUML.Syntax.Classes.Kernel.AggregationKind aggregation)   {
-	 		 	 			this.aggregation = aggregation;
+this.aggregation = aggregation;
 this.isComposite = (aggregation == AggregationKind.composite);
+	  } // setAggregation
 
-								    			  }
-	
 } //Property

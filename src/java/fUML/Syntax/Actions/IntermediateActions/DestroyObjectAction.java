@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,50 +44,43 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class DestroyObjectAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isDestroyLinks = 	false	;
-	 		public   boolean isDestroyOwnedObjects = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin target = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isDestroyLinks = false;
+	public   boolean isDestroyOwnedObjects = false;
+	public   fUML.Syntax.Actions.BasicActions.InputPin target =  null;
+    
+	// Operations of the class
+  /**
    * operation setIsDestroyLinks
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsDestroyLinks(boolean isDestroyLinks)   {
-	 		 	 			this.isDestroyLinks = isDestroyLinks;
+this.isDestroyLinks = isDestroyLinks;
+	  } // setIsDestroyLinks
 
-								    			  }
-	
-	  /**
+  /**
    * operation setIsDestroyOwnedObjects
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsDestroyOwnedObjects(boolean isDestroyOwnedObjects)   {
-	 		 	 			this.isDestroyOwnedObjects = isDestroyOwnedObjects;
+this.isDestroyOwnedObjects = isDestroyOwnedObjects;
+	  } // setIsDestroyOwnedObjects
 
-								    			  }
-	
-	  /**
+  /**
    * operation setTarget
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setTarget(fUML.Syntax.Actions.BasicActions.InputPin target)   {
-	 		 	 			super.addInput(target);
+super.addInput(target);
 this.target = target;
+	  } // setTarget
 
-								    			  }
-	
 } //DestroyObjectAction

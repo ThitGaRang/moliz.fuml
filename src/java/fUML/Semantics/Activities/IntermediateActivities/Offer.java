@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,37 +54,33 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class Offer    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.IntermediateActivities.TokenList offeredTokens = 	new fUML.Semantics.Activities.IntermediateActivities.TokenList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.IntermediateActivities.TokenList offeredTokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
+    
+	// Operations of the class
+  /**
    * operation countOfferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int countOfferedTokens()   {
-	 		 	 			// Return the number of tokens being offered.
+// Return the number of tokens being offered.
 
 return this.offeredTokens.size();
 
+	  } // countOfferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation getOfferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.TokenList getOfferedTokens()   {
-	 		 	 			// Get the offered tokens.
+// Get the offered tokens.
 
 TokenList tokens = new TokenList();
 TokenList offeredTokens = this.offeredTokens;
@@ -97,18 +92,16 @@ for (int i = 0; i < this.offeredTokens.size() ; i++) {
 
 return tokens;
 
+	  } // getOfferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation removeWithdrawnTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void removeWithdrawnTokens()   {
-	 		 	 			// Remove any tokens that have already been consumed.
+// Remove any tokens that have already been consumed.
 
 TokenList offeredTokens = this.offeredTokens;
 int i = 1;
@@ -119,7 +112,6 @@ while (i <= this.offeredTokens.size()) {
     }
     i = i + 1;
 }
+	  } // removeWithdrawnTokens
 
-								    			  }
-	
 } //Offer

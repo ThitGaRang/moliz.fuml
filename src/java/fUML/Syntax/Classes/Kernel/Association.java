@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,26 +45,24 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Association    extends fUML.Syntax.Classes.Kernel.Classifier    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isDerived = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.PropertyList ownedEnd = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	 		public   fUML.Syntax.Classes.Kernel.TypeList endType = 	new fUML.Syntax.Classes.Kernel.TypeList()	;
-	 		public   fUML.Syntax.Classes.Kernel.PropertyList memberEnd = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	 		public   fUML.Syntax.Classes.Kernel.PropertyList navigableOwnedEnd = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isDerived = false;
+	public   fUML.Syntax.Classes.Kernel.PropertyList ownedEnd = new fUML.Syntax.Classes.Kernel.PropertyList();
+	public   fUML.Syntax.Classes.Kernel.TypeList endType = new fUML.Syntax.Classes.Kernel.TypeList();
+	public   fUML.Syntax.Classes.Kernel.PropertyList memberEnd = new fUML.Syntax.Classes.Kernel.PropertyList();
+	public   fUML.Syntax.Classes.Kernel.PropertyList navigableOwnedEnd = new fUML.Syntax.Classes.Kernel.PropertyList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedEnd
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedEnd(fUML.Syntax.Classes.Kernel.Property ownedEnd)   {
-	 		 	 			super.addFeature(ownedEnd);
+super.addFeature(ownedEnd);
 super.addOwnedMember(ownedEnd);
 
 this.ownedEnd.addValue(ownedEnd);
@@ -74,21 +72,18 @@ this.memberEnd.addValue(ownedEnd);
 ownedEnd.association = this;
 
 this.endType.addValue(ownedEnd.typedElement.type);
+	  } // addOwnedEnd
 
-								    			  }
-	
-	  /**
+  /**
    * operation addNavigableOwnedEnd
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addNavigableOwnedEnd(fUML.Syntax.Classes.Kernel.Property navigableOwnedEnd)   {
-	 		 	 			// Note: A navigable end must also be set as an owned end using setOwnedEnd.
+// Note: A navigable end must also be set as an owned end using setOwnedEnd.
 
 this.navigableOwnedEnd.addValue(navigableOwnedEnd);
+	  } // addNavigableOwnedEnd
 
-								    			  }
-	
 } //Association

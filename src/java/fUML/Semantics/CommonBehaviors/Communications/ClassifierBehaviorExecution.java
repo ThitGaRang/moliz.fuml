@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -33,7 +33,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -54,27 +53,22 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ClassifierBehaviorExecution    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution execution = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.Class_ classifier = 	 null
-	;
-	 		public   fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution execution =  null;
+	public   fUML.Syntax.Classes.Kernel.Class_ classifier =  null;
+	public   fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation =  null;
+    
+	// Operations of the class
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute(fUML.Syntax.Classes.Kernel.Class_ classifier, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputs)   {
-	 		 	 			// Set the classifier for this classifier behavior execution to the given class.
+// Set the classifier for this classifier behavior execution to the given class.
 // If the given class is a behavior, set the execution to be the object of the object activation of the classifier behavior execution.
 // Otherwise the class must be an active class, so get an execution object for the classifier behavior for the class.
 // Set the input parameters for the execution to the given values.
@@ -99,18 +93,16 @@ if (inputs != null) {
 }
 
 _startObjectBehavior();
+	  } // execute
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate the associated execution.
+// Terminate the associated execution.
 // If the execution is not itself the object of the object activation, then destroy it.
 
 //Debug.println("[terminate] Terminating behavior for " + classifier.name + "...");
@@ -121,19 +113,16 @@ if (this.execution != this.objectActivation.object) {
     this.execution.destroy();
 }
 
+	  } // terminate
 
-								    			  }
-	
-	  /**
+  /**
    * operation _startObjectBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void _startObjectBehavior()   {
-	 		 	 			// *** This should start the asynchronous ClassifierBehaviorExecutionActivity to do the following. ***
-this.execution.execute();
-								    			  }
-	
+// *** This should start the asynchronous ClassifierBehaviorExecutionActivity to do the following. ***
+this.execution.execute();	  } // _startObjectBehavior
+
 } //ClassifierBehaviorExecution

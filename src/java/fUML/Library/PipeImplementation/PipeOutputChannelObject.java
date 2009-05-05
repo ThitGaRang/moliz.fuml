@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -48,101 +48,84 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class PipeOutputChannelObject    extends fUML.Library.ChannelImplementation.OutputChannelObject    {
- 	    
+    
 	// Attributes
- 	 		private   fUML.Library.PipeImplementation.PipeInputChannelObject otherEnd = 	 null
-	;
-	 		private   boolean opened = 	false	;
-	 		private   String name = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	private   fUML.Library.PipeImplementation.PipeInputChannelObject otherEnd =  null;
+	private   boolean opened = false;
+	private   String name = "";
+    
+	// Operations of the class
+  /**
    * operation write
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void write(fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			if (this.isOpen()) {
+if (this.isOpen()) {
     this.otherEnd.receive(value);
 }
+	  } // write
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation isFull
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isFull()   {
-	 		 	 			return false;
+return false;
+	  } // isFull
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation PipeOutputChannelObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      PipeOutputChannelObject(String name, fUML.Library.PipeImplementation.PipeInputChannelObject otherEnd)   {
-	 		 	 			this.name = name;
+this.name = name;
 this.otherEnd = otherEnd;
 this.opened = true;
+	  } // PipeOutputChannelObject
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			return name;
-								     				    			  }
-	
-	  /**
+return name;	  } // getName
+
+  /**
    * operation open
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void open()   {
-	 		 	 			opened = true;
+opened = true;
+	  } // open
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation close
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void close()   {
-	 		 	 			opened = false;
-								     				    			  }
-	
-	  /**
+opened = false;	  } // close
+
+  /**
    * operation isOpen
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isOpen()   {
-	 		 	 			return opened;
+return opened;
+	  } // isOpen
 
-								     				    			  }
-	
 } //PipeOutputChannelObject

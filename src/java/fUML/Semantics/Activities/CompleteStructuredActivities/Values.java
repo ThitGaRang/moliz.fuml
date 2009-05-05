@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,11 +39,10 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Values    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Classes.Kernel.ValueList values = 	new fUML.Semantics.Classes.Kernel.ValueList()	;
-	    
-// Operations of the class
+	public   fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
+    
+	// Operations of the class
 } //Values

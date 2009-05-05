@@ -45,4 +45,4 @@ public class OfferList extends ArrayList<fUML.Semantics.Activities.IntermediateA
   public void removeValue(int i){
     remove(i);
   }
-} //Offer
+} //OfferList

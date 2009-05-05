@@ -45,4 +45,4 @@ public class EventAccepterList extends ArrayList<fUML.Semantics.CommonBehaviors.
   public void removeValue(int i){
     remove(i);
   }
-} //EventAccepter
+} //EventAccepterList

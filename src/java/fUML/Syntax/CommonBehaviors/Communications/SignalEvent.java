@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class SignalEvent    extends fUML.Syntax.CommonBehaviors.Communications.MessageEvent    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.Communications.Signal signal = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.Communications.Signal signal =  null;
+    
+	// Operations of the class
+  /**
    * operation setSignal
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setSignal(fUML.Syntax.CommonBehaviors.Communications.Signal signal)   {
-	 		 	 			this.signal = signal;
+this.signal = signal;
+	  } // setSignal
 
-								    			  }
-	
 } //SignalEvent

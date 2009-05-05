@@ -45,4 +45,4 @@ public class Class_List extends ArrayList<fUML.Syntax.Classes.Kernel.Class_>
   public void removeValue(int i){
     remove(i);
   }
-} //Class_
+} //Class_List

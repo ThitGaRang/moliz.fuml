@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -38,7 +38,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -56,38 +55,36 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class InputPinActivation    extends fUML.Semantics.Actions.BasicActions.PinActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation receiveOffer
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void receiveOffer()   {
-	 		 	 			// Forward the offer to the action activation.  [When all input pins are ready, the action will fire them.]
+// Forward the offer to the action activation.  [When all input pins are ready, the action will fire them.]
 
 this.actionActivation.receiveOffer();
+	  } // receiveOffer
 
-								    			  }
-	
-	  /**
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// Return true if the total number of tokens already being offered by this pin plus those being offered by the sources of incoming edges is at least equal to the minimum multiplicity of the pin.
+// Return true if the total number of tokens already being offered by this pin plus those being offered by the sources of incoming edges is at least equal to the minimum multiplicity of the pin.
 
-boolean ready = false;
-if (super.isReady()) {
+boolean ready;
+if (!super.isReady()) {
+    ready = false;
+} else {
     int totalTokenCount = this.countUnofferedTokens();
     int i = 1;
     while (i <= this.incomingEdges.size()) {
@@ -100,18 +97,16 @@ if (super.isReady()) {
 }
 
 return ready;
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation countUnofferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int countUnofferedTokens()   {
-	 		 	 			// Limit the number of tokens to be offered to no more than the upper multiplicity of the pin.
+// Limit the number of tokens to be offered to no more than the upper multiplicity of the pin.
 
 int count = super.countUnofferedTokens();
 
@@ -124,8 +119,6 @@ if (upper < 0 | count <= upper) {
 }
 
 return limitedCount;
+	  } // countUnofferedTokens
 
-
-								    			  }
-	
 } //InputPinActivation

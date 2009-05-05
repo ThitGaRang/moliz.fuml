@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class DecisionNode    extends fUML.Syntax.Activities.IntermediateActivities.ControlNode    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput = 	 null	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput =  null;
+	public   fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow =  null;
+    
+	// Operations of the class
+  /**
    * operation setDecisionInput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDecisionInput(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput)   {
-	 		 	 			this.decisionInput = decisionInput;
+this.decisionInput = decisionInput;
+	  } // setDecisionInput
 
-								    			  }
-	
-	  /**
+  /**
    * operation setDecisionInputFlow
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDecisionInputFlow(fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow)   {
-	 		 	 			this.decisionInputFlow = decisionInputFlow;
+this.decisionInputFlow = decisionInputFlow;
+	  } // setDecisionInputFlow
 
-								    			  }
-	
 } //DecisionNode

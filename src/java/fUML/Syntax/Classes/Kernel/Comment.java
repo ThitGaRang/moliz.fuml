@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Comment    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ElementList annotatedElement = 	new fUML.Syntax.Classes.Kernel.ElementList()	;
-	 		public   String body = 	""	;
-	    
-// Operations of the class
+	public   fUML.Syntax.Classes.Kernel.ElementList annotatedElement = new fUML.Syntax.Classes.Kernel.ElementList();
+	public   String body = "";
+    
+	// Operations of the class
 } //Comment

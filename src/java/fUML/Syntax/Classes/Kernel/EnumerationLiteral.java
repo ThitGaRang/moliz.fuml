@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,11 +39,10 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class EnumerationLiteral    extends fUML.Syntax.Classes.Kernel.InstanceSpecification    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Enumeration enumeration = 	 null	;
-	    
-// Operations of the class
+	public   fUML.Syntax.Classes.Kernel.Enumeration enumeration =  null;
+    
+	// Operations of the class
 } //EnumerationLiteral

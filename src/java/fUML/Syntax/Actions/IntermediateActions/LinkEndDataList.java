@@ -45,4 +45,4 @@ public class LinkEndDataList extends ArrayList<fUML.Syntax.Actions.IntermediateA
   public void removeValue(int i){
     remove(i);
   }
-} //LinkEndData
+} //LinkEndDataList

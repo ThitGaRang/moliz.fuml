@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,24 +40,21 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class DestroyLinkAction    extends fUML.Syntax.Actions.IntermediateActions.WriteLinkAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.IntermediateActions.LinkEndDestructionDataList endData = 	new fUML.Syntax.Actions.IntermediateActions.LinkEndDestructionDataList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.IntermediateActions.LinkEndDestructionDataList endData = new fUML.Syntax.Actions.IntermediateActions.LinkEndDestructionDataList();
+    
+	// Operations of the class
+  /**
    * operation addEndData
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addEndData(fUML.Syntax.Actions.IntermediateActions.LinkEndDestructionData endData)   {
-	 		 	 			super.addEndData(endData);
+super.addEndData(endData);
 this.endData.addValue(endData);
+	  } // addEndData
 
-								    			  }
-	
 } //DestroyLinkAction

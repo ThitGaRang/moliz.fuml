@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -38,7 +38,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -54,33 +53,33 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class CallOperationActionActivation    extends fUML.Semantics.Actions.BasicActions.CallActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getCallExecution
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution getCallExecution()   {
-	 		 	 			// If the value on the target input pin is a reference, dispatch the operation to it and return the resulting execution object.
+// If the value on the target input pin is a reference, dispatch the operation to it and return the resulting execution object.
 
 CallOperationAction action = (CallOperationAction)(this.node);
-Value target = this.getTokens(action.target).getValue(0);
+Value target = this.takeTokens(action.target).getValue(0);
 
-Execution execution = null;
+Execution execution;
 if (target instanceof Reference) {
     execution = ((Reference)target).dispatch(action.operation);
+}
+else {
+    execution = null;
 }
 
 return execution;
 
+	  } // getCallExecution
 
-								    			  }
-	
 } //CallOperationActionActivation

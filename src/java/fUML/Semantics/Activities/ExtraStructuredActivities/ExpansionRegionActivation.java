@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -43,7 +43,6 @@ import fUML.Semantics.Activities.CompleteStructuredActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -70,24 +69,22 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ExpansionRegionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList activationGroups = 	new fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList()	;
-	 		public   fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputTokens = 	new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList()	;
-	 		public   fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputExpansionTokens = 	new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList activationGroups = new fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList();
+	public   fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputTokens = new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList();
+	public   fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputExpansionTokens = new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList();
+    
+	// Operations of the class
+  /**
    * operation takeOfferedTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.TokenList takeOfferedTokens()   {
-	 		 	 			// Create a number of expansion region activation groups equal to the number of values expanded in the region, setting the region inputs and group inputs for each group.
+// Create a number of expansion region activation groups equal to the number of values expanded in the region, setting the region inputs and group inputs for each group.
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
 InputPinList inputPins = region.input;
@@ -139,18 +136,16 @@ while (k <= n) {
 }
 
 return new TokenList();
+	  } // takeOfferedTokens
 
-								    			  }
-	
-	  /**
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// If the expansion region has mustIsolate=true, then carry out its behavior with isolation.
+// If the expansion region has mustIsolate=true, then carry out its behavior with isolation.
 // Otherwise just activate it normally.
 
 if (((StructuredActivityNode)(this.node)).mustIsolate) {
@@ -161,18 +156,16 @@ if (((StructuredActivityNode)(this.node)).mustIsolate) {
     this.doStructuredActivity();
 }
 
+	  } // doAction
 
-								    			  }
-	
-	  /**
+  /**
    * operation doStructuredActivity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doStructuredActivity()   {
-	 		 	 			// Activate the body of the region in each group, either iteratively or in parallel.
+// Activate the body of the region in each group, either iteratively or in parallel.
 // Add the outputs of each activation group to the corresonding output expansion node activations.
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
@@ -205,18 +198,16 @@ for (int i = 0; i < activationGroups.size(); i++) {
 }
 
 
+	  } // doStructuredActivity
 
-								    			  }
-	
-	  /**
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate the execution of all contained node activations (which completes the performance of the expansion region activation).
+// Terminate the execution of all contained node activations (which completes the performance of the expansion region activation).
 
 ExpansionActivationGroupList activationGroups = this.activationGroups;
 for (int i = 0; i < activationGroups.size(); i++) {
@@ -224,18 +215,16 @@ for (int i = 0; i < activationGroups.size(); i++) {
     activationGroup.terminateAll();
 }
 
-super.terminate();
-								    			  }
-	
-	  /**
+super.terminate();	  } // terminate
+
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// In addition to the usual ready checks for an action, check that all expansion nodes have the same number of inputs (greater than zero).
+// In addition to the usual ready checks for an action, check that all expansion nodes have the same number of inputs (greater than zero).
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
 
@@ -258,18 +247,16 @@ if (super.isReady()) {
 
 return ready;
 
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation sendOffers
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void sendOffers()   {
-	 		 	 			// Fire all output expansion nodes and send offers on all outgoing control flows.
+// Fire all output expansion nodes and send offers on all outgoing control flows.
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
 
@@ -283,18 +270,16 @@ for (Iterator i = outputElements.iterator(); i.hasNext();) {
 // Send offers on all outgoing control flows.
 super.sendOffers();
 
+	  } // sendOffers
 
-								    			  }
-	
-	  /**
+  /**
    * operation activateGroup
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void activateGroup(fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroup activationGroup)   {
-	 		 	 			// Activate the given group (which must be one of the groups for this region activation) and then fire the group outputs.
+// Activate the given group (which must be one of the groups for this region activation) and then fire the group outputs.
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
 activationGroup.activate(region.node, region.edge);
@@ -306,41 +291,36 @@ for (int i = 0; i < groupOutputs.size(); i++) {
 }
 
 activationGroup.terminateAll();
+	  } // activateGroup
 
-								    			  }
-	
-	  /**
+  /**
    * operation getExpansionNodeActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionNodeActivation getExpansionNodeActivation(fUML.Syntax.Activities.ExtraStructuredActivities.ExpansionNode node)   {
-	 		 	 			// Return the expansion node activation corresponding to the given expansion node, in the context of the activity node activation group this expansion region activation is in.
+// Return the expansion node activation corresponding to the given expansion node, in the context of the activity node activation group this expansion region activation is in.
 // [Note: Expansion regions do not own their expansion nodes. Instead, they are own as object nodes by the enclosing activity or group. 
 // Therefore, they will already be activated along with their expansion region.]
 
 return (ExpansionNodeActivation)(this.group.getNodeActivation(node));
 
+	  } // getExpansionNodeActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation numberOfValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int numberOfValues()   {
-	 		 	 			// Return the number of values on the first input expansion node of the expansion region of this activation.
+// Return the number of values on the first input expansion node of the expansion region of this activation.
 // (The region is required to have at least one input expansion node.)
 
 ExpansionRegion region = (ExpansionRegion)(this.node);
 
 return this.getExpansionNodeActivation(region.inputElement.getValue(0)).countUnofferedTokens();
+	  } // numberOfValues
 
-								    			  }
-	
 } //ExpansionRegionActivation

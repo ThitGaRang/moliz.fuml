@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -43,38 +43,33 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Slot    extends fUML.Syntax.Classes.Kernel.Element    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.InstanceSpecification owningInstance = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.StructuralFeature definingFeature = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.ValueSpecificationList value = 	new fUML.Syntax.Classes.Kernel.ValueSpecificationList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.InstanceSpecification owningInstance =  null;
+	public   fUML.Syntax.Classes.Kernel.StructuralFeature definingFeature =  null;
+	public   fUML.Syntax.Classes.Kernel.ValueSpecificationList value = new fUML.Syntax.Classes.Kernel.ValueSpecificationList();
+    
+	// Operations of the class
+  /**
    * operation setDefiningFeature
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDefiningFeature(fUML.Syntax.Classes.Kernel.StructuralFeature definingFeature)   {
-	 		 	 			this.definingFeature = definingFeature;
+this.definingFeature = definingFeature;
+	  } // setDefiningFeature
 
-								    			  }
-	
-	  /**
+  /**
    * operation addValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addValue(fUML.Syntax.Classes.Kernel.ValueSpecification value)   {
-	 		 	 			this.addOwnedElement(value);
+this.addOwnedElement(value);
 this.value.addValue(value);
+	  } // addValue
 
-								    			  }
-	
 } //Slot

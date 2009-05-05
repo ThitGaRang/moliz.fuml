@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,21 +54,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class DestroyLinkActionActivation    extends fUML.Semantics.Actions.IntermediateActions.WriteLinkActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the extent, at the current execution locus, of the association for which links are being destroyed.
+// Get the extent, at the current execution locus, of the association for which links are being destroyed.
 // Destroy all links that match the given link end destruction data.
 // For unique ends, or non-unique ends for which isDestroyDuplicates is true, match links with a matching value for that end.
 // For non-unique, ordered ends for which isDestroyDuplicates is false, match links with an end value at the given destroyAt position. [Must a value be given, too, in this case?]
@@ -103,6 +100,18 @@ for (int i = 0; i < extent.size(); i++) {
     }
 }
 
+// Now that matching is done, ensure that all tokens on end data input pins
+// are consumed.
+for (int i = 0; i < destructionDataList.size(); i++) {
+    LinkEndDestructionData endData = destructionDataList.getValue(i);
+    Property end = endData.end;
+    if (!endData.isDestroyDuplicates
+        & !end.multiplicityElement.isUnique & end.multiplicityElement.isOrdered) {
+        this.takeTokens(endData.destroyAt);
+    }
+    this.takeTokens(endData.value);
+}
+
 if (destroyOnlyOne) {
     // *** If there is more than one matching link, non-deterministically choose one. ***
     if (matchingLinks.size() > 0) {
@@ -115,7 +124,6 @@ if (destroyOnlyOne) {
         matchingLink.destroy();
     }
 }
+	  } // doAction
 
-								    			  }
-	
 } //DestroyLinkActionActivation

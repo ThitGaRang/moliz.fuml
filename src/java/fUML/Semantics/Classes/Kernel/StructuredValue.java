@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,21 +51,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class StructuredValue    extends fUML.Semantics.Classes.Kernel.Value    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation specify
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
-	 		 	 			// Return an instance value that specifies this structured value.
+// Return an instance value that specifies this structured value.
 
 // Debug.println("[specify] StructuredValue...");
 
@@ -100,42 +97,34 @@ for (int i = 0; i < featureValues.size(); i++) {
 }
 
 return instanceValue;
+	  } // specify
 
-								    			  }
-	
-	  /**
+  /**
    * operation getFeatureValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.FeatureValue getFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature)  ;
-	  /**
+	public  abstract   fUML.Semantics.Classes.Kernel.FeatureValue getFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature)  ;  /**
    * operation setFeatureValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature, fUML.Semantics.Classes.Kernel.ValueList values, int position)  ;
-	  /**
+	public  abstract    void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature, fUML.Semantics.Classes.Kernel.ValueList values, int position)  ;  /**
    * operation getFeatureValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.Classes.Kernel.FeatureValueList getFeatureValues()  ;
-	  /**
+	public  abstract   fUML.Semantics.Classes.Kernel.FeatureValueList getFeatureValues()  ;  /**
    * operation createFeatureValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createFeatureValues()   {
-	 		 	 			// Create empty feature values for all structural features, direct and inherited, of the types of this structured value.
+// Create empty feature values for all structural features, direct and inherited, of the types of this structured value.
 
 ClassifierList types = this.getTypes();
 
@@ -150,7 +139,6 @@ for (int i = 0; i < types.size(); i++) {
         }
     }
 }
+	  } // createFeatureValues
 
-								    			  }
-	
 } //StructuredValue

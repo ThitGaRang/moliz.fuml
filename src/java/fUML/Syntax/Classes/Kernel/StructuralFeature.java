@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -49,113 +49,96 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class StructuralFeature    extends fUML.Syntax.Classes.Kernel.Feature    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isReadOnly = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.MultiplicityElement multiplicityElement = 	new fUML.Syntax.Classes.Kernel.MultiplicityElement()	;
-	 		public   fUML.Syntax.Classes.Kernel.TypedElement typedElement = 	new fUML.Syntax.Classes.Kernel.TypedElement()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isReadOnly = false;
+	public   fUML.Syntax.Classes.Kernel.MultiplicityElement multiplicityElement = new fUML.Syntax.Classes.Kernel.MultiplicityElement();
+	public   fUML.Syntax.Classes.Kernel.TypedElement typedElement = new fUML.Syntax.Classes.Kernel.TypedElement();
+    
+	// Operations of the class
+  /**
    * operation setIsReadOnly
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReadOnly(boolean isReadOnly)   {
-	 		 	 			this.isReadOnly = isReadOnly;
+this.isReadOnly = isReadOnly;
+	  } // setIsReadOnly
 
-								    			  }
-	
-	  /**
+  /**
    * operation setIsOrdered
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsOrdered(boolean isOrdered)   {
-	 		 	 			this.multiplicityElement.setIsOrdered(isOrdered);
-								    			  }
-	
-	  /**
+this.multiplicityElement.setIsOrdered(isOrdered);	  } // setIsOrdered
+
+  /**
    * operation setIsUnique
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsUnique(boolean isUnique)   {
-	 		 	 			this.multiplicityElement.setIsUnique(isUnique);
+this.multiplicityElement.setIsUnique(isUnique);
+	  } // setIsUnique
 
-								    			  }
-	
-	  /**
+  /**
    * operation setUpperValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setUpperValue(fUML.Syntax.Classes.Kernel.ValueSpecification upperValue)   {
-	 		 	 			this.multiplicityElement.setUpperValue(upperValue);
+this.multiplicityElement.setUpperValue(upperValue);
+	  } // setUpperValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setLowerValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setLowerValue(fUML.Syntax.Classes.Kernel.ValueSpecification lowerValue)   {
-	 		 	 			this.multiplicityElement.setLowerValue(lowerValue);
+this.multiplicityElement.setLowerValue(lowerValue);
+	  } // setLowerValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setUpper
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setUpper(int upper)   {
-	 		 	 			//Note: This is a convenience operation that may be used _instead_ of setUpperValue, not in addition to it.
+//Note: This is a convenience operation that may be used _instead_ of setUpperValue, not in addition to it.
 
 this.multiplicityElement.setUpper(upper);
+	  } // setUpper
 
-								    			  }
-	
-	  /**
+  /**
    * operation setLower
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setLower(int lower)   {
-	 		 	 			//Note: This is a convenience operation that may be used _instead_ of setLowerValue, not in addition to it.
+//Note: This is a convenience operation that may be used _instead_ of setLowerValue, not in addition to it.
 
 this.multiplicityElement.setLower(lower);
 
+	  } // setLower
 
-								    			  }
-	
-	  /**
+  /**
    * operation setType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setType(fUML.Syntax.Classes.Kernel.Type type)   {
-	 		 	 			this.typedElement.setType(type);
+this.typedElement.setType(type);
+	  } // setType
 
-								    			  }
-	
 } //StructuralFeature

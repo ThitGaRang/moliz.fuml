@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,21 +40,19 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class SystemWriteLineBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)   {
-	 		 	 			// Print the string representation all values of the first input parameter.
+// Print the string representation all values of the first input parameter.
 
 fUML.Semantics.Classes.Kernel.ValueList values = inputParameters.getValue(0).values;
 
@@ -64,21 +62,18 @@ for (int i = 0; i < values.size(); i++) {
     standardOutput.open();
     standardOutput.writeLine(values.getValue(i).toString());
 }
+	  } // doBody
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new execution object.
+// Create a new execution object.
 
 return new SystemWriteLineBehaviorExecution();
+	  } // new_
 
-								     				    			  }
-	
 } //SystemWriteLineBehaviorExecution

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,24 +40,20 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Test    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Test.TestEnvironment environment = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Test.TestEnvironment environment =  null;
+    
+	// Operations of the class
+  /**
    * operation Test
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      Test()   {
-	 		 	 			return;
+return;
+	  } // Test
 
-								     				    			  }
-	
 } //Test

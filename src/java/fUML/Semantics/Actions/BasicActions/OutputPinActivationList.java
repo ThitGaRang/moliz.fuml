@@ -45,4 +45,4 @@ public class OutputPinActivationList extends ArrayList<fUML.Semantics.Actions.Ba
   public void removeValue(int i){
     remove(i);
   }
-} //OutputPinActivation
+} //OutputPinActivationList

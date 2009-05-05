@@ -45,4 +45,4 @@ public class ClauseActivationList extends ArrayList<fUML.Semantics.Activities.Co
   public void removeValue(int i){
     remove(i);
   }
-} //ClauseActivation
+} //ClauseActivationList

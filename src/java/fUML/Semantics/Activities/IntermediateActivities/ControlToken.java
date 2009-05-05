@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,66 +54,57 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ControlToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation equals
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)   {
-	 		 	 			// Return true if the other token is a control token, because control tokens are interchangable.
+// Return true if the other token is a control token, because control tokens are interchangable.
 
 return other instanceof ControlToken;
 
+	  } // equals
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-	 		 	 			// Return a new control token.
+// Return a new control token.
 
 return new ControlToken();
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation isControl
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isControl()   {
-	 		 	 			// Return true for a control token.
+// Return true for a control token.
 
-return true;
-								    			  }
-	
-	  /**
+return true;	  } // isControl
+
+  /**
    * operation getValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-	 		 	 			// Control tokens do not have values.
+// Control tokens do not have values.
 
 return null;
+	  } // getValue
 
-								    			  }
-	
 } //ControlToken

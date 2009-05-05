@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -32,7 +32,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,33 +51,29 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ExecutorTest    extends fUML.Test.Test    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation ExecutorTest
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      ExecutorTest(fUML.Test.TestEnvironment environment)   {
-	 		 	 			this.environment = environment;
+this.environment = environment;
+	  } // ExecutorTest
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createDefaultInputValues
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList createDefaultInputValues(fUML.Syntax.Classes.Kernel.ParameterList parameters)   {
-	 		 	 			// Debug.println("[createDefaultParameterValues] " + parameters.size() + " parameter(s):");
+// Debug.println("[createDefaultParameterValues] " + parameters.size() + " parameter(s):");
 
 ParameterValueList parameterValues = new ParameterValueList();
 
@@ -105,18 +100,16 @@ for (int i = 0; i < parameters.size(); i++) {
 }
 
  return parameterValues;
+	  } // createDefaultInputValues
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation testEvaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testEvaluate(String typeName)   {
-	 		 	 			Debug.println("");
+Debug.println("");
 
 Classifier type = environment.getType(typeName);
 
@@ -143,18 +136,16 @@ Debug.println("[testEvaluate] Value specification is " + specification.getClass(
 //     if (stackTrace.length > 0) Debug.println(stackTrace[0] + ".");
 // }
 
+	  } // testEvaluate
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation testExecute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testExecute(String behaviorName)   {
-	 		 	 			Debug.println("");
+Debug.println("");
 
 NamedElement element = this.environment.getElement(behaviorName);
 
@@ -190,18 +181,16 @@ Debug.println("[testExecute] Executing the behavior...");
 //}
 
 Debug.println("");
+	  } // testExecute
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation testStart
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void testStart(String typeName)   {
-	 		 	 			Debug.println("");
+Debug.println("");
 
 NamedElement element = this.environment.getElement(typeName);
 
@@ -262,7 +251,6 @@ for (int i = 0; i < outputParameterValues.size(); i++) {
 }
 
 
+	  } // testStart
 
-								     				    			  }
-	
 } //ExecutorTest

@@ -45,4 +45,4 @@ public class ElementList extends ArrayList<fUML.Syntax.Classes.Kernel.Element>
   public void removeValue(int i){
     remove(i);
   }
-} //Element
+} //ElementList

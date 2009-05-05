@@ -45,4 +45,4 @@ public class ParameterValueList extends ArrayList<fUML.Semantics.CommonBehaviors
   public void removeValue(int i){
     remove(i);
   }
-} //ParameterValue
+} //ParameterValueList

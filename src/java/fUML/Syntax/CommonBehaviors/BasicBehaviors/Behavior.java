@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,56 +45,49 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Behavior    extends fUML.Syntax.Classes.Kernel.Class_    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isReentrant = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.BehavioralFeature specification = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = 	new fUML.Syntax.Classes.Kernel.ParameterList()	;
-	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isReentrant = false;
+	public   fUML.Syntax.Classes.Kernel.BehavioralFeature specification =  null;
+	public   fUML.Syntax.Classes.Kernel.ParameterList ownedParameter = new fUML.Syntax.Classes.Kernel.ParameterList();
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context =  null;
+    
+	// Operations of the class
+  /**
    * operation Behavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      Behavior()   {
-	 		 	 			this.isReentrant = true;
+this.isReentrant = true;
+	  } // Behavior
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOwnedParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedParameter(fUML.Syntax.Classes.Kernel.Parameter ownedParameter)   {
-	 		 	 			super.addOwnedMember(ownedParameter);
+super.addOwnedMember(ownedParameter);
 this.ownedParameter.addValue(ownedParameter);
+	  } // addOwnedParameter
 
-								    			  }
-	
-	  /**
+  /**
    * operation _setContext
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void _setContext(fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context)   {
-	 		 	 			//Note: This is a helper operation intended to be called by certain operations outside the Behavior class in order to allow the setting of the context to be overriden in subclasses.
+//Note: This is a helper operation intended to be called by certain operations outside the Behavior class in order to allow the setting of the context to be overriden in subclasses.
 //It should _not_ be called otherwise in order to set the context directly, rather than via these other operations.
 
 // Debug.println("[_setContext] behavior = " + this.name + ", context = " + context.name);
 
 this.context = context;
+	  } // _setContext
 
-								    			  }
-	
 } //Behavior

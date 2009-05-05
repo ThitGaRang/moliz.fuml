@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,14 +42,13 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class ActivityNode    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode = 	 null	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.Activity activity = 	 null	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList outgoing = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList()	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList incoming = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList()	;
-	    
-// Operations of the class
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode =  null;
+	public   fUML.Syntax.Activities.IntermediateActivities.Activity activity =  null;
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList outgoing = new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList();
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList incoming = new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList();
+    
+	// Operations of the class
 } //ActivityNode

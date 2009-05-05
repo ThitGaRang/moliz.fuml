@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 			
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,36 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class StructuralFeatureAction    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.StructuralFeature structuralFeature = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPin object = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.StructuralFeature structuralFeature =  null;
+	public   fUML.Syntax.Actions.BasicActions.InputPin object =  null;
+    
+	// Operations of the class
+  /**
    * operation setStructuralFeature
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setStructuralFeature(fUML.Syntax.Classes.Kernel.StructuralFeature structuralFeature)   {
-	 		 	 			this.structuralFeature = structuralFeature;
+this.structuralFeature = structuralFeature;
+	  } // setStructuralFeature
 
-								    			  }
-	
-	  /**
+  /**
    * operation setObject
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setObject(fUML.Syntax.Actions.BasicActions.InputPin object)   {
-	 		 	 			super.addInput(object);
-this.object = object;
-								    			  }
-	
+super.addInput(object);
+this.object = object;	  } // setObject
+
 } //StructuralFeatureAction

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,21 +54,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class RemoveStructuralFeatureValueActionActivation    extends fUML.Semantics.Actions.IntermediateActions.WriteStructuralFeatureActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value of the object input pin. If it is not a structural value, do nothing. Otherwise do the following.
+// Get the value of the object input pin. If it is not a structural value, do nothing. Otherwise do the following.
 // Get the values of the appropriate feature of the input object. Get the value of the value input pin.
 // If isRemoveDuplicates is true, then remove all  feature values equal to the input value.
 // If isRemoveDuplicates is false and there is no removeAt input pin, remove any one feature value equal to the input value (if there are any that are equal).
@@ -78,10 +75,10 @@ public   class RemoveStructuralFeatureValueActionActivation    extends fUML.Sema
 
 RemoveStructuralFeatureValueAction action = (RemoveStructuralFeatureValueAction)(this.node);
 
-Value value = this.getTokens(action.object).getValue(0);
+Value value = this.takeTokens(action.object).getValue(0);
 
 if (value instanceof StructuredValue) {
-    Value inputValue = this.getTokens(action.value).getValue(0);
+    Value inputValue = this.takeTokens(action.value).getValue(0);
     FeatureValue featureValue = ((StructuredValue)value).getFeatureValue(action.structuralFeature);
 
     if (action.isRemoveDuplicates) {
@@ -110,16 +107,17 @@ if (value instanceof StructuredValue) {
         }
 
     } else {
-        int removeAt = ((UnlimitedNaturalValue)(this.getTokens(action.removeAt).getValue(0))).value.naturalValue;
+        int removeAt = ((UnlimitedNaturalValue)(this.takeTokens(action.removeAt).getValue(0))).value.naturalValue;
         if (featureValue.values.getValue(removeAt-1).equals(inputValue)) {
             featureValue.values.remove(removeAt-1);
         }
     }
 
-   this.putToken(action.result, value);
+    if (action.result != null) {
+        this.putToken(action.result, value);
+    }
 }
 
+	  } // doAction
 
-								    			  }
-	
 } //RemoveStructuralFeatureValueActionActivation

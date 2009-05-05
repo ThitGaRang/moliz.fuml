@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,49 +44,40 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class PrimitiveTypes    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.PrimitiveType Boolean = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.PrimitiveType String = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.PrimitiveType Integer = 	 null
-	;
-	 		public   fUML.Syntax.Classes.Kernel.PrimitiveType UnlimitedNatural = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.PrimitiveType Boolean =  null;
+	public   fUML.Syntax.Classes.Kernel.PrimitiveType String =  null;
+	public   fUML.Syntax.Classes.Kernel.PrimitiveType Integer =  null;
+	public   fUML.Syntax.Classes.Kernel.PrimitiveType UnlimitedNatural =  null;
+    
+	// Operations of the class
+  /**
    * operation PrimitiveTypes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      PrimitiveTypes(fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			this.Boolean = this.createBuiltInType("Boolean", factory);
+this.Boolean = this.createBuiltInType("Boolean", factory);
 this.String = this.createBuiltInType("String", factory);
 this.Integer = this.createBuiltInType("Integer", factory);
 this.UnlimitedNatural = this.createBuiltInType("UnlimitedNatural", factory);
+	  } // PrimitiveTypes
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createBuiltInType
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.PrimitiveType createBuiltInType(String name, fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			fUML.Syntax.Classes.Kernel.PrimitiveType type = new fUML.Syntax.Classes.Kernel.PrimitiveType(); 
+fUML.Syntax.Classes.Kernel.PrimitiveType type = new fUML.Syntax.Classes.Kernel.PrimitiveType(); 
 type.name = name; 
 factory.addBuiltInType(type);
 
 return type;
+	  } // createBuiltInType
 
-								     				    			  }
-	
 } //PrimitiveTypes

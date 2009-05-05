@@ -45,4 +45,4 @@ public class ExecutableNodeList extends ArrayList<fUML.Syntax.Activities.Complet
   public void removeValue(int i){
     remove(i);
   }
-} //ExecutableNode
+} //ExecutableNodeList

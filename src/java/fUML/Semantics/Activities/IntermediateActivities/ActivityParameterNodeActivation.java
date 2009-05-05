@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -53,21 +52,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ActivityParameterNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// If there are no incoming edges, this is an activation of an input activity parameter node.
+// If there are no incoming edges, this is an activation of an input activity parameter node.
 // Get the values from the input parameter indicated by the activity parameter node and offer those values as object tokens.
 
 if (this.node.incoming.size() == 0) {
@@ -99,23 +96,20 @@ else {
 }
 
 
+	  } // fire
 
-								    			  }
-	
-	  /**
+  /**
    * operation clearTokens
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void clearTokens()   {
-	 		 	 			// Clear all held tokens only if this is an input parameter node.
+// Clear all held tokens only if this is an input parameter node.
 
 if (this.node.incoming.size() == 0) {
     super.clearTokens();
 }
+	  } // clearTokens
 
-								    			  }
-	
 } //ActivityParameterNodeActivation

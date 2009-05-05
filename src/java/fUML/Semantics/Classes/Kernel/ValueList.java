@@ -45,4 +45,4 @@ public class ValueList extends ArrayList<fUML.Semantics.Classes.Kernel.Value>
   public void removeValue(int i){
     remove(i);
   }
-} //Value
+} //ValueList

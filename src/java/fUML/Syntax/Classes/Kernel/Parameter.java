@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -51,104 +51,89 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Parameter    extends fUML.Syntax.Classes.Kernel.TypedElement    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.Operation operation = 	 null	;
-	 		public   boolean isException = 	false	;
-	 		public   boolean isStream = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.ParameterEffectKind effect = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.MultiplicityElement multiplicityElement = 	new fUML.Syntax.Classes.Kernel.MultiplicityElement()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction =  null;
+	public   fUML.Syntax.Classes.Kernel.Operation operation =  null;
+	public   boolean isException = false;
+	public   boolean isStream = false;
+	public   fUML.Syntax.Classes.Kernel.ParameterEffectKind effect =  null;
+	public   fUML.Syntax.Classes.Kernel.MultiplicityElement multiplicityElement = new fUML.Syntax.Classes.Kernel.MultiplicityElement();
+    
+	// Operations of the class
+  /**
    * operation setDirection
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDirection(fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction)   {
-	 		 	 			this.direction = direction;
+this.direction = direction;
+	  } // setDirection
 
-								    			  }
-	
-	  /**
+  /**
    * operation setIsOrdered
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsOrdered(boolean isOrdered)   {
-	 		 	 			this.multiplicityElement.setIsOrdered(isOrdered);
-								    			  }
-	
-	  /**
+this.multiplicityElement.setIsOrdered(isOrdered);	  } // setIsOrdered
+
+  /**
    * operation setIsUnique
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsUnique(boolean isUnique)   {
-	 		 	 			this.multiplicityElement.setIsUnique(isUnique);
+this.multiplicityElement.setIsUnique(isUnique);
+	  } // setIsUnique
 
-								    			  }
-	
-	  /**
+  /**
    * operation setUpperValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setUpperValue(fUML.Syntax.Classes.Kernel.ValueSpecification upperValue)   {
-	 		 	 			this.multiplicityElement.setUpperValue(upperValue);
+this.multiplicityElement.setUpperValue(upperValue);
+	  } // setUpperValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setLowerValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setLowerValue(fUML.Syntax.Classes.Kernel.ValueSpecification lowerValue)   {
-	 		 	 			this.multiplicityElement.setLowerValue(lowerValue);
+this.multiplicityElement.setLowerValue(lowerValue);
+	  } // setLowerValue
 
-								    			  }
-	
-	  /**
+  /**
    * operation setUpper
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setUpper(int upper)   {
-	 		 	 			//Note: This is a convenience operation that may be used _instead_ of setUpperValue, not in addition to it.
+//Note: This is a convenience operation that may be used _instead_ of setUpperValue, not in addition to it.
 
 this.multiplicityElement.setUpper(upper);
+	  } // setUpper
 
-								    			  }
-	
-	  /**
+  /**
    * operation setLower
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setLower(int lower)   {
-	 		 	 			//Note: This is a convenience operation that may be used _instead_ of setLowerValue, not in addition to it.
+//Note: This is a convenience operation that may be used _instead_ of setLowerValue, not in addition to it.
 
 this.multiplicityElement.setLower(lower);
 
+	  } // setLower
 
-								    			  }
-	
 } //Parameter

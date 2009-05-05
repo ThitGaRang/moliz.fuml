@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -49,77 +49,66 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Clause    extends fUML.Syntax.Classes.Kernel.Element    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList test = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList body = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList predecessorClause = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList successorClause = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPin decider = 	 null	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList bodyOutput = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList test = new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList body = new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList predecessorClause = new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList successorClause = new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList();
+	public   fUML.Syntax.Actions.BasicActions.OutputPin decider =  null;
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList bodyOutput = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+    
+	// Operations of the class
+  /**
    * operation addPredecessorClause
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addPredecessorClause(fUML.Syntax.Activities.CompleteStructuredActivities.Clause predecessorClause)   {
-	 		 	 			this.predecessorClause.addValue(predecessorClause);
+this.predecessorClause.addValue(predecessorClause);
 predecessorClause.successorClause.addValue(this);
+	  } // addPredecessorClause
 
-								    			  }
-	
-	  /**
+  /**
    * operation addTest
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addTest(fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNode test)   {
-	 		 	 			this.test.addValue(test);
+this.test.addValue(test);
+	  } // addTest
 
-								    			  }
-	
-	  /**
+  /**
    * operation addBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addBody(fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNode body)   {
-	 		 	 			this.body.addValue(body);
+this.body.addValue(body);
+	  } // addBody
 
-								    			  }
-	
-	  /**
+  /**
    * operation setDecider
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDecider(fUML.Syntax.Actions.BasicActions.OutputPin decider)   {
-	 		 	 			this.decider = decider;
+this.decider = decider;
+	  } // setDecider
 
-								    			  }
-	
-	  /**
+  /**
    * operation addBodyOutput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addBodyOutput(fUML.Syntax.Actions.BasicActions.OutputPin bodyOutput)   {
-	 		 	 			this.bodyOutput.addValue(bodyOutput);
+this.bodyOutput.addValue(bodyOutput);
+	  } // addBodyOutput
 
-								    			  }
-	
 } //Clause

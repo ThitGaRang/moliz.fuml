@@ -45,4 +45,4 @@ public class CommentList extends ArrayList<fUML.Syntax.Classes.Kernel.Comment>
   public void removeValue(int i){
     remove(i);
   }
-} //Comment
+} //CommentList

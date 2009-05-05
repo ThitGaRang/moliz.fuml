@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class OpaqueBehavior    extends fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.StringList body = 	new fUML.Syntax.StringList()	;
-	 		public   fUML.Syntax.StringList opaqueBehavior = 	new fUML.Syntax.StringList()	;
-	    
-// Operations of the class
+	public   fUML.Syntax.StringList body = new fUML.Syntax.StringList();
+	public   fUML.Syntax.StringList opaqueBehavior = new fUML.Syntax.StringList();
+    
+	// Operations of the class
 } //OpaqueBehavior

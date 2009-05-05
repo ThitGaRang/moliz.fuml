@@ -45,4 +45,4 @@ public class OutputPinList extends ArrayList<fUML.Syntax.Actions.BasicActions.Ou
   public void removeValue(int i){
     remove(i);
   }
-} //OutputPin
+} //OutputPinList

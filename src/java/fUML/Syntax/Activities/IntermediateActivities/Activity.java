@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -47,69 +47,61 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Activity    extends fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList structuredNode = 	new fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList()	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList()	;
-	 		public   boolean isReadOnly = 	false	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList()	;
-	 		public   boolean isSingleExecution = 	false	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList structuredNode = new fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNodeList();
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList();
+	public   boolean isReadOnly = false;
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList();
+	public   boolean isSingleExecution = false;
+    
+	// Operations of the class
+  /**
    * operation setIsReadOnly
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsReadOnly(boolean isReadOnly)   {
-	 		 	 			this.isReadOnly = isReadOnly;
+this.isReadOnly = isReadOnly;
+	  } // setIsReadOnly
 
-								    			  }
-	
-	  /**
+  /**
    * operation addNode
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addNode(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			super.addOwnedElement(node);
+super.addOwnedElement(node);
 
 this.node.addValue(node);
 node.activity = this;
 
+	  } // addNode
 
-								    			  }
-	
-	  /**
+  /**
    * operation addEdge
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addEdge(fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge)   {
-	 		 	 			super.addOwnedElement(edge);
+super.addOwnedElement(edge);
 
 this.edge.addValue(edge);
 edge.activity = this;
+	  } // addEdge
 
-								    			  }
-	
-	  /**
+  /**
    * operation _setContext
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void _setContext(fUML.Syntax.CommonBehaviors.BasicBehaviors.BehavioredClassifier context)   {
-	 		 	 			// Note: The context of an activity should be set only _after_ all nodes have been added to the activity.
+// Note: The context of an activity should be set only _after_ all nodes have been added to the activity.
 
 super._setContext(context);
 
@@ -119,7 +111,6 @@ for (int i = 0; i < this.node.size(); i++) {
         ((fUML.Syntax.Actions.BasicActions.Action)node).context = context;
     }
 }
+	  } // _setContext
 
-								    			  }
-	
 } //Activity

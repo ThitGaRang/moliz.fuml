@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -48,21 +47,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class LiteralUnlimitedNaturalEvaluation    extends fUML.Semantics.Classes.Kernel.LiteralEvaluation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation evaluate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value evaluate()   {
-	 		 	 			// Evaluate a literal unlimited natural producing an unlimited natural value.
+// Evaluate a literal unlimited natural producing an unlimited natural value.
 
 LiteralUnlimitedNatural literal = (LiteralUnlimitedNatural)specification;
 UnlimitedNaturalValue unlimitedNaturalValue = new UnlimitedNaturalValue();
@@ -71,7 +68,6 @@ unlimitedNaturalValue.value = literal.value;
 
 return unlimitedNaturalValue;
 
+	  } // evaluate
 
-								    			  }
-	
 } //LiteralUnlimitedNaturalEvaluation

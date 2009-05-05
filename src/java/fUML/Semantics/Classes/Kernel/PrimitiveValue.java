@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -50,45 +49,39 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class PrimitiveValue    extends fUML.Semantics.Classes.Kernel.Value    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.PrimitiveType type = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.PrimitiveType type =  null;
+    
+	// Operations of the class
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new value that is equal to this primitive value.
+// Create a new value that is equal to this primitive value.
 
 PrimitiveValue newValue = (PrimitiveValue)(super.copy());
 
 newValue.type = this.type;
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation getTypes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-	 		 	 			// Return the single primitive type of this value.
+// Return the single primitive type of this value.
 
 ClassifierList types = new ClassifierList();
 types.addValue(this.type);
 return types;
+	  } // getTypes
 
-								    			  }
-	
 } //PrimitiveValue

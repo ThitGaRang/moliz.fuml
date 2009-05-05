@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,24 +39,21 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class FirstChoiceStrategy    extends fUML.Semantics.Loci.ChoiceStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation choose
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     int choose(int size)   {
-	 		 	 			// Always choose one.
+// Always choose one.
 
 return 1;
+	  } // choose
 
-								    			  }
-	
 } //FirstChoiceStrategy

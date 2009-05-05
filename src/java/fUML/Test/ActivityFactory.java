@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -35,7 +35,6 @@ import fUML.Syntax.Actions.CompleteActions.*;
 
 import fUML.Semantics.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -89,71 +88,64 @@ import fUML.Semantics.Classes.Kernel.*;
 	 *   <li>{@link ActivityFactory#createMethodCaller <em>createMethodCaller</em>}</li>
 	 *   <li>{@link ActivityFactory#createAccepter <em>createAccepter</em>}</li>
 	 *   <li>{@link ActivityFactory#createSender <em>createSender</em>}</li>
+	 *   <li>{@link ActivityFactory#createLinkCreator <em>createLinkCreator</em>}</li>
 	 	 * </ul>
  * </p>
  *
  * @generated
  */
 
-
 public   class ActivityFactory    extends fUML.Test.Test    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation ActivityFactory
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      ActivityFactory(fUML.Test.TestEnvironment environment)   {
-	 		 	 			this.environment = environment;
+this.environment = environment;
 
+	  } // ActivityFactory
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addEdge
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addEdge(fUML.Syntax.Activities.IntermediateActivities.Activity activity, fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge, fUML.Syntax.Activities.IntermediateActivities.ActivityNode source, fUML.Syntax.Activities.IntermediateActivities.ActivityNode target, fUML.Syntax.Classes.Kernel.ValueSpecification guard)   {
-	 		 	 			edge.setSource(source);
+edge.setSource(source);
 edge.setTarget(target);
 edge.setGuard(guard);
 
 activity.addEdge(edge);
 
 
+	  } // addEdge
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addNode
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addNode(fUML.Syntax.Activities.IntermediateActivities.Activity activity, fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			activity.addNode(node);
+activity.addNode(node);
 
+	  } // addNode
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Parameter addParameter(fUML.Syntax.Activities.IntermediateActivities.Activity activity, String name, fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction, fUML.Syntax.Classes.Kernel.Type type)   {
-	 		 	 			Parameter parameter = new Parameter();
+Parameter parameter = new Parameter();
 parameter.setName(name);
 parameter.setType(type);
 parameter.setDirection(direction);
@@ -162,113 +154,99 @@ parameter.setUpper(1);
 
 activity.addOwnedParameter(parameter);
 
-return parameter;
-								     				    			  }
-	
-	  /**
+return parameter;	  } // addParameter
+
+  /**
    * operation setMultiplicity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void setMultiplicity(fUML.Syntax.Classes.Kernel.MultiplicityElement element, int lower, int upper)   {
-	 		 	 			element.setLower(lower);
+element.setLower(lower);
 element.setUpper(upper);
+	  } // setMultiplicity
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getCopier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Activities.IntermediateActivities.Activity getCopier()   {
-	 		 	 			return this.getActivity("Copier");
+return this.getActivity("Copier");
+	  } // getCopier
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createLiteralInteger
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.LiteralInteger createLiteralInteger(String name, int value)   {
-	 		 	 			LiteralInteger literal = (LiteralInteger)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.Integer)).specify());
+LiteralInteger literal = (LiteralInteger)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.Integer)).specify());
 literal.setName(name);
 literal.setValue(value);
 
 return literal;
 
 
+	  } // createLiteralInteger
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setPin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void setPin(fUML.Syntax.Actions.BasicActions.Pin pin, String name, int lower, int upper)   {
-	 		 	 			// Debug.println("[setPin] name = " + name);
+// Debug.println("[setPin] name = " + name);
 
 pin.setName(name);
 pin.setLower(lower);
 pin.setUpper(upper);
 
 // this.addNode(activity, pin);
+	  } // setPin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addInputPin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Actions.BasicActions.InputPin addInputPin(fUML.Syntax.Actions.BasicActions.Action action, String name, int lower, int upper)   {
-	 		 	 			// Debug.println("[addInputPin] name = " + name);
+// Debug.println("[addInputPin] name = " + name);
 
 InputPin inputPin = new InputPin();
 this.setPin(inputPin, name, lower, upper);
 action.input.addValue(inputPin);
 return inputPin;
+	  } // addInputPin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addOutputPin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Actions.BasicActions.OutputPin addOutputPin(fUML.Syntax.Actions.BasicActions.Action action, String name, int lower, int upper)   {
-	 		 	 			// Debug.println("[addOutputPin] name = " + name);
+// Debug.println("[addOutputPin] name = " + name);
 
 OutputPin outputPin = new OutputPin();
 this.setPin(outputPin, name, lower, upper);
 action.output.addValue(outputPin);
 return outputPin;
+	  } // addOutputPin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addProperty
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Property addProperty(fUML.Syntax.Activities.IntermediateActivities.Activity activity, String name, fUML.Syntax.Classes.Kernel.Type type, int lower, int upper)   {
-	 		 	 			Property property = new Property();
+Property property = new Property();
 property.setName(name);
 property.setType( type);
 property.setLower(lower);
@@ -278,36 +256,32 @@ activity.addOwnedAttribute(property);
 
 return property;
 
+	  } // addProperty
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createLiteralString
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.LiteralString createLiteralString(String name, String value)   {
-	 		 	 			LiteralString literal = (LiteralString)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.String)).specify());
+LiteralString literal = (LiteralString)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.String)).specify());
 literal.setName(name);
 literal.setValue(value);
 
 return literal;
 
 
+	  } // createLiteralString
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getOperation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Operation getOperation(fUML.Syntax.Classes.Kernel.Class_ class_, String operationName)   {
-	 		 	 			for (int i = 0; i < class_.member.size(); i++) {
+for (int i = 0; i < class_.member.size(); i++) {
     NamedElement member = class_.member.getValue(i);
     if (member.name.equals(operationName)) {
         if (!(member instanceof Operation)) {
@@ -318,18 +292,16 @@ return literal;
 }
 
 return null;
+	  } // getOperation
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createInstanceGetter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Activities.IntermediateActivities.Activity createInstanceGetter(fUML.Syntax.Classes.Kernel.Classifier classifier, fUML.Syntax.Classes.Kernel.Operation operation, fUML.Semantics.Classes.Kernel.Value value)   {
-	 		 	 			Activity testActivity = new Activity();
+Activity testActivity = new Activity();
 testActivity.setName("Test(" + operation.name + ")");
 
 Parameter testInput  = this.addParameter(testActivity, "testInput", ParameterDirectionKind.in, classifier);
@@ -398,18 +370,16 @@ this.addEdge(instanceGetterActivity, new ObjectFlow(), readExtentAction.result, 
 this.addEdge(instanceGetterActivity, new ObjectFlow(), decisionNode, outputNode, this.createLiteralBoolean("true", true));
 
 return instanceGetterActivity;
+	  } // createInstanceGetter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getProperty
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Property getProperty(fUML.Syntax.Classes.Kernel.Classifier classifier, String propertyName)   {
-	 		 	 			for (int i = 0; i < classifier.member.size(); i++) {
+for (int i = 0; i < classifier.member.size(); i++) {
     NamedElement member = classifier.member.getValue(i);
     if (member.name.equals(propertyName)) {
         if (!(member instanceof Property)) {
@@ -420,52 +390,46 @@ return instanceGetterActivity;
 }
 
 return null;
+	  } // getProperty
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createLiteralBoolean
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.LiteralBoolean createLiteralBoolean(String name, boolean value)   {
-	 		 	 			LiteralBoolean literal = (LiteralBoolean)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.Boolean)).specify());
+LiteralBoolean literal = (LiteralBoolean)(this.environment.makeValue((Classifier)(this.environment.primitiveTypes.Boolean)).specify());
 literal.setName(name);
 literal.setValue(value);
 
 return literal;
 
+	  } // createLiteralBoolean
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation makeInputPin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Actions.BasicActions.InputPin makeInputPin(String name, int lower, int upper)   {
-	 		 	 			// Debug.println("[makeInputPin] name = " + name);
+// Debug.println("[makeInputPin] name = " + name);
 
 InputPin inputPin = new InputPin();
 this.setPin(inputPin, name, lower, upper);
 
 return inputPin;
+	  } // makeInputPin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation makeOutputPin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Actions.BasicActions.OutputPin makeOutputPin(String name, int lower, int upper)   {
-	 		 	 			// Debug.println("[makeOutputPin] name = " + name);
+// Debug.println("[makeOutputPin] name = " + name);
 
 OutputPin outputPin = new OutputPin();
 this.setPin(outputPin, name, lower, upper);
@@ -473,18 +437,16 @@ this.setPin(outputPin, name, lower, upper);
 return outputPin;
 
 
+	  } // makeOutputPin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation getActivity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Activities.IntermediateActivities.Activity getActivity(String name)   {
-	 		 	 			NamedElement activity = this.environment.getElement(name);
+NamedElement activity = this.environment.getElement(name);
 
 if ((activity == null) || !(activity instanceof Activity)) {
     if (activity == null) {
@@ -507,18 +469,16 @@ if ((activity == null) || !(activity instanceof Activity)) {
 }
 
 return (Activity)activity;
+	  } // getActivity
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createCopier
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createCopier()   {
-	 		 	 			Activity activity = new Activity();
+Activity activity = new Activity();
 activity.setName("Copier");
 
 Parameter inputParameter = this.addParameter(activity, "input", ParameterDirectionKind.in, this.environment.primitiveTypes.Integer);
@@ -544,18 +504,16 @@ this.addEdge(activity, new ObjectFlow(), inputNode, outputNode, null);
 
 this.environment.addElement(activity);
 
+	  } // createCopier
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createCaller(String calledActivityName)   {
-	 		 	 			Element element = environment.getElement(calledActivityName);
+Element element = environment.getElement(calledActivityName);
 
 if (element == null) {
     Debug.println("[createCaller] " + calledActivityName + " not found.");
@@ -610,18 +568,16 @@ for (int i = 0; i < parameters.size(); i++) {
 
 this.environment.addElement(callerActivity);
 
+	  } // createCaller
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createSimpleDecision
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createSimpleDecision(int testValue)   {
-	 		 	 			Activity copierActivity = this.getCopier();
+Activity copierActivity = this.getCopier();
 
 Activity simpleDecisionActivity = new Activity();
 simpleDecisionActivity.setName("SimpleDecision" + testValue);
@@ -660,18 +616,16 @@ this.addEdge(simpleDecisionActivity, new ObjectFlow(), decisionNode, parameterNo
 this.addEdge(simpleDecisionActivity, new ObjectFlow(), decisionNode, parameterNode1, value1);
 
 this.environment.addElement(simpleDecisionActivity);
+	  } // createSimpleDecision
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createForkJoin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createForkJoin()   {
-	 		 	 			Activity forkJoinActivity = new Activity();
+Activity forkJoinActivity = new Activity();
 forkJoinActivity.setName("ForkJoin");
 
 InitialNode initialNode = new InitialNode();
@@ -696,18 +650,16 @@ this.addEdge(forkJoinActivity, new ControlFlow(), forkNode, joinNode, null);
 this.addEdge(forkJoinActivity, new ControlFlow(), joinNode, finalNode, null);
 
 this.environment.addElement(forkJoinActivity);
+	  } // createForkJoin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createDecisionJoin
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createDecisionJoin()   {
-	 		 	 			Activity copierActivity = this.getCopier();
+Activity copierActivity = this.getCopier();
 
 Activity decisionJoinActivity = new Activity();
 decisionJoinActivity.setName( "DecisionJoin");
@@ -763,18 +715,16 @@ this.addEdge(decisionJoinActivity, new ObjectFlow(), callActionB.result.getValue
 
 this.environment.addElement(decisionJoinActivity);
 
+	  } // createDecisionJoin
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createForkMerge
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createForkMerge()   {
-	 		 	 			Activity forkMergeActivity = new Activity();
+Activity forkMergeActivity = new Activity();
 forkMergeActivity.name = "ForkMerge";
 
 InitialNode initialNode = new InitialNode();
@@ -808,18 +758,16 @@ this.addEdge(forkMergeActivity, new ObjectFlow(), valueAction.result, outputNode
 
 this.environment.addElement(forkMergeActivity);
 
+	  } // createForkMerge
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createForkMergeData
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createForkMergeData()   {
-	 		 	 			Activity forkMergeActivity = new Activity();
+Activity forkMergeActivity = new Activity();
 forkMergeActivity.name = "ForkMergeData";
 
 ValueSpecificationAction actionA = new ValueSpecificationAction();
@@ -855,18 +803,16 @@ this.addEdge(forkMergeActivity, new ObjectFlow(), mergeNode, actionB.argument.ge
 this.addEdge(forkMergeActivity, new ObjectFlow(), actionB.result.getValue(0), outputNode, null);
 
 this.environment.addElement(forkMergeActivity);
+	  } // createForkMergeData
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createExtentReader
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createExtentReader(String className)   {
-	 		 	 			Element element = environment.getElement(className);
+Element element = environment.getElement(className);
 
 if (element == null) {
     Debug.println("[createExtentReader] " + className + " not found.");
@@ -897,18 +843,16 @@ this.addNode(extentReaderActivity, outputNode);
 this.addEdge(extentReaderActivity, new ObjectFlow(), readExtentAction.result, outputNode, null);
 
 this.environment.addElement(extentReaderActivity);
+	  } // createExtentReader
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createSelfReader
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createSelfReader()   {
-	 		 	 			Activity selfReaderActivity = new Activity();
+Activity selfReaderActivity = new Activity();
 selfReaderActivity.setName("SelfReader");
 
 ReadSelfAction readSelfAction = new ReadSelfAction();
@@ -924,18 +868,16 @@ this.addNode(selfReaderActivity, outputNode);
 this.addEdge(selfReaderActivity, new ObjectFlow(), readSelfAction.result, outputNode, null);
 
 this.environment.addElement(selfReaderActivity);
+	  } // createSelfReader
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createIdentityTester
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createIdentityTester(String nameSuffix, String variableName1, String variableName2)   {
-	 		 	 			Variable variable1 = this.environment.getVariable(variableName1);
+Variable variable1 = this.environment.getVariable(variableName1);
 Variable variable2 = this.environment.getVariable(variableName2);
 
 if (variable1 == null) {
@@ -983,18 +925,16 @@ this.addEdge(identityTesterActivity, new ObjectFlow(), valueAction2.result, test
 this.addEdge(identityTesterActivity, new ObjectFlow(), testIdentityAction.result, outputNode, null);
 
 this.environment.addElement(identityTesterActivity);
+	  } // createIdentityTester
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createObjectCreater
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createObjectCreater(String className)   {
-	 		 	 			NamedElement element = this.environment.getElement(className);
+NamedElement element = this.environment.getElement(className);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createObjectCreater] " + className + " does not exist or is not a class.");
@@ -1020,18 +960,16 @@ this.addNode(objectCreatorActivity, outputNode);
 this.addEdge(objectCreatorActivity, new ObjectFlow(), createObjectAction.result, outputNode, null);
 
 this.environment.addElement(objectCreatorActivity);
+	  } // createObjectCreater
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createObjectDestroyer
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createObjectDestroyer(String className, boolean isDestroyLinks, boolean isDestroyOwnedObjects)   {
-	 		 	 			NamedElement element = this.environment.getElement(className);
+NamedElement element = this.environment.getElement(className);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createObjectDestroyer] " + className + " does not exist or is not a class.");
@@ -1070,18 +1008,16 @@ this.addEdge(objectDestroyerActivity, new ObjectFlow(), forkNode, destroyObjectA
 this.addEdge(objectDestroyerActivity, new ObjectFlow(), forkNode, outputNode, null);
 
 this.environment.addElement(objectDestroyerActivity);
+	  } // createObjectDestroyer
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createWriterReader
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createWriterReader(String classifierName, String attributeName)   {
-	 		 	 			NamedElement element = this.environment.getElement(classifierName);
+NamedElement element = this.environment.getElement(classifierName);
 
 if (element == null || !(element instanceof Classifier)) {
     Debug.println("[createWriterReader] " + classifierName + " does not exist or is not a classifier.");
@@ -1179,18 +1115,16 @@ this.addEdge(writerReaderActivity, new ObjectFlow(), readAction.result, outputNo
 
 this.environment.addElement(writerReaderActivity);
 
+	  } // createWriterReader
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createAttributeWriter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createAttributeWriter(String classifierName, String attributeName, boolean isReplaceAll)   {
-	 		 	 			NamedElement element = this.environment.getElement(classifierName);
+NamedElement element = this.environment.getElement(classifierName);
 
 if (element == null || !(element instanceof Classifier)) {
     Debug.println("[createAttributeWriter] " + classifierName + " does not exist or is not a classifier.");
@@ -1272,18 +1206,16 @@ this.addEdge(attributeWriterActivity, new ObjectFlow(), writeAction.result, outp
 
 this.environment.addElement(attributeWriterActivity);
 
+	  } // createAttributeWriter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createAttributedCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createAttributedCaller(String calledBehaviorName)   {
-	 		 	 			Element element = environment.getElement(calledBehaviorName);
+Element element = environment.getElement(calledBehaviorName);
 
 if (element == null) {
     Debug.println("[createAttributedCaller] " + calledBehaviorName + " not found.");
@@ -1351,18 +1283,16 @@ for (int i = 0; i < parameters.size(); i++) {
 }
 
 this.environment.addElement(callerActivity);
+	  } // createAttributedCaller
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createHelloWorld1
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createHelloWorld1()   {
-	 		 	 			Class_ standardOutputChannelClass = this.environment.standardIO.StandardOutputChannel;
+Class_ standardOutputChannelClass = this.environment.standardIO.StandardOutputChannel;
 
 Activity helloWorldActivity = new Activity();
 helloWorldActivity.setName("HelloWorld1");
@@ -1397,18 +1327,16 @@ this.addEdge(helloWorldActivity, new ObjectFlow(), valueAction.result, callActio
 
 this.environment.addElement(helloWorldActivity);
 
+	  } // createHelloWorld1
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createHelloWorld2
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createHelloWorld2()   {
-	 		 	 			Activity helloWorldActivity = new Activity();
+Activity helloWorldActivity = new Activity();
 helloWorldActivity.setName("HelloWorld2");
 
 ValueSpecificationAction valueAction = new ValueSpecificationAction();
@@ -1430,18 +1358,16 @@ if (callAction.behavior == null) {
 this.addEdge(helloWorldActivity, new ObjectFlow(), valueAction.result, callAction.argument.getValue(0), null);
 
 this.environment.addElement(helloWorldActivity);
+	  } // createHelloWorld2
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createChannelReader
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createChannelReader(String channelName)   {
-	 		 	 			Class_ inputChannelClass = this.environment.standardIO.InputChannel;
+Class_ inputChannelClass = this.environment.standardIO.InputChannel;
 Operation getNameOperation = this.getOperation(inputChannelClass, "getName");
 
 if (getNameOperation == null) {
@@ -1480,18 +1406,16 @@ this.addEdge(channelReaderActivity, new ObjectFlow(), channelGetterAction.result
 this.addEdge(channelReaderActivity, new ObjectFlow(), callOperationAction.result.getValue(0), outputNode, null);
 
 this.environment.addElement(channelReaderActivity);
+	  } // createChannelReader
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createChannelWriter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createChannelWriter(String channelName)   {
-	 		 	 			Class_ outputChannelClass = this.environment.standardIO.OutputChannel;
+Class_ outputChannelClass = this.environment.standardIO.OutputChannel;
 Operation getNameOperation = this.getOperation(outputChannelClass, "getName");
 
 if (getNameOperation == null) {
@@ -1531,18 +1455,16 @@ this.addEdge(channelWriterActivity, new ObjectFlow(), channelGetterAction.result
 
 this.environment.addElement(channelWriterActivity);
 this.createAttributedCaller(channelWriterActivity.name);
+	  } // createChannelWriter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createWriteLine
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createWriteLine()   {
-	 		 	 			Class_ standardOutputChannelClass = this.environment.standardIO.StandardOutputChannel;
+Class_ standardOutputChannelClass = this.environment.standardIO.StandardOutputChannel;
 
 Activity writeLineActivity = new Activity();
 writeLineActivity.setName("WriteLine");
@@ -1576,18 +1498,16 @@ this.addEdge(writeLineActivity, new ObjectFlow(), inputNode, callAction.argument
 
 this.environment.addElement(writeLineActivity);
 
+	  } // createWriteLine
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createOperationCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createOperationCaller(String className, String operationName)   {
-	 		 	 			NamedElement element = this.environment.getElement(className);
+NamedElement element = this.environment.getElement(className);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createOperationCaller] " + className + " does not exist or is not a class.");
@@ -1620,18 +1540,16 @@ this.addNode(operationCallerActivity, callOperationAction);
 this.addEdge(operationCallerActivity, new ObjectFlow(), createObjectAction.result, callOperationAction.target, null);
 
 this.environment.addElement(operationCallerActivity);
+	  } // createOperationCaller
 
-								    			  }
-	
-	  /**
+  /**
    * operation createPolymorphicOperationCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createPolymorphicOperationCaller(String subclassName, String superclassName, String operationName)   {
-	 		 	 			NamedElement element = this.environment.getElement(subclassName);
+NamedElement element = this.environment.getElement(subclassName);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createPolymorphicOperationCaller] " + subclassName + " does not exist or is not a class.");
@@ -1672,18 +1590,16 @@ this.addNode(operationCallerActivity, callOperationAction);
 
 this.addEdge(operationCallerActivity, new ObjectFlow(), createObjectAction.result, callOperationAction.target, null);
 
-this.environment.addElement(operationCallerActivity);
-								    			  }
-	
-	  /**
+this.environment.addElement(operationCallerActivity);	  } // createPolymorphicOperationCaller
+
+  /**
    * operation createSelfCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createSelfCaller(String className, String operationName)   {
-	 		 	 			NamedElement element = this.environment.getElement(className);
+NamedElement element = this.environment.getElement(className);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createSelfCaller] " + className + " does not exist or is not a class.");
@@ -1715,18 +1631,16 @@ this.addNode(selfCallerActivity, callOperationAction);
 this.addEdge(selfCallerActivity, new ObjectFlow(), readSelfAction.result, callOperationAction.target, null);
 
 this.environment.addElement(selfCallerActivity);
+	  } // createSelfCaller
 
-								    			  }
-	
-	  /**
+  /**
    * operation createMethodCaller
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createMethodCaller(String className, String operationName)   {
-	 		 	 			NamedElement element = this.environment.getElement(className);
+NamedElement element = this.environment.getElement(className);
 
 if (element == null || !(element instanceof Class_)) {
     Debug.println("[createMethodCaller] " + className + " does not exist or is not a class.");
@@ -1757,18 +1671,16 @@ callBehaviorAction.setBehavior(method);
 this.addNode(superCallerActivity, callBehaviorAction);
 
 this.environment.addElement(superCallerActivity);
+	  } // createMethodCaller
 
-								    			  }
-	
-	  /**
+  /**
    * operation createAccepter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createAccepter(String signalName)   {
-	 		 	 			NamedElement element = this.environment.getElement(signalName);
+NamedElement element = this.environment.getElement(signalName);
 
 if (element == null || !(element instanceof Signal)) {
     Debug.println("[createAccepter] " + signalName + " does not exist or is not a signal.");
@@ -1805,18 +1717,16 @@ this.addNode(accepterActivity, outputNode);
 
 this.addEdge(accepterActivity, new ObjectFlow(), acceptEventAction.result.getValue(0), outputNode, null);
 
-this.environment.addElement(accepterActivity);
-								    			  }
-	
-	  /**
+this.environment.addElement(accepterActivity);	  } // createAccepter
+
+  /**
    * operation createSender
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void createSender(String signalName)   {
-	 		 	 			NamedElement element = this.environment.getElement(signalName);
+NamedElement element = this.environment.getElement(signalName);
 
 if (element == null || !(element instanceof Signal)) {
     Debug.println("[createSignaler] " + signalName + " does not exist or is not a signal.");
@@ -1873,7 +1783,105 @@ this.addEdge(senderActivity, new ControlFlow(), startAction, sendAction, null);
 this.addEdge(senderActivity, new ControlFlow(), sendAction, destroyObjectAction, null);
 
 this.environment.addElement(senderActivity);
+	  } // createSender
 
-								    			  }
-	
+  /**
+   * operation createLinkCreator
+   * <!-- begin-user-doc -->
+   		   * <!-- end-user-doc -->
+   * @generated
+   */
+	public      void createLinkCreator(String associationName)   {
+NamedElement element = this.environment.getElement(associationName);
+
+if (element == null || !(element instanceof Association)) {
+    Debug.println("[createLinkCreator] " + associationName + " does not exist or is not an association.");
+    return;
+}
+
+Association association = (Association)element;
+Property endA = association.memberEnd.getValue(0);
+Property endB = association.memberEnd.getValue(1);
+Class_ classA = (Class_)(endA.typedElement.type);
+Class_ classB = (Class_)(endB.typedElement.type);
+
+Activity linkCreatorActivity = new Activity();
+linkCreatorActivity.setName(associationName + "LinkCreator");
+
+InitialNode initialNode = new InitialNode();
+initialNode.setName("Init");
+this.addNode(linkCreatorActivity, initialNode);
+
+CreateObjectAction createActionA = new CreateObjectAction();
+createActionA.setName("Create A");
+createActionA.classifier = classA;
+createActionA.result = this.addOutputPin(createActionA, createActionA.name + ".a", 1, 1);
+this.addNode(linkCreatorActivity, createActionA);
+
+CreateObjectAction createActionB1 = new CreateObjectAction();
+createActionB1.setName("Create B1");
+createActionB1.classifier = classB;
+createActionB1.result = this.addOutputPin(createActionB1, createActionB1.name + ".b", 1, 1);
+this.addNode(linkCreatorActivity, createActionB1);
+
+CreateObjectAction createActionB2 = new CreateObjectAction();
+createActionB2.setName("Create B2");
+createActionB2.classifier = classB;
+createActionB2.result = this.addOutputPin(createActionB2, createActionB2.name + ".b", 1, 1);
+this.addNode(linkCreatorActivity, createActionB2);
+
+ForkNode forkNode = new ForkNode();
+forkNode.setName("Fork");
+this.addNode(linkCreatorActivity, forkNode);
+
+ActivityParameterNode outputNode = new ActivityParameterNode();
+outputNode.setName("Parameter(output)");
+outputNode.parameter = this.addParameter(linkCreatorActivity, "output", ParameterDirectionKind.out, classA);
+this.addNode(linkCreatorActivity, outputNode);
+
+CreateLinkAction linkAction1 = new CreateLinkAction();
+linkAction1.setName("Create Link 1");
+this.addNode(linkCreatorActivity, linkAction1);
+
+LinkEndCreationData endData1a = new LinkEndCreationData();
+endData1a.setIsReplaceAll(false);
+endData1a.setEnd(endA);
+endData1a.value = this.addInputPin(linkAction1, linkAction1.name + ".a", 1, 1);
+
+LinkEndCreationData endData1b = new LinkEndCreationData();
+endData1b.setIsReplaceAll(false);
+endData1b.setEnd(endB);
+endData1b.value = this.addInputPin(linkAction1, linkAction1.name + ".b", 1, 1);
+
+linkAction1.addEndData(endData1a);
+linkAction1.addEndData(endData1b);
+
+CreateLinkAction linkAction2 = new CreateLinkAction();
+linkAction2.setName("Create Link 2");
+this.addNode(linkCreatorActivity, linkAction2);
+
+LinkEndCreationData endData2a = new LinkEndCreationData();
+endData2a.setIsReplaceAll(false);
+endData2a.setEnd(endA);
+endData2a.value = this.addInputPin(linkAction2, linkAction2.name + ".a", 1, 1);
+
+LinkEndCreationData endData2b = new LinkEndCreationData();
+endData2b.setIsReplaceAll(false);
+endData2b.setEnd(endB);
+endData2b.value = this.addInputPin(linkAction2, linkAction2.name + ".b", 1, 1);
+
+linkAction2.addEndData(endData2a);
+linkAction2.addEndData(endData2b);
+
+this.addEdge(linkCreatorActivity, new ControlFlow(), initialNode, createActionA, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), createActionA.result, forkNode, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), forkNode, outputNode, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), forkNode, endData1a.value, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), forkNode, endData2a.value, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), createActionB1.result, endData1b.value, null);
+this.addEdge(linkCreatorActivity, new ObjectFlow(), createActionB2.result, endData2b.value, null);
+
+this.environment.addElement(linkCreatorActivity);
+	  } // createLinkCreator
+
 } //ActivityFactory

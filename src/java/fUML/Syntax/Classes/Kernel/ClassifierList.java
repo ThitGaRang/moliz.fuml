@@ -45,4 +45,4 @@ public class ClassifierList extends ArrayList<fUML.Syntax.Classes.Kernel.Classif
   public void removeValue(int i){
     remove(i);
   }
-} //Classifier
+} //ClassifierList

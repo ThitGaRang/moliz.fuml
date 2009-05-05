@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
@@ -32,7 +32,6 @@ import fUML.Semantics.Loci.*;
 
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -53,91 +52,83 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class Link    extends fUML.Semantics.Classes.Kernel.ExtensionalValue    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.Association type = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.Association type =  null;
+    
+	// Operations of the class
+  /**
    * operation destroy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void destroy()   {
-	 		 	 			// Remove the type of this link and destroy it.
+// Remove the type of this link and destroy it.
 
 this.type = null;
 super.destroy();
+	  } // destroy
 
-								    			  }
-	
-	  /**
+  /**
    * operation copy
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-	 		 	 			// Create a new link with the same type, locus and feature values as this link.
+// Create a new link with the same type, locus and feature values as this link.
 
 Link newValue = (Link)(super.copy());
 
 newValue.type = this.type;
 
 return newValue;
+	  } // copy
 
-								    			  }
-	
-	  /**
+  /**
    * operation new_
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-	 		 	 			// Create a new link with no type or properies.
+// Create a new link with no type or properies.
 
 return new Link();
+	  } // new_
 
-								    			  }
-	
-	  /**
+  /**
    * operation getTypes
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-	 		 	 			// Return the single type of this link (if any).
+// Return the single type of this link (if any).
 
-ClassifierList types = new ClassifierList();
+ClassifierList types = null;
 
-if (this.type != null) {
+if (this.type == null) {
+    types = new ClassifierList();
+} else {
+    types = new ClassifierList();
     types.addValue(this.type);
 }
 
 return types;
 
+	  } // getTypes
 
-								    			  }
-	
-	  /**
+  /**
    * operation setFeatureValue
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature, fUML.Semantics.Classes.Kernel.ValueList values, int position)   {
-	 		 	 			// If a position is given, before setting the given feature value, adjust the position values of the ends of other links for this same feature.
+// If a position is given, before setting the given feature value, adjust the position values of the ends of other links for this same feature.
 
 if (position > 0) {
     ExtensionalValueList extent = this.locus.getExtent(this.type);
@@ -151,7 +142,6 @@ if (position > 0) {
 }
 
 super.setFeatureValue(feature, values, position);
+	  } // setFeatureValue
 
-								    			  }
-	
 } //Link

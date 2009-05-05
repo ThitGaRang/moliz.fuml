@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -55,117 +55,100 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class LoopNode    extends fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isTestedFirst = 	false	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPin decider = 	 null	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList test = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList bodyOutput = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.InputPinList loopVariableInput = 	new fUML.Syntax.Actions.BasicActions.InputPinList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList bodyPart = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList result = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	 		public   fUML.Syntax.Actions.BasicActions.OutputPinList loopVariable = 	new fUML.Syntax.Actions.BasicActions.OutputPinList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList setupPart = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isTestedFirst = false;
+	public   fUML.Syntax.Actions.BasicActions.OutputPin decider =  null;
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList test = new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList();
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList bodyOutput = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+	public   fUML.Syntax.Actions.BasicActions.InputPinList loopVariableInput = new fUML.Syntax.Actions.BasicActions.InputPinList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList bodyPart = new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList();
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList result = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+	public   fUML.Syntax.Actions.BasicActions.OutputPinList loopVariable = new fUML.Syntax.Actions.BasicActions.OutputPinList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList setupPart = new fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNodeList();
+    
+	// Operations of the class
+  /**
    * operation setIsTestedFirst
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsTestedFirst(boolean isTestedFirst)   {
-	 		 	 			this.isTestedFirst = isTestedFirst;
+this.isTestedFirst = isTestedFirst;
+	  } // setIsTestedFirst
 
-								    			  }
-	
-	  /**
+  /**
    * operation addTest
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addTest(fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNode test)   {
-	 		 	 			this.test.addValue(test);
+this.test.addValue(test);
+	  } // addTest
 
-								    			  }
-	
-	  /**
+  /**
    * operation addBodyPart
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addBodyPart(fUML.Syntax.Activities.CompleteStructuredActivities.ExecutableNode bodyPart)   {
-	 		 	 			this.bodyPart.addValue(bodyPart);
+this.bodyPart.addValue(bodyPart);
+	  } // addBodyPart
 
-								    			  }
-	
-	  /**
+  /**
    * operation addLoopVariableInput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addLoopVariableInput(fUML.Syntax.Actions.BasicActions.InputPin loopVariableInput)   {
-	 		 	 			super.addInput(loopVariableInput);
+super.addInput(loopVariableInput);
 this.loopVariableInput.addValue(loopVariableInput);
+	  } // addLoopVariableInput
 
-								    			  }
-	
-	  /**
+  /**
    * operation addLoopVariable
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addLoopVariable(fUML.Syntax.Actions.BasicActions.OutputPin loopVariable)   {
-	 		 	 			this.loopVariable.addValue(loopVariable);
+this.loopVariable.addValue(loopVariable);
+	  } // addLoopVariable
 
-								    			  }
-	
-	  /**
+  /**
    * operation setDecider
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setDecider(fUML.Syntax.Actions.BasicActions.OutputPin decider)   {
-	 		 	 			this.decider = decider;
+this.decider = decider;
+	  } // setDecider
 
-								    			  }
-	
-	  /**
+  /**
    * operation addBodyOutput
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addBodyOutput(fUML.Syntax.Actions.BasicActions.OutputPin bodyOutput)   {
-	 		 	 			this.bodyOutput.addValue(bodyOutput);
+this.bodyOutput.addValue(bodyOutput);
+	  } // addBodyOutput
 
-								    			  }
-	
-	  /**
+  /**
    * operation addResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result.addValue(result);
+	  } // addResult
 
-								    			  }
-	
 } //LoopNode

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
@@ -32,7 +32,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -49,21 +48,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class OpaqueBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute()   {
-	 		 	 			// Execute the body of the opaque behavior.
+// Execute the body of the opaque behavior.
 
 Debug.println("[execute] Opaque behavior " + this.getBehavior().name + "...");
 
@@ -91,15 +88,12 @@ for (int i = 0; i < parameters.size(); i++) {
 }
 
 this.doBody(inputs, outputs);
+	  } // execute
 
-								    			  }
-	
-	  /**
+  /**
    * operation doBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)  ;
-} //OpaqueBehaviorExecution
+	public  abstract    void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)  ;} //OpaqueBehaviorExecution

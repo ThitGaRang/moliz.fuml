@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -40,7 +40,6 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -61,23 +60,21 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ConditionalNodeActivation    extends fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList clauseActivations = 	new fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList()	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList selectedClauses = 	new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList clauseActivations = new fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList();
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList selectedClauses = new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList();
+    
+	// Operations of the class
+  /**
    * operation doStructuredActivity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doStructuredActivity()   {
-	 		 	 			// Activate all clauses in the conditional node and pass control to those that are ready (i.e., have no predecessors).
+// Activate all clauses in the conditional node and pass control to those that are ready (i.e., have no predecessors).
 // If one or more clauses have succeeded in being selected, choose one non-deterministically and run its body, then copy the outputs of that clause to the output pins of the node.
 
 ConditionalNode node = (ConditionalNode)(this.node);
@@ -124,18 +121,16 @@ if (this.selectedClauses.size() > 0 & this.isRunning()) {
         this.putTokens(resultPin, this.getPinValues(bodyOutputPin));
     }
 }
+	  } // doStructuredActivity
 
-								    			  }
-	
-	  /**
+  /**
    * operation getClauseActivation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivation getClauseActivation(fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause)   {
-	 		 	 			// Get the clause activation corresponding to the given clause.
+// Get the clause activation corresponding to the given clause.
 
 ClauseActivation selectedClauseActivation = null;
 int i = 1;
@@ -148,38 +143,33 @@ while ((selectedClauseActivation == null) & i <= this.clauseActivations.size()) 
 }
 
 return selectedClauseActivation;
+	  } // getClauseActivation
 
-								    			  }
-	
-	  /**
+  /**
    * operation runTest
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void runTest(fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause)   {
-	 		 	 			// Run the test for the given clause.
+// Run the test for the given clause.
 
 if (this.isRunning()) {
     this.activationGroup.runNodes(this.makeActivityNodeList(clause.test));
 }
+	  } // runTest
 
-								    			  }
-	
-	  /**
+  /**
    * operation selectBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void selectBody(fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause)   {
-	 		 	 			// Add the clause to the list of selected clauses.
+// Add the clause to the list of selected clauses.
 
 this.selectedClauses.addValue(clause);
 
+	  } // selectBody
 
-								    			  }
-	
 } //ConditionalNodeActivation

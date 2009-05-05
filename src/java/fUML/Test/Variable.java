@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,14 +40,11 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Variable    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Classes.Kernel.Value value = 	 null
-	;
-	 		public   String name = 	 null
-	;
-	    
-// Operations of the class
+	public   fUML.Semantics.Classes.Kernel.Value value =  null;
+	public   String name = "";
+    
+	// Operations of the class
 } //Variable

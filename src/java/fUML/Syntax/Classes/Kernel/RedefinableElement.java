@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,49 +44,42 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class RedefinableElement    extends fUML.Syntax.Classes.Kernel.NamedElement    {
- 	    
+    
 	// Attributes
- 	 		public   boolean isLeaf = 	false	;
-	 		public   fUML.Syntax.Classes.Kernel.RedefinableElementList redefinedElement = 	new fUML.Syntax.Classes.Kernel.RedefinableElementList()	;
-	 		public   fUML.Syntax.Classes.Kernel.ClassifierList redefinitionContext = 	new fUML.Syntax.Classes.Kernel.ClassifierList()	;
-	    
-// Operations of the class
-	  /**
+	public   boolean isLeaf = false;
+	public   fUML.Syntax.Classes.Kernel.RedefinableElementList redefinedElement = new fUML.Syntax.Classes.Kernel.RedefinableElementList();
+	public   fUML.Syntax.Classes.Kernel.ClassifierList redefinitionContext = new fUML.Syntax.Classes.Kernel.ClassifierList();
+    
+	// Operations of the class
+  /**
    * operation setIsLeaf
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setIsLeaf(boolean isLeaf)   {
-	 		 	 			this.isLeaf = isLeaf;
+this.isLeaf = isLeaf;
+	  } // setIsLeaf
 
-								    			  }
-	
-	  /**
+  /**
    * operation addRedefinedElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addRedefinedElement(fUML.Syntax.Classes.Kernel.RedefinableElement redefinedElement)   {
-	 		 	 			this.redefinedElement.addValue(redefinedElement);
+this.redefinedElement.addValue(redefinedElement);
+	  } // addRedefinedElement
 
-								    			  }
-	
-	  /**
+  /**
    * operation addRedefinitionContext
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addRedefinitionContext(fUML.Syntax.Classes.Kernel.Classifier redefinitionContext)   {
-	 		 	 			this.redefinitionContext.addValue(redefinitionContext);
+this.redefinitionContext.addValue(redefinitionContext);
+	  } // addRedefinitionContext
 
-								    			  }
-	
 } //RedefinableElement

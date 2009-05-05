@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -57,21 +56,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public  abstract class LinkActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation linkMatchesEndData
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean linkMatchesEndData(fUML.Semantics.Classes.Kernel.Link link, fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endDataList)   {
-	 		 	 			// Test whether the given link matches the given end data.
+// Test whether the given link matches the given end data.
 
 boolean matches = true;
 int i = 1;
@@ -81,18 +78,16 @@ while (matches & i <= endDataList.size()) {
 }
 
 return matches;
+	  } // linkMatchesEndData
 
-								    			  }
-	
-	  /**
+  /**
    * operation endMatchesEndData
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean endMatchesEndData(fUML.Semantics.Classes.Kernel.Link link, fUML.Syntax.Actions.IntermediateActions.LinkEndData endData)   {
-	 		 	 			// Test whether the appropriate end of the given link matches the given end data.
+// Test whether the appropriate end of the given link matches the given end data.
 
 boolean matches = false;
 if (endData.value == null) {
@@ -114,21 +109,18 @@ if (endData.value == null) {
 }
 
 return matches;
+	  } // endMatchesEndData
 
-								    			  }
-	
-	  /**
+  /**
    * operation getAssociation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Syntax.Classes.Kernel.Association getAssociation()   {
-	 		 	 			// Get the association for the link action of this activation.
+// Get the association for the link action of this activation.
 
 return (Association)(((LinkAction)(this.node)).endData.getValue(0).end.association);
+	  } // getAssociation
 
-								    			  }
-	
 } //LinkActionActivation

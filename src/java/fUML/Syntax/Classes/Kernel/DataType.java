@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,44 +42,39 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class DataType    extends fUML.Syntax.Classes.Kernel.Classifier    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = 	new fUML.Syntax.Classes.Kernel.PropertyList()	;
-	 		public   fUML.Syntax.Classes.Kernel.OperationList ownedOperation = 	new fUML.Syntax.Classes.Kernel.OperationList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = new fUML.Syntax.Classes.Kernel.PropertyList();
+	public   fUML.Syntax.Classes.Kernel.OperationList ownedOperation = new fUML.Syntax.Classes.Kernel.OperationList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedAttribute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedAttribute(fUML.Syntax.Classes.Kernel.Property ownedAttribute)   {
-	 		 	 			super.addAttribute(ownedAttribute);
+super.addAttribute(ownedAttribute);
 super.addOwnedMember(ownedAttribute);
 
 this.ownedAttribute.addValue(ownedAttribute);
 ownedAttribute.datatype = this;
+	  } // addOwnedAttribute
 
-								    			  }
-	
-	  /**
+  /**
    * operation addOwnedOperation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addOwnedOperation(fUML.Syntax.Classes.Kernel.Operation ownedOperation)   {
-	 		 	 			super.addFeature(ownedOperation);
+super.addFeature(ownedOperation);
 super.addOwnedMember(ownedOperation);
 
 this.ownedOperation.addValue(ownedOperation);
 ownedOperation.datatype = this;
+	  } // addOwnedOperation
 
-								    			  }
-	
 } //DataType

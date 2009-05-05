@@ -45,4 +45,4 @@ public class ParameterList extends ArrayList<fUML.Syntax.Classes.Kernel.Paramete
   public void removeValue(int i){
     remove(i);
   }
-} //Parameter
+} //ParameterList

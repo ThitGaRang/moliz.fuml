@@ -23,9 +23,8 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -43,37 +42,31 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class OutputChannelObject    extends fUML.Library.ChannelImplementation.ChannelObject    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation write
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract    void write(fUML.Semantics.Classes.Kernel.Value value)  ;
-	  /**
+	public  abstract    void write(fUML.Semantics.Classes.Kernel.Value value)  ;  /**
    * operation isFull
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   boolean isFull()  ;
-	  /**
+	public  abstract   boolean isFull()  ;  /**
    * operation execute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)   {
-	 		 	 			String name = execution.getOperationName();
+String name = execution.getOperationName();
 
 if (name.equals("write")) {
     this.write(execution.getParameterValue("value").values.getValue(0));
@@ -86,7 +79,6 @@ else if (name.equals("isFull")) {
 else {
     super.execute(execution);
 }
+	  } // execute
 
-								     				    			  }
-	
 } //OutputChannelObject

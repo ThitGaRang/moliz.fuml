@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,24 +40,21 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class ClearStructuralFeatureAction    extends fUML.Syntax.Actions.IntermediateActions.StructuralFeatureAction    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Actions.BasicActions.OutputPin result = 	 null	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Actions.BasicActions.OutputPin result =  null;
+    
+	// Operations of the class
+  /**
    * operation setResult
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setResult(fUML.Syntax.Actions.BasicActions.OutputPin result)   {
-	 		 	 			super.addOutput(result);
+super.addOutput(result);
 this.result = result;
+	  } // setResult
 
-								    			  }
-	
 } //ClearStructuralFeatureAction

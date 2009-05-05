@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -40,7 +40,6 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -64,25 +63,21 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ClauseActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Activities.CompleteStructuredActivities.ConditionalNodeActivation conditionalNodeActivation = 	 null
-	;
-	 		public   fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Activities.CompleteStructuredActivities.ConditionalNodeActivation conditionalNodeActivation =  null;
+	public   fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause =  null;
+    
+	// Operations of the class
+  /**
    * operation receiveControl
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void receiveControl()   {
-	 		 	 			// If all predecessors to the clause for this activation have run their tests and failed, then run the test for this clause.
+// If all predecessors to the clause for this activation have run their tests and failed, then run the test for this clause.
 // If the test succeeds, then terminate any other clauses that may be running and run the body of this clause.
 // If the test fails, then pass control to successor clauses.
 
@@ -106,18 +101,16 @@ if (this.isReady()) {
         }
     }
 }
-        
-								    			  }
-	
-	  /**
+        	  } // receiveControl
+
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// Test if all predecessors to this clause activation have failed.
+// Test if all predecessors to this clause activation have failed.
 
 ClauseActivationList predecessors = this.getPredecessors();
 
@@ -139,46 +132,40 @@ while (decision & i <= predecessors.size()) {
 
 return decision;
 
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation runTest
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void runTest()   {
-	 		 	 			// Run the test of the clause for this clause activation.
+// Run the test of the clause for this clause activation.
 
 this.conditionalNodeActivation.runTest(this.clause);
+	  } // runTest
 
-								    			  }
-	
-	  /**
+  /**
    * operation selectBody
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void selectBody()   {
-	 		 	 			// Select the body of the clause for this clause activation.
+// Select the body of the clause for this clause activation.
 
 this.conditionalNodeActivation.selectBody(this.clause);
+	  } // selectBody
 
-								    			  }
-	
-	  /**
+  /**
    * operation getDecision
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Classes.Kernel.BooleanValue getDecision()   {
-	 		 	 			// Get the value (if any) on the decider pin of the clause for this clause activation.
+// Get the value (if any) on the decider pin of the clause for this clause activation.
 
 ValueList deciderValues = this.conditionalNodeActivation.getPinValues(this.clause.decider);
 
@@ -188,18 +175,16 @@ if (deciderValues.size()  > 0) {
 }
 
 return deciderValue;
+	  } // getDecision
 
-								    			  }
-	
-	  /**
+  /**
    * operation getPredecessors
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList getPredecessors()   {
-	 		 	 			// Return the clause activations for the predecessors of the clause for this clause activation.
+// Return the clause activations for the predecessors of the clause for this clause activation.
 
 ClauseActivationList predecessors = new ClauseActivationList();
 
@@ -210,18 +195,16 @@ for (int i = 0; i < predecessorClauses.size(); i++) {
 }
 
 return predecessors;
+	  } // getPredecessors
 
-								    			  }
-	
-	  /**
+  /**
    * operation getSuccessors
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList getSuccessors()   {
-	 		 	 			// Return the clause activations for the successors of the clause for this clause activation.
+// Return the clause activations for the successors of the clause for this clause activation.
 
 ClauseActivationList successors = new ClauseActivationList();
 
@@ -233,7 +216,6 @@ for (int i = 0; i < successorClauses.size(); i++) {
 
 return successors;
 
+	  } // getSuccessors
 
-								    			  }
-	
 } //ClauseActivation

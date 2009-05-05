@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,26 +40,22 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class SystemIO    extends fUML.Library.PrimitiveBehaviors    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior WriteLine = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior WriteLine =  null;
+    
+	// Operations of the class
+  /**
    * operation SystemIO
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      SystemIO(fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			fUML.Syntax.Classes.Kernel.ParameterList parameters = new fUML.Syntax.Classes.Kernel.ParameterList();
+fUML.Syntax.Classes.Kernel.ParameterList parameters = new fUML.Syntax.Classes.Kernel.ParameterList();
 parameters.addValue(this.createInputParameter("value", null, 1, 1));
 this.WriteLine = this.createPrimitiveBehavior("WriteLine", parameters, new fUML.Library.SystemIOImplementation.SystemWriteLineBehaviorExecution(), factory);
+	  } // SystemIO
 
-								     				    			  }
-	
 } //SystemIO

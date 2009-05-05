@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -41,7 +41,6 @@ import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -59,40 +58,34 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class AcceptEventActionEventAccepter    extends fUML.Semantics.CommonBehaviors.Communications.EventAccepter    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation actionActivation = 	 null
-	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation actionActivation =  null;
+    
+	// Operations of the class
+  /**
    * operation accept
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void accept(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-	 		 	 				    		 	 			// Accept a signal occurance for the given signal instance.
+// Accept a signal occurance for the given signal instance.
 // Forward the signal occuranceto the action activation.
 
-this.actionActivation.accept(signalInstance);
-								    			  }
-	
-	  /**
+this.actionActivation.accept(signalInstance);	  } // accept
+
+  /**
    * operation match
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean match(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-	 		 	 				    		 	 			// Return true if the given signal instance matches a trigger of the accept action of the action activation.
+// Return true if the given signal instance matches a trigger of the accept action of the action activation.
 
 return this.actionActivation.match(signalInstance);
+	  } // match
 
-								    			  }
-	
 } //AcceptEventActionEventAccepter

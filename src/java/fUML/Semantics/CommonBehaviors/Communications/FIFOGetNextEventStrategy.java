@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -39,25 +39,22 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class FIFOGetNextEventStrategy    extends fUML.Semantics.CommonBehaviors.Communications.GetNextEventStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getNextEvent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent(fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation)   {
-	 		 	 			// Get the first event from the given event pool. The event is removed from the pool.
+// Get the first event from the given event pool. The event is removed from the pool.
 
 SignalInstance signalInstance = objectActivation.eventPool.getValue(0);
 objectActivation.eventPool.removeValue(0);
-return signalInstance;
-								    			  }
-	
+return signalInstance;	  } // getNextEvent
+
 } //FIFOGetNextEventStrategy

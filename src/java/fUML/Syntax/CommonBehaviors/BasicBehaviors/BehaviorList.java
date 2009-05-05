@@ -45,4 +45,4 @@ public class BehaviorList extends ArrayList<fUML.Syntax.CommonBehaviors.BasicBeh
   public void removeValue(int i){
     remove(i);
   }
-} //Behavior
+} //BehaviorList

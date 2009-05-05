@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import java.util.Iterator;
+import java.util.Iterator;
 
 import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
@@ -43,7 +43,6 @@ import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -67,24 +66,21 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class AcceptEventActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Semantics.Actions.CompleteActions.AcceptEventActionEventAccepter eventAccepter = 	 null
-	;
-	 		public   boolean waiting = 	false	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Semantics.Actions.CompleteActions.AcceptEventActionEventAccepter eventAccepter =  null;
+	public   boolean waiting = false;
+    
+	// Operations of the class
+  /**
    * operation run
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void run()   {
-	 		 	 			// Create an event accepter and initialize waiting to false.
+// Create an event accepter and initialize waiting to false.
 
 super.run();
 
@@ -92,18 +88,16 @@ this.eventAccepter = new AcceptEventActionEventAccepter();
 this.eventAccepter.actionActivation = this;
 
 this.waiting = false;
+	  } // run
 
-								    			  }
-	
-	  /**
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Register the event accepter for this accept event action activation with the context object of the enclosing activity execution
+// Register the event accepter for this accept event action activation with the context object of the enclosing activity execution
 // and wait for an event to be accepted.
 
 Debug.println("[fire] Action " + this.node.name + "...");
@@ -111,51 +105,47 @@ Debug.println("[fire] Action " + this.node.name + "...");
 this.getExecutionContext().register(this.eventAccepter);
 this.waiting = true;
 
+	  } // fire
 
-								    			  }
-	
-	  /**
+  /**
    * operation isReady
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean isReady()   {
-	 		 	 			// An accept event action activiation is ready to fire only if it is not already waiting for an event.
+// An accept event action activiation is ready to fire only if it is not already waiting for an event.
 
-boolean ready = false;
-if (!this.waiting) {
+boolean ready;
+if (this.waiting) {
+    ready = false;
+} else {
     ready = super.isReady();
 }
 
 return ready;
+	  } // isReady
 
-								    			  }
-	
-	  /**
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Do nothing. [This will never be called.]
+// Do nothing. [This will never be called.]
 
-return;
-								    			  }
-	
-	  /**
+return;	  } // doAction
+
+  /**
    * operation accept
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void accept(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-	 		 	 			// Accept a signal occurance for the given signal instance.
-// If the action does not unmarshall, then place the signal instance on the result pin.
+// Accept a signal occurance for the given signal instance.
+// If the action does not unmarshall, then place the signal instance on the result pin, if any.
 // If the action does unmarshall, then get the feature values of the signal instance, and place the values for each feature on the corresponding output pin.
 // Concurrently fire all output pins while offering a single control token.
 // If there are no incoming edges, then re-register this accept event action execution with the context object.
@@ -169,7 +159,9 @@ if (this.running) {
     if (!action.isUnmarshall) {
         ValueList result = new ValueList();
         result.addValue(signalInstance);
-        this.putTokens(resultPins.getValue(0), result);
+        if (resultPins.size() > 0) {
+            this.putTokens(resultPins.getValue(0), result);
+        }
     } else {
         FeatureValueList featureValues = signalInstance.getFeatureValues();
         for (int i = 0; i < featureValues.size(); i++) {
@@ -190,18 +182,16 @@ if (this.running) {
     this.receiveOffer();
 }
 
+	  } // accept
 
-								    			  }
-	
-	  /**
+  /**
    * operation match
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     boolean match(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-	 		 	 			// Return true if the given signal instance matches a trigger of the accept action of this activation.
+// Return true if the given signal instance matches a trigger of the accept action of this activation.
 
 AcceptEventAction action = (AcceptEventAction)(this.node);
 TriggerList triggers = action.trigger;
@@ -214,25 +204,22 @@ while (!matches & i <= triggers.size()) {
     i = i + 1;
 }
 
-return matches;
-								    			  }
-	
-	  /**
+return matches;	  } // match
+
+  /**
    * operation terminate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void terminate()   {
-	 		 	 			// Terminate this action and unregister its event accepter.
+// Terminate this action and unregister its event accepter.
 
 super.terminate();
 
 if (this.waiting) {
     this.getExecutionContext().unregister(this.eventAccepter);
     this.waiting = false;
-}
-								    			  }
-	
+}	  } // terminate
+
 } //AcceptEventActionActivation

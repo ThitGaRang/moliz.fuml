@@ -45,4 +45,4 @@ public class ExpansionNodeList extends ArrayList<fUML.Syntax.Activities.ExtraStr
   public void removeValue(int i){
     remove(i);
   }
-} //ExpansionNode
+} //ExpansionNodeList

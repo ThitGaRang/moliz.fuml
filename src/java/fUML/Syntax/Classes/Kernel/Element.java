@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -42,27 +42,24 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class Element    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Classes.Kernel.ElementList ownedElement = 	new fUML.Syntax.Classes.Kernel.ElementList()	;
-	 		public   fUML.Syntax.Classes.Kernel.Element owner = 	 null	;
-	 		public   fUML.Syntax.Classes.Kernel.CommentList ownedComment = 	new fUML.Syntax.Classes.Kernel.CommentList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Classes.Kernel.ElementList ownedElement = new fUML.Syntax.Classes.Kernel.ElementList();
+	public   fUML.Syntax.Classes.Kernel.Element owner =  null;
+	public   fUML.Syntax.Classes.Kernel.CommentList ownedComment = new fUML.Syntax.Classes.Kernel.CommentList();
+    
+	// Operations of the class
+  /**
    * operation addOwnedElement
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addOwnedElement(fUML.Syntax.Classes.Kernel.Element ownedElement)   {
-	 		 	 			this.ownedElement.add(ownedElement);
+this.ownedElement.add(ownedElement);
 ownedElement.owner = this;
 
+	  } // addOwnedElement
 
-								    			  }
-	
 } //Element

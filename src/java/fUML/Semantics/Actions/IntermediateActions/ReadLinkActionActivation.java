@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,21 +54,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ReadLinkActionActivation    extends fUML.Semantics.Actions.IntermediateActions.LinkActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the extent, at the current execution locus, of the association to which the action applies.
+// Get the extent, at the current execution locus, of the association to which the action applies.
 // For all links that match the link end data, place the value of the remaining "open" end on the result pin.
 
 ReadLinkAction action = (ReadLinkAction)(this.node);
@@ -78,8 +75,8 @@ LinkEndData openEnd = null;
 
 int i = 1;
 while((openEnd == null) & i <= endDataList.size()) {
-    if (endDataList.getValue(i).value == null) {
-        openEnd = endDataList.getValue(i);
+    if (endDataList.getValue(i-1).value == null) {
+        openEnd = endDataList.getValue(i-1);
     }
     i = i + 1;
 }
@@ -95,7 +92,16 @@ for (int j = 0; j < extent.size(); j++) {
     }
 }
 
+// Now that matching is done, ensure that all tokens on end data input pins
+// are consumed.
+for (int k=0; k<endDataList.size(); k++) {
+    LinkEndData endData = endDataList.getValue(k);
+    if (endData.value != null) {
+          this.takeTokens(endData.value);
+    }
+}
 
-								    			  }
-	
+
+	  } // doAction
+
 } //ReadLinkActionActivation

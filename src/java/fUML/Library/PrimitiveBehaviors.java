@@ -23,10 +23,9 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.Classes.Kernel.*;
+import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -46,37 +45,33 @@ import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
  * @generated
  */
 
-
 public  abstract class PrimitiveBehaviors    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation createPrimitiveBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior createPrimitiveBehavior(String name, fUML.Syntax.Classes.Kernel.ParameterList parameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution implementation, fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			// Create a primitive (opaque) behavior and add its implementation to the given factory.
+// Create a primitive (opaque) behavior and add its implementation to the given factory.
 
 return this.addPrimitiveBehavior(name, parameters, new OpaqueBehavior(), implementation, factory);
 
 
+	  } // createPrimitiveBehavior
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createInputParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Parameter createInputParameter(String name, fUML.Syntax.Classes.Kernel.Classifier type, int lower, int upper)   {
-	 		 	 			// Create an input parameter with the given name, type and multiplicity bounds.
+// Create an input parameter with the given name, type and multiplicity bounds.
 
 Parameter parameter = new Parameter();
 parameter.name = name;
@@ -86,18 +81,16 @@ parameter.multiplicityElement = new MultiplicityElement();
 this.setMultiplicity(parameter.multiplicityElement, lower, upper);
 
 return parameter;
+	  } // createInputParameter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation createReturnParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Parameter createReturnParameter(fUML.Syntax.Classes.Kernel.Classifier type, int lower, int upper)   {
-	 		 	 			// Create a return parameter with the given type and multiplicity bounds.
+// Create a return parameter with the given type and multiplicity bounds.
 
 Parameter parameter = new Parameter();
 parameter.name = "result";
@@ -107,34 +100,30 @@ parameter.multiplicityElement = new MultiplicityElement();
 this.setMultiplicity(parameter.multiplicityElement, lower, upper);
 
 return parameter;
+	  } // createReturnParameter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setMultiplicity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void setMultiplicity(fUML.Syntax.Classes.Kernel.MultiplicityElement element, int lower, int upper)   {
-	 		 	 			UnlimitedNatural unlimitedNatural = new UnlimitedNatural();
+UnlimitedNatural unlimitedNatural = new UnlimitedNatural();
 unlimitedNatural.naturalValue = upper;
 
 element.lower = lower;
 element.upper = unlimitedNatural;
+	  } // setMultiplicity
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addPrimitiveBehavior
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior addPrimitiveBehavior(String name, fUML.Syntax.Classes.Kernel.ParameterList parameters, fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior type, fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution implementation, fUML.Semantics.Loci.ExecutionFactory factory)   {
-	 		 	 			// Add a primitive function to the given locus.
+// Add a primitive function to the given locus.
 
 // Debug.println("[addPrimitiveFunction] name = " + name);
 
@@ -148,7 +137,6 @@ factory.addPrimitiveBehaviorPrototype(implementation);
 
 return type;
 
+	  } // addPrimitiveBehavior
 
-								     				    			  }
-	
 } //PrimitiveBehaviors

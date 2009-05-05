@@ -45,4 +45,4 @@ public class ActivityEdgeList extends ArrayList<fUML.Syntax.Activities.Intermedi
   public void removeValue(int i){
     remove(i);
   }
-} //ActivityEdge
+} //ActivityEdgeList

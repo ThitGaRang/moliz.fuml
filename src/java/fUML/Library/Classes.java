@@ -23,9 +23,8 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 			import fUML.Syntax.Classes.Kernel.*;
+import fUML.Syntax.Classes.Kernel.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -46,37 +45,33 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class Classes    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation createClass
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Class_ createClass(String name, boolean isAbstract)   {
-	 		 	 			Class_ newClass = new Class_();
+Class_ newClass = new Class_();
 newClass.name = name;
 newClass.isAbstract = isAbstract;
 
 return newClass;
+	  } // createClass
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addAttribute
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addAttribute(fUML.Syntax.Classes.Kernel.Class_ owner, String name, fUML.Syntax.Classes.Kernel.Type type, fUML.Syntax.Classes.Kernel.VisibilityKind visibility, boolean isComposite)   {
-	 		 	 			
+
 Property attribute = new Property();
 attribute.name = name;
 attribute.typedElement = new TypedElement();
@@ -108,18 +103,16 @@ owner.feature.addValue(attribute);
 owner.ownedMember.addValue(attribute);
 owner.member.addValue(attribute);
 
+	  } // addAttribute
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation addOperation
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected     fUML.Syntax.Classes.Kernel.Operation addOperation(fUML.Syntax.Classes.Kernel.Class_ owner, String name, fUML.Syntax.Classes.Kernel.VisibilityKind visibility)   {
-	 		 	 			Operation operation = new Operation();
+Operation operation = new Operation();
 operation.name = name;
 operation.featuringClassifier.addValue(owner);
 operation.namespace = owner;
@@ -136,18 +129,16 @@ owner.feature.addValue(operation);
 owner.ownedMember.addValue(operation);
 owner.member.addValue(operation);
 
-return operation;
-								     				    			  }
-	
-	  /**
+return operation;	  } // addOperation
+
+  /**
    * operation addParameter
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addParameter(fUML.Syntax.Classes.Kernel.Operation operation, String name, fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction, fUML.Syntax.Classes.Kernel.Type type)   {
-	 		 	 			Parameter parameter = new Parameter();
+Parameter parameter = new Parameter();
 parameter.name = name;
 parameter.type = type;
 parameter.direction = direction;
@@ -159,35 +150,31 @@ operation.ownedParameter.addValue(parameter);
 if (direction.equals(ParameterDirectionKind.return_)) {
     operation.type = type;
 }
+	  } // addParameter
 
-								     				    			  }
-	
-	  /**
+  /**
    * operation setMultiplicity
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void setMultiplicity(fUML.Syntax.Classes.Kernel.MultiplicityElement element, int lower, int upper)   {
-	 		 	 			UnlimitedNatural unlimitedNatural = new UnlimitedNatural();
+UnlimitedNatural unlimitedNatural = new UnlimitedNatural();
 unlimitedNatural.naturalValue = upper;
 
 element.lower = lower;
 element.upper = unlimitedNatural;
 element.isOrdered = false;
-element.isUnique = true;
-								     				    			  }
-	
-	  /**
+element.isUnique = true;	  } // setMultiplicity
+
+  /**
    * operation addGeneralization
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	protected      void addGeneralization(fUML.Syntax.Classes.Kernel.Class_ specific, fUML.Syntax.Classes.Kernel.Class_ general)   {
-	 		 	 			Generalization generalization = new Generalization();
+Generalization generalization = new Generalization();
 generalization.specific = specific;
 generalization.general = general;
 
@@ -206,7 +193,6 @@ for (int i = 0; i < general.member.size(); i++) {
         }
     }
 }
+	  } // addGeneralization
 
-								     				    			  }
-	
 } //Classes

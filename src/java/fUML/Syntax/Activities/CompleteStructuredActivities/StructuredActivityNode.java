@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,52 +45,45 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public   class StructuredActivityNode    extends fUML.Syntax.Actions.BasicActions.Action    {
- 	    
+    
 	// Attributes
- 	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList()	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.Activity activity = 	 null	;
-	 		public   boolean mustIsolate = 	false	;
-	 		public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = 	new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList()	;
-	    
-// Operations of the class
-	  /**
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList node = new fUML.Syntax.Activities.IntermediateActivities.ActivityNodeList();
+	public   fUML.Syntax.Activities.IntermediateActivities.Activity activity =  null;
+	public   boolean mustIsolate = false;
+	public   fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList edge = new fUML.Syntax.Activities.IntermediateActivities.ActivityEdgeList();
+    
+	// Operations of the class
+  /**
    * operation setMustIsolate
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void setMustIsolate(boolean mustIsolate)   {
-	 		 	 			this.mustIsolate = mustIsolate;
+this.mustIsolate = mustIsolate;
+	  } // setMustIsolate
 
-								    			  }
-	
-	  /**
+  /**
    * operation addNode
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addNode(fUML.Syntax.Activities.IntermediateActivities.ActivityNode node)   {
-	 		 	 			this.node.addValue(node);
+this.node.addValue(node);
 node.inStructuredNode = this;
+	  } // addNode
 
-								    			  }
-	
-	  /**
+  /**
    * operation addEdge
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void addEdge(fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge)   {
-	 		 	 			this.edge.addValue(edge);
+this.edge.addValue(edge);
 edge.inStructuredNode = this;
+	  } // addEdge
 
-								    			  }
-	
 } //StructuredActivityNode

@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -39,7 +39,6 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -55,26 +54,24 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ReadStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation doAction
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void doAction()   {
-	 		 	 			// Get the value of the object input pin. If the value is not a structural value, do nothing.
+// Get the value of the object input pin. If the value is not a structural value, do nothing.
 // Otherwise, get the values of the appropriate feature of the input value and place them on the result output pin.
 
 ReadStructuralFeatureAction action = (ReadStructuralFeatureAction)(this.node);
 
-Value value = this.getTokens(action.object).getValue(0);
+Value value = this.takeTokens(action.object).getValue(0);
 
 if (value instanceof StructuredValue) {
 //    Debug.println("[ReadStructuralFeatureActionActivation] value = " + value +", structural feature = " + action.structuralFeature.name);
@@ -82,7 +79,6 @@ if (value instanceof StructuredValue) {
     this.putTokens(action.result, resultValues);
 }
 
+	  } // doAction
 
-								    			  }
-	
 } //ReadStructuralFeatureActionActivation

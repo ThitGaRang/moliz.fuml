@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		 	 				    		 	 			import fUML.Syntax.*;
+import fUML.Syntax.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Syntax.CommonBehaviors.Communications.*;
@@ -36,7 +36,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-								    		
 
 /**
  * <!-- begin-user-doc -->
@@ -52,21 +51,19 @@ import fUML.Semantics.Loci.*;
  * @generated
  */
 
-
 public   class ForkNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation fire
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-	 		 	 			// Create forked tokens for all incoming tokens and offer them on all outgoing edges.
+// Create forked tokens for all incoming tokens and offer them on all outgoing edges.
 
 if (this.node == null) {
     Debug.println("[fire] Anonymous fork node.");
@@ -89,11 +86,7 @@ for (int i = 0; i < incomingTokens.size(); i++) {
 
 this.addTokens(forkedTokens);
 
-for (int i = 0; i < outgoingEdges.size(); i++) {
-    ActivityEdgeInstance outgoingEdge = outgoingEdges.getValue(i);
-    outgoingEdge.sendOffer(forkedTokens);
-}
+this.sendOffers(forkedTokens);
+	  } // fire
 
-								    			  }
-	
 } //ForkNodeActivation

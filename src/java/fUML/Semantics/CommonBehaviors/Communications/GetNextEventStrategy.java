@@ -23,7 +23,7 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
- 		
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,32 +40,27 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-
 public  abstract class GetNextEventStrategy    extends fUML.Semantics.Loci.SemanticStrategy    {
- 	    
+    
 	// Attributes
- 	    
-// Operations of the class
-	  /**
+    
+	// Operations of the class
+  /**
    * operation getName
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
 	public     String getName()   {
-	 		 	 			// Get next event strategies are always named "getNextEvent".
+// Get next event strategies are always named "getNextEvent".
 
 return "getNextEvent";
+	  } // getName
 
-								    			  }
-	
-	  /**
+  /**
    * operation getNextEvent
    * <!-- begin-user-doc -->
    		   * <!-- end-user-doc -->
    * @generated
    */
-
-	public  abstract   fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent(fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivcation)  ;
-} //GetNextEventStrategy
+	public  abstract   fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent(fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation)  ;} //GetNextEventStrategy
