@@ -33,4 +33,4 @@ public class #basicName(${object})List extends ArrayList<#listable(${object})>
   public void removeValue(int i){
     remove(i);
   }
-} //${name}
+} //#basicName(${object})List

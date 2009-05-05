@@ -40,7 +40,6 @@
    * <!-- end-user-doc -->
    * @generated
    */
-
 #end
 
 #macro( classJavaDoc $class )
@@ -62,7 +61,6 @@
  *
  * @generated
  */
-
 #end
 
 #macro( imports)
@@ -91,14 +89,14 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 
 
 #macro( defaultValue $feature)
-	#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end${feature.default}##
-	#elseif(${feature.upper}!=1)new #type(${feature})()##
-	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
-	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
-	#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
-	#elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
-	#else null##
-	#end
+#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end${feature.default}##
+#elseif(${feature.upper}!=1)new #type(${feature})()##
+#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
+#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
+#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
+#elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
+#else null##
+#end
 ##	#elseif(${feature.type.isAbstract()}||${feature.type.eClass().name}=="Enumeration")null
 ##	#else
 ##		#set( $foundOp = false )
@@ -139,25 +137,25 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 #macro( throws $operation) #end 
  
 #macro( body $operation)#if(${operation.isAbstract()});#else {
-	#bodycontent(${operation})
-	  }
-	#end  
+#bodycontent(${operation})	  } // ${operation.name}
+
+#end  
 #end
 
 #macro( bodycontent $operation)
-	#set( $foundBody = false )
- 	#foreach ( $comment in ${operation.ownedComments} )
-	 	#foreach ( $stereotype in ${comment.appliedStereotypes} )
- 			#if(${stereotype.name}=="java")
-${comment.body}
-				#set( $foundBody = true )
-			#end
-	    #end
-	#end
-	#if(${operation.eClass().name}=="Operation"&&!${foundBody})
-		// call out to operation
-		#if(${operation.returnResult})return #end fUML.utility.operations.#name(${operation.owner.name})Operations.#name(${operation.name})(this#operationParameterNames(${operation}));
-	#end		    
+#set( $foundBody = false )
+#foreach ( $comment in ${operation.ownedComments} )
+#foreach ( $stereotype in ${comment.appliedStereotypes} )
+#if(${stereotype.name}=="java")
+${comment.body}##
+#set( $foundBody = true )
+#end
+#end
+#end
+#if(${operation.eClass().name}=="Operation"&&!${foundBody})
+// call out to operation
+#if(${operation.returnResult})return #end fUML.utility.operations.#name(${operation.owner.name})Operations.#name(${operation.name})(this#operationParameterNames(${operation}));
+#end		    
 #end
 	
   
