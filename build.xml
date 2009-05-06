@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<project name="fuml" default="build-dev" basedir=".">
+<project name="fuml" default="all" basedir=".">
 
     <description>
         build file
@@ -26,7 +26,6 @@
     <property name="test.dir" value="./test"/>
     <property name="test.java.dir" value="./test"/>
     <property name="classes.dir" value="${target.dir}/classes"/>
-    <property name="eclipse.classes.dir" value="./target/eclipse/classes"/> <!-- NOTE: make this dir your eclipse default output dir -->
     <property name="dist.dir" value="${target.dir}/dist"/>
     
     <property name="test.dir" value="./test"/>
@@ -37,12 +36,13 @@
     <property environment="env"/>
     <property name="release.suffix" value="SNAPSHOT-04-2009"/>        
    
-    <target name="build-dev" depends="init, generate, compile, expand" description="build the components for dev"/>
+    <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
     <fileset id="local.libs" dir="${lib.dir}">
        <include name="junit.jar"/>   
        <include name="commons-logging.jar"/>   
        <include name="log4j.jar"/>
+       <include name="xerces.jar"/>
        <include name="jdom.jar"/>
        <include name="Tidy.jar"/>
     </fileset>
@@ -92,7 +92,7 @@
         <mkdir dir="${test.output.dir}"/>
     </target>    
     
-    <target name="generate" depends="init, copy-schemas-and-templates">
+    <target name="generate" depends="init">
        <echo message="Generating config classes from XMLSchema..."/>
 
        <mkdir dir="${classes.dir}"/>
@@ -152,25 +152,8 @@
       </javac>                          
     </target>
     
-    <target name="copy-schemas-and-templates">
+    <target name="copy-resources">
        <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/model">
-            <fileset dir="${schema.model.dir}">                         
-                <include name="*.xsd"/>     
-            </fileset>                                             
-            <fileset dir="${xml.model.dir}">                         
-                <include name="*.xml"/>     
-            </fileset>                                             
-            <fileset dir="${uml.dir}">                         
-                <include name="*.uml"/>     
-            </fileset>                                             
-            <fileset dir="${build.dir}/uml">                         
-                <include name="*.uml"/>     
-            </fileset>                                             
-            <fileset dir="${template.dir}">                         
-                <include name="*.xsl"/>     
-            </fileset>                                             
-       </copy>
-       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/model">
             <fileset dir="${schema.model.dir}">                         
                 <include name="*.xsd"/>     
             </fileset>                                             
@@ -192,20 +175,7 @@
                 <include name="*.uml"/>     
             </fileset>                                             
        </copy>
-       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/library">
-            <fileset dir="${uml.library.dir}">                         
-                <include name="*.uml"/>     
-            </fileset>                                             
-       </copy>
        <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/config">
-            <fileset dir="${schema.config.dir}">                         
-                <include name="*.xsd"/>     
-            </fileset>                                             
-            <fileset dir="${xml.config.dir}">                         
-                <include name="*.xml"/>     
-            </fileset>                                             
-       </copy>
-       <copy overwrite="yes" failonerror="false" todir="${eclipse.classes.dir}/org/modeldriven/fuml/config">
             <fileset dir="${schema.config.dir}">                         
                 <include name="*.xsd"/>     
             </fileset>                                             
@@ -218,11 +188,12 @@
               <include name="*.properties"/>
           </fileset>    
        </copy>  
-       <copy overwrite="yes" todir="${eclipse.classes.dir}/org/modeldriven/fuml/xmi/validation">
-          <fileset dir="${src.java.dir}/org/modeldriven/fuml/xmi/validation">
-              <include name="*.properties"/>
-          </fileset>    
-       </copy>          
+        <copy overwrite="yes" todir="${classes.dir}">
+             <fileset dir="${basedir}">                         
+                 <include name="log4j.properties"/>     
+             </fileset>                                             
+        </copy>
+
     </target>
         
     <target name="expand" depends="init">
@@ -284,7 +255,7 @@
         </java>    
     </target>    
 
-    <target name="dist" depends="copy-schemas-and-templates">
+    <target name="dist" depends="copy-resources">
       <echo message="archiving..."/>
       <mkdir dir="${dist.dir}"/>
         
@@ -306,18 +277,17 @@
       <zip destfile="${dist.dir}/fuml-${release.suffix}.zip">
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
-        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/bin" />
-        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt,README" prefix="fuml-${release.suffix}/bin" />
+        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
       </zip>                
 
       <zip destfile="${dist.dir}/fuml-${release.suffix}-src.zip">
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
-        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/bin" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt,README" prefix="fuml-${release.suffix}/bin" />
         <zipfileset dir="${src.dir}" prefix="fuml-${release.suffix}/src" />
         <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/test" />
         <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
-        <zipfileset dir="${basedir}" includes="*.txt" prefix="fuml-${release.suffix}" />
       </zip>                
 
       <zip destfile="${dist.dir}/fuml-${release.suffix}-plugin.zip">
@@ -325,7 +295,7 @@
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution" />
         <zipfileset dir="${xml.dir}/plugin" includes="*.xml" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${basedir}" includes="*.txt" prefix="org.modeldriven.fuml.execution" />
+        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
       </zip>               
 
     </target>
@@ -351,9 +321,6 @@
         <antcall target="test-validate"/>
         <antcall target="test-execution"/>
         <antcall target="test-magic-draw-execution"/>
-        <antcall target="test-external-reference"/>
-        <antcall target="test-function-execution"/>
-        <antcall target="test-incremental-validation"/>
         <antcall target="run-test-reports"/>
     </target>
 
@@ -367,85 +334,79 @@
     
     <target name="test-simple-activities">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.SimpleActivitiesTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.builtin.SimpleActivitiesTestCase"/>
         </antcall>
     </target>
     
     <target name="test-hello-world">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.HelloWorldTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.builtin.HelloWorldTestCase"/>
         </antcall>
     </target>
 
     <target name="test-signal-send">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.SignalSendTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.builtin.SignalSendTestCase"/>
         </antcall>
     </target>
 
     <target name="test-super-call">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.SuperCallTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.builtin.SuperCallTestCase"/>
         </antcall>
     </target>
 
     <target name="test-polymorphic-call">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.PolymorphicCallTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.builtin.PolymorphicCallTestCase"/>
         </antcall>
     </target>
      
-    <target name="test-binding-unmarshal" depends="copy-schemas-and-templates">
+    <target name="test-binding-unmarshal" depends="copy-resources">
         <antcall target="run-test">
             <param name="test" value="org.modeldriven.fuml.test.UnmarshalTestCase"/>
         </antcall>
     </target>
 
-    <target name="test-validate" depends="copy-schemas-and-templates">
+    <target name="test-validate" depends="copy-resources">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.ValidateTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.validation.ValidateTestCase"/>
+        </antcall>
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.validation.IncrementalValidationTestCase"/>
         </antcall>
     </target>
 
-    <target name="test-execution" depends="copy-schemas-and-templates">
+    <target name="test-execution" depends="copy-resources">
         <antcall target="run-test">
             <param name="test" value="org.modeldriven.fuml.test.ExecutionTestCase"/>
         </antcall>
     </target>
 
-    <target name="test-external-reference" depends="copy-schemas-and-templates">
-        <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.ExternalReferenceTestCase"/>
-        </antcall>
-    </target>
-
-    <target name="test-magic-draw-execution" depends="copy-schemas-and-templates">
+    <target name="test-magic-draw-execution" depends="copy-resources">
         <antcall target="run-test">
             <param name="test" value="org.modeldriven.fuml.test.MagicDrawExecutionTestCase"/>
         </antcall>
     </target>
 
-    <target name="test-function-execution" depends="copy-schemas-and-templates">
+    <target name="test-model" depends="copy-resources">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.FunctionExecutionTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.model.ModelTestCase"/>
+        </antcall>
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.model.AssociationLoadTestCase"/>
         </antcall>
     </target>
 
-    <target name="test-model" depends="copy-schemas-and-templates">
+    <target name="test-library" depends="copy-resources">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.ModelTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.library.LibraryTestCase"/>
         </antcall>
-    </target>
-
-    <target name="test-library" depends="copy-schemas-and-templates">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.LibraryTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.library.FunctionExecutionTestCase"/>
         </antcall>
-    </target>
-
-    <target name="test-incremental-validation" depends="copy-schemas-and-templates">
         <antcall target="run-test">
-            <param name="test" value="org.modeldriven.fuml.test.IncrementalValidationTestCase"/>
+            <param name="test" value="org.modeldriven.fuml.test.library.ExternalReferenceTestCase"/>
         </antcall>
     </target>
     

@@ -8,9 +8,9 @@ implementation is intended to implement the execution semantics of UML activity
 models, accepting an XMI file from a conformant UML model as its input and
 providing an execution trace of the selected activity model(s) as its output.
 
-The reference implementation was originally developed as part of a Lockheed
-Martin Corporation funded project with Model Driven Solutions (a division of
-Data Access Technologies) in 2008. The objectives for making this reference
+The reference implementation was developed as part of a Lockheed Martin
+Corporation funded project with Model Driven Solutions (a division of Data
+Access Technologies) in 2008. The objectives for making this reference
 implementation open source are to:
 
 a) encourage tool vendors to implement this standard in their tools
@@ -31,14 +31,6 @@ Licensing
 For licensing information, please see the file Licensing-Information.txt and the
 associated files Common-Public-License-1.0.txt and Apache-License-2.0.txt.
 
-Conformance
------------
-
-The fUML Specification recommends that the conformance of an execution tool to
-the specification be summarized in a "conformance statement". For the
-conformance statement for the Reference Implementation, please see the file
-Conformance-Statement.txt.
-
 Building
 --------
 
@@ -51,8 +43,8 @@ The implementation build requires the following to be installed:
 To build from the command line:
 
 1. In a Windows/DOS command window, navigate to the 'root' reference
-implementation directory. (This directory is where the Apache Ant 'build.xml'
-file can be found.)
+implementation directory.
+This directory is where the Apache Ant 'build.xml' file can be found.
 
 2. Use the following command:
 
@@ -64,20 +56,18 @@ directory.
 
 To build using Eclipse:
 
-1. Create a new Eclipse Java project using 'create using existing source' in the
-new project wizard. Make the
-project name 'fuml'.
+1.) Checkout the source from SVN or download and unzip the source '.zip' file into a 
+local directory called 'fUML-Reference-Implemetation'. This name reflects the current
+SVN folder name. Note: For Eclipse with an integrated Ant build certain restrictions require some
+folder name to be baked into the Eclipse project external build configuration, hence we baked in
+the current SVN folder name for the RI.
 
-2. Add /target/fuml/src as a source folder. This is where generated source is
-located.
+2.) Launch Eclipse and Create a Workspace. In the "Select a Workspace" prompt, browse to the parent folder of the
+'fUML-Reference-Implemetation' folder above. 
 
-3. Set  default output folder in the project properties -> 'Java Build Path' ->
-'Default Output Folder' to: fuml/target/eclipse/classes
-
-4. Set Eclipse Java compiler to 1.6.
-
-5. Make sure every jar file in the /lib directory and subdirectories has been
-added to the build path.
+3.) Import the fUML RI Project Into the Workspace. Select File->Import->General->Existing Projects Into Workspace. Select 'Next>>". Select the 'Select Root Directory' radio-button, browse to the 'fUML-Reference-Implemetation' folder above, and select it. Then select 'Finish'. The project
+should begin building automatically.  
+   
 
 Testing
 -------
@@ -109,6 +99,11 @@ test-magic-draw-execution
 test-external-reference
 test-function-execution
 test-incremental-validation
+
+
+Testing individual JUnit tests in Eclipse: 
+1.) Right-click on any file under the 'test' folder with a filename ending in 'TestCase' or 'Test' and 
+select Run As->JUnit Test. The test should execute and display output.     
 
 
 Deploying
