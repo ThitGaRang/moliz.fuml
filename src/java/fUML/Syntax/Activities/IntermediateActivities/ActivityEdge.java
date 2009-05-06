@@ -3,14 +3,14 @@
 
 
 /*
- * Initial version copyright 2008 Lockheed Martin Corporation, except  
- * as stated in the file entitled Licensing-Information. 
- * 
+ * Initial version copyright 2008 Lockheed Martin Corporation, except
+ * as stated in the file entitled Licensing-Information.
+ *
  * All modifications copyright 2009 Data Access Technologies, Inc.
  *
- * Licensed under the Academic Free License version 3.0 
- * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
- * in the file entitled Licensing-Information. 
+ * Licensed under the Academic Free License version 3.0
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
+ * in the file entitled Licensing-Information.
  *
  * Contributors:
  *   MDS - initial API and implementation
@@ -46,15 +46,15 @@ import UMLPrimitiveTypes.intList;
  * @generated
  */
 
-public  abstract class ActivityEdge    extends fUML.Syntax.Classes.Kernel.NamedElement    {
-    
+public  abstract class ActivityEdge    extends fUML.Syntax.Classes.Kernel.RedefinableElement    {
+
 	// Attributes
 	public   fUML.Syntax.Activities.IntermediateActivities.Activity activity =  null;
 	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode source =  null;
 	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode target =  null;
 	public   fUML.Syntax.Classes.Kernel.ValueSpecification guard =  null;
 	public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode =  null;
-    
+
 	// Operations of the class
   /**
    * operation setTarget
