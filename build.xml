@@ -34,7 +34,7 @@
     <property name="unzip.dir" value="${target.dir}/temp"/>
     
     <property environment="env"/>
-    <property name="release.suffix" value="SNAPSHOT-04-2009"/>        
+    <property name="release.suffix" value="SNAPSHOT-05-2009"/>        
    
     <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
@@ -214,10 +214,12 @@
             <param name="file.dir" value="${uml.dir}"/>
             <param name="file.name" value="fUML_Syntax.uml"/>
         </antcall>
+<!--
         <antcall target="expand-xmi">
             <param name="file.dir" value="${uml.dir}"/>
             <param name="file.name" value="fUML.uml"/>
         </antcall>
+-->
         <antcall target="expand-xmi">
             <param name="file.dir" value="${uml.dir}"/>
             <param name="file.name" value="fUML-LibraryImplementation.uml"/>
