@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- EVS 05/06/2009 Changed the XMI id references to OpaqueBehaviorExecution, Object_ and Execution. -->
 <xmi:XMI xmi:version="2.1" 
   xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -128,7 +129,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_wLHFU4A_Ed2xsvzRuEHZYg" name="io">
         <packagedElement xmi:type="uml:Class" xmi:id="_wLHFVIA_Ed2xsvzRuEHZYg" name="SystemWriteLineBehaviorExecution">
-          <generalization xmi:id="_wLHFVYA_Ed2xsvzRuEHZYg" general="_UlCg6XLxEd23psn_hP0YDw"/>
+          <generalization xmi:id="_wLHFVYA_Ed2xsvzRuEHZYg" general="_l0UVcDv-EdqAhdv9Jy16mg"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wLHFYYA_Ed2xsvzRuEHZYg" name="SystemIO">
@@ -158,7 +159,7 @@ return this.addPrimitiveBehavior(name, parameters, new OpaqueBehavior(), impleme
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wLHFboA_Ed2xsvzRuEHZYg" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wLHFb4A_Ed2xsvzRuEHZYg"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_wLHFcIA_Ed2xsvzRuEHZYg" name="implementation" type="_UlCg6XLxEd23psn_hP0YDw"/>
+          <ownedParameter xmi:id="_wLHFcIA_Ed2xsvzRuEHZYg" name="implementation" type="_l0UVcDv-EdqAhdv9Jy16mg"/>
           <ownedParameter xmi:id="_wLHFcYA_Ed2xsvzRuEHZYg" name="factory" type="_wLG3Y4A_Ed2xsvzRuEHZYg"/>
         </ownedOperation>
         <ownedOperation xmi:id="_wLHFcoA_Ed2xsvzRuEHZYg" name="createInputParameter" visibility="protected">
@@ -260,7 +261,7 @@ return type;&#xD;
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wLHFjoA_Ed2xsvzRuEHZYg"/>
           </ownedParameter>
           <ownedParameter xmi:id="_wLHFj4A_Ed2xsvzRuEHZYg" name="type" type="_wLG4RYA_Ed2xsvzRuEHZYg"/>
-          <ownedParameter xmi:id="_wLHFkIA_Ed2xsvzRuEHZYg" name="implementation" type="_UlCg6XLxEd23psn_hP0YDw"/>
+          <ownedParameter xmi:id="_wLHFkIA_Ed2xsvzRuEHZYg" name="implementation" type="_l0UVcDv-EdqAhdv9Jy16mg"/>
           <ownedParameter xmi:id="_wLHFkYA_Ed2xsvzRuEHZYg" name="factory" type="_wLG3Y4A_Ed2xsvzRuEHZYg"/>
         </ownedOperation>
       </packagedElement>
@@ -554,7 +555,7 @@ else {&#xD;
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_wLHF6IA_Ed2xsvzRuEHZYg" name="StandardOutputWriteExecution">
-          <generalization xmi:id="_wLHF6YA_Ed2xsvzRuEHZYg" general="_UlCg6XLxEd23psn_hP0YDw"/>
+          <generalization xmi:id="_wLHF6YA_Ed2xsvzRuEHZYg" general="_l0UVcDv-EdqAhdv9Jy16mg"/>
           <ownedOperation xmi:id="_wLHF6oA_Ed2xsvzRuEHZYg" name="doBody">
             <ownedParameter xmi:id="_wLHF64A_Ed2xsvzRuEHZYg" name="inputParameters" type="_wK-DtIA_Ed2xsvzRuEHZYg">
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wLHF7IA_Ed2xsvzRuEHZYg" value="*"/>
@@ -601,7 +602,7 @@ else {&#xD;
           <ownedAttribute xmi:id="_wLHGCoA_Ed2xsvzRuEHZYg" type="_wLG6JIA_Ed2xsvzRuEHZYg" end="_wLHF94A_Ed2xsvzRuEHZYg _wLHF-YA_Ed2xsvzRuEHZYg"/>
           <ownedAttribute xmi:id="_wLHGC4A_Ed2xsvzRuEHZYg" type="_wLHF6IA_Ed2xsvzRuEHZYg" end="_wLHF_IA_Ed2xsvzRuEHZYg _wLHGA4A_Ed2xsvzRuEHZYg"/>
           <ownedAttribute xmi:id="_wLHGDIA_Ed2xsvzRuEHZYg" type="_wLG4RYA_Ed2xsvzRuEHZYg" end="_wLHF-oA_Ed2xsvzRuEHZYg _wLHF_YA_Ed2xsvzRuEHZYg"/>
-          <ownedAttribute xmi:id="_wLHGDYA_Ed2xsvzRuEHZYg" type="_UlCfQ3LxEd23psn_hP0YDw" end="_wLHF_4A_Ed2xsvzRuEHZYg _wLHGAoA_Ed2xsvzRuEHZYg"/>
+          <ownedAttribute xmi:id="_wLHGDYA_Ed2xsvzRuEHZYg" type="_CaCEoFOYEdq4McKw0Cvc-A" end="_wLHF_4A_Ed2xsvzRuEHZYg _wLHGAoA_Ed2xsvzRuEHZYg"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wLHGDoA_Ed2xsvzRuEHZYg" name="Classes">
@@ -899,7 +900,7 @@ import fUML.Semantics.Classes.Kernel.*;&#xD;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;&#xD;
 </body>
           </ownedComment>
-          <generalization xmi:id="_wLHGVIA_Ed2xsvzRuEHZYg" general="_UlCg93LxEd23psn_hP0YDw"/>
+          <generalization xmi:id="_wLHGVIA_Ed2xsvzRuEHZYg" general="_zB-b0Dv5EdqAhdv9Jy16mg"/>
           <ownedOperation xmi:id="_wLHGVYA_Ed2xsvzRuEHZYg" name="set">
             <ownedComment xmi:id="_wLHGVoA_Ed2xsvzRuEHZYg" annotatedElement="_wLHGVYA_Ed2xsvzRuEHZYg">
               <body>this.context = context;&#xD;
@@ -1007,7 +1008,7 @@ this.setParameterValue(parameterName, valueList);&#xD;
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_wLHGc4A_Ed2xsvzRuEHZYg" name="ImplementationObject" isAbstract="true">
-          <generalization xmi:id="_wLHGdIA_Ed2xsvzRuEHZYg" general="_UlCfQ3LxEd23psn_hP0YDw"/>
+          <generalization xmi:id="_wLHGdIA_Ed2xsvzRuEHZYg" general="_CaCEoFOYEdq4McKw0Cvc-A"/>
           <ownedOperation xmi:id="_wLHGdYA_Ed2xsvzRuEHZYg" name="execute" isAbstract="true">
             <ownedParameter xmi:id="_wLHGdoA_Ed2xsvzRuEHZYg" name="execution" type="_wLHGUoA_Ed2xsvzRuEHZYg"/>
           </ownedOperation>
@@ -1019,7 +1020,7 @@ execution.set(this, operation);&#xD;
 return execution;&#xD;
 </body>
             </ownedComment>
-            <ownedParameter xmi:id="_wLHGeYA_Ed2xsvzRuEHZYg" name="ReturnResult" type="_UlCg93LxEd23psn_hP0YDw" direction="return"/>
+            <ownedParameter xmi:id="_wLHGeYA_Ed2xsvzRuEHZYg" name="ReturnResult" type="_zB-b0Dv5EdqAhdv9Jy16mg" direction="return"/>
             <ownedParameter xmi:id="_wLHGeoA_Ed2xsvzRuEHZYg" name="operation" type="_wLG6JIA_Ed2xsvzRuEHZYg"/>
           </ownedOperation>
         </packagedElement>
