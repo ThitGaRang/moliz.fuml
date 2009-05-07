@@ -56,18 +56,24 @@ directory.
 
 To build using Eclipse:
 
-1.) Checkout the source from SVN or download and unzip the source '.zip' file into a 
-local directory called 'fUML-Reference-Implemetation'. This name reflects the current
-SVN folder name. Note: For Eclipse with an integrated Ant build certain restrictions require some
-folder name to be baked into the Eclipse project external build configuration, hence we baked in
-the current SVN folder name for the RI.
+1. Checkout the source from SVN or download and unzip the source '.zip' file
+into a local directory called 'fUML-Reference-Implemetation'. This name reflects
+the current SVN folder name. 
 
-2.) Launch Eclipse and Create a Workspace. In the "Select a Workspace" prompt, browse to the parent folder of the
-'fUML-Reference-Implemetation' folder above. 
+	Note: For Eclipse with an integrated Ant build certain restrictions
+	require some folder name to be baked into the Eclipse project external
+	build configuration, hence we baked in the current SVN folder name for
+	the RI.
 
-3.) Import the fUML RI Project Into the Workspace. Select File->Import->General->Existing Projects Into Workspace. Select 'Next>>". Select the 'Select Root Directory' radio-button, browse to the 'fUML-Reference-Implemetation' folder above, and select it. Then select 'Finish'. The project
-should begin building automatically.  
-   
+2. Launch Eclipse and Create a Workspace. In the "Select a Workspace" prompt,
+browse to the parent folder of the 'fUML-Reference-Implemetation' folder above.
+
+3. Import the fUML RI Project Into the Workspace. Select File->Import->
+General->Existing Projects Into Workspace. Select 'Next>>'. Select the 'Select
+Root Directory' radio-button, browse to the 'fUML-Reference-Implementation'
+folder above, and select it. Then select 'Finish'. The project should begin
+building automatically.
+
 
 Testing
 -------
