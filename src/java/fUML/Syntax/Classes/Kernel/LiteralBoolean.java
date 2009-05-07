@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,37 +20,34 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::LiteralBoolean</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Classes::Kernel::LiteralBoolean</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LiteralBoolean#setValue <em>setValue</em>}</li>
-	 	 *   <li>{@link LiteralBoolean#value <em>value</em>}</li>
-	 * </ul>
+ * <li>{@link LiteralBoolean#setValue <em>setValue</em>}</li>
+ * <li>{@link LiteralBoolean#value <em>value</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class LiteralBoolean    extends fUML.Syntax.Classes.Kernel.LiteralSpecification    {
-    
-	// Attributes
-	public   boolean value = false;
-    
-	// Operations of the class
-  /**
-   * operation setValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setValue(boolean value)   {
-this.value = value;
-	  } // setValue
+public class LiteralBoolean extends fUML.Syntax.Classes.Kernel.LiteralSpecification {
 
-} //LiteralBoolean
+    // Attributes
+    public boolean value = false;
+
+    // Operations of the class
+    /**
+     * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setValue(boolean value) {
+        this.value = value;
+    } // setValue
+
+} // LiteralBoolean

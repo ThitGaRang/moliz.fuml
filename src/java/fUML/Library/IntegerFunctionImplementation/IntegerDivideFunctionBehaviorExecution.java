@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,50 +20,49 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Library::IntegerFunctionImplementation::IntegerDivideFunctionBehaviorExecution</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * 
+ * <em><b>fUML::Library::IntegerFunctionImplementation::IntegerDivideFunctionBehaviorExecution</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link IntegerDivideFunctionBehaviorExecution#doIntegerFunction <em>doIntegerFunction</em>}</li>
-	 *   <li>{@link IntegerDivideFunctionBehaviorExecution#new_ <em>new_</em>}</li>
-	 	 * </ul>
+ * <li>{@link IntegerDivideFunctionBehaviorExecution#doIntegerFunction <em>
+ * doIntegerFunction</em>}</li>
+ * <li>{@link IntegerDivideFunctionBehaviorExecution#new_ <em>new_</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class IntegerDivideFunctionBehaviorExecution    extends fUML.Library.IntegerFunctionImplementation.IntegerFunctionBehaviorExecution    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doIntegerFunction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int doIntegerFunction(UMLPrimitiveTypes.intList arguments)   {
-// Compute the integer divide function.
+public class IntegerDivideFunctionBehaviorExecution extends
+        fUML.Library.IntegerFunctionImplementation.IntegerFunctionBehaviorExecution {
 
-return arguments.getValue(0) / arguments.getValue(1);
-	  } // doIntegerFunction
+    // Attributes
 
-  /**
-   * operation new_
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-// Create a new instance of this kind of function behavior execution.
+    // Operations of the class
+    /**
+     * operation doIntegerFunction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public int doIntegerFunction(UMLPrimitiveTypes.intList arguments) {
+        // Compute the integer divide function.
 
-return new IntegerDivideFunctionBehaviorExecution();
-	  } // new_
+        return arguments.getValue(0) / arguments.getValue(1);
+    } // doIntegerFunction
 
-} //IntegerDivideFunctionBehaviorExecution
+    /**
+     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value new_() {
+        // Create a new instance of this kind of function behavior execution.
+
+        return new IntegerDivideFunctionBehaviorExecution();
+    } // new_
+
+} // IntegerDivideFunctionBehaviorExecution

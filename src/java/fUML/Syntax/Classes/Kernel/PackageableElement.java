@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,24 +20,22 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::PackageableElement</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Classes::Kernel::PackageableElement</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 * </ul>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class PackageableElement    extends fUML.Syntax.Classes.Kernel.NamedElement    {
-    
-	// Attributes
-    
-	// Operations of the class
-} //PackageableElement
+public abstract class PackageableElement extends fUML.Syntax.Classes.Kernel.NamedElement {
+
+    // Attributes
+
+    // Operations of the class
+} // PackageableElement

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -40,89 +37,94 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::CompleteActions::ReadIsClassifiedObjectActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::CompleteActions::ReadIsClassifiedObjectActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReadIsClassifiedObjectActionActivation#doAction <em>doAction</em>}</li>
-	 *   <li>{@link ReadIsClassifiedObjectActionActivation#checkAllParents <em>checkAllParents</em>}</li>
-	 	 * </ul>
+ * <li>{@link ReadIsClassifiedObjectActionActivation#doAction <em>doAction</em>}
+ * </li>
+ * <li>{@link ReadIsClassifiedObjectActionActivation#checkAllParents <em>
+ * checkAllParents</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReadIsClassifiedObjectActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the value on the object input pin and determine if it is classified by the classifier specified in the action.
-// If the isDirect attribute of the action is false, then place true on the result output pin if the input object has the specified classifier or of one its (direct or indirect) descendants as a type.
-// If the isDirect attribute of the action is true, then place true on the result output pin if the input object has the specified classifier as a type.
-// Otherwise place false on the  result output pin.
+public class ReadIsClassifiedObjectActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-ReadIsClassifiedObjectAction action = (ReadIsClassifiedObjectAction)(this.node);
+    // Attributes
 
-Value input = this.takeTokens(action.object).getValue(0);
-ClassifierList types = input.getTypes();
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the value on the object input pin and determine if it is
+        // classified by the classifier specified in the action.
+        // If the isDirect attribute of the action is false, then place true on
+        // the result output pin if the input object has the specified
+        // classifier or of one its (direct or indirect) descendants as a type.
+        // If the isDirect attribute of the action is true, then place true on
+        // the result output pin if the input object has the specified
+        // classifier as a type.
+        // Otherwise place false on the result output pin.
 
-boolean result = false;
-int i = 1;
-while (!result & i <= types.size()) {
-    Classifier type = types.getValue(i-1);
+        ReadIsClassifiedObjectAction action = (ReadIsClassifiedObjectAction) (this.node);
 
-    if (type == action.classifier) {
-        result = true;
-    }
-    else if (!action.isDirect) {
-        result = this.checkAllParents(type, action.classifier);
-    }
+        Value input = this.takeTokens(action.object).getValue(0);
+        ClassifierList types = input.getTypes();
 
-   i = i + 1;
-}
+        boolean result = false;
+        int i = 1;
+        while (!result & i <= types.size()) {
+            Classifier type = types.getValue(i - 1);
 
-ValueList values = new ValueList();
-values.addValue(this.makeBooleanValue(result));
+            if (type == action.classifier) {
+                result = true;
+            } else if (!action.isDirect) {
+                result = this.checkAllParents(type, action.classifier);
+            }
 
-this.putTokens(action.result, values);
-	  } // doAction
+            i = i + 1;
+        }
 
-  /**
-   * operation checkAllParents
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean checkAllParents(fUML.Syntax.Classes.Kernel.Classifier type, fUML.Syntax.Classes.Kernel.Classifier classifier)   {
-// Check if the given classifier matches any of the direct or indirect ancestors of a given type.
+        ValueList values = new ValueList();
+        values.addValue(this.makeBooleanValue(result));
 
-ClassifierList directParents = type.general;
-boolean matched = false;
-int i = 1;
-while (!matched & i <= directParents.size()) {
-    Classifier directParent = directParents.getValue(i-1);
-    if (directParent == classifier) {
-        matched = true;
-    } else {
-        matched = this.checkAllParents(directParent, classifier);
-    }
-    i = i + 1;
-}
+        this.putTokens(action.result, values);
+    } // doAction
 
-return matched;
-	  } // checkAllParents
+    /**
+     * operation checkAllParents <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean checkAllParents(fUML.Syntax.Classes.Kernel.Classifier type,
+            fUML.Syntax.Classes.Kernel.Classifier classifier) {
+        // Check if the given classifier matches any of the direct or indirect
+        // ancestors of a given type.
 
-} //ReadIsClassifiedObjectActionActivation
+        ClassifierList directParents = type.general;
+        boolean matched = false;
+        int i = 1;
+        while (!matched & i <= directParents.size()) {
+            Classifier directParent = directParents.getValue(i - 1);
+            if (directParent == classifier) {
+                matched = true;
+            } else {
+                matched = this.checkAllParents(directParent, classifier);
+            }
+            i = i + 1;
+        }
+
+        return matched;
+    } // checkAllParents
+
+} // ReadIsClassifiedObjectActionActivation

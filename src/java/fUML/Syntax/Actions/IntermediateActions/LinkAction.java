@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,50 +20,47 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Actions::IntermediateActions::LinkAction</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Actions::IntermediateActions::LinkAction</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LinkAction#addEndData <em>addEndData</em>}</li>
-	 *   <li>{@link LinkAction#addInputValue <em>addInputValue</em>}</li>
-	 	 *   <li>{@link LinkAction#endData <em>endData</em>}</li>
-	 *   <li>{@link LinkAction#inputValue <em>inputValue</em>}</li>
-	 * </ul>
+ * <li>{@link LinkAction#addEndData <em>addEndData</em>}</li>
+ * <li>{@link LinkAction#addInputValue <em>addInputValue</em>}</li>
+ * <li>{@link LinkAction#endData <em>endData</em>}</li>
+ * <li>{@link LinkAction#inputValue <em>inputValue</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class LinkAction    extends fUML.Syntax.Actions.BasicActions.Action    {
-    
-	// Attributes
-	public   fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endData = new fUML.Syntax.Actions.IntermediateActions.LinkEndDataList();
-	public   fUML.Syntax.Actions.BasicActions.InputPinList inputValue = new fUML.Syntax.Actions.BasicActions.InputPinList();
-    
-	// Operations of the class
-  /**
-   * operation addEndData
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addEndData(fUML.Syntax.Actions.IntermediateActions.LinkEndData endData)   {
-this.endData.addValue(endData);	  } // addEndData
+public abstract class LinkAction extends fUML.Syntax.Actions.BasicActions.Action {
 
-  /**
-   * operation addInputValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addInputValue(fUML.Syntax.Actions.BasicActions.InputPin inputValue)   {
-super.addInput(inputValue);
-this.inputValue.addValue(inputValue);
-	  } // addInputValue
+    // Attributes
+    public fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endData = new fUML.Syntax.Actions.IntermediateActions.LinkEndDataList();
+    public fUML.Syntax.Actions.BasicActions.InputPinList inputValue = new fUML.Syntax.Actions.BasicActions.InputPinList();
 
-} //LinkAction
+    // Operations of the class
+    /**
+     * operation addEndData <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addEndData(fUML.Syntax.Actions.IntermediateActions.LinkEndData endData) {
+        this.endData.addValue(endData);
+    } // addEndData
+
+    /**
+     * operation addInputValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addInputValue(fUML.Syntax.Actions.BasicActions.InputPin inputValue) {
+        super.addInput(inputValue);
+        this.inputValue.addValue(inputValue);
+    } // addInputValue
+
+} // LinkAction

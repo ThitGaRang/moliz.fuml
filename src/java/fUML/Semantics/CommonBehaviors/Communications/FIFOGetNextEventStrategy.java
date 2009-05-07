@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,38 +20,39 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::Communications::FIFOGetNextEventStrategy</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::CommonBehaviors::Communications::FIFOGetNextEventStrategy</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link FIFOGetNextEventStrategy#getNextEvent <em>getNextEvent</em>}</li>
-	 	 * </ul>
+ * <li>{@link FIFOGetNextEventStrategy#getNextEvent <em>getNextEvent</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class FIFOGetNextEventStrategy    extends fUML.Semantics.CommonBehaviors.Communications.GetNextEventStrategy    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation getNextEvent
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent(fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation)   {
-// Get the first event from the given event pool. The event is removed from the pool.
+public class FIFOGetNextEventStrategy extends
+        fUML.Semantics.CommonBehaviors.Communications.GetNextEventStrategy {
 
-SignalInstance signalInstance = objectActivation.eventPool.getValue(0);
-objectActivation.eventPool.removeValue(0);
-return signalInstance;	  } // getNextEvent
+    // Attributes
 
-} //FIFOGetNextEventStrategy
+    // Operations of the class
+    /**
+     * operation getNextEvent <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.CommonBehaviors.Communications.SignalInstance getNextEvent(
+            fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation) {
+        // Get the first event from the given event pool. The event is removed
+        // from the pool.
+
+        SignalInstance signalInstance = objectActivation.eventPool.getValue(0);
+        objectActivation.eventPool.removeValue(0);
+        return signalInstance;
+    } // getNextEvent
+
+} // FIFOGetNextEventStrategy

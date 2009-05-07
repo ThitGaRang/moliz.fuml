@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,28 +20,26 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::Feature</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Classes::Kernel::Feature</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 *   <li>{@link Feature#isStatic <em>isStatic</em>}</li>
-	 *   <li>{@link Feature#featuringClassifier <em>featuringClassifier</em>}</li>
-	 * </ul>
+ * <li>{@link Feature#isStatic <em>isStatic</em>}</li>
+ * <li>{@link Feature#featuringClassifier <em>featuringClassifier</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class Feature    extends fUML.Syntax.Classes.Kernel.RedefinableElement    {
-    
-	// Attributes
-	public   boolean isStatic = false;
-	public   fUML.Syntax.Classes.Kernel.ClassifierList featuringClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
-    
-	// Operations of the class
-} //Feature
+public abstract class Feature extends fUML.Syntax.Classes.Kernel.RedefinableElement {
+
+    // Attributes
+    public boolean isStatic = false;
+    public fUML.Syntax.Classes.Kernel.ClassifierList featuringClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+
+    // Operations of the class
+} // Feature

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,23 +33,23 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::MergeNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::MergeNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 * </ul>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class MergeNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-} //MergeNodeActivation
+public class MergeNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation {
+
+    // Attributes
+
+    // Operations of the class
+} // MergeNodeActivation

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,92 +35,100 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::DestroyLinkActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::DestroyLinkActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link DestroyLinkActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link DestroyLinkActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class DestroyLinkActionActivation    extends fUML.Semantics.Actions.IntermediateActions.WriteLinkActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the extent, at the current execution locus, of the association for which links are being destroyed.
-// Destroy all links that match the given link end destruction data.
-// For unique ends, or non-unique ends for which isDestroyDuplicates is true, match links with a matching value for that end.
-// For non-unique, ordered ends for which isDestroyDuplicates is false, match links with an end value at the given destroyAt position. [Must a value be given, too, in this case?]
-// For non-unique, non-ordered ends for which isDestroyDuplicates is false, pick one matching link (if any) non-deterministically. [The semantics of this case is not clear from the current spec.]
+public class DestroyLinkActionActivation extends
+        fUML.Semantics.Actions.IntermediateActions.WriteLinkActionActivation {
 
-DestroyLinkAction action = (DestroyLinkAction)(this.node);
-LinkEndDestructionDataList destructionDataList = action.endData;
+    // Attributes
 
-boolean destroyOnlyOne = false;
-int j = 1;
-while (!destroyOnlyOne & j <= destructionDataList.size()) {
-    LinkEndDestructionData endData = destructionDataList.getValue(j-1);
-    destroyOnlyOne = !endData.end.multiplicityElement.isUnique & !endData.end.multiplicityElement.isOrdered & !endData.isDestroyDuplicates;
-    j = j + 1;
-}
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the extent, at the current execution locus, of the association
+        // for which links are being destroyed.
+        // Destroy all links that match the given link end destruction data.
+        // For unique ends, or non-unique ends for which isDestroyDuplicates is
+        // true, match links with a matching value for that end.
+        // For non-unique, ordered ends for which isDestroyDuplicates is false,
+        // match links with an end value at the given destroyAt position. [Must
+        // a value be given, too, in this case?]
+        // For non-unique, non-ordered ends for which isDestroyDuplicates is
+        // false, pick one matching link (if any) non-deterministically. [The
+        // semantics of this case is not clear from the current spec.]
 
-LinkEndDataList endDataList = new LinkEndDataList();
-for (int i = 0; i < destructionDataList.size(); i++) {
-    LinkEndDestructionData endData = destructionDataList.getValue(i);
-    endDataList.addValue(endData);
-}
+        DestroyLinkAction action = (DestroyLinkAction) (this.node);
+        LinkEndDestructionDataList destructionDataList = action.endData;
 
-ExtensionalValueList extent = this.getExecutionLocus().getExtent(this.getAssociation());
-ExtensionalValueList matchingLinks = new ExtensionalValueList();
+        boolean destroyOnlyOne = false;
+        int j = 1;
+        while (!destroyOnlyOne & j <= destructionDataList.size()) {
+            LinkEndDestructionData endData = destructionDataList.getValue(j - 1);
+            destroyOnlyOne = !endData.end.multiplicityElement.isUnique
+                    & !endData.end.multiplicityElement.isOrdered & !endData.isDestroyDuplicates;
+            j = j + 1;
+        }
 
-for (int i = 0; i < extent.size(); i++) {
-    ExtensionalValue value = extent.getValue(i);
-    Link link = (Link)value;
-    if (this.linkMatchesEndData(link, endDataList)) {
-        matchingLinks.addValue(link);
-    }
-}
+        LinkEndDataList endDataList = new LinkEndDataList();
+        for (int i = 0; i < destructionDataList.size(); i++) {
+            LinkEndDestructionData endData = destructionDataList.getValue(i);
+            endDataList.addValue(endData);
+        }
 
-// Now that matching is done, ensure that all tokens on end data input pins
-// are consumed.
-for (int i = 0; i < destructionDataList.size(); i++) {
-    LinkEndDestructionData endData = destructionDataList.getValue(i);
-    Property end = endData.end;
-    if (!endData.isDestroyDuplicates
-        & !end.multiplicityElement.isUnique & end.multiplicityElement.isOrdered) {
-        this.takeTokens(endData.destroyAt);
-    }
-    this.takeTokens(endData.value);
-}
+        ExtensionalValueList extent = this.getExecutionLocus().getExtent(this.getAssociation());
+        ExtensionalValueList matchingLinks = new ExtensionalValueList();
 
-if (destroyOnlyOne) {
-    // *** If there is more than one matching link, non-deterministically choose one. ***
-    if (matchingLinks.size() > 0) {
-        int i = ((ChoiceStrategy)this.getExecutionLocus().factory.getStrategy("choice")).choose(matchingLinks.size());
-        matchingLinks.getValue(i-1).destroy();
-    }
-} else {
-    for (int i = 0; i < matchingLinks.size(); i++) {
-        ExtensionalValue matchingLink = matchingLinks.getValue(i);
-        matchingLink.destroy();
-    }
-}
-	  } // doAction
+        for (int i = 0; i < extent.size(); i++) {
+            ExtensionalValue value = extent.getValue(i);
+            Link link = (Link) value;
+            if (this.linkMatchesEndData(link, endDataList)) {
+                matchingLinks.addValue(link);
+            }
+        }
 
-} //DestroyLinkActionActivation
+        // Now that matching is done, ensure that all tokens on end data input
+        // pins
+        // are consumed.
+        for (int i = 0; i < destructionDataList.size(); i++) {
+            LinkEndDestructionData endData = destructionDataList.getValue(i);
+            Property end = endData.end;
+            if (!endData.isDestroyDuplicates & !end.multiplicityElement.isUnique
+                    & end.multiplicityElement.isOrdered) {
+                this.takeTokens(endData.destroyAt);
+            }
+            this.takeTokens(endData.value);
+        }
+
+        if (destroyOnlyOne) {
+            // *** If there is more than one matching link,
+            // non-deterministically choose one. ***
+            if (matchingLinks.size() > 0) {
+                int i = ((ChoiceStrategy) this.getExecutionLocus().factory.getStrategy("choice"))
+                        .choose(matchingLinks.size());
+                matchingLinks.getValue(i - 1).destroy();
+            }
+        } else {
+            for (int i = 0; i < matchingLinks.size(); i++) {
+                ExtensionalValue matchingLink = matchingLinks.getValue(i);
+                matchingLink.destroy();
+            }
+        }
+    } // doAction
+
+} // DestroyLinkActionActivation

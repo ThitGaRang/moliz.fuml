@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,179 +33,184 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ObjectNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ObjectNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ObjectNodeActivation#run <em>run</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#terminate <em>terminate</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#addToken <em>addToken</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#removeToken <em>removeToken</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#clearTokens <em>clearTokens</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#sendUnofferedTokens <em>sendUnofferedTokens</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#countUnofferedTokens <em>countUnofferedTokens</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#getUnofferedTokens <em>getUnofferedTokens</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#takeUnofferedTokens <em>takeUnofferedTokens</em>}</li>
-	 	 *   <li>{@link ObjectNodeActivation#unofferedTokens <em>unofferedTokens</em>}</li>
-	 *   <li>{@link ObjectNodeActivation#offeredTokenCount <em>offeredTokenCount</em>}</li>
-	 * </ul>
+ * <li>{@link ObjectNodeActivation#run <em>run</em>}</li>
+ * <li>{@link ObjectNodeActivation#terminate <em>terminate</em>}</li>
+ * <li>{@link ObjectNodeActivation#addToken <em>addToken</em>}</li>
+ * <li>{@link ObjectNodeActivation#removeToken <em>removeToken</em>}</li>
+ * <li>{@link ObjectNodeActivation#clearTokens <em>clearTokens</em>}</li>
+ * <li>{@link ObjectNodeActivation#sendUnofferedTokens <em>sendUnofferedTokens
+ * </em>}</li>
+ * <li>{@link ObjectNodeActivation#countUnofferedTokens <em>countUnofferedTokens
+ * </em>}</li>
+ * <li>{@link ObjectNodeActivation#getUnofferedTokens <em>getUnofferedTokens
+ * </em>}</li>
+ * <li>{@link ObjectNodeActivation#takeUnofferedTokens <em>takeUnofferedTokens
+ * </em>}</li>
+ * <li>{@link ObjectNodeActivation#unofferedTokens <em>unofferedTokens</em>}</li>
+ * <li>{@link ObjectNodeActivation#offeredTokenCount <em>offeredTokenCount</em>}
+ * </li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class ObjectNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation    {
-    
-	// Attributes
-	public   fUML.Semantics.Activities.IntermediateActivities.ObjectTokenList unofferedTokens = new fUML.Semantics.Activities.IntermediateActivities.ObjectTokenList();
-	public   int offeredTokenCount = 0;
-    
-	// Operations of the class
-  /**
-   * operation run
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void run()   {
-// Initialize the offered token count to zero.
+public abstract class ObjectNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation {
 
-super.run();
-this.offeredTokenCount = 0;
-	  } // run
+    // Attributes
+    public fUML.Semantics.Activities.IntermediateActivities.ObjectTokenList unofferedTokens = new fUML.Semantics.Activities.IntermediateActivities.ObjectTokenList();
+    public int offeredTokenCount = 0;
 
-  /**
-   * operation terminate
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void terminate()   {
-// Remove any offered tokens and terminate.
+    // Operations of the class
+    /**
+     * operation run <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void run() {
+        // Initialize the offered token count to zero.
 
-this.clearTokens();
-super.terminate();
-	  } // terminate
+        super.run();
+        this.offeredTokenCount = 0;
+    } // run
 
-  /**
-   * operation addToken
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addToken(fUML.Semantics.Activities.IntermediateActivities.Token token)   {
-// Transfer the given token to be held by this node only if it is an object token.
-// If it is a control token, consume it without holding it.
+    /**
+     * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void terminate() {
+        // Remove any offered tokens and terminate.
 
-if (token.isControl()) {
-    token.withdraw();
-} else {
-    super.addToken(token);
-}
-	  } // addToken
+        this.clearTokens();
+        super.terminate();
+    } // terminate
 
-  /**
-   * operation removeToken
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int removeToken(fUML.Semantics.Activities.IntermediateActivities.Token token)   {
-// Remove the given token, if it is held by this node activation.
+    /**
+     * operation addToken <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addToken(fUML.Semantics.Activities.IntermediateActivities.Token token) {
+        // Transfer the given token to be held by this node only if it is an
+        // object token.
+        // If it is a control token, consume it without holding it.
 
-int i = super.removeToken(token);
-if (i > 0 & i <= this.offeredTokenCount) {
-    this.offeredTokenCount = this.offeredTokenCount - 1;
-}
+        if (token.isControl()) {
+            token.withdraw();
+        } else {
+            super.addToken(token);
+        }
+    } // addToken
 
-return i;
-	  } // removeToken
+    /**
+     * operation removeToken <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public int removeToken(fUML.Semantics.Activities.IntermediateActivities.Token token) {
+        // Remove the given token, if it is held by this node activation.
 
-  /**
-   * operation clearTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void clearTokens()   {
-// Remove all held tokens.
+        int i = super.removeToken(token);
+        if (i > 0 & i <= this.offeredTokenCount) {
+            this.offeredTokenCount = this.offeredTokenCount - 1;
+        }
 
-super.clearTokens();
-this.offeredTokenCount = 0;
-	  } // clearTokens
+        return i;
+    } // removeToken
 
-  /**
-   * operation sendUnofferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void sendUnofferedTokens()   {
-// Send offers over all outgoing edges, if there are any tokens to be offered.
+    /**
+     * operation clearTokens <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void clearTokens() {
+        // Remove all held tokens.
 
-TokenList tokens = this.getUnofferedTokens();
-this.offeredTokenCount = this.offeredTokenCount + tokens.size();
+        super.clearTokens();
+        this.offeredTokenCount = 0;
+    } // clearTokens
 
-this.sendOffers(tokens);
-	  } // sendUnofferedTokens
+    /**
+     * operation sendUnofferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public void sendUnofferedTokens() {
+        // Send offers over all outgoing edges, if there are any tokens to be
+        // offered.
 
-  /**
-   * operation countUnofferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int countUnofferedTokens()   {
-// Return the number of unoffered tokens that are to be offered next.
-// (By default, this is all unoffered tokens.)
+        TokenList tokens = this.getUnofferedTokens();
+        this.offeredTokenCount = this.offeredTokenCount + tokens.size();
 
-if (this.heldTokens.size() == 0) {
-    this.offeredTokenCount = 0;
-}
+        this.sendOffers(tokens);
+    } // sendUnofferedTokens
 
-return this.heldTokens.size() - this.offeredTokenCount;
-	  } // countUnofferedTokens
+    /**
+     * operation countUnofferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public int countUnofferedTokens() {
+        // Return the number of unoffered tokens that are to be offered next.
+        // (By default, this is all unoffered tokens.)
 
-  /**
-   * operation getUnofferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.TokenList getUnofferedTokens()   {
-// Get the next set of unoffered tokens to be offered and return it.
-// [Note: This effectively treats all object flows as if they have weight=*, rather than the weight=1 default in the current superstructure semantics.]
+        if (this.heldTokens.size() == 0) {
+            this.offeredTokenCount = 0;
+        }
 
-TokenList tokens = new TokenList();
+        return this.heldTokens.size() - this.offeredTokenCount;
+    } // countUnofferedTokens
 
-int i = 1;
-while (i <= this.countUnofferedTokens()) {
-    tokens.addValue(this.heldTokens.getValue(this.offeredTokenCount + i - 1));
-    i = i + 1;
-}
+    /**
+     * operation getUnofferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.TokenList getUnofferedTokens() {
+        // Get the next set of unoffered tokens to be offered and return it.
+        // [Note: This effectively treats all object flows as if they have
+        // weight=*, rather than the weight=1 default in the current
+        // superstructure semantics.]
 
-return tokens;
-	  } // getUnofferedTokens
+        TokenList tokens = new TokenList();
 
-  /**
-   * operation takeUnofferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.TokenList takeUnofferedTokens()   {
-// Take the next set of unoffered tokens to be offered from this node activation and return them.
+        int i = 1;
+        while (i <= this.countUnofferedTokens()) {
+            tokens.addValue(this.heldTokens.getValue(this.offeredTokenCount + i - 1));
+            i = i + 1;
+        }
 
-TokenList tokens = this.getUnofferedTokens();
-for (int i = 0; i < tokens.size(); i++) {
-    Token token = tokens.getValue(i);
-    token.withdraw();
-}
-return tokens;
-	  } // takeUnofferedTokens
+        return tokens;
+    } // getUnofferedTokens
 
-} //ObjectNodeActivation
+    /**
+     * operation takeUnofferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.TokenList takeUnofferedTokens() {
+        // Take the next set of unoffered tokens to be offered from this node
+        // activation and return them.
+
+        TokenList tokens = this.getUnofferedTokens();
+        for (int i = 0; i < tokens.size(); i++) {
+            Token token = tokens.getValue(i);
+            token.withdraw();
+        }
+        return tokens;
+    } // takeUnofferedTokens
+
+} // ObjectNodeActivation

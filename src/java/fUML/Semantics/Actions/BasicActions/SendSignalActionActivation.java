@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,56 +33,57 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::BasicActions::SendSignalActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::BasicActions::SendSignalActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link SendSignalActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link SendSignalActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class SendSignalActionActivation    extends fUML.Semantics.Actions.BasicActions.InvocationActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the value from the target pin. If the value is not a reference, then do nothing.
-// Otherwise, construct a signal using the values from the argument pins and send it to the referent object.
+public class SendSignalActionActivation extends
+        fUML.Semantics.Actions.BasicActions.InvocationActionActivation {
 
-SendSignalAction action = (SendSignalAction)(this.node);
-Value target = this.takeTokens(action.target).getValue(0);
+    // Attributes
 
-if (target instanceof Reference) {
-    Signal signal = action.signal;
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the value from the target pin. If the value is not a reference,
+        // then do nothing.
+        // Otherwise, construct a signal using the values from the argument pins
+        // and send it to the referent object.
 
-    SignalInstance signalInstance = new SignalInstance();
-    signalInstance.type = signal;
+        SendSignalAction action = (SendSignalAction) (this.node);
+        Value target = this.takeTokens(action.target).getValue(0);
 
-    PropertyList attributes = signal.ownedAttribute;
-    InputPinList argumentPins = action.argument;
-    for (int i = 0; i < attributes.size(); i++) {
-        Property attribute = attributes.getValue(i);
-        InputPin argumentPin = argumentPins.getValue(i);
-        ValueList values = this.takeTokens(argumentPin);
-        signalInstance.setFeatureValue(attribute, values, 0);
-    }
+        if (target instanceof Reference) {
+            Signal signal = action.signal;
 
-    ((Reference)target).send(signalInstance);
-}
-	  } // doAction
+            SignalInstance signalInstance = new SignalInstance();
+            signalInstance.type = signal;
 
-} //SendSignalActionActivation
+            PropertyList attributes = signal.ownedAttribute;
+            InputPinList argumentPins = action.argument;
+            for (int i = 0; i < attributes.size(); i++) {
+                Property attribute = attributes.getValue(i);
+                InputPin argumentPin = argumentPins.getValue(i);
+                ValueList values = this.takeTokens(argumentPin);
+                signalInstance.setFeatureValue(attribute, values, 0);
+            }
+
+            ((Reference) target).send(signalInstance);
+        }
+    } // doAction
+
+} // SendSignalActionActivation

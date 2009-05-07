@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class SlotList extends ArrayList<fUML.Syntax.Classes.Kernel.Slot>
-{
-  public SlotList(){
-    super();
-  }
+public class SlotList extends ArrayList<fUML.Syntax.Classes.Kernel.Slot> {
+    public SlotList() {
+        super();
+    }
 
-  public Slot getValue(int i){
-    return (Slot)get(i);
-  }
+    public Slot getValue(int i) {
+        return (Slot) get(i);
+    }
 
-  public void addValue(Slot v){
-    add(v);
-  }
+    public void addValue(Slot v) {
+        add(v);
+    }
 
-  public void addValue(int i, Slot v){
-    add(i, v);
-  }
+    public void addValue(int i, Slot v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Slot v){
-    set(i, v);
-  }
+    public void setValue(int i, Slot v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //SlotList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // SlotList

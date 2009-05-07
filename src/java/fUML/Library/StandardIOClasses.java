@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -25,157 +22,171 @@ import UMLPrimitiveTypes.intList;
 
 import fUML.Syntax.Classes.Kernel.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Library::StandardIOClasses</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Library::StandardIOClasses</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link StandardIOClasses#StandardIOClasses <em>StandardIOClasses</em>}</li>
-	 *   <li>{@link StandardIOClasses#createChannelClass <em>createChannelClass</em>}</li>
-	 *   <li>{@link StandardIOClasses#createOutputChannelClass <em>createOutputChannelClass</em>}</li>
-	 *   <li>{@link StandardIOClasses#createTextOutputChannelClass <em>createTextOutputChannelClass</em>}</li>
-	 *   <li>{@link StandardIOClasses#createStandardOutputChannelClass <em>createStandardOutputChannelClass</em>}</li>
-	 *   <li>{@link StandardIOClasses#createInputChannelClass <em>createInputChannelClass</em>}</li>
-	 	 *   <li>{@link StandardIOClasses#Channel <em>Channel</em>}</li>
-	 *   <li>{@link StandardIOClasses#OutputChannel <em>OutputChannel</em>}</li>
-	 *   <li>{@link StandardIOClasses#TextOutputChannel <em>TextOutputChannel</em>}</li>
-	 *   <li>{@link StandardIOClasses#StandardOutputChannel <em>StandardOutputChannel</em>}</li>
-	 *   <li>{@link StandardIOClasses#InputChannel <em>InputChannel</em>}</li>
-	 * </ul>
+ * <li>{@link StandardIOClasses#StandardIOClasses <em>StandardIOClasses</em>}</li>
+ * <li>{@link StandardIOClasses#createChannelClass <em>createChannelClass</em>}</li>
+ * <li>{@link StandardIOClasses#createOutputChannelClass <em>
+ * createOutputChannelClass</em>}</li>
+ * <li>{@link StandardIOClasses#createTextOutputChannelClass <em>
+ * createTextOutputChannelClass</em>}</li>
+ * <li>{@link StandardIOClasses#createStandardOutputChannelClass <em>
+ * createStandardOutputChannelClass</em>}</li>
+ * <li>{@link StandardIOClasses#createInputChannelClass <em>
+ * createInputChannelClass</em>}</li>
+ * <li>{@link StandardIOClasses#Channel <em>Channel</em>}</li>
+ * <li>{@link StandardIOClasses#OutputChannel <em>OutputChannel</em>}</li>
+ * <li>{@link StandardIOClasses#TextOutputChannel <em>TextOutputChannel</em>}</li>
+ * <li>{@link StandardIOClasses#StandardOutputChannel <em>StandardOutputChannel
+ * </em>}</li>
+ * <li>{@link StandardIOClasses#InputChannel <em>InputChannel</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class StandardIOClasses    extends fUML.Library.Classes    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.Class_ Channel =  null;
-	public   fUML.Syntax.Classes.Kernel.Class_ OutputChannel =  null;
-	public   fUML.Syntax.Classes.Kernel.Class_ TextOutputChannel =  null;
-	public   fUML.Syntax.Classes.Kernel.Class_ StandardOutputChannel =  null;
-	public   fUML.Syntax.Classes.Kernel.Class_ InputChannel =  null;
-    
-	// Operations of the class
-  /**
-   * operation StandardIOClasses
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      StandardIOClasses(fUML.Library.PrimitiveTypes primitiveTypes)   {
-this.createChannelClass(primitiveTypes);
-this.createOutputChannelClass(primitiveTypes);
-this.createTextOutputChannelClass(primitiveTypes);
-this.createStandardOutputChannelClass(primitiveTypes);
-this.createInputChannelClass(primitiveTypes);
+public class StandardIOClasses extends fUML.Library.Classes {
 
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.Class_ Channel = null;
+    public fUML.Syntax.Classes.Kernel.Class_ OutputChannel = null;
+    public fUML.Syntax.Classes.Kernel.Class_ TextOutputChannel = null;
+    public fUML.Syntax.Classes.Kernel.Class_ StandardOutputChannel = null;
+    public fUML.Syntax.Classes.Kernel.Class_ InputChannel = null;
 
-	  } // StandardIOClasses
+    // Operations of the class
+    /**
+     * operation StandardIOClasses <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public StandardIOClasses(fUML.Library.PrimitiveTypes primitiveTypes) {
+        this.createChannelClass(primitiveTypes);
+        this.createOutputChannelClass(primitiveTypes);
+        this.createTextOutputChannelClass(primitiveTypes);
+        this.createStandardOutputChannelClass(primitiveTypes);
+        this.createInputChannelClass(primitiveTypes);
 
-  /**
-   * operation createChannelClass
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void createChannelClass(fUML.Library.PrimitiveTypes primitiveTypes)   {
-// MexSystem.println("[createChannelClass] Start...");
+    } // StandardIOClasses
 
-this.Channel = this.createClass("Channel", true);
+    /**
+     * operation createChannelClass <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public void createChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
+        // MexSystem.println("[createChannelClass] Start...");
 
-Operation getNameOperation = this.addOperation(this.Channel, "getName", null);
-this.addParameter(getNameOperation, "result", ParameterDirectionKind.return_, primitiveTypes.String);
+        this.Channel = this.createClass("Channel", true);
 
-this.addOperation(this.Channel, "open", null);
-this.addOperation(this.Channel, "close", null);
+        Operation getNameOperation = this.addOperation(this.Channel, "getName", null);
+        this.addParameter(getNameOperation, "result", ParameterDirectionKind.return_,
+                primitiveTypes.String);
 
-Operation isOpenOperation = this.addOperation(this.Channel, "isOpen", null);
-this.addParameter(isOpenOperation, "result", ParameterDirectionKind.return_, primitiveTypes.Boolean);
+        this.addOperation(this.Channel, "open", null);
+        this.addOperation(this.Channel, "close", null);
 
-	  } // createChannelClass
+        Operation isOpenOperation = this.addOperation(this.Channel, "isOpen", null);
+        this.addParameter(isOpenOperation, "result", ParameterDirectionKind.return_,
+                primitiveTypes.Boolean);
 
-  /**
-   * operation createOutputChannelClass
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void createOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes)   {
-// MexSystem.println("[createOutputChannelClass] Start...");
+    } // createChannelClass
 
-this.OutputChannel = this.createClass("OutputChannel", true);
-this.addGeneralization(this.OutputChannel, this.Channel);
+    /**
+     * operation createOutputChannelClass <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public void createOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
+        // MexSystem.println("[createOutputChannelClass] Start...");
 
-Operation writeOperation = this.addOperation(this.OutputChannel, "write", null);
-this.addParameter(writeOperation, "value", ParameterDirectionKind.in, null);
+        this.OutputChannel = this.createClass("OutputChannel", true);
+        this.addGeneralization(this.OutputChannel, this.Channel);
 
-Operation isFullOperation = this.addOperation(this.OutputChannel, "isFull", null);
-this.addParameter(isFullOperation, "result", ParameterDirectionKind.return_, primitiveTypes.Boolean);
-	  } // createOutputChannelClass
+        Operation writeOperation = this.addOperation(this.OutputChannel, "write", null);
+        this.addParameter(writeOperation, "value", ParameterDirectionKind.in, null);
 
-  /**
-   * operation createTextOutputChannelClass
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void createTextOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes)   {
-// MexSystem.println("[createTextOutputChannelClass] Start...");
+        Operation isFullOperation = this.addOperation(this.OutputChannel, "isFull", null);
+        this.addParameter(isFullOperation, "result", ParameterDirectionKind.return_,
+                primitiveTypes.Boolean);
+    } // createOutputChannelClass
 
-this.TextOutputChannel = this.createClass("TextOutputChannel", true);
-this.addGeneralization(this.TextOutputChannel, this.OutputChannel);
+    /**
+     * operation createTextOutputChannelClass <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public void createTextOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
+        // MexSystem.println("[createTextOutputChannelClass] Start...");
 
-Operation writeStringOperation = this.addOperation(this.TextOutputChannel, "writeString", null);
-this.addParameter(writeStringOperation, "value", ParameterDirectionKind.in, primitiveTypes.String);
+        this.TextOutputChannel = this.createClass("TextOutputChannel", true);
+        this.addGeneralization(this.TextOutputChannel, this.OutputChannel);
 
-this.addOperation(this.TextOutputChannel,"writeNewLine", null);
+        Operation writeStringOperation = this.addOperation(this.TextOutputChannel, "writeString",
+                null);
+        this.addParameter(writeStringOperation, "value", ParameterDirectionKind.in,
+                primitiveTypes.String);
 
-Operation writeLineOperation = this.addOperation(this.TextOutputChannel, "writeLine", null);
-this.addParameter(writeLineOperation, "value", ParameterDirectionKind.in, primitiveTypes.String);
+        this.addOperation(this.TextOutputChannel, "writeNewLine", null);
 
-Operation writeIntegerOperation = this.addOperation(this.TextOutputChannel, "writeInteger", null);
-this.addParameter(writeIntegerOperation, "value", ParameterDirectionKind.in, primitiveTypes.Integer);
+        Operation writeLineOperation = this.addOperation(this.TextOutputChannel, "writeLine", null);
+        this.addParameter(writeLineOperation, "value", ParameterDirectionKind.in,
+                primitiveTypes.String);
 
-Operation writeBooleanOperation = this.addOperation(this.TextOutputChannel, "writeBoolean", null);
-this.addParameter(writeBooleanOperation, "value", ParameterDirectionKind.in, primitiveTypes.Boolean);
+        Operation writeIntegerOperation = this.addOperation(this.TextOutputChannel, "writeInteger",
+                null);
+        this.addParameter(writeIntegerOperation, "value", ParameterDirectionKind.in,
+                primitiveTypes.Integer);
 
-Operation writeUnlimitedNaturalOperation = this.addOperation(this.TextOutputChannel, "writeUnlimitedNatural", null);
-this.addParameter(writeUnlimitedNaturalOperation, "value", ParameterDirectionKind.in, primitiveTypes.UnlimitedNatural);
+        Operation writeBooleanOperation = this.addOperation(this.TextOutputChannel, "writeBoolean",
+                null);
+        this.addParameter(writeBooleanOperation, "value", ParameterDirectionKind.in,
+                primitiveTypes.Boolean);
 
-	  } // createTextOutputChannelClass
+        Operation writeUnlimitedNaturalOperation = this.addOperation(this.TextOutputChannel,
+                "writeUnlimitedNatural", null);
+        this.addParameter(writeUnlimitedNaturalOperation, "value", ParameterDirectionKind.in,
+                primitiveTypes.UnlimitedNatural);
 
-  /**
-   * operation createStandardOutputChannelClass
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void createStandardOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes)   {
-// MexSystem.println("[createStandardOutputChannelClass] Start...");
+    } // createTextOutputChannelClass
 
-this.StandardOutputChannel = this.createClass("StandardOutputChannel", false);
-this.addGeneralization(this.StandardOutputChannel, this.TextOutputChannel);
-	  } // createStandardOutputChannelClass
+    /**
+     * operation createStandardOutputChannelClass <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public void createStandardOutputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
+        // MexSystem.println("[createStandardOutputChannelClass] Start...");
 
-  /**
-   * operation createInputChannelClass
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void createInputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes)   {
-this.InputChannel = this.createClass("InputChannel", true);
-this.addGeneralization(this.InputChannel, this.Channel);
+        this.StandardOutputChannel = this.createClass("StandardOutputChannel", false);
+        this.addGeneralization(this.StandardOutputChannel, this.TextOutputChannel);
+    } // createStandardOutputChannelClass
 
-Operation readOperation = this.addOperation(this.InputChannel, "read", null);
-this.addParameter(readOperation, "value", ParameterDirectionKind.out, null);
+    /**
+     * operation createInputChannelClass <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public void createInputChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
+        this.InputChannel = this.createClass("InputChannel", true);
+        this.addGeneralization(this.InputChannel, this.Channel);
 
-Operation hasMoreOperation = this.addOperation(this.InputChannel, "hasMore", null);
-this.addParameter(hasMoreOperation, "result", ParameterDirectionKind.return_, primitiveTypes.Boolean);
-	  } // createInputChannelClass
+        Operation readOperation = this.addOperation(this.InputChannel, "read", null);
+        this.addParameter(readOperation, "value", ParameterDirectionKind.out, null);
 
-} //StandardIOClasses
+        Operation hasMoreOperation = this.addOperation(this.InputChannel, "hasMore", null);
+        this.addParameter(hasMoreOperation, "result", ParameterDirectionKind.return_,
+                primitiveTypes.Boolean);
+    } // createInputChannelClass
+
+} // StandardIOClasses

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,32 @@
  */
 
 package fUML.Semantics.CommonBehaviors.Communications;
+
 import java.util.ArrayList;
 
-public class SignalInstanceList extends ArrayList<fUML.Semantics.CommonBehaviors.Communications.SignalInstance>
-{
-  public SignalInstanceList(){
-    super();
-  }
+public class SignalInstanceList extends
+        ArrayList<fUML.Semantics.CommonBehaviors.Communications.SignalInstance> {
+    public SignalInstanceList() {
+        super();
+    }
 
-  public SignalInstance getValue(int i){
-    return (SignalInstance)get(i);
-  }
+    public SignalInstance getValue(int i) {
+        return (SignalInstance) get(i);
+    }
 
-  public void addValue(SignalInstance v){
-    add(v);
-  }
+    public void addValue(SignalInstance v) {
+        add(v);
+    }
 
-  public void addValue(int i, SignalInstance v){
-    add(i, v);
-  }
+    public void addValue(int i, SignalInstance v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, SignalInstance v){
-    set(i, v);
-  }
+    public void setValue(int i, SignalInstance v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //SignalInstanceList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // SignalInstanceList

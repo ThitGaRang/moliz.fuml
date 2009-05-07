@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -31,69 +28,69 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::OpaqueBehaviorExecution</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::OpaqueBehaviorExecution</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link OpaqueBehaviorExecution#execute <em>execute</em>}</li>
-	 *   <li>{@link OpaqueBehaviorExecution#doBody <em>doBody</em>}</li>
-	 	 * </ul>
+ * <li>{@link OpaqueBehaviorExecution#execute <em>execute</em>}</li>
+ * <li>{@link OpaqueBehaviorExecution#doBody <em>doBody</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class OpaqueBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation execute
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void execute()   {
-// Execute the body of the opaque behavior.
+public abstract class OpaqueBehaviorExecution extends
+        fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution {
 
-Debug.println("[execute] Opaque behavior " + this.getBehavior().name + "...");
+    // Attributes
 
-ParameterList parameters = this.getBehavior().ownedParameter;
+    // Operations of the class
+    /**
+     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void execute() {
+        // Execute the body of the opaque behavior.
 
-ParameterValueList inputs = new ParameterValueList();
-ParameterValueList outputs = new ParameterValueList();
+        Debug.println("[execute] Opaque behavior " + this.getBehavior().name + "...");
 
-for (int i = 0; i < parameters.size(); i++) {
-    Parameter parameter = parameters.getValue(i);
+        ParameterList parameters = this.getBehavior().ownedParameter;
 
-    if ((parameter.direction == ParameterDirectionKind.in) |
-        (parameter.direction == ParameterDirectionKind.inout)) {
-        inputs.addValue(this.getParameterValue(parameter));
-    }
+        ParameterValueList inputs = new ParameterValueList();
+        ParameterValueList outputs = new ParameterValueList();
 
-    if ((parameter.direction == ParameterDirectionKind.inout) |
-        (parameter.direction == ParameterDirectionKind.out) |
-        (parameter.direction == ParameterDirectionKind.return_)) {
-        ParameterValue parameterValue = new ParameterValue();
-        parameterValue.parameter = parameter;
-        this.setParameterValue(parameterValue);
-        outputs.addValue(parameterValue);
-    }
-}
+        for (int i = 0; i < parameters.size(); i++) {
+            Parameter parameter = parameters.getValue(i);
 
-this.doBody(inputs, outputs);
-	  } // execute
+            if ((parameter.direction == ParameterDirectionKind.in)
+                    | (parameter.direction == ParameterDirectionKind.inout)) {
+                inputs.addValue(this.getParameterValue(parameter));
+            }
 
-  /**
-   * operation doBody
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract    void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)  ;} //OpaqueBehaviorExecution
+            if ((parameter.direction == ParameterDirectionKind.inout)
+                    | (parameter.direction == ParameterDirectionKind.out)
+                    | (parameter.direction == ParameterDirectionKind.return_)) {
+                ParameterValue parameterValue = new ParameterValue();
+                parameterValue.parameter = parameter;
+                this.setParameterValue(parameterValue);
+                outputs.addValue(parameterValue);
+            }
+        }
+
+        this.doBody(inputs, outputs);
+    } // execute
+
+    /**
+     * operation doBody <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract void doBody(
+            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
+            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters);
+} // OpaqueBehaviorExecution

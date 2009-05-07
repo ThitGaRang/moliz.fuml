@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,59 +26,53 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::PrimitiveValue</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::PrimitiveValue</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link PrimitiveValue#copy <em>copy</em>}</li>
-	 *   <li>{@link PrimitiveValue#getTypes <em>getTypes</em>}</li>
-	 	 *   <li>{@link PrimitiveValue#type <em>type</em>}</li>
-	 * </ul>
+ * <li>{@link PrimitiveValue#copy <em>copy</em>}</li>
+ * <li>{@link PrimitiveValue#getTypes <em>getTypes</em>}</li>
+ * <li>{@link PrimitiveValue#type <em>type</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class PrimitiveValue    extends fUML.Semantics.Classes.Kernel.Value    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.PrimitiveType type =  null;
-    
-	// Operations of the class
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-// Create a new value that is equal to this primitive value.
+public abstract class PrimitiveValue extends fUML.Semantics.Classes.Kernel.Value {
 
-PrimitiveValue newValue = (PrimitiveValue)(super.copy());
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.PrimitiveType type = null;
 
-newValue.type = this.type;
-return newValue;
-	  } // copy
+    // Operations of the class
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value copy() {
+        // Create a new value that is equal to this primitive value.
 
-  /**
-   * operation getTypes
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-// Return the single primitive type of this value.
+        PrimitiveValue newValue = (PrimitiveValue) (super.copy());
 
-ClassifierList types = new ClassifierList();
-types.addValue(this.type);
-return types;
-	  } // getTypes
+        newValue.type = this.type;
+        return newValue;
+    } // copy
 
-} //PrimitiveValue
+    /**
+     * operation getTypes <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Syntax.Classes.Kernel.ClassifierList getTypes() {
+        // Return the single primitive type of this value.
+
+        ClassifierList types = new ClassifierList();
+        types.addValue(this.type);
+        return types;
+    } // getTypes
+
+} // PrimitiveValue

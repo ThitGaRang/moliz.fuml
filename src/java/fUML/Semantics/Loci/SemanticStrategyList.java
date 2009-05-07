@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Semantics.Loci;
+
 import java.util.ArrayList;
 
-public class SemanticStrategyList extends ArrayList<fUML.Semantics.Loci.SemanticStrategy>
-{
-  public SemanticStrategyList(){
-    super();
-  }
+public class SemanticStrategyList extends ArrayList<fUML.Semantics.Loci.SemanticStrategy> {
+    public SemanticStrategyList() {
+        super();
+    }
 
-  public SemanticStrategy getValue(int i){
-    return (SemanticStrategy)get(i);
-  }
+    public SemanticStrategy getValue(int i) {
+        return (SemanticStrategy) get(i);
+    }
 
-  public void addValue(SemanticStrategy v){
-    add(v);
-  }
+    public void addValue(SemanticStrategy v) {
+        add(v);
+    }
 
-  public void addValue(int i, SemanticStrategy v){
-    add(i, v);
-  }
+    public void addValue(int i, SemanticStrategy v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, SemanticStrategy v){
-    set(i, v);
-  }
+    public void setValue(int i, SemanticStrategy v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //SemanticStrategyList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // SemanticStrategyList

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -41,105 +38,108 @@ import fUML.Semantics.Activities.CompleteStructuredActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::ExtraStructuredActivities::ExpansionNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::ExtraStructuredActivities::ExpansionNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ExpansionNodeActivation#fire <em>fire</em>}</li>
-	 *   <li>{@link ExpansionNodeActivation#receiveOffer <em>receiveOffer</em>}</li>
-	 *   <li>{@link ExpansionNodeActivation#isReady <em>isReady</em>}</li>
-	 *   <li>{@link ExpansionNodeActivation#countUnofferedTokens <em>countUnofferedTokens</em>}</li>
-	 *   <li>{@link ExpansionNodeActivation#getExpansionRegionActivation <em>getExpansionRegionActivation</em>}</li>
-	 	 * </ul>
+ * <li>{@link ExpansionNodeActivation#fire <em>fire</em>}</li>
+ * <li>{@link ExpansionNodeActivation#receiveOffer <em>receiveOffer</em>}</li>
+ * <li>{@link ExpansionNodeActivation#isReady <em>isReady</em>}</li>
+ * <li>{@link ExpansionNodeActivation#countUnofferedTokens <em>
+ * countUnofferedTokens</em>}</li>
+ * <li>{@link ExpansionNodeActivation#getExpansionRegionActivation <em>
+ * getExpansionRegionActivation</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ExpansionNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation fire
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-// Take tokens from all incoming edges.
+public class ExpansionNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation {
 
-Debug.println("[fire] Expansion node " + this.node.name + "...");
+    // Attributes
 
-this.addTokens(incomingTokens);
+    // Operations of the class
+    /**
+     * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
+        // Take tokens from all incoming edges.
 
-	  } // fire
+        Debug.println("[fire] Expansion node " + this.node.name + "...");
 
-  /**
-   * operation receiveOffer
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void receiveOffer()   {
-// Forward the offer on to the expansion region.
+        this.addTokens(incomingTokens);
 
-this.getExpansionRegionActivation().receiveOffer();
-	  } // receiveOffer
+    } // fire
 
-  /**
-   * operation isReady
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isReady()   {
-// An expansion node is always fired by its expansion region.
+    /**
+     * operation receiveOffer <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void receiveOffer() {
+        // Forward the offer on to the expansion region.
 
-return false;	  } // isReady
+        this.getExpansionRegionActivation().receiveOffer();
+    } // receiveOffer
 
-  /**
-   * operation countUnofferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int countUnofferedTokens()   {
-// Count the number of tokens being offered to the expansion node.
+    /**
+     * operation isReady <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isReady() {
+        // An expansion node is always fired by its expansion region.
 
-int totalTokenCount = super.countUnofferedTokens();
-int i = 1;
-while (i <= this.incomingEdges.size()) {
-    totalTokenCount = totalTokenCount + this.incomingEdges.getValue(i-1).countOfferedTokens();
-    i = i + 1;
-}
+        return false;
+    } // isReady
 
-return totalTokenCount;
-	  } // countUnofferedTokens
+    /**
+     * operation countUnofferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public int countUnofferedTokens() {
+        // Count the number of tokens being offered to the expansion node.
 
-  /**
-   * operation getExpansionRegionActivation
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionRegionActivation getExpansionRegionActivation()   {
-// Return the expansion region activation corresponding to this expansion node, in the context of the activity node activation group this expansion node activation is in.
+        int totalTokenCount = super.countUnofferedTokens();
+        int i = 1;
+        while (i <= this.incomingEdges.size()) {
+            totalTokenCount = totalTokenCount
+                    + this.incomingEdges.getValue(i - 1).countOfferedTokens();
+            i = i + 1;
+        }
 
-ExpansionNode node = (ExpansionNode)(this.node);
+        return totalTokenCount;
+    } // countUnofferedTokens
 
-ExpansionRegion region = node.regionAsInput;
-if (region == null) {
-    region = node.regionAsOutput;
-}
+    /**
+     * operation getExpansionRegionActivation <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionRegionActivation getExpansionRegionActivation() {
+        // Return the expansion region activation corresponding to this
+        // expansion node, in the context of the activity node activation group
+        // this expansion node activation is in.
 
-return (ExpansionRegionActivation)(this.group.getNodeActivation(region));
+        ExpansionNode node = (ExpansionNode) (this.node);
 
-	  } // getExpansionRegionActivation
+        ExpansionRegion region = node.regionAsInput;
+        if (region == null) {
+            region = node.regionAsOutput;
+        }
 
-} //ExpansionNodeActivation
+        return (ExpansionRegionActivation) (this.group.getNodeActivation(region));
+
+    } // getExpansionRegionActivation
+
+} // ExpansionNodeActivation

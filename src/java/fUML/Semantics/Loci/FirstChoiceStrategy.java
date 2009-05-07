@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,37 +20,34 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Loci::FirstChoiceStrategy</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Loci::FirstChoiceStrategy</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link FirstChoiceStrategy#choose <em>choose</em>}</li>
-	 	 * </ul>
+ * <li>{@link FirstChoiceStrategy#choose <em>choose</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class FirstChoiceStrategy    extends fUML.Semantics.Loci.ChoiceStrategy    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation choose
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int choose(int size)   {
-// Always choose one.
+public class FirstChoiceStrategy extends fUML.Semantics.Loci.ChoiceStrategy {
 
-return 1;
-	  } // choose
+    // Attributes
 
-} //FirstChoiceStrategy
+    // Operations of the class
+    /**
+     * operation choose <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public int choose(int size) {
+        // Always choose one.
+
+        return 1;
+    } // choose
+
+} // FirstChoiceStrategy

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,45 +33,43 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::BasicActions::PinActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::BasicActions::PinActivation</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link PinActivation#fire <em>fire</em>}</li>
-	 	 *   <li>{@link PinActivation#actionActivation <em>actionActivation</em>}</li>
-	 * </ul>
+ * <li>{@link PinActivation#fire <em>fire</em>}</li>
+ * <li>{@link PinActivation#actionActivation <em>actionActivation</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class PinActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
-    
-	// Attributes
-	public   fUML.Semantics.Actions.BasicActions.ActionActivation actionActivation =  null;
-    
-	// Operations of the class
-  /**
-   * operation fire
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-// Add all incoming tokens to the pin.
-// [Note that a pin will consume all tokens offered to it, even if this is more than the multiplicity upper bound, but will only offer tokens up to that upper bound.]
+public abstract class PinActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation {
 
-Debug.println("[fire] Pin " + this.node.name + "...");
+    // Attributes
+    public fUML.Semantics.Actions.BasicActions.ActionActivation actionActivation = null;
 
-this.addTokens(incomingTokens);
+    // Operations of the class
+    /**
+     * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
+        // Add all incoming tokens to the pin.
+        // [Note that a pin will consume all tokens offered to it, even if this
+        // is more than the multiplicity upper bound, but will only offer tokens
+        // up to that upper bound.]
 
+        Debug.println("[fire] Pin " + this.node.name + "...");
 
+        this.addTokens(incomingTokens);
 
-	  } // fire
+    } // fire
 
-} //PinActivation
+} // PinActivation

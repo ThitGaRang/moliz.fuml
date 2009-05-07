@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -31,50 +28,49 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::ParameterValue</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::ParameterValue</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ParameterValue#copy <em>copy</em>}</li>
-	 	 *   <li>{@link ParameterValue#parameter <em>parameter</em>}</li>
-	 *   <li>{@link ParameterValue#values <em>values</em>}</li>
-	 * </ul>
+ * <li>{@link ParameterValue#copy <em>copy</em>}</li>
+ * <li>{@link ParameterValue#parameter <em>parameter</em>}</li>
+ * <li>{@link ParameterValue#values <em>values</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ParameterValue    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.Parameter parameter =  null;
-	public   fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
-    
-	// Operations of the class
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue copy()   {
-// Create a new parameter value for the same parameter as this parameter value, but with copies of the values of this parameter value.
+public class ParameterValue {
 
-ParameterValue newValue = new ParameterValue();
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.Parameter parameter = null;
+    public fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
 
-newValue.parameter = this.parameter;
+    // Operations of the class
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue copy() {
+        // Create a new parameter value for the same parameter as this parameter
+        // value, but with copies of the values of this parameter value.
 
-ValueList values = this.values;
-for (int i = 0; i < values.size(); i++) {
-    Value value = values.getValue(i);
-    newValue.values.addValue(value.copy());
-}
+        ParameterValue newValue = new ParameterValue();
 
-return newValue;
-	  } // copy
+        newValue.parameter = this.parameter;
 
-} //ParameterValue
+        ValueList values = this.values;
+        for (int i = 0; i < values.size(); i++) {
+            Value value = values.getValue(i);
+            newValue.values.addValue(value.copy());
+        }
+
+        return newValue;
+    } // copy
+
+} // ParameterValue

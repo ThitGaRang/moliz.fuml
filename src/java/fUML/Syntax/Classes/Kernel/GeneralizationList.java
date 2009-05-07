@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class GeneralizationList extends ArrayList<fUML.Syntax.Classes.Kernel.Generalization>
-{
-  public GeneralizationList(){
-    super();
-  }
+public class GeneralizationList extends ArrayList<fUML.Syntax.Classes.Kernel.Generalization> {
+    public GeneralizationList() {
+        super();
+    }
 
-  public Generalization getValue(int i){
-    return (Generalization)get(i);
-  }
+    public Generalization getValue(int i) {
+        return (Generalization) get(i);
+    }
 
-  public void addValue(Generalization v){
-    add(v);
-  }
+    public void addValue(Generalization v) {
+        add(v);
+    }
 
-  public void addValue(int i, Generalization v){
-    add(i, v);
-  }
+    public void addValue(int i, Generalization v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Generalization v){
-    set(i, v);
-  }
+    public void setValue(int i, Generalization v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //GeneralizationList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // GeneralizationList

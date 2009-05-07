@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,81 +33,76 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ObjectToken</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ObjectToken</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ObjectToken#equals <em>equals</em>}</li>
-	 *   <li>{@link ObjectToken#copy <em>copy</em>}</li>
-	 *   <li>{@link ObjectToken#isControl <em>isControl</em>}</li>
-	 *   <li>{@link ObjectToken#getValue <em>getValue</em>}</li>
-	 	 *   <li>{@link ObjectToken#value <em>value</em>}</li>
-	 * </ul>
+ * <li>{@link ObjectToken#equals <em>equals</em>}</li>
+ * <li>{@link ObjectToken#copy <em>copy</em>}</li>
+ * <li>{@link ObjectToken#isControl <em>isControl</em>}</li>
+ * <li>{@link ObjectToken#getValue <em>getValue</em>}</li>
+ * <li>{@link ObjectToken#value <em>value</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ObjectToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
-    
-	// Attributes
-	public   fUML.Semantics.Classes.Kernel.Value value =  null;
-    
-	// Operations of the class
-  /**
-   * operation equals
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)   {
-// Test if this object token is the same as the other token.
+public class ObjectToken extends fUML.Semantics.Activities.IntermediateActivities.Token {
 
-return this == other;
-	  } // equals
+    // Attributes
+    public fUML.Semantics.Classes.Kernel.Value value = null;
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-// Return a new object token with the same value as this token.
-// [Note: the holder of the copy is not set.]
+    // Operations of the class
+    /**
+     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other) {
+        // Test if this object token is the same as the other token.
 
-ObjectToken copy = new ObjectToken();
-copy.value = this.value;
+        return this == other;
+    } // equals
 
-return copy;
-	  } // copy
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.Token copy() {
+        // Return a new object token with the same value as this token.
+        // [Note: the holder of the copy is not set.]
 
-  /**
-   * operation isControl
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isControl()   {
-// Return false for an object token.
+        ObjectToken copy = new ObjectToken();
+        copy.value = this.value;
 
-return false;
-	  } // isControl
+        return copy;
+    } // copy
 
-  /**
-   * operation getValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-// Return the value of this object token.
+    /**
+     * operation isControl <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isControl() {
+        // Return false for an object token.
 
-return this.value;
-	  } // getValue
+        return false;
+    } // isControl
 
-} //ObjectToken
+    /**
+     * operation getValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value getValue() {
+        // Return the value of this object token.
+
+        return this.value;
+    } // getValue
+
+} // ObjectToken

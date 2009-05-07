@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,48 +35,51 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::WriteStructuralFeatureActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * 
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::WriteStructuralFeatureActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link WriteStructuralFeatureActionActivation#position <em>position</em>}</li>
-	 	 * </ul>
+ * <li>{@link WriteStructuralFeatureActionActivation#position <em>position</em>}
+ * </li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class WriteStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation position
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int position(fUML.Semantics.Classes.Kernel.Value value, fUML.Semantics.Classes.Kernel.ValueList list, int startAt)   {
-// Return the position (counting from 1) of the first occurance of the given value in the given list at or after the starting index, or 0 if it is not found.
+public abstract class WriteStructuralFeatureActionActivation extends
+        fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation {
 
-boolean found = false;
-int i = startAt;
-while (!found & i <= list.size()) {
-    found = list.getValue(i-1).equals(value);
-    i = i + 1;
-}
+    // Attributes
 
-if (!found) {
-    i = 1;
-}
+    // Operations of the class
+    /**
+     * operation position <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public int position(fUML.Semantics.Classes.Kernel.Value value,
+            fUML.Semantics.Classes.Kernel.ValueList list, int startAt) {
+        // Return the position (counting from 1) of the first occurance of the
+        // given value in the given list at or after the starting index, or 0 if
+        // it is not found.
 
-return i - 1;
-	  } // position
+        boolean found = false;
+        int i = startAt;
+        while (!found & i <= list.size()) {
+            found = list.getValue(i - 1).equals(value);
+            i = i + 1;
+        }
 
-} //WriteStructuralFeatureActionActivation
+        if (!found) {
+            i = 1;
+        }
+
+        return i - 1;
+    } // position
+
+} // WriteStructuralFeatureActionActivation

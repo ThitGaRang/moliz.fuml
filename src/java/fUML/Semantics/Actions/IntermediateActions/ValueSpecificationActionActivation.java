@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,41 +35,40 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ValueSpecificationActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ValueSpecificationActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ValueSpecificationActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ValueSpecificationActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ValueSpecificationActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Evaluate the value specification for the action and place the result on the result pin of the action.
+public class ValueSpecificationActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-ValueSpecificationAction action = (ValueSpecificationAction)(this.node);
+    // Attributes
 
-Value value = this.getExecutionLocus().executor.evaluate(action.value);
-this.putToken(action.result, value);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Evaluate the value specification for the action and place the result
+        // on the result pin of the action.
 
-	  } // doAction
+        ValueSpecificationAction action = (ValueSpecificationAction) (this.node);
 
-} //ValueSpecificationActionActivation
+        Value value = this.getExecutionLocus().executor.evaluate(action.value);
+        this.putToken(action.result, value);
+
+    } // doAction
+
+} // ValueSpecificationActionActivation

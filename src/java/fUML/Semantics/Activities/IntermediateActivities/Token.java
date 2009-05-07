@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,104 +33,107 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::Token</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::Token</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Token#transfer <em>transfer</em>}</li>
-	 *   <li>{@link Token#withdraw <em>withdraw</em>}</li>
-	 *   <li>{@link Token#equals <em>equals</em>}</li>
-	 *   <li>{@link Token#copy <em>copy</em>}</li>
-	 *   <li>{@link Token#isWithdrawn <em>isWithdrawn</em>}</li>
-	 *   <li>{@link Token#isControl <em>isControl</em>}</li>
-	 *   <li>{@link Token#getValue <em>getValue</em>}</li>
-	 	 *   <li>{@link Token#holder <em>holder</em>}</li>
-	 * </ul>
+ * <li>{@link Token#transfer <em>transfer</em>}</li>
+ * <li>{@link Token#withdraw <em>withdraw</em>}</li>
+ * <li>{@link Token#equals <em>equals</em>}</li>
+ * <li>{@link Token#copy <em>copy</em>}</li>
+ * <li>{@link Token#isWithdrawn <em>isWithdrawn</em>}</li>
+ * <li>{@link Token#isControl <em>isControl</em>}</li>
+ * <li>{@link Token#getValue <em>getValue</em>}</li>
+ * <li>{@link Token#holder <em>holder</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class Token    {
-    
-	// Attributes
-	public   fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder =  null;
-    
-	// Operations of the class
-  /**
-   * operation transfer
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.Token transfer(fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder)   {
-// if this token does not have any holder, make the given holder its holder.
-// Otherwise, remove this token from its holder and return a copy of it transfered to a new holder.
+public abstract class Token {
 
-Token token = this;
-if (this.holder != null) {
-    this.withdraw();
-    token = this.copy();
-}
+    // Attributes
+    public fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder = null;
 
-token.holder = holder;
-return token;
-	  } // transfer
+    // Operations of the class
+    /**
+     * operation transfer <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.Token transfer(
+            fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation holder) {
+        // if this token does not have any holder, make the given holder its
+        // holder.
+        // Otherwise, remove this token from its holder and return a copy of it
+        // transfered to a new holder.
 
-  /**
-   * operation withdraw
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void withdraw()   {
-// Remove this token from its holder, withdrawing any offers for it.
+        Token token = this;
+        if (this.holder != null) {
+            this.withdraw();
+            token = this.copy();
+        }
 
-if (!this.isWithdrawn()) {
-    // Debug.println("[withdraw] Taking token with value = " + this.getValue());
-    this.holder.removeToken(this);
-    this.holder = null;
-}
-	  } // withdraw
+        token.holder = holder;
+        return token;
+    } // transfer
 
-  /**
-   * operation equals
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)  ;  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   fUML.Semantics.Activities.IntermediateActivities.Token copy()  ;  /**
-   * operation isWithdrawn
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isWithdrawn()   {
-// Test if this token has been withdrawn.
+    /**
+     * operation withdraw <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void withdraw() {
+        // Remove this token from its holder, withdrawing any offers for it.
 
-return this.holder == null;
-	  } // isWithdrawn
+        if (!this.isWithdrawn()) {
+            // Debug.println("[withdraw] Taking token with value = " +
+            // this.getValue());
+            this.holder.removeToken(this);
+            this.holder = null;
+        }
+    } // withdraw
 
-  /**
-   * operation isControl
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   boolean isControl()  ;  /**
-   * operation getValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   fUML.Semantics.Classes.Kernel.Value getValue()  ;} //Token
+    /**
+     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other);
+
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract fUML.Semantics.Activities.IntermediateActivities.Token copy();
+
+    /**
+     * operation isWithdrawn <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isWithdrawn() {
+        // Test if this token has been withdrawn.
+
+        return this.holder == null;
+    } // isWithdrawn
+
+    /**
+     * operation isControl <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract boolean isControl();
+
+    /**
+     * operation getValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract fUML.Semantics.Classes.Kernel.Value getValue();
+} // Token

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,37 +26,33 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::Evaluation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::Evaluation</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Evaluation#evaluate <em>evaluate</em>}</li>
-	 	 *   <li>{@link Evaluation#specification <em>specification</em>}</li>
-	 *   <li>{@link Evaluation#locus <em>locus</em>}</li>
-	 * </ul>
+ * <li>{@link Evaluation#evaluate <em>evaluate</em>}</li>
+ * <li>{@link Evaluation#specification <em>specification</em>}</li>
+ * <li>{@link Evaluation#locus <em>locus</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class Evaluation    extends fUML.Semantics.Loci.SemanticVisitor    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.ValueSpecification specification =  null;
-	public   fUML.Semantics.Loci.Locus locus =  null;
-    
-	// Operations of the class
-  /**
-   * operation evaluate
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   fUML.Semantics.Classes.Kernel.Value evaluate()  ;} //Evaluation
+public abstract class Evaluation extends fUML.Semantics.Loci.SemanticVisitor {
+
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.ValueSpecification specification = null;
+    public fUML.Semantics.Loci.Locus locus = null;
+
+    // Operations of the class
+    /**
+     * operation evaluate <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract fUML.Semantics.Classes.Kernel.Value evaluate();
+} // Evaluation

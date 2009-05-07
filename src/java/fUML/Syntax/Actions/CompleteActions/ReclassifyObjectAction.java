@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,78 +20,74 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Actions::CompleteActions::ReclassifyObjectAction</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Actions::CompleteActions::ReclassifyObjectAction</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReclassifyObjectAction#setIsReplaceAll <em>setIsReplaceAll</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#addOldClassifier <em>addOldClassifier</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#addNewClassifier <em>addNewClassifier</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#setObject <em>setObject</em>}</li>
-	 	 *   <li>{@link ReclassifyObjectAction#isReplaceAll <em>isReplaceAll</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#oldClassifier <em>oldClassifier</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#object <em>object</em>}</li>
-	 *   <li>{@link ReclassifyObjectAction#newClassifier <em>newClassifier</em>}</li>
-	 * </ul>
+ * <li>{@link ReclassifyObjectAction#setIsReplaceAll <em>setIsReplaceAll</em>}</li>
+ * <li>{@link ReclassifyObjectAction#addOldClassifier <em>addOldClassifier</em>}
+ * </li>
+ * <li>{@link ReclassifyObjectAction#addNewClassifier <em>addNewClassifier</em>}
+ * </li>
+ * <li>{@link ReclassifyObjectAction#setObject <em>setObject</em>}</li>
+ * <li>{@link ReclassifyObjectAction#isReplaceAll <em>isReplaceAll</em>}</li>
+ * <li>{@link ReclassifyObjectAction#oldClassifier <em>oldClassifier</em>}</li>
+ * <li>{@link ReclassifyObjectAction#object <em>object</em>}</li>
+ * <li>{@link ReclassifyObjectAction#newClassifier <em>newClassifier</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReclassifyObjectAction    extends fUML.Syntax.Actions.BasicActions.Action    {
-    
-	// Attributes
-	public   boolean isReplaceAll = false;
-	public   fUML.Syntax.Classes.Kernel.ClassifierList oldClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
-	public   fUML.Syntax.Actions.BasicActions.InputPin object =  null;
-	public   fUML.Syntax.Classes.Kernel.ClassifierList newClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
-    
-	// Operations of the class
-  /**
-   * operation setIsReplaceAll
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setIsReplaceAll(boolean isReplaceAll)   {
-this.isReplaceAll = isReplaceAll;
-	  } // setIsReplaceAll
+public class ReclassifyObjectAction extends fUML.Syntax.Actions.BasicActions.Action {
 
-  /**
-   * operation addOldClassifier
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addOldClassifier(fUML.Syntax.Classes.Kernel.Classifier oldClassifier)   {
-this.oldClassifier.addValue(oldClassifier);
-	  } // addOldClassifier
+    // Attributes
+    public boolean isReplaceAll = false;
+    public fUML.Syntax.Classes.Kernel.ClassifierList oldClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
+    public fUML.Syntax.Actions.BasicActions.InputPin object = null;
+    public fUML.Syntax.Classes.Kernel.ClassifierList newClassifier = new fUML.Syntax.Classes.Kernel.ClassifierList();
 
-  /**
-   * operation addNewClassifier
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addNewClassifier(fUML.Syntax.Classes.Kernel.Classifier newClassifier)   {
-this.newClassifier.addValue(newClassifier);
-	  } // addNewClassifier
+    // Operations of the class
+    /**
+     * operation setIsReplaceAll <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setIsReplaceAll(boolean isReplaceAll) {
+        this.isReplaceAll = isReplaceAll;
+    } // setIsReplaceAll
 
-  /**
-   * operation setObject
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setObject(fUML.Syntax.Actions.BasicActions.InputPin object)   {
-super.addInput(object);
-this.object = object;
+    /**
+     * operation addOldClassifier <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addOldClassifier(fUML.Syntax.Classes.Kernel.Classifier oldClassifier) {
+        this.oldClassifier.addValue(oldClassifier);
+    } // addOldClassifier
 
-	  } // setObject
+    /**
+     * operation addNewClassifier <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addNewClassifier(fUML.Syntax.Classes.Kernel.Classifier newClassifier) {
+        this.newClassifier.addValue(newClassifier);
+    } // addNewClassifier
 
-} //ReclassifyObjectAction
+    /**
+     * operation setObject <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setObject(fUML.Syntax.Actions.BasicActions.InputPin object) {
+        super.addInput(object);
+        this.object = object;
+
+    } // setObject
+
+} // ReclassifyObjectAction

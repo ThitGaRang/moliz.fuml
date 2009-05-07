@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,119 +26,114 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::Link</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::Link</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Link#destroy <em>destroy</em>}</li>
-	 *   <li>{@link Link#copy <em>copy</em>}</li>
-	 *   <li>{@link Link#new_ <em>new_</em>}</li>
-	 *   <li>{@link Link#getTypes <em>getTypes</em>}</li>
-	 *   <li>{@link Link#setFeatureValue <em>setFeatureValue</em>}</li>
-	 	 *   <li>{@link Link#type <em>type</em>}</li>
-	 * </ul>
+ * <li>{@link Link#destroy <em>destroy</em>}</li>
+ * <li>{@link Link#copy <em>copy</em>}</li>
+ * <li>{@link Link#new_ <em>new_</em>}</li>
+ * <li>{@link Link#getTypes <em>getTypes</em>}</li>
+ * <li>{@link Link#setFeatureValue <em>setFeatureValue</em>}</li>
+ * <li>{@link Link#type <em>type</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class Link    extends fUML.Semantics.Classes.Kernel.ExtensionalValue    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.Association type =  null;
-    
-	// Operations of the class
-  /**
-   * operation destroy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void destroy()   {
-// Remove the type of this link and destroy it.
+public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
-this.type = null;
-super.destroy();
-	  } // destroy
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.Association type = null;
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-// Create a new link with the same type, locus and feature values as this link.
+    // Operations of the class
+    /**
+     * operation destroy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void destroy() {
+        // Remove the type of this link and destroy it.
 
-Link newValue = (Link)(super.copy());
+        this.type = null;
+        super.destroy();
+    } // destroy
 
-newValue.type = this.type;
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value copy() {
+        // Create a new link with the same type, locus and feature values as
+        // this link.
 
-return newValue;
-	  } // copy
+        Link newValue = (Link) (super.copy());
 
-  /**
-   * operation new_
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-// Create a new link with no type or properies.
+        newValue.type = this.type;
 
-return new Link();
-	  } // new_
+        return newValue;
+    } // copy
 
-  /**
-   * operation getTypes
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-// Return the single type of this link (if any).
+    /**
+     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected fUML.Semantics.Classes.Kernel.Value new_() {
+        // Create a new link with no type or properies.
 
-ClassifierList types = null;
+        return new Link();
+    } // new_
 
-if (this.type == null) {
-    types = new ClassifierList();
-} else {
-    types = new ClassifierList();
-    types.addValue(this.type);
-}
+    /**
+     * operation getTypes <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Syntax.Classes.Kernel.ClassifierList getTypes() {
+        // Return the single type of this link (if any).
 
-return types;
+        ClassifierList types = null;
 
-	  } // getTypes
-
-  /**
-   * operation setFeatureValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature, fUML.Semantics.Classes.Kernel.ValueList values, int position)   {
-// If a position is given, before setting the given feature value, adjust the position values of the ends of other links for this same feature.
-
-if (position > 0) {
-    ExtensionalValueList extent = this.locus.getExtent(this.type);
-    for (int i = 0; i < extent.size(); i++) {
-        ExtensionalValue value = extent.getValue(i);
-        FeatureValue featureValue = value.getFeatureValue(feature);
-        if (featureValue.position >= position) {
-            featureValue.position = featureValue.position + 1;
+        if (this.type == null) {
+            types = new ClassifierList();
+        } else {
+            types = new ClassifierList();
+            types.addValue(this.type);
         }
-    }
-}
 
-super.setFeatureValue(feature, values, position);
-	  } // setFeatureValue
+        return types;
 
-} //Link
+    } // getTypes
+
+    /**
+     * operation setFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setFeatureValue(fUML.Syntax.Classes.Kernel.StructuralFeature feature,
+            fUML.Semantics.Classes.Kernel.ValueList values, int position) {
+        // If a position is given, before setting the given feature value,
+        // adjust the position values of the ends of other links for this same
+        // feature.
+
+        if (position > 0) {
+            ExtensionalValueList extent = this.locus.getExtent(this.type);
+            for (int i = 0; i < extent.size(); i++) {
+                ExtensionalValue value = extent.getValue(i);
+                FeatureValue featureValue = value.getFeatureValue(feature);
+                if (featureValue.position >= position) {
+                    featureValue.position = featureValue.position + 1;
+                }
+            }
+        }
+
+        super.setFeatureValue(feature, values, position);
+    } // setFeatureValue
+
+} // Link

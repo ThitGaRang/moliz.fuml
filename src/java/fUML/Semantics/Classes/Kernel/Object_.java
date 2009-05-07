@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -30,188 +27,187 @@ import fUML.Semantics.*;
 import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::Object_</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::Object_</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Object_#startBehavior <em>startBehavior</em>}</li>
-	 *   <li>{@link Object_#dispatch <em>dispatch</em>}</li>
-	 *   <li>{@link Object_#send <em>send</em>}</li>
-	 *   <li>{@link Object_#destroy <em>destroy</em>}</li>
-	 *   <li>{@link Object_#register <em>register</em>}</li>
-	 *   <li>{@link Object_#unregister <em>unregister</em>}</li>
-	 *   <li>{@link Object_#copy <em>copy</em>}</li>
-	 *   <li>{@link Object_#new_ <em>new_</em>}</li>
-	 *   <li>{@link Object_#getTypes <em>getTypes</em>}</li>
-	 	 *   <li>{@link Object_#types <em>types</em>}</li>
-	 *   <li>{@link Object_#objectActivation <em>objectActivation</em>}</li>
-	 * </ul>
+ * <li>{@link Object_#startBehavior <em>startBehavior</em>}</li>
+ * <li>{@link Object_#dispatch <em>dispatch</em>}</li>
+ * <li>{@link Object_#send <em>send</em>}</li>
+ * <li>{@link Object_#destroy <em>destroy</em>}</li>
+ * <li>{@link Object_#register <em>register</em>}</li>
+ * <li>{@link Object_#unregister <em>unregister</em>}</li>
+ * <li>{@link Object_#copy <em>copy</em>}</li>
+ * <li>{@link Object_#new_ <em>new_</em>}</li>
+ * <li>{@link Object_#getTypes <em>getTypes</em>}</li>
+ * <li>{@link Object_#types <em>types</em>}</li>
+ * <li>{@link Object_#objectActivation <em>objectActivation</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class Object_    extends fUML.Semantics.Classes.Kernel.ExtensionalValue    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.Class_List types = new fUML.Syntax.Classes.Kernel.Class_List();
-	public   fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation =  null;
-    
-	// Operations of the class
-  /**
-   * operation startBehavior
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void startBehavior(fUML.Syntax.Classes.Kernel.Class_ classifier, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputs)   {
-// Create an object activation for this object (if one does not already exist) and start its behavior(s).
+public class Object_ extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
-// Debug.println("[startBehavior] On object...");
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.Class_List types = new fUML.Syntax.Classes.Kernel.Class_List();
+    public fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation = null;
 
-if (this.objectActivation == null) {
-    this.objectActivation = new ObjectActivation();
-    this.objectActivation.object = this;
-}
+    // Operations of the class
+    /**
+     * operation startBehavior <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void startBehavior(fUML.Syntax.Classes.Kernel.Class_ classifier,
+            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputs) {
+        // Create an object activation for this object (if one does not already
+        // exist) and start its behavior(s).
 
-// Debug.println("[startBehavior] objectActivation = " + objectActivation);
+        // Debug.println("[startBehavior] On object...");
 
-this.objectActivation.startBehavior(classifier, inputs);
-	  } // startBehavior
+        if (this.objectActivation == null) {
+            this.objectActivation = new ObjectActivation();
+            this.objectActivation.object = this;
+        }
 
-  /**
-   * operation dispatch
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(fUML.Syntax.Classes.Kernel.Operation operation)   {
-// Dispatch the given operation to a method execution, using a dispatch strategy.
+        // Debug.println("[startBehavior] objectActivation = " +
+        // objectActivation);
 
-return ((DispatchStrategy)this.locus.factory.getStrategy("dispatch")).dispatch(this, operation);
-	  } // dispatch
+        this.objectActivation.startBehavior(classifier, inputs);
+    } // startBehavior
 
-  /**
-   * operation send
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void send(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)   {
-// If the object is active, add the given signal instance to the event pool and signal that a new signal instance has arrived.
+    /**
+     * operation dispatch <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(
+            fUML.Syntax.Classes.Kernel.Operation operation) {
+        // Dispatch the given operation to a method execution, using a dispatch
+        // strategy.
 
-if (this.objectActivation != null) {
-    this.objectActivation.send(signalInstance);
-}
+        return ((DispatchStrategy) this.locus.factory.getStrategy("dispatch")).dispatch(this,
+                operation);
+    } // dispatch
 
-	  } // send
+    /**
+     * operation send <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void send(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance) {
+        // If the object is active, add the given signal instance to the event
+        // pool and signal that a new signal instance has arrived.
 
-  /**
-   * operation destroy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void destroy()   {
-// Stop the object activation (if any), clear all types and destroy the object as an extensional value.
+        if (this.objectActivation != null) {
+            this.objectActivation.send(signalInstance);
+        }
 
-Debug.println("[destroy] object = " + this.objectId());
+    } // send
 
-if (this.objectActivation != null) {
-    this.objectActivation.stop();
-    this.objectActivation = null;
-}
+    /**
+     * operation destroy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void destroy() {
+        // Stop the object activation (if any), clear all types and destroy the
+        // object as an extensional value.
 
-this.types.clear();
-super.destroy();
-	  } // destroy
+        Debug.println("[destroy] object = " + this.objectId());
 
-  /**
-   * operation register
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void register(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter)   {
-// Register the given accept event accepter to wait for a dispatched signal event.
+        if (this.objectActivation != null) {
+            this.objectActivation.stop();
+            this.objectActivation = null;
+        }
 
-if (this.objectActivation != null) {
-    this.objectActivation.register(accepter);
-}
-	  } // register
+        this.types.clear();
+        super.destroy();
+    } // destroy
 
-  /**
-   * operation unregister
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void unregister(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter)   {
-// Remove the given event accepter for the list of waiting event accepters.
+    /**
+     * operation register <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void register(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter) {
+        // Register the given accept event accepter to wait for a dispatched
+        // signal event.
 
-if (this.objectActivation != null) {
-    this.objectActivation.unregister(accepter);
-}
-	  } // unregister
+        if (this.objectActivation != null) {
+            this.objectActivation.register(accepter);
+        }
+    } // register
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-// Create a new object that is a copy of this object at the same locus as this object.
-// However, the new object will NOT have any object activation (i.e, its classifier behaviors will not be started).
+    /**
+     * operation unregister <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void unregister(fUML.Semantics.CommonBehaviors.Communications.EventAccepter accepter) {
+        // Remove the given event accepter for the list of waiting event
+        // accepters.
 
-Object_ newObject = (Object_)(super.copy());
+        if (this.objectActivation != null) {
+            this.objectActivation.unregister(accepter);
+        }
+    } // unregister
 
-Class_List types = this.types;
-for (int i = 0; i < types.size(); i++) {
-    Class_ type = types.getValue(i);
-    newObject.types.addValue(type);
-}
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value copy() {
+        // Create a new object that is a copy of this object at the same locus
+        // as this object.
+        // However, the new object will NOT have any object activation (i.e, its
+        // classifier behaviors will not be started).
 
-return newObject;
+        Object_ newObject = (Object_) (super.copy());
 
-	  } // copy
+        Class_List types = this.types;
+        for (int i = 0; i < types.size(); i++) {
+            Class_ type = types.getValue(i);
+            newObject.types.addValue(type);
+        }
 
-  /**
-   * operation new_
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-// Create a new object with no type, feature values or locus.
+        return newObject;
 
-return new Object_();
-	  } // new_
+    } // copy
 
-  /**
-   * operation getTypes
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Syntax.Classes.Kernel.ClassifierList getTypes()   {
-// Return the types of this object.
+    /**
+     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected fUML.Semantics.Classes.Kernel.Value new_() {
+        // Create a new object with no type, feature values or locus.
 
-ClassifierList types = new ClassifierList();
-Class_List myTypes = this.types;
-for (int i = 0; i < myTypes.size(); i++) {
-    Class_ type = myTypes.getValue(i);
-    types.addValue(type);
-}
+        return new Object_();
+    } // new_
 
-return types;
-	  } // getTypes
+    /**
+     * operation getTypes <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Syntax.Classes.Kernel.ClassifierList getTypes() {
+        // Return the types of this object.
 
-} //Object_
+        ClassifierList types = new ClassifierList();
+        Class_List myTypes = this.types;
+        for (int i = 0; i < myTypes.size(); i++) {
+            Class_ type = myTypes.getValue(i);
+            types.addValue(type);
+        }
+
+        return types;
+    } // getTypes
+
+} // Object_

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,57 +33,57 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ForkNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ForkNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ForkNodeActivation#fire <em>fire</em>}</li>
-	 	 * </ul>
+ * <li>{@link ForkNodeActivation#fire <em>fire</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ForkNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation fire
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-// Create forked tokens for all incoming tokens and offer them on all outgoing edges.
+public class ForkNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation {
 
-if (this.node == null) {
-    Debug.println("[fire] Anonymous fork node.");
-} else {
-    Debug.println("[fire] Fork node " + this.node.name + "...");
-}
+    // Attributes
 
-ActivityEdgeInstanceList outgoingEdges = this.outgoingEdges;
-int outgoingEdgeCount = outgoingEdges.size();
+    // Operations of the class
+    /**
+     * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
+        // Create forked tokens for all incoming tokens and offer them on all
+        // outgoing edges.
 
-TokenList forkedTokens = new TokenList();
-//TokenList tokens = this.takeOfferedTokens();
-for (int i = 0; i < incomingTokens.size(); i++) {
-    Token token = incomingTokens.getValue(i);
-    ForkedToken forkedToken = new ForkedToken();
-    forkedToken.baseToken = token;
-    forkedToken.remainingOffersCount = outgoingEdgeCount;
-    forkedTokens.addValue(forkedToken);
-}
+        if (this.node == null) {
+            Debug.println("[fire] Anonymous fork node.");
+        } else {
+            Debug.println("[fire] Fork node " + this.node.name + "...");
+        }
 
-this.addTokens(forkedTokens);
+        ActivityEdgeInstanceList outgoingEdges = this.outgoingEdges;
+        int outgoingEdgeCount = outgoingEdges.size();
 
-this.sendOffers(forkedTokens);
-	  } // fire
+        TokenList forkedTokens = new TokenList();
+        // TokenList tokens = this.takeOfferedTokens();
+        for (int i = 0; i < incomingTokens.size(); i++) {
+            Token token = incomingTokens.getValue(i);
+            ForkedToken forkedToken = new ForkedToken();
+            forkedToken.baseToken = token;
+            forkedToken.remainingOffersCount = outgoingEdgeCount;
+            forkedTokens.addValue(forkedToken);
+        }
 
-} //ForkNodeActivation
+        this.addTokens(forkedTokens);
+
+        this.sendOffers(forkedTokens);
+    } // fire
+
+} // ForkNodeActivation

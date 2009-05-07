@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,26 +20,24 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Activities::IntermediateActivities::JoinNode</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Activities::IntermediateActivities::JoinNode</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 *   <li>{@link JoinNode#isCombineDuplicate <em>isCombineDuplicate</em>}</li>
-	 * </ul>
+ * <li>{@link JoinNode#isCombineDuplicate <em>isCombineDuplicate</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class JoinNode    extends fUML.Syntax.Activities.IntermediateActivities.ControlNode    {
-    
-	// Attributes
-	public   boolean isCombineDuplicate = true;
-    
-	// Operations of the class
-} //JoinNode
+public class JoinNode extends fUML.Syntax.Activities.IntermediateActivities.ControlNode {
+
+    // Attributes
+    public boolean isCombineDuplicate = true;
+
+    // Operations of the class
+} // JoinNode

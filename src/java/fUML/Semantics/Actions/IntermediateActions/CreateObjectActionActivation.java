@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,44 +35,43 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::CreateObjectActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::CreateObjectActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link CreateObjectActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link CreateObjectActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class CreateObjectActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Create an object with the given classifier (which must be a class) as its type, at the same locus as the action activation.
-// Place a reference to the object on the result pin of the action.
+public class CreateObjectActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-CreateObjectAction action = (CreateObjectAction)(this.node);
- 
-Reference reference = new Reference();
-reference.referent = this.getExecutionLocus().instantiate((Class_)(action.classifier));
+    // Attributes
 
-this.putToken(action.result, reference);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Create an object with the given classifier (which must be a class) as
+        // its type, at the same locus as the action activation.
+        // Place a reference to the object on the result pin of the action.
 
-	  } // doAction
+        CreateObjectAction action = (CreateObjectAction) (this.node);
 
-} //CreateObjectActionActivation
+        Reference reference = new Reference();
+        reference.referent = this.getExecutionLocus().instantiate((Class_) (action.classifier));
+
+        this.putToken(action.result, reference);
+
+    } // doAction
+
+} // CreateObjectActionActivation

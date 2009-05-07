@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,43 +33,42 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::JoinNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::JoinNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link JoinNodeActivation#isReady <em>isReady</em>}</li>
-	 	 * </ul>
+ * <li>{@link JoinNodeActivation#isReady <em>isReady</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class JoinNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation isReady
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isReady()   {
-// Check that all incoming edges have sources that are offering tokens.
+public class JoinNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ControlNodeActivation {
 
-boolean ready = true;
-int i = 1;
-while (ready & i <=this.incomingEdges.size()) {
-    ready = this.incomingEdges.getValue(i-1).hasOffer();
-    i = i + 1;
-}
+    // Attributes
 
-return ready;
-	  } // isReady
+    // Operations of the class
+    /**
+     * operation isReady <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isReady() {
+        // Check that all incoming edges have sources that are offering tokens.
 
-} //JoinNodeActivation
+        boolean ready = true;
+        int i = 1;
+        while (ready & i <= this.incomingEdges.size()) {
+            ready = this.incomingEdges.getValue(i - 1).hasOffer();
+            i = i + 1;
+        }
+
+        return ready;
+    } // isReady
+
+} // JoinNodeActivation

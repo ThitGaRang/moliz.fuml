@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
+
 import java.util.ArrayList;
 
-public class TokenList extends ArrayList<fUML.Semantics.Activities.IntermediateActivities.Token>
-{
-  public TokenList(){
-    super();
-  }
+public class TokenList extends ArrayList<fUML.Semantics.Activities.IntermediateActivities.Token> {
+    public TokenList() {
+        super();
+    }
 
-  public Token getValue(int i){
-    return (Token)get(i);
-  }
+    public Token getValue(int i) {
+        return (Token) get(i);
+    }
 
-  public void addValue(Token v){
-    add(v);
-  }
+    public void addValue(Token v) {
+        add(v);
+    }
 
-  public void addValue(int i, Token v){
-    add(i, v);
-  }
+    public void addValue(int i, Token v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Token v){
-    set(i, v);
-  }
+    public void setValue(int i, Token v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //TokenList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // TokenList

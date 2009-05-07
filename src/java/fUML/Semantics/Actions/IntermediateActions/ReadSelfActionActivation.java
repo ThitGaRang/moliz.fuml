@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,45 +35,44 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ReadSelfActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ReadSelfActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReadSelfActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ReadSelfActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReadSelfActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the context object of the activity execution containing this action activation and place a reference to it on the result output pin.
+public class ReadSelfActionActivation extends fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-// Debug.println("[ReadSelfActionActivation] Start...");
+    // Attributes
 
-Reference context = new Reference();
-context.referent = this.getExecutionContext();
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the context object of the activity execution containing this
+        // action activation and place a reference to it on the result output
+        // pin.
 
-Debug.println("[ReadSelfActionActivation] context object = " + context.referent);
+        // Debug.println("[ReadSelfActionActivation] Start...");
 
-OutputPin resultPin = ((ReadSelfAction)(this.node)).result;
-this.putToken(resultPin, context);
-	  } // doAction
+        Reference context = new Reference();
+        context.referent = this.getExecutionContext();
 
-} //ReadSelfActionActivation
+        Debug.println("[ReadSelfActionActivation] context object = " + context.referent);
+
+        OutputPin resultPin = ((ReadSelfAction) (this.node)).result;
+        this.putToken(resultPin, context);
+    } // doAction
+
+} // ReadSelfActionActivation

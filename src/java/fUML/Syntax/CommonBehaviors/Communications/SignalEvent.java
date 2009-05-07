@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,37 +20,34 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::CommonBehaviors::Communications::SignalEvent</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::CommonBehaviors::Communications::SignalEvent</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link SignalEvent#setSignal <em>setSignal</em>}</li>
-	 	 *   <li>{@link SignalEvent#signal <em>signal</em>}</li>
-	 * </ul>
+ * <li>{@link SignalEvent#setSignal <em>setSignal</em>}</li>
+ * <li>{@link SignalEvent#signal <em>signal</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class SignalEvent    extends fUML.Syntax.CommonBehaviors.Communications.MessageEvent    {
-    
-	// Attributes
-	public   fUML.Syntax.CommonBehaviors.Communications.Signal signal =  null;
-    
-	// Operations of the class
-  /**
-   * operation setSignal
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setSignal(fUML.Syntax.CommonBehaviors.Communications.Signal signal)   {
-this.signal = signal;
-	  } // setSignal
+public class SignalEvent extends fUML.Syntax.CommonBehaviors.Communications.MessageEvent {
 
-} //SignalEvent
+    // Attributes
+    public fUML.Syntax.CommonBehaviors.Communications.Signal signal = null;
+
+    // Operations of the class
+    /**
+     * operation setSignal <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setSignal(fUML.Syntax.CommonBehaviors.Communications.Signal signal) {
+        this.signal = signal;
+    } // setSignal
+
+} // SignalEvent

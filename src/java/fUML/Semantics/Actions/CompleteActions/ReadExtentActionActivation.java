@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -40,51 +37,51 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::CompleteActions::ReadExtentActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::CompleteActions::ReadExtentActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReadExtentActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ReadExtentActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReadExtentActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the extent, at the current execution locus, of the classifier (which must be a class) identified in the action. 
-// Place references to the resulting set of objects on the result pin.
+public class ReadExtentActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-ReadExtentAction action = (ReadExtentAction)(this.node);
-ExtensionalValueList objects = this.getExecutionLocus().getExtent(action.classifier);
+    // Attributes
 
-// Debug.println("[doAction] " + action.classifier.name + " has " + objects.size() + " instance(s).");
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the extent, at the current execution locus, of the classifier
+        // (which must be a class) identified in the action.
+        // Place references to the resulting set of objects on the result pin.
 
-ValueList references = new ValueList();
-for (int i = 0; i < objects.size(); i++) {
-    Value object = objects.getValue(i);
-    Reference reference = new Reference();
-    reference.referent = (Object_)object;
-    references.addValue(reference);
-}
+        ReadExtentAction action = (ReadExtentAction) (this.node);
+        ExtensionalValueList objects = this.getExecutionLocus().getExtent(action.classifier);
 
-this.putTokens(action.result, references);
-	  } // doAction
+        // Debug.println("[doAction] " + action.classifier.name + " has " +
+        // objects.size() + " instance(s).");
 
-} //ReadExtentActionActivation
+        ValueList references = new ValueList();
+        for (int i = 0; i < objects.size(); i++) {
+            Value object = objects.getValue(i);
+            Reference reference = new Reference();
+            reference.referent = (Object_) object;
+            references.addValue(reference);
+        }
+
+        this.putTokens(action.result, references);
+    } // doAction
+
+} // ReadExtentActionActivation

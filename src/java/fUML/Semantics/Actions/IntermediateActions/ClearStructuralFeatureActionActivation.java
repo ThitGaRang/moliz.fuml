@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,47 +35,49 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ClearStructuralFeatureActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * 
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ClearStructuralFeatureActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ClearStructuralFeatureActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ClearStructuralFeatureActionActivation#doAction <em>doAction</em>}
+ * </li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ClearStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the value of the object input pin. If it is not a structured value, then do nothing.
-// Otherwise, set the appropriate feature of the input value to be empty.
+public class ClearStructuralFeatureActionActivation extends
+        fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation {
 
-ClearStructuralFeatureAction action = (ClearStructuralFeatureAction)(this.node);
+    // Attributes
 
-Value value = this.takeTokens(action.object).getValue(0);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the value of the object input pin. If it is not a structured
+        // value, then do nothing.
+        // Otherwise, set the appropriate feature of the input value to be
+        // empty.
 
-if (value instanceof StructuredValue) {
-    ((StructuredValue)value).setFeatureValue(action.structuralFeature, new ValueList(), 0);
-    if (action.result != null) {
-        this.putToken(action.result, value);
-    }
-}
-	  } // doAction
+        ClearStructuralFeatureAction action = (ClearStructuralFeatureAction) (this.node);
 
-} //ClearStructuralFeatureActionActivation
+        Value value = this.takeTokens(action.object).getValue(0);
+
+        if (value instanceof StructuredValue) {
+            ((StructuredValue) value).setFeatureValue(action.structuralFeature, new ValueList(), 0);
+            if (action.result != null) {
+                this.putToken(action.result, value);
+            }
+        }
+    } // doAction
+
+} // ClearStructuralFeatureActionActivation

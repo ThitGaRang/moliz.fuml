@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class NamedElementList extends ArrayList<fUML.Syntax.Classes.Kernel.NamedElement>
-{
-  public NamedElementList(){
-    super();
-  }
+public class NamedElementList extends ArrayList<fUML.Syntax.Classes.Kernel.NamedElement> {
+    public NamedElementList() {
+        super();
+    }
 
-  public NamedElement getValue(int i){
-    return (NamedElement)get(i);
-  }
+    public NamedElement getValue(int i) {
+        return (NamedElement) get(i);
+    }
 
-  public void addValue(NamedElement v){
-    add(v);
-  }
+    public void addValue(NamedElement v) {
+        add(v);
+    }
 
-  public void addValue(int i, NamedElement v){
-    add(i, v);
-  }
+    public void addValue(int i, NamedElement v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, NamedElement v){
-    set(i, v);
-  }
+    public void setValue(int i, NamedElement v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //NamedElementList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // NamedElementList

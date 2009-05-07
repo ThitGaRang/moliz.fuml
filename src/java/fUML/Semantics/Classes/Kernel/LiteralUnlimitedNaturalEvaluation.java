@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,45 +26,42 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::LiteralUnlimitedNaturalEvaluation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::LiteralUnlimitedNaturalEvaluation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LiteralUnlimitedNaturalEvaluation#evaluate <em>evaluate</em>}</li>
-	 	 * </ul>
+ * <li>{@link LiteralUnlimitedNaturalEvaluation#evaluate <em>evaluate</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class LiteralUnlimitedNaturalEvaluation    extends fUML.Semantics.Classes.Kernel.LiteralEvaluation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation evaluate
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value evaluate()   {
-// Evaluate a literal unlimited natural producing an unlimited natural value.
+public class LiteralUnlimitedNaturalEvaluation extends
+        fUML.Semantics.Classes.Kernel.LiteralEvaluation {
 
-LiteralUnlimitedNatural literal = (LiteralUnlimitedNatural)specification;
-UnlimitedNaturalValue unlimitedNaturalValue = new UnlimitedNaturalValue();
-unlimitedNaturalValue.type = this.getType("UnlimitedNatural");
-unlimitedNaturalValue.value = literal.value;
+    // Attributes
 
-return unlimitedNaturalValue;
+    // Operations of the class
+    /**
+     * operation evaluate <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value evaluate() {
+        // Evaluate a literal unlimited natural producing an unlimited natural
+        // value.
 
-	  } // evaluate
+        LiteralUnlimitedNatural literal = (LiteralUnlimitedNatural) specification;
+        UnlimitedNaturalValue unlimitedNaturalValue = new UnlimitedNaturalValue();
+        unlimitedNaturalValue.type = this.getType("UnlimitedNatural");
+        unlimitedNaturalValue.value = literal.value;
 
-} //LiteralUnlimitedNaturalEvaluation
+        return unlimitedNaturalValue;
+
+    } // evaluate
+
+} // LiteralUnlimitedNaturalEvaluation

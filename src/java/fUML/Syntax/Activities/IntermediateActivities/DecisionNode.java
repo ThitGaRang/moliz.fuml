@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,50 +20,48 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Activities::IntermediateActivities::DecisionNode</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Activities::IntermediateActivities::DecisionNode</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link DecisionNode#setDecisionInput <em>setDecisionInput</em>}</li>
-	 *   <li>{@link DecisionNode#setDecisionInputFlow <em>setDecisionInputFlow</em>}</li>
-	 	 *   <li>{@link DecisionNode#decisionInput <em>decisionInput</em>}</li>
-	 *   <li>{@link DecisionNode#decisionInputFlow <em>decisionInputFlow</em>}</li>
-	 * </ul>
+ * <li>{@link DecisionNode#setDecisionInput <em>setDecisionInput</em>}</li>
+ * <li>{@link DecisionNode#setDecisionInputFlow <em>setDecisionInputFlow</em>}</li>
+ * <li>{@link DecisionNode#decisionInput <em>decisionInput</em>}</li>
+ * <li>{@link DecisionNode#decisionInputFlow <em>decisionInputFlow</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class DecisionNode    extends fUML.Syntax.Activities.IntermediateActivities.ControlNode    {
-    
-	// Attributes
-	public   fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput =  null;
-	public   fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow =  null;
-    
-	// Operations of the class
-  /**
-   * operation setDecisionInput
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setDecisionInput(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput)   {
-this.decisionInput = decisionInput;
-	  } // setDecisionInput
+public class DecisionNode extends fUML.Syntax.Activities.IntermediateActivities.ControlNode {
 
-  /**
-   * operation setDecisionInputFlow
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setDecisionInputFlow(fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow)   {
-this.decisionInputFlow = decisionInputFlow;
-	  } // setDecisionInputFlow
+    // Attributes
+    public fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput = null;
+    public fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow = null;
 
-} //DecisionNode
+    // Operations of the class
+    /**
+     * operation setDecisionInput <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setDecisionInput(fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior decisionInput) {
+        this.decisionInput = decisionInput;
+    } // setDecisionInput
+
+    /**
+     * operation setDecisionInputFlow <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public void setDecisionInputFlow(
+            fUML.Syntax.Activities.IntermediateActivities.ObjectFlow decisionInputFlow) {
+        this.decisionInputFlow = decisionInputFlow;
+    } // setDecisionInputFlow
+
+} // DecisionNode

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,48 +20,44 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::LiteralUnlimitedNatural</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Classes::Kernel::LiteralUnlimitedNatural</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LiteralUnlimitedNatural#setValue <em>setValue</em>}</li>
-	 *   <li>{@link LiteralUnlimitedNatural#setValue <em>setValue</em>}</li>
-	 	 *   <li>{@link LiteralUnlimitedNatural#value <em>value</em>}</li>
-	 * </ul>
+ * <li>{@link LiteralUnlimitedNatural#setValue <em>setValue</em>}</li>
+ * <li>{@link LiteralUnlimitedNatural#setValue <em>setValue</em>}</li>
+ * <li>{@link LiteralUnlimitedNatural#value <em>value</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class LiteralUnlimitedNatural    extends fUML.Syntax.Classes.Kernel.LiteralSpecification    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value = new UnlimitedNatural(0);
-    
-	// Operations of the class
-  /**
-   * operation setValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setValue(fUML.Syntax.Classes.Kernel.UnlimitedNatural value)   {
-this.value = value;
-	  } // setValue
+public class LiteralUnlimitedNatural extends fUML.Syntax.Classes.Kernel.LiteralSpecification {
 
-  /**
-   * operation setValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setValue(int value)   {
-this.setValue(new UnlimitedNatural(value));
-	  } // setValue
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.UnlimitedNatural value = new UnlimitedNatural(0);
 
-} //LiteralUnlimitedNatural
+    // Operations of the class
+    /**
+     * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setValue(fUML.Syntax.Classes.Kernel.UnlimitedNatural value) {
+        this.value = value;
+    } // setValue
+
+    /**
+     * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setValue(int value) {
+        this.setValue(new UnlimitedNatural(value));
+    } // setValue
+
+} // LiteralUnlimitedNatural

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,103 +33,99 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ForkedToken</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ForkedToken</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ForkedToken#isControl <em>isControl</em>}</li>
-	 *   <li>{@link ForkedToken#withdraw <em>withdraw</em>}</li>
-	 *   <li>{@link ForkedToken#copy <em>copy</em>}</li>
-	 *   <li>{@link ForkedToken#equals <em>equals</em>}</li>
-	 *   <li>{@link ForkedToken#getValue <em>getValue</em>}</li>
-	 	 *   <li>{@link ForkedToken#baseToken <em>baseToken</em>}</li>
-	 *   <li>{@link ForkedToken#remainingOffersCount <em>remainingOffersCount</em>}</li>
-	 * </ul>
+ * <li>{@link ForkedToken#isControl <em>isControl</em>}</li>
+ * <li>{@link ForkedToken#withdraw <em>withdraw</em>}</li>
+ * <li>{@link ForkedToken#copy <em>copy</em>}</li>
+ * <li>{@link ForkedToken#equals <em>equals</em>}</li>
+ * <li>{@link ForkedToken#getValue <em>getValue</em>}</li>
+ * <li>{@link ForkedToken#baseToken <em>baseToken</em>}</li>
+ * <li>{@link ForkedToken#remainingOffersCount <em>remainingOffersCount</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ForkedToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
-    
-	// Attributes
-	public   fUML.Semantics.Activities.IntermediateActivities.Token baseToken =  null;
-	public   int remainingOffersCount = 0;
-    
-	// Operations of the class
-  /**
-   * operation isControl
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isControl()   {
-// Test if the base token is a control token.
+public class ForkedToken extends fUML.Semantics.Activities.IntermediateActivities.Token {
 
-return this.baseToken.isControl();
-	  } // isControl
+    // Attributes
+    public fUML.Semantics.Activities.IntermediateActivities.Token baseToken = null;
+    public int remainingOffersCount = 0;
 
-  /**
-   * operation withdraw
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void withdraw()   {
-// If the base token is not withdrawn, then withdraw it.
-// Decrement the remaining offers count. 
-// When the remaining number of offers is zero, then remove this token from its holder.
+    // Operations of the class
+    /**
+     * operation isControl <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isControl() {
+        // Test if the base token is a control token.
 
-if (!this.baseToken.isWithdrawn()) {
-    this.baseToken.withdraw();
-} 
+        return this.baseToken.isControl();
+    } // isControl
 
-if (this.remainingOffersCount > 0) {
-    this.remainingOffersCount = this.remainingOffersCount - 1;
-}
+    /**
+     * operation withdraw <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void withdraw() {
+        // If the base token is not withdrawn, then withdraw it.
+        // Decrement the remaining offers count.
+        // When the remaining number of offers is zero, then remove this token
+        // from its holder.
 
-if (this.remainingOffersCount == 0) {
-    super.withdraw();
-}	  } // withdraw
+        if (!this.baseToken.isWithdrawn()) {
+            this.baseToken.withdraw();
+        }
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-// Return a copy of the base token.
+        if (this.remainingOffersCount > 0) {
+            this.remainingOffersCount = this.remainingOffersCount - 1;
+        }
 
-return this.baseToken.copy();
-	  } // copy
+        if (this.remainingOffersCount == 0) {
+            super.withdraw();
+        }
+    } // withdraw
 
-  /**
-   * operation equals
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token otherToken)   {
-// Test if this token is equal to another token.
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.Token copy() {
+        // Return a copy of the base token.
 
-return this == otherToken;
-	  } // equals
+        return this.baseToken.copy();
+    } // copy
 
-  /**
-   * operation getValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-// Return the value of the base token.
+    /**
+     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token otherToken) {
+        // Test if this token is equal to another token.
 
-return this.baseToken.getValue();
-	  } // getValue
+        return this == otherToken;
+    } // equals
 
-} //ForkedToken
+    /**
+     * operation getValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value getValue() {
+        // Return the value of the base token.
+
+        return this.baseToken.getValue();
+    } // getValue
+
+} // ForkedToken

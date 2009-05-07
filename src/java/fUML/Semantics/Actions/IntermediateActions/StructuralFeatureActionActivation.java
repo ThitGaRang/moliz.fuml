@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,24 +35,23 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::StructuralFeatureActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::StructuralFeatureActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 * </ul>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class StructuralFeatureActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-} //StructuralFeatureActionActivation
+public abstract class StructuralFeatureActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
+
+    // Attributes
+
+    // Operations of the class
+} // StructuralFeatureActionActivation

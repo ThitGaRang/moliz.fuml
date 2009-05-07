@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,32 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class ValueSpecificationList extends ArrayList<fUML.Syntax.Classes.Kernel.ValueSpecification>
-{
-  public ValueSpecificationList(){
-    super();
-  }
+public class ValueSpecificationList extends
+        ArrayList<fUML.Syntax.Classes.Kernel.ValueSpecification> {
+    public ValueSpecificationList() {
+        super();
+    }
 
-  public ValueSpecification getValue(int i){
-    return (ValueSpecification)get(i);
-  }
+    public ValueSpecification getValue(int i) {
+        return (ValueSpecification) get(i);
+    }
 
-  public void addValue(ValueSpecification v){
-    add(v);
-  }
+    public void addValue(ValueSpecification v) {
+        add(v);
+    }
 
-  public void addValue(int i, ValueSpecification v){
-    add(i, v);
-  }
+    public void addValue(int i, ValueSpecification v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, ValueSpecification v){
-    set(i, v);
-  }
+    public void setValue(int i, ValueSpecification v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //ValueSpecificationList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // ValueSpecificationList

@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2008 Lockheed Martin Corporation.
  * All rights reserved.   This program and the accompanying materials
@@ -13,10 +12,8 @@
 
 package fUML.Syntax.Classes.Kernel;
 
-
 /**
  */
 public class Model extends fUML.Syntax.Classes.Kernel.Package {
-
 
 } // Model

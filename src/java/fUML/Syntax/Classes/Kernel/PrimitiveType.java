@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,24 +20,22 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Classes::Kernel::PrimitiveType</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Classes::Kernel::PrimitiveType</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 * </ul>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class PrimitiveType    extends fUML.Syntax.Classes.Kernel.DataType    {
-    
-	// Attributes
-    
-	// Operations of the class
-} //PrimitiveType
+public class PrimitiveType extends fUML.Syntax.Classes.Kernel.DataType {
+
+    // Attributes
+
+    // Operations of the class
+} // PrimitiveType

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class Class_List extends ArrayList<fUML.Syntax.Classes.Kernel.Class_>
-{
-  public Class_List(){
-    super();
-  }
+public class Class_List extends ArrayList<fUML.Syntax.Classes.Kernel.Class_> {
+    public Class_List() {
+        super();
+    }
 
-  public Class_ getValue(int i){
-    return (Class_)get(i);
-  }
+    public Class_ getValue(int i) {
+        return (Class_) get(i);
+    }
 
-  public void addValue(Class_ v){
-    add(v);
-  }
+    public void addValue(Class_ v) {
+        add(v);
+    }
 
-  public void addValue(int i, Class_ v){
-    add(i, v);
-  }
+    public void addValue(int i, Class_ v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Class_ v){
-    set(i, v);
-  }
+    public void setValue(int i, Class_ v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //Class_List
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // Class_List

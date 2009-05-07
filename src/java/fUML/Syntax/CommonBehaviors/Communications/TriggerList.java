@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.CommonBehaviors.Communications;
+
 import java.util.ArrayList;
 
-public class TriggerList extends ArrayList<fUML.Syntax.CommonBehaviors.Communications.Trigger>
-{
-  public TriggerList(){
-    super();
-  }
+public class TriggerList extends ArrayList<fUML.Syntax.CommonBehaviors.Communications.Trigger> {
+    public TriggerList() {
+        super();
+    }
 
-  public Trigger getValue(int i){
-    return (Trigger)get(i);
-  }
+    public Trigger getValue(int i) {
+        return (Trigger) get(i);
+    }
 
-  public void addValue(Trigger v){
-    add(v);
-  }
+    public void addValue(Trigger v) {
+        add(v);
+    }
 
-  public void addValue(int i, Trigger v){
-    add(i, v);
-  }
+    public void addValue(int i, Trigger v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Trigger v){
-    set(i, v);
-  }
+    public void setValue(int i, Trigger v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //TriggerList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // TriggerList

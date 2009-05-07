@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,37 +20,34 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Activities::IntermediateActivities::ActivityParameterNode</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Activities::IntermediateActivities::ActivityParameterNode</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ActivityParameterNode#setParameter <em>setParameter</em>}</li>
-	 	 *   <li>{@link ActivityParameterNode#parameter <em>parameter</em>}</li>
-	 * </ul>
+ * <li>{@link ActivityParameterNode#setParameter <em>setParameter</em>}</li>
+ * <li>{@link ActivityParameterNode#parameter <em>parameter</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ActivityParameterNode    extends fUML.Syntax.Activities.IntermediateActivities.ObjectNode    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.Parameter parameter =  null;
-    
-	// Operations of the class
-  /**
-   * operation setParameter
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setParameter(fUML.Syntax.Classes.Kernel.Parameter parameter)   {
-this.parameter = parameter;
-	  } // setParameter
+public class ActivityParameterNode extends fUML.Syntax.Activities.IntermediateActivities.ObjectNode {
 
-} //ActivityParameterNode
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.Parameter parameter = null;
+
+    // Operations of the class
+    /**
+     * operation setParameter <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setParameter(fUML.Syntax.Classes.Kernel.Parameter parameter) {
+        this.parameter = parameter;
+    } // setParameter
+
+} // ActivityParameterNode

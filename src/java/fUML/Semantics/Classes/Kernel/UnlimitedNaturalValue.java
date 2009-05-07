@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,113 +26,108 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::UnlimitedNaturalValue</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::UnlimitedNaturalValue</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link UnlimitedNaturalValue#specify <em>specify</em>}</li>
-	 *   <li>{@link UnlimitedNaturalValue#equals <em>equals</em>}</li>
-	 *   <li>{@link UnlimitedNaturalValue#copy <em>copy</em>}</li>
-	 *   <li>{@link UnlimitedNaturalValue#new_ <em>new_</em>}</li>
-	 *   <li>{@link UnlimitedNaturalValue#toString <em>toString</em>}</li>
-	 	 *   <li>{@link UnlimitedNaturalValue#value <em>value</em>}</li>
-	 * </ul>
+ * <li>{@link UnlimitedNaturalValue#specify <em>specify</em>}</li>
+ * <li>{@link UnlimitedNaturalValue#equals <em>equals</em>}</li>
+ * <li>{@link UnlimitedNaturalValue#copy <em>copy</em>}</li>
+ * <li>{@link UnlimitedNaturalValue#new_ <em>new_</em>}</li>
+ * <li>{@link UnlimitedNaturalValue#toString <em>toString</em>}</li>
+ * <li>{@link UnlimitedNaturalValue#value <em>value</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class UnlimitedNaturalValue    extends fUML.Semantics.Classes.Kernel.PrimitiveValue    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.UnlimitedNatural value =  null;
-    
-	// Operations of the class
-  /**
-   * operation specify
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Syntax.Classes.Kernel.ValueSpecification specify()   {
-// Return a literal unlimited natural with the value of this unlimited natural value.
+public class UnlimitedNaturalValue extends fUML.Semantics.Classes.Kernel.PrimitiveValue {
 
-LiteralUnlimitedNatural literal = new LiteralUnlimitedNatural();
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.UnlimitedNatural value = null;
 
-literal.type = this.type;
-literal.value = this.value;
+    // Operations of the class
+    /**
+     * operation specify <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Syntax.Classes.Kernel.ValueSpecification specify() {
+        // Return a literal unlimited natural with the value of this unlimited
+        // natural value.
 
-return literal;	  } // specify
+        LiteralUnlimitedNatural literal = new LiteralUnlimitedNatural();
 
-  /**
-   * operation equals
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue)   {
-// Test if this unlimited natural value is equal to the otherValue. 
-// To be equal, the otherValue must have the same value as this unlimited natural value.
+        literal.type = this.type;
+        literal.value = this.value;
 
-boolean isEqual = false;
-if (otherValue instanceof UnlimitedNaturalValue) {
-    isEqual = ((UnlimitedNaturalValue)otherValue).value == this.value;
-}
+        return literal;
+    } // specify
 
-return isEqual;
-	  } // equals
+    /**
+     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue) {
+        // Test if this unlimited natural value is equal to the otherValue.
+        // To be equal, the otherValue must have the same value as this
+        // unlimited natural value.
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value copy()   {
-// Create a new unlimited natural value with the same value as this value.
+        boolean isEqual = false;
+        if (otherValue instanceof UnlimitedNaturalValue) {
+            isEqual = ((UnlimitedNaturalValue) otherValue).value == this.value;
+        }
 
-UnlimitedNaturalValue newValue = (UnlimitedNaturalValue)(super.copy());
+        return isEqual;
+    } // equals
 
-newValue.value = this.value;
-return newValue;
-	  } // copy
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value copy() {
+        // Create a new unlimited natural value with the same value as this
+        // value.
 
-  /**
-   * operation new_
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	protected     fUML.Semantics.Classes.Kernel.Value new_()   {
-// Create a new unlimited natural value with no value.
+        UnlimitedNaturalValue newValue = (UnlimitedNaturalValue) (super.copy());
 
-return new UnlimitedNaturalValue();
-	  } // new_
+        newValue.value = this.value;
+        return newValue;
+    } // copy
 
-  /**
-   * operation toString
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     String toString()   {
-String stringValue = "*";
+    /**
+     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected fUML.Semantics.Classes.Kernel.Value new_() {
+        // Create a new unlimited natural value with no value.
 
-if (this.value.naturalValue >= 0) {
-    IntegerValue integerValue = new IntegerValue();
-    integerValue.value = this.value.naturalValue;
-    stringValue = integerValue.toString();
-}
+        return new UnlimitedNaturalValue();
+    } // new_
 
-return stringValue;
+    /**
+     * operation toString <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public String toString() {
+        String stringValue = "*";
 
-	  } // toString
+        if (this.value.naturalValue >= 0) {
+            IntegerValue integerValue = new IntegerValue();
+            integerValue.value = this.value.naturalValue;
+            stringValue = integerValue.toString();
+        }
 
-} //UnlimitedNaturalValue
+        return stringValue;
+
+    } // toString
+
+} // UnlimitedNaturalValue

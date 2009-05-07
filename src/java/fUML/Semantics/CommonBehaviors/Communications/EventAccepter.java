@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -33,37 +30,39 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::CommonBehaviors::Communications::EventAccepter</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::CommonBehaviors::Communications::EventAccepter</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link EventAccepter#accept <em>accept</em>}</li>
-	 *   <li>{@link EventAccepter#match <em>match</em>}</li>
-	 	 * </ul>
+ * <li>{@link EventAccepter#accept <em>accept</em>}</li>
+ * <li>{@link EventAccepter#match <em>match</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class EventAccepter    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation accept
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract    void accept(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)  ;  /**
-   * operation match
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   boolean match(fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance)  ;} //EventAccepter
+public abstract class EventAccepter {
+
+    // Attributes
+
+    // Operations of the class
+    /**
+     * operation accept <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract void accept(
+            fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance);
+
+    /**
+     * operation match <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract boolean match(
+            fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance);
+} // EventAccepter

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.Classes.Kernel;
+
 import java.util.ArrayList;
 
-public class CommentList extends ArrayList<fUML.Syntax.Classes.Kernel.Comment>
-{
-  public CommentList(){
-    super();
-  }
+public class CommentList extends ArrayList<fUML.Syntax.Classes.Kernel.Comment> {
+    public CommentList() {
+        super();
+    }
 
-  public Comment getValue(int i){
-    return (Comment)get(i);
-  }
+    public Comment getValue(int i) {
+        return (Comment) get(i);
+    }
 
-  public void addValue(Comment v){
-    add(v);
-  }
+    public void addValue(Comment v) {
+        add(v);
+    }
 
-  public void addValue(int i, Comment v){
-    add(i, v);
-  }
+    public void addValue(int i, Comment v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Comment v){
-    set(i, v);
-  }
+    public void setValue(int i, Comment v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //CommentList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // CommentList

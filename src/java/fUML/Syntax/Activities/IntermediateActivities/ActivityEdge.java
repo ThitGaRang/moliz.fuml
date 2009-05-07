@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except
  * as stated in the file entitled Licensing-Information.
@@ -23,72 +20,68 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Activities::IntermediateActivities::ActivityEdge</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Activities::IntermediateActivities::ActivityEdge</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ActivityEdge#setTarget <em>setTarget</em>}</li>
-	 *   <li>{@link ActivityEdge#setSource <em>setSource</em>}</li>
-	 *   <li>{@link ActivityEdge#setGuard <em>setGuard</em>}</li>
-	 	 *   <li>{@link ActivityEdge#activity <em>activity</em>}</li>
-	 *   <li>{@link ActivityEdge#source <em>source</em>}</li>
-	 *   <li>{@link ActivityEdge#target <em>target</em>}</li>
-	 *   <li>{@link ActivityEdge#guard <em>guard</em>}</li>
-	 *   <li>{@link ActivityEdge#inStructuredNode <em>inStructuredNode</em>}</li>
-	 * </ul>
+ * <li>{@link ActivityEdge#setTarget <em>setTarget</em>}</li>
+ * <li>{@link ActivityEdge#setSource <em>setSource</em>}</li>
+ * <li>{@link ActivityEdge#setGuard <em>setGuard</em>}</li>
+ * <li>{@link ActivityEdge#activity <em>activity</em>}</li>
+ * <li>{@link ActivityEdge#source <em>source</em>}</li>
+ * <li>{@link ActivityEdge#target <em>target</em>}</li>
+ * <li>{@link ActivityEdge#guard <em>guard</em>}</li>
+ * <li>{@link ActivityEdge#inStructuredNode <em>inStructuredNode</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class ActivityEdge    extends fUML.Syntax.Classes.Kernel.RedefinableElement    {
+public abstract class ActivityEdge extends fUML.Syntax.Classes.Kernel.RedefinableElement {
 
-	// Attributes
-	public   fUML.Syntax.Activities.IntermediateActivities.Activity activity =  null;
-	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode source =  null;
-	public   fUML.Syntax.Activities.IntermediateActivities.ActivityNode target =  null;
-	public   fUML.Syntax.Classes.Kernel.ValueSpecification guard =  null;
-	public   fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode =  null;
+    // Attributes
+    public fUML.Syntax.Activities.IntermediateActivities.Activity activity = null;
+    public fUML.Syntax.Activities.IntermediateActivities.ActivityNode source = null;
+    public fUML.Syntax.Activities.IntermediateActivities.ActivityNode target = null;
+    public fUML.Syntax.Classes.Kernel.ValueSpecification guard = null;
+    public fUML.Syntax.Activities.CompleteStructuredActivities.StructuredActivityNode inStructuredNode = null;
 
-	// Operations of the class
-  /**
-   * operation setTarget
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setTarget(fUML.Syntax.Activities.IntermediateActivities.ActivityNode target)   {
-this.target = target;
-target.incoming.addValue(this);
-	  } // setTarget
+    // Operations of the class
+    /**
+     * operation setTarget <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setTarget(fUML.Syntax.Activities.IntermediateActivities.ActivityNode target) {
+        this.target = target;
+        target.incoming.addValue(this);
+    } // setTarget
 
-  /**
-   * operation setSource
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setSource(fUML.Syntax.Activities.IntermediateActivities.ActivityNode source)   {
-this.source = source;
-source.outgoing.addValue(this);
-	  } // setSource
+    /**
+     * operation setSource <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setSource(fUML.Syntax.Activities.IntermediateActivities.ActivityNode source) {
+        this.source = source;
+        source.outgoing.addValue(this);
+    } // setSource
 
-  /**
-   * operation setGuard
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setGuard(fUML.Syntax.Classes.Kernel.ValueSpecification guard)   {
-if (guard != null) {
-    super.addOwnedElement(guard);
-}
+    /**
+     * operation setGuard <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setGuard(fUML.Syntax.Classes.Kernel.ValueSpecification guard) {
+        if (guard != null) {
+            super.addOwnedElement(guard);
+        }
 
-this.guard = guard;	  } // setGuard
+        this.guard = guard;
+    } // setGuard
 
-} //ActivityEdge
+} // ActivityEdge

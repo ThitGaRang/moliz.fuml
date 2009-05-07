@@ -31,18 +31,18 @@ import UMLPrimitiveTypes.intList;
 
 public class Debug {
 
-	// Attributes
+    // Attributes
 
-	// Operations of the class
-	/**
-	 * operation println <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
+    // Operations of the class
+    /**
+     * operation println <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
 
-	public static void println(String message) {
-		MexSystem.println(message);
+    public static void println(String message) {
+        MexSystem.println(message);
 
-	}
+    }
 
 } // Debug

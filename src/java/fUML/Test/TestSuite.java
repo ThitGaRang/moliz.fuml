@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -33,243 +30,253 @@ import fUML.Syntax.Actions.BasicActions.*;
 import fUML.Syntax.Actions.IntermediateActions.*;
 import fUML.Syntax.Actions.CompleteActions.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Test::TestSuite</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Test::TestSuite</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link TestSuite#TestSuite <em>TestSuite</em>}</li>
-	 *   <li>{@link TestSuite#testSimpleActivites <em>testSimpleActivites</em>}</li>
-	 *   <li>{@link TestSuite#testHelloWorld <em>testHelloWorld</em>}</li>
-	 *   <li>{@link TestSuite#testPolymorphicOperationCall <em>testPolymorphicOperationCall</em>}</li>
-	 *   <li>{@link TestSuite#testSuperCall <em>testSuperCall</em>}</li>
-	 *   <li>{@link TestSuite#testSignalSend <em>testSignalSend</em>}</li>
-	 *   <li>{@link TestSuite#testLinkCreator <em>testLinkCreator</em>}</li>
-	 	 *   <li>{@link TestSuite#activityFactory <em>activityFactory</em>}</li>
-	 *   <li>{@link TestSuite#classifierFactory <em>classifierFactory</em>}</li>
-	 *   <li>{@link TestSuite#executorTest <em>executorTest</em>}</li>
-	 * </ul>
+ * <li>{@link TestSuite#TestSuite <em>TestSuite</em>}</li>
+ * <li>{@link TestSuite#testSimpleActivites <em>testSimpleActivites</em>}</li>
+ * <li>{@link TestSuite#testHelloWorld <em>testHelloWorld</em>}</li>
+ * <li>{@link TestSuite#testPolymorphicOperationCall <em>
+ * testPolymorphicOperationCall</em>}</li>
+ * <li>{@link TestSuite#testSuperCall <em>testSuperCall</em>}</li>
+ * <li>{@link TestSuite#testSignalSend <em>testSignalSend</em>}</li>
+ * <li>{@link TestSuite#testLinkCreator <em>testLinkCreator</em>}</li>
+ * <li>{@link TestSuite#activityFactory <em>activityFactory</em>}</li>
+ * <li>{@link TestSuite#classifierFactory <em>classifierFactory</em>}</li>
+ * <li>{@link TestSuite#executorTest <em>executorTest</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class TestSuite    extends fUML.Test.Test    {
-    
-	// Attributes
-	private   fUML.Test.ActivityFactory activityFactory =  null;
-	private   fUML.Test.ClassifierFactory classifierFactory =  null;
-	private   fUML.Test.ExecutorTest executorTest =  null;
-    
-	// Operations of the class
-  /**
-   * operation TestSuite
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      TestSuite(fUML.Test.TestEnvironment environment, fUML.Test.ActivityFactory activityFactory, fUML.Test.ClassifierFactory classifierFactory, fUML.Test.ExecutorTest executorTest)   {
-this.environment = environment;
-this.activityFactory = activityFactory;
-this.classifierFactory = classifierFactory;
-this.executorTest = executorTest;
-	  } // TestSuite
+public class TestSuite extends fUML.Test.Test {
 
-  /**
-   * operation testSimpleActivites
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testSimpleActivites()   {
-Debug.println("");
-Debug.println("[testSimpleActivites] Setting up...");
+    // Attributes
+    private fUML.Test.ActivityFactory activityFactory = null;
+    private fUML.Test.ClassifierFactory classifierFactory = null;
+    private fUML.Test.ExecutorTest executorTest = null;
 
-this.activityFactory.createCopier();
-this.activityFactory.createCaller("Copier");
-this.activityFactory.createSimpleDecision(0);
-this.activityFactory.createSimpleDecision(1);
-this.activityFactory.createForkJoin();
-this.activityFactory.createDecisionJoin();
-this.activityFactory.createForkMerge();
-this.activityFactory.createForkMergeData();
-this.activityFactory.createSelfReader();
+    // Operations of the class
+    /**
+     * operation TestSuite <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public TestSuite(fUML.Test.TestEnvironment environment,
+            fUML.Test.ActivityFactory activityFactory,
+            fUML.Test.ClassifierFactory classifierFactory, fUML.Test.ExecutorTest executorTest) {
+        this.environment = environment;
+        this.activityFactory = activityFactory;
+        this.classifierFactory = classifierFactory;
+        this.executorTest = executorTest;
+    } // TestSuite
 
-Debug.println("[testSimpleActivities] Testing...");
+    /**
+     * operation testSimpleActivites <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public void testSimpleActivites() {
+        Debug.println("");
+        Debug.println("[testSimpleActivites] Setting up...");
 
-this.executorTest.testExecute("Copier");
-this.executorTest.testExecute("CopierCaller");
-this.executorTest.testExecute("SimpleDecision0");
-this.executorTest.testExecute("SimpleDecision1");
-this.executorTest.testExecute("ForkJoin");
-this.executorTest.testExecute("DecisionJoin");
-this.executorTest.testExecute("ForkMerge");
-this.executorTest.testExecute("ForkMergeData");
-this.executorTest.testExecute("SelfReader");
+        this.activityFactory.createCopier();
+        this.activityFactory.createCaller("Copier");
+        this.activityFactory.createSimpleDecision(0);
+        this.activityFactory.createSimpleDecision(1);
+        this.activityFactory.createForkJoin();
+        this.activityFactory.createDecisionJoin();
+        this.activityFactory.createForkMerge();
+        this.activityFactory.createForkMergeData();
+        this.activityFactory.createSelfReader();
 
-Debug.println("[testSimpleActivities] Done!");
-	  } // testSimpleActivites
+        Debug.println("[testSimpleActivities] Testing...");
 
-  /**
-   * operation testHelloWorld
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testHelloWorld()   {
-Debug.println("");
-Debug.println("[testHelloWorld] Setting up...");
-this.activityFactory.createHelloWorld2();
+        this.executorTest.testExecute("Copier");
+        this.executorTest.testExecute("CopierCaller");
+        this.executorTest.testExecute("SimpleDecision0");
+        this.executorTest.testExecute("SimpleDecision1");
+        this.executorTest.testExecute("ForkJoin");
+        this.executorTest.testExecute("DecisionJoin");
+        this.executorTest.testExecute("ForkMerge");
+        this.executorTest.testExecute("ForkMergeData");
+        this.executorTest.testExecute("SelfReader");
 
-Debug.println("[testHelloWorld] Testing...");
-this.executorTest.testExecute("HelloWorld2");
+        Debug.println("[testSimpleActivities] Done!");
+    } // testSimpleActivites
 
-Debug.println("[testHelloWorld] Done!");
+    /**
+     * operation testHelloWorld <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void testHelloWorld() {
+        Debug.println("");
+        Debug.println("[testHelloWorld] Setting up...");
+        this.activityFactory.createHelloWorld2();
 
-	  } // testHelloWorld
+        Debug.println("[testHelloWorld] Testing...");
+        this.executorTest.testExecute("HelloWorld2");
 
-  /**
-   * operation testPolymorphicOperationCall
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testPolymorphicOperationCall(String superclassMethodName, String subclassMethodName)   {
-Debug.println("");
-Debug.println("[testPolymorphicOperationCall] Setting up...");
+        Debug.println("[testHelloWorld] Done!");
 
-if (activityFactory.getActivity(superclassMethodName)==null) return;
-if (activityFactory.getActivity(subclassMethodName)==null) return;
+    } // testHelloWorld
 
-String superclassName = "Super_" + superclassMethodName;
-String subclassName = "Sub_" + subclassMethodName;
+    /**
+     * operation testPolymorphicOperationCall <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public void testPolymorphicOperationCall(String superclassMethodName, String subclassMethodName) {
+        Debug.println("");
+        Debug.println("[testPolymorphicOperationCall] Setting up...");
 
-if (this.environment.getElement(superclassName)!=null) {
-    Debug.println("[testPolymorphicOperationCall] Replacing class " + superclassName + ".");
-    this.environment.removeElement(superclassName);
-}
+        if (activityFactory.getActivity(superclassMethodName) == null)
+            return;
+        if (activityFactory.getActivity(subclassMethodName) == null)
+            return;
 
-if (this.environment.getElement(subclassName)!=null) {
-    Debug.println("[testPolymorphicOperationCall] Replacing class " + subclassName + ".");
-   this.environment.removeElement(subclassName);
-}
+        String superclassName = "Super_" + superclassMethodName;
+        String subclassName = "Sub_" + subclassMethodName;
 
-this.classifierFactory.createClass(superclassName);
-this.classifierFactory.addOperation(superclassName,"","test",superclassMethodName);
+        if (this.environment.getElement(superclassName) != null) {
+            Debug.println("[testPolymorphicOperationCall] Replacing class " + superclassName + ".");
+            this.environment.removeElement(superclassName);
+        }
 
-this.classifierFactory.createClass(subclassName);
-this.classifierFactory.addOperation(subclassName,superclassName,"test",subclassMethodName);
+        if (this.environment.getElement(subclassName) != null) {
+            Debug.println("[testPolymorphicOperationCall] Replacing class " + subclassName + ".");
+            this.environment.removeElement(subclassName);
+        }
 
-this.activityFactory.createPolymorphicOperationCaller(subclassName,superclassName,"test");
+        this.classifierFactory.createClass(superclassName);
+        this.classifierFactory.addOperation(superclassName, "", "test", superclassMethodName);
 
-Debug.println("[testPolymorphicOperationCall] Testing...");
+        this.classifierFactory.createClass(subclassName);
+        this.classifierFactory.addOperation(subclassName, superclassName, "test",
+                subclassMethodName);
 
-this.executorTest.testExecute(subclassName + superclassName + "testCaller");
+        this.activityFactory.createPolymorphicOperationCaller(subclassName, superclassName, "test");
 
-Debug.println("[testPolymorphicOperationCall] Done!");
+        Debug.println("[testPolymorphicOperationCall] Testing...");
 
-	  } // testPolymorphicOperationCall
+        this.executorTest.testExecute(subclassName + superclassName + "testCaller");
 
-  /**
-   * operation testSuperCall
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testSuperCall(String superclassMethodName, String subclassMethodName)   {
-Debug.println("");
-Debug.println("[testSuperCall] Setting up...");
+        Debug.println("[testPolymorphicOperationCall] Done!");
 
-if (activityFactory.getActivity(superclassMethodName)==null) return;
-if (activityFactory.getActivity(subclassMethodName)==null) return;
+    } // testPolymorphicOperationCall
 
-String superclassName = "Super_" + superclassMethodName;
-String subclassName = "Sub_" + subclassMethodName;
+    /**
+     * operation testSuperCall <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void testSuperCall(String superclassMethodName, String subclassMethodName) {
+        Debug.println("");
+        Debug.println("[testSuperCall] Setting up...");
 
-if (this.environment.getElement(superclassName)!=null) {
-    Debug.println("[testSuperCall] Replacing class " + superclassName + ".");
-    this.environment.removeElement(superclassName);
-}
+        if (activityFactory.getActivity(superclassMethodName) == null)
+            return;
+        if (activityFactory.getActivity(subclassMethodName) == null)
+            return;
 
-if (this.environment.getElement(subclassName)!=null) {
-    Debug.println("[testSuperCall] Replacing class " + subclassName + ".");
-    this.environment.removeElement(subclassName);
-}
+        String superclassName = "Super_" + superclassMethodName;
+        String subclassName = "Sub_" + subclassMethodName;
 
-// Debug.println("[testSuperCall] Creating class " + superclassName + "...");
+        if (this.environment.getElement(superclassName) != null) {
+            Debug.println("[testSuperCall] Replacing class " + superclassName + ".");
+            this.environment.removeElement(superclassName);
+        }
 
-this.classifierFactory.createClass(superclassName);
-this.classifierFactory.addOperation(superclassName,"","test",superclassMethodName);
-this.activityFactory.createSelfCaller(superclassName,"test");
-// Activity callTestMethod = (Activity)(this.environment.getElement(superclassName+"testSelfCaller"));
-this.classifierFactory.addOperation(superclassName,"","callTest",superclassName+"testSelfCaller");
-// Debug.println("[testSuperCall] " + superclassName + "::" + "callTest method = " + callTestMethod.name + ", context = " + callTestMethod.context);
+        if (this.environment.getElement(subclassName) != null) {
+            Debug.println("[testSuperCall] Replacing class " + subclassName + ".");
+            this.environment.removeElement(subclassName);
+        }
 
-//Debug.println("[testSuperCall] Creating class " + subclassName + "...");
+        // Debug.println("[testSuperCall] Creating class " + superclassName +
+        // "...");
 
-this.classifierFactory.createClass(subclassName);
-this.classifierFactory.addOperation(subclassName,superclassName,"test",subclassMethodName);
-this.activityFactory.createMethodCaller(superclassName,"callTest");
-this.classifierFactory.addOperation(subclassName,superclassName,"callTest",superclassName+"callTestMethodCaller");
+        this.classifierFactory.createClass(superclassName);
+        this.classifierFactory.addOperation(superclassName, "", "test", superclassMethodName);
+        this.activityFactory.createSelfCaller(superclassName, "test");
+        // Activity callTestMethod =
+        // (Activity)(this.environment.getElement(superclassName+"testSelfCaller"));
+        this.classifierFactory.addOperation(superclassName, "", "callTest", superclassName
+                + "testSelfCaller");
+        // Debug.println("[testSuperCall] " + superclassName + "::" +
+        // "callTest method = " + callTestMethod.name + ", context = " +
+        // callTestMethod.context);
 
-// Debug.println("[testSuperCall] Adding generalization...");
-this.classifierFactory.addGeneralization(subclassName,superclassName);
+        // Debug.println("[testSuperCall] Creating class " + subclassName +
+        // "...");
 
-// Debug.println("[testSuperCall] Creating operation caller activity...");
-this.activityFactory.createOperationCaller(subclassName,"callTest");
+        this.classifierFactory.createClass(subclassName);
+        this.classifierFactory.addOperation(subclassName, superclassName, "test",
+                subclassMethodName);
+        this.activityFactory.createMethodCaller(superclassName, "callTest");
+        this.classifierFactory.addOperation(subclassName, superclassName, "callTest",
+                superclassName + "callTestMethodCaller");
 
-Debug.println("[testSuperCall] Testing...");
+        // Debug.println("[testSuperCall] Adding generalization...");
+        this.classifierFactory.addGeneralization(subclassName, superclassName);
 
-this.executorTest.testExecute(subclassName+"callTestCaller");
+        // Debug.println("[testSuperCall] Creating operation caller activity...");
+        this.activityFactory.createOperationCaller(subclassName, "callTest");
 
-Debug.println("[testSuperCall] Done!");
+        Debug.println("[testSuperCall] Testing...");
 
-	  } // testSuperCall
+        this.executorTest.testExecute(subclassName + "callTestCaller");
 
-  /**
-   * operation testSignalSend
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testSignalSend()   {
-Debug.println("[testSignalSend] Setting up...");
+        Debug.println("[testSuperCall] Done!");
 
-classifierFactory.createSignal("TestSignal");
-activityFactory.createSender("TestSignal");
+    } // testSuperCall
 
-Debug.println("[testSignalSend] Testing...");
+    /**
+     * operation testSignalSend <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void testSignalSend() {
+        Debug.println("[testSignalSend] Setting up...");
 
-executorTest.testExecute("TestSignalSender");
+        classifierFactory.createSignal("TestSignal");
+        activityFactory.createSender("TestSignal");
 
-Debug.println("[testSignalSend] Done!");
-	  } // testSignalSend
+        Debug.println("[testSignalSend] Testing...");
 
-  /**
-   * operation testLinkCreator
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void testLinkCreator()   {
-Debug.println("[testLinkCreator] Setting up...");
+        executorTest.testExecute("TestSignalSender");
 
-classifierFactory.createClass("A");
-classifierFactory.createClass("B");
+        Debug.println("[testSignalSend] Done!");
+    } // testSignalSend
 
-classifierFactory.createAssociation("AB");
-classifierFactory.addEnd("AB", "a", "A", false);
-classifierFactory.addEnd("AB", "b", "B", false);
+    /**
+     * operation testLinkCreator <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void testLinkCreator() {
+        Debug.println("[testLinkCreator] Setting up...");
 
-activityFactory.createLinkCreator("AB");
+        classifierFactory.createClass("A");
+        classifierFactory.createClass("B");
 
-Debug.println("[testLinkCreator] Testing...");
+        classifierFactory.createAssociation("AB");
+        classifierFactory.addEnd("AB", "a", "A", false);
+        classifierFactory.addEnd("AB", "b", "B", false);
 
-executorTest.testExecute("ABLinkCreator");
+        activityFactory.createLinkCreator("AB");
 
-Debug.println("[testLinkCreator] Done!");	  } // testLinkCreator
+        Debug.println("[testLinkCreator] Testing...");
 
-} //TestSuite
+        executorTest.testExecute("ABLinkCreator");
+
+        Debug.println("[testLinkCreator] Done!");
+    } // testLinkCreator
+
+} // TestSuite

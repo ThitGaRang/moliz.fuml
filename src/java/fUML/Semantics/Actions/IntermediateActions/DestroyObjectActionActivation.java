@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,122 +35,128 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::DestroyObjectActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::DestroyObjectActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link DestroyObjectActionActivation#doAction <em>doAction</em>}</li>
-	 *   <li>{@link DestroyObjectActionActivation#destroyObject <em>destroyObject</em>}</li>
-	 *   <li>{@link DestroyObjectActionActivation#objectIsComposite <em>objectIsComposite</em>}</li>
-	 	 * </ul>
+ * <li>{@link DestroyObjectActionActivation#doAction <em>doAction</em>}</li>
+ * <li>{@link DestroyObjectActionActivation#destroyObject <em>destroyObject
+ * </em>}</li>
+ * <li>{@link DestroyObjectActionActivation#objectIsComposite <em>
+ * objectIsComposite</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class DestroyObjectActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the value on the target input pin.
-// If the value is not a reference, then the action has no effect. Otherwise, do the following.
-// If isDestroyLinks is true, destroy all links in which the referent participates.
-// If isDestroyOwnedObjects is true, destroy all objects owned by the referent via composition links.
-// Destroy the referent object.
+public class DestroyObjectActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-DestroyObjectAction action = (DestroyObjectAction)(this.node);
-Value value = this.takeTokens(action.target).getValue(0);
+    // Attributes
 
-this.destroyObject(value, action.isDestroyLinks, action.isDestroyOwnedObjects);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the value on the target input pin.
+        // If the value is not a reference, then the action has no effect.
+        // Otherwise, do the following.
+        // If isDestroyLinks is true, destroy all links in which the referent
+        // participates.
+        // If isDestroyOwnedObjects is true, destroy all objects owned by the
+        // referent via composition links.
+        // Destroy the referent object.
 
-	  } // doAction
+        DestroyObjectAction action = (DestroyObjectAction) (this.node);
+        Value value = this.takeTokens(action.target).getValue(0);
 
-  /**
-   * operation destroyObject
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void destroyObject(fUML.Semantics.Classes.Kernel.Value value, boolean isDestroyLinks, boolean isDestroyOwnedObjects)   {
-// If the given value is a reference, then destroy the referenced object, per the given destroy action attribute values.
+        this.destroyObject(value, action.isDestroyLinks, action.isDestroyOwnedObjects);
 
-// Debug.println("[destroyObject] object = " + value.objectId());
+    } // doAction
 
-if (value instanceof Reference) {
-    Reference reference = (Reference)value;
+    /**
+     * operation destroyObject <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void destroyObject(fUML.Semantics.Classes.Kernel.Value value, boolean isDestroyLinks,
+            boolean isDestroyOwnedObjects) {
+        // If the given value is a reference, then destroy the referenced
+        // object, per the given destroy action attribute values.
 
-    if (isDestroyLinks | isDestroyOwnedObjects) {
-        Debug.println("[destroyObject] Destroying links...");
-        ExtensionalValueList extensionalValues = this.getExecutionLocus().extensionalValues;
-        for (int i = 0; i < extensionalValues.size(); i++) {
-            ExtensionalValue extensionalValue = extensionalValues.getValue(i);
-            if (extensionalValue instanceof Link) {
-                Link link = (Link)extensionalValue;
-                if (this.valueParticipatesInLink(reference, link)) {
-                    if (isDestroyLinks | this.objectIsComposite(reference, link)) {
-                        // Debug.println("[destroyObject] Destroying link " + link.objectId());
-                        link.destroy();
+        // Debug.println("[destroyObject] object = " + value.objectId());
+
+        if (value instanceof Reference) {
+            Reference reference = (Reference) value;
+
+            if (isDestroyLinks | isDestroyOwnedObjects) {
+                Debug.println("[destroyObject] Destroying links...");
+                ExtensionalValueList extensionalValues = this.getExecutionLocus().extensionalValues;
+                for (int i = 0; i < extensionalValues.size(); i++) {
+                    ExtensionalValue extensionalValue = extensionalValues.getValue(i);
+                    if (extensionalValue instanceof Link) {
+                        Link link = (Link) extensionalValue;
+                        if (this.valueParticipatesInLink(reference, link)) {
+                            if (isDestroyLinks | this.objectIsComposite(reference, link)) {
+                                // Debug.println("[destroyObject] Destroying link "
+                                // + link.objectId());
+                                link.destroy();
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
 
-    if (isDestroyOwnedObjects) {
-        Debug.println("[destroyObject] Destroying owned objects...");
-        FeatureValueList objectFeatureValues = reference.getFeatureValues();
-        for (int i = 0; i < objectFeatureValues.size(); i++) {
-            FeatureValue featureValue = objectFeatureValues.getValue(i);
-            if (((Property)featureValue.feature).aggregation == AggregationKind.composite) {
-                ValueList values = featureValue.values;
-                for (int j = 0; j < values.size(); j++) {
-                    Value ownedValue = values.getValue(j);
-                    this.destroyObject(ownedValue, isDestroyLinks, isDestroyOwnedObjects);
+            if (isDestroyOwnedObjects) {
+                Debug.println("[destroyObject] Destroying owned objects...");
+                FeatureValueList objectFeatureValues = reference.getFeatureValues();
+                for (int i = 0; i < objectFeatureValues.size(); i++) {
+                    FeatureValue featureValue = objectFeatureValues.getValue(i);
+                    if (((Property) featureValue.feature).aggregation == AggregationKind.composite) {
+                        ValueList values = featureValue.values;
+                        for (int j = 0; j < values.size(); j++) {
+                            Value ownedValue = values.getValue(j);
+                            this.destroyObject(ownedValue, isDestroyLinks, isDestroyOwnedObjects);
+                        }
+                    }
                 }
             }
+
+            reference.destroy();
         }
-    }
+    } // destroyObject
 
-    reference.destroy();
-}
-	  } // destroyObject
+    /**
+     * operation objectIsComposite <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean objectIsComposite(fUML.Semantics.Classes.Kernel.Reference reference,
+            fUML.Semantics.Classes.Kernel.Link link) {
+        // Test whether the given reference participates in the given link as a
+        // composite.
 
-  /**
-   * operation objectIsComposite
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean objectIsComposite(fUML.Semantics.Classes.Kernel.Reference reference, fUML.Semantics.Classes.Kernel.Link link)   {
-// Test whether the given reference participates in the given link as a composite.
+        FeatureValueList linkFeatureValues = link.getFeatureValues();
 
-FeatureValueList linkFeatureValues = link.getFeatureValues();
+        boolean isComposite = false;
+        int i = 1;
+        while (!isComposite & i <= linkFeatureValues.size()) {
+            FeatureValue featureValue = linkFeatureValues.getValue(i - 1);
+            if (!featureValue.values.getValue(0).equals(reference)
+                    & ((Property) featureValue.feature).aggregation == AggregationKind.composite) {
+                isComposite = true;
+            }
+        }
 
-boolean isComposite = false;
-int i = 1;
-while (!isComposite & i <= linkFeatureValues.size()) {
-    FeatureValue featureValue = linkFeatureValues.getValue(i-1);
-    if (!featureValue.values.getValue(0).equals(reference) &
-       ((Property)featureValue.feature).aggregation == AggregationKind.composite) {
-         isComposite = true;
-    }
-}
+        return isComposite;
 
-return isComposite;
+    } // objectIsComposite
 
-	  } // objectIsComposite
-
-} //DestroyObjectActionActivation
+} // DestroyObjectActionActivation

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,80 +33,86 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ActivityParameterNodeActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * 
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ActivityParameterNodeActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ActivityParameterNodeActivation#fire <em>fire</em>}</li>
-	 *   <li>{@link ActivityParameterNodeActivation#clearTokens <em>clearTokens</em>}</li>
-	 	 * </ul>
+ * <li>{@link ActivityParameterNodeActivation#fire <em>fire</em>}</li>
+ * <li>{@link ActivityParameterNodeActivation#clearTokens <em>clearTokens</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ActivityParameterNodeActivation    extends fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation fire
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-// If there are no incoming edges, this is an activation of an input activity parameter node.
-// Get the values from the input parameter indicated by the activity parameter node and offer those values as object tokens.
+public class ActivityParameterNodeActivation extends
+        fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation {
 
-if (this.node.incoming.size() == 0) {
-    Debug.println("[fire] Input activity parameter node " + this.node.name + "...");
-    Parameter parameter = ((ActivityParameterNode)(this.node)).parameter;
-    ParameterValue parameterValue = this.getActivityExecution().getParameterValue(parameter);
-    // Debug.println("[fire] parameter = " + parameter.name);
-    if (parameterValue != null) {
-        Debug.println("[fire] Parameter has " + parameterValue.values.size() + " value(s).");
-        TokenList tokens = new TokenList();
-        ValueList values = parameterValue.values;
-        for (int i = 0; i < values.size(); i++) {
-            Value value = values.getValue(i);
-            ObjectToken token = new ObjectToken();
-            token.value = value;
-            this.addToken(token);
+    // Attributes
+
+    // Operations of the class
+    /**
+     * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
+        // If there are no incoming edges, this is an activation of an input
+        // activity parameter node.
+        // Get the values from the input parameter indicated by the activity
+        // parameter node and offer those values as object tokens.
+
+        if (this.node.incoming.size() == 0) {
+            Debug.println("[fire] Input activity parameter node " + this.node.name + "...");
+            Parameter parameter = ((ActivityParameterNode) (this.node)).parameter;
+            ParameterValue parameterValue = this.getActivityExecution()
+                    .getParameterValue(parameter);
+            // Debug.println("[fire] parameter = " + parameter.name);
+            if (parameterValue != null) {
+                Debug
+                        .println("[fire] Parameter has " + parameterValue.values.size()
+                                + " value(s).");
+                TokenList tokens = new TokenList();
+                ValueList values = parameterValue.values;
+                for (int i = 0; i < values.size(); i++) {
+                    Value value = values.getValue(i);
+                    ObjectToken token = new ObjectToken();
+                    token.value = value;
+                    this.addToken(token);
+                }
+                this.sendUnofferedTokens();
+            }
         }
-        this.sendUnofferedTokens();
-    }
-}
 
-// If there are one or more incoming edges, this is an activation of an output activity parameter node.
-// Take the tokens offered on incoming edges and add them to the set of tokens being offered.
-// [Note that an output activity parameter node may fire multiple times, accumulating tokens offered to it.]
+        // If there are one or more incoming edges, this is an activation of an
+        // output activity parameter node.
+        // Take the tokens offered on incoming edges and add them to the set of
+        // tokens being offered.
+        // [Note that an output activity parameter node may fire multiple times,
+        // accumulating tokens offered to it.]
 
-else {
-    Debug.println("[fire] Output activity parameter node " + this.node.name + "...");
-    this.addTokens(incomingTokens);
-}
+        else {
+            Debug.println("[fire] Output activity parameter node " + this.node.name + "...");
+            this.addTokens(incomingTokens);
+        }
 
+    } // fire
 
-	  } // fire
+    /**
+     * operation clearTokens <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void clearTokens() {
+        // Clear all held tokens only if this is an input parameter node.
 
-  /**
-   * operation clearTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void clearTokens()   {
-// Clear all held tokens only if this is an input parameter node.
+        if (this.node.incoming.size() == 0) {
+            super.clearTokens();
+        }
+    } // clearTokens
 
-if (this.node.incoming.size() == 0) {
-    super.clearTokens();
-}
-	  } // clearTokens
-
-} //ActivityParameterNodeActivation
+} // ActivityParameterNodeActivation

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,32 @@
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
+
 import java.util.ArrayList;
 
-public class ActivityParameterNodeActivationList extends ArrayList<fUML.Semantics.Activities.IntermediateActivities.ActivityParameterNodeActivation>
-{
-  public ActivityParameterNodeActivationList(){
-    super();
-  }
+public class ActivityParameterNodeActivationList extends
+        ArrayList<fUML.Semantics.Activities.IntermediateActivities.ActivityParameterNodeActivation> {
+    public ActivityParameterNodeActivationList() {
+        super();
+    }
 
-  public ActivityParameterNodeActivation getValue(int i){
-    return (ActivityParameterNodeActivation)get(i);
-  }
+    public ActivityParameterNodeActivation getValue(int i) {
+        return (ActivityParameterNodeActivation) get(i);
+    }
 
-  public void addValue(ActivityParameterNodeActivation v){
-    add(v);
-  }
+    public void addValue(ActivityParameterNodeActivation v) {
+        add(v);
+    }
 
-  public void addValue(int i, ActivityParameterNodeActivation v){
-    add(i, v);
-  }
+    public void addValue(int i, ActivityParameterNodeActivation v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, ActivityParameterNodeActivation v){
-    set(i, v);
-  }
+    public void setValue(int i, ActivityParameterNodeActivation v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //ActivityParameterNodeActivationList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // ActivityParameterNodeActivationList

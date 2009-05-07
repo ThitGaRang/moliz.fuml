@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,40 +20,37 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::CommonBehaviors::Communications::Signal</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::CommonBehaviors::Communications::Signal</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Signal#addOwnedAttribute <em>addOwnedAttribute</em>}</li>
-	 	 *   <li>{@link Signal#ownedAttribute <em>ownedAttribute</em>}</li>
-	 * </ul>
+ * <li>{@link Signal#addOwnedAttribute <em>addOwnedAttribute</em>}</li>
+ * <li>{@link Signal#ownedAttribute <em>ownedAttribute</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class Signal    extends fUML.Syntax.Classes.Kernel.Classifier    {
-    
-	// Attributes
-	public   fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = new fUML.Syntax.Classes.Kernel.PropertyList();
-    
-	// Operations of the class
-  /**
-   * operation addOwnedAttribute
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void addOwnedAttribute(fUML.Syntax.Classes.Kernel.Property ownedAttribute)   {
-super.addAttribute(ownedAttribute);
-super.addOwnedMember(ownedAttribute);
+public class Signal extends fUML.Syntax.Classes.Kernel.Classifier {
 
-this.ownedAttribute.addValue(ownedAttribute);
-	  } // addOwnedAttribute
+    // Attributes
+    public fUML.Syntax.Classes.Kernel.PropertyList ownedAttribute = new fUML.Syntax.Classes.Kernel.PropertyList();
 
-} //Signal
+    // Operations of the class
+    /**
+     * operation addOwnedAttribute <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void addOwnedAttribute(fUML.Syntax.Classes.Kernel.Property ownedAttribute) {
+        super.addAttribute(ownedAttribute);
+        super.addOwnedMember(ownedAttribute);
+
+        this.ownedAttribute.addValue(ownedAttribute);
+    } // addOwnedAttribute
+
+} // Signal

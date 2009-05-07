@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,26 +20,24 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::ExtraStructuredActivities::TokenSet</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::ExtraStructuredActivities::TokenSet</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 *   <li>{@link TokenSet#tokens <em>tokens</em>}</li>
-	 * </ul>
+ * <li>{@link TokenSet#tokens <em>tokens</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class TokenSet    {
-    
-	// Attributes
-	public   fUML.Semantics.Activities.IntermediateActivities.TokenList tokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
-    
-	// Operations of the class
-} //TokenSet
+public class TokenSet {
+
+    // Attributes
+    public fUML.Semantics.Activities.IntermediateActivities.TokenList tokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
+
+    // Operations of the class
+} // TokenSet

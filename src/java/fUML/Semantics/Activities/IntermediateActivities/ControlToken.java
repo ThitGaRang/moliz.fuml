@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,75 +33,72 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::ControlToken</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::ControlToken</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ControlToken#equals <em>equals</em>}</li>
-	 *   <li>{@link ControlToken#copy <em>copy</em>}</li>
-	 *   <li>{@link ControlToken#isControl <em>isControl</em>}</li>
-	 *   <li>{@link ControlToken#getValue <em>getValue</em>}</li>
-	 	 * </ul>
+ * <li>{@link ControlToken#equals <em>equals</em>}</li>
+ * <li>{@link ControlToken#copy <em>copy</em>}</li>
+ * <li>{@link ControlToken#isControl <em>isControl</em>}</li>
+ * <li>{@link ControlToken#getValue <em>getValue</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ControlToken    extends fUML.Semantics.Activities.IntermediateActivities.Token    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation equals
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other)   {
-// Return true if the other token is a control token, because control tokens are interchangable.
+public class ControlToken extends fUML.Semantics.Activities.IntermediateActivities.Token {
 
-return other instanceof ControlToken;
+    // Attributes
 
-	  } // equals
+    // Operations of the class
+    /**
+     * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean equals(fUML.Semantics.Activities.IntermediateActivities.Token other) {
+        // Return true if the other token is a control token, because control
+        // tokens are interchangable.
 
-  /**
-   * operation copy
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.Token copy()   {
-// Return a new control token.
+        return other instanceof ControlToken;
 
-return new ControlToken();
-	  } // copy
+    } // equals
 
-  /**
-   * operation isControl
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isControl()   {
-// Return true for a control token.
+    /**
+     * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.Token copy() {
+        // Return a new control token.
 
-return true;	  } // isControl
+        return new ControlToken();
+    } // copy
 
-  /**
-   * operation getValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value getValue()   {
-// Control tokens do not have values.
+    /**
+     * operation isControl <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isControl() {
+        // Return true for a control token.
 
-return null;
-	  } // getValue
+        return true;
+    } // isControl
 
-} //ControlToken
+    /**
+     * operation getValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value getValue() {
+        // Control tokens do not have values.
+
+        return null;
+    } // getValue
+
+} // ControlToken

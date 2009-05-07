@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -35,52 +32,48 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::BasicActions::OutputPinActivation</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::BasicActions::OutputPinActivation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link OutputPinActivation#isReady <em>isReady</em>}</li>
-	 *   <li>{@link OutputPinActivation#fire <em>fire</em>}</li>
-	 	 * </ul>
+ * <li>{@link OutputPinActivation#isReady <em>isReady</em>}</li>
+ * <li>{@link OutputPinActivation#fire <em>fire</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class OutputPinActivation    extends fUML.Semantics.Actions.BasicActions.PinActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation isReady
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isReady()   {
-// Always return false. [The pin will be fired by its associated action.]
+public class OutputPinActivation extends fUML.Semantics.Actions.BasicActions.PinActivation {
 
-return false;
-	  } // isReady
+    // Attributes
 
-  /**
-   * operation fire
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens)   {
-// Add incoming tokens and send offers on outgoing edges.
+    // Operations of the class
+    /**
+     * operation isReady <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isReady() {
+        // Always return false. [The pin will be fired by its associated
+        // action.]
 
-super.fire(incomingTokens);
-this.sendUnofferedTokens();
-	  } // fire
+        return false;
+    } // isReady
 
-} //OutputPinActivation
+    /**
+     * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void fire(fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
+        // Add incoming tokens and send offers on outgoing edges.
+
+        super.fire(incomingTokens);
+        this.sendUnofferedTokens();
+    } // fire
+
+} // OutputPinActivation

@@ -29,6 +29,5 @@ import UMLPrimitiveTypes.intList;
  */
 
 public enum ObjectNodeOrderingKind {
-    FIFO,
-    unordered,
+    FIFO, unordered,
 } // ObjectNodeOrderingKind

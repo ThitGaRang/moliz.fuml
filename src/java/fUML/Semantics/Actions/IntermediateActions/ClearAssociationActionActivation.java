@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,48 +35,48 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ClearAssociationActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ClearAssociationActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ClearAssociationActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ClearAssociationActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ClearAssociationActionActivation    extends fUML.Semantics.Actions.BasicActions.ActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the extent, at the current execution locus, of the given association.
-// Read the object input pin. Destroy all links in which the object participates.
+public class ClearAssociationActionActivation extends
+        fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-ClearAssociationAction action = (ClearAssociationAction)(this.node);
+    // Attributes
 
-ExtensionalValueList extent = this.getExecutionLocus().getExtent(action.association);
-Value objectValue = this.takeTokens(action.object).getValue(0);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the extent, at the current execution locus, of the given
+        // association.
+        // Read the object input pin. Destroy all links in which the object
+        // participates.
 
-for (int i = 0; i < extent.size(); i++) {
-    Link link = (Link)(extent.getValue(i));
-    if (this.valueParticipatesInLink(objectValue, link)) {
-        link.destroy();
-    }
-}
-	  } // doAction
+        ClearAssociationAction action = (ClearAssociationAction) (this.node);
 
-} //ClearAssociationActionActivation
+        ExtensionalValueList extent = this.getExecutionLocus().getExtent(action.association);
+        Value objectValue = this.takeTokens(action.object).getValue(0);
+
+        for (int i = 0; i < extent.size(); i++) {
+            Link link = (Link) (extent.getValue(i));
+            if (this.valueParticipatesInLink(objectValue, link)) {
+                link.destroy();
+            }
+        }
+    } // doAction
+
+} // ClearAssociationActionActivation

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -35,51 +32,48 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::BasicActions::CallOperationActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::BasicActions::CallOperationActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link CallOperationActionActivation#getCallExecution <em>getCallExecution</em>}</li>
-	 	 * </ul>
+ * <li>{@link CallOperationActionActivation#getCallExecution <em>
+ * getCallExecution</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class CallOperationActionActivation    extends fUML.Semantics.Actions.BasicActions.CallActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation getCallExecution
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution getCallExecution()   {
-// If the value on the target input pin is a reference, dispatch the operation to it and return the resulting execution object.
+public class CallOperationActionActivation extends
+        fUML.Semantics.Actions.BasicActions.CallActionActivation {
 
-CallOperationAction action = (CallOperationAction)(this.node);
-Value target = this.takeTokens(action.target).getValue(0);
+    // Attributes
 
-Execution execution;
-if (target instanceof Reference) {
-    execution = ((Reference)target).dispatch(action.operation);
-}
-else {
-    execution = null;
-}
+    // Operations of the class
+    /**
+     * operation getCallExecution <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution getCallExecution() {
+        // If the value on the target input pin is a reference, dispatch the
+        // operation to it and return the resulting execution object.
 
-return execution;
+        CallOperationAction action = (CallOperationAction) (this.node);
+        Value target = this.takeTokens(action.target).getValue(0);
 
-	  } // getCallExecution
+        Execution execution;
+        if (target instanceof Reference) {
+            execution = ((Reference) target).dispatch(action.operation);
+        } else {
+            execution = null;
+        }
 
-} //CallOperationActionActivation
+        return execution;
+
+    } // getCallExecution
+
+} // CallOperationActionActivation

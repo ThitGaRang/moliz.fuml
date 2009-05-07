@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,47 +35,51 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ReadStructuralFeatureActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * 
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ReadStructuralFeatureActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReadStructuralFeatureActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ReadStructuralFeatureActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReadStructuralFeatureActionActivation    extends fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the value of the object input pin. If the value is not a structural value, do nothing.
-// Otherwise, get the values of the appropriate feature of the input value and place them on the result output pin.
+public class ReadStructuralFeatureActionActivation extends
+        fUML.Semantics.Actions.IntermediateActions.StructuralFeatureActionActivation {
 
-ReadStructuralFeatureAction action = (ReadStructuralFeatureAction)(this.node);
+    // Attributes
 
-Value value = this.takeTokens(action.object).getValue(0);
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the value of the object input pin. If the value is not a
+        // structural value, do nothing.
+        // Otherwise, get the values of the appropriate feature of the input
+        // value and place them on the result output pin.
 
-if (value instanceof StructuredValue) {
-//    Debug.println("[ReadStructuralFeatureActionActivation] value = " + value +", structural feature = " + action.structuralFeature.name);
-    ValueList resultValues = ((StructuredValue)value).getFeatureValue(action.structuralFeature).values;
-    this.putTokens(action.result, resultValues);
-}
+        ReadStructuralFeatureAction action = (ReadStructuralFeatureAction) (this.node);
 
-	  } // doAction
+        Value value = this.takeTokens(action.object).getValue(0);
 
-} //ReadStructuralFeatureActionActivation
+        if (value instanceof StructuredValue) {
+            // Debug.println("[ReadStructuralFeatureActionActivation] value = "
+            // + value +", structural feature = " +
+            // action.structuralFeature.name);
+            ValueList resultValues = ((StructuredValue) value)
+                    .getFeatureValue(action.structuralFeature).values;
+            this.putTokens(action.result, resultValues);
+        }
+
+    } // doAction
+
+} // ReadStructuralFeatureActionActivation

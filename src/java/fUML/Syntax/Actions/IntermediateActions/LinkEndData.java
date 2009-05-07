@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,50 +20,46 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Actions::IntermediateActions::LinkEndData</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Actions::IntermediateActions::LinkEndData</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LinkEndData#setEnd <em>setEnd</em>}</li>
-	 *   <li>{@link LinkEndData#setValue <em>setValue</em>}</li>
-	 	 *   <li>{@link LinkEndData#value <em>value</em>}</li>
-	 *   <li>{@link LinkEndData#end <em>end</em>}</li>
-	 * </ul>
+ * <li>{@link LinkEndData#setEnd <em>setEnd</em>}</li>
+ * <li>{@link LinkEndData#setValue <em>setValue</em>}</li>
+ * <li>{@link LinkEndData#value <em>value</em>}</li>
+ * <li>{@link LinkEndData#end <em>end</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class LinkEndData    extends fUML.Syntax.Classes.Kernel.Element    {
-    
-	// Attributes
-	public   fUML.Syntax.Actions.BasicActions.InputPin value =  null;
-	public   fUML.Syntax.Classes.Kernel.Property end =  null;
-    
-	// Operations of the class
-  /**
-   * operation setEnd
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setEnd(fUML.Syntax.Classes.Kernel.Property end)   {
-this.end = end;
-	  } // setEnd
+public class LinkEndData extends fUML.Syntax.Classes.Kernel.Element {
 
-  /**
-   * operation setValue
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void setValue(fUML.Syntax.Actions.BasicActions.InputPin value)   {
-this.value = value;
-	  } // setValue
+    // Attributes
+    public fUML.Syntax.Actions.BasicActions.InputPin value = null;
+    public fUML.Syntax.Classes.Kernel.Property end = null;
 
-} //LinkEndData
+    // Operations of the class
+    /**
+     * operation setEnd <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setEnd(fUML.Syntax.Classes.Kernel.Property end) {
+        this.end = end;
+    } // setEnd
+
+    /**
+     * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void setValue(fUML.Syntax.Actions.BasicActions.InputPin value) {
+        this.value = value;
+    } // setValue
+
+} // LinkEndData

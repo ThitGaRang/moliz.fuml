@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,45 +20,45 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Library::LibraryClassImplementation::ImplementationObject</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Library::LibraryClassImplementation::ImplementationObject</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ImplementationObject#execute <em>execute</em>}</li>
-	 *   <li>{@link ImplementationObject#dispatch <em>dispatch</em>}</li>
-	 	 * </ul>
+ * <li>{@link ImplementationObject#execute <em>execute</em>}</li>
+ * <li>{@link ImplementationObject#dispatch <em>dispatch</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class ImplementationObject    extends fUML.Semantics.Classes.Kernel.Object_    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation execute
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract    void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution)  ;  /**
-   * operation dispatch
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(fUML.Syntax.Classes.Kernel.Operation operation)   {
-OperationExecution execution = new OperationExecution();
-this.locus.add(execution);
-execution.set(this, operation);
-return execution;
-	  } // dispatch
+public abstract class ImplementationObject extends fUML.Semantics.Classes.Kernel.Object_ {
 
-} //ImplementationObject
+    // Attributes
+
+    // Operations of the class
+    /**
+     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract void execute(
+            fUML.Library.LibraryClassImplementation.OperationExecution execution);
+
+    /**
+     * operation dispatch <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution dispatch(
+            fUML.Syntax.Classes.Kernel.Operation operation) {
+        OperationExecution execution = new OperationExecution();
+        this.locus.add(execution);
+        execution.set(this, operation);
+        return execution;
+    } // dispatch
+
+} // ImplementationObject

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -18,31 +15,31 @@
  */
 
 package fUML.Syntax.CommonBehaviors.Communications;
+
 import java.util.ArrayList;
 
-public class ReceptionList extends ArrayList<fUML.Syntax.CommonBehaviors.Communications.Reception>
-{
-  public ReceptionList(){
-    super();
-  }
+public class ReceptionList extends ArrayList<fUML.Syntax.CommonBehaviors.Communications.Reception> {
+    public ReceptionList() {
+        super();
+    }
 
-  public Reception getValue(int i){
-    return (Reception)get(i);
-  }
+    public Reception getValue(int i) {
+        return (Reception) get(i);
+    }
 
-  public void addValue(Reception v){
-    add(v);
-  }
+    public void addValue(Reception v) {
+        add(v);
+    }
 
-  public void addValue(int i, Reception v){
-    add(i, v);
-  }
+    public void addValue(int i, Reception v) {
+        add(i, v);
+    }
 
-  public void setValue(int i, Reception v){
-    set(i, v);
-  }
+    public void setValue(int i, Reception v) {
+        set(i, v);
+    }
 
-  public void removeValue(int i){
-    remove(i);
-  }
-} //ReceptionList
+    public void removeValue(int i) {
+        remove(i);
+    }
+} // ReceptionList

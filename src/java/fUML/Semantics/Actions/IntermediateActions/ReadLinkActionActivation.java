@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -38,70 +35,70 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Actions::IntermediateActions::ReadLinkActionActivation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Actions::IntermediateActions::ReadLinkActionActivation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link ReadLinkActionActivation#doAction <em>doAction</em>}</li>
-	 	 * </ul>
+ * <li>{@link ReadLinkActionActivation#doAction <em>doAction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class ReadLinkActionActivation    extends fUML.Semantics.Actions.IntermediateActions.LinkActionActivation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doAction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doAction()   {
-// Get the extent, at the current execution locus, of the association to which the action applies.
-// For all links that match the link end data, place the value of the remaining "open" end on the result pin.
+public class ReadLinkActionActivation extends
+        fUML.Semantics.Actions.IntermediateActions.LinkActionActivation {
 
-ReadLinkAction action = (ReadLinkAction)(this.node);
-LinkEndDataList endDataList = action.endData;
-LinkEndData openEnd = null;
+    // Attributes
 
-int i = 1;
-while((openEnd == null) & i <= endDataList.size()) {
-    if (endDataList.getValue(i-1).value == null) {
-        openEnd = endDataList.getValue(i-1);
-    }
-    i = i + 1;
-}
+    // Operations of the class
+    /**
+     * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doAction() {
+        // Get the extent, at the current execution locus, of the association to
+        // which the action applies.
+        // For all links that match the link end data, place the value of the
+        // remaining "open" end on the result pin.
 
-ExtensionalValueList extent = this.getExecutionLocus().getExtent(this.getAssociation());
+        ReadLinkAction action = (ReadLinkAction) (this.node);
+        LinkEndDataList endDataList = action.endData;
+        LinkEndData openEnd = null;
 
-for (int j = 0; j < extent.size(); j++) {
-    ExtensionalValue value = extent.getValue(j);
-    Link link = (Link)value;
-    if (this.linkMatchesEndData(link, endDataList)) {
-        Value resultValue = link.getFeatureValue(openEnd.end).values.getValue(0);
-        this.putToken(action.result, resultValue);
-    }
-}
+        int i = 1;
+        while ((openEnd == null) & i <= endDataList.size()) {
+            if (endDataList.getValue(i - 1).value == null) {
+                openEnd = endDataList.getValue(i - 1);
+            }
+            i = i + 1;
+        }
 
-// Now that matching is done, ensure that all tokens on end data input pins
-// are consumed.
-for (int k=0; k<endDataList.size(); k++) {
-    LinkEndData endData = endDataList.getValue(k);
-    if (endData.value != null) {
-          this.takeTokens(endData.value);
-    }
-}
+        ExtensionalValueList extent = this.getExecutionLocus().getExtent(this.getAssociation());
 
+        for (int j = 0; j < extent.size(); j++) {
+            ExtensionalValue value = extent.getValue(j);
+            Link link = (Link) value;
+            if (this.linkMatchesEndData(link, endDataList)) {
+                Value resultValue = link.getFeatureValue(openEnd.end).values.getValue(0);
+                this.putToken(action.result, resultValue);
+            }
+        }
 
-	  } // doAction
+        // Now that matching is done, ensure that all tokens on end data input
+        // pins
+        // are consumed.
+        for (int k = 0; k < endDataList.size(); k++) {
+            LinkEndData endData = endDataList.getValue(k);
+            if (endData.value != null) {
+                this.takeTokens(endData.value);
+            }
+        }
 
-} //ReadLinkActionActivation
+    } // doAction
+
+} // ReadLinkActionActivation

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,24 +20,22 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Actions::IntermediateActions::WriteLinkAction</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Syntax::Actions::IntermediateActions::WriteLinkAction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 	 * </ul>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class WriteLinkAction    extends fUML.Syntax.Actions.IntermediateActions.LinkAction    {
-    
-	// Attributes
-    
-	// Operations of the class
-} //WriteLinkAction
+public abstract class WriteLinkAction extends fUML.Syntax.Actions.IntermediateActions.LinkAction {
+
+    // Attributes
+
+    // Operations of the class
+} // WriteLinkAction

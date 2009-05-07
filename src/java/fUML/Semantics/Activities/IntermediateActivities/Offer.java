@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -36,82 +33,81 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Activities::IntermediateActivities::Offer</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Activities::IntermediateActivities::Offer</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link Offer#countOfferedTokens <em>countOfferedTokens</em>}</li>
-	 *   <li>{@link Offer#getOfferedTokens <em>getOfferedTokens</em>}</li>
-	 *   <li>{@link Offer#removeWithdrawnTokens <em>removeWithdrawnTokens</em>}</li>
-	 	 *   <li>{@link Offer#offeredTokens <em>offeredTokens</em>}</li>
-	 * </ul>
+ * <li>{@link Offer#countOfferedTokens <em>countOfferedTokens</em>}</li>
+ * <li>{@link Offer#getOfferedTokens <em>getOfferedTokens</em>}</li>
+ * <li>{@link Offer#removeWithdrawnTokens <em>removeWithdrawnTokens</em>}</li>
+ * <li>{@link Offer#offeredTokens <em>offeredTokens</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class Offer    {
-    
-	// Attributes
-	public   fUML.Semantics.Activities.IntermediateActivities.TokenList offeredTokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
-    
-	// Operations of the class
-  /**
-   * operation countOfferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     int countOfferedTokens()   {
-// Return the number of tokens being offered.
+public class Offer {
 
-return this.offeredTokens.size();
+    // Attributes
+    public fUML.Semantics.Activities.IntermediateActivities.TokenList offeredTokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
 
-	  } // countOfferedTokens
+    // Operations of the class
+    /**
+     * operation countOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public int countOfferedTokens() {
+        // Return the number of tokens being offered.
 
-  /**
-   * operation getOfferedTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Activities.IntermediateActivities.TokenList getOfferedTokens()   {
-// Get the offered tokens.
+        return this.offeredTokens.size();
 
-TokenList tokens = new TokenList();
-TokenList offeredTokens = this.offeredTokens;
-for (int i = 0; i < this.offeredTokens.size() ; i++) {
-    Token offeredToken = offeredTokens.getValue(i);
-    // Debug.println("[getOfferedTokens] token value = " + offeredToken.getValue());
-    tokens.addValue(offeredToken);
-}
+    } // countOfferedTokens
 
-return tokens;
+    /**
+     * operation getOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Activities.IntermediateActivities.TokenList getOfferedTokens() {
+        // Get the offered tokens.
 
-	  } // getOfferedTokens
+        TokenList tokens = new TokenList();
+        TokenList offeredTokens = this.offeredTokens;
+        for (int i = 0; i < this.offeredTokens.size(); i++) {
+            Token offeredToken = offeredTokens.getValue(i);
+            // Debug.println("[getOfferedTokens] token value = " +
+            // offeredToken.getValue());
+            tokens.addValue(offeredToken);
+        }
 
-  /**
-   * operation removeWithdrawnTokens
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void removeWithdrawnTokens()   {
-// Remove any tokens that have already been consumed.
+        return tokens;
 
-TokenList offeredTokens = this.offeredTokens;
-int i = 1;
-while (i <= this.offeredTokens.size()) {
-    if (this.offeredTokens.getValue(i-1).isWithdrawn()) {
-        this.offeredTokens.remove(i-1);
-        i = i - 1;
-    }
-    i = i + 1;
-}
-	  } // removeWithdrawnTokens
+    } // getOfferedTokens
 
-} //Offer
+    /**
+     * operation removeWithdrawnTokens <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     */
+    public void removeWithdrawnTokens() {
+        // Remove any tokens that have already been consumed.
+
+        TokenList offeredTokens = this.offeredTokens;
+        int i = 1;
+        while (i <= this.offeredTokens.size()) {
+            if (this.offeredTokens.getValue(i - 1).isWithdrawn()) {
+                this.offeredTokens.remove(i - 1);
+                i = i - 1;
+            }
+            i = i + 1;
+        }
+    } // removeWithdrawnTokens
+
+} // Offer

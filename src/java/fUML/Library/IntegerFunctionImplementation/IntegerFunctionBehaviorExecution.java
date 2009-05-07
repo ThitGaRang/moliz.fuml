@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -25,60 +22,61 @@ import UMLPrimitiveTypes.intList;
 
 import fUML.Semantics.Classes.Kernel.*;
 
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Library::IntegerFunctionImplementation::IntegerFunctionBehaviorExecution</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Library::IntegerFunctionImplementation::IntegerFunctionBehaviorExecution</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link IntegerFunctionBehaviorExecution#doBody <em>doBody</em>}</li>
-	 *   <li>{@link IntegerFunctionBehaviorExecution#doIntegerFunction <em>doIntegerFunction</em>}</li>
-	 	 * </ul>
+ * <li>{@link IntegerFunctionBehaviorExecution#doBody <em>doBody</em>}</li>
+ * <li>{@link IntegerFunctionBehaviorExecution#doIntegerFunction <em>
+ * doIntegerFunction</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class IntegerFunctionBehaviorExecution    extends fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation doBody
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void doBody(fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters, fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters)   {
-// Extract integer arguments and perform an integer function on them.
+public abstract class IntegerFunctionBehaviorExecution extends
+        fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
 
-intList integerArguments = new intList();
+    // Attributes
 
-for (int i = 0; i < inputParameters.size(); i++) {
-    int value = ((IntegerValue)(inputParameters.getValue(i)).values.getValue(0)).value;
-    Debug.println("[doBody] argument = " + value);
-    integerArguments.addValue(value);
-}
+    // Operations of the class
+    /**
+     * operation doBody <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void doBody(
+            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
+            fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
+        // Extract integer arguments and perform an integer function on them.
 
-IntegerValue result = new IntegerValue();
-result.value = this.doIntegerFunction(integerArguments);
+        intList integerArguments = new intList();
 
-Debug.println("[doBody] result = " + result.value);
+        for (int i = 0; i < inputParameters.size(); i++) {
+            int value = ((IntegerValue) (inputParameters.getValue(i)).values.getValue(0)).value;
+            Debug.println("[doBody] argument = " + value);
+            integerArguments.addValue(value);
+        }
 
-ValueList values = new ValueList();
-values.addValue(result);
-outputParameters.getValue(0).values = values;
+        IntegerValue result = new IntegerValue();
+        result.value = this.doIntegerFunction(integerArguments);
 
+        Debug.println("[doBody] result = " + result.value);
 
-	  } // doBody
+        ValueList values = new ValueList();
+        values.addValue(result);
+        outputParameters.getValue(0).values = values;
 
-  /**
-   * operation doIntegerFunction
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public  abstract   int doIntegerFunction(UMLPrimitiveTypes.intList arguments)  ;} //IntegerFunctionBehaviorExecution
+    } // doBody
+
+    /**
+     * operation doIntegerFunction <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public abstract int doIntegerFunction(UMLPrimitiveTypes.intList arguments);
+} // IntegerFunctionBehaviorExecution

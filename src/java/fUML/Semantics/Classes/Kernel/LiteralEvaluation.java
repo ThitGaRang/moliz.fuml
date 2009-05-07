@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -29,45 +26,41 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-
-
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Semantics::Classes::Kernel::LiteralEvaluation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Semantics::Classes::Kernel::LiteralEvaluation</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link LiteralEvaluation#getType <em>getType</em>}</li>
-	 	 * </ul>
+ * <li>{@link LiteralEvaluation#getType <em>getType</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public  abstract class LiteralEvaluation    extends fUML.Semantics.Classes.Kernel.Evaluation    {
-    
-	// Attributes
-    
-	// Operations of the class
-  /**
-   * operation getType
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Syntax.Classes.Kernel.PrimitiveType getType(String builtInTypeName)   {
-// Get the type of the specification. If that is null, then use the built-in type of the given name.
+public abstract class LiteralEvaluation extends fUML.Semantics.Classes.Kernel.Evaluation {
 
-PrimitiveType type = (PrimitiveType)(this.specification.type);
+    // Attributes
 
-if (type == null) {
-    type = this.locus.factory.getBuiltInType(builtInTypeName);
-}
+    // Operations of the class
+    /**
+     * operation getType <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Syntax.Classes.Kernel.PrimitiveType getType(String builtInTypeName) {
+        // Get the type of the specification. If that is null, then use the
+        // built-in type of the given name.
 
-return type;
-	  } // getType
+        PrimitiveType type = (PrimitiveType) (this.specification.type);
 
-} //LiteralEvaluation
+        if (type == null) {
+            type = this.locus.factory.getBuiltInType(builtInTypeName);
+        }
+
+        return type;
+    } // getType
+
+} // LiteralEvaluation

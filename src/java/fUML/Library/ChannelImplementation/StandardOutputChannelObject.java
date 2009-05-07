@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -23,137 +20,128 @@ import fUML.utility.MexSystem;
 import fUML.Debug;
 import UMLPrimitiveTypes.intList;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Library::ChannelImplementation::StandardOutputChannelObject</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>fUML::Library::ChannelImplementation::StandardOutputChannelObject</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- 	 *   <li>{@link StandardOutputChannelObject#writeLine <em>writeLine</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#getName <em>getName</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#open <em>open</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#close <em>close</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#isOpen <em>isOpen</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#write <em>write</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#writeString <em>writeString</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#writeNewLine <em>writeNewLine</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#new_ <em>new_</em>}</li>
-	 *   <li>{@link StandardOutputChannelObject#isFull <em>isFull</em>}</li>
-	 	 *   <li>{@link StandardOutputChannelObject#opened <em>opened</em>}</li>
-	 * </ul>
+ * <li>{@link StandardOutputChannelObject#writeLine <em>writeLine</em>}</li>
+ * <li>{@link StandardOutputChannelObject#getName <em>getName</em>}</li>
+ * <li>{@link StandardOutputChannelObject#open <em>open</em>}</li>
+ * <li>{@link StandardOutputChannelObject#close <em>close</em>}</li>
+ * <li>{@link StandardOutputChannelObject#isOpen <em>isOpen</em>}</li>
+ * <li>{@link StandardOutputChannelObject#write <em>write</em>}</li>
+ * <li>{@link StandardOutputChannelObject#writeString <em>writeString</em>}</li>
+ * <li>{@link StandardOutputChannelObject#writeNewLine <em>writeNewLine</em>}</li>
+ * <li>{@link StandardOutputChannelObject#new_ <em>new_</em>}</li>
+ * <li>{@link StandardOutputChannelObject#isFull <em>isFull</em>}</li>
+ * <li>{@link StandardOutputChannelObject#opened <em>opened</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 
-public   class StandardOutputChannelObject    extends fUML.Library.ChannelImplementation.TextOutputChannelObject    {
-    
-	// Attributes
-	private   boolean opened = false;
-    
-	// Operations of the class
-  /**
-   * operation writeLine
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void writeLine(String value)   {
-this.writeString(value);
-	  } // writeLine
+public class StandardOutputChannelObject extends
+        fUML.Library.ChannelImplementation.TextOutputChannelObject {
 
-  /**
-   * operation getName
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     String getName()   {
-return "StandardOutput";
-	  } // getName
+    // Attributes
+    private boolean opened = false;
 
-  /**
-   * operation open
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void open()   {
-this.opened = true;
-	  } // open
+    // Operations of the class
+    /**
+     * operation writeLine <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void writeLine(String value) {
+        this.writeString(value);
+    } // writeLine
 
-  /**
-   * operation close
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void close()   {
-this.opened = false;
-	  } // close
+    /**
+     * operation getName <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public String getName() {
+        return "StandardOutput";
+    } // getName
 
-  /**
-   * operation isOpen
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isOpen()   {
-return opened;
-	  } // isOpen
+    /**
+     * operation open <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void open() {
+        this.opened = true;
+    } // open
 
-  /**
-   * operation write
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void write(fUML.Semantics.Classes.Kernel.Value value)   {
-this.writeString(value.toString());	  } // write
+    /**
+     * operation close <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void close() {
+        this.opened = false;
+    } // close
 
-  /**
-   * operation writeString
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void writeString(String value)   {
-if (this.isOpen()) {
-    Debug.println(">>>>>>>> " + value);
-}
+    /**
+     * operation isOpen <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isOpen() {
+        return opened;
+    } // isOpen
 
-	  } // writeString
+    /**
+     * operation write <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void write(fUML.Semantics.Classes.Kernel.Value value) {
+        this.writeString(value.toString());
+    } // write
 
-  /**
-   * operation writeNewLine
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public      void writeNewLine()   {
-this.writeLine("");
-	  } // writeNewLine
+    /**
+     * operation writeString <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void writeString(String value) {
+        if (this.isOpen()) {
+            Debug.println(">>>>>>>> " + value);
+        }
 
-  /**
-   * operation new_
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     fUML.Semantics.Classes.Kernel.Value new_()   {
-return (fUML.Semantics.Classes.Kernel.Value)(new StandardOutputChannelObject());
-	  } // new_
+    } // writeString
 
-  /**
-   * operation isFull
-   * <!-- begin-user-doc -->
-   		   * <!-- end-user-doc -->
-   * @generated
-   */
-	public     boolean isFull()   {
-return false;	  } // isFull
+    /**
+     * operation writeNewLine <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public void writeNewLine() {
+        this.writeLine("");
+    } // writeNewLine
 
-} //StandardOutputChannelObject
+    /**
+     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public fUML.Semantics.Classes.Kernel.Value new_() {
+        return (fUML.Semantics.Classes.Kernel.Value) (new StandardOutputChannelObject());
+    } // new_
+
+    /**
+     * operation isFull <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public boolean isFull() {
+        return false;
+    } // isFull
+
+} // StandardOutputChannelObject
