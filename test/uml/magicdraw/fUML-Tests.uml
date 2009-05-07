@@ -500,7 +500,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1225601146890_393432_2571" name="" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1225601146890_787844_2570" name="" value="1"/>
       </ownedParameter>
-      <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_15_5_1_1a900482_1225600562687_743220_2404" name="Add(x)" visibility="public">
+      <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_15_5_1_1a900482_1225600562687_743220_2404" name="Add(x)" visibility="public" structuralFeature="_15_5_1_1a900482_1225597384546_159518_1932" isReplaceAll="true">
         <object xmi:id="_15_5_1_1a900482_1225600693453_595818_2451" name="Add(x).object" visibility="public" incoming="_15_5_1_1a900482_1225601080437_651787_2535" type="_15_5_1_1a900482_1225509629187_487806_3028">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1227725634296_566213_1399" name="" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1227725634296_793439_1398" name="" value="1"/>
