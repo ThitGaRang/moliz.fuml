@@ -4,7 +4,7 @@
  *
  * All modifications copyright 2009 Data Access Technologies, Inc.
  *
- * Licensed under the Academic Free License version 3.0
+ * All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License version 3.0
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
  * in the file entitled Licensing-Information.
  *
@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.Location;
@@ -35,27 +34,24 @@ import org.modeldriven.fuml.common.lang.JavaKeyWords;
 import org.modeldriven.fuml.config.FumlConfiguration;
 import org.modeldriven.fuml.config.ImportAdapter;
 import org.modeldriven.fuml.config.ImportAdapterType;
-import org.modeldriven.fuml.config.ImportElement;
 import org.modeldriven.fuml.config.ReferenceMappingType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
-import org.modeldriven.fuml.model.MissingRequiredPropertyException;
 import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.xmi.stream.StreamNode;
-import org.modeldriven.fuml.xmi.ModelSupport;
-import org.modeldriven.fuml.xmi.XmiException;
-import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
-import org.modeldriven.fuml.xmi.XmiIdentity;
-import org.modeldriven.fuml.xmi.XmiMappedReference;
-import org.modeldriven.fuml.xmi.XmiNode;
-import org.modeldriven.fuml.xmi.XmiReference;
-import org.modeldriven.fuml.xmi.XmiReferenceAttribute;
 import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.model.uml2.UmlClassifier;
 import org.modeldriven.fuml.model.uml2.UmlDataType;
 import org.modeldriven.fuml.model.uml2.UmlEnumeration;
 import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
 import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.xmi.ModelSupport;
+import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
+import org.modeldriven.fuml.xmi.XmiIdentity;
+import org.modeldriven.fuml.xmi.XmiMappedReference;
+import org.modeldriven.fuml.xmi.XmiNode;
+import org.modeldriven.fuml.xmi.XmiReference;
+import org.modeldriven.fuml.xmi.XmiReferenceAttribute;
+import org.modeldriven.fuml.xmi.stream.StreamNode;
 import org.modeldriven.fuml.xmi.validation.ErrorCode;
 import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
 import org.modeldriven.fuml.xmi.validation.ValidationError;
@@ -63,18 +59,11 @@ import org.modeldriven.fuml.xmi.validation.ValidationException;
 
 import fUML.Library.LibraryClassImplementation.ImplementationObject;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
-import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.Element;
-import fUML.Syntax.Classes.Kernel.LiteralBoolean;
-import fUML.Syntax.Classes.Kernel.LiteralInteger;
-import fUML.Syntax.Classes.Kernel.LiteralString;
-import fUML.Syntax.Classes.Kernel.LiteralUnlimitedNatural;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
 import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
-import fUML.Syntax.Classes.Kernel.ValueSpecification;
-import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
 public class ElementAssembler extends AssemblerNode
     implements XmiIdentity, Assembler {

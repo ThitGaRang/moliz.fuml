@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -10,37 +10,26 @@
  */
 package org.modeldriven.fuml.plugin.magicdraw;
 
-import com.nomagic.magicdraw.core.Application;
-import com.nomagic.magicdraw.core.Project;
-import com.nomagic.magicdraw.core.project.ProjectsManager;
-import com.nomagic.magicdraw.ui.MainFrame;
-import com.nomagic.magicdraw.ui.browser.Node;
-import com.nomagic.magicdraw.ui.browser.Tree;
-import com.nomagic.magicdraw.ui.browser.actions.DefaultBrowserAction;
-import com.nomagic.magicdraw.ui.dialogs.MDDialogParentProvider;
-import com.nomagic.magicdraw.uml.BaseElement;
-import com.nomagic.task.ProgressStatus;
-import com.nomagic.task.RunnableWithProgress;
-import com.nomagic.ui.ProgressMonitorHelper;
-import com.nomagic.uml2.impl.magicdraw.activities.mdfundamentalactivities.ActivityImpl;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.PrintStream;
 
-import javax.swing.*;
+import javax.swing.KeyStroke;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.FUML;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Iterator;
+import com.nomagic.magicdraw.core.Application;
+import com.nomagic.magicdraw.core.Project;
+import com.nomagic.magicdraw.core.project.ProjectsManager;
+import com.nomagic.magicdraw.ui.browser.Node;
+import com.nomagic.magicdraw.ui.browser.actions.DefaultBrowserAction;
+import com.nomagic.task.ProgressStatus;
+import com.nomagic.task.RunnableWithProgress;
+import com.nomagic.uml2.impl.magicdraw.activities.mdfundamentalactivities.ActivityImpl;
 
 /**
      */

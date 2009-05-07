@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -12,15 +12,12 @@
 
 package org.modeldriven.fuml.library.libraryclass;
 
-import fUML.utility.MexSystem;
-import fUML.Debug;
-import UMLPrimitiveTypes.intList;
-
-import fUML.Syntax.Classes.Kernel.*;
-import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
-
-import fUML.Semantics.Classes.Kernel.*;
-import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
+import fUML.Semantics.Classes.Kernel.Value;
+import fUML.Semantics.Classes.Kernel.ValueList;
+import fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue;
+import fUML.Syntax.Classes.Kernel.Parameter;
+import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
+import fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

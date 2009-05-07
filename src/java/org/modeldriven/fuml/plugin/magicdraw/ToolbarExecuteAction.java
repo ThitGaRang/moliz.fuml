@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -10,13 +10,15 @@
  */
 package org.modeldriven.fuml.plugin.magicdraw;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+
 import com.nomagic.actions.NMAction;
 import com.nomagic.magicdraw.actions.MDAction;
 import com.nomagic.magicdraw.ui.dialogs.MDDialogParentProvider;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
 public class ToolbarExecuteAction  extends MDAction {
     /**

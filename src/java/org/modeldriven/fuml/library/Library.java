@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -11,9 +11,6 @@
 package org.modeldriven.fuml.library;
 
 import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -21,23 +18,14 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.ImportRegistry;
-import org.modeldriven.fuml.ModelImport;
-import org.modeldriven.fuml.PackagedElementImport;
-import org.modeldriven.fuml.assembly.AssemblyException;
 import org.modeldriven.fuml.config.FumlConfiguration;
 import org.modeldriven.fuml.config.LibraryConfiguration;
 import org.modeldriven.fuml.config.LibraryImport;
-import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
 import org.modeldriven.fuml.xmi.stream.StreamReader;
 
-import fUML.Library.LibraryClassImplementation.ImplementationObject;
-import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
-import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
-import fUML.Syntax.Classes.Kernel.PackageableElement;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
 public class Library {

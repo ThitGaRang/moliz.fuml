@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -15,9 +15,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
-
-import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,7 +27,6 @@ import org.modeldriven.fuml.xmi.XmiInternalReferenceElement;
 import org.modeldriven.fuml.xmi.XmiNode;
 import org.modeldriven.fuml.xmi.XmiNodeVisitor;
 import org.modeldriven.fuml.xmi.XmiNodeVisitorStatus;
-import org.modeldriven.fuml.xmi.XmiReferenceElement;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
 import org.modeldriven.fuml.xmi.validation.ErrorCode;
 import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
@@ -38,7 +34,6 @@ import org.modeldriven.fuml.xmi.validation.ValidationError;
 
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Element;
-import fUML.Syntax.Classes.Kernel.NamedElement;
 
 public class ElementGraphAssembler extends AbstractXmiNodeVisitor
     implements XmiNodeVisitor 

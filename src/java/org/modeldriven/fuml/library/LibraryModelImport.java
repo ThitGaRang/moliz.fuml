@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -18,7 +18,6 @@ import org.modeldriven.fuml.AbsractImport;
 import org.modeldriven.fuml.FumlException;
 import org.modeldriven.fuml.Import;
 import org.modeldriven.fuml.ImportRegistry;
-import org.modeldriven.fuml.ModelImport;
 import org.modeldriven.fuml.assembly.AssemblerResultsProfile;
 import org.modeldriven.fuml.assembly.ElementGraphAssembler;
 import org.modeldriven.fuml.environment.Environment;

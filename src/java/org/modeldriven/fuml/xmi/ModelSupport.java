@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -11,24 +11,17 @@
 
 package org.modeldriven.fuml.xmi;
 
-import java.util.Iterator;
-
 import javax.xml.namespace.QName;
-import javax.xml.stream.Location;
-import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.xmi.XmiException;
-import org.modeldriven.fuml.xmi.XmiNode;
-import org.modeldriven.fuml.xmi.stream.StreamNode;
 import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.model.uml2.UmlClassifier;
 import org.modeldriven.fuml.model.uml2.UmlEnumeration;
 import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
 import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.xmi.stream.StreamNode;
 
 /**
  * Stateless model-related logic delegate class. Handles metadata related logic specific 

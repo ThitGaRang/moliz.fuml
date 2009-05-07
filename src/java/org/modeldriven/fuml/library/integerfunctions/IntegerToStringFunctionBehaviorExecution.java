@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -15,8 +15,8 @@ package org.modeldriven.fuml.library.integerfunctions;
 import org.modeldriven.fuml.library.LibraryFunctions;
 
 import fUML.Debug;
-
-import fUML.Semantics.Classes.Kernel.*;
+import fUML.Semantics.Classes.Kernel.IntegerValue;
+import fUML.Semantics.Classes.Kernel.StringValue;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

@@ -4,7 +4,7 @@
  *
  * All modifications copyright 2009 Data Access Technologies, Inc.
  *
- * Licensed under the Academic Free License version 3.0
+ * All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License version 3.0
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
  * in the file entitled Licensing-Information.
  *
@@ -25,24 +25,14 @@ import java.util.Stack;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.UnmarshalException;
-import javax.xml.namespace.QName;
-import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.xmi.BindingXmiReader;
-import org.modeldriven.fuml.xmi.InvalidReferenceException;
 import org.modeldriven.fuml.bind.DefaultValidationEventHandler;
-import org.modeldriven.fuml.model.xmi.XmiBindingObject;
-import org.modeldriven.fuml.xmi.XmiException;
-import org.modeldriven.fuml.xmi.XmiValidationEventHandler;
-import org.modeldriven.fuml.xmi.XmiBindingNode;
-import org.modeldriven.fuml.xmi.XmiBindingNodeVisitor;
-import org.modeldriven.fuml.model.ModelDataBinding;
 import org.modeldriven.fuml.model.config.Artifact;
 import org.modeldriven.fuml.model.config.IgnoredClass;
-import org.modeldriven.fuml.model.config.ModelConfig;
 import org.modeldriven.fuml.model.config.IgnoredPackage;
+import org.modeldriven.fuml.model.config.ModelConfig;
 import org.modeldriven.fuml.model.uml2.UmlAssociationEndElement;
 import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.model.uml2.UmlClassifier;
@@ -54,7 +44,6 @@ import org.modeldriven.fuml.model.uml2.UmlLiteralInteger;
 import org.modeldriven.fuml.model.uml2.UmlLiteralNull;
 import org.modeldriven.fuml.model.uml2.UmlLiteralString;
 import org.modeldriven.fuml.model.uml2.UmlLiteralUnlimitedNatural;
-import org.modeldriven.fuml.model.uml2.UmlModel;
 import org.modeldriven.fuml.model.uml2.UmlOpaqueExpression;
 import org.modeldriven.fuml.model.uml2.UmlOperation;
 import org.modeldriven.fuml.model.uml2.UmlPackage;
@@ -63,6 +52,13 @@ import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.modeldriven.fuml.model.uml2.UmlTypeAssociationEnd;
 import org.modeldriven.fuml.model.uml2.UmlValueSpecification;
 import org.modeldriven.fuml.model.uml2.UmlValueSpecificationAssociationEnd;
+import org.modeldriven.fuml.model.xmi.XmiBindingObject;
+import org.modeldriven.fuml.xmi.BindingXmiReader;
+import org.modeldriven.fuml.xmi.InvalidReferenceException;
+import org.modeldriven.fuml.xmi.XmiBindingNode;
+import org.modeldriven.fuml.xmi.XmiBindingNodeVisitor;
+import org.modeldriven.fuml.xmi.XmiException;
+import org.modeldriven.fuml.xmi.XmiValidationEventHandler;
 import org.xml.sax.SAXException;
 
 public class Model {

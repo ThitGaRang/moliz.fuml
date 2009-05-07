@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -15,16 +15,13 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.UnmarshalException;
-import javax.xml.bind.ValidationEventHandler;
-
-import org.xml.sax.SAXException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.bind.BindingValidationEventHandler;
 import org.modeldriven.fuml.bind.DataBinding;
 import org.modeldriven.fuml.bind.ValidatingUnmarshaler;
-import org.modeldriven.fuml.xmi.XmiReader;
+import org.xml.sax.SAXException;
 
 public class ModelConfigDataBinding implements DataBinding {
 

@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import org.apache.commons.logging.Log;
@@ -26,9 +25,6 @@ import com.nomagic.magicdraw.core.Application;
 import com.nomagic.magicdraw.core.Project;
 import com.nomagic.magicdraw.core.project.ProjectsManager;
 import com.nomagic.magicdraw.ui.actions.DefaultDiagramAction;
-import com.nomagic.magicdraw.ui.browser.Node;
-import com.nomagic.magicdraw.ui.dialogs.MDDialogParentProvider;
-import com.nomagic.magicdraw.uml.ModelElementProvider;
 import com.nomagic.magicdraw.uml.symbols.DiagramPresentationElement;
 import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Element;
 import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Namespace;

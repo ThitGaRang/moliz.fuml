@@ -4,7 +4,7 @@
  *
  * All modifications copyright 2009 Data Access Technologies, Inc.
  *
- * Licensed under the Academic Free License version 3.0
+ * All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License version 3.0
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
  * in the file entitled Licensing-Information.
  *
@@ -16,11 +16,8 @@
 package org.modeldriven.fuml.xmi.validation;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Stack;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.events.Attribute;
@@ -32,6 +29,9 @@ import org.modeldriven.fuml.config.ReferenceMappingType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
 import org.modeldriven.fuml.model.Model;
+import org.modeldriven.fuml.model.uml2.UmlClass;
+import org.modeldriven.fuml.model.uml2.UmlClassifier;
+import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.modeldriven.fuml.xmi.AbstractXmiNodeVisitor;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
@@ -41,13 +41,7 @@ import org.modeldriven.fuml.xmi.XmiNodeVisitor;
 import org.modeldriven.fuml.xmi.XmiNodeVisitorStatus;
 import org.modeldriven.fuml.xmi.XmiReference;
 import org.modeldriven.fuml.xmi.XmiReferenceAttribute;
-import org.modeldriven.fuml.xmi.XmiReferenceElement;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
-import org.modeldriven.fuml.model.uml2.UmlClass;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlEnumeration;
-import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
 
 /**
  * A visitor pattern implementation class that walks a given XmiNode hierarchy checking for

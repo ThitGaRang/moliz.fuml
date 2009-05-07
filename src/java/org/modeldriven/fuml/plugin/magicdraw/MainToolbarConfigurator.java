@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. Licensed under the Academic Free License 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -10,13 +10,13 @@
  */
 package org.modeldriven.fuml.plugin.magicdraw;
 
+import java.util.Iterator;
+
 import com.nomagic.actions.AMConfigurator;
 import com.nomagic.actions.ActionsCategory;
 import com.nomagic.actions.ActionsManager;
 import com.nomagic.magicdraw.actions.ActionsID;
 import com.nomagic.magicdraw.actions.MDAction;
-
-import java.util.Iterator;
 
 /**
  * Class for configuring main toolbar. It adds action to File toolbar.
