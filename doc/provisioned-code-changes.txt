@@ -22,44 +22,13 @@ fUML.Library.ChannelImplementation.StandardOutputChannelObject.opened property t
 
     }
     
-3.) Added check for "stubbed" Activities in 
-fUML.Semantics.Activities.IntermediateActivities.ActivityExecution.execute(), as below.
+3.) Added 'unordered' to enumeration fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind
 
-
-    public void execute() {
-        // Execute the activity for this execution by creating an activity node
-        // activation group and activating all the activity nodes in the
-        // activity.
-        // When this is complete, copy the values on the tokens offered by
-        // output parameter nodes to the corresponding output parameters.
-
-        Activity activity = (Activity) (this.getTypes().getValue(0));
-
-        if (activity.ownedComment != null && activity.ownedComment.size() > 0 &&
-                ElementStubAssembler.STUB_TOKEN.equals(activity.ownedComment.get(0).body))
-        {
-            Debug.println("[execute] invalid activity encountered: " 
-                    + activity.name + " - see below error(s)");
-            Iterator<Comment> comments = activity.ownedComment.iterator();
-            comments.next(); // skip the "stub" comment
-            while (comments.hasNext())                
-                Debug.println("[execute] error: " + comments.next().body);
-            throw new FumlException("cannot execute invalid activity '"
-                    + activity.name + "' - see above errors");
-        }
-
-
-4.) Added 'unordered' to enumeration fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind
+4.) Added 'create' to enumeration fUML.Syntax.Actions.BasicActions.ParameterEffectKind
 
 5.) 11/23/2008 For fUML.Syntax.Activities.IntermediateActivities.ActivityEdge, removed incorrect generalization 
 to NamedElement for ActivityEdge, added generalization to RedefinableElement.
 
-6.) 11/23/2008 For fUML.Syntax.Activities.IntermediateActivities.ActivityNode,removed incorrect generalization 
+6.) 11/23/2008 For fUML.Syntax.Activities.IntermediateActivities.ActivityNode, removed incorrect generalization 
 to NamedElement for ActivityNode, added generalization to RedefinableElement. 
 
-7.) Added 'create' to enumeration fUML.Syntax.Actions.BasicActions.ParameterEffectKind
-
-
-8.) Changed getValue(i) call to getValue(i-1) in fUML.Semantics.Actions.IntermediateActions.ReadLinkActionActivation.doAction() 
-
-9.) Made LinkEndCreationData.insertAt null by default
