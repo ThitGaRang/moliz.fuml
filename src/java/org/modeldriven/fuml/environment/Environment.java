@@ -1,8 +1,12 @@
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
- * in the file entitled Licensing-Information. 
+ * Copyright 2008 Lockheed Martin Corporation, except as stated in the file
+ * entitled Licensing-Information.
+ *
+ * All modifications copyright 2009 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License
+ * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated
+ * in the file entitled Licensing-Information.
  *
  * Contributors:
  *   MDS - initial API and implementation
@@ -26,22 +30,38 @@ public class Environment extends TestEnvironment {
     private static Environment instance = null;
     private Map<String, NamedElement> elementNameMap = new HashMap<String, NamedElement>();
     private Map<String, Element> elementIdMap = new HashMap<String, Element>();
-    
-    private Environment() {}
-    
+
+    private Environment() {
+
+		this.locus.setFactory(new ExecutionFactory());  // Uses local subclass for ExecutionFactory
+
+		this.locus.factory
+				.setStrategy(new fUML.Semantics.Classes.Kernel.RedefinitionBasedDispatchStrategy());
+		this.locus.factory
+				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
+		this.locus.factory.setStrategy(new fUML.Semantics.Loci.FirstChoiceStrategy());
+
+		this.primitiveTypes = new fUML.Library.PrimitiveTypes(this.locus.factory);
+		this.addElement(this.primitiveTypes.Boolean);
+		this.addElement(this.primitiveTypes.Integer);
+		this.addElement(this.primitiveTypes.String);
+		this.addElement(this.primitiveTypes.UnlimitedNatural);
+
+	}
+
     public static Environment getInstance()
     {
         if (instance == null)
             initializeInstance();
         return instance;
     }
-    
+
     private static synchronized void initializeInstance()
     {
         if (instance == null)
             instance = new Environment();
-    } 
-    
+    }
+
     public void add(NamedElement element)
     {
         elementNameMap.put(element.name, element);
@@ -56,7 +76,7 @@ public class Environment extends TestEnvironment {
         }
         elementIdMap.put(id, element);
     }
-    
+
     public Behavior findBehavior(String name)
     {
         return (Behavior)elementNameMap.get(name); // FIXME: HACK
@@ -64,7 +84,7 @@ public class Environment extends TestEnvironment {
 
     public Element findElementById(String id)
     {
-        return elementIdMap.get(id); 
+        return elementIdMap.get(id);
     }
 
     public int getBehaviorCount()
@@ -94,5 +114,5 @@ public class Environment extends TestEnvironment {
         list.toArray(result);
         return result;
     }
-    
+
 }
