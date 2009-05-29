@@ -278,10 +278,11 @@
       <mkdir dir="${dist.dir}"/>
         
       <zip destfile="${dist.dir}/fuml-${release.suffix}.zip">
+        <zipfileset dir="." includes="*.txt" prefix="fuml-${release.suffix}"/>
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
-        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt,README" prefix="fuml-${release.suffix}/bin" />
-        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/bin" />
+        <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/doc" />
       </zip>                
 
       <zip destfile="${dist.dir}/fuml-${release.suffix}-src.zip">
@@ -290,18 +291,19 @@
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib" />
         <zipfileset dir="${md.lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib/magicdraw" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib" />
-        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt,README" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/bin" />
+        <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/bin" />
         <zipfileset dir="${src.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src" />
         <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/test" />
-        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/doc" />
+        <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/doc" />
       </zip>                
 
       <zip destfile="${dist.dir}/fuml-${release.suffix}-plugin.zip">
+        <zipfileset dir="." includes="*.txt" prefix="org.modeldriven.fuml.execution"/>
         <zipfileset dir="${bin.dir}" includes="*.properties" prefix="org.modeldriven.fuml.execution" />
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution" />
         <zipfileset dir="${xml.dir}/plugin" includes="*.xml" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${doc.dir}" includes="Executable-SysML-SDD*.doc" prefix="fuml-${release.suffix}/doc" />
+        <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="org.modeldriven.fuml.execution/doc" />
       </zip>               
 
     </target>
