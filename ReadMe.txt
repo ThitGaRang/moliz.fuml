@@ -79,8 +79,8 @@ Testing
 -------
 
 1. In a Windows/DOS command window, navigate to the 'root' reference
-implementation directory.
-This directory is where the Apache Ant 'build.xml' file can be found.
+implementation directory. This directory is where the Apache Ant 'build.xml'
+file can be found.
 
 2. Use the following command:
 
@@ -108,8 +108,10 @@ test-incremental-validation
 
 
 Testing individual JUnit tests in Eclipse: 
-1.) Right-click on any file under the 'test' folder with a filename ending in 'TestCase' or 'Test' and 
-select Run As->JUnit Test. The test should execute and display output.     
+
+1. Right-click on any file under the 'test' folder with a filename ending in
+'TestCase' or 'Test' and select Run As->JUnit Test. The test should execute and
+display output.
 
 
 Deploying
