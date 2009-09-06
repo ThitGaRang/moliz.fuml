@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="fUML" default="build" basedir=".">
+<project name="fUML" default="build" basedir="..">
 	<basename property="source.project" file="${basedir}"/>
-	<property file="${basedir}/user.build.properties"/>
-	<property file="${basedir}/build.properties"/>
+	<property file="${basedir}/provision/user.build.properties"/>
+	<property file="${basedir}/provision/build.properties"/>
 	<target name="build" description="build and generate all target artifacts" >
         <org.modeldriven.modelPro 
-        platformTemplateBinding="/${source.project}/transform/binding/template.xml" 
-        platformModelResource="platform:/resource/${source.project}/model/${source.model}" 
-        platformVelocityDirectory="/${source.project}/transform/velocity" 
-        platformTargetWorkspace="/${source.project}/gen~" 
+        platformTemplateBinding="/${source.project}/provision/transform/binding/template.xml" 
+        platformModelResource="platform:/resource/${source.project}/provision/model/${source.model}" 
+        platformVelocityDirectory="/${source.project}/provision/transform/velocity" 
+        platformTargetWorkspace="/${source.project}/provision/gen~" 
         paramMap="target.project.name=${target.project.name}" 
                 />
 	</target>
