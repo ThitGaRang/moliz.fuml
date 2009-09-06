@@ -10,6 +10,7 @@
     <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.1.1" />
     <SupportedNamespace domain="uml" uri="http://www.eclipse.org/uml2/2.1.0/UML" />
     <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.1.2" />    
+    <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.2" />    
     
     <SupportedNamespace domain="ecore" uri="http://www.eclipse.org/emf/2002/Ecore" />
     <SupportedNamespace domain="magicdraw" uri="http:///schemas/MagicDrawProfile/_eFzsIKxbEd2Kp9hnZinLyQ/0" />
