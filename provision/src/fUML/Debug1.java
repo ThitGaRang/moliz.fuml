@@ -13,7 +13,7 @@
 package fUML;
 
 import fUML.utility.MexSystem;
-import fUML.Debug;
+import fUML.Debug1;
 import UMLPrimitiveTypes.intList;
 
 /**
@@ -22,14 +22,14 @@ import UMLPrimitiveTypes.intList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link Debug#println <em>println</em>}</li>
+ * <li>{@link Debug1#println <em>println</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
 
-public class Debug {
+public class Debug1 {
 
     // Attributes
 
