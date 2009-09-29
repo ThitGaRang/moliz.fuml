@@ -35,7 +35,7 @@
     <property name="unzip.dir" value="${target.dir}/temp"/>
     
     <property environment="env"/>
-    <property name="release.suffix" value="SNAPSHOT-05-2009"/>        
+    <property name="release.suffix" value="SNAPSHOT-09-2009"/>        
    
     <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
