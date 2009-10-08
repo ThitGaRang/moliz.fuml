@@ -8,6 +8,7 @@
     <SupportedNamespace domain="xmi" uri="http://schema.omg.org/spec/XMI/2.1" />
     <SupportedNamespace domain="uml" uri="http://www.eclipse.org/uml2/2.0.0/UML" />
     <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.1.1" />
+    <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.1.1/uml.xml" />
     <SupportedNamespace domain="uml" uri="http://www.eclipse.org/uml2/2.1.0/UML" />
     <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.1.2" />    
     <SupportedNamespace domain="uml" uri="http://schema.omg.org/spec/UML/2.2" />    
