@@ -35,7 +35,7 @@
     <property name="unzip.dir" value="${target.dir}/temp"/>
     
     <property environment="env"/>
-    <property name="release.suffix" value="SNAPSHOT-09-2009"/>        
+    <property name="release.suffix" value="SNAPSHOT-10-2009"/>        
    
     <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
@@ -293,6 +293,7 @@
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib" />
         <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/bin" />
         <zipfileset dir="${src.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src" />
+        <zipfileset dir="${gen.java.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src/java" />
         <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/test" />
         <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/doc" />
       </zip>                
