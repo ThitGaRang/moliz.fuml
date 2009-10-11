@@ -6,7 +6,7 @@
 	<target name="build" description="build and generate all target artifacts" >
         <org.modeldriven.modelPro 
         platformTemplateBinding="/${source.project}/provision/transform/binding/template.xml" 
-        platformModelResource="platform:/resource/${source.project}/provision/model/${source.model}" 
+        platformModelResource="platform:/resource/${source.project}/src/uml/${source.model}" 
         platformVelocityDirectory="/${source.project}/provision/transform/velocity" 
         platformTargetWorkspace="/${source.project}/target" 
         paramMap="target.project.name=${target.project.name}" 
