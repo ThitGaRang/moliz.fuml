@@ -22,9 +22,9 @@ fUML.Library.ChannelImplementation.StandardOutputChannelObject.opened property t
 
     }
     
-3.) Added 'unordered' to enumeration fUML.Syntax.Actions.BasicActions.ObjectNodeOrderingKind
+3.) Added 'unordered' to enumeration fUML.Syntax.Activities.IntermediateActivities.ObjectNodeOrderingKind
 
-4.) Added 'create' to enumeration fUML.Syntax.Actions.BasicActions.ParameterEffectKind
+4.) Added 'create' to enumeration fUML.Syntax.Classes.Kernel.ParameterEffectKind
 
 5.) 11/23/2008 For fUML.Syntax.Activities.IntermediateActivities.ActivityEdge, removed incorrect generalization 
 to NamedElement for ActivityEdge, added generalization to RedefinableElement.

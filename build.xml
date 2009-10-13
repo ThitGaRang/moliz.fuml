@@ -143,6 +143,14 @@
     <!--  if="compilation.required" -->
     <target name="compile" depends="init">
       <echo message="compiling..."/>
+    
+      <!-- Delete generated source files that need replacements (until abstract syntax model is fixed). -->
+      <!-- Replacements for these files must be found in the ${src.java.dir} tree. -->
+      <delete file="${gen.java.dir}/fUML/Syntax/Actions/BasicActions/ObjectNodeOrderingKind.java" />
+      <delete file="${gen.java.dir}/fUML/Syntax/Activities/IntermediateActivities/ActivityEdge.java" />
+      <delete file="${gen.java.dir}/fUML/Syntax/Activities/IntermediateActivities/ActivityNode.java" />
+      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/ParameterEffectKind.java" />
+      
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 
         debug="on"> 
