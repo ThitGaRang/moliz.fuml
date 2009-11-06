@@ -82,7 +82,7 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 #macro( visibility $element )${element.visibility}#end
 #macro( abstract $element ) #if ( ${element.isAbstract()})abstract#end#end 
 #macro( static $element ) #if ( ${element.isStatic()} )static#end#end 
-#macro( name $name )#if (${name}=="Class")Class_#else${name}#end#end
+#macro( name $name )${name}#if (${name}=="Class"||${name}=="Object"||${name}=="class"||${name}=="public"||${name}=="private"||${name}=="protected"||${name}=="package"||${name}=="return")_#end#end
 #macro( qualifiedName $element )#qualifiedPackageName(${element.owner}).#name(${element.name})#end
 #macro( qualifiedPackageName $element )${element.qualifiedName.replace("::",".")}#end
 #macro( primitiveName $primitive )#if(${primitive.name}=="Boolean")boolean#elseif(${primitive.name}=="Integer")int#else#name(${primitive.name})#end#end
@@ -94,7 +94,7 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
-#elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
+## #elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
 #else null##
 #end
 ##	#elseif(${feature.type.isAbstract()}||${feature.type.eClass().name}=="Enumeration")null

@@ -1,6 +1,7 @@
 #**
 *Impl.java template for uml project
-@projectPath /src/${qualifiedName.replace("::","/")}.java 
+*projectPath /src/${qualifiedName.replace("::","/")}.java 
+@projectPath /src/${object.owner.qualifiedName.replace("::","/")}/#name(${object.name}).java 
 @artifactContext GenClass 
 *#
 #parse( "uml.fragment" )
@@ -13,25 +14,31 @@ ${packageDeclaration}
 #classJavaDoc(${object}) 
 
 #visibility(${object}) #abstract(${object}) class #name(${object.name})
-#foreach ( $superclass in ${object.superClasses} )
-    extends #qualifiedName(${superclass}) 
-#end    
+#if (${object.superClasses.size()}>0)
+ extends #qualifiedName(${object.superClasses.get(0)})
+#end
+## #foreach ( $superclass in ${object.superClasses} )
+##    extends #qualifiedName(${superclass}) 
+## #end    
     {
-#foreach ( $behavior in ${object.ownedBehaviors} )
-#if(${behavior.eClass().name}=="Activity")
-#class(${behavior})
-#end
-#end
+## #foreach ( $behavior in ${object.ownedBehaviors} )
+## #if(${behavior.eClass().name}=="Activity")
+## #class(${behavior})
+## #end
+## #end
     
-	// Attributes
+#foreach ( $superclass in ${object.superClasses} )
+#if ($velocityCount>1 && !${superclass.isAbstract()})
+  public #qualifiedName(${superclass}) ${superclass.name.substring(0,1).toLowerCase()}${superclass.name.substring(1)} = new #qualifiedName(${superclass})();
+#end
+#end
 #foreach ( $feature in ${object.ownedAttributes} )
-	#visibility(${feature}) #static(${feature}) #type(${feature}) #name(${feature.name}) = #defaultValue(${feature});
+  #visibility(${feature}) #static(${feature}) #type(${feature}) #name(${feature.name}) = #defaultValue(${feature});
 #end
     
-	// Operations of the class
 #foreach ( $operation in ${object.ownedOperations} )
 #featureJavaDoc("operation ${operation.name}" ${operation})
-	#visibility(${operation}) #abstract(${operation}) #static(${operation}) #operationType(${operation.returnResult} ${operation} ${object}) #name(${operation.name})(#operationParameters(${operation})) #throws(${operation})#body(${operation})
+  #visibility(${operation}) #abstract(${operation}) #static(${operation}) #operationType(${operation.returnResult} ${operation} ${object}) #name(${operation.name})(#operationParameters(${operation})) #throws(${operation})#body(${operation})
 #end
 } //${object.name}
 #end

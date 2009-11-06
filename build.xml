@@ -35,7 +35,7 @@
     <property name="unzip.dir" value="${target.dir}/temp"/>
     
     <property environment="env"/>
-    <property name="release.suffix" value="SNAPSHOT-10-2009"/>        
+    <property name="release.suffix" value="SNAPSHOT-11-2009"/>        
    
     <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
@@ -144,12 +144,11 @@
     <target name="compile" depends="init">
       <echo message="compiling..."/>
     
-      <!-- Delete generated source files that need replacements (until abstract syntax model is fixed). -->
+      <!-- Delete generated source files that need replacements (in order to linearize multiple inheritance). -->
       <!-- Replacements for these files must be found in the ${src.java.dir} tree. -->
-      <delete file="${gen.java.dir}/fUML/Syntax/Actions/BasicActions/ObjectNodeOrderingKind.java" />
-      <delete file="${gen.java.dir}/fUML/Syntax/Activities/IntermediateActivities/ActivityEdge.java" />
-      <delete file="${gen.java.dir}/fUML/Syntax/Activities/IntermediateActivities/ActivityNode.java" />
-      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/ParameterEffectKind.java" />
+      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Namespace.java" />
+      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Type.java" />
+      
       
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 

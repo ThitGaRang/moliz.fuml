@@ -1,6 +1,7 @@
 #**
 *Impl.java template for uml project
-@projectPath /src/${qualifiedName.replace("::","/").replace("UMLPrimitiveTypes/Integer","UMLPrimitiveTypes/int")}List.java 
+*projectPath /src/${qualifiedName.replace("::","/").replace("UMLPrimitiveTypes/Integer","UMLPrimitiveTypes/int")}List.java 
+@projectPath /src/${object.owner.qualifiedName.replace("::","/")}/#basicName(${object})List.java
 @artifactContext ClassifierList 
 *#
 #parse( "uml.fragment" )
