@@ -13,10 +13,11 @@ package org.modeldriven.fuml.library.integerfunctions;
 
 import org.modeldriven.fuml.library.LibraryFunctions;
 
+import UMLPrimitiveTypes.UnlimitedNatural;
+
 import fUML.Debug;
 import fUML.Semantics.Classes.Kernel.IntegerValue;
 import fUML.Semantics.Classes.Kernel.UnlimitedNaturalValue;
-import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

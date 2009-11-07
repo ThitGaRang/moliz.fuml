@@ -14,7 +14,6 @@ package org.modeldriven.fuml.environment;
 
 import java.util.Iterator;
 
-import fUML.utility.MexSystem;
 import fUML.Debug;
 
 import fUML.Syntax.Classes.Kernel.Comment;

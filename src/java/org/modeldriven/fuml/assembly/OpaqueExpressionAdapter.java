@@ -18,12 +18,13 @@ import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.xmi.XmiNode;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
 
+import UMLPrimitiveTypes.UnlimitedNatural;
+
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.LiteralBoolean;
 import fUML.Syntax.Classes.Kernel.LiteralInteger;
 import fUML.Syntax.Classes.Kernel.LiteralString;
 import fUML.Syntax.Classes.Kernel.LiteralUnlimitedNatural;
-import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
 
 public class OpaqueExpressionAdapter implements AssemblyAdapter {
     

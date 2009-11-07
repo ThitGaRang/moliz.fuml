@@ -57,13 +57,14 @@ import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
 import org.modeldriven.fuml.xmi.validation.ValidationError;
 import org.modeldriven.fuml.xmi.validation.ValidationException;
 
+import UMLPrimitiveTypes.UnlimitedNatural;
+
 import fUML.Library.LibraryClassImplementation.ImplementationObject;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
-import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
 
 public class ElementAssembler extends AssemblerNode
     implements XmiIdentity, Assembler {

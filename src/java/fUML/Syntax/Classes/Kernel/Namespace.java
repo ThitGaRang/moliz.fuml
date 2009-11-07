@@ -19,9 +19,8 @@
 
 package fUML.Syntax.Classes.Kernel;
 
-import fUML.utility.MexSystem;
 import fUML.Debug;
-import UMLPrimitiveTypes.intList;
+import UMLPrimitiveTypes.*;
 
 
 

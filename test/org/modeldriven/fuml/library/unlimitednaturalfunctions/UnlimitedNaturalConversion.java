@@ -12,11 +12,11 @@
 
 package org.modeldriven.fuml.library.unlimitednaturalfunctions;
 
+import UMLPrimitiveTypes.UnlimitedNatural;
 import fUML.Semantics.Classes.Kernel.UnlimitedNaturalValue;
 import fUML.Semantics.Classes.Kernel.ValueList;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList;
-import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
 
 /**
  * Provides helper methods for the Boolean Function JUnit tests.

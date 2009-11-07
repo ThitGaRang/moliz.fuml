@@ -19,24 +19,6 @@
 
 package fUML.Syntax.Actions.BasicActions;
 
-import fUML.utility.MexSystem;
-import fUML.Debug;
-import UMLPrimitiveTypes.intList;
-
-
-/**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>fUML::Syntax::Actions::BasicActions::ObjectNodeOrderingKind</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- 	 	 * </ul>
- * </p>
- *
- * @generated
- */
-
 public   enum ObjectNodeOrderingKind{
  			unordered, FIFO,
 	} //ObjectNodeOrderingKind

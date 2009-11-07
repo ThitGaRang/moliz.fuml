@@ -18,7 +18,6 @@
 #set( $packageDeclaration = "package #qualifiedPackageName(${object.owner});")
 
 #set( $commonImports = "
-import fUML.utility.MexSystem;
 import fUML.Debug;
-import UMLPrimitiveTypes.intList;
+import UMLPrimitiveTypes.*;
 ")

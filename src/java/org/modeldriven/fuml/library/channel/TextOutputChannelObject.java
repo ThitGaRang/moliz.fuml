@@ -101,7 +101,7 @@ public abstract class TextOutputChannelObject extends
      * @generated
      */
 
-    public void writeUnlimitedNatural(fUML.Syntax.Classes.Kernel.UnlimitedNatural value) {
+    public void writeUnlimitedNatural(UMLPrimitiveTypes.UnlimitedNatural value) {
         int naturalValue = value.naturalValue;
 
         if (naturalValue < 0) {

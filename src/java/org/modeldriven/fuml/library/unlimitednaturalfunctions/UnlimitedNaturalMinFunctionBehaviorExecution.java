@@ -12,10 +12,10 @@
 
 package org.modeldriven.fuml.library.unlimitednaturalfunctions;
 
+import UMLPrimitiveTypes.UnlimitedNatural;
 import fUML.Debug;
 import fUML.Semantics.Classes.Kernel.UnlimitedNaturalValue;
 import fUML.Semantics.Classes.Kernel.Value;
-import fUML.Syntax.Classes.Kernel.UnlimitedNatural;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
