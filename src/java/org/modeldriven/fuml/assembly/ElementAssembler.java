@@ -37,6 +37,7 @@ import org.modeldriven.fuml.config.ImportAdapterType;
 import org.modeldriven.fuml.config.ReferenceMappingType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
+import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
 import org.modeldriven.fuml.model.Model;
 import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.model.uml2.UmlClassifier;
@@ -59,7 +60,6 @@ import org.modeldriven.fuml.xmi.validation.ValidationException;
 
 import UMLPrimitiveTypes.UnlimitedNatural;
 
-import fUML.Library.LibraryClassImplementation.ImplementationObject;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Comment;

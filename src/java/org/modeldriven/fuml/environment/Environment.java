@@ -40,13 +40,13 @@ public class Environment extends TestEnvironment {
 		this.locus.factory
 				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
 		this.locus.factory.setStrategy(new fUML.Semantics.Loci.FirstChoiceStrategy());
-
+/*
 		this.primitiveTypes = new fUML.Library.PrimitiveTypes(this.locus.factory);
 		this.addElement(this.primitiveTypes.Boolean);
 		this.addElement(this.primitiveTypes.Integer);
 		this.addElement(this.primitiveTypes.String);
 		this.addElement(this.primitiveTypes.UnlimitedNatural);
-
+*/
 	}
 
     public static Environment getInstance()

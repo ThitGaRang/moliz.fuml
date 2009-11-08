@@ -38,7 +38,7 @@ package org.modeldriven.fuml.library.pipe;
  * @generated
  */
 
-public class PipeInputChannelObject extends fUML.Library.ChannelImplementation.InputChannelObject {
+public class PipeInputChannelObject extends org.modeldriven.fuml.library.channel.InputChannelObject {
 
     // Attributes
     private fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();

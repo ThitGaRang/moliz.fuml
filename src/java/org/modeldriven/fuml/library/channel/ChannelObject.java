@@ -11,6 +11,9 @@
 
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
+import org.modeldriven.fuml.library.libraryclass.OperationExecution;
+
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 import fUML.Semantics.Classes.Kernel.StringValue;
 
@@ -32,8 +35,7 @@ import fUML.Semantics.Classes.Kernel.StringValue;
  * @generated
  */
 
-public abstract class ChannelObject extends
-        fUML.Library.LibraryClassImplementation.ImplementationObject {
+public abstract class ChannelObject extends ImplementationObject {
 
     // Attributes
 
@@ -76,7 +78,7 @@ public abstract class ChannelObject extends
      * @generated
      */
 
-    public void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution) {
+    public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
 
         if (name.equals("getName")) {

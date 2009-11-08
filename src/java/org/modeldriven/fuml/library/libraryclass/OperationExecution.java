@@ -111,7 +111,7 @@ public class OperationExecution extends fUML.Semantics.CommonBehaviors.BasicBeha
      */
 
     public fUML.Syntax.Classes.Kernel.Parameter getParameter(String parameterName) {
-        // MexSystem.println("[getParameter] parameterName = " + parameterName);
+        // Debug.println("[getParameter] parameterName = " + parameterName);
 
         Behavior method = this.getBehavior();
 
@@ -123,7 +123,7 @@ public class OperationExecution extends fUML.Semantics.CommonBehaviors.BasicBeha
             }
         }
 
-        // MexSystem.println("[getParameter] Parameter not found.");
+        // Debug.println("[getParameter] Parameter not found.");
         return null;
 
     }

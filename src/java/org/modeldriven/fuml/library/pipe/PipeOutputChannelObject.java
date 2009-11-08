@@ -12,6 +12,8 @@
 
 package org.modeldriven.fuml.library.pipe;
 
+import org.modeldriven.fuml.library.channel.OutputChannelObject;
+
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -34,13 +36,12 @@ package org.modeldriven.fuml.library.pipe;
  * </ul>
  * </p>
  * 
- * @generated
  */
 
-public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.OutputChannelObject {
+public class PipeOutputChannelObject extends OutputChannelObject {
 
     // Attributes
-    private fUML.Library.PipeImplementation.PipeInputChannelObject otherEnd = null;
+    private PipeInputChannelObject otherEnd = null;
     private boolean opened = false;
     private String name = new String();
 
@@ -48,7 +49,7 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
     /**
      * operation write <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public void write(fUML.Semantics.Classes.Kernel.Value value) {
@@ -61,7 +62,7 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
     /**
      * operation isFull <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public boolean isFull() {
@@ -73,21 +74,20 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
      * operation PipeOutputChannelObject <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
-    public PipeOutputChannelObject(String name,
-            fUML.Library.PipeImplementation.PipeInputChannelObject otherEnd) {
-        this.name = name;
-        this.otherEnd = otherEnd;
-        this.opened = true;
+    public PipeOutputChannelObject(String name, PipeInputChannelObject otherEnd) {
+		this.name = name;
+		this.otherEnd = otherEnd;
+		this.opened = true;
 
     }
 
     /**
      * operation getName <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public String getName() {
@@ -97,7 +97,7 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
     /**
      * operation open <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public void open() {
@@ -108,7 +108,7 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
     /**
      * operation close <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public void close() {
@@ -118,7 +118,7 @@ public class PipeOutputChannelObject extends fUML.Library.ChannelImplementation.
     /**
      * operation isOpen <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * 
      */
 
     public boolean isOpen() {

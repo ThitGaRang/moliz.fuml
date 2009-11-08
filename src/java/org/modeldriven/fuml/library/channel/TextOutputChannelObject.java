@@ -12,6 +12,8 @@
 
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.libraryclass.OperationExecution;
+
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 import fUML.Semantics.Classes.Kernel.IntegerValue;
 import fUML.Semantics.Classes.Kernel.StringValue;
@@ -39,8 +41,7 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue;
  * @generated
  */
 
-public abstract class TextOutputChannelObject extends
-        fUML.Library.ChannelImplementation.OutputChannelObject {
+public abstract class TextOutputChannelObject extends OutputChannelObject {
 
     // Attributes
 
@@ -118,7 +119,7 @@ public abstract class TextOutputChannelObject extends
      * @generated
      */
 
-    public void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution) {
+    public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
         // Debug.println("[execute] operation = " + name);
 
@@ -139,8 +140,7 @@ public abstract class TextOutputChannelObject extends
         } else if (name.equals("writeBoolean")) {
             this.writeBoolean(((BooleanValue) (parameterValue.values.getValue(0))).value);
         } else if (name.equals("writeUnlimitedNatural")) {
-            this
-                    .writeUnlimitedNatural(((UnlimitedNaturalValue) (parameterValue.values
+            this.writeUnlimitedNatural(((UnlimitedNaturalValue) (parameterValue.values
                             .getValue(0))).value);
         } else {
             super.execute(execution);

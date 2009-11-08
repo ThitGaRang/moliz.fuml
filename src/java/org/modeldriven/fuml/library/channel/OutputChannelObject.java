@@ -10,6 +10,8 @@
  */
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.libraryclass.OperationExecution;
+
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 
 /**
@@ -28,7 +30,7 @@ import fUML.Semantics.Classes.Kernel.BooleanValue;
  * @generated
  */
 
-public abstract class OutputChannelObject extends fUML.Library.ChannelImplementation.ChannelObject {
+public abstract class OutputChannelObject extends ChannelObject {
 
     // Attributes
 
@@ -55,7 +57,7 @@ public abstract class OutputChannelObject extends fUML.Library.ChannelImplementa
      * @generated
      */
 
-    public void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution) {
+    public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
 
         if (name.equals("write")) {

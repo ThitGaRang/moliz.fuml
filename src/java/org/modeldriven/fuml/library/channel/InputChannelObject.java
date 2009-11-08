@@ -12,6 +12,8 @@
 
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.libraryclass.OperationExecution;
+
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 
 /**
@@ -30,7 +32,7 @@ import fUML.Semantics.Classes.Kernel.BooleanValue;
  * @generated
  */
 
-public abstract class InputChannelObject extends fUML.Library.ChannelImplementation.ChannelObject {
+public abstract class InputChannelObject extends ChannelObject {
 
     // Attributes
 
@@ -57,7 +59,7 @@ public abstract class InputChannelObject extends fUML.Library.ChannelImplementat
      * @generated
      */
 
-    public void execute(fUML.Library.LibraryClassImplementation.OperationExecution execution) {
+    public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
 
         if (name.equals("hasMore")) {

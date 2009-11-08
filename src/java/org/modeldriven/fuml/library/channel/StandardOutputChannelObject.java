@@ -38,8 +38,7 @@ import fUML.Debug;
  * @generated
  */
 
-public class StandardOutputChannelObject extends
-        fUML.Library.ChannelImplementation.TextOutputChannelObject {
+public class StandardOutputChannelObject extends TextOutputChannelObject {
 
     // Attributes
     private boolean opened = true; // S.C. 11/20/2008 - set default to 'true'

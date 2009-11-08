@@ -19,10 +19,10 @@ import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.model.uml2.UmlClassifier;
 import org.modeldriven.fuml.model.uml2.UmlDataType;
 import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.library.channel.StandardOutputChannelObject;
 
 import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.LiteralUnlimitedNatural;
 
-import fUML.Library.ChannelImplementation.StandardOutputChannelObject;
 import fUML.Syntax.Actions.BasicActions.CallBehaviorAction;
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Activities.IntermediateActivities.ActivityParameterNode;
