@@ -931,8 +931,10 @@ public class ElementAssembler extends AssemblerNode
 		            return int.class;
 		        else if (Boolean.class.getSimpleName().equals(dataType.getName()))
 		            return boolean.class;
+		        else if (UnlimitedNatural.class.getSimpleName().equals(dataType.getName()))
+		            return UnlimitedNatural.class;
 		        else
-		            throw new AssemblyException("unknown dataType, " + dataType.getClass().getName());
+		            throw new AssemblyException("unknown dataType, " + dataType.getName());
     		}
     		else if (dataType.getHref() != null)
     		{
@@ -942,8 +944,10 @@ public class ElementAssembler extends AssemblerNode
 		            return int.class;
 		        else if (dataType.getHref().endsWith(Boolean.class.getSimpleName()))
 		            return boolean.class;
+		        else if (dataType.getHref().endsWith(UnlimitedNatural.class.getSimpleName()))
+		            return UnlimitedNatural.class;
 		        else
-		            throw new AssemblyException("unknown dataType, " + dataType.getClass().getName());
+		            throw new AssemblyException("unknown dataType, " + dataType.getHref());
     		}
     		else
 			   throw new AssemblyException("expected name or href for primitive type, "
@@ -956,6 +960,8 @@ public class ElementAssembler extends AssemblerNode
 	            return java.lang.Integer.class;
 	        else if (Boolean.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
 	            return java.lang.Boolean.class;
+	        else if (UnlimitedNatural.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
+	            return UnlimitedNatural.class;
 	        else
 	            throw new AssemblyException("unknown dataType, " + dataType.getName());
     	}
