@@ -39,7 +39,9 @@ import fUML.Syntax.Classes.Kernel.NamedElement;
 import fUML.Syntax.Classes.Kernel.Operation;
 import fUML.Syntax.Classes.Kernel.Property;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior;
+import fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior;
 import fUML.Syntax.CommonBehaviors.Communications.Signal;
+import fUML.Syntax.CommonBehaviors.Communications.SignalEvent;
 
 public class PackagedElementImport extends AbsractImport implements Import {
 
@@ -58,14 +60,16 @@ public class PackagedElementImport extends AbsractImport implements Import {
         return new AssemblerResultsProfile(
             new UmlClass[] {
                 (UmlClass)model.getClassifier(Activity.class.getSimpleName()),
-                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),
                 (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Association.class.getSimpleName()),
                 (UmlClass)model.getClassifier("Class"), // fUML name is 'Class_'
                 (UmlClass)model.getClassifier(Operation.class.getSimpleName()),
                 (UmlClass)model.getClassifier(Property.class.getSimpleName()),
                 (UmlClass)model.getClassifier(DataType.class.getSimpleName()),
                 (UmlClass)model.getClassifier(Signal.class.getSimpleName()),
-                (UmlClass)model.getClassifier(Association.class.getSimpleName()),
+                (UmlClass)model.getClassifier(SignalEvent.class.getSimpleName()),
+                (UmlClass)model.getClassifier(OpaqueBehavior.class.getSimpleName()),
+                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),
             });
     }
 
