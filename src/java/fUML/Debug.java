@@ -16,26 +16,16 @@
 
 package fUML;
 
-/**
- * An implementation of the model object '
- * <em><b>fUML::Debug</b></em>'.
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Debug#println <em>println</em>}</li>
- * </ul>
- * </p>
- * 
- */
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class Debug {
+	
+    private static Log log = LogFactory.getLog(Debug.class);
 
-	/**
-	 * operation println
-	 * 
-	 */
 	public static void println(String message) {
-		System.out.println(message);
+		log.debug(message);
+		// System.out.println(message);
 	} // println
 
 } // Debug
