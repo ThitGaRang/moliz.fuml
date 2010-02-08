@@ -23,7 +23,7 @@ public class LinkDestroyerTestCase extends BuiltInTest {
     public void setUp() throws Exception {
     }
 
-    public void testSimpleActivities() throws Exception {
+    public void testLinkDestroyer() throws Exception {
         log.info("testLinkDestroyer");
         initTestEnv.testSuite.testLinkDestroyer();
         log.info("done");

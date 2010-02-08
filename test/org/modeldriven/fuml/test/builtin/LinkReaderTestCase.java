@@ -23,7 +23,7 @@ public class LinkReaderTestCase extends BuiltInTest {
     public void setUp() throws Exception {
     }
 
-    public void testSimpleActivities() throws Exception {
+    public void testLinkReader() throws Exception {
         log.info("testLinkReader");
         initTestEnv.testSuite.testLinkReader();
         log.info("done");

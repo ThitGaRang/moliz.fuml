@@ -23,7 +23,7 @@ public class LinkWriterTestCase extends BuiltInTest {
     public void setUp() throws Exception {
     }
 
-    public void testSimpleActivities() throws Exception {
+    public void testLinkWriter() throws Exception {
         log.info("testLinkWriter");
         initTestEnv.testSuite.testLinkWriter();
         log.info("done");

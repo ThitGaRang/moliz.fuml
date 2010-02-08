@@ -13,19 +13,19 @@ import junit.framework.Test;
 /**
  * 
  */
-public class LinkCreatorTestCase extends BuiltInTest {
-    private static Log log = LogFactory.getLog(LinkCreatorTestCase.class);
+public class WriterReaderTestCase extends BuiltInTest {
+    private static Log log = LogFactory.getLog(WriterReaderTestCase.class);
     
     public static Test suite() {
-        return FUMLTestSetup.newTestSetup(LinkCreatorTestCase.class);
+        return FUMLTestSetup.newTestSetup(WriterReaderTestCase.class);
     }
     
     public void setUp() throws Exception {
     }
 
-    public void testLinkCreator() throws Exception {
-        log.info("testLinkCreator");
-        initTestEnv.testSuite.testLinkCreator();
+    public void testSimpleActivities() throws Exception {
+        log.info("testLinkReader");
+        initTestEnv.testSuite.testLinkReader();
         log.info("done");
     }
     

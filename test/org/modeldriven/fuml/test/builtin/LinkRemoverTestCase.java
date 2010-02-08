@@ -23,7 +23,7 @@ public class LinkRemoverTestCase extends BuiltInTest {
     public void setUp() throws Exception {
     }
 
-    public void testSimpleActivities() throws Exception {
+    public void testLinkRemover() throws Exception {
         log.info("testLinkRemover");
         initTestEnv.testSuite.testLinkRemover();
         log.info("done");
