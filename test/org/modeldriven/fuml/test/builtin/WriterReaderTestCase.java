@@ -23,9 +23,9 @@ public class WriterReaderTestCase extends BuiltInTest {
     public void setUp() throws Exception {
     }
 
-    public void testSimpleActivities() throws Exception {
-        log.info("testLinkReader");
-        initTestEnv.testSuite.testLinkReader();
+    public void testWriterReader() throws Exception {
+        log.info("testWriterReader");
+        initTestEnv.testSuite.testWriterReader();
         log.info("done");
     }
     
