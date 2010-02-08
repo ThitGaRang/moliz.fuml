@@ -1,1061 +1,1061 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ProfileBase="http:///schemas/ProfileBase/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/ProfileBase/1 ProfileBase.profile.uml#_22NnVxREEd-0fNU76fYmlA">
-  <uml:Profile xmi:id="_22EznBREEd-0fNU76fYmlA" name="Uml2Debug" metamodelReference="_22Nl-RREEd-0fNU76fYmlA">
-    <eAnnotations xmi:id="_22EznRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-      <contents xmi:type="ecore:EPackage" xmi:id="_22EznhREEd-0fNU76fYmlA" name="Uml2Debug" nsURI="http:///schemas/Uml2Debug/_BYFEIP7yEdufa83D85EEEw/16" nsPrefix="Uml2Debug">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EznxREEd-0fNU76fYmlA" name="java">
-          <eAnnotations xmi:id="_22EzoBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzoRREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ProfileBase="http:///schemas/ProfileBase/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/ProfileBase/1 ProfileBase.profile.uml#_gX-klBRmEd-0fNU76fYmlA">
+  <uml:Profile xmi:id="_gX02KhRmEd-0fNU76fYmlA" name="Uml2Debug" metamodelReference="_gX03-BRmEd-0fNU76fYmlA">
+    <eAnnotations xmi:id="_gX02KxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX02LBRmEd-0fNU76fYmlA" name="Uml2Debug" nsURI="http:///schemas/Uml2Debug/_BYFEIP7yEdufa83D85EEEw/16" nsPrefix="Uml2Debug">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02LRRmEd-0fNU76fYmlA" name="java">
+          <eAnnotations xmi:id="_gX02LhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02LxRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzoxREEd-0fNU76fYmlA" name="base_Action" ordered="false" lowerBound="1">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02MRRmEd-0fNU76fYmlA" name="base_Action" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzpRREEd-0fNU76fYmlA" name="create">
-          <eAnnotations xmi:id="_22EzphREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzpxREEd-0fNU76fYmlA" name="base_Operation" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02MxRmEd-0fNU76fYmlA" name="create">
+          <eAnnotations xmi:id="_gX02NBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02NRRmEd-0fNU76fYmlA" name="base_Operation" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzqRREEd-0fNU76fYmlA" name="interactive">
-          <eAnnotations xmi:id="_22EzqhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzqxREEd-0fNU76fYmlA" name="base_DecisionNode" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02NxRmEd-0fNU76fYmlA" name="interactive">
+          <eAnnotations xmi:id="_gX02OBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02ORRmEd-0fNU76fYmlA" name="base_DecisionNode" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzrRREEd-0fNU76fYmlA" name="init">
-          <eAnnotations xmi:id="_22EzrhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzrxREEd-0fNU76fYmlA" name="base_Class" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02OxRmEd-0fNU76fYmlA" name="init">
+          <eAnnotations xmi:id="_gX02PBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02PRRmEd-0fNU76fYmlA" name="base_Class" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzsRREEd-0fNU76fYmlA" name="boundary">
-          <eAnnotations xmi:id="_22EzshREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzsxREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02PxRmEd-0fNU76fYmlA" name="boundary">
+          <eAnnotations xmi:id="_gX02QBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02QRRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EztRREEd-0fNU76fYmlA" name="values">
-          <eAnnotations xmi:id="_22EzthREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EztxREEd-0fNU76fYmlA" name="base_Class" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02QxRmEd-0fNU76fYmlA" name="values">
+          <eAnnotations xmi:id="_gX02RBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02RRRmEd-0fNU76fYmlA" name="base_Class" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzuRREEd-0fNU76fYmlA" name="parameter">
-          <eAnnotations xmi:id="_22EzuhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzuxREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02RxRmEd-0fNU76fYmlA" name="parameter">
+          <eAnnotations xmi:id="_gX02SBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02SRRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzvRREEd-0fNU76fYmlA" name="decision">
-          <eAnnotations xmi:id="_22EzvhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzvxREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02SxRmEd-0fNU76fYmlA" name="decision">
+          <eAnnotations xmi:id="_gX02TBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02TRRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzwRREEd-0fNU76fYmlA" name="classpath">
-          <eAnnotations xmi:id="_22EzwhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzwxREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02TxRmEd-0fNU76fYmlA" name="classpath">
+          <eAnnotations xmi:id="_gX02UBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02URRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzxRREEd-0fNU76fYmlA" name="external">
-          <eAnnotations xmi:id="_22EzxhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmkxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzxxREEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02UxRmEd-0fNU76fYmlA" name="external">
+          <eAnnotations xmi:id="_gX02VBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04khRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02VRRmEd-0fNU76fYmlA" name="base_Comment" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzyRREEd-0fNU76fYmlA" name="completion">
-          <eAnnotations xmi:id="_22EzyhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmohREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzyxREEd-0fNU76fYmlA" name="base_Transition" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02VxRmEd-0fNU76fYmlA" name="completion">
+          <eAnnotations xmi:id="_gX02WBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04oRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02WRRmEd-0fNU76fYmlA" name="base_Transition" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Transition"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22EzzRREEd-0fNU76fYmlA" name="any">
-          <eAnnotations xmi:id="_22EzzhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmqBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22EzzxREEd-0fNU76fYmlA" name="base_Transition" ordered="false" lowerBound="1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02WxRmEd-0fNU76fYmlA" name="any">
+          <eAnnotations xmi:id="_gX02XBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04pxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02XRRmEd-0fNU76fYmlA" name="base_Transition" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Transition"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Ez0RREEd-0fNU76fYmlA" name="Uml2Debug_15" nsURI="http:///_QF15oD6CEduN2sI1N-cdWw.profile.uml2" nsPrefix="Uml2Debug_15">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez0hREEd-0fNU76fYmlA" name="Uml2Debug__classpath">
-          <eAnnotations xmi:id="_22Ez0xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez1BREEd-0fNU76fYmlA" name="base_Comment">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX02XxRmEd-0fNU76fYmlA" name="Uml2Debug_15" nsURI="http:///_QF15oD6CEduN2sI1N-cdWw.profile.uml2" nsPrefix="Uml2Debug_15">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02YBRmEd-0fNU76fYmlA" name="Uml2Debug__classpath">
+          <eAnnotations xmi:id="_gX02YRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02YhRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez1hREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22Ez1xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez2BREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02ZBRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX02ZRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02ZhRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez2hREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22Ez2xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez3BREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02aBRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX02aRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02ahRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez3hREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22Ez3xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez4BREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02bBRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX02bRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02bhRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez4hREEd-0fNU76fYmlA" name="Uml2Debug__completion">
-          <eAnnotations xmi:id="_22Ez4xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmohREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez5BREEd-0fNU76fYmlA" name="base_Transition">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02cBRmEd-0fNU76fYmlA" name="Uml2Debug__completion">
+          <eAnnotations xmi:id="_gX02cRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04oRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02chRmEd-0fNU76fYmlA" name="base_Transition">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Transition"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez5hREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22Ez5xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez6BREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02dBRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX02dRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02dhRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez6hREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22Ez6xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez7BREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02eBRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX02eRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02ehRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez7hREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02fBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez8BREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22Ez8RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez8hREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02fhRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX02fxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02gBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez9BREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22Ez9RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez9hREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02ghRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX02gxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02hBRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez-BREEd-0fNU76fYmlA" name="Uml2Debug__any">
-          <eAnnotations xmi:id="_22Ez-RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmqBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez-hREEd-0fNU76fYmlA" name="base_Transition">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02hhRmEd-0fNU76fYmlA" name="Uml2Debug__any">
+          <eAnnotations xmi:id="_gX02hxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04pxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02iBRmEd-0fNU76fYmlA" name="base_Transition">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Transition"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Ez_BREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22Ez_RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Ez_hREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02ihRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX02ixRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02jBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22E0ABREEd-0fNU76fYmlA" name="Uml2Debug__external">
-          <eAnnotations xmi:id="_22E0ARREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmkxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22E0AhREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02jhRmEd-0fNU76fYmlA" name="Uml2Debug__external">
+          <eAnnotations xmi:id="_gX02jxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04khRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02kBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22E0BBREEd-0fNU76fYmlA" name="Uml2Debug_14" nsURI="http:///_ytSMoLT3Edqdvs2ZK3LJLQ.profile.uml2" nsPrefix="Uml2Debug_14">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22E0BRREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22E0BhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22E0BxREEd-0fNU76fYmlA" name="base_Class">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX02khRmEd-0fNU76fYmlA" name="Uml2Debug_14" nsURI="http:///_ytSMoLT3Edqdvs2ZK3LJLQ.profile.uml2" nsPrefix="Uml2Debug_14">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02kxRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX02lBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02lRRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22E0CRREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22E0ChREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22E0CxREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02lxRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX02mBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02mRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22E0DRREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22E0DhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22E0DxREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02mxRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX02nBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02nRRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkoBREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22NkoRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkohREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02nxRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX02oBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02oRRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkpBREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22NkpRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkphREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02oxRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX02pBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02pRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkqBREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22NkqRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkqhREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02pxRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX02qBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02qRRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkrBREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22NkrRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkrhREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02qxRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX02rBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02rRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NksBREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22NksRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkshREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02rxRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX02sBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02sRRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NktBREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02sxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkthREEd-0fNU76fYmlA" name="Uml2Debug__classpath">
-          <eAnnotations xmi:id="_22NktxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkuBREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02tRRmEd-0fNU76fYmlA" name="Uml2Debug__classpath">
+          <eAnnotations xmi:id="_gX02thRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02txRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkuhREEd-0fNU76fYmlA" name="Uml2Debug__external">
-          <eAnnotations xmi:id="_22NkuxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmkxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkvBREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02uRRmEd-0fNU76fYmlA" name="Uml2Debug__external">
+          <eAnnotations xmi:id="_gX02uhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04khRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02uxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NkvhREEd-0fNU76fYmlA" name="Uml2Debug_13" nsURI="http:///_WIIkAJJvEdqVybJ8G_TBkQ.profile.uml2" nsPrefix="Uml2Debug_13">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkvxREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22NkwBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkwRREEd-0fNU76fYmlA" name="base_Operation">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX02vRRmEd-0fNU76fYmlA" name="Uml2Debug_13" nsURI="http:///_WIIkAJJvEdqVybJ8G_TBkQ.profile.uml2" nsPrefix="Uml2Debug_13">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02vhRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX02vxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02wBRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkwxREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22NkxBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkxRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02whRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX02wxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02xBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkxxREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22NkyBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkyRREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02xhRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX02xxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02yBRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkyxREEd-0fNU76fYmlA" name="Uml2Debug__classpath">
-          <eAnnotations xmi:id="_22NkzBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NkzRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02yhRmEd-0fNU76fYmlA" name="Uml2Debug__classpath">
+          <eAnnotations xmi:id="_gX02yxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02zBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NkzxREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22Nk0BREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk0RREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02zhRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX02zxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX020BRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk0xREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22Nk1BREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk1RREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX020hRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX020xRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX021BRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk1xREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22Nk2BREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk2RREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX021hRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX021xRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX022BRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk2xREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX022hRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk3RREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22Nk3hREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk3xREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX023BRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX023RRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX023hRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk4RREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22Nk4hREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk4xREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX024BRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX024RRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX024hRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nk5RREEd-0fNU76fYmlA" name="Uml2Debug_12" nsURI="http:///_KXBLkJJdEdqVybJ8G_TBkQ.profile.uml2" nsPrefix="Uml2Debug_12">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk5hREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22Nk5xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk6BREEd-0fNU76fYmlA" name="base_Comment">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX025BRmEd-0fNU76fYmlA" name="Uml2Debug_12" nsURI="http:///_KXBLkJJdEdqVybJ8G_TBkQ.profile.uml2" nsPrefix="Uml2Debug_12">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX025RRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX025hRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX025xRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk6hREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22Nk6xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk7BREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX026RRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX026hRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX026xRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk7hREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22Nk7xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk8BREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX027RRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX027hRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX027xRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk8hREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22Nk8xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk9BREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX028RRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX028hRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX028xRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk9hREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX029RRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk-BREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22Nk-RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk-hREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX029xRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX02-BRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02-RRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nk_BREEd-0fNU76fYmlA" name="Uml2Debug__classpath">
-          <eAnnotations xmi:id="_22Nk_RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nk_hREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02-xRmEd-0fNU76fYmlA" name="Uml2Debug__classpath">
+          <eAnnotations xmi:id="_gX02_BRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX02_RRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlABREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22NlARREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlAhREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX02_xRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX03ABRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03ARRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlBBREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22NlBRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlBhREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03AxRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX03BBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03BRRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlCBREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22NlCRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlChREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03BxRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX03CBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03CRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlDBREEd-0fNU76fYmlA" name="Uml2Debug_11" nsURI="http:///_Ljqp0A8UEdq_N_d2iVbXlA.profile.uml2" nsPrefix="Uml2Debug_11">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlDRREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22NlDhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlDxREEd-0fNU76fYmlA" name="base_Comment">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03CxRmEd-0fNU76fYmlA" name="Uml2Debug_11" nsURI="http:///_Ljqp0A8UEdq_N_d2iVbXlA.profile.uml2" nsPrefix="Uml2Debug_11">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03DBRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX03DRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03DhRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlERREEd-0fNU76fYmlA" name="Uml2Debug__classpath">
-          <eAnnotations xmi:id="_22NlEhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmexREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlExREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03EBRmEd-0fNU76fYmlA" name="Uml2Debug__classpath">
+          <eAnnotations xmi:id="_gX03ERRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ehRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03EhRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlFRREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22NlFhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlFxREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03FBRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX03FRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03FhRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlGRREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22NlGhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlGxREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03GBRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX03GRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03GhRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlHRREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22NlHhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlHxREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03HBRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX03HRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03HhRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlIRREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22NlIhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlIxREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03IBRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX03IRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03IhRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlJRREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22NlJhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlJxREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03JBRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX03JRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03JhRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlKRREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03KBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlKxREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22NlLBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlLRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03KhRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX03KxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03LBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlLxREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22NlMBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlMRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03LhRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX03LxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03MBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlMxREEd-0fNU76fYmlA" name="Uml2Debug_10" nsURI="http:///_YIaasAmsEdqjCrtyAB1o3A.profile.uml2" nsPrefix="Uml2Debug_10">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlNBREEd-0fNU76fYmlA" name="Uml2Debug__init">
-          <eAnnotations xmi:id="_22NlNRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlNhREEd-0fNU76fYmlA" name="base_Class">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03MhRmEd-0fNU76fYmlA" name="Uml2Debug_10" nsURI="http:///_YIaasAmsEdqjCrtyAB1o3A.profile.uml2" nsPrefix="Uml2Debug_10">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03MxRmEd-0fNU76fYmlA" name="Uml2Debug__init">
+          <eAnnotations xmi:id="_gX03NBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03NRRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlOBREEd-0fNU76fYmlA" name="Uml2Debug__decision">
-          <eAnnotations xmi:id="_22NlORREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlOhREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03NxRmEd-0fNU76fYmlA" name="Uml2Debug__decision">
+          <eAnnotations xmi:id="_gX03OBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03ORRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlPBREEd-0fNU76fYmlA" name="Uml2Debug__create">
-          <eAnnotations xmi:id="_22NlPRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlPhREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03OxRmEd-0fNU76fYmlA" name="Uml2Debug__create">
+          <eAnnotations xmi:id="_gX03PBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03PRRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlQBREEd-0fNU76fYmlA" name="Uml2Debug__parameter">
-          <eAnnotations xmi:id="_22NlQRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlQhREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03PxRmEd-0fNU76fYmlA" name="Uml2Debug__parameter">
+          <eAnnotations xmi:id="_gX03QBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03QRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlRBREEd-0fNU76fYmlA" name="Uml2Debug__interactive">
-          <eAnnotations xmi:id="_22NlRRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlRhREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03QxRmEd-0fNU76fYmlA" name="Uml2Debug__interactive">
+          <eAnnotations xmi:id="_gX03RBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03RRRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlSBREEd-0fNU76fYmlA" name="Uml2Debug__values">
-          <eAnnotations xmi:id="_22NlSRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlShREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03RxRmEd-0fNU76fYmlA" name="Uml2Debug__values">
+          <eAnnotations xmi:id="_gX03SBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03SRRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlTBREEd-0fNU76fYmlA" name="Uml2Debug__boundary">
-          <eAnnotations xmi:id="_22NlTRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlThREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03SxRmEd-0fNU76fYmlA" name="Uml2Debug__boundary">
+          <eAnnotations xmi:id="_gX03TBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03TRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlUBREEd-0fNU76fYmlA" name="Uml2Debug__java">
-          <eAnnotations xmi:id="_22NlURREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlUhREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03TxRmEd-0fNU76fYmlA" name="Uml2Debug__java">
+          <eAnnotations xmi:id="_gX03UBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03URRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlVBREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03UxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlVhREEd-0fNU76fYmlA" name="UmlDebugging_9" nsURI="http:///_yXFjgAmrEdqjCrtyAB1o3A.profile.uml2" nsPrefix="UmlDebugging_9">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlVxREEd-0fNU76fYmlA" name="UmlDebugging__init">
-          <eAnnotations xmi:id="_22NlWBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlWRREEd-0fNU76fYmlA" name="base_Class">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03VRRmEd-0fNU76fYmlA" name="UmlDebugging_9" nsURI="http:///_yXFjgAmrEdqjCrtyAB1o3A.profile.uml2" nsPrefix="UmlDebugging_9">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03VhRmEd-0fNU76fYmlA" name="UmlDebugging__init">
+          <eAnnotations xmi:id="_gX03VxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03WBRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlWxREEd-0fNU76fYmlA" name="UmlDebugging__decision">
-          <eAnnotations xmi:id="_22NlXBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlXRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03WhRmEd-0fNU76fYmlA" name="UmlDebugging__decision">
+          <eAnnotations xmi:id="_gX03WxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03XBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlXxREEd-0fNU76fYmlA" name="UmlDebugging__create">
-          <eAnnotations xmi:id="_22NlYBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlYRREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03XhRmEd-0fNU76fYmlA" name="UmlDebugging__create">
+          <eAnnotations xmi:id="_gX03XxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03YBRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlYxREEd-0fNU76fYmlA" name="UmlDebugging__parameter">
-          <eAnnotations xmi:id="_22NlZBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlZRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03YhRmEd-0fNU76fYmlA" name="UmlDebugging__parameter">
+          <eAnnotations xmi:id="_gX03YxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03ZBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlZxREEd-0fNU76fYmlA" name="UmlDebugging__interactive">
-          <eAnnotations xmi:id="_22NlaBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlaRREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03ZhRmEd-0fNU76fYmlA" name="UmlDebugging__interactive">
+          <eAnnotations xmi:id="_gX03ZxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03aBRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlaxREEd-0fNU76fYmlA" name="UmlDebugging__values">
-          <eAnnotations xmi:id="_22NlbBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlbRREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03ahRmEd-0fNU76fYmlA" name="UmlDebugging__values">
+          <eAnnotations xmi:id="_gX03axRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03bBRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlbxREEd-0fNU76fYmlA" name="UmlDebugging__boundary">
-          <eAnnotations xmi:id="_22NlcBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlcRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03bhRmEd-0fNU76fYmlA" name="UmlDebugging__boundary">
+          <eAnnotations xmi:id="_gX03bxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03cBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlcxREEd-0fNU76fYmlA" name="UmlDebugging__java">
-          <eAnnotations xmi:id="_22NldBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NldRREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03chRmEd-0fNU76fYmlA" name="UmlDebugging__java">
+          <eAnnotations xmi:id="_gX03cxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03dBRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NldxREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03dhRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NleRREEd-0fNU76fYmlA" name="UmlDebuggingProfile_8" nsURI="http:///_mcARkAmrEdqjCrtyAB1o3A.profile.uml2" nsPrefix="UmlDebuggingProfile_8">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlehREEd-0fNU76fYmlA" name="UmlDebuggingProfile__init">
-          <eAnnotations xmi:id="_22NlexREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlfBREEd-0fNU76fYmlA" name="base_Class">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03eBRmEd-0fNU76fYmlA" name="UmlDebuggingProfile_8" nsURI="http:///_mcARkAmrEdqjCrtyAB1o3A.profile.uml2" nsPrefix="UmlDebuggingProfile_8">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03eRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__init">
+          <eAnnotations xmi:id="_gX03ehRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03exRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlfhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__decision">
-          <eAnnotations xmi:id="_22NlfxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlgBREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03fRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__decision">
+          <eAnnotations xmi:id="_gX03fhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03fxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlghREEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
-          <eAnnotations xmi:id="_22NlgxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlhBREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03gRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
+          <eAnnotations xmi:id="_gX03ghRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03gxRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlhhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__parameter">
-          <eAnnotations xmi:id="_22NlhxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NliBREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03hRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__parameter">
+          <eAnnotations xmi:id="_gX03hhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03hxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlihREEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
-          <eAnnotations xmi:id="_22NlixREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NljBREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03iRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
+          <eAnnotations xmi:id="_gX03ihRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03ixRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NljhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__values">
-          <eAnnotations xmi:id="_22NljxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlkBREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03jRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__values">
+          <eAnnotations xmi:id="_gX03jhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03jxRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlkhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__boundary">
-          <eAnnotations xmi:id="_22NlkxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NllBREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03kRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__boundary">
+          <eAnnotations xmi:id="_gX03khRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03kxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NllhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
-          <eAnnotations xmi:id="_22NllxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlmBREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03lRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
+          <eAnnotations xmi:id="_gX03lhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03lxRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlmhREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03mRRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlnBREEd-0fNU76fYmlA" name="UmlDebuggingProfile_7" nsURI="http:///_tKlHkAmZEdq8ccwTBvyAzA.profile.uml2" nsPrefix="UmlDebuggingProfile_7">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlnRREEd-0fNU76fYmlA" name="UmlDebuggingProfile__boundary">
-          <eAnnotations xmi:id="_22NlnhREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmPxREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlnxREEd-0fNU76fYmlA" name="base_Comment">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03mxRmEd-0fNU76fYmlA" name="UmlDebuggingProfile_7" nsURI="http:///_tKlHkAmZEdq8ccwTBvyAzA.profile.uml2" nsPrefix="UmlDebuggingProfile_7">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03nBRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__boundary">
+          <eAnnotations xmi:id="_gX03nRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04PhRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03nhRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NloRREEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
-          <eAnnotations xmi:id="_22NlohREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NloxREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03oBRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
+          <eAnnotations xmi:id="_gX03oRRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03ohRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlpRREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03pBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlpxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
-          <eAnnotations xmi:id="_22NlqBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlqRREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03phRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
+          <eAnnotations xmi:id="_gX03pxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03qBRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlqxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__init">
-          <eAnnotations xmi:id="_22NlrBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmMBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlrRREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03qhRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__init">
+          <eAnnotations xmi:id="_gX03qxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04LxRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03rBRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlrxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__values">
-          <eAnnotations xmi:id="_22NlsBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmThREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlsRREEd-0fNU76fYmlA" name="base_Class">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03rhRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__values">
+          <eAnnotations xmi:id="_gX03rxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04TRRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03sBRmEd-0fNU76fYmlA" name="base_Class">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlsxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__decision">
-          <eAnnotations xmi:id="_22NltBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmbBREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NltRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03shRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__decision">
+          <eAnnotations xmi:id="_gX03sxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04axRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03tBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NltxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
-          <eAnnotations xmi:id="_22NluBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NluRREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03thRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
+          <eAnnotations xmi:id="_gX03txRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03uBRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NluxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__parameter">
-          <eAnnotations xmi:id="_22NlvBREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmXRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlvRREEd-0fNU76fYmlA" name="base_Comment">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03uhRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__parameter">
+          <eAnnotations xmi:id="_gX03uxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04XBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03vBRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlvxREEd-0fNU76fYmlA" name="UmlDebuggingProfile_6" nsURI="http:///_L3MxgAjMEdq9p9kCrFmzSw.profile.uml2" nsPrefix="UmlDebuggingProfile_6">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlwBREEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
-          <eAnnotations xmi:id="_22NlwRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlwhREEd-0fNU76fYmlA" name="base_Operation">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03vhRmEd-0fNU76fYmlA" name="UmlDebuggingProfile_6" nsURI="http:///_L3MxgAjMEdq9p9kCrFmzSw.profile.uml2" nsPrefix="UmlDebuggingProfile_6">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03vxRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
+          <eAnnotations xmi:id="_gX03wBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03wRRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlxBREEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
-          <eAnnotations xmi:id="_22NlxRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlxhREEd-0fNU76fYmlA" name="base_Action">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03wxRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
+          <eAnnotations xmi:id="_gX03xBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03xRRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlyBREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03xxRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlyhREEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
-          <eAnnotations xmi:id="_22NlyxREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmIRREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22NlzBREEd-0fNU76fYmlA" name="base_DecisionNode">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03yRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__interactive">
+          <eAnnotations xmi:id="_gX03yhRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04IBRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX03yxRmEd-0fNU76fYmlA" name="base_DecisionNode">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//DecisionNode"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22NlzhREEd-0fNU76fYmlA" name="UmlDebuggingProfile_5" nsURI="http:///_t-S24AgBEdqaeI2CJOBcrQ.profile.uml2" nsPrefix="UmlDebuggingProfile_5">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22NlzxREEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
-          <eAnnotations xmi:id="_22Nl0BREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl0RREEd-0fNU76fYmlA" name="base_Action">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX03zRRmEd-0fNU76fYmlA" name="UmlDebuggingProfile_5" nsURI="http:///_t-S24AgBEdqaeI2CJOBcrQ.profile.uml2" nsPrefix="UmlDebuggingProfile_5">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX03zhRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
+          <eAnnotations xmi:id="_gX03zxRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX030BRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl0xREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX030hRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nl1RREEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
-          <eAnnotations xmi:id="_22Nl1hREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22NmEhREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl1xREEd-0fNU76fYmlA" name="base_Operation">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX031BRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__create">
+          <eAnnotations xmi:id="_gX031RRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX04ERRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX031hRmEd-0fNU76fYmlA" name="base_Operation">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Operation"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nl2RREEd-0fNU76fYmlA" name="UmlDebuggingProfile_4" nsURI="http:///_n-aNgAgAEdqaeI2CJOBcrQ.profile.uml2" nsPrefix="UmlDebuggingProfile_4">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nl2hREEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
-          <eAnnotations xmi:id="_22Nl2xREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl3BREEd-0fNU76fYmlA" name="base_Action">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX032BRmEd-0fNU76fYmlA" name="UmlDebuggingProfile_4" nsURI="http:///_n-aNgAgAEdqaeI2CJOBcrQ.profile.uml2" nsPrefix="UmlDebuggingProfile_4">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX032RRmEd-0fNU76fYmlA" name="UmlDebuggingProfile__java">
+          <eAnnotations xmi:id="_gX032hRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX032xRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl3hREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX033RRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nl4BREEd-0fNU76fYmlA" name="Myprofile_3" nsURI="http:///_69jm0Af6Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_3">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nl4RREEd-0fNU76fYmlA" name="Myprofile__java">
-          <eAnnotations xmi:id="_22Nl4hREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl4xREEd-0fNU76fYmlA" name="base_Action">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX033xRmEd-0fNU76fYmlA" name="Myprofile_3" nsURI="http:///_69jm0Af6Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_3">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX034BRmEd-0fNU76fYmlA" name="Myprofile__java">
+          <eAnnotations xmi:id="_gX034RRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX034hRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl5RREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX035BRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nl5xREEd-0fNU76fYmlA" name="Myprofile_2" nsURI="http:///_NKMy4Af6Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_2">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nl6BREEd-0fNU76fYmlA" name="Myprofile__java">
-          <eAnnotations xmi:id="_22Nl6RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl6hREEd-0fNU76fYmlA" name="base_Action">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX035hRmEd-0fNU76fYmlA" name="Myprofile_2" nsURI="http:///_NKMy4Af6Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_2">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX035xRmEd-0fNU76fYmlA" name="Myprofile__java">
+          <eAnnotations xmi:id="_gX036BRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX036RRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl7BREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX036xRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nl7hREEd-0fNU76fYmlA" name="Myprofile_1" nsURI="http:///_manZIAf4Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_1">
-        <eClassifiers xmi:type="ecore:EClass" xmi:id="_22Nl7xREEd-0fNU76fYmlA" name="Myprofile__Stereotype1">
-          <eAnnotations xmi:id="_22Nl8BREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_22Nl_BREEd-0fNU76fYmlA"/>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl8RREEd-0fNU76fYmlA" name="base_Action">
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX037RRmEd-0fNU76fYmlA" name="Myprofile_1" nsURI="http:///_manZIAf4Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_1">
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_gX037hRmEd-0fNU76fYmlA" name="Myprofile__Stereotype1">
+          <eAnnotations xmi:id="_gX037xRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gX03-xRmEd-0fNU76fYmlA"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX038BRmEd-0fNU76fYmlA" name="base_Action">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Action"/>
           </eStructuralFeatures>
-          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_22Nl8xREEd-0fNU76fYmlA" name="base_Comment">
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gX038hRmEd-0fNU76fYmlA" name="base_Comment">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Comment"/>
           </eStructuralFeatures>
         </eClassifiers>
       </contents>
-      <contents xmi:type="ecore:EPackage" xmi:id="_22Nl9RREEd-0fNU76fYmlA" name="Myprofile_0" nsURI="http:///_TWEKJgf4Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_0"/>
+      <contents xmi:type="ecore:EPackage" xmi:id="_gX039BRmEd-0fNU76fYmlA" name="Myprofile_0" nsURI="http:///_TWEKJgf4Edqjvvz7dttb6A.profile.uml2" nsPrefix="Myprofile_0"/>
     </eAnnotations>
-    <packageImport xmi:id="_22Nl9hREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22Nl9xREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22Nl-BREEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
+    <packageImport xmi:id="_gX039RRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX039hRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX039xRmEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
       </eAnnotations>
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
-    <packageImport xmi:id="_22Nl-RREEd-0fNU76fYmlA" visibility="private">
-      <eAnnotations xmi:id="_22Nl-hREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22Nl-xREEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
+    <packageImport xmi:id="_gX03-BRmEd-0fNU76fYmlA" visibility="private">
+      <eAnnotations xmi:id="_gX03-RRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX03-hRmEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
       </eAnnotations>
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22Nl_BREEd-0fNU76fYmlA" name="java">
-      <eAnnotations xmi:id="_22Nl_RREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
-      <eAnnotations xmi:id="_22Nl_hREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22Nl_xREEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX03-xRmEd-0fNU76fYmlA" name="java">
+      <eAnnotations xmi:id="_gX03_BRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      <eAnnotations xmi:id="_gX03_RRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX03_hRmEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmABREEd-0fNU76fYmlA" name="base_Comment" association="_22NmCRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmARREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmAhREEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
+      <ownedAttribute xmi:id="_gX03_xRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04CBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04ABRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04ARRmEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_22NmAxREEd-0fNU76fYmlA" name="base_Action" association="_22NmihREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmBBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmBRREEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
+      <ownedAttribute xmi:id="_gX04AhRmEd-0fNU76fYmlA" name="base_Action" association="_gX04iRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04AxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04BBRmEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Action"/>
       </ownedAttribute>
-      <icon xmi:id="_22NmBhREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmBxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmCBREEd-0fNU76fYmlA" key="addedInVersion" value="16"/>
+      <icon xmi:id="_gX04BRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04BhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04BxRmEd-0fNU76fYmlA" key="addedInVersion" value="16"/>
         </eAnnotations>
       </icon>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmCRREEd-0fNU76fYmlA" name="Comment_java" memberEnd="_22NmDBREEd-0fNU76fYmlA _22NmABREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmChREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmCxREEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04CBRmEd-0fNU76fYmlA" name="Comment_java" memberEnd="_gX04CxRmEd-0fNU76fYmlA _gX03_xRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04CRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04ChRmEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmDBREEd-0fNU76fYmlA" name="extension_java" type="_22Nl_BREEd-0fNU76fYmlA" aggregation="composite" association="_22NmCRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmDRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmDhREEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04CxRmEd-0fNU76fYmlA" name="extension_java" type="_gX03-xRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04CBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04DBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04DRRmEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmDxREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmEBREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmERREEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04DhRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04DxRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04EBRmEd-0fNU76fYmlA" key="addedInVersion" value="3"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmEhREEd-0fNU76fYmlA" name="create">
-      <eAnnotations xmi:id="_22NmExREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmFBREEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04ERRmEd-0fNU76fYmlA" name="create">
+      <eAnnotations xmi:id="_gX04EhRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04ExRmEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmFRREEd-0fNU76fYmlA" name="base_Operation" association="_22NmGBREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmFhREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmFxREEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
+      <ownedAttribute xmi:id="_gX04FBRmEd-0fNU76fYmlA" name="base_Operation" association="_gX04FxRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04FRRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04FhRmEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmGBREEd-0fNU76fYmlA" name="Operation_create" memberEnd="_22NmGxREEd-0fNU76fYmlA _22NmFRREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmGRREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmGhREEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04FxRmEd-0fNU76fYmlA" name="Operation_create" memberEnd="_gX04GhRmEd-0fNU76fYmlA _gX04FBRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04GBRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04GRRmEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmGxREEd-0fNU76fYmlA" name="extension_create" type="_22NmEhREEd-0fNU76fYmlA" aggregation="composite" association="_22NmGBREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmHBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmHRREEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04GhRmEd-0fNU76fYmlA" name="extension_create" type="_gX04ERRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04FxRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04GxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04HBRmEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmHhREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmHxREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmIBREEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04HRRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04HhRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04HxRmEd-0fNU76fYmlA" key="addedInVersion" value="5"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmIRREEd-0fNU76fYmlA" name="interactive">
-      <eAnnotations xmi:id="_22NmIhREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmIxREEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04IBRmEd-0fNU76fYmlA" name="interactive">
+      <eAnnotations xmi:id="_gX04IRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04IhRmEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmJBREEd-0fNU76fYmlA" name="base_DecisionNode" association="_22NmJxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmJRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmJhREEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
+      <ownedAttribute xmi:id="_gX04IxRmEd-0fNU76fYmlA" name="base_DecisionNode" association="_gX04JhRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04JBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04JRRmEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DecisionNode"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmJxREEd-0fNU76fYmlA" name="DecisionNode_interactive" memberEnd="_22NmKhREEd-0fNU76fYmlA _22NmJBREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmKBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmKRREEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04JhRmEd-0fNU76fYmlA" name="DecisionNode_interactive" memberEnd="_gX04KRRmEd-0fNU76fYmlA _gX04IxRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04JxRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04KBRmEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmKhREEd-0fNU76fYmlA" name="extension_interactive" type="_22NmIRREEd-0fNU76fYmlA" aggregation="composite" association="_22NmJxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmKxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmLBREEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04KRRmEd-0fNU76fYmlA" name="extension_interactive" type="_gX04IBRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04JhRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04KhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04KxRmEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmLRREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmLhREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmLxREEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04LBRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04LRRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04LhRmEd-0fNU76fYmlA" key="addedInVersion" value="6"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmMBREEd-0fNU76fYmlA" name="init">
-      <eAnnotations xmi:id="_22NmMRREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmMhREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04LxRmEd-0fNU76fYmlA" name="init">
+      <eAnnotations xmi:id="_gX04MBRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04MRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmMxREEd-0fNU76fYmlA" name="base_Class" association="_22NmNhREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmNBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmNRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedAttribute xmi:id="_gX04MhRmEd-0fNU76fYmlA" name="base_Class" association="_gX04NRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04MxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04NBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmNhREEd-0fNU76fYmlA" name="Class_init" memberEnd="_22NmORREEd-0fNU76fYmlA _22NmMxREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmNxREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmOBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04NRRmEd-0fNU76fYmlA" name="Class_init" memberEnd="_gX04OBRmEd-0fNU76fYmlA _gX04MhRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04NhRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04NxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmORREEd-0fNU76fYmlA" name="extension_init" type="_22NmMBREEd-0fNU76fYmlA" aggregation="composite" association="_22NmNhREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmOhREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmOxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04OBRmEd-0fNU76fYmlA" name="extension_init" type="_gX04LxRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04NRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04ORRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04OhRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmPBREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmPRREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmPhREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04OxRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04PBRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04PRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmPxREEd-0fNU76fYmlA" name="boundary">
-      <eAnnotations xmi:id="_22NmQBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmQRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04PhRmEd-0fNU76fYmlA" name="boundary">
+      <eAnnotations xmi:id="_gX04PxRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04QBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmQhREEd-0fNU76fYmlA" name="base_Comment" association="_22NmRRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmQxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmRBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedAttribute xmi:id="_gX04QRRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04RBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04QhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04QxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmRRREEd-0fNU76fYmlA" name="Comment_boundary" memberEnd="_22NmSBREEd-0fNU76fYmlA _22NmQhREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmRhREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmRxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04RBRmEd-0fNU76fYmlA" name="Comment_boundary" memberEnd="_gX04RxRmEd-0fNU76fYmlA _gX04QRRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04RRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04RhRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmSBREEd-0fNU76fYmlA" name="extension_boundary" type="_22NmPxREEd-0fNU76fYmlA" aggregation="composite" association="_22NmRRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmSRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmShREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04RxRmEd-0fNU76fYmlA" name="extension_boundary" type="_gX04PhRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04RBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04SBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04SRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmSxREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmTBREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmTRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04ShRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04SxRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04TBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmThREEd-0fNU76fYmlA" name="values">
-      <eAnnotations xmi:id="_22NmTxREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmUBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04TRRmEd-0fNU76fYmlA" name="values">
+      <eAnnotations xmi:id="_gX04ThRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04TxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmURREEd-0fNU76fYmlA" name="base_Class" association="_22NmVBREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmUhREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmUxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedAttribute xmi:id="_gX04UBRmEd-0fNU76fYmlA" name="base_Class" association="_gX04UxRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04URRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04UhRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmVBREEd-0fNU76fYmlA" name="Class_values" memberEnd="_22NmVxREEd-0fNU76fYmlA _22NmURREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmVRREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmVhREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04UxRmEd-0fNU76fYmlA" name="Class_values" memberEnd="_gX04VhRmEd-0fNU76fYmlA _gX04UBRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04VBRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04VRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmVxREEd-0fNU76fYmlA" name="extension_values" type="_22NmThREEd-0fNU76fYmlA" aggregation="composite" association="_22NmVBREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmWBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmWRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04VhRmEd-0fNU76fYmlA" name="extension_values" type="_gX04TRRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04UxRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04VxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04WBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmWhREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmWxREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmXBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04WRRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04WhRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04WxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmXRREEd-0fNU76fYmlA" name="parameter">
-      <eAnnotations xmi:id="_22NmXhREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmXxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04XBRmEd-0fNU76fYmlA" name="parameter">
+      <eAnnotations xmi:id="_gX04XRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04XhRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmYBREEd-0fNU76fYmlA" name="base_Comment" association="_22NmYxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmYRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmYhREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedAttribute xmi:id="_gX04XxRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04YhRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04YBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04YRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmYxREEd-0fNU76fYmlA" name="Comment_parameter" memberEnd="_22NmZhREEd-0fNU76fYmlA _22NmYBREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmZBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmZRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04YhRmEd-0fNU76fYmlA" name="Comment_parameter" memberEnd="_gX04ZRRmEd-0fNU76fYmlA _gX04XxRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04YxRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04ZBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmZhREEd-0fNU76fYmlA" name="extension_parameter" type="_22NmXRREEd-0fNU76fYmlA" aggregation="composite" association="_22NmYxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmZxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmaBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04ZRRmEd-0fNU76fYmlA" name="extension_parameter" type="_gX04XBRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04YhRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04ZhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04ZxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmaRREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmahREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmaxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04aBRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04aRRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04ahRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmbBREEd-0fNU76fYmlA" name="decision">
-      <eAnnotations xmi:id="_22NmbRREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmbhREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04axRmEd-0fNU76fYmlA" name="decision">
+      <eAnnotations xmi:id="_gX04bBRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04bRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmbxREEd-0fNU76fYmlA" name="base_Comment" association="_22NmchREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmcBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmcRREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedAttribute xmi:id="_gX04bhRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04cRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04bxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04cBRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmchREEd-0fNU76fYmlA" name="Comment_decision" memberEnd="_22NmdRREEd-0fNU76fYmlA _22NmbxREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmcxREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmdBREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04cRRmEd-0fNU76fYmlA" name="Comment_decision" memberEnd="_gX04dBRmEd-0fNU76fYmlA _gX04bhRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04chRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04cxRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmdRREEd-0fNU76fYmlA" name="extension_decision" type="_22NmbBREEd-0fNU76fYmlA" aggregation="composite" association="_22NmchREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmdhREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmdxREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04dBRmEd-0fNU76fYmlA" name="extension_decision" type="_gX04axRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04cRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04dRRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04dhRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmeBREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmeRREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmehREEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04dxRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04eBRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04eRRmEd-0fNU76fYmlA" key="addedInVersion" value="7"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmexREEd-0fNU76fYmlA" name="classpath">
-      <eAnnotations xmi:id="_22NmfBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmfRREEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04ehRmEd-0fNU76fYmlA" name="classpath">
+      <eAnnotations xmi:id="_gX04exRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04fBRmEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmfhREEd-0fNU76fYmlA" name="base_Comment" association="_22NmgRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmfxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmgBREEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
+      <ownedAttribute xmi:id="_gX04fRRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04gBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04fhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04fxRmEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmgRREEd-0fNU76fYmlA" name="Comment_classpath" memberEnd="_22NmhBREEd-0fNU76fYmlA _22NmfhREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmghREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmgxREEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04gBRmEd-0fNU76fYmlA" name="Comment_classpath" memberEnd="_gX04gxRmEd-0fNU76fYmlA _gX04fRRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04gRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04ghRmEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmhBREEd-0fNU76fYmlA" name="extension_classpath" type="_22NmexREEd-0fNU76fYmlA" aggregation="composite" association="_22NmgRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmhRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmhhREEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04gxRmEd-0fNU76fYmlA" name="extension_classpath" type="_gX04ehRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04gBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04hBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04hRRmEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmhxREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmiBREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmiRREEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04hhRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04hxRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04iBRmEd-0fNU76fYmlA" key="addedInVersion" value="11"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmihREEd-0fNU76fYmlA" name="Action_java" memberEnd="_22NmjRREEd-0fNU76fYmlA _22NmAxREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmixREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmjBREEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04iRRmEd-0fNU76fYmlA" name="Action_java" memberEnd="_gX04jBRmEd-0fNU76fYmlA _gX04AhRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04ihRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04ixRmEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmjRREEd-0fNU76fYmlA" name="extension_java" type="_22Nl_BREEd-0fNU76fYmlA" aggregation="composite" association="_22NmihREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmjhREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmjxREEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04jBRmEd-0fNU76fYmlA" name="extension_java" type="_gX03-xRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04iRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04jRRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04jhRmEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmkBREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmkRREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmkhREEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04jxRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04kBRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04kRRmEd-0fNU76fYmlA" key="addedInVersion" value="12"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmkxREEd-0fNU76fYmlA" name="external">
-      <eAnnotations xmi:id="_22NmlBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmlRREEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04khRmEd-0fNU76fYmlA" name="external">
+      <eAnnotations xmi:id="_gX04kxRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04lBRmEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmlhREEd-0fNU76fYmlA" name="base_Comment" association="_22NmmRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmlxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmmBREEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
+      <ownedAttribute xmi:id="_gX04lRRmEd-0fNU76fYmlA" name="base_Comment" association="_gX04mBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04lhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04lxRmEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmmRREEd-0fNU76fYmlA" name="Comment_external" memberEnd="_22NmnBREEd-0fNU76fYmlA _22NmlhREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmmhREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmmxREEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04mBRmEd-0fNU76fYmlA" name="Comment_external" memberEnd="_gX04mxRmEd-0fNU76fYmlA _gX04lRRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04mRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04mhRmEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmnBREEd-0fNU76fYmlA" name="extension_external" type="_22NmkxREEd-0fNU76fYmlA" aggregation="composite" association="_22NmmRREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmnRREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmnhREEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04mxRmEd-0fNU76fYmlA" name="extension_external" type="_gX04khRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04mBRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04nBRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04nRRmEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmnxREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmoBREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmoRREEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04nhRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04nxRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04oBRmEd-0fNU76fYmlA" key="addedInVersion" value="14"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmohREEd-0fNU76fYmlA" name="completion">
-      <eAnnotations xmi:id="_22NmoxREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmpBREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04oRRmEd-0fNU76fYmlA" name="completion">
+      <eAnnotations xmi:id="_gX04ohRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04oxRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmpRREEd-0fNU76fYmlA" name="base_Transition" association="_22NmtxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmphREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmpxREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+      <ownedAttribute xmi:id="_gX04pBRmEd-0fNU76fYmlA" name="base_Transition" association="_gX04thRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04pRRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04phRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Transition"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_22NmqBREEd-0fNU76fYmlA" name="any">
-      <eAnnotations xmi:id="_22NmqRREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmqhREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_gX04pxRmEd-0fNU76fYmlA" name="any">
+      <eAnnotations xmi:id="_gX04qBRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04qRRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
       </eAnnotations>
-      <ownedAttribute xmi:id="_22NmqxREEd-0fNU76fYmlA" name="base_Transition" association="_22NmrhREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmrBREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmrRREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+      <ownedAttribute xmi:id="_gX04qhRmEd-0fNU76fYmlA" name="base_Transition" association="_gX04rRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04qxRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04rBRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
         </eAnnotations>
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Transition"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmrhREEd-0fNU76fYmlA" name="Transition_any" memberEnd="_22NmsRREEd-0fNU76fYmlA _22NmqxREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmrxREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmsBREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04rRRmEd-0fNU76fYmlA" name="Transition_any" memberEnd="_gX04sBRmEd-0fNU76fYmlA _gX04qhRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04rhRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04rxRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmsRREEd-0fNU76fYmlA" name="extension_any" type="_22NmqBREEd-0fNU76fYmlA" aggregation="composite" association="_22NmrhREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmshREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmsxREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04sBRmEd-0fNU76fYmlA" name="extension_any" type="_gX04pxRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04rRRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04sRRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04shRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmtBREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmtRREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmthREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04sxRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04tBRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04tRRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_22NmtxREEd-0fNU76fYmlA" name="Transition_completion" memberEnd="_22NmuhREEd-0fNU76fYmlA _22NmpRREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmuBREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmuRREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gX04thRmEd-0fNU76fYmlA" name="Transition_completion" memberEnd="_gX04uRRmEd-0fNU76fYmlA _gX04pBRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04txRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04uBRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_22NmuhREEd-0fNU76fYmlA" name="extension_completion" type="_22NmohREEd-0fNU76fYmlA" aggregation="composite" association="_22NmtxREEd-0fNU76fYmlA">
-        <eAnnotations xmi:id="_22NmuxREEd-0fNU76fYmlA" source="uml2.extensions">
-          <details xmi:id="_22NmvBREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gX04uRRmEd-0fNU76fYmlA" name="extension_completion" type="_gX04oRRmEd-0fNU76fYmlA" aggregation="composite" association="_gX04thRmEd-0fNU76fYmlA">
+        <eAnnotations xmi:id="_gX04uhRmEd-0fNU76fYmlA" source="uml2.extensions">
+          <details xmi:id="_gX04uxRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
         </eAnnotations>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_22NmvRREEd-0fNU76fYmlA">
-          <eAnnotations xmi:id="_22NmvhREEd-0fNU76fYmlA" source="uml2.extensions">
-            <details xmi:id="_22NmvxREEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gX04vBRmEd-0fNU76fYmlA">
+          <eAnnotations xmi:id="_gX04vRRmEd-0fNU76fYmlA" source="uml2.extensions">
+            <details xmi:id="_gX04vhRmEd-0fNU76fYmlA" key="addedInVersion" value="15"/>
           </eAnnotations>
         </lowerValue>
       </ownedEnd>
     </packagedElement>
-    <profileApplication xmi:id="_22NmwBREEd-0fNU76fYmlA">
-      <eAnnotations xmi:id="_22NmwRREEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="ProfileBase.profile.uml#_22NnVxREEd-0fNU76fYmlA"/>
+    <profileApplication xmi:id="_gX04vxRmEd-0fNU76fYmlA">
+      <eAnnotations xmi:id="_gX04wBRmEd-0fNU76fYmlA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="ProfileBase.profile.uml#_gX-klBRmEd-0fNU76fYmlA"/>
       </eAnnotations>
-      <eAnnotations xmi:id="_22NmwhREEd-0fNU76fYmlA" source="uml2.extensions">
-        <details xmi:id="_22NmwxREEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
+      <eAnnotations xmi:id="_gX04wRRmEd-0fNU76fYmlA" source="uml2.extensions">
+        <details xmi:id="_gX04whRmEd-0fNU76fYmlA" key="addedInVersion" value="1"/>
       </eAnnotations>
-      <appliedProfile href="ProfileBase.profile.uml#_22NnVRREEd-0fNU76fYmlA"/>
+      <appliedProfile href="ProfileBase.profile.uml#_gX-kkhRmEd-0fNU76fYmlA"/>
     </profileApplication>
   </uml:Profile>
-  <ProfileBase:ExtendedImage xmi:id="_22NmxBREEd-0fNU76fYmlA" data="47494638396110001000F70000FEFEFF17325DA7B2C26B90BCC6D5E53E72A7ACC2D9FDFEFF2862966AA0C5B7D2E4FAFDFFEFF9FFF4FBFFF7FCFFE7F7FFEAF8FFEDF9FFF0FAFFF6FCFFF9FDFFFCFEFFC7E1EDE9F8FFF2FBFFE7F8FFE8F8FFEAF9FFEBF9FFEEFAFFF5FCFFF8FDFFF7FCFEE6F8FFECFAFFF3FCFFF7FDFFFAFEFFF9FEFFFCFFFF4A99685AA7716BB47976BE7E9898919C9B8EFEFDEFA09D8CABA484A7A287B0A781C1BA9DFDF4CFA49F89D1CBB0C7B571C5B472C2B275BFB076BCAE78B8AB7CB4A97EFDF3CFB59123B59223BA9726FCE7A39E7916A6811AA6821AA5821AAE8A1FFBDD83997413FFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000021F9040100004A002C00000000100010004008AB0095081C48B0E0C01E24268CB0806040040E177A14CC71A0C2020A0E3C1CD898A3600D09160A34D4B042450A14056F2800A0E084020A0A4028B85170C745120C07480071604741180D30806C08E1C20318055B8880A8E14188930605065032B52A5583380A1C2850A2C08702200AE028A8C32205860678F62CC8C304090F39198800C1A3A00C0F417372D8A0A12EC118182C24483032438818055F7488A040415393280DB2984C3932C180003B" usageHint="Icon" base_Image="_22NmBhREEd-0fNU76fYmlA"/>
+  <ProfileBase:ExtendedImage xmi:id="_gX04wxRmEd-0fNU76fYmlA" data="47494638396110001000F70000FEFEFF17325DA7B2C26B90BCC6D5E53E72A7ACC2D9FDFEFF2862966AA0C5B7D2E4FAFDFFEFF9FFF4FBFFF7FCFFE7F7FFEAF8FFEDF9FFF0FAFFF6FCFFF9FDFFFCFEFFC7E1EDE9F8FFF2FBFFE7F8FFE8F8FFEAF9FFEBF9FFEEFAFFF5FCFFF8FDFFF7FCFEE6F8FFECFAFFF3FCFFF7FDFFFAFEFFF9FEFFFCFFFF4A99685AA7716BB47976BE7E9898919C9B8EFEFDEFA09D8CABA484A7A287B0A781C1BA9DFDF4CFA49F89D1CBB0C7B571C5B472C2B275BFB076BCAE78B8AB7CB4A97EFDF3CFB59123B59223BA9726FCE7A39E7916A6811AA6821AA5821AAE8A1FFBDD83997413FFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000021F9040100004A002C00000000100010004008AB0095081C48B0E0C01E24268CB0806040040E177A14CC71A0C2020A0E3C1CD898A3600D09160A34D4B042450A14056F2800A0E084020A0A4028B85170C745120C07480071604741180D30806C08E1C20318055B8880A8E14188930605065032B52A5583380A1C2850A2C08702200AE028A8C32205860678F62CC8C304090F39198800C1A3A00C0F417372D8A0A12EC118182C24483032438818055F7488A040415393280DB2984C3932C180003B" usageHint="Icon" base_Image="_gX04BRRmEd-0fNU76fYmlA"/>
 </xmi:XMI>
