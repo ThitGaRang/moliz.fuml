@@ -39,7 +39,7 @@ public class Environment extends TestEnvironment {
 				.setStrategy(new fUML.Semantics.Classes.Kernel.RedefinitionBasedDispatchStrategy());
 		this.locus.factory
 				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
-		this.locus.factory.setStrategy(new fUML.Semantics.Loci.FirstChoiceStrategy());
+		this.locus.factory.setStrategy(new fUML.Semantics.Loci.LociL1.FirstChoiceStrategy());
 /*
 		this.primitiveTypes = new fUML.Library.PrimitiveTypes(this.locus.factory);
 		this.addElement(this.primitiveTypes.Boolean);

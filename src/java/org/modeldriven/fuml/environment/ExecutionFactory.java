@@ -13,13 +13,13 @@
 
 package org.modeldriven.fuml.environment;
 
-public class ExecutionFactory extends fUML.Semantics.Loci.ExecutionFactory {
+public class ExecutionFactory extends fUML.Semantics.Loci.LociL3.ExecutionFactoryL3 {
 
-    public fUML.Semantics.Loci.SemanticVisitor instantiateVisitor(
+    public fUML.Semantics.Loci.LociL1.SemanticVisitor instantiateVisitor(
             fUML.Syntax.Classes.Kernel.Element element) {
         // Instantiate a visitor object for the given element.
 
-        fUML.Semantics.Loci.SemanticVisitor visitor = null;
+        fUML.Semantics.Loci.LociL1.SemanticVisitor visitor = null;
 
         if (element instanceof fUML.Syntax.Activities.IntermediateActivities.Activity) {
 			visitor = new ActivityExecution();  // Uses local subclass for ActivityExecution
