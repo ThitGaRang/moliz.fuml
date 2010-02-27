@@ -24,8 +24,11 @@ public class Debug {
     private static Log log = LogFactory.getLog(Debug.class);
 
 	public static void println(String message) {
-		log.debug(message);
-		// System.out.println(message);
+		if (message.length()>=7 && message.substring(0,7).equals("[event]")) {
+			System.out.println(message.substring(8,message.length()));
+		} else {
+			log.debug(message);
+		}
 	} // println
 
 } // Debug
