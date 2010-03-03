@@ -117,7 +117,7 @@ public class StandardOutputChannelObject extends TextOutputChannelObject {
 
     public void writeString(String value) {
         if (this.isOpen()) {
-            Debug.println(">>>>>>>> " + value);
+            Debug.println("[event] >>>>>>>> " + value);
         }
 
     }
