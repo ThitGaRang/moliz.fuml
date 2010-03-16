@@ -14024,22 +14024,6 @@
               general="Semantics-Activities-IntermediateActivities-ActivityNodeActivation"
               specific="Semantics-Activities-IntermediateActivities-ObjectNodeActivation"/>
             <ownedAttribute xmi:type="uml:Property"
-              xmi:id="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens"
-              name="unofferedTokens" type="Semantics-Activities-IntermediateActivities-ObjectToken"
-              association="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation">
-              <ownedComment xmi:type="uml:Comment"
-                xmi:id="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens-_ownedComment.0"
-                annotatedElement="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens">
-                <body>Tokens held by this node activation that have not yet been offered.</body>
-              </ownedComment>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural"
-                xmi:id="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens-_upperValue"
-                value="*"/>
-              <lowerValue xmi:type="uml:LiteralInteger"
-                xmi:id="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens-_lowerValue"
-              />
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property"
               xmi:id="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-offeredTokenCount"
               name="offeredTokenCount">
               <ownedComment xmi:type="uml:Comment"
@@ -16763,24 +16747,6 @@
                 value="*"/>
               <lowerValue xmi:type="uml:LiteralInteger"
                 xmi:id="Semantics-Activities-IntermediateActivities-A_baseToken_forkedToken-_ownedEnd.0-_lowerValue"
-              />
-            </ownedEnd>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Association"
-            xmi:id="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation"
-            name="A_unofferedTokens_objectNodeActivation" visibility="private"
-            memberEnd="Semantics-Activities-IntermediateActivities-ObjectNodeActivation-unofferedTokens Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation-_ownedEnd.0">
-            <ownedEnd xmi:type="uml:Property"
-              xmi:id="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation-_ownedEnd.0"
-              visibility="private"
-              type="Semantics-Activities-IntermediateActivities-ObjectNodeActivation"
-              owningAssociation="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation"
-              association="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation">
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural"
-                xmi:id="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation-_ownedEnd.0-_upperValue"
-                value="1"/>
-              <lowerValue xmi:type="uml:LiteralInteger"
-                xmi:id="Semantics-Activities-IntermediateActivities-A_unofferedTokens_objectNodeActivation-_ownedEnd.0-_lowerValue"
               />
             </ownedEnd>
           </packagedElement>

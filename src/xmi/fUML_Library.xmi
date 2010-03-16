@@ -33,73 +33,73 @@
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C" name="&lt;" isAbstract="true">
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-lt" name="&lt;" isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-x" name="x">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-y" name="y">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_" name="+" isAbstract="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_-x"
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-plus" name="+" isAbstract="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-x"
             name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_-y"
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-y"
             name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_-" name="-" isAbstract="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_--x"
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-minus" name="-" isAbstract="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-x"
             name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_--y"
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-y"
             name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_--result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_" name="*" isAbstract="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_-x"
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-times" name="*" isAbstract="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-times-x"
             name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-_-y"
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-times-y"
             name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-times-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
@@ -207,55 +207,55 @@
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E" name="&gt;" isAbstract="true">
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-gt" name="&gt;" isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-x" name="x">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-y" name="y">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C" name="&lt;=" isAbstract="true">
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-le" name="&lt;=" isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-x" name="x">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-le-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-y" name="y">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-le-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3C-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-le-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E" name="&gt;=" isAbstract="true">
+          xmi:id="PrimitiveBehaviors-IntegerFunctions-ge" name="&gt;=" isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-x" name="x">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-y" name="y">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-IntegerFunctions-_3E-result" name="result" direction="return">
+            xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-result" name="result" direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
@@ -319,20 +319,20 @@
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C" name="&lt;"
+          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt" name="&lt;"
           isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-x" name="x">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-y" name="y">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-result" name="result"
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-result" name="result"
             direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
@@ -377,60 +377,60 @@
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E" name="&gt;"
+          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt" name="&gt;"
           isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-x" name="x">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-y" name="y">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-result" name="result"
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-result" name="result"
             direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C" name="&lt;="
+          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le" name="&lt;="
           isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-x" name="x">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-y" name="y">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3C-result" name="result"
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-result" name="result"
             direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior"
-          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E" name="&gt;="
+          xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge" name="&gt;="
           isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-x" name="x">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-x" name="x">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-y" name="y">
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-y" name="y">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#UnlimitedNatural"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter"
-            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-_3E-result" name="result"
+            xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-result" name="result"
             direction="return">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#Boolean"/>
