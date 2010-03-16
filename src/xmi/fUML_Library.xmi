@@ -1086,14 +1086,14 @@
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-StandardInputChannel"
-        name="StandardInputChannel" isLeaf="true" isAbstract="true">
+        name="StandardInputChannel" isAbstract="true">
         <generalization xmi:type="uml:Generalization"
           xmi:id="BasicInputOutput-StandardInputChannel-_generalization.0"
           general="BasicInputOutput-TextInputChannel"
           specific="BasicInputOutput-StandardInputChannel"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-StandardOutputChannel"
-        name="StandardOutputChannel" isLeaf="true" isAbstract="true">
+        name="StandardOutputChannel" isAbstract="true">
         <generalization xmi:type="uml:Generalization"
           xmi:id="BasicInputOutput-StandardOutputChannel-_generalization.0"
           general="BasicInputOutput-TextOutputChannel"
@@ -1133,7 +1133,7 @@
           name="writeLine" activity="BasicInputOutput-WriteLine"
           operation="BasicInputOutput-TextOutputChannel-writeLine">
           <argument xmi:type="uml:InputPin" xmi:id="BasicInputOutput-WriteLine-writeLine-value"
-            name="value" incoming="BasicInputOutput-WriteLine-_edge.1" ordering="unordered">
+            name="value" incoming="BasicInputOutput-WriteLine-_edge.1">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#String"/>
             <upperBound xmi:type="uml:LiteralInteger"
@@ -1144,8 +1144,7 @@
               xmi:id="BasicInputOutput-WriteLine-writeLine-value-_lowerValue" value="1"/>
           </argument>
           <result xmi:type="uml:OutputPin" xmi:id="BasicInputOutput-WriteLine-writeLine-errorStatus"
-            name="errorStatus" outgoing="BasicInputOutput-WriteLine-_edge.2" type="Common-Status"
-            ordering="unordered">
+            name="errorStatus" outgoing="BasicInputOutput-WriteLine-_edge.2" type="Common-Status">
             <upperBound xmi:type="uml:LiteralInteger"
               xmi:id="BasicInputOutput-WriteLine-writeLine-errorStatus-_upperBound" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural"
@@ -1257,7 +1256,7 @@
           name="readLine" activity="BasicInputOutput-ReadLine"
           operation="BasicInputOutput-TextInputChannel-readLine">
           <result xmi:type="uml:OutputPin" xmi:id="BasicInputOutput-ReadLine-readLine-_result.0"
-            name="" outgoing="BasicInputOutput-ReadLine-_edge.2" ordering="unordered">
+            name="" outgoing="BasicInputOutput-ReadLine-_edge.2">
             <type xmi:type="uml:PrimitiveType"
               href="http://www.omg.org/spec/UML/20090901/uml.xml#String"/>
             <upperBound xmi:type="uml:LiteralInteger"
@@ -1268,8 +1267,7 @@
               xmi:id="BasicInputOutput-ReadLine-readLine-_result.0-_lowerValue" value="1"/>
           </result>
           <result xmi:type="uml:OutputPin" xmi:id="BasicInputOutput-ReadLine-readLine-errorStatus"
-            name="errorStatus" outgoing="BasicInputOutput-ReadLine-_edge.1" type="Common-Status"
-            ordering="unordered">
+            name="errorStatus" outgoing="BasicInputOutput-ReadLine-_edge.1" type="Common-Status">
             <upperBound xmi:type="uml:LiteralInteger"
               xmi:id="BasicInputOutput-ReadLine-readLine-errorStatus-_upperBound" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural"
