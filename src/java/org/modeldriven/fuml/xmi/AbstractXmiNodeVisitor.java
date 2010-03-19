@@ -21,9 +21,11 @@ import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
+
+import fUML.Syntax.Classes.Kernel.Classifier;
+
+import org.modeldriven.fuml.meta.Property;
 
 /**
  * General XMINodeVisitor implementation superclass encapsulating common structure and 
@@ -36,7 +38,7 @@ public abstract class AbstractXmiNodeVisitor {
 
     protected XmiNode root;
     protected ModelSupport modelSupport;
-    protected Map<XmiNode, UmlClassifier> classifierMap = new HashMap<XmiNode, UmlClassifier>();
+    protected Map<XmiNode, Classifier> classifierMap = new HashMap<XmiNode, Classifier>();
     protected Map<String, XmiNode> nodeMap = new HashMap<String, XmiNode>();
     protected List<XmiReference> references = new ArrayList<XmiReference>();
 
@@ -49,14 +51,14 @@ public abstract class AbstractXmiNodeVisitor {
 		this.root = root;
 	}
 	
-	protected UmlClassifier findClassifier(XmiNode target, XmiNode source)
+	protected Classifier findClassifier(XmiNode target, XmiNode source)
 	{
-		UmlClassifier classifier = modelSupport.findClassifier(target);
+		Classifier classifier = modelSupport.findClassifier(target);
 		if (classifier == null)
 		{	
 			if (source != null)
 			{	
-			    UmlClassifier sourceClassifier = classifierMap.get(source);
+				Classifier sourceClassifier = classifierMap.get(source);
 			    if (sourceClassifier != null)
 			        classifier = modelSupport.findClassifier(target, sourceClassifier);
 			}
@@ -64,29 +66,29 @@ public abstract class AbstractXmiNodeVisitor {
 		return classifier;
 	}
 	
-	protected boolean isPrimitiveTypeElement(XmiNode node, UmlClassifier classifier,
+	protected boolean isPrimitiveTypeElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		return modelSupport.isPrimitiveTypeElement(node, classifier, hasAttributes);
 	}
 
-	protected boolean isInternalReferenceElement(XmiNode node, UmlClassifier classifier,
+	protected boolean isInternalReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		return modelSupport.isInternalReferenceElement(node, classifier, hasAttributes);
 	}
 
-    protected boolean isExternalReferenceElement(XmiNode node, UmlClassifier classifier,
+    protected boolean isExternalReferenceElement(XmiNode node, Classifier classifier,
             boolean hasAttributes)
     {
         return modelSupport.isExternalReferenceElement(node, classifier, hasAttributes);
     }
 	
-	protected boolean isAbstract(UmlClassifier classifier) {
+	protected boolean isAbstract(Classifier classifier) {
 		return modelSupport.isAbstract(classifier);
 	}
 	
-	protected boolean isReferenceAttribute(UmlProperty property)
+	protected boolean isReferenceAttribute(Property property)
 	{
 		return modelSupport.isReferenceAttribute(property);
 	}

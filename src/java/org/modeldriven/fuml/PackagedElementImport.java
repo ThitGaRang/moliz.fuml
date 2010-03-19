@@ -22,8 +22,7 @@ import org.modeldriven.fuml.assembly.AssemblerResultsProfile;
 import org.modeldriven.fuml.assembly.ElementGraphAssembler;
 import org.modeldriven.fuml.assembly.ElementStubAssembler;
 import org.modeldriven.fuml.environment.Environment;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClass;
+import org.modeldriven.fuml.meta.MetaModel;
 import org.modeldriven.fuml.xmi.XmiChildFinder;
 import org.modeldriven.fuml.xmi.stream.StreamNodeEvent;
 import org.modeldriven.fuml.xmi.validation.ErrorCode;
@@ -33,15 +32,14 @@ import org.modeldriven.fuml.xmi.validation.ValidationErrorCollector;
 
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Association;
+import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
 import fUML.Syntax.Classes.Kernel.Operation;
 import fUML.Syntax.Classes.Kernel.Property;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior;
-import fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior;
 import fUML.Syntax.CommonBehaviors.Communications.Signal;
-import fUML.Syntax.CommonBehaviors.Communications.SignalEvent;
 
 public class PackagedElementImport extends AbsractImport implements Import {
 
@@ -56,20 +54,18 @@ public class PackagedElementImport extends AbsractImport implements Import {
 
     protected AssemblerResultsProfile createProfile()
     {
-        Model model = Model.getInstance();
+        MetaModel model = MetaModel.getInstance();
         return new AssemblerResultsProfile(
-            new UmlClass[] {
-                (UmlClass)model.getClassifier(Activity.class.getSimpleName()),
-                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
-                (UmlClass)model.getClassifier(Association.class.getSimpleName()),
-                (UmlClass)model.getClassifier("Class"), // fUML name is 'Class_'
-                (UmlClass)model.getClassifier(Operation.class.getSimpleName()),
-                (UmlClass)model.getClassifier(Property.class.getSimpleName()),
-                (UmlClass)model.getClassifier(DataType.class.getSimpleName()),
-                (UmlClass)model.getClassifier(Signal.class.getSimpleName()),
-                (UmlClass)model.getClassifier(SignalEvent.class.getSimpleName()),
-                (UmlClass)model.getClassifier(OpaqueBehavior.class.getSimpleName()),
-                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),
+            new Class_[] {
+                (Class_)model.getClassifier(Activity.class.getSimpleName()),
+                (Class_)model.getClassifier(FunctionBehavior.class.getSimpleName()),
+                (Class_)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
+                (Class_)model.getClassifier("Class"), // fUML name is 'Class_'
+                (Class_)model.getClassifier(Operation.class.getSimpleName()),
+                (Class_)model.getClassifier(Property.class.getSimpleName()),
+                (Class_)model.getClassifier(DataType.class.getSimpleName()),
+                (Class_)model.getClassifier(Signal.class.getSimpleName()),
+                (Class_)model.getClassifier(Association.class.getSimpleName()),
             });
     }
 

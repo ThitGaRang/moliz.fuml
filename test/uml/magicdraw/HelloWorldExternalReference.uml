@@ -19,7 +19,7 @@
         </result>
       </node>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1226585766687_796793_952" name="WriteLine" visibility="public">
-		<behavior xmi:type='uml:Activity' href='fUML-Library.mdzip#_jJIzc3OeEd2TgN94jve35g'>
+		<behavior xmi:type='uml:Activity' href='fUML-Library.mdzip#BasicInputOutput-WriteLine'>
 			<xmi:Extension extender='MagicDraw UML 15.5' extenderID='MagicDraw UML 15.5'>
 				<referenceExtension referentPath='BasicInputOutput::WriteLine' referentType='Activity'/>
 			</xmi:Extension>

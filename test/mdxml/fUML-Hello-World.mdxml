@@ -37,7 +37,7 @@
 				</result>
 			</node>
 			<node xmi:type='uml:CallBehaviorAction' xmi:id='_15_5_1_1a900482_1226585766687_796793_952' name='WriteLine' visibility='public'>
-				<behavior xmi:type='uml:Activity' href='fUML-Library.mdzip#_jJIzc3OeEd2TgN94jve35g'>
+				<behavior xmi:type='uml:Activity' href='fUML-Library.mdzip#BasicInputOutput-WriteLine'>
 					<xmi:Extension extender='MagicDraw UML 16.0' extenderID='MagicDraw UML 16.0'>
 						<referenceExtension referentPath='BasicInputOutput::WriteLine' referentType='Activity'/>
 					</xmi:Extension>
@@ -104,7 +104,7 @@
 				<xmi:Extension extender='MagicDraw UML 16.0' extenderID='MagicDraw UML 16.0'>
 					<moduleExtension moduleRoot='::BasicInputOutput' moduleName='fUML-Library.mdzip' remoteProjectID='' remoteModuleVersion='1228659664000' moduleUsedByProject='true'/>
 				</xmi:Extension>
-				<packagedElement xmi:type='uml:Activity' xmi:id='_jJIzc3OeEd2TgN94jve35g' name='WriteLine' visibility='public'>
+				<packagedElement xmi:type='uml:Activity' xmi:id='BasicInputOutput-WriteLine' name='WriteLine' visibility='public'>
 					<ownedParameter xmi:type='uml:Parameter' xmi:id='_jJIzdHOeEd2TgN94jve35g' name='value' visibility='public' direction='in' effect='create'/>
 					<ownedParameter xmi:type='uml:Parameter' xmi:id='_jJIzdXOeEd2TgN94jve35g' name='errorStatus' visibility='public' direction='out' effect='create'/>
 				</packagedElement>

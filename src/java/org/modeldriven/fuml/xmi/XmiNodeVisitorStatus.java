@@ -17,13 +17,13 @@ package org.modeldriven.fuml.xmi;
  * @author Scott Cinnamond
  */
 public class XmiNodeVisitorStatus {
-    
+
     public static final int STATUS_TRAVERSE = 1;
     public static final int STATUS_ABORT = 2;
     private int status = STATUS_TRAVERSE;
-    
+
     public XmiNodeVisitorStatus() {
-        
+
     }
 
     public int getStatus() {

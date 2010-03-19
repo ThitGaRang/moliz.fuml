@@ -16,19 +16,26 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 /**
- * Models the hierarchical aspects of an element within a tree of XMI elements 
+ * Models the hierarchical aspects of an element within a tree of XMI elements
  * and supports Visitor pattern oriented traversals of the hierarchy.
  * 
  * @author Scott Cinnamond
  */
 public interface XmiNode extends XmiElement {
-    
+
     public List<XmiNode> getNodes();
+
     public boolean hasNodes();
+
     public boolean hasCharacters();
+
     public boolean hasAttribute(QName name);
+
     public String getAttributeValue(QName name);
+
     public int getLineNumber();
+
     public int getColumnNumber();
+
     public void accept(XmiNodeVisitor visitor);
 }

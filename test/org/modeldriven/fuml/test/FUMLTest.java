@@ -25,16 +25,15 @@ import fUML.Syntax.Classes.Kernel.Classifier;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Test.InitTestEnvironment;
 
-
 /**
   */
 public abstract class FUMLTest extends TestCase {
 
-	protected Log log = LogFactory.getLog(getClass().getName());
+    protected Log log = LogFactory.getLog(getClass().getName());
 
     public FUMLTest() {
     }
-    
+
     public FUMLTest(String name) {
         super(name);
     }
@@ -53,12 +52,11 @@ public abstract class FUMLTest extends TestCase {
     public boolean isTargetTomcat() {
         return false;
     }
-    
+
     /**
      * Get the client's env context for a given name.
      */
-    protected InitialContext getInitialContext(String clientName)
-            throws NamingException {
+    protected InitialContext getInitialContext(String clientName) throws NamingException {
         InitialContext iniCtx = new InitialContext();
         Hashtable env = iniCtx.getEnvironment();
         env.put(Context.URL_PKG_PREFIXES, "org.jboss.naming.client");
@@ -83,8 +81,7 @@ public abstract class FUMLTest extends TestCase {
     }
 
     public static String getServerHost() {
-        String hostName = System
-                .getProperty("jbosstest.host.name", "localhost");
+        String hostName = System.getProperty("jbosstest.host.name", "localhost");
         return hostName;
     }
 
@@ -115,8 +112,7 @@ public abstract class FUMLTest extends TestCase {
 
         if (exp != null && was != null) {
             if (exp.length != was.length) {
-                fail("Expected <" + exp.length + "> array items, but was <"
-                        + was.length + ">");
+                fail("Expected <" + exp.length + "> array items, but was <" + was.length + ">");
             } else {
                 for (int i = 0; i < exp.length; i++) {
 
@@ -159,8 +155,7 @@ public abstract class FUMLTest extends TestCase {
     private static void assertEqualsArray(double[] exp, double[] was) {
         assertTrue("Arrays don't match", Arrays.equals(exp, was));
     }
-    
-    
+
     public byte[] getContent(InputStream source) throws IOException {
         byte[] buf = new byte[4000];
         ByteArrayOutputStream os = new ByteArrayOutputStream(4000);
@@ -168,8 +163,7 @@ public abstract class FUMLTest extends TestCase {
             int len = -1;
             while ((len = source.read(buf)) != -1)
                 os.write(buf, 0, len);
-        }
-        finally  {
+        } finally {
             source.close();
             os.flush();
         }

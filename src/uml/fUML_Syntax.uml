@@ -11,6 +11,11 @@
        - with a Model class added
      - Removed "Syntax" suffix from model name.
 -->
+<!-- S.C. 03/03/2010
+       - added default value 'in' to Classes.Kernel.Parameter.direction
+       - added viewpoint attribute definition to Model
+-->
+<!-- S.C. 03/04/2010 even though fUML does not support opaque expressions, we need to define the class due to tools issues. Added definition for OpaqueExpression -->
 <uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_8iujUDp-Ed6eqrfLG8Mk-g" name="fUML">
   <packageImport xmi:id="_8iujVDp-Ed6eqrfLG8Mk-g">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -784,6 +789,26 @@ slot.owningInstance = this;&#xD;
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
+        <!-- S.C. 03/03/2010 even though fUML does not support opaque expressions, we need to define the class due to tools issues -->
+        <packagedElement xmi:type="uml:Class" xmi:id="fUML-Classes-Kernel-OpaqueExpression" name="OpaqueExpression">                                                                                                                                                                                                                                     
+          <generalization xmi:id="_PxbIA2_uEd2dGPXl6bl1Xw" general="_2lNR95cdEdq-Nv2ZQ5bhIQ"/>                                                                                                                                                                                                                                                      
+          <ownedAttribute xmi:id="fUML-Classes-Kernel-OpaqueExpression-body" name="body" isOrdered="true" aggregation="composite">                                                                                                                                                                                                                       
+            <ownedComment xmi:id="fUML-Classes-Kernel-OpaqueExpression-body-_ownedComment.0" annotatedElement="fUML-Classes-Kernel-OpaqueExpression-body">                                                                                                                                                                                                    
+              <body>The text of the expression, possibly in multiple languages.</body>                                                                                                                                                                                                                                                              
+            </ownedComment>                                                                                                                                                                                                                                                                                                                         
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>                                                                                                                                                                                                                                
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PwFD92_uEd2dGPXl6bl1Xw" value="*"/>                                                                                                                                                                                                                                         
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PwFD-G_uEd2dGPXl6bl1Xw"/>                                                                                                                                                                                                                                                            
+          </ownedAttribute>                                                                                                                                                                                                                                                                                                                         
+          <ownedAttribute xmi:id="fUML-Classes-Kernel-OpaqueExpression-language" name="language" isOrdered="true" aggregation="composite">                                                                                                                                                                                                               
+            <ownedComment xmi:id="fUML-Classes-Kernel-OpaqueExpression-language-_ownedComment.0" annotatedElement="fUML-Classes-Kernel-OpaqueExpression-language">                                                                                                                                                                                            
+              <body>Specifies the languages in which the expression is stated. The interpretation of the expression body depends on the languages. If the languages are unspecified, they might be implicit from the expression body or the context. Languages are matched to body strings by order.</body>                                         
+            </ownedComment>                                                                                                                                                                                                                                                                                                                         
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>                                                                                                                                                                                                                                
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PwFD-W_uEd2dGPXl6bl1Xw" value="*"/>                                                                                                                                                                                                                                         
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PwFD-m_uEd2dGPXl6bl1Xw"/>                                                                                                                                                                                                                                                            
+          </ownedAttribute>                                                                                                                                                                                                                                                                                                                         
+        </packagedElement>             
         <packagedElement xmi:type="uml:Class" xmi:id="_2l84A5cdEdq-Nv2ZQ5bhIQ" name="LiteralNull">
           <eAnnotations xmi:id="_KL-xwNOvEdqHtKkTwz7Exg" source="http://www.eclipse.org/uml2/2.0.0/UML">
             <details xmi:id="_-jTEU25kEd2PGokE6CjM8g" key="bUML"/>
@@ -1287,6 +1312,7 @@ this.packageElement.addValue(packageElement);&#xD;
             <ownedComment xmi:id="_2lgMa5cdEdq-Nv2ZQ5bhIQ" annotatedElement="_2lgMapcdEdq-Nv2ZQ5bhIQ">
               <body>Indicates whether a parameter is being sent into or out of a behavioral element.</body>
             </ownedComment>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PwO01m_uEd2dGPXl6bl1XwZ" value="in"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_2lgMbZcdEdq-Nv2ZQ5bhIQ" name="operation" type="_2lgL4JcdEdq-Nv2ZQ5bhIQ" association="_2lp9z5cdEdq-Nv2ZQ5bhIQ">
             <ownedComment xmi:id="_2lgMcJcdEdq-Nv2ZQ5bhIQ" annotatedElement="_2lgMbZcdEdq-Nv2ZQ5bhIQ">
@@ -2567,6 +2593,10 @@ this.navigableOwnedEnd.addValue(navigableOwnedEnd);&#xD;
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_X0KpUDqBEd6eqrfLG8Mk-g" name="Model">
           <generalization xmi:id="_dF-hMDqBEd6eqrfLG8Mk-g" general="_hi4-8GVIEdu0rvs8Gf_wjA"/>
+          <ownedAttribute xmi:id="_X0KpUDqBEd6eqrfLG8Mk-gv" name="viewpoint">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RTISY2pFEd2TL7W4Z51wtw"/>
+          </ownedAttribute>
         </packagedElement>
       </packagedElement>
     </packagedElement>

@@ -8,7 +8,7 @@ import junit.framework.Test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.FUML;
+import org.modeldriven.fuml.Fuml;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.environment.ExecutionEnvironment;
 import org.modeldriven.fuml.test.FUMLTest;
@@ -35,7 +35,7 @@ public class FunctionExecutionTestCase extends FUMLTest {
             String filename = "./test/mdxml/fUML-Tests.mdxml";
             File file = new File(filename);
             assertTrue("file '" + filename + "' does not exist", file.exists());
-            FUML.load(file);
+            Fuml.load(file);
             environment = Environment.getInstance();
             log.info("done");
         }
@@ -58,7 +58,7 @@ public class FunctionExecutionTestCase extends FUMLTest {
         execute("TestBooleanFunctions");
         log.info("done");
     }
-    
+     
     public void testTestStringFunctions() throws Exception {
         log.info("testTestStringFunctions");
         execute("TestStringFunctions");

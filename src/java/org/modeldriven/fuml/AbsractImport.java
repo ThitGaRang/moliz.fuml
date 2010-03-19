@@ -13,11 +13,11 @@ package org.modeldriven.fuml;
 import org.modeldriven.fuml.assembly.AssemblerResultsProfile;
 
 public abstract class AbsractImport {
-   
+
     protected ImportRegistry importRegistry;
     private AssemblerResultsProfile profile;
-    
-    public AbsractImport() { 
+
+    public AbsractImport() {
         profile = createProfile();
     }
 
@@ -25,11 +25,10 @@ public abstract class AbsractImport {
         this();
         this.importRegistry = registry;
     }
-    
+
     protected abstract AssemblerResultsProfile createProfile();
-    
-    protected AssemblerResultsProfile getProfile()
-    {
+
+    protected AssemblerResultsProfile getProfile() {
         return profile;
     }
 

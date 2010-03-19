@@ -15,6 +15,7 @@ public class FumlException extends RuntimeException {
     public FumlException(Throwable t) {
         super(t);
     }
+
     public FumlException(String msg) {
         super(msg);
     }

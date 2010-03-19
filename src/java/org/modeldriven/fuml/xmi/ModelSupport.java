@@ -15,13 +15,15 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClass;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlEnumeration;
-import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.meta.MetaModel;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
+
+import fUML.Syntax.Classes.Kernel.Class_;
+import fUML.Syntax.Classes.Kernel.Classifier;
+import fUML.Syntax.Classes.Kernel.Enumeration;
+import fUML.Syntax.Classes.Kernel.PrimitiveType;
+
+import org.modeldriven.fuml.meta.Property;
 
 /**
  * Stateless model-related logic delegate class. Handles metadata related logic specific 
@@ -32,9 +34,9 @@ import org.modeldriven.fuml.xmi.stream.StreamNode;
 public class ModelSupport {
     private static Log log = LogFactory.getLog(ModelSupport.class);
 		
-    public UmlClassifier findClassifier(XmiNode target)
+    public Classifier findClassifier(XmiNode target)
     {
-        UmlClassifier result = Model.getInstance().findClassifier(target.getLocalName());
+    	Classifier result = MetaModel.getInstance().findClassifier(target.getLocalName());
         if (result != null)
             return result;
         
@@ -43,15 +45,15 @@ public class ModelSupport {
         String xmiType = target.getXmiType();
         if (xmiType != null && xmiType.length() > 0)
         {    
-            result = Model.getInstance().findClassifier(xmiType);
+            result = MetaModel.getInstance().findClassifier(xmiType);
         }
         return result;
     }
     
-    public UmlClassifier findClassifier(XmiNode target, UmlClassifier sourceClassifier)
+    public Classifier findClassifier(XmiNode target, Classifier sourceClassifier)
     {
-    	UmlClassifier result = null;
-        
+    	Classifier result = null;
+    	        
     	// For nodes with an XMI type attrib, don't ignore it
     	// if no classifier found for type. Could result in
     	// abstract class being used based on default
@@ -59,34 +61,34 @@ public class ModelSupport {
     	String xmiType = target.getXmiType();
         if (xmiType != null && xmiType.length() > 0)
         {    
-            result = Model.getInstance().findClassifier(xmiType);
+            result = MetaModel.getInstance().findClassifier(xmiType);
             if (result == null)
             	return result; 
         }
         
-        UmlProperty property = Model.getInstance().findAttribute(
-        		(UmlClass)sourceClassifier, target.getLocalName());
+        Property property = MetaModel.getInstance().findAttribute(
+        		(Class_)sourceClassifier, target.getLocalName());
         if (property != null)
         {
-            UmlClassifier type = Model.getInstance().getType(property);
-            result = Model.getInstance().getClassifier(type.getName());    
+            Classifier type = MetaModel.getInstance().getType(property);
+            result = MetaModel.getInstance().getClassifier(type.name);    
         }
         return result;
     }
     
-    public boolean isPrimitiveTypeElement(XmiNode node, UmlClassifier classifier,
+    public boolean isPrimitiveTypeElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		boolean result = false;
     	// if non-reference primitive type property element
-    	if (UmlPrimitiveType.class.isAssignableFrom(classifier.getClass()))
+    	if (PrimitiveType.class.isAssignableFrom(classifier.getClass()))
     	{
     		if (node.getNodes() != null && node.getNodes().size() > 0)
     			log.warn("found child nodes(s) under primitive type, " 
-    					+ classifier.getName());
+    					+ classifier.name);
     		if (hasAttributes)
     			log.warn("found attribute(s) for primitive type, " 
-    					+ classifier.getName());
+    					+ classifier.name);
     		result = true; // it's a non-reference property, "can't" have attributes 
     	} 
     	return result;
@@ -100,7 +102,7 @@ public class ModelSupport {
      * @param hasAttributes
      * @return
      */
-    public boolean isInternalReferenceElement(XmiNode node, UmlClassifier classifier,
+    public boolean isInternalReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		boolean result = false;
@@ -111,7 +113,7 @@ public class ModelSupport {
         	{
         		if (hasAttributes)
         			log.warn("found attribute(s) for characters node of type, " 
-        					+ classifier.getName());
+        					+ classifier.name);
         		result = true; // characters node    		
         	}
         	else {
@@ -132,7 +134,7 @@ public class ModelSupport {
      * @param hasAttributes
      * @return
      */
-    public boolean isExternalReferenceElement(XmiNode node, UmlClassifier classifier,
+    public boolean isExternalReferenceElement(XmiNode node, Classifier classifier,
             boolean hasAttributes)
     {
         // has to be a ref
@@ -161,27 +163,17 @@ public class ModelSupport {
         return result;
     }
     
-	protected boolean isAbstract(UmlClassifier classifier) {
-		if ("true".equals(classifier.getIsAbstract()))
-		{			
-			return true;  
-		}
-		return false;
+	protected boolean isAbstract(Classifier classifier) {
+		return MetaModel.getInstance().isAbstract(classifier);
 	}
 	
-	public boolean isReferenceAttribute(UmlProperty property)
+	public boolean isReferenceAttribute(Property property)
 	{
-        // must be a ref attribute
-        UmlClassifier typeClassifier = Model.getInstance().getType(property);             
-    	if (!UmlPrimitiveType.class.isAssignableFrom(typeClassifier.getClass()) &&
-    		!UmlEnumeration.class.isAssignableFrom(typeClassifier.getClass()))
+		Classifier typeClassifier = MetaModel.getInstance().getType(property);             
+    	if (!PrimitiveType.class.isAssignableFrom(typeClassifier.getClass()) &&
+    		!Enumeration.class.isAssignableFrom(typeClassifier.getClass()))
     	{
-			// FIXME: HACK the FUML generalization java/mappings don't give UnlimitedNatural 
-    		// a generalization (supertype). So can't implement a 'Model.instanceOf(String)' method
-    		if (!"UnlimitedNatural".equals(typeClassifier.getName())) 
-    		{
-    			return true;
-    		}
+			return true;
     	}
 		return false;
 	}}

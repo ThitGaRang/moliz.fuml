@@ -17,6 +17,9 @@ ${packageDeclaration}
 #if (${object.superClasses.size()}>0)
  extends #qualifiedName(${object.superClasses.get(0)})
 #end
+#if (${object.superClasses.size()}==0)
+ extends org.modeldriven.fuml.FumlObject
+#end
 ## #foreach ( $superclass in ${object.superClasses} )
 ##    extends #qualifiedName(${superclass}) 
 ## #end    
