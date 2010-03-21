@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema targetNamespace="http://www.modeldriven.org/fuml/meta/config" 
-  xmlns:mc="http://www.modeldriven.org/fuml/meta/config"
+<xsd:schema targetNamespace="http://www.modeldriven.org/fuml/model/config" 
+  xmlns:mc="http://www.modeldriven.org/fuml/model/config"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   
     <xsd:complexType name="ModelConfig">
@@ -38,48 +38,24 @@
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
 
+<!--
         <xsd:sequence>
-            <xsd:element name="registeredPackage" type="mc:RegisteredPackage"  minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="name" type="xsd:string"  minOccurs="1" maxOccurs="1">
                 <xsd:annotation>                                  
                     <xsd:documentation></xsd:documentation>       
                 </xsd:annotation>                                 
             </xsd:element>
         </xsd:sequence>
-        
+-->
         <xsd:attribute name="name" type="xsd:string">
                 <xsd:annotation>                                  
                     <xsd:documentation>The resource URI</xsd:documentation>       
                 </xsd:annotation>                                 
         </xsd:attribute>
 
-        <xsd:attribute name="factoryClassName" type="xsd:string">
-                <xsd:annotation>                                  
-                    <xsd:documentation>The class name of the factory that creates objects that make up the artifact</xsd:documentation>       
-                </xsd:annotation>                                 
-        </xsd:attribute>
-
     </xsd:complexType>
 
     <xsd:element name="Artifact" type="mc:Artifact">
-        <xsd:annotation>
-            <xsd:documentation></xsd:documentation>
-        </xsd:annotation>
-    </xsd:element>
-
-    <xsd:complexType name="RegisteredPackage">
-        <xsd:annotation>
-            <xsd:documentation></xsd:documentation>
-        </xsd:annotation>
-
-        <xsd:attribute name="name" type="xsd:string">
-                <xsd:annotation>                                  
-                    <xsd:documentation>The qualified package name</xsd:documentation>       
-                </xsd:annotation>                                 
-        </xsd:attribute>
-
-    </xsd:complexType>
-
-    <xsd:element name="RegisteredPackage" type="mc:RegisteredPackage">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>

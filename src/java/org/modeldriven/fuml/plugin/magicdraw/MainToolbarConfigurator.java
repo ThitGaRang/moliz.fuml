@@ -21,42 +21,44 @@ import com.nomagic.magicdraw.actions.MDAction;
 /**
  * Class for configuring main toolbar. It adds action to File toolbar.
  */
-public class MainToolbarConfigurator implements AMConfigurator {
+public class MainToolbarConfigurator implements AMConfigurator
+{
 
-    /**
-     * Action which will be added to main toolbar.
-     */
-    private MDAction action;
+	/**
+	 * Action which will be added to main toolbar.
+	 */
+	private MDAction action;
 
-    /**
-     * Creats configurator with given action.
-     * 
-     * @param action
-     *            action to be added to main toolbar.
-     */
-    public MainToolbarConfigurator(MDAction action) {
-        this.action = action;
-    }
+	/**
+	 * Creats configurator with given action.
+	 * @param action action to be added to main toolbar.
+	 */
+	public MainToolbarConfigurator(MDAction action)
+	{
+		this.action = action;
+	}
 
-    /**
-     * @see com.nomagic.actions.AMConfigurator#configure(ActionsManager) Method
-     *      adds action to File category.
-     */
-    public void configure(ActionsManager mngr) {
-        // searching for Help action category
-        for (Iterator iter = mngr.getCategories().iterator(); iter.hasNext();) {
-            ActionsCategory category = (ActionsCategory) iter.next();
-            // javax.swing.JOptionPane.showMessageDialog( null,
-            // category.getID());
-            // adding action to found category.
-            if (category.getID().equals(ActionsID.DIAGRAMS)) {
-                category.addAction(action);
-            }
-        }
-    }
-
-    public int getPriority() {
-        return AMConfigurator.MEDIUM_PRIORITY;
-    }
+	/**
+	 * @see com.nomagic.actions.AMConfigurator#configure(ActionsManager)
+	 * Method adds action to File category.
+	 */
+	public void configure(ActionsManager mngr)
+	{
+		// searching for Help action category
+		for (Iterator iter = mngr.getCategories().iterator(); iter.hasNext();)
+		{
+			ActionsCategory category = (ActionsCategory) iter.next();
+			//javax.swing.JOptionPane.showMessageDialog( null, category.getID());
+			// adding action to found category.
+			if (category.getID().equals(ActionsID.DIAGRAMS))
+			{
+				category.addAction(action);
+			}
+		}
+	}
+	public int getPriority()
+	{
+		return AMConfigurator.MEDIUM_PRIORITY;
+	}
 
 }

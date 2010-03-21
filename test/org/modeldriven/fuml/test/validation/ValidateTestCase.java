@@ -18,6 +18,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.test.FUMLTest;
 import org.modeldriven.fuml.test.FUMLTestSetup;
+import org.modeldriven.fuml.xmi.BindingXmiReader;
+import org.modeldriven.fuml.xmi.XmiDataBinding;
 import org.modeldriven.fuml.xmi.XmiNode;
 import org.modeldriven.fuml.xmi.XmiReader;
 import org.modeldriven.fuml.xmi.XmiValidationEventHandler;
@@ -76,9 +78,8 @@ public class ValidateTestCase extends FUMLTest {
 
     public void testAbstractClass() throws Exception {
         log.info("testAbstractClass");
-        int count = collector.getErrorCount(ErrorCode.ABSTRACT_CLASS_INSTANTIATION);
-        assertTrue("expected 1 abstract class error not " + count, 
-                count == 1);
+        assertTrue("expected 1 abstract class error", 
+                collector.getErrorCount(ErrorCode.ABSTRACT_CLASS_INSTANTIATION) == 1);
         log.info("testAbstractClass");
     }
     

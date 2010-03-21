@@ -25,10 +25,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.FumlException;
 import org.modeldriven.fuml.bind.DefaultValidationEventHandler;
+import org.modeldriven.fuml.model.uml2.UmlClassifier;
+import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.xml.sax.SAXException;
-
-import fUML.Syntax.Classes.Kernel.Classifier;
-import fUML.Syntax.Classes.Kernel.Property;
 
 public class FumlConfiguration {
 
@@ -154,33 +153,33 @@ public class FumlConfiguration {
         return null;
     }
     
-    public boolean hasReferenceMapping(Classifier classifier, Property property)
+    public boolean hasReferenceMapping(UmlClassifier classifier, UmlProperty property)
     {
         Iterator<ReferenceMapping> mappings = 
             getConfig().getMappingConfiguration().getReferenceMapping().iterator();  
         while (mappings.hasNext())
         {
             ReferenceMapping mapping = mappings.next();
-            if (mapping.getClassName().equals(classifier.name) &&
-                    mapping.getPropertyName().equals(property.name))
+            if (mapping.getClassName().equals(classifier.getName()) &&
+                    mapping.getPropertyName().equals(property.getName()))
                 return true;
         }
         return false;
     }
     
-    public ReferenceMappingType getReferenceMappingType(Classifier classifier, Property property)
+    public ReferenceMappingType getReferenceMappingType(UmlClassifier classifier, UmlProperty property)
     {
         Iterator<ReferenceMapping> mappings = 
             getConfig().getMappingConfiguration().getReferenceMapping().iterator();  
         while (mappings.hasNext())
         {
             ReferenceMapping mapping = mappings.next();
-            if (mapping.getClassName().equals(classifier.name) &&
-                    mapping.getPropertyName().equals(property.name))
+            if (mapping.getClassName().equals(classifier.getName()) &&
+                    mapping.getPropertyName().equals(property.getName()))
                 return mapping.getType();
         }
         throw new FumlException("no mapping found for, " 
-                + classifier.name + "." + property.name);
+                + classifier.getName() + "." + property.getName());
     }
     
     public String findExecutionClassName(String name)

@@ -18,6 +18,6 @@ package org.modeldriven.fuml.xmi;
  */
 public interface XmiNodeVisitor {
 
-    public void visit(XmiNode target, XmiNode source, String sourceKey,
-            XmiNodeVisitorStatus status, int level);
+    public void visit(XmiNode target, XmiNode source, 
+            String sourceKey, XmiNodeVisitorStatus status , int level);
 }

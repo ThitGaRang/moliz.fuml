@@ -25,11 +25,13 @@ import javax.xml.stream.events.Attribute;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.config.FumlConfiguration;
-import org.modeldriven.fuml.config.ImportAdapter;
 import org.modeldriven.fuml.config.ReferenceMappingType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
-import org.modeldriven.fuml.meta.MetaModel;
+import org.modeldriven.fuml.model.Model;
+import org.modeldriven.fuml.model.uml2.UmlClass;
+import org.modeldriven.fuml.model.uml2.UmlClassifier;
+import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.modeldriven.fuml.xmi.AbstractXmiNodeVisitor;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
@@ -40,11 +42,6 @@ import org.modeldriven.fuml.xmi.XmiNodeVisitorStatus;
 import org.modeldriven.fuml.xmi.XmiReference;
 import org.modeldriven.fuml.xmi.XmiReferenceAttribute;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
-
-import fUML.Syntax.Classes.Kernel.Class_;
-import fUML.Syntax.Classes.Kernel.Classifier;
-
-import org.modeldriven.fuml.meta.Property;
 
 /**
  * A visitor pattern implementation class that walks a given XmiNode hierarchy checking for
@@ -105,35 +102,17 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                         ErrorSeverity.FATAL, eventNode);
         }
 
-		Classifier classifier = findClassifier(target, source);
+		UmlClassifier classifier = findClassifier(target, source);
 		if (classifier == null)
 		{
-			// See if this element or it's immediate parent has an import adapter
-			// which means adapted elements can currently have only 2 levels otherwise
-			// the results are undefined. Bad. 
-            ImportAdapter importAdapter = FumlConfiguration.getInstance().findImportAdapter(
-            		target.getLocalName());
-            if (importAdapter == null)
-            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
-                		target.getXmiType()); 
-            if (importAdapter == null)
-            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
-                		source.getLocalName()); 
-            if (importAdapter == null)
-            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
-                		source.getXmiType()); 
-            
-            // if exists, assume the adapter will transform the 
-            // undefined element and any descendants
-            if (importAdapter == null)
-                addError(ErrorCode.UNDEFINED_CLASS, ErrorSeverity.FATAL, eventNode);
-            
+            addError(ErrorCode.UNDEFINED_CLASS,
+                    ErrorSeverity.FATAL, eventNode);
 		    return; // We're done w/this node. No way to examine further without a classifier.
 		}
 
     	if (log.isDebugEnabled())
     		log.debug("identified element '" + target.getLocalName() + "' as classifier, "
-    			+ classifier.name);
+    			+ classifier.getName());
     	classifierMap.put(target, classifier);
 
         boolean hasAttributes = eventNode.hasAttributes();
@@ -151,7 +130,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             references.add(new XmiExternalReferenceElement(eventNode));
             return;
         }
-        
+
     	if (isAbstract(classifier))
     	{
             addError(ErrorCode.ABSTRACT_CLASS_INSTANTIATION,
@@ -166,7 +145,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	}
 
 	private void validateAttributes(StreamNode target, XmiNode source,
-	        Classifier classifier,
+	        UmlClassifier classifier,
 			Iterator<Attribute> attributes)
 	{
         // look at XML attributes
@@ -180,7 +159,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                 continue; // not applicable to current element/association-end.
             if ("href".equals(name.getLocalPart()))
                 continue; // FIXME: why is this "special" ?
-            Property property = MetaModel.getInstance().findAttribute((Class_) classifier,
+            UmlProperty property = Model.getInstance().findAttribute((UmlClass) classifier,
                     name.getLocalPart());
             if (property == null)
             {
@@ -189,11 +168,6 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                 continue;
             }
 
-            if (property.typedElement.type == null)
-            {
-                int foo = 0;
-                foo++;
-            }
             if (isReferenceAttribute(property))
             {
     		    XmiReferenceAttribute reference = new XmiReferenceAttribute(target,
@@ -202,70 +176,70 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             }
             // TODO: when this error is commented out, an erroneous 'invalid internal reference' validation
             // error was seen to be thrown during assembly. This seems to be a bug
-        	if (MetaModel.getInstance().isDerived((Class_) classifier, property))
+        	if (Model.getInstance().isDerived((UmlClass) classifier, property))
                 if (checkDerivedPropertyInstantiationError(target, source, classifier, property)) {
                     addError(ErrorCode.DERIVED_PROPERTY_INSTANTIATION,
-                            ErrorSeverity.FATAL, target, property.name);
+                            ErrorSeverity.FATAL, target, property.getName());
                 }
 
         }
 	}
 
 	private boolean checkDerivedPropertyInstantiationError(StreamNode target, XmiNode source,
-	        Classifier classifier, Property property)
+	        UmlClassifier classifier, UmlProperty property)
 	{
 		boolean error = false;
 
-    	String value = target.getAttributeValue(property.name);
+    	String value = target.getAttributeValue(property.getName());
         if (value != null && value.trim().length() > 0)
         {
         	error = true;
         }
-        else if (target.findChildByName(property.name) != null)
+        else if (target.findChildByName(property.getName()) != null)
         	error = true;
 
 		return error;
 	}
 
 	private void validateAttributesAgainstModel(StreamNode target, XmiNode source,
-	        Classifier classifier)
+	        UmlClassifier classifier)
 	{
-        Property[] properties = MetaModel.getInstance().getAttributes((Class_) classifier);
+        UmlProperty[] properties = Model.getInstance().getAttributes((UmlClass) classifier);
         for (int i = 0; i < properties.length; i++)
         {
-        	if (MetaModel.getInstance().isRequired((Class_) classifier, properties[i]))
+        	if (Model.getInstance().isRequired((UmlClass) classifier, properties[i]))
 	            if (checkRequiredPropertyError(target, source, classifier, properties[i])) {
 	                addError(ErrorCode.PROPERTY_REQUIRED,
-	                        ErrorSeverity.FATAL, target, properties[i].name);
+	                        ErrorSeverity.FATAL, target, properties[i].getName());
 	            }
         	// other checks??
         }
 	}
 
 	private boolean checkRequiredPropertyError(StreamNode target, XmiNode source,
-	        Classifier classifier, Property property)
+	        UmlClassifier classifier, UmlProperty property)
 	{
 		boolean error = true;
 
-    	if (MetaModel.getInstance().isDerived((Class_) classifier, property))
+    	if (Model.getInstance().isDerived((UmlClass) classifier, property))
     	{
     		error = false;
     		return error;
     	}
 
-    	String value = target.getAttributeValue(property.name);
+    	String value = target.getAttributeValue(property.getName());
         if (value != null && value.trim().length() > 0)
         {
         	error = false;
         }
         else // or we have a default
         {
-            String defaultValue = MetaModel.getInstance().findAttributeDefault(property);
+            String defaultValue = Model.getInstance().findAttributeDefault(property);
             if (defaultValue != null)
             	error = false;
         }
 
-        if (target.findChildByName(property.name) != null)
+        if (target.findChildByName(property.getName()) != null)
         	error = false;
 
         // check configured mappings
@@ -284,12 +258,12 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                 	error = false;
                 else
                     log.warn("no parent XMI id found for, "
-                        + classifier.name + "." + property.name);
+                        + classifier.getName() + "." + property.getName());
             }
             else
                 log.warn("unrecognized mapping type, "
                         + mappingType.value() + " ignoring mapping for, "
-                        + classifier.name + "." + property.name);
+                        + classifier.getName() + "." + property.getName());
         }
 
         return error;

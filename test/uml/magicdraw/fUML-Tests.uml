@@ -790,7 +790,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1226585766687_796793_952" name="WriteLine" visibility="public" behavior="BasicInputOutput-WriteLine">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1226585766687_796793_952" name="WriteLine" visibility="public" behavior="_jJIzc3OeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1226585766718_119335_962" name="WriteLine.value" visibility="public" incoming="_15_5_1_1a900482_1226585806640_176104_991">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </argument>
@@ -852,7 +852,7 @@
       </node>
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227279834609_190486_958" name="Fork(3)" visibility="public" outgoing="_15_5_1_1a900482_1227729553265_237071_4915 _15_5_1_1a900482_1227280252421_614460_1382 _15_5_1_1a900482_1227280257906_852044_1384 _15_5_1_1a900482_1227729900296_332459_5050 _15_5_1_1a900482_1227279976890_133947_1087 _15_5_1_1a900482_1227729191531_761723_4790 _15_5_1_1a900482_1227280052968_433508_1161 _15_5_1_1a900482_1227280390250_888194_1456" incoming="_15_5_1_1a900482_1227279849937_346915_977"/>
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227279853484_305939_994" name="Fork(2)" visibility="public" outgoing="_15_5_1_1a900482_1227729921234_826875_5101 _15_5_1_1a900482_1227280159156_684878_1275 _15_5_1_1a900482_1227280243718_415385_1366 _15_5_1_1a900482_1227729279343_475195_4808 _15_5_1_1a900482_1227280260812_278699_1386 _15_5_1_1a900482_1227280394187_992831_1474 _15_5_1_1a900482_1227729612421_862480_4933" incoming="_15_5_1_1a900482_1227279861015_915020_1010"/>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279936109_91525_1047" name="Call(Neg)" visibility="public" outgoing="_15_5_1_1a900482_1227762317843_623950_5733" behavior="PrimitiveBehaviors-IntegerFunctions-Neg">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279936109_91525_1047" name="Call(Neg)" visibility="public" outgoing="_15_5_1_1a900482_1227762317843_623950_5733" behavior="_jJIyc3OeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227279936125_383813_1057" name="Neg.x" visibility="public" incoming="_15_5_1_1a900482_1227279976890_133947_1087">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188000_763505_4357" name="" value="1"/>
@@ -864,7 +864,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275187937_311412_4354" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279995203_662087_1110" name="Call(Plus)" visibility="public" outgoing="_15_5_1_1a900482_1227762321046_973506_5751" incoming="_15_5_1_1a900482_1227762317843_623950_5733" behavior="PrimitiveBehaviors-IntegerFunctions-plus">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279995203_662087_1110" name="Call(Plus)" visibility="public" outgoing="_15_5_1_1a900482_1227762321046_973506_5751" incoming="_15_5_1_1a900482_1227762317843_623950_5733" behavior="_jJIyYXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227279995218_938097_1120" name="Plus.x" visibility="public" incoming="_15_5_1_1a900482_1227280052968_433508_1161">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188046_924972_4359" name="" value="1"/>
@@ -881,7 +881,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275188125_589159_4362" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280082812_640076_1202" name="Call(Minus)" visibility="public" outgoing="_15_5_1_1a900482_1227762325843_228139_5769" incoming="_15_5_1_1a900482_1227762321046_973506_5751" behavior="PrimitiveBehaviors-IntegerFunctions-plus">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280082812_640076_1202" name="Call(Minus)" visibility="public" outgoing="_15_5_1_1a900482_1227762325843_228139_5769" incoming="_15_5_1_1a900482_1227762321046_973506_5751" behavior="_jJIyZXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227280082828_503954_1212" name="Minus.x" visibility="public" incoming="_15_5_1_1a900482_1227280252421_614460_1382">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188203_828836_4367" name="" value="1"/>
@@ -898,7 +898,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275188156_275174_4364" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280174859_243278_1295" name="Call(Times)" visibility="public" outgoing="_15_5_1_1a900482_1227762330218_603125_5787" incoming="_15_5_1_1a900482_1227762325843_228139_5769" behavior="PrimitiveBehaviors-IntegerFunctions-times">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280174859_243278_1295" name="Call(Times)" visibility="public" outgoing="_15_5_1_1a900482_1227762330218_603125_5787" incoming="_15_5_1_1a900482_1227762325843_228139_5769" behavior="_jJIyaXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227280174875_641807_1305" name="Times.x" visibility="public" incoming="_15_5_1_1a900482_1227280257906_852044_1384">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188296_732578_4371" name="" value="1"/>
@@ -915,7 +915,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275188375_418291_4374" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280338453_640592_1402" name="Call(Div)" visibility="public" outgoing="_15_5_1_1a900482_1227762337640_391528_5823" incoming="_15_5_1_1a900482_1227762330218_603125_5787" behavior="PrimitiveBehaviors-IntegerFunctions-Div">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280338453_640592_1402" name="Call(Div)" visibility="public" outgoing="_15_5_1_1a900482_1227762337640_391528_5823" incoming="_15_5_1_1a900482_1227762330218_603125_5787" behavior="_jJIybXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227280338468_415163_1412" name="Div.x" visibility="public" incoming="_15_5_1_1a900482_1227280390250_888194_1456">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188453_585477_4379" name="" value="1"/>
@@ -947,7 +947,7 @@
       <node xmi:type="uml:ActivityParameterNode" xmi:id="_15_5_1_1a900482_1227280688390_858092_1641" name="Param(DivResult)" visibility="public" incoming="_15_5_1_1a900482_1227280719562_745369_1660" parameter="_15_5_1_1a900482_1227280690000_765152_1643">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227728795734_296199_4549" name="Call(Max)" visibility="public" outgoing="_15_5_1_1a900482_1227762343281_973018_5841" incoming="_15_5_1_1a900482_1227762333500_977986_5805" behavior="PrimitiveBehaviors-IntegerFunctions-Max">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227728795734_296199_4549" name="Call(Max)" visibility="public" outgoing="_15_5_1_1a900482_1227762343281_973018_5841" incoming="_15_5_1_1a900482_1227762333500_977986_5805" behavior="_jJIyenOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227728795765_72336_4559" name="Max.x" visibility="public" incoming="_15_5_1_1a900482_1227729191531_761723_4790">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188718_492826_4391" name="" value="1"/>
@@ -967,7 +967,7 @@
       <node xmi:type="uml:ActivityParameterNode" xmi:id="_15_5_1_1a900482_1227729292062_835917_4825" name="Param(MaxResult)" visibility="public" incoming="_15_5_1_1a900482_1227729364765_393549_4841" parameter="_15_5_1_1a900482_1227729295531_187898_4827">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227729437750_209396_4862" name="Call(Mod)" visibility="public" outgoing="_15_5_1_1a900482_1227762333500_977986_5805" incoming="_15_5_1_1a900482_1227762337640_391528_5823" behavior="PrimitiveBehaviors-IntegerFunctions-Mod">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227729437750_209396_4862" name="Call(Mod)" visibility="public" outgoing="_15_5_1_1a900482_1227762333500_977986_5805" incoming="_15_5_1_1a900482_1227762337640_391528_5823" behavior="_jJIydnOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227729437781_369209_4872" name="Mod.x" visibility="public" incoming="_15_5_1_1a900482_1227729553265_237071_4915">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188562_244739_4383" name="" value="1"/>
@@ -987,7 +987,7 @@
       <node xmi:type="uml:ActivityParameterNode" xmi:id="_15_5_1_1a900482_1227729692718_737992_4950" name="Param(ModResult)" visibility="public" incoming="_15_5_1_1a900482_1227729721578_735959_4966" parameter="_15_5_1_1a900482_1227729695062_296754_4952">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227729785687_791981_4986" name="Call(Min)" visibility="public" outgoing="_15_5_1_1a900482_1227762346796_368759_5859" incoming="_15_5_1_1a900482_1227762343281_973018_5841" behavior="PrimitiveBehaviors-IntegerFunctions-Min">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227729785687_791981_4986" name="Call(Min)" visibility="public" outgoing="_15_5_1_1a900482_1227762346796_368759_5859" incoming="_15_5_1_1a900482_1227762343281_973018_5841" behavior="_jJIyfnOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227729785703_501838_4996" name="Min.x" visibility="public" incoming="_15_5_1_1a900482_1227729900296_332459_5050">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188796_707288_4395" name="" value="1"/>
@@ -1007,7 +1007,7 @@
       <node xmi:type="uml:ActivityParameterNode" xmi:id="_15_5_1_1a900482_1227730175406_521699_5196" name="Param(MinResult)" visibility="public" incoming="_15_5_1_1a900482_1227730316359_302472_5212" parameter="_15_5_1_1a900482_1227730177843_196289_5198">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227730493312_750087_5405" name="Call(Abs)" visibility="public" incoming="_15_5_1_1a900482_1227762346796_368759_5859" behavior="PrimitiveBehaviors-IntegerFunctions-Abs">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227730493312_750087_5405" name="Call(Abs)" visibility="public" incoming="_15_5_1_1a900482_1227762346796_368759_5859" behavior="_jJIygnOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227730493328_239395_5415" name="Abs.x" visibility="public" incoming="_15_5_1_1a900482_1227730632781_352352_5638">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275188906_258903_4401" name="" value="1"/>
@@ -1176,7 +1176,7 @@
       </node>
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227726384875_244538_1968" name="Fork(3)" visibility="public" outgoing="_15_5_1_1a900482_1227726384875_663602_1953 _15_5_1_1a900482_1227726384875_190523_1956 _15_5_1_1a900482_1227726384875_347163_1957 _15_5_1_1a900482_1227726384875_751225_1959" incoming="_15_5_1_1a900482_1227726384875_140891_1950"/>
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227726384875_573048_1969" name="Fork(2)" visibility="public" outgoing="_15_5_1_1a900482_1227726384875_369120_1958 _15_5_1_1a900482_1227726384875_424994_1955 _15_5_1_1a900482_1227726384875_724409_1954 _15_5_1_1a900482_1227726384875_411050_1960" incoming="_15_5_1_1a900482_1227726384875_709736_1951"/>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_716022_1971" name="Call(LT)" visibility="public" outgoing="_15_5_1_1a900482_1227762370875_154895_5895" behavior="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_716022_1971" name="Call(LT)" visibility="public" outgoing="_15_5_1_1a900482_1227762370875_154895_5895" behavior="_jJIyXXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227726385000_857802_2028" name="LT.x" visibility="public" incoming="_15_5_1_1a900482_1227726384875_663602_1953">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275241953_154766_4405" name="" value="1"/>
@@ -1193,7 +1193,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275242015_787583_4408" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_916777_1972" name="Call(LE)" visibility="public" outgoing="_15_5_1_1a900482_1227762374515_852003_5913" incoming="_15_5_1_1a900482_1227762370875_154895_5895" behavior="PrimitiveBehaviors-UnlimitedNaturalFunctions-le">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_916777_1972" name="Call(LE)" visibility="public" outgoing="_15_5_1_1a900482_1227762374515_852003_5913" incoming="_15_5_1_1a900482_1227762370875_154895_5895" behavior="_jJIyiXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227726385000_417203_2031" name="LE.x" visibility="public" incoming="_15_5_1_1a900482_1227726384875_190523_1956">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275242093_178785_4413" name="" value="1"/>
@@ -1210,7 +1210,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275242062_616588_4410" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_911584_1973" name="Call(GT)" visibility="public" outgoing="_15_5_1_1a900482_1227762379781_154734_5931" incoming="_15_5_1_1a900482_1227762374515_852003_5913" behavior="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_911584_1973" name="Call(GT)" visibility="public" outgoing="_15_5_1_1a900482_1227762379781_154734_5931" incoming="_15_5_1_1a900482_1227762374515_852003_5913" behavior="_jJIyhXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227726385000_431083_2034" name="GT.x" visibility="public" incoming="_15_5_1_1a900482_1227726384875_347163_1957">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275242156_703052_4417" name="" value="1"/>
@@ -1227,7 +1227,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_15_5_1_1a900482_1228275242218_883076_4420" name="" value="1"/>
         </result>
       </node>
-      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_798568_1974" name="Call(GE)" visibility="public" incoming="_15_5_1_1a900482_1227762379781_154734_5931" behavior="PrimitiveBehaviors-IntegerFunctions-ge">
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227726384875_798568_1974" name="Call(GE)" visibility="public" incoming="_15_5_1_1a900482_1227762379781_154734_5931" behavior="_jJIyjXOeEd2TgN94jve35g">
         <argument xmi:id="_15_5_1_1a900482_1227726385000_940211_2037" name="GE.x" visibility="public" incoming="_15_5_1_1a900482_1227726384875_751225_1959">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_15_5_1_1a900482_1228275242296_828168_4425" name="" value="1"/>
@@ -2450,167 +2450,167 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_jJIyU3OeEd2TgN94jve35g" name="PrimitiveBehaviors">
       <packagedElement xmi:type="uml:Package" xmi:id="_jJIyV3OeEd2TgN94jve35g" name="IntegerFunctions">
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyWHOeEd2TgN94jve35g" name="ToInteger" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyWXOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyWXOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyWnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyWnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIyW3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIyXHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt" name="&lt;" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyXnOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyXXOeEd2TgN94jve35g" name="&lt;" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyXnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyX3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyX3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyYHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyYHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus" name="+" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyYnOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyYXOeEd2TgN94jve35g" name="+" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyYnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyY3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyY3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyZHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-        </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus" name="-" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyZnOeEd2TgN94jve35g" name="x" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIyZ3OeEd2TgN94jve35g" name="y" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIyaHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyZHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-times" name="*" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyanOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyZXOeEd2TgN94jve35g" name="-" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyZnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIya3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyZ3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIybHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyaHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Div" name="Div" isAbstract="true">
-          <ownedParameter xmi:id="_jJIybnOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyaXOeEd2TgN94jve35g" name="*" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyanOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyb3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIya3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIycHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIybHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </packagedElement>
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIybXOeEd2TgN94jve35g" name="Div" isAbstract="true">
+          <ownedParameter xmi:id="_jJIybnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIyb3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIycHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIycXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIycnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Neg" name="Neg" isAbstract="true">
-          <ownedParameter xmi:id="_jJIydHOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyc3OeEd2TgN94jve35g" name="Neg" isAbstract="true">
+          <ownedParameter xmi:id="_jJIydHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIydXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-        </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Mod" name="Mod" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyd3OeEd2TgN94jve35g" name="x" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIyeHOeEd2TgN94jve35g" name="y" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIyeXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIydXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Max" name="Max" isAbstract="true">
-          <ownedParameter xmi:id="_jJIye3OeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIydnOeEd2TgN94jve35g" name="Mod" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyd3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyfHOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyeHOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyfXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-        </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Min" name="Min" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyf3OeEd2TgN94jve35g" name="x" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIygHOeEd2TgN94jve35g" name="y" visibility="public" >
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jJIygXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyeXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-Abs" name="Abs" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyg3OeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyenOeEd2TgN94jve35g" name="Max" isAbstract="true">
+          <ownedParameter xmi:id="_jJIye3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyhHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyfHOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIyfXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt" name=">" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyhnOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyfnOeEd2TgN94jve35g" name="Min" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyf3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyh3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIygHOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyiHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIygXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </packagedElement>
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIygnOeEd2TgN94jve35g" name="Abs" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyg3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIyhHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </packagedElement>
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyhXOeEd2TgN94jve35g" name=">" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyhnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIyh3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_jJIyiHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le" name="&lt;=" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyinOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyiXOeEd2TgN94jve35g" name="&lt;=" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyinOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyi3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyi3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyjHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyjHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
-        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-ge" name=">=" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyjnOeEd2TgN94jve35g" name="x" visibility="public" >
+        <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyjXOeEd2TgN94jve35g" name=">=" isAbstract="true">
+          <ownedParameter xmi:id="_jJIyjnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyj3OeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyj3OeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIykHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIykHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIykXOeEd2TgN94jve35g" name="ToString" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyknOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyknOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyk3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyk3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIylHOeEd2TgN94jve35g" name="ToUnlimitedNatural" isAbstract="true">
-          <ownedParameter xmi:id="_jJIylXOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIylXOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIylnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIylnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIyl3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIymHOeEd2TgN94jve35g" name=""/>
@@ -2619,94 +2619,94 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_jJIymXOeEd2TgN94jve35g" name="UnlimitedNaturalFunctions">
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIymnOeEd2TgN94jve35g" name="ToUnlimitedNatural" isAbstract="true">
-          <ownedParameter xmi:id="_jJIym3OeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIym3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIynHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIynHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIynXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIynnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyn3OeEd2TgN94jve35g" name="&lt;" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyoHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyoHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyoXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyoXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyonOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyonOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyo3OeEd2TgN94jve35g" name="Max" isAbstract="true">
-          <ownedParameter xmi:id="_jJIypHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIypHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIypXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIypXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIypnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIypnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyp3OeEd2TgN94jve35g" name="Min" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyqHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyqHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyqXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyqXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyqnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyqnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyq3OeEd2TgN94jve35g" name=">" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyrHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyrHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyrXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyrXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyrnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyrnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyr3OeEd2TgN94jve35g" name="&lt;=" isAbstract="true">
-          <ownedParameter xmi:id="_jJIysHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIysHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIysXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIysXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIysnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIysnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIys3OeEd2TgN94jve35g" name=">=" isAbstract="true">
-          <ownedParameter xmi:id="_jJIytHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIytHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIytXOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIytXOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIytnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIytnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyt3OeEd2TgN94jve35g" name="ToString" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyuHOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyuHOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyuXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyuXOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyunOeEd2TgN94jve35g" name="ToInteger" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyu3OeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyu3OeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyvHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyvHOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIyvXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIyvnOeEd2TgN94jve35g" name=""/>
@@ -2715,133 +2715,133 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_jJIyv3OeEd2TgN94jve35g" name="BooleanFunctions">
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIywHOeEd2TgN94jve35g" name="ToBoolean" isAbstract="true">
-          <ownedParameter xmi:id="_jJIywXOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIywXOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIywnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIywnOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIyw3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIyxHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyxXOeEd2TgN94jve35g" name="ToString" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyxnOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyxnOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyx3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyx3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyyHOeEd2TgN94jve35g" name="Or" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyyXOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyyXOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyynOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyynOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyy3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyy3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIyzHOeEd2TgN94jve35g" name="Xor" isAbstract="true">
-          <ownedParameter xmi:id="_jJIyzXOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIyzXOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyznOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIyznOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIyz3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIyz3OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy0HOeEd2TgN94jve35g" name="And" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy0XOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy0XOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy0nOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIy0nOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy03OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy03OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy1HOeEd2TgN94jve35g" name="Implies" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy1XOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy1XOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy1nOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIy1nOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy13OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy13OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy2HOeEd2TgN94jve35g" name="Not" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy2XOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy2XOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy2nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy2nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_jJIy23OeEd2TgN94jve35g" name="StringFunctions">
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy3HOeEd2TgN94jve35g" name="Size" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy3XOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy3XOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy3nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy3nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy33OeEd2TgN94jve35g" name="Concat" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy4HOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy4HOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy4XOeEd2TgN94jve35g" name="y" visibility="public" >
+          <ownedParameter xmi:id="_jJIy4XOeEd2TgN94jve35g" name="y" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy4nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy4nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy43OeEd2TgN94jve35g" name="Substring" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy5HOeEd2TgN94jve35g" name="x" visibility="public" >
+          <ownedParameter xmi:id="_jJIy5HOeEd2TgN94jve35g" name="x" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy5XOeEd2TgN94jve35g" name="lower" visibility="public" >
+          <ownedParameter xmi:id="_jJIy5XOeEd2TgN94jve35g" name="lower" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy5nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy5nOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIy53OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIy6HOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy6XOeEd2TgN94jve35g" name="upper" visibility="public" >
+          <ownedParameter xmi:id="_jJIy6XOeEd2TgN94jve35g" name="upper" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_jJIy6nOeEd2TgN94jve35g" name="ListFunctions">
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy63OeEd2TgN94jve35g" name="ListSize" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy7HOeEd2TgN94jve35g" name="list" visibility="public" >
+          <ownedParameter xmi:id="_jJIy7HOeEd2TgN94jve35g" name="list" visibility="public" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIy7XOeEd2TgN94jve35g" name="" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIy7nOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy73OeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy73OeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
         <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_jJIy8HOeEd2TgN94jve35g" name="ListGet" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy8XOeEd2TgN94jve35g" name="list" visibility="public" >
+          <ownedParameter xmi:id="_jJIy8XOeEd2TgN94jve35g" name="list" visibility="public" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIy8nOeEd2TgN94jve35g" name="" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIy83OeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy9HOeEd2TgN94jve35g" name="result" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy9HOeEd2TgN94jve35g" name="result" visibility="public" direction="return" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIy9XOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIy9nOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIy93OeEd2TgN94jve35g" name="index" visibility="public" >
+          <ownedParameter xmi:id="_jJIy93OeEd2TgN94jve35g" name="index" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </packagedElement>
@@ -2851,54 +2851,54 @@
       <packageImport xmi:id="_jJIy-XOeEd2TgN94jve35g" importedPackage="_jJIzyXOeEd2TgN94jve35g"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIy_HOeEd2TgN94jve35g" name="Channel" isAbstract="true">
         <ownedOperation xmi:id="_jJIy_XOeEd2TgN94jve35g" name="getName" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIy_nOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIy_nOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIy_3OeEd2TgN94jve35g" name="open" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzAHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzAHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzAXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzAnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzA3OeEd2TgN94jve35g" name="close" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzBHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzBHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzBXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzBnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzB3OeEd2TgN94jve35g" name="isOpen" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzCHOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzCHOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzCXOeEd2TgN94jve35g" name="getStatus" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzCnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="return" />
+          <ownedParameter xmi:id="_jJIzCnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="return" effect="create"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIzC3OeEd2TgN94jve35g" name="InputChannel" isAbstract="true">
         <generalization xmi:id="_jJIzDHOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIy_HOeEd2TgN94jve35g"/>
         <ownedOperation xmi:id="_jJIzDXOeEd2TgN94jve35g" name="hasMore" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzDnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzDnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzD3OeEd2TgN94jve35g" name="read" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzEHOeEd2TgN94jve35g" name="value" visibility="public" direction="out" >
+          <ownedParameter xmi:id="_jJIzEHOeEd2TgN94jve35g" name="value" visibility="public" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzEXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzEnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzE3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzE3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzFHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzFXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzFnOeEd2TgN94jve35g" name="peek" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzF3OeEd2TgN94jve35g" name="value" visibility="public" direction="out" >
+          <ownedParameter xmi:id="_jJIzF3OeEd2TgN94jve35g" name="value" visibility="public" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzGHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzGXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzGnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzGnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzG3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzHHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
@@ -2907,14 +2907,14 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIzHXOeEd2TgN94jve35g" name="OutputChannel" isAbstract="true">
         <generalization xmi:id="_jJIzHnOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIy_HOeEd2TgN94jve35g"/>
         <ownedOperation xmi:id="_jJIzH3OeEd2TgN94jve35g" name="write" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzIHOeEd2TgN94jve35g" name="value" visibility="public" />
-          <ownedParameter xmi:id="_jJIzIXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzIHOeEd2TgN94jve35g" name="value" visibility="public" effect="create"/>
+          <ownedParameter xmi:id="_jJIzIXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzInOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzI3OeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzJHOeEd2TgN94jve35g" name="isFull" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzJXOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzJXOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </ownedOperation>
@@ -2922,65 +2922,65 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIzJnOeEd2TgN94jve35g" name="TextInputChannel" isAbstract="true">
         <generalization xmi:id="_jJIzJ3OeEd2TgN94jve35g" isSubstitutable="false" general="_jJIzC3OeEd2TgN94jve35g"/>
         <ownedOperation xmi:id="_jJIzKHOeEd2TgN94jve35g" name="readCharacter" visibility="public">
-          <ownedParameter xmi:id="_jJIzKXOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzKXOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzKnOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzK3OeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzLHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzLHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzLXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzLnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzL3OeEd2TgN94jve35g" name="peekCharacter" visibility="public">
-          <ownedParameter xmi:id="_jJIzMHOeEd2TgN94jve35g" name="OwnedParameter" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzMHOeEd2TgN94jve35g" name="OwnedParameter" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzMXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzMnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzM3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzM3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzNHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzNXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzNnOeEd2TgN94jve35g" name="readLine" visibility="public">
-          <ownedParameter xmi:id="_jJIzN3OeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzN3OeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzOHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzOHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzOXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzOnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzO3OeEd2TgN94jve35g" name="readInteger" visibility="public">
-          <ownedParameter xmi:id="_jJIzPHOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzPHOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzPXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzPnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzP3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzP3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzQHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzQXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzQnOeEd2TgN94jve35g" name="readBoolean" visibility="public">
-          <ownedParameter xmi:id="_jJIzQ3OeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzQ3OeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzRHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzRXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzRnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzRnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzR3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzSHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzSXOeEd2TgN94jve35g" name="readUnlimitedNatural" visibility="public">
-          <ownedParameter xmi:id="_jJIzSnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" >
+          <ownedParameter xmi:id="_jJIzSnOeEd2TgN94jve35g" name="ReturnResult" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzS3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzTHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzTXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzTXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzTnOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzT3OeEd2TgN94jve35g" name=""/>
           </ownedParameter>
@@ -2989,68 +2989,68 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIzUHOeEd2TgN94jve35g" name="TextOutputChannel" isAbstract="true">
         <generalization xmi:id="_jJIzUXOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIzHXOeEd2TgN94jve35g"/>
         <ownedOperation xmi:id="_jJIzUnOeEd2TgN94jve35g" name="writeString" visibility="public">
-          <ownedParameter xmi:id="_jJIzU3OeEd2TgN94jve35g" name="value" visibility="public" >
+          <ownedParameter xmi:id="_jJIzU3OeEd2TgN94jve35g" name="value" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzVHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzVHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzVXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzVnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzV3OeEd2TgN94jve35g" name="writeNewLine" visibility="public" isAbstract="true">
-          <ownedParameter xmi:id="_jJIzWHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzWHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzWXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzWnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzW3OeEd2TgN94jve35g" name="writeLine" visibility="public">
-          <ownedParameter xmi:id="_jJIzXHOeEd2TgN94jve35g" name="value" visibility="public" >
+          <ownedParameter xmi:id="_jJIzXHOeEd2TgN94jve35g" name="value" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzXXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzXXOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzXnOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzX3OeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzYHOeEd2TgN94jve35g" name="writeInteger" visibility="public">
-          <ownedParameter xmi:id="_jJIzYXOeEd2TgN94jve35g" name="value" visibility="public" >
+          <ownedParameter xmi:id="_jJIzYXOeEd2TgN94jve35g" name="value" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzYnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzYnOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzY3OeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzZHOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzZXOeEd2TgN94jve35g" name="writeBoolean" visibility="public">
-          <ownedParameter xmi:id="_jJIzZnOeEd2TgN94jve35g" name="value" visibility="public" >
+          <ownedParameter xmi:id="_jJIzZnOeEd2TgN94jve35g" name="value" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzZ3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzZ3OeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzaHOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzaXOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzanOeEd2TgN94jve35g" name="writeUnlimitedNatural" visibility="public">
-          <ownedParameter xmi:id="_jJIza3OeEd2TgN94jve35g" name="value" visibility="public" >
+          <ownedParameter xmi:id="_jJIza3OeEd2TgN94jve35g" name="value" visibility="public" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jJIzbHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" >
+          <ownedParameter xmi:id="_jJIzbHOeEd2TgN94jve35g" name="errorStatus" visibility="public" type="_jJIz0HOeEd2TgN94jve35g" direction="out" effect="create">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzbXOeEd2TgN94jve35g" name="" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzbnOeEd2TgN94jve35g" name=""/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_jJIzb3OeEd2TgN94jve35g" name="StandardInputChannel" isAbstract="true">
+      <packagedElement xmi:type="uml:Class" xmi:id="_jJIzb3OeEd2TgN94jve35g" name="StandardInputChannel" isLeaf="true" isAbstract="true">
         <generalization xmi:id="_jJIzcHOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIzJnOeEd2TgN94jve35g"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_jJIzcXOeEd2TgN94jve35g" name="StandardOutputChannel" isAbstract="true">
+      <packagedElement xmi:type="uml:Class" xmi:id="_jJIzcXOeEd2TgN94jve35g" name="StandardOutputChannel" isLeaf="true" isAbstract="true">
         <generalization xmi:id="_jJIzcnOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIzUHOeEd2TgN94jve35g"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Activity" xmi:id="BasicInputOutput-WriteLine" name="WriteLine">
-        <ownedParameter xmi:id="_jJIzdHOeEd2TgN94jve35g" name="value" visibility="public" >
+      <packagedElement xmi:type="uml:Activity" xmi:id="_jJIzc3OeEd2TgN94jve35g" name="WriteLine">
+        <ownedParameter xmi:id="_jJIzdHOeEd2TgN94jve35g" name="value" visibility="public" effect="create">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_jJIzdXOeEd2TgN94jve35g" name="errorStatus" visibility="public" direction="out" >
+        <ownedParameter xmi:id="_jJIzdXOeEd2TgN94jve35g" name="errorStatus" visibility="public" direction="out" effect="create">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzdnOeEd2TgN94jve35g" name="" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzd3OeEd2TgN94jve35g" name=""/>
         </ownedParameter>
@@ -3108,18 +3108,18 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_jJIzm3OeEd2TgN94jve35g" name="ActiveChannel" isAbstract="true" isActive="true">
         <generalization xmi:id="_jJIznHOeEd2TgN94jve35g" isSubstitutable="false" general="_jJIy_HOeEd2TgN94jve35g"/>
         <ownedOperation xmi:id="_jJIznXOeEd2TgN94jve35g" name="register" visibility="public">
-          <ownedParameter xmi:id="_jJIznnOeEd2TgN94jve35g" name="listener" visibility="public" type="_jJIzznOeEd2TgN94jve35g" />
+          <ownedParameter xmi:id="_jJIznnOeEd2TgN94jve35g" name="listener" visibility="public" type="_jJIzznOeEd2TgN94jve35g" effect="create"/>
         </ownedOperation>
         <ownedOperation xmi:id="_jJIzn3OeEd2TgN94jve35g" name="unregister" visibility="public">
-          <ownedParameter xmi:id="_jJIzoHOeEd2TgN94jve35g" name="listener" visibility="public" type="_jJIzznOeEd2TgN94jve35g" />
+          <ownedParameter xmi:id="_jJIzoHOeEd2TgN94jve35g" name="listener" visibility="public" type="_jJIzznOeEd2TgN94jve35g" effect="create"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Activity" xmi:id="_jJIzoXOeEd2TgN94jve35g" name="ReadLine">
-        <ownedParameter xmi:id="_jJIzonOeEd2TgN94jve35g" name="errorStatus" visibility="public" direction="out" >
+        <ownedParameter xmi:id="_jJIzonOeEd2TgN94jve35g" name="errorStatus" visibility="public" direction="out" effect="create">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jJIzo3OeEd2TgN94jve35g" name="" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jJIzpHOeEd2TgN94jve35g" name=""/>
         </ownedParameter>
-        <ownedParameter xmi:id="_jJIzpXOeEd2TgN94jve35g" name="result" visibility="public" direction="out" >
+        <ownedParameter xmi:id="_jJIzpXOeEd2TgN94jve35g" name="result" visibility="public" direction="out" effect="create">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <node xmi:type="uml:ReadExtentAction" xmi:id="_jJIzpnOeEd2TgN94jve35g" name="StandardInputChannel" visibility="public" classifier="_jJIzb3OeEd2TgN94jve35g">

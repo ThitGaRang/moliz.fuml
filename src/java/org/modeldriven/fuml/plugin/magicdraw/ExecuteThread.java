@@ -14,51 +14,58 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 
-import org.modeldriven.fuml.Fuml;
+import org.modeldriven.fuml.FUML;
 
 import com.nomagic.magicdraw.core.Application;
 import com.nomagic.uml2.impl.magicdraw.activities.mdfundamentalactivities.ActivityImpl;
 
-class ExecutionThread extends Thread {
+class ExecutionThread extends Thread
+{
     private File projectFile;
     private ActivityImpl activity;
-
+    
     public ExecutionThread(File projectFile, ActivityImpl activity) {
         this.projectFile = projectFile;
         this.activity = activity;
     }
-
+    
     private void writeUIMessage(String msg) {
         Application.getInstance().getGUILog().log(msg);
     }
-
-    public void run() {
+    
+    public void run()
+    {
         PrintStream oldStream = System.out;
-
-        // System.setProperty("log4j.configuration", "file:log4j.properties");
-        PrintStream stream = new PrintStream(new MessageWindowOutputStream());
+        
+        //System.setProperty("log4j.configuration", "file:log4j.properties");
+        PrintStream stream = new PrintStream(new MessageWindowOutputStream()); 
         System.setOut(stream);
         try {
             writeUIMessage("[plugin] launching fUML runtime environment...");
-            new Fuml(projectFile, activity.getName());
+            new FUML(projectFile, activity.getName());            
             writeUIMessage("[plugin] execution complete");
-        } catch (Throwable t) {
+        }
+        catch (Throwable t) {
             writeUIMessage("[error] " + t.getMessage());
-        } finally {
+        }
+        finally {
             System.setOut(oldStream);
             try {
                 stream.close();
-            } catch (Throwable t) {
             }
-        }
+            catch (Throwable t) {
+            }
+        }            
     }
-
-    class MessageWindowOutputStream extends ByteArrayOutputStream {
+    
+    class MessageWindowOutputStream extends ByteArrayOutputStream
+    {
         public void write(byte[] b, int off, int len) {
             String s = new String(b, off, len);
             if (s.trim().length() > 0)
                 writeUIMessage(s);
             super.write(b, off, len);
-        }
+        }        
     }
 }
+

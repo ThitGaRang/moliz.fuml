@@ -20,7 +20,6 @@
     <property name="schema.model.dir" value="${schema.dir}/model"/>
     <property name="uml.dir" value="${src.dir}/uml"/>
     <property name="uml.library.dir" value="${src.dir}/uml/library"/>
-    <property name="xmi.library.dir" value="${src.dir}/xmi/library"/>
     <property name="template.dir" value="${src.dir}/xsl"/>
     <property name="xml.dir" value="${src.dir}/xml"/>
     <property name="xml.config.dir" value="${xml.dir}/config"/>
@@ -38,7 +37,7 @@
     <property environment="env"/>
     <property name="release.suffix" value="SNAPSHOT-02-2010"/>        
    
-    <target name="all" depends="init, compile-common, generate, compile, copy-resources" description="build the components for dev"/>
+    <target name="all" depends="init, generate, compile, expand, copy-resources" description="build the components for dev"/>
 
     <fileset id="local.libs" dir="${lib.dir}">
        <include name="junit.jar"/>   
@@ -89,7 +88,6 @@
         <mkdir dir="${build.dir}"/>
         <mkdir dir="${build.dir}/uml"/>
         <mkdir dir="${gen.java.dir}"/>
-        <mkdir dir="${gen.java.dir}/org/modeldriven/fuml/meta"/>
         <mkdir dir="${classes.dir}"/>
         <mkdir dir="${dist.dir}"/>
         <mkdir dir="${test.output.dir}"/>
@@ -100,12 +98,11 @@
 
        <mkdir dir="${classes.dir}"/>
        <mkdir dir="${gen.java.dir}"/>
+       <antcall target="generate-model"/>
        <antcall target="generate-config"/>
-       <antcall target="generate-model-config"/>
-       <antcall target="generate-metadata"/>
     </target>
     
-    <target name="generate-model-config">
+    <target name="generate-model">
       <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
         <classpath refid="cp" />
       </taskdef>   
@@ -115,7 +112,16 @@
         target="2.0" 
         destdir="${gen.java.dir}"
         removeOldOutput="no">
+        <schema dir="${schema.model.dir}" includes="CmofextensionXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CmofreflectionXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CommonXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="IdentityXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="EMOFXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="CmofXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="FUMLXMI.xsd"/>
+        <schema dir="${schema.model.dir}" includes="MagicDrawXMI.xsd"/>
         <schema dir="${schema.model.dir}" includes="ModelConfig.xsd"/>
+        <binding dir="${schema.model.dir}" includes="jaxb-bindings.xml"/>
       </xjc>
     </target>        
 
@@ -129,47 +135,11 @@
         target="2.0" 
         destdir="${gen.java.dir}"
         removeOldOutput="no">
-        <schema dir="${schema.config.dir}" includes="FumlConfig.xsd"/>
+        <schema dir="${schema.config.dir}" includes="*.xsd"/>
         <binding dir="${schema.config.dir}" includes="jaxb-bindings.xml"/>
       </xjc>
     </target>        
     
-    <target name="generate-metadata">
-        
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="Infrastructure.uml"/>
-            <param name="target.name" value="InfrastructureAssembler"/>
-        </antcall>
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="Superstructure.uml"/>
-            <param name="target.name" value="SuperstructureAssembler"/>
-        </antcall>
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="fUML.uml"/>
-            <param name="target.name" value="fUMLAssembler"/>
-        </antcall>
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="fUML-LibraryImplementation.uml"/>
-            <param name="target.name" value="fUML_LibraryImplementationAssembler"/>
-        </antcall>
-    	
-    	
-    </target>        
-
-    <target name="compile-common" depends="init">
-      <echo message="compiling..."/>
-      <mkdir dir="${classes.dir}"/>
-      <javac destdir="${classes.dir}" 
-        debug="on"> 
-        <classpath refid="cp" /> 
-        <src path="${src.java.dir}/org/modeldriven/fuml/common"/>
-      </javac>                          
-    </target>
-	
     <!--  if="compilation.required" -->
     <target name="compile" depends="init">
       <echo message="compiling..."/>
@@ -191,7 +161,7 @@
     </target>
     
     <target name="copy-resources">
-       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/meta">
+       <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/model">
             <fileset dir="${schema.model.dir}">                         
                 <include name="*.xsd"/>     
             </fileset>                                             
@@ -211,9 +181,6 @@
        <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/library">
             <fileset dir="${uml.library.dir}">                         
                 <include name="*.uml"/>     
-            </fileset>                                             
-            <fileset dir="${xmi.library.dir}">                         
-                <include name="*.xmi"/>     
             </fileset>                                             
        </copy>
        <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/config">
@@ -236,19 +203,46 @@
         </copy>
 
     </target>
-
-    <target name="generate-model-factory">
-        <echo message="generating model factory from XMI file: ${file.name}"/>
-
+        
+    <target name="expand" depends="init">
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="Superstructure.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="Infrastructure.uml"/>
+        </antcall>
+        
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML_Semantics.uml"/>
+        </antcall>
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML_Syntax.uml"/>
+        </antcall>
+<!--
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML.uml"/>
+        </antcall>
+-->
+        <antcall target="expand-xmi">
+            <param name="file.dir" value="${uml.dir}"/>
+            <param name="file.name" value="fUML-LibraryImplementation.uml"/>
+        </antcall>
+    </target>
+    
+    <target name="expand-xmi">
+        <echo message="expanding XMI file: ${file.name}"/>
         <java failonerror="yes"                                             
             fork="yes"                                                      
             classname="org.modeldriven.fuml.common.xsl.XSLTUtils">   
             <classpath refid="cp"/>
-            <arg value="${build.dir}/src/org/modeldriven/fuml/meta/${target.name}.java" />
+            <arg value="${build.dir}/uml/expanded-${file.name}" />
             <arg value="${file.dir}/${file.name}" />
-            <arg value="${template.dir}/FumlModelGenerator.xsl" />
-		    <!-- Passing name/value pairs to XSLT engine seperated by spaces-->
-			<arg value="pkg=org.modeldriven.fuml.meta cls=${target.name} uri=${file.name}"/>
+            <arg value="${template.dir}/ExpandXMI.xsl" />
         </java>    
     </target>
 
@@ -339,7 +333,6 @@
 
     <target name="test">
         <antcall target="test-model"/>
-        <antcall target="run-built-in-tests"/>
         <antcall target="test-library"/>
         <antcall target="test-validate"/>
         <antcall target="test-execution"/>
@@ -415,6 +408,9 @@
     <target name="test-model" depends="copy-resources">
         <antcall target="run-test">
             <param name="test" value="org.modeldriven.fuml.test.model.ModelTestCase"/>
+        </antcall>
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.model.AssociationLoadTestCase"/>
         </antcall>
     </target>
 

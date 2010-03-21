@@ -85,7 +85,7 @@ echo ===========================================================================
 echo.
 
 :RESTART
-"%JAVA%" %JAVA_OPTS% "-Djava.endorsed.dirs=%FUML_ENDORSED_DIRS%" -classpath "%FUML_CLASSPATH%" -Dlog4j.configuration=file:log4j.properties org.modeldriven.fuml.Fuml %*
+"%JAVA%" %JAVA_OPTS% "-Djava.endorsed.dirs=%FUML_ENDORSED_DIRS%" -classpath "%FUML_CLASSPATH%" -Dlog4j.configuration=file:log4j.properties org.modeldriven.fuml.FUML %*
 if ERRORLEVEL 10 goto RESTART
 
 :END

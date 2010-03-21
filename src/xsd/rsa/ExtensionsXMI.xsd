@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:Hierarchy="http://www.eclipse.org/hyades/models/hierarchy.xmi" xmlns:HierarchyExtensions="http://www.eclipse.org/hyades/models/hierarchy-extensions.xmi" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:ecore_1="http://www.eclipse.org/emf/2002/Ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/hyades/models/hierarchy-extensions.xmi">
+  <xsd:annotation>
+    <xsd:documentation>Resource extensions (internal code)</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/hyades/models/hierarchy.xmi" schemaLocation="hierarchy.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="XMI.xsd"/>
+  <xsd:simpleType name="RelationalOperators">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="LT"/>
+      <xsd:enumeration value="GT"/>
+      <xsd:enumeration value="EQ"/>
+      <xsd:enumeration value="LE"/>
+      <xsd:enumeration value="GE"/>
+      <xsd:enumeration value="NEQ"/>
+      <xsd:enumeration value="LIKE"/>
+      <xsd:enumeration value="IN"/>
+      <xsd:enumeration value="BETWEEN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OrderByOperators">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="ASC"/>
+      <xsd:enumeration value="DESC"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="LogicalOperators">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="NOT"/>
+      <xsd:enumeration value="AND"/>
+      <xsd:enumeration value="OR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ArithmeticOperators">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="ADD"/>
+      <xsd:enumeration value="SUBSTRACT"/>
+      <xsd:enumeration value="MULTIPLY"/>
+      <xsd:enumeration value="DIVIDE"/>
+      <xsd:enumeration value="INTEGER_DIVIDE"/>
+      <xsd:enumeration value="MOD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NumericFunctions">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="MAX"/>
+      <xsd:enumeration value="MIN"/>
+      <xsd:enumeration value="COUNT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="Query">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="sources" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Points to a list of resource URIs, starting EObject URIs or Query names</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="outputElements" type="HierarchyExtensions:Operand"/>
+      <xsd:element name="subQuery" type="HierarchyExtensions:Query"/>
+      <xsd:element name="requiredPaths" type="ecore:EStructuralFeature"/>
+      <xsd:element name="annotations" type="Hierarchy:TRCAnnotation"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="distinct" type="xsd:boolean"/>
+    <xsd:attribute name="count" type="xsd:boolean"/>
+    <xsd:attribute name="requiredPaths" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Query" type="HierarchyExtensions:Query"/>
+  <xsd:complexType name="SimpleSearchQuery">
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:Query">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="orderByExpresions" type="HierarchyExtensions:OrderByElement"/>
+          <xsd:element name="whereExpression" type="HierarchyExtensions:WhereExpression"/>
+        </xsd:choice>
+        <xsd:attribute name="maxElements" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>Maximum number of returned elements.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="startWith" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>The starting index in the result set from where we will return the values, if negative it will be relative to the end of the result set.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SimpleSearchQuery" type="HierarchyExtensions:SimpleSearchQuery"/>
+  <xsd:complexType name="InstanceQuery">
+    <xsd:annotation>
+      <xsd:documentation>A simple query, in XMI case could have an optimized implementation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:Query">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="conditions" type="HierarchyExtensions:BinaryExpression"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InstanceQuery" type="HierarchyExtensions:InstanceQuery">
+    <xsd:annotation>
+      <xsd:documentation>A simple query, in XMI case could have an optimized implementation</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="OrderByElement">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="operand" type="HierarchyExtensions:Operand"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="operator" type="HierarchyExtensions:OrderByOperators"/>
+  </xsd:complexType>
+  <xsd:element name="OrderByElement" type="HierarchyExtensions:OrderByElement"/>
+  <xsd:complexType name="QueryResult">
+    <xsd:annotation>
+      <xsd:documentation>The list results, one entry per output element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="query" type="HierarchyExtensions:Query"/>
+      <xsd:element name="resultEntries" type="HierarchyExtensions:ResultEntry"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="query" type="xsd:string"/>
+    <xsd:attribute name="resultEntries" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="QueryResult" type="HierarchyExtensions:QueryResult">
+    <xsd:annotation>
+      <xsd:documentation>The list results, one entry per output element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="BinaryExpression">
+    <xsd:annotation>
+      <xsd:documentation>Binary expressions which might have multiple rigth operands (e.g. IN and BETWEEN)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:WhereExpression">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="leftOperand" type="HierarchyExtensions:Operand"/>
+          <xsd:element name="rightOperands" type="HierarchyExtensions:Operand">
+            <xsd:annotation>
+              <xsd:documentation>This is a list because we can have one or many operatand in expresions with IN or BETWEEN operators</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="operator" type="HierarchyExtensions:RelationalOperators"/>
+        <xsd:attribute name="caseInsensitive" type="xsd:boolean">
+          <xsd:annotation>
+            <xsd:documentation>If true the operand's value is treated as beeing case insensitive. Default is false.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BinaryExpression" type="HierarchyExtensions:BinaryExpression">
+    <xsd:annotation>
+      <xsd:documentation>Binary expressions which might have multiple rigth operands (e.g. IN and BETWEEN)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="Operand">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>An alias for this operand. If it starts with $ it is a reference to an existing operand with the same name (without the $ prefix).</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="Operand" type="HierarchyExtensions:Operand"/>
+  <xsd:complexType name="ResultEntry">
+    <xsd:annotation>
+      <xsd:documentation>Contains a value of type Object (most case would be a List)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ResultEntry" type="HierarchyExtensions:ResultEntry">
+    <xsd:annotation>
+      <xsd:documentation>Contains a value of type Object (most case would be a List)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CorrelationQuery">
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:SimpleSearchQuery">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="deltaTime" type="xsd:double">
+            <xsd:annotation>
+              <xsd:documentation>This list contains the delta time for each entry in the Query.sources list.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="correlationContainerURI" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>The URI of the correlation container where the correlation entries are stored</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="correlationContainerProxyURI" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>The URI of the correlation container proxy</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CorrelationQuery" type="HierarchyExtensions:CorrelationQuery"/>
+  <xsd:complexType name="TimeBasedCorrelationQuery">
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:CorrelationQuery"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TimeBasedCorrelationQuery" type="HierarchyExtensions:TimeBasedCorrelationQuery"/>
+  <xsd:complexType name="LogicalExpression">
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:WhereExpression">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="arguments" type="HierarchyExtensions:WhereExpression"/>
+        </xsd:choice>
+        <xsd:attribute name="operator" type="HierarchyExtensions:LogicalOperators"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="LogicalExpression" type="HierarchyExtensions:LogicalExpression"/>
+  <xsd:complexType name="WhereExpression">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>An alias for this expression. If it starts with $ it is a reference to an existing expression with the same name (without the $ prefix).</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="WhereExpression" type="HierarchyExtensions:WhereExpression"/>
+  <xsd:complexType name="ArithmeticExpression">
+    <xsd:annotation>
+      <xsd:documentation>Simple arithmetic expressions. All the arguments should have numeric types.
+The value in this case is the value resulted from the evaluation of the expression.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:Operand">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="arguments" type="HierarchyExtensions:Operand"/>
+        </xsd:choice>
+        <xsd:attribute name="operator" type="HierarchyExtensions:ArithmeticOperators"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ArithmeticExpression" type="HierarchyExtensions:ArithmeticExpression">
+    <xsd:annotation>
+      <xsd:documentation>Simple arithmetic expressions. All the arguments should have numeric types.
+The value in this case is the value resulted from the evaluation of the expression.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="NumericFunction">
+    <xsd:annotation>
+      <xsd:documentation>Function which has only numeric arguments and return types.
+The value in this case is the value resulted from the evaluation of the function.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:Operand">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="arguments" type="HierarchyExtensions:Operand"/>
+        </xsd:choice>
+        <xsd:attribute name="function" type="HierarchyExtensions:NumericFunctions"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NumericFunction" type="HierarchyExtensions:NumericFunction">
+    <xsd:annotation>
+      <xsd:documentation>Function which has only numeric arguments and return types.
+The value in this case is the value resulted from the evaluation of the function.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="SimpleOperand">
+    <xsd:annotation>
+      <xsd:documentation>Use value, feature or type whichever is not null. Value could represent an XPointer path (if starts with /) or just a name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="HierarchyExtensions:Operand">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="feature" type="ecore:EStructuralFeature"/>
+          <xsd:element name="type" type="ecore:EClass"/>
+          <xsd:element name="valueType" type="ecore:EDataType"/>
+        </xsd:choice>
+        <xsd:attribute name="rawValue" type="xsd:string"/>
+        <xsd:attribute name="feature" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="valueType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SimpleOperand" type="HierarchyExtensions:SimpleOperand">
+    <xsd:annotation>
+      <xsd:documentation>Use value, feature or type whichever is not null. Value could represent an XPointer path (if starts with /) or just a name.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

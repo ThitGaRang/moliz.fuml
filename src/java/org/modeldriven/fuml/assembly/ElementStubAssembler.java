@@ -14,12 +14,12 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.meta.MetaModel;
+import org.modeldriven.fuml.model.Model;
+import org.modeldriven.fuml.model.uml2.UmlClassifier;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiNode;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
 
-import fUML.Syntax.Classes.Kernel.Classifier;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
@@ -29,7 +29,7 @@ public class ElementStubAssembler
     public static String STUB_TOKEN = "#STUB#";
     
     private static Log log = LogFactory.getLog(ElementStubAssembler.class);
-    private MetaModel metadata = MetaModel.getInstance();
+    private Model metadata = Model.getInstance();
     private ElementAssembler result;
     private ModelSupport modelSupport = new ModelSupport();
     private XmiNode target;
@@ -50,14 +50,14 @@ public class ElementStubAssembler
     {        
         StreamNode eventNode = (StreamNode)target;
                         
-        Classifier classifier = modelSupport.findClassifier(target);
+        UmlClassifier classifier = modelSupport.findClassifier(target);
         if (classifier == null)
         {
             classifier = metadata.findClassifier("Activity");
         }
     	if (log.isDebugEnabled())
     		log.debug("identified element '" + target.getLocalName() + "' as classifier, "
-    			+ classifier.name);
+    			+ classifier.getName());
     	
         ElementAssembler assembler = new ElementAssembler(target, null,
                 classifier, null);

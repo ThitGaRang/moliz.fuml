@@ -44,7 +44,7 @@
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227279834609_190486_958" name="Fork(3)" visibility="public" outgoing="_15_5_1_1a900482_1227280390250_888194_1456 _15_5_1_1a900482_1227280052968_433508_1161 _15_5_1_1a900482_1227280257906_852044_1384 _15_5_1_1a900482_1227280252421_614460_1382 _15_5_1_1a900482_1227279976890_133947_1087" incoming="_15_5_1_1a900482_1227279849937_346915_977"/>
       <node xmi:type="uml:ForkNode" xmi:id="_15_5_1_1a900482_1227279853484_305939_994" name="Fork(2)" visibility="public" outgoing="_15_5_1_1a900482_1227280159156_684878_1275 _15_5_1_1a900482_1227280260812_278699_1386 _15_5_1_1a900482_1227280243718_415385_1366 _15_5_1_1a900482_1227280394187_992831_1474" incoming="_15_5_1_1a900482_1227279861015_915020_1010"/>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279936109_91525_1047" name="Call(Neg)" visibility="public">
-		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#PrimitiveBehaviors-IntegerFunctions-Neg'/>
+		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#_jJIyc3OeEd2TgN94jve35g'/>
         <argument xmi:id="_15_5_1_1a900482_1227279936125_383813_1057" name="Neg.x" visibility="public" incoming="_15_5_1_1a900482_1227279976890_133947_1087">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </argument>
@@ -53,7 +53,7 @@
         </result>
       </node>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227279995203_662087_1110" name="Call(Plus)" visibility="public">
-		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#PrimitiveBehaviors-IntegerFunctions-plus'/>
+		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#_jJIyYXOeEd2TgN94jve35g'/>
         <argument xmi:id="_15_5_1_1a900482_1227279995218_938097_1120" name="Plus.x" visibility="public" incoming="_15_5_1_1a900482_1227280052968_433508_1161">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </argument>
@@ -65,7 +65,7 @@
         </result>
       </node>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280082812_640076_1202" name="Call(Minus)" visibility="public">
-		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#PrimitiveBehaviors-IntegerFunctions-minus'/>
+		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#_jJIyZXOeEd2TgN94jve35g'/>
         <argument xmi:id="_15_5_1_1a900482_1227280082828_503954_1212" name="Minus.x" visibility="public" incoming="_15_5_1_1a900482_1227280252421_614460_1382">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </argument>
@@ -77,7 +77,7 @@
         </result>
       </node>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280174859_243278_1295" name="Call(Times)" visibility="public">
-		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#PrimitiveBehaviors-IntegerFunctions-times'/>
+		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#_jJIyaXOeEd2TgN94jve35g'/>
         <argument xmi:id="_15_5_1_1a900482_1227280174875_641807_1305" name="Times.x" visibility="public" incoming="_15_5_1_1a900482_1227280257906_852044_1384">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </argument>
@@ -89,7 +89,7 @@
         </result>
       </node>
       <node xmi:type="uml:CallBehaviorAction" xmi:id="_15_5_1_1a900482_1227280338453_640592_1402" name="Call(Div)" visibility="public">
-		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#PrimitiveBehaviors-IntegerFunctions-Div'/>
+		<behavior xmi:type='uml:FunctionBehavior' href='fUML-Library.mdzip#_jJIybXOeEd2TgN94jve35g'/>
         <argument xmi:id="_15_5_1_1a900482_1227280338468_415163_1412" name="Div.x" visibility="public" incoming="_15_5_1_1a900482_1227280390250_888194_1456">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </argument>

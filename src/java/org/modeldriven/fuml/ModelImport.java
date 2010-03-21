@@ -21,7 +21,8 @@ import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.assembly.AssemblerResultsProfile;
 import org.modeldriven.fuml.assembly.ElementGraphAssembler;
 import org.modeldriven.fuml.environment.Environment;
-import org.modeldriven.fuml.meta.MetaModel;
+import org.modeldriven.fuml.model.Model;
+import org.modeldriven.fuml.model.uml2.UmlClass;
 import org.modeldriven.fuml.xmi.stream.StreamNodeEvent;
 import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
 import org.modeldriven.fuml.xmi.validation.ValidationError;
@@ -29,7 +30,6 @@ import org.modeldriven.fuml.xmi.validation.ValidationErrorCollector;
 
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Association;
-import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
@@ -51,19 +51,19 @@ public class ModelImport extends AbsractImport implements Import {
 
     protected AssemblerResultsProfile createProfile()
     {
-        MetaModel model = MetaModel.getInstance();
+        Model model = Model.getInstance();
         return new AssemblerResultsProfile(
-            new Class_[] {
-                (Class_)model.getClassifier(fUML.Syntax.Classes.Kernel.Model.class.getSimpleName()),
-                (Class_)model.getClassifier(Activity.class.getSimpleName()),
-                (Class_)model.getClassifier(FunctionBehavior.class.getSimpleName()),
-                (Class_)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
-                (Class_)model.getClassifier("Class"), // fUML name is 'Class_'
-                (Class_)model.getClassifier(Operation.class.getSimpleName()),
-                (Class_)model.getClassifier(Property.class.getSimpleName()),
-                (Class_)model.getClassifier(DataType.class.getSimpleName()),
-                (Class_)model.getClassifier(Signal.class.getSimpleName()),
-                (Class_)model.getClassifier(Association.class.getSimpleName()),
+            new UmlClass[] {
+                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Model.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Activity.class.getSimpleName()),
+                (UmlClass)model.getClassifier(FunctionBehavior.class.getSimpleName()),
+                (UmlClass)model.getClassifier(fUML.Syntax.Classes.Kernel.Package.class.getSimpleName()),
+                (UmlClass)model.getClassifier("Class"), // fUML name is 'Class_'
+                (UmlClass)model.getClassifier(Operation.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Property.class.getSimpleName()),
+                (UmlClass)model.getClassifier(DataType.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Signal.class.getSimpleName()),
+                (UmlClass)model.getClassifier(Association.class.getSimpleName()),
             });
     }
 

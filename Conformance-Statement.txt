@@ -7,9 +7,9 @@ of the Semantics of a Foundational Subset for Executable UML Models
 specification document.
 
 1. Conformance Level: L3, with limited Dynamic Partial Acceptance. The input
-model must be within the fUML abstract syntax subset to be executed. Parts of
-the model that are not within this subset may be loaded as "stubs". If an 
-attempt is made to access or execute such a stub, a runtime error occurs.
+model must within the fUML abstract syntax subset to be executed. Parts of the
+model that are not within this subset are loaded as "stubs". If an attempt is
+made to access or execute such a stub, a runtime error occurs.
 
 2. Model Library: The Reference Implementation implements all of the
 PrimitiveBehaviors from the Foundation Model Library. From BasicInputOutput,the
@@ -47,7 +47,7 @@ activity to be initiated directly from the loaded XMI, but, via its actions,
 this activity may evaluate value specifications and execute other activities,
 both synchronously and asynchronously.
 
-7. Semantic Constraints
+6. Semantic Constraints
 
    a. Semantics of time: The Reference Implementation does not provide an
    explicit time model.
@@ -60,7 +60,7 @@ both synchronously and asynchronously.
    Implementation uses normal Java operation calls within a single JVM to
    implement UML interobject communications.
 
-8. Semantic Variation: The Reference Implementation uses the default semantics
+7. Semantic Variation: The Reference Implementation uses the default semantics
 for all semantic variation points. The implementation may be extended with
 alternative semantics by providing appropriate semantic strategy class
 implementations.

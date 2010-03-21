@@ -13,11 +13,10 @@ package org.modeldriven.fuml.assembly;
 import org.modeldriven.fuml.FumlException;
 
 public class AssemblyException extends FumlException {
-
-    public AssemblyException(Throwable t) {
-        super(t);
-    }
-
+	
+	public AssemblyException(Throwable t) {
+		super(t);
+	}
     public AssemblyException(String msg) {
         super(msg);
     }

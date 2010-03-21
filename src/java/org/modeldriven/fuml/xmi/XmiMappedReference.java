@@ -18,56 +18,56 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+
 /**
- * This class is an XmiReference implementation holding derived XMI internal
- * reference data and related information. Internal reference are derived based
- * configuration mapping information and used to create a mapped-reference. For
- * more information on XMI references see the XmiReference interface
- * documentation.
+ * This class is an XmiReference implementation holding derived XMI internal reference 
+ * data and related information. Internal reference are derived based configuration 
+ * mapping information and used to create a mapped-reference. For more information on 
+ * XMI references see the XmiReference interface documentation.
  * 
  * @author Scott Cinnamond
  */
-// FIXME: can this class go away if we also link using property opposites?
+// FIXME: can this class go away if we also link using property opposites? 
 public class XmiMappedReference implements XmiReference {
 
     private static Log log = LogFactory.getLog(XmiMappedReference.class);
-    private XmiNode node;
-    private String name;
-    private List<String> ids = new ArrayList<String>();
-
-    @SuppressWarnings("unused")
-    private XmiMappedReference() {
-    }
-
-    public XmiMappedReference(XmiNode node, String name, String[] values) {
-        this.node = node;
+	private XmiNode node;
+	private String name;
+	private List<String> ids = new ArrayList<String>();
+	
+	@SuppressWarnings("unused")
+	private XmiMappedReference() {}
+	
+	public XmiMappedReference(XmiNode node, String name, String[] values) {
+		this.node = node;	
         this.name = name;
-        construct(values);
-    }
+		construct(values);
+	}
+	
+	private void construct(String[] values)
+	{
+	    for (int i = 0; i < values.length; i++)
+	        ids.add(values[i]); 
+	}
 
-    private void construct(String[] values) {
-        for (int i = 0; i < values.length; i++)
-            ids.add(values[i]);
-    }
-
-    public String getLocalName() {
-        return name;
-    }
-
+	public String getLocalName() {
+		return name;
+	}
+	
     public int getLineNumber() {
-        return node.getLineNumber();
+        return node.getLineNumber();	
     }
-
+    
     public int getColumnNumber() {
-        return node.getColumnNumber();
+        return node.getColumnNumber();	
     }
 
-    public int getReferenceCount() {
-        return ids.size();
-    }
-
+	public int getReferenceCount() {
+		return ids.size();
+	}
+	
     public Iterator<String> getXmiIds() {
-        return ids.iterator();
+    	return ids.iterator();
     }
-
+	
 }

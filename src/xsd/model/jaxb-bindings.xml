@@ -417,8 +417,8 @@
 
 	<jxb:bindings schemaLocation="ModelConfig.xsd" node="/xsd:schema">
 	    <jxb:schemaBindings>
-	        <jxb:package name="org.modeldriven.fuml.meta.config">
-	            <jxb:javadoc><![CDATA[<body>Package level documentation for generated package org.modeldriven.fuml.meta.config.</body>]]></jxb:javadoc>
+	        <jxb:package name="org.modeldriven.fuml.model.config">
+	            <jxb:javadoc><![CDATA[<body>Package level documentation for generated package org.modeldriven.fuml.model.config.</body>]]></jxb:javadoc>
             </jxb:package>
 	    </jxb:schemaBindings>
 	</jxb:bindings>

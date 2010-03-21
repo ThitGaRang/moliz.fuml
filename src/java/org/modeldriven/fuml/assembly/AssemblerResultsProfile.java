@@ -10,26 +10,26 @@
  */
 package org.modeldriven.fuml.assembly;
 
-import fUML.Syntax.Classes.Kernel.Class_;
-import fUML.Syntax.Classes.Kernel.Classifier;
+import org.modeldriven.fuml.model.uml2.UmlClass;
+import org.modeldriven.fuml.model.uml2.UmlClassifier;
 
 public class AssemblerResultsProfile {
-
-    private Class_[] resultsClasses;
-
+    
+    private UmlClass[] resultsClasses;
+    
     @SuppressWarnings("unused")
-    private AssemblerResultsProfile() {
-    }
-
-    public AssemblerResultsProfile(Class_[] resultsClasses) {
+    private AssemblerResultsProfile() {}
+    
+    public AssemblerResultsProfile(UmlClass[] resultsClasses) {
         this.resultsClasses = resultsClasses;
     }
-
-    public boolean isResultClass(Classifier c) {
+    
+    public boolean isResultClass(UmlClassifier c)
+    {
         for (int i = 0; i < resultsClasses.length; i++)
-            if (resultsClasses[i].name.equals(c.name))
+            if (resultsClasses[i].getName().equals(c.getName()))
                 return true;
         return false;
     }
-
+    
 }

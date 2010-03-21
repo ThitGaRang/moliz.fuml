@@ -20,7 +20,7 @@ import javax.swing.KeyStroke;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.Fuml;
+import org.modeldriven.fuml.FUML;
 
 import com.nomagic.magicdraw.core.Application;
 import com.nomagic.magicdraw.core.Project;
@@ -93,7 +93,7 @@ public class BrowserExecuteAction extends DefaultBrowserAction {
             System.setOut(stream);
             try {
                 writeUIMessage("[plugin] launching fUML runtime environment...");
-                new Fuml(projectFile, activity.getName());            
+                new FUML(projectFile, activity.getName());            
                 writeUIMessage("[plugin] execution complete");
             }
             catch (Throwable t) {

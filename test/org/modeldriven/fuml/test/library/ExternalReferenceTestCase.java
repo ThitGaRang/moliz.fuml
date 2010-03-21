@@ -8,7 +8,7 @@ import junit.framework.Test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.Fuml;
+import org.modeldriven.fuml.FUML;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.environment.ExecutionEnvironment;
 import org.modeldriven.fuml.test.FUMLTest;
@@ -36,7 +36,7 @@ public class ExternalReferenceTestCase extends FUMLTest {
             String filename = "./test/uml/magicdraw/HelloWorldExternalReference.uml";
             File file = new File(filename);
             assertTrue("file '" + filename + "' does not exist", file.exists());
-            Fuml.load(file);
+            FUML.load(file);
             environment = Environment.getInstance();
             execute("HelloWorld");
             log.info("done");
@@ -47,21 +47,21 @@ public class ExternalReferenceTestCase extends FUMLTest {
         String filename = "./test/uml/magicdraw/IntegerFunctionsExternalReference.uml";
         File file = new File(filename);
         assertTrue("file '" + filename + "' does not exist", file.exists());
-        Fuml.load(file);
+        FUML.load(file);
         environment = Environment.getInstance();
         execute("TestIntegerFunctions");
         log.info("done");
     }    
-
+    
     public void testMDXMLExternalReference() throws Exception {
         String filename = "./test/mdxml/fUML-Tests.mdxml";
         File file = new File(filename);
         assertTrue("file '" + filename + "' does not exist", file.exists());
-        Fuml.load(file);
+        FUML.load(file);
         environment = Environment.getInstance();
         execute("TestIntegerFunctions");
         log.info("done");
-    }    
+    }
     
     private void execute(String activityName)
     {
