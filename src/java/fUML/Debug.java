@@ -25,7 +25,7 @@ public class Debug {
 
 	public static void println(String message) {
 		if (message.length()>=7 && message.substring(0,7).equals("[event]")) {
-			System.out.println(message.substring(8,message.length()));
+			System.out.println(message);
 		} else {
 			log.debug(message);
 		}
