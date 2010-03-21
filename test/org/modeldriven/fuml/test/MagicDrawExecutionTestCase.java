@@ -30,7 +30,7 @@ public class MagicDrawExecutionTestCase extends FUMLTest {
     public void setUp() throws Exception {
         if (environment == null)
         {    
-            String filename = "./test/uml/magicdraw/fUML-Tests.uml";
+            String filename = "./test/mdxml/fUML-Tests.mdxml";
             File file = new File(filename);
             assertTrue("file '" + filename + "' does not exist", file.exists());
             FUML.load(file);
