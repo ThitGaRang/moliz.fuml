@@ -1,0 +1,206 @@
+/*
+ * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
+ * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
+ * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * in the file entitled Licensing-Information. 
+ *
+ * Contributors:
+ *   MDS - initial API and implementation
+ *
+ */
+package org.modeldriven.fuml;
+
+import java.io.File;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.environment.Environment;
+import org.modeldriven.fuml.environment.ExecutionEnvironment;
+import org.modeldriven.fuml.io.ArtifactLoader;
+import org.modeldriven.fuml.io.IncrementalArtifactLoader;
+import org.modeldriven.fuml.io.FileArtifact;
+import org.modeldriven.fuml.io.ResourceArtifact;
+
+import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
+
+public class Fuml {
+    private static Log log = LogFactory.getLog(Fuml.class);
+
+    @SuppressWarnings("unused")
+	private Fuml() {}
+    
+    public Fuml(File file, String namespaceURI) {
+        execute(file, namespaceURI, null);
+    }
+
+    public Fuml(File file, String namespaceURI, String target) {
+        execute(file, namespaceURI, target);
+    }
+
+    public Fuml(String namespaceURI, String target) {
+        execute(namespaceURI, target);
+    }
+
+    /**
+     * Reads and loads the given file as a model artifact.
+     * @param file the file to load
+     */
+    public static void load(File file, String namespaceURI) {
+        try {
+        	log.info("loading artifact, " + file.getName());
+        	ArtifactLoader reader = new ArtifactLoader();
+        	reader.read(new FileArtifact(file, namespaceURI));
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }
+
+    /**
+     * Reads and loads the given file as a model artifact.
+     * @param file the file to load
+     */
+    public static void load(FileArtifact fileArtifact) {
+        try {
+        	log.info("loading artifact, " + fileArtifact.getURN());
+        	ArtifactLoader reader = new ArtifactLoader();
+        	reader.read(fileArtifact);
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }   
+    
+    /**
+     * Reads and loads the given file as a model artifact using an incremental
+     * loading scheme.
+     * @param file the file to load
+     */
+    public static void loadIncrementally(File file, String namespaceURI) {
+        try {
+        	log.info("reading artifact, " + file.getName());
+        	IncrementalArtifactLoader reader = new IncrementalArtifactLoader();
+        	reader.read(new FileArtifact(file, namespaceURI));
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }
+
+    /**
+     * Reads and loads the given resource as a model artifact.
+     * @param file the file to load
+     */
+    public static void load(ResourceArtifact artifact) {
+        try {
+        	log.info("loading artifact, " + artifact.getURN());
+        	ArtifactLoader reader = new ArtifactLoader();
+        	reader.read(artifact);
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }   
+    
+    /**
+     * Reads and loads the given resource as a model artifact using an incremental
+     * loading scheme.
+     * @param file the file to load
+     */
+    public static void loadIncrementally(ResourceArtifact artifact) {
+        try {
+        	log.info("reading artifact, " + artifact.getURN());
+        	IncrementalArtifactLoader reader = new IncrementalArtifactLoader();
+        	reader.read(artifact);
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }
+    
+    private void execute(String namespaceURI, String target) {
+        try {
+            Environment environment = Environment.getInstance();
+            Behavior behavior = environment.findBehavior(target);
+            if (behavior == null)
+                throw new FumlException("unknown behavior name, '" + target + "'");
+            ExecutionEnvironment execution = new ExecutionEnvironment(environment);
+            log.info("executing behavior: " + behavior.name);
+            execution.execute(behavior);
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }
+
+    private void execute(File file, String namespaceURI, String target) {
+        try {
+        	log.info("loading artifact, " + file.getName());
+        	IncrementalArtifactLoader reader = new IncrementalArtifactLoader();
+        	reader.read(new FileArtifact(file, namespaceURI));
+
+            Environment environment = Environment.getInstance();
+            Behavior behavior = null;
+
+            if (target != null) {
+                behavior = environment.findBehavior(target);
+                if (behavior == null)
+                    throw new FumlException("unknown behavior name, '" + target + "'");
+            } else {
+                String[] names = environment.getBehaviorNames();
+                if (names.length > 1) {
+                	StringBuffer namesBuf = new StringBuffer();
+                	namesBuf.append("[");
+                	for (int i = 0; i < names.length; i++) {
+                		if (i > 0)
+                			namesBuf.append(", ");
+                		namesBuf.append("'");
+                		namesBuf.append(names[i]);
+                		namesBuf.append("'");
+                		if (i > 10)
+                			namesBuf.append("...");
+                	}	
+                	namesBuf.append("]");
+                    throw new FumlException("ambiguous execution target - file '" + file.getName()
+                            + "' contains " + String.valueOf(names.length)
+                            + " behaviors to execute "
+                            + namesBuf.toString() + " - please specify a behavior");
+                }
+                else if (names.length == 0)
+                    throw new FumlException("invalid execution target - file '" + file.getName()
+                            + "' contains " + String.valueOf(names.length) + " behaviors");
+
+                behavior = environment.findBehavior(names[0]);
+                if (behavior == null)
+                    throw new FumlException("unknown behavior name, '" + names[0] + "'");
+            }
+            ExecutionEnvironment execution = new ExecutionEnvironment(environment);
+            log.info("executing behavior: " + behavior.name);
+            execution.execute(behavior);
+        } catch (Throwable t) {
+            log.error(t.getMessage(), t);
+            throw new FumlException(t);
+        }
+    }
+    
+    private static void printUsage() {
+        log.info("====================================================================");
+        log.info("USAGE: fuml <model-file-name> <namespace-URI> [<behavior-name> <behavior-name> <behavior-name> <...>]");
+        log.info("====================================================================");
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            printUsage();
+            System.exit(1);
+        }
+
+        if (args.length == 2) {
+            new Fuml(new File(args[0]), args[1]);
+        } else {
+            Fuml.loadIncrementally(new File(args[0]), args[1]);
+            for (int i = 2; i < args.length; i++)
+                new Fuml(args[1], args[i]);
+        }
+    }
+}
