@@ -41,14 +41,10 @@ import org.modeldriven.fuml.config.ValidationExemption;
 import org.modeldriven.fuml.config.ValidationExemptionType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
-import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClass;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlDataType;
-import org.modeldriven.fuml.model.uml2.UmlEnumeration;
-import org.modeldriven.fuml.model.uml2.UmlPrimitiveType;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.repository.Class_;
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Repository;
+import org.modeldriven.fuml.repository.Property;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
 import org.modeldriven.fuml.xmi.XmiIdentity;
@@ -63,13 +59,14 @@ import org.modeldriven.fuml.xmi.validation.ValidationError;
 import org.modeldriven.fuml.xmi.validation.ValidationException;
 
 import UMLPrimitiveTypes.UnlimitedNatural;
-
+import fUML.Library.LibraryClassImplementation.ImplementationObject;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
+import fUML.Syntax.Classes.Kernel.Type;
 
 public class ElementAssembler extends AssemblerNode implements XmiIdentity, Assembler {
 
@@ -886,52 +883,39 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
      * @return the Java Class
      */
     @SuppressWarnings("unchecked")
-    private Class toJavaClass(UmlDataType dataType)
-    {
-    	if (UmlPrimitiveType.class.isAssignableFrom(dataType.getClass()))
-    	{
-    		if (dataType.getName() != null)
-    		{
-		        if (String.class.getSimpleName().equals(dataType.getName()))
-		            return java.lang.String.class;
-		        else if (Integer.class.getSimpleName().equals(dataType.getName()))
-		            return int.class;
-		        else if (Boolean.class.getSimpleName().equals(dataType.getName()))
-		            return boolean.class;
-		        else if (UnlimitedNatural.class.getSimpleName().equals(dataType.getName()))
-		            return UnlimitedNatural.class;
-		        else
-		            throw new AssemblyException("unknown dataType, " + dataType.getName());
-    		}
-    		else if (dataType.getHref() != null)
-    		{
-		        if (dataType.getHref().endsWith(String.class.getSimpleName()))
-		            return java.lang.String.class;
-		        else if (dataType.getHref().endsWith(Integer.class.getSimpleName()))
-		            return int.class;
-		        else if (dataType.getHref().endsWith(Boolean.class.getSimpleName()))
-		            return boolean.class;
-		        else if (dataType.getHref().endsWith(UnlimitedNatural.class.getSimpleName()))
-		            return UnlimitedNatural.class;
-		        else
-		            throw new AssemblyException("unknown dataType, " + dataType.getHref());
-    		}
-    		else
-			   throw new AssemblyException("expected name or href for primitive type, "
-					   + dataType.getClass().getName());
-    	}
-    	else {
-	        if (String.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
-	            return java.lang.String.class;
-	        else if (Integer.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
-	            return java.lang.Integer.class;
-	        else if (Boolean.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
-	            return java.lang.Boolean.class;
-	        else if (UnlimitedNatural.class.getSimpleName().equalsIgnoreCase(dataType.getName()))
-	            return UnlimitedNatural.class;
-	        else
-	            throw new AssemblyException("unknown dataType, " + dataType.getName());
-    	}
+	private Class toPrimitiveJavaClass(DataType dataType) {
+        if (PrimitiveType.class.isAssignableFrom(dataType.getClass())) {
+            if (dataType.name != null && dataType.name.trim().length() > 0) {
+                if (String.class.getSimpleName().equals(dataType.name))
+                    return java.lang.String.class;
+                else if (Integer.class.getSimpleName().equals(dataType.name))
+                    return int.class;
+                else if (Boolean.class.getSimpleName().equals(dataType.name))
+                    return boolean.class;
+                else if (UnlimitedNatural.class.getSimpleName().equals(dataType.name))
+                    return int.class; 
+                else
+                    throw new AssemblyException("unknown dataType ("
+                            + dataType.getClass().getName() + ") name: '" + dataType.name + "'");
+            } else if (dataType.getHref() != null) {
+                if (dataType.getHref().endsWith(String.class.getSimpleName()))
+                    return java.lang.String.class;
+                else if (dataType.getHref().endsWith(Integer.class.getSimpleName()))
+                    return int.class;
+                else if (dataType.getHref().endsWith(Boolean.class.getSimpleName()))
+                    return boolean.class;
+                else if (dataType.getHref().endsWith(UnlimitedNatural.class.getSimpleName()))
+                    return int.class;
+                else
+                    throw new AssemblyException("unknown dataType ("
+                            + dataType.getClass().getName() + ") href: '" + dataType.getHref() + "'");
+            } else
+                throw new AssemblyException("expected name or href for primitive type, "
+                        + dataType.getClass().getName());
+        } else {
+            throw new AssemblyException("expected primitive type not ("
+                    + dataType.getClass().getName() + ") name: '" + dataType.name + "'");
+        }
     }
 
     /**
