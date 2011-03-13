@@ -14,6 +14,11 @@
                     <xsd:documentation></xsd:documentation>       
                 </xsd:annotation>                                 
             </xsd:element>
+            <xsd:element name="ValidationConfiguration" type="cfg:ValidationConfiguration"  minOccurs="1" maxOccurs="1">
+                <xsd:annotation>                                  
+                    <xsd:documentation></xsd:documentation>       
+                </xsd:annotation>                                 
+            </xsd:element>
             <xsd:element name="MappingConfiguration" type="cfg:MappingConfiguration"  minOccurs="1" maxOccurs="1">
                 <xsd:annotation>                                  
                     <xsd:documentation></xsd:documentation>       
@@ -31,8 +36,7 @@
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
-    </xsd:element>
-    
+    </xsd:element>    
 
     <xsd:complexType name="ImportConfiguration">
         <xsd:annotation>
@@ -45,7 +49,7 @@
                     <xsd:documentation></xsd:documentation>       
                 </xsd:annotation>                                 
             </xsd:element>
-            <xsd:element name="Element" type="cfg:ImportElement"  minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="Exemption" type="cfg:ImportExemption"  minOccurs="1" maxOccurs="unbounded">
                 <xsd:annotation>                                  
                     <xsd:documentation></xsd:documentation>       
                 </xsd:annotation>                                 
@@ -55,6 +59,13 @@
                     <xsd:documentation></xsd:documentation>       
                 </xsd:annotation>                                 
             </xsd:element>
+            
+            <xsd:element name="ExtensionPackage" type="cfg:ExtensionPackage"  minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>                                  
+                    <xsd:documentation></xsd:documentation>       
+                </xsd:annotation>                                 
+            </xsd:element>
+            
         </xsd:sequence>
     </xsd:complexType>
 
@@ -64,14 +75,14 @@
         </xsd:annotation>
     </xsd:element>
 
-    <xsd:complexType name="ImportElement">
+    <xsd:complexType name="ImportExemption">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
-
-        <xsd:attribute name="localName" type="xsd:string" use="required">
+        
+        <xsd:attribute name="type" type="cfg:ImportExemptionType" use="required">
             <xsd:annotation>                                  
-                <xsd:documentation>The unqualified element name</xsd:documentation>       
+                <xsd:documentation>The type of exemption</xsd:documentation>       
             </xsd:annotation>                                 
         </xsd:attribute>
 
@@ -81,19 +92,27 @@
             </xsd:annotation>                                 
         </xsd:attribute>
 
-        <xsd:attribute name="ignored" type="xsd:boolean" use="optional" default="false">
+        <xsd:attribute name="localName" type="xsd:string" use="required">
             <xsd:annotation>                                  
-                <xsd:documentation>Specifies whether the element is to be ignored within the current context.</xsd:documentation>       
+                <xsd:documentation>The unqualified local name of the (XML) element</xsd:documentation>       
             </xsd:annotation>                                 
         </xsd:attribute>
-
     </xsd:complexType>
 
-    <xsd:element name="ImportElement" type="cfg:ImportElement">
+    <xsd:element name="ImportExemption" type="cfg:ImportExemption">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
     </xsd:element>
+    
+    <xsd:simpleType name="ImportExemptionType">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="element" />
+        </xsd:restriction>
+    </xsd:simpleType>
 
     <xsd:complexType name="ImportAdapter">
         <xsd:annotation>
@@ -136,6 +155,74 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:complexType name="ValidationConfiguration">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:sequence>
+            <xsd:element name="Exemption" type="cfg:ValidationExemption"  minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>                                  
+                    <xsd:documentation></xsd:documentation>       
+                </xsd:annotation>                                 
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ValidationConfiguration" type="cfg:ValidationConfiguration">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ValidationExemption">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:attribute name="type" type="cfg:ValidationExemptionType" use="required">
+            <xsd:annotation>                                  
+                <xsd:documentation>The type of exemption</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
+        
+        <xsd:attribute name="domain" type="cfg:NamespaceDomain" use="optional" default="uml">
+            <xsd:annotation>                                  
+                <xsd:documentation>The namespace domain name</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
+
+        <xsd:attribute name="classifierName" type="xsd:string" use="required">
+            <xsd:annotation>                                  
+                <xsd:documentation>The classifier name</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
+
+        <xsd:attribute name="propertyName" type="xsd:string" use="required">
+            <xsd:annotation>                                  
+                <xsd:documentation>The property name</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
+
+
+    </xsd:complexType>
+
+    <xsd:element name="ValidationExemption" type="cfg:ValidationExemption">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:simpleType name="ValidationExemptionType">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="requiredProperty" />
+            <xsd:enumeration value="undefinedProperty" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="SupportedNamespace">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -172,6 +259,26 @@
             <xsd:enumeration value="magicdraw" />
         </xsd:restriction>
     </xsd:simpleType>
+
+    <xsd:complexType name="ExtensionPackage">
+        <xsd:annotation>
+            <xsd:documentation>Extends the import processing to look for metamodel implementation classes searching all extension packages in declared order</xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:attribute name="name" type="xsd:string" use="required">
+            <xsd:annotation>                                  
+                <xsd:documentation>The qualified java package name</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
+
+    </xsd:complexType>
+
+    <xsd:element name="ExtensionPackage" type="cfg:ExtensionPackage">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
 
     <xsd:complexType name="MappingConfiguration">
         <xsd:annotation>
@@ -295,9 +402,9 @@
             </xsd:annotation>                                 
         </xsd:attribute>
 
-        <xsd:attribute name="baseURI" type="xsd:string" use="required">
+        <xsd:attribute name="urn" type="xsd:string" use="required">
             <xsd:annotation>                                  
-                <xsd:documentation>The the URI to use as the basis for registering library entries</xsd:documentation>       
+                <xsd:documentation>The the URN to use as the basis for registering library entries</xsd:documentation>       
             </xsd:annotation>                                 
         </xsd:attribute>
 

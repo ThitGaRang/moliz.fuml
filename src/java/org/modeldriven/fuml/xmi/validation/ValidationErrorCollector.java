@@ -25,13 +25,17 @@ import javax.xml.stream.events.Attribute;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.config.FumlConfiguration;
+import org.modeldriven.fuml.config.ImportAdapter;
+import org.modeldriven.fuml.config.NamespaceDomain;
 import org.modeldriven.fuml.config.ReferenceMappingType;
+import org.modeldriven.fuml.config.ValidationExemption;
+import org.modeldriven.fuml.config.ValidationExemptionType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClass;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
+import org.modeldriven.fuml.repository.Class_;
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Property;
+import org.modeldriven.fuml.repository.Stereotype;
 import org.modeldriven.fuml.xmi.AbstractXmiNodeVisitor;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
@@ -59,13 +63,14 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     private static Log log = LogFactory.getLog(ValidationErrorCollector.class);
 	private List<ValidationError> errors = new ArrayList<ValidationError>();
 	private boolean validateExternalReferences = true;
+    private List<ValidationEventListener> eventListeners;
 
 	@SuppressWarnings("unused")
 	private ValidationErrorCollector() {
 	}
 
 	public ValidationErrorCollector(XmiNode root) {
-		this.root = root;
+		this.xmiRoot = root;
 		modelSupport = new ModelSupport();
 	}
 
@@ -77,13 +82,50 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	 */
 	public void validate()
 	{
-		this.root.accept(this);
+        if (eventListeners != null)
+        	for (ValidationEventListener listener : eventListeners)
+        		listener.validationStarted(
+        				new ValidationEvent(this));
+		
+        this.xmiRoot.accept(this);
 		this.validateReferences();
+		
+        if (eventListeners != null)
+        	for (ValidationEventListener listener : eventListeners)
+        		listener.validationCompleted(
+        				new ValidationEvent(this));
 	}
 
-	public void visit(XmiNode target, XmiNode source, String sourceKey,
+    public void addEventListener(ValidationEventListener eventListener) {
+    	if (eventListeners == null)
+    		eventListeners = new ArrayList<ValidationEventListener>();
+    	this.eventListeners.add(eventListener);
+    }
+    
+    public void removeEventListener(ValidationEventListener eventListener) {
+    	if (eventListeners == null)
+    		return;
+    	this.eventListeners.remove(eventListener);
+    }
+
+	public void visit(XmiNode target, XmiNode sourceXmiNode, String sourceKey,
 	        XmiNodeVisitorStatus status, int level)
 	{
+		
+    	// The XMI root is just packaging, not something we want to assemble or validate.
+    	if (sourceXmiNode == null && "XMI".equals(target.getLocalName())) {
+            if (log.isDebugEnabled())
+                log.debug("ignoring root XMI node");
+    		return;
+    	}	
+    	
+    	XmiNode source = sourceXmiNode;
+    	if (source != null && "XMI".equals(source.getLocalName())) {
+    		source = null;
+            if (log.isDebugEnabled())
+                log.debug("ignoring source XMI node");
+    	}
+		
         if (log.isDebugEnabled())
             if (source != null)
                 log.debug("visit: " + target.getLocalName()
@@ -102,11 +144,31 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                         ErrorSeverity.FATAL, eventNode);
         }
 
-		UmlClassifier classifier = findClassifier(target, source);
+		Classifier classifier = findClassifier(target, source);
 		if (classifier == null)
 		{
-            addError(ErrorCode.UNDEFINED_CLASS,
-                    ErrorSeverity.FATAL, eventNode);
+			// See if this element or it's immediate parent has an import adapter
+			// which means adapted elements can currently have only 2 levels otherwise
+			// the results are undefined. Bad. 
+            ImportAdapter importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+            		target.getLocalName());
+            if (importAdapter == null)
+            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+                		target.getXmiType()); 
+            if (source != null) {
+	            if (importAdapter == null)
+	            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+	                		source.getLocalName()); 
+	            if (importAdapter == null)
+	            	importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+	                		source.getXmiType());
+            }
+            
+            // if exists, assume the adapter will transform the 
+            // undefined element and any descendants
+            if (importAdapter == null)
+                addError(ErrorCode.UNDEFINED_CLASS, ErrorSeverity.FATAL, eventNode);
+            
 		    return; // We're done w/this node. No way to examine further without a classifier.
 		}
 
@@ -114,7 +176,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     		log.debug("identified element '" + target.getLocalName() + "' as classifier, "
     			+ classifier.getName());
     	classifierMap.put(target, classifier);
-
+    	
         boolean hasAttributes = eventNode.hasAttributes();
     	if (isPrimitiveTypeElement(eventNode, classifier, hasAttributes))
     		return;
@@ -130,7 +192,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             references.add(new XmiExternalReferenceElement(eventNode));
             return;
         }
-
+        
     	if (isAbstract(classifier))
     	{
             addError(ErrorCode.ABSTRACT_CLASS_INSTANTIATION,
@@ -138,16 +200,45 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
         	return;
     	}
 
+    	// validate target node as attribute of source
+    	if (source != null) {
+    		Class_ sourceClassifier = (Class_)classifierMap.get(source);
+    	    if (sourceClassifier != null) {
+	            Property property = sourceClassifier.findProperty(target.getLocalName());
+	            if (property == null) {
+	                NamespaceDomain domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	            		               
+	            	ValidationExemption exemption = null;
+	            	if (domain != null)
+	            		exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+	            			sourceClassifier, target.getLocalName(), target.getNamespaceURI(), domain);
+	            	if (exemption == null) {
+	                    addError(ErrorCode.UNDEFINED_PROPERTY,
+	                            ErrorSeverity.FATAL, (StreamNode)source, target.getLocalName());
+	            	}
+	            	else {
+	    				if (log.isDebugEnabled())
+	    					log.debug("undefined property exemption found within domain '" 
+	    						+ exemption.getDomain().toString() + "' for property '"
+	    						+ sourceClassifier.getName() + "." +target.getLocalName() + "' - ignoring error");
+	            		
+	            	}
+	            }
+    	    } 
+    	    // else source is an undefined class, and we handled that previously
+    	}
+    	
     	if (eventNode.hasAttributes())
-    	    validateAttributes(eventNode, source, classifier, eventNode.getAttributes());
+    	    validateAttributes(eventNode, source, (Class_)classifier, eventNode.getAttributes());
 
-    	validateAttributesAgainstModel(eventNode, source, classifier);
+    	validateAttributesAgainstModel(eventNode, source, (Class_)classifier);
 	}
 
 	private void validateAttributes(StreamNode target, XmiNode source,
-	        UmlClassifier classifier,
+			Class_ classifier,
 			Iterator<Attribute> attributes)
 	{
+        NamespaceDomain domain = null; // only lookup as needed
+        
         // look at XML attributes
         while (attributes.hasNext())
         {
@@ -159,12 +250,26 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                 continue; // not applicable to current element/association-end.
             if ("href".equals(name.getLocalPart()))
                 continue; // FIXME: why is this "special" ?
-            UmlProperty property = Model.getInstance().findAttribute((UmlClass) classifier,
-                    name.getLocalPart());
+            
+            Property property = classifier.findProperty(name.getLocalPart());
             if (property == null)
             {
-                addError(ErrorCode.UNDEFINED_PROPERTY,
-                        ErrorSeverity.FATAL, target, name.getLocalPart());
+            	if (domain == null)
+            		domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	            	
+
+            	ValidationExemption exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+            			classifier, name.getLocalPart(), target.getNamespaceURI(), domain);
+            	if (exemption == null) {
+                    addError(ErrorCode.UNDEFINED_PROPERTY,
+                            ErrorSeverity.FATAL, target, name.getLocalPart());
+            	}
+            	else {
+    				if (log.isDebugEnabled())
+    					log.debug("undefined property exemption found within domain '" 
+    						+ exemption.getDomain().toString() + "' for property '"
+    						+ classifier.getName() + "." +name.getLocalPart() + "' - ignoring error");
+            		
+            	}
                 continue;
             }
 
@@ -176,7 +281,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             }
             // TODO: when this error is commented out, an erroneous 'invalid internal reference' validation
             // error was seen to be thrown during assembly. This seems to be a bug
-        	if (Model.getInstance().isDerived((UmlClass) classifier, property))
+        	if (property.isDerived())
                 if (checkDerivedPropertyInstantiationError(target, source, classifier, property)) {
                     addError(ErrorCode.DERIVED_PROPERTY_INSTANTIATION,
                             ErrorSeverity.FATAL, target, property.getName());
@@ -186,7 +291,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	}
 
 	private boolean checkDerivedPropertyInstantiationError(StreamNode target, XmiNode source,
-	        UmlClassifier classifier, UmlProperty property)
+	        Classifier classifier, Property property)
 	{
 		boolean error = false;
 
@@ -202,26 +307,62 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	}
 
 	private void validateAttributesAgainstModel(StreamNode target, XmiNode source,
-	        UmlClassifier classifier)
+	        Class_ classifier)
 	{
-        UmlProperty[] properties = Model.getInstance().getAttributes((UmlClass) classifier);
+        NamespaceDomain domain = null; // only lookup as needed	            	
+        Property[] properties = classifier.getProperties();
         for (int i = 0; i < properties.length; i++)
         {
-        	if (Model.getInstance().isRequired((UmlClass) classifier, properties[i]))
+        	if (properties[i].isRequired()) {
 	            if (checkRequiredPropertyError(target, source, classifier, properties[i])) {
-	                addError(ErrorCode.PROPERTY_REQUIRED,
+	            	if (domain == null)
+	            		domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	
+	            	ValidationExemption exemption = findExemption(ValidationExemptionType.REQUIRED_PROPERTY,
+	            			classifier, properties[i].getName(), target.getNamespaceURI(), domain);
+	            	if (exemption == null) {
+	                    addError(ErrorCode.PROPERTY_REQUIRED,
 	                        ErrorSeverity.FATAL, target, properties[i].getName());
+	            	}
+	            	else {
+	    				if (log.isDebugEnabled())
+	    					log.debug("required property exemption found within domain '" 
+	    						+ exemption.getDomain().toString() + "' for property '"
+	    						+ classifier.getName() + "." + properties[i].getName() + "' - ignoring error");
+	            		
+	            	}
 	            }
+	        }
         	// other checks??
         }
 	}
 
+	private ValidationExemption findExemption(ValidationExemptionType type, 
+			Classifier classifier, String propertyName, String namespaceURI, NamespaceDomain domain) {
+        ValidationExemption result = null;
+        if (domain != null) {
+	    	List<ValidationExemption> exemptions = FumlConfiguration.getInstance().findValidationExemptionByClassifierName(classifier.getName());
+	    	if (exemptions != null)
+	    		for (ValidationExemption exemption : exemptions)
+	    			if (exemption.getPropertyName().equals(propertyName) &&
+	    				exemption.getDomain().ordinal() == domain.ordinal() &&
+	    				exemption.getType().ordinal() == type.ordinal()) {
+	    				result = exemption;
+	    				break;
+	    			}
+        }
+        else
+            if (log.isDebugEnabled())
+        	    log.debug("could not lookup validation exemption for namespace URI '"
+        	    		+ "namespaceURI");
+    	return result;
+	}
+	
 	private boolean checkRequiredPropertyError(StreamNode target, XmiNode source,
-	        UmlClassifier classifier, UmlProperty property)
+	        Classifier classifier, Property property)
 	{
 		boolean error = true;
 
-    	if (Model.getInstance().isDerived((UmlClass) classifier, property))
+    	if (property.isDerived())
     	{
     		error = false;
     		return error;
@@ -234,7 +375,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
         }
         else // or we have a default
         {
-            String defaultValue = Model.getInstance().findAttributeDefault(property);
+            String defaultValue = property.findPropertyDefault();
             if (defaultValue != null)
             	error = false;
         }
@@ -294,8 +435,8 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                     else
                         continue;
 
-                    errors.add(new ValidationError(reference, id,
-                            ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
+                    addError(ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL, 
+                    		reference, id);
                 }
                 else // internal reference
                 {
@@ -305,8 +446,8 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                     if (Environment.getInstance().findElementById(id) != null)
                         continue; // it's an already loaded internal reference
 
-                    errors.add(new ValidationError(reference, id,
-                            ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));
+                    addError(ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL, 
+                    		reference, id);
                 }
 
             }
@@ -318,7 +459,13 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
         if (log.isDebugEnabled())
             log.debug("adding " + code.toString()
                 + " error for element '" + eventNode.getLocalName() + "'");
-        errors.add(new ValidationError(eventNode, code, severity));
+        
+        ValidationError error = new ValidationError(eventNode, code, severity);
+        errors.add(error);
+        if (eventListeners != null)
+        	for (ValidationEventListener listener : eventListeners)
+        		listener.validationError(
+        				new ValidationErrorEvent(error, this));
 	}
 
     private void addError(ErrorCode code, ErrorSeverity severity,
@@ -327,7 +474,27 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
         if (log.isDebugEnabled())
             log.debug("adding " + code.toString()
                 + " error for element '" + eventNode.getLocalName() + "'");
-        errors.add(new ValidationError(eventNode, name, code, severity));
+        ValidationError error = new ValidationError(eventNode, name, code, severity);
+        errors.add(error);
+        if (eventListeners != null)
+        	for (ValidationEventListener listener : eventListeners)
+        		listener.validationError(
+        				new ValidationErrorEvent(error, this));
+    }
+    
+    private void addError(ErrorCode code, ErrorSeverity severity,
+    		XmiReference reference, String id) 
+    {
+        if (log.isDebugEnabled())
+            log.debug("adding " + code.toString()
+                + " error for element '" + id + "'");
+    	ValidationError error = new ValidationError(reference, id,
+    			code, severity);
+        errors.add(error);
+        if (eventListeners != null)
+        	for (ValidationEventListener listener : eventListeners)
+        		listener.validationError(
+        				new ValidationErrorEvent(error, this));
     }
 
 	public List<ValidationError> getErrors() {

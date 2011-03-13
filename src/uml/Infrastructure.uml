@@ -4318,12 +4318,20 @@ other classifiers.</body>
       <ownedComment xmi:id="Profiles-Class-_ownedComment.0" annotatedElement="Profiles-Class">
         <body>Class has derived association that indicates how it may be extended through one or more stereotypes. Stereotype is the only kind of metaclass that cannot be extended by stereotypes.</body>
       </ownedComment>
+      <!-- S.C. 07/23/2010 giving Profiles-Class a generalization, such that it has inherited properties (such as 'name') -->
+      <generalization xmi:id="_T31jvW_uEd2dGPXl6bzyzy" general="Core-Constructs-Classifier"/>
+      <generalization xmi:id="_T11jvF_uEd2dGPXl6bzyqw" general="Core-Abstractions-Generalizations-Classifier"/>
       <ownedAttribute xmi:id="Profiles-Class-extension" name="extension" type="Profiles-Extension" isReadOnly="true" isDerived="true" association="Profiles-A_extension_metaclass">
         <ownedComment xmi:id="Profiles-Class-extension-_ownedComment.0" annotatedElement="Profiles-Class-extension">
           <body>References the Extensions that specify additional properties of the metaclass. The property is derived from the extensions whose memberEnds are typed by the Class.</body>
         </ownedComment>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T3ryvW_uEd2dGPXl6bl1Xw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T3ryvm_uEd2dGPXl6bl1Xw"/>
+      </ownedAttribute>
+      <!-- S.C. 07/23/2010 hacked an ownedAttribute attribute to support Stereotype attribute hierarchy linking -->
+      <ownedAttribute xmi:id="Profiles-Class-ownedAttribute" name="ownedAttribute" type="Core-Basic-Property" isOrdered="true" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T3FVfG_uEd2dGPXl6bl1Xw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T3FVfW_uEd2dGPXl6bl1Xw"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="Profiles-ProfileApplication" name="ProfileApplication">

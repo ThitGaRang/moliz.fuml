@@ -415,10 +415,10 @@
 		</jxb:bindings>
 	</jxb:bindings>
 
-	<jxb:bindings schemaLocation="ModelConfig.xsd" node="/xsd:schema">
+	<jxb:bindings schemaLocation="RepositoryConfig.xsd" node="/xsd:schema">
 	    <jxb:schemaBindings>
-	        <jxb:package name="org.modeldriven.fuml.model.config">
-	            <jxb:javadoc><![CDATA[<body>Package level documentation for generated package org.modeldriven.fuml.model.config.</body>]]></jxb:javadoc>
+	        <jxb:package name="org.modeldriven.fuml.repository.config">
+	            <jxb:javadoc><![CDATA[<body>Package level documentation for generated package org.modeldriven.fuml.repository.config.</body>]]></jxb:javadoc>
             </jxb:package>
 	    </jxb:schemaBindings>
 	</jxb:bindings>

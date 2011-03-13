@@ -8,11 +8,6 @@
 			<module resource='file:/C:/Program%20Files/MagicDraw%2015.5/profiles/UML_Standard_Profile.xml' autoloadType='ALWAYS_LOAD' readOnly='true' loadIndex='false' requiredVersion='-1'>
 				<mount mountPoint='magicdraw_uml_standard_profile_v_0001' mountedOn='eee_1045467100313_135436_1'/>
 			</module>
-			<module resource='file:/C:/%3Cproject.dir%3E/fUML-Library.mdzip' autoloadType='ALWAYS_LOAD' readOnly='true' loadIndex='true' requiredVersion='-1'>
-				<mount mountPoint='_jJIyU3OeEd2TgN94jve35g' mountedOn='eee_1045467100313_135436_1'/>
-				<mount mountPoint='_jJIy-HOeEd2TgN94jve35g' mountedOn='eee_1045467100313_135436_1'/>
-				<mount mountPoint='_jJIzyXOeEd2TgN94jve35g' mountedOn='eee_1045467100313_135436_1'/>
-			</module>
 		</mountTable>
 	</xmi:Extension>
 	<uml:Model xmi:id='eee_1045467100313_135436_1' name='Data' visibility='public' viewpoint=''>

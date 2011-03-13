@@ -10,12 +10,17 @@
  */
 package org.modeldriven.fuml.assembly;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
+import org.modeldriven.fuml.FumlObject;
+import org.modeldriven.fuml.repository.Class_;
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Repository;
 import org.modeldriven.fuml.xmi.ModelSupport;
 import org.modeldriven.fuml.xmi.XmiNode;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
@@ -24,23 +29,27 @@ import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
 
-public class ElementStubAssembler
+public class ElementStubAssembler implements AssemblerResults
 {    
     public static String STUB_TOKEN = "#STUB#";
     
     private static Log log = LogFactory.getLog(ElementStubAssembler.class);
-    private Model metadata = Model.getInstance();
+    private Repository metadata = Repository.INSTANCE;
     private ElementAssembler result;
     private ModelSupport modelSupport = new ModelSupport();
     private XmiNode target;
+    private List<ElementAssemblerEventListener> eventListeners;
     
     @SuppressWarnings("unused")
     private ElementStubAssembler() {}
 
     public ElementStubAssembler(XmiNode xmiRoot) {
-        this.target = xmiRoot;
-        assemble();
-    }    
+        this.target = xmiRoot;       
+    } 
+    
+    public void start() {
+    	assemble();
+    }
     
     public void clear() {
         this.result = null;
@@ -50,7 +59,7 @@ public class ElementStubAssembler
     {        
         StreamNode eventNode = (StreamNode)target;
                         
-        UmlClassifier classifier = modelSupport.findClassifier(target);
+        Classifier classifier = modelSupport.findClassifier(target);
         if (classifier == null)
         {
             classifier = metadata.findClassifier("Activity");
@@ -60,7 +69,7 @@ public class ElementStubAssembler
     			+ classifier.getName());
     	
         ElementAssembler assembler = new ElementAssembler(target, null,
-                classifier, null);
+                (Class_)classifier, null);
         assembler.assembleElementClass();
         
         // FIXME: need some UML model to represent a "stub" element that
@@ -79,7 +88,12 @@ public class ElementStubAssembler
         else
             throw new AssemblyException("expected instance of NamedElement as target");        
         
-        result = assembler;        
+        result = assembler;  
+        
+        if (eventListeners != null)
+        	for (ElementAssemblerEventListener listener : eventListeners)
+        		listener.elementStubAssembled(
+        				new ElementAssemblerResultsEvent(this));
     }
     
     public void addErrorText(String text)
@@ -87,6 +101,18 @@ public class ElementStubAssembler
         Comment comment = new Comment();
         comment.body = text;
         result.getTarget().ownedComment.add(comment);
+    }
+    
+    public void addEventListener(ElementAssemblerEventListener eventListener) {
+    	if (eventListeners == null)
+    		eventListeners = new ArrayList<ElementAssemblerEventListener>();
+    	this.eventListeners.add(eventListener);
+    }
+    
+    public void removeEventListener(ElementAssemblerEventListener eventListener) {
+    	if (eventListeners == null)
+    		return;
+    	this.eventListeners.remove(eventListener);
     }
 
     public Element getResult()
@@ -98,4 +124,23 @@ public class ElementStubAssembler
     {
         return result.getXmiId();  
     }
+
+	public List<FumlObject> getResults() {
+		List<FumlObject> results = new ArrayList<FumlObject>();
+		results.add(result.getTarget());
+		return results;
+	}
+
+	public List<String> getResultsXmiIds() {
+		List<String> results = new ArrayList<String>();
+		results.add(result.getXmiId());
+		return results;
+	}
+
+	public Element lookupResult(String xmiId) {
+		if (result.getXmiId().equals(xmiId))
+			return result.getTarget();
+		else
+			return null;
+	}
 }

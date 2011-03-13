@@ -26,6 +26,7 @@ import javanet.staxutils.events.EventAllocator;
 import javax.xml.namespace.QName;
 import javax.xml.stream.Location;
 import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLResolver;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
@@ -72,9 +73,36 @@ public class StreamReader implements XmiReader {
     	
 		try {
 			XMLInputFactory factory = XMLInputFactory.newInstance();
+			
+						
+			factory.setXMLResolver(new XMLResolver() {
+
+				@Override
+				public Object resolveEntity(String publicID,
+	                     String systemID,
+	                     String baseURI,
+	                     String namespace) throws XMLStreamException {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				
+			});
+			
+			/*
+			XStream xstream = new XStream(new StaxDriver() {
+				protected XMLStreamReader createParser(Reader xml) throws
+				XMLStreamException {
+				return getInputFactory().createXMLStreamReader(xml);
+				}
+				protected XMLStreamReader createParser(InputStream xml) throws
+				XMLStreamException {
+				return getInputFactory().createXMLStreamReader(xml);
+				}
+				});
+			*/
             
-            //factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES,Boolean.TRUE);
-            //factory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES,Boolean.FALSE);
+            //factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES,Boolean.FALSE);
+            //factory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES,Boolean.TRUE);
             //set the IS_COALESCING property to true , if application desires to
             //get whole text data as one event.            
             //factory.setProperty(XMLInputFactory.IS_COALESCING , Boolean.TRUE);
@@ -84,6 +112,7 @@ public class StreamReader implements XmiReader {
             allocator = factory.getEventAllocator();
             XMLStreamReader streamReader = factory.createXMLStreamReader(stream);
             
+            
             int eventType = streamReader.getEventType();
             StreamNode node = null;
             StreamNode parent = null;
@@ -92,6 +121,8 @@ public class StreamReader implements XmiReader {
             
             while(streamReader.hasNext()){
                 eventType = streamReader.next();
+                //if (log.isDebugEnabled())
+                //    log.debug(this.getEventTypeString(eventType));
                                 
                 switch (eventType){
                 case XMLEvent.START_ELEMENT:
@@ -105,6 +136,12 @@ public class StreamReader implements XmiReader {
                         if (context != null)
                             throw new XmiException("existing context unexpected");
                         context = new StreamContext(event);
+                    }
+                    
+                    // debugging
+                    if (event.toString().contains("plasma:PlasmaType")) {
+                    	int foo = 1;
+                    	foo++;
                     }
                         
                     node = new StreamNode(event, context);
@@ -221,9 +258,8 @@ public class StreamReader implements XmiReader {
         {    
             List<StreamNodeListener> list = streamNodeListenerMap.get(node.getLocalName());
             if (list != null) {
-                Iterator<StreamNodeListener> listeners = list.iterator();
-                while (listeners.hasNext())
-                    listeners.next().nodeCreated(
+            	for (StreamNodeListener listener : list)
+                    listener.nodeCreated(
                         new StreamNodeEvent(node, parent));
             }
         }	    
@@ -236,10 +272,9 @@ public class StreamReader implements XmiReader {
         {    
             List<StreamNodeListener> list = streamNodeListenerMap.get(node.getLocalName());
             if (list != null) {
-                Iterator<StreamNodeListener> listeners = list.iterator();
-                while (listeners.hasNext())
-                    listeners.next().nodeCompleted(
-                        new StreamNodeEvent(node, parent));
+            	for (StreamNodeListener listener : list)
+            		listener.nodeCompleted(
+                    		new StreamNodeEvent(node, parent));
             }
         }       
     }

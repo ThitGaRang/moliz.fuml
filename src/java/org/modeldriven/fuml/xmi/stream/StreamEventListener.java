@@ -15,8 +15,8 @@ import java.util.EventListener;
 
 /**
  * A base listener interface for this package. Makes the assumption that all 
- * events for the stream package are triggered by XML elements within the stream.
- * FIXME: bad assumption? 
+ * events for the stream package are triggered by XML elements within the stream, and not
+ * attributes, character entities or other lower level STAX stream events. 
  *  
  * @author Scott Cinnamond
  */

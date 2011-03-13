@@ -21,9 +21,18 @@ import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
+
+import fUML.Syntax.Classes.Kernel.Element;
+
+import org.modeldriven.fuml.assembly.AssemblyAdapter;
+import org.modeldriven.fuml.assembly.AssemblyException;
+import org.modeldriven.fuml.common.reflect.ReflectionUtils;
+import org.modeldriven.fuml.config.FumlConfiguration;
+import org.modeldriven.fuml.config.ImportAdapter;
+import org.modeldriven.fuml.repository.Class_;
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Property;
 
 /**
  * General XMINodeVisitor implementation superclass encapsulating common structure and 
@@ -34,9 +43,9 @@ import org.modeldriven.fuml.xmi.stream.StreamNode;
 public abstract class AbstractXmiNodeVisitor {
     private static Log log = LogFactory.getLog(AbstractXmiNodeVisitor.class);
 
-    protected XmiNode root;
+    protected XmiNode xmiRoot;
     protected ModelSupport modelSupport;
-    protected Map<XmiNode, UmlClassifier> classifierMap = new HashMap<XmiNode, UmlClassifier>();
+    protected Map<XmiNode, Classifier> classifierMap = new HashMap<XmiNode, Classifier>();
     protected Map<String, XmiNode> nodeMap = new HashMap<String, XmiNode>();
     protected List<XmiReference> references = new ArrayList<XmiReference>();
 
@@ -46,17 +55,17 @@ public abstract class AbstractXmiNodeVisitor {
 	
 	protected AbstractXmiNodeVisitor(XmiNode root) {
 		this();
-		this.root = root;
+		this.xmiRoot = root;
 	}
 	
-	protected UmlClassifier findClassifier(XmiNode target, XmiNode source)
+	protected Classifier findClassifier(XmiNode target, XmiNode source)
 	{
-		UmlClassifier classifier = modelSupport.findClassifier(target);
+		Classifier classifier = modelSupport.findClassifier(target);
 		if (classifier == null)
 		{	
 			if (source != null)
 			{	
-			    UmlClassifier sourceClassifier = classifierMap.get(source);
+				Class_  sourceClassifier = (Class_ )classifierMap.get(source);
 			    if (sourceClassifier != null)
 			        classifier = modelSupport.findClassifier(target, sourceClassifier);
 			}
@@ -64,29 +73,47 @@ public abstract class AbstractXmiNodeVisitor {
 		return classifier;
 	}
 	
-	protected boolean isPrimitiveTypeElement(XmiNode node, UmlClassifier classifier,
+	protected Classifier findClassifierFromImportAdapter(XmiNode target)
+	{
+		Classifier classifier = null;
+        ImportAdapter importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+        		target.getLocalName());
+        if (importAdapter != null) {
+        	AssemblyAdapter adapter = null;
+            try {
+				adapter = (AssemblyAdapter) ReflectionUtils.instanceForName(importAdapter
+				        .getAdapterClassName());
+			} catch (Exception e) {
+				throw new AssemblyException(e);
+			}
+            classifier = adapter.getClassifier((StreamNode) target);        
+        }
+        return classifier;
+	}
+		
+	protected boolean isPrimitiveTypeElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		return modelSupport.isPrimitiveTypeElement(node, classifier, hasAttributes);
 	}
 
-	protected boolean isInternalReferenceElement(XmiNode node, UmlClassifier classifier,
+	protected boolean isInternalReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
 		return modelSupport.isInternalReferenceElement(node, classifier, hasAttributes);
 	}
 
-    protected boolean isExternalReferenceElement(XmiNode node, UmlClassifier classifier,
+    protected boolean isExternalReferenceElement(XmiNode node, Classifier classifier,
             boolean hasAttributes)
     {
         return modelSupport.isExternalReferenceElement(node, classifier, hasAttributes);
     }
 	
-	protected boolean isAbstract(UmlClassifier classifier) {
-		return modelSupport.isAbstract(classifier);
+	protected boolean isAbstract(Classifier classifier) {
+		return classifier.isAbstract();
 	}
 	
-	protected boolean isReferenceAttribute(UmlProperty property)
+	protected boolean isReferenceAttribute(Property property)
 	{
 		return modelSupport.isReferenceAttribute(property);
 	}

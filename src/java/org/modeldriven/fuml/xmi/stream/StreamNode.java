@@ -25,7 +25,8 @@ import javax.xml.stream.events.XMLEvent;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.config.FumlConfiguration;
-import org.modeldriven.fuml.config.ImportElement;
+import org.modeldriven.fuml.config.ImportExemption;
+import org.modeldriven.fuml.config.ImportExemptionType;
 import org.modeldriven.fuml.config.NamespaceDomain;
 import org.modeldriven.fuml.xmi.XmiConstants;
 import org.modeldriven.fuml.xmi.XmiNode;
@@ -63,6 +64,9 @@ public class StreamNode implements XmiNode {
         // off here. Tried the default event allocator in both
         // the Sun RI and the associated utilities. 
         this.location = new StreamLocation(startElement.getLocation());
+        if (log.isDebugEnabled())
+        	log.debug("created '" + this.getLocation() + "' node (" + 
+        			this.getXmiId() + ")");
     }
     
     public StreamNode(XMLEvent startElement, StreamContext context) {
@@ -86,6 +90,15 @@ public class StreamNode implements XmiNode {
 	        return this.context.getDefaultNamespace().getNamespaceURI();
 	    else
 	        return name.getNamespaceURI();
+	}
+	
+	public String getPrefix() {
+	    QName name = startElementEvent.asStartElement().getName();
+	    String uri = name.getNamespaceURI();
+	    if (uri == null || uri.trim().length() == 0)
+	        return this.context.getDefaultNamespace().getPrefix();
+	    else
+	        return name.getPrefix();
 	}
 
 	public String getData()
@@ -218,6 +231,9 @@ public class StreamNode implements XmiNode {
         if (nodes == null)
             nodes = new ArrayList<XmiNode>();
         nodes.add(node);
+        if (log.isDebugEnabled())
+        	log.debug("added '" + node.getLocalName() + "' (" + node.getXmiId() + ") child node to "
+        		+ this.getLocation() + "' parent node (" + this.getXmiId() + ")");
     }
     
     public XmiNode getParent() {
@@ -272,7 +288,11 @@ public class StreamNode implements XmiNode {
     
     public boolean removeChild(XmiNode child)
     {
-        return this.nodes.remove(child);
+    	boolean removed = this.nodes.remove(child);
+        if (log.isDebugEnabled())
+        	log.debug("removed '" + child.getLocalName() + "' (" + child.getXmiId() + ") child node to "
+        		+ this.getLocation() + "' parent node (" + this.getXmiId() + ")");
+        return removed;
     }
     
     public XMLEvent getStartElementEvent() {
@@ -351,13 +371,17 @@ public class StreamNode implements XmiNode {
         {
             uri = this.context.getDefaultNamespace().getNamespaceURI();
         }
-        NamespaceDomain domain = FumlConfiguration.getInstance().findNamespaceDomain(uri);
         
-        ImportElement importElement = FumlConfiguration.getInstance().findImportElement(this.getLocalName());
+        ImportExemption importExemption = FumlConfiguration.getInstance().findImportExemptionByElement(this.getLocalName());
         
-        if (importElement != null && importElement.isIgnored() && 
-                importElement.getDomain().ordinal() == domain.ordinal())
+        if (importExemption != null) { 
+        	
+            NamespaceDomain domain = FumlConfiguration.getInstance().getNamespaceDomain(uri);
+        	if (importExemption.getType().ordinal() == ImportExemptionType.ELEMENT.ordinal() &&
+        		importExemption.getDomain().ordinal() == domain.ordinal())
+        		
             return true;
+        }
 	    return false;
 	}
 

@@ -10,10 +10,12 @@
  */
 package org.modeldriven.fuml.assembly;
 
+import org.modeldriven.fuml.repository.Classifier;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
 
 import fUML.Syntax.Classes.Kernel.Element;
 
 public interface AssemblyAdapter {
-    public Element assemble(StreamNode node);
+    public Classifier getClassifier(StreamNode node);
+    public Element assembleElement(StreamNode node);
 }

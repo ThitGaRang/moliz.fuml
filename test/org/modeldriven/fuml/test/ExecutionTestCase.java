@@ -2,27 +2,18 @@ package org.modeldriven.fuml.test;
 
 
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
 
-import javax.xml.bind.JAXBElement;
+import junit.framework.Test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.FUML;
+import org.modeldriven.fuml.Fuml;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.environment.ExecutionEnvironment;
-import org.modeldriven.fuml.xmi.XmiDataBinding;
-import org.modeldriven.fuml.xmi.XmiReader;
 
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
-
-import junit.framework.Test;
+import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
 /**
  * 
@@ -30,49 +21,103 @@ import junit.framework.Test;
 public class ExecutionTestCase extends FUMLTest {
     private static Log log = LogFactory.getLog(ExecutionTestCase.class);
     
+    private static Environment environment; // JUnit creates a new test class for every test! 
+    private static String namespaceURI = "http://org.modeldriven.fuml/test/uml/magicdraw/fUML-Tests.uml";
+    
     public static Test suite() {
         return FUMLTestSetup.newTestSetup(ExecutionTestCase.class);
     }
     
     public void setUp() throws Exception {
+        if (ExecutionTestCase.environment == null)
+        {    
+            ExecutionTestCase.environment = Environment.getInstance();
+            String filename = "./test/mdxml/fUML-Tests.mdxml";
+            File file = new File(filename);
+            assertTrue("file '" + filename + "' does not exist", file.exists());
+            Fuml.load(file, namespaceURI);
+            //Fuml.loadIncrementally(file, namespaceURI);
+        }
     }
     
-    public void testCopierExecution() throws Exception {
-        log.info("testCopierExecution");
-        String filename = "./test/xmi/copier.xmi";
-        File file = new File(filename);
-        assertTrue("file '" + filename + "' does not exist", file.exists());
-        FUML fuml = new FUML(file);
-        log.info("done");
-    }    
-
-    public void testCopierMagicDrawExecution() throws Exception {
-        log.info("testCopierMagicDrawExecution");
-        String filename = "./test/uml/magicdraw/copier-v2.x.uml";
-        File file = new File(filename);
-        assertTrue("file '" + filename + "' does not exist", file.exists());
-        FUML fuml = new FUML(file);
-        log.info("done");
-    }    
-      
-    public void testCopierCallerExecution() throws Exception {
-        log.info("testCopierCallerExecution");
-        String filename = "./test/xmi/copier-caller.xmi";
-        File file = new File(filename);
-        assertTrue("file '" + filename + "' does not exist", file.exists());
-        FUML fuml = new FUML(file, "CopierCaller");
+    public void testCopier() throws Exception {
+        execute("Copier");
         log.info("done");
     }
     
-
-    public void testForkJoinExecution() throws Exception {
-        log.info("testForkJoinExecution");
-        String filename = "./test/xmi/fork-join.xmi";
-        File file = new File(filename);
-        assertTrue("file '" + filename + "' does not exist", file.exists());
-        FUML fuml = new FUML(file, "ForkJoin");
+    public void testCopierCaller() throws Exception {
+        execute("CopierCaller");
         log.info("done");
-    }    
+    }
+  
+    public void testSimpleDecision() throws Exception {
+        execute("SimpleDecision");
+        log.info("done");
+    }
+       
+    public void testForkJoin() throws Exception {
+        execute("ForkJoin");
+        log.info("done");
+    }
+    
+    public void testDecisionJoin() throws Exception {
+        execute("DecisionJoin");
+        log.info("done");
+    }
+    
+    public void testForkMerge() throws Exception {
+        execute("ForkMerge");
+        log.info("done");
+    }
 
+    public void testTestClassExtentReader() throws Exception {
+        execute("TestClassExtentReader");
+        log.info("done");
+    }
+    
+    public void testSelfReader() throws Exception {
+        execute("SelfReader");
+        log.info("done");
+    }
 
+    public void testIdentityTester() throws Exception {
+        execute("IdentityTester");
+        log.info("done");
+    }
+ 
+    public void testTestClassObjectCreator() throws Exception {
+        execute("TestClassObjectCreator");
+        log.info("done");
+    }
+
+    public void testObjectDestroyer() throws Exception {
+        execute("ObjectDestroyer");
+        log.info("done");
+    }
+    public void testTestClassWriterReader() throws Exception {
+        execute("TestClassWriterReader");
+        log.info("done");
+    }
+
+    public void testTestClassAttributeWriter() throws Exception {
+        execute("TestClassAttributeWriter");
+        log.info("done");
+    }
+/*
+ -- infinite loop !!    
+    public void testTestSimpleActivities() throws Exception {
+        execute("TestSimpleActivities");
+        log.info("done");
+    }
+*/    
+    private void execute(String activityName)
+    {
+        Behavior behavior = environment.findBehavior(activityName);
+        if (behavior == null)
+            throw new RuntimeException("invalid behavior, " + activityName);
+        log.info("executing behavior: " + behavior.name);
+        ExecutionEnvironment execution = new ExecutionEnvironment(environment);
+        execution.execute(behavior);
+    }
+    
 }

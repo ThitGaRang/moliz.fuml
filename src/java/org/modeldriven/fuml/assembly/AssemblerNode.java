@@ -46,6 +46,15 @@ public class AssemblerNode implements XmiElement {
     public String getLocalName() {
         return xmiElement.getLocalName();
     }
+    
+	public String getNamespaceURI() {
+		return xmiElement.getNamespaceURI();
+	}
+
+	public String getPrefix() {
+		return xmiElement.getPrefix();
+	}    
+    
 
     public String getData() {
         return xmiElement.getData();
@@ -128,6 +137,6 @@ public class AssemblerNode implements XmiElement {
             visitor.begin(target, source, sourceKey, level);
         else
             visitor.end(target, source, sourceKey, level);
-    }    
-    
+    }
+
 }

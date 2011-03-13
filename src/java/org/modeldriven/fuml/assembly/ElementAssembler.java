@@ -14,11 +14,9 @@
  */
 package org.modeldriven.fuml.assembly;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,11 +28,17 @@ import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.FumlObject;
 import org.modeldriven.fuml.common.lang.JavaKeyWords;
+import org.modeldriven.fuml.common.reflect.ReflectionUtils;
+import org.modeldriven.fuml.common.uuid.UUIDGenerator;
 import org.modeldriven.fuml.config.FumlConfiguration;
 import org.modeldriven.fuml.config.ImportAdapter;
 import org.modeldriven.fuml.config.ImportAdapterType;
+import org.modeldriven.fuml.config.NamespaceDomain;
 import org.modeldriven.fuml.config.ReferenceMappingType;
+import org.modeldriven.fuml.config.ValidationExemption;
+import org.modeldriven.fuml.config.ValidationExemptionType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
 import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
@@ -61,16 +65,16 @@ import org.modeldriven.fuml.xmi.validation.ValidationException;
 import UMLPrimitiveTypes.UnlimitedNatural;
 
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
-import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Comment;
+import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
+import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
 
-public class ElementAssembler extends AssemblerNode
-    implements XmiIdentity, Assembler {
+public class ElementAssembler extends AssemblerNode implements XmiIdentity, Assembler {
 
     private static Log log = LogFactory.getLog(ElementAssembler.class);
-    private Model metadata = Model.getInstance();
+    private Repository metadata = Repository.INSTANCE;
     private List<XmiReference> references;
     private Map<String, ElementAssembler> assemblerMap;
     private ModelSupport modelSupport;
@@ -82,9 +86,13 @@ public class ElementAssembler extends AssemblerNode
     private XmiNode source;
     private XmiNode parent;
     private Attribute xmiId;
+    private Attribute xmiHref;
+    
+    /** namespace source */
+    private String xmiNamespace;
 
     /** UML meta-class */
-    private UmlClassifier prototype;
+    private Class_ prototype;
 
     /** fUML class target(s) */
     private Element target;
@@ -95,208 +103,230 @@ public class ElementAssembler extends AssemblerNode
         // nope
     }
 
-    public ElementAssembler(XmiNode source, XmiNode parent, UmlClassifier prototype,
-    		Map<String, ElementAssembler> assemblerMap)
-    {
+    public ElementAssembler(XmiNode source, XmiNode parent, Class_ prototype,
+            Map<String, ElementAssembler> assemblerMap) {
         super(source);
         this.source = source;
         this.parent = parent;
         this.prototype = prototype;
         this.assemblerMap = assemblerMap;
-		modelSupport = new ModelSupport();
-        StreamNode eventNode = (StreamNode)this.source;
+        modelSupport = new ModelSupport();
+        StreamNode eventNode = (StreamNode) this.source;
 
         QName idName = new QName(eventNode.getContext().getXmiNamespace().getNamespaceURI(), "id");
-        xmiId = eventNode.getAttribute(idName);
+        this.xmiId = eventNode.getAttribute(idName);
+        QName hrefName = new QName("href");
+        this.xmiHref = eventNode.getStartElementEvent().asStartElement().getAttributeByName(hrefName);
+        
+        
+        this.xmiNamespace = eventNode.getNamespaceURI();
+        if (this.xmiNamespace == null)
+        	throw new AssemblyException("could not find namespace for node '"
+        			+ eventNode.getLocalName() + "'");
     }
 
     public ElementAssembler getParentAssembler() {
-		return parentAssembler;
-	}
+        return parentAssembler;
+    }
 
-	public void setParentAssembler(ElementAssembler parentAssembler) {
-		this.parentAssembler = parentAssembler;
-	}
+    public void setParentAssembler(ElementAssembler parentAssembler) {
+        this.parentAssembler = parentAssembler;
+    }
 
-	@SuppressWarnings("unchecked")
-    public void assembleElementClass()
-    {
-    	try {
-	        String packageName = metadata.getPackageForClass(this.prototype.getName());
-            String instancecClassName = this.prototype.getName();
+    @SuppressWarnings("unchecked")
+    public void assembleElementClass() {
+        try {
+        	
+            String packageName = metadata.getJavaPackageNameForClass(this.prototype);
+            String instancecClassName = this.prototype.getDelegate().name;
+            // TODO: We have a keyword map, but unclear whether upper-case 'Class' should be mapped. Definately 'class' is.
             if ("Class".equals(instancecClassName))
-                instancecClassName = instancecClassName + "_"; // We have a keyword map, but unclear whether upper-case 'Class' should be mapped. Definately 'class' is.
-	        String qualifiedName = packageName + "." + instancecClassName;
+                instancecClassName = instancecClassName + "_"; 
+            
+            String qualifiedName = packageName + "." + instancecClassName;
 
-            Object object = null;
-	        ImportAdapter importAdapter = FumlConfiguration.getInstance().findImportAdapter(
-	                instancecClassName);
-	        if (importAdapter == null ||
-	                importAdapter.getType().ordinal() != ImportAdapterType.ASSEMBLY.ordinal())
-	        {
-	            object = this.instanceForName(qualifiedName);
-	        }
-	        else
-	        {
-	            AssemblyAdapter adapter = (AssemblyAdapter)this.instanceForName(
-	                    importAdapter.getAdapterClassName());
-	            object = adapter.assemble((StreamNode)this.source);
-	        }
+            FumlObject object = null;
+            ImportAdapter importAdapter = FumlConfiguration.getInstance().findImportAdapter(
+                    instancecClassName);
+            if (importAdapter == null
+                    || importAdapter.getType().ordinal() != ImportAdapterType.ASSEMBLY.ordinal()) {
+                object = (FumlObject)ReflectionUtils.instanceForName(qualifiedName);
+            } else {
+                AssemblyAdapter adapter = (AssemblyAdapter) ReflectionUtils.instanceForName(importAdapter
+                        .getAdapterClassName());
+                object = adapter.assembleElement((StreamNode) this.source);
+            }
+            
+            if (this.xmiId != null)
+                object.setXmiId(this.xmiId.getValue());
+            else
+            	object.setXmiId(UUIDGenerator.instance().getIdString36()); // synthesize one
+            if (this.xmiHref != null)
+                object.setHref(this.xmiHref.getValue());
+            if (this.xmiId == null && this.xmiHref == null)
+            	log.warn("found (" + object.getClass().getName() + ") element with no xmi:id or href");
+            object.setXmiNamespace(this.xmiNamespace);
 
-	        if (object instanceof Element)
-	        {
-	            if (object instanceof PrimitiveType)
-	            {
-	                QName name = new QName("href");
-	                StreamNode eventNode = (StreamNode)source;
-	                Attribute href = eventNode.getStartElementEvent().asStartElement().getAttributeByName(name);
-	                if (href == null)
-	                    throw new AssemblyException("expected 'href' attribute for primitive type");
-	                // FIXME; gotta be a better way! URI resolver??
-	                if (href.getValue().endsWith("Integer"))
-	                    this.target = Environment.getInstance().primitiveTypes.Integer;
-	                else if (href.getValue().endsWith("String"))
-	                    this.target = Environment.getInstance().primitiveTypes.String;
-	                else if (href.getValue().endsWith("Boolean"))
-	                    this.target = Environment.getInstance().primitiveTypes.Boolean;
-	                else if (href.getValue().endsWith("UnlimitedNatural"))
-	                    this.target = Environment.getInstance().primitiveTypes.UnlimitedNatural;
-	                else
-	                    throw new AssemblyException("unknown type");
-	            }
-	            else
-	            {
-	                this.target = (Element)object;
-	                if (log.isDebugEnabled())
-	                    log.debug("constructing class " + this.target.getClass().getName());
-	            }
-	        }
-	        else if (object instanceof Comment)
-	        {
-	            this.targetComment = (Comment)object;
-	            log.warn("instantiated comment (?)");
-	        }
-	        else
-	            throw new AssemblyException("unknown instance, "
-	                    + object.getClass().getName());
-        }
-        catch (ClassNotFoundException e) {
+            if (object instanceof Element) {
+                if (object instanceof PrimitiveType) {
+                    if (object.getHref() == null)
+                        throw new AssemblyException("expected 'href' attribute for primitive type");
+                    // FIXME; gotta be a better way! URI resolver??
+                    // Note: Path map variables allow for portability of URIs. The actual location 
+                    // indicated by a URI depends on the run-time binding of the path variable. Thus, different 
+                    // environments can work with the same resource URIs even though the 
+                    // resources are stored in different physical locations.
+                    if (object.getHref().endsWith("Integer"))
+                        this.target = Environment.getInstance().getInteger();
+                    else if (object.getHref().endsWith("String"))
+                        this.target = Environment.getInstance().getString();
+                    else if (object.getHref().endsWith("Boolean"))
+                        this.target = Environment.getInstance().getBoolean();
+                    else if (object.getHref().endsWith("UnlimitedNatural"))
+                        this.target = Environment.getInstance().getUnlimitedNatural();
+                    else
+                        throw new AssemblyException("unknown type, " + object.getHref());
+                    
+                    //this.target = (Element) object; 
+                    if (this.target == null)
+                    	throw new AssemblyException("could not determine target object for prototype, "
+                    		+ this.prototype.getXmiNamespace() + "#" 
+                    		+ this.prototype.getName());
+                    
+                } else {
+                    this.target = (Element) object;
+                    if (this.target == null)
+                    	throw new AssemblyException("could not determine target object for prototype, "
+                    		+ this.prototype.getXmiNamespace() + "#" 
+                    		+ this.prototype.getName());
+                    if (log.isDebugEnabled())
+                        log.debug("constructing class " + this.target.getClass().getName());
+                }
+            } else if (object instanceof Comment) {
+                this.targetComment = (Comment) object;
+                if (this.targetComment == null)
+            	    throw new AssemblyException("could not determine target object for prototype, "
+                		+ this.prototype.getXmiNamespace() + "#" 
+                		+ this.prototype.getName());
+            } else
+                throw new AssemblyException("unknown instance, " + object.getClass().getName());
+        } catch (ClassNotFoundException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             log.error(e.getCause().getMessage(), e.getCause());
             throw new AssemblyException(e.getCause());
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InstantiationException e) {
-        	if (e.getCause() != null)
-        		log.error(e.getCause().getMessage(), e.getCause());
-        	else
+        } catch (InstantiationException e) {
+            if (e.getCause() != null)
+                log.error(e.getCause().getMessage(), e.getCause());
+            else
                 log.error(e.getMessage(), e);
             throw new AssemblyException(e);
         }
     }
 
-	// TODO: move this to library.Library setting up the locus
-	// as elements are registered. Current;y can't do this as opposite
-	// properties are not being set. I.e. a packagedElement does not
-	// know it's package (parent). We are relying on the assembler
-	// hierarchy to do this (below), which is unnecessary/hacky. The metadata will
-	// need to be enhanced to find opposite properties using associations.
-	// This is rather easy, but not in 1 day probably.
+    // TODO: move this to library.Library setting up the locus
+    // as elements are registered. Current;y can't do this as opposite
+    // properties are not being set. I.e. a packagedElement does not
+    // know it's package (parent). We are relying on the assembler
+    // hierarchy to do this (below), which is unnecessary/hacky. The metadata
+    // will
+    // need to be enhanced to find opposite properties using associations.
+    // 
     @SuppressWarnings("unchecked")
-    public void registerElement()
-    {
+    public void registerElement() {
         try {
-            if (!(this.target instanceof Class_))
+            if (!(this.target instanceof Type))
                 return;
 
-            Class_ c = (Class_)this.target;
-
-            String packageName = "";
-
+            Type targetType = (Type) this.target;
+            
             ElementAssembler assembler = this;
-            for (int i = 0; (assembler = assembler.getParentAssembler()) != null; i++)
-            {
-            	if (assembler.getTarget() instanceof fUML.Syntax.Classes.Kernel.Package)
-            	{
-            		String name = ((fUML.Syntax.Classes.Kernel.Package)assembler.getTarget()).name;
-                	if (i > 0)
-                		packageName = name + "." + packageName;
-                	else
-                		packageName = name;
-            	}
-            	else
-            		break;
+
+            // FIXME: generalize this hack using associations in metamodel. For incremental
+            // assembly where we remove chunks of XMI from the parent (packagedElement), this
+            // scheme breaks because it relies on a continuous graph. 
+            String qualifiedPackageName = "";
+            fUML.Syntax.Classes.Kernel.Package parentPackage = null;
+            if (assembler.getParentAssembler() != null && 
+                assembler.getParentAssembler().getTarget() instanceof fUML.Syntax.Classes.Kernel.Package) {
+            	parentPackage = (fUML.Syntax.Classes.Kernel.Package)assembler.getParentAssembler().getTarget();
             }
 
-            String libraryObjectClassName = packageName + "." + c.name;
+            for (int i = 0; (assembler = assembler.getParentAssembler()) != null; i++) {
+                if (assembler.getTarget() instanceof fUML.Syntax.Classes.Kernel.Package) {
+                	fUML.Syntax.Classes.Kernel.Package pckg = (fUML.Syntax.Classes.Kernel.Package) assembler.getTarget();
+                    String name = pckg.name;
+                    if (i > 0)
+                        qualifiedPackageName = name + "." + qualifiedPackageName;
+                    else
+                        qualifiedPackageName = name;
+                } else
+                    break;
+            }
 
-            String implObjectClassName = FumlConfiguration.getInstance().findExecutionClassName(libraryObjectClassName);
+            // FIXME: generalize this hack using associations in metamodel
+            String libraryObjectClassName = null;
+            if (qualifiedPackageName != null && qualifiedPackageName.trim().length() > 0)
+            	libraryObjectClassName = qualifiedPackageName + "." + targetType.name;
+            else
+            	libraryObjectClassName = targetType.name;
+            
+            targetType.qualifiedName = libraryObjectClassName;
+            
+            if (parentPackage != null)
+            	targetType.package_ = parentPackage;
+            
+            if (!(targetType instanceof fUML.Syntax.Classes.Kernel.Class_))
+            	return;
+            fUML.Syntax.Classes.Kernel.Class_ targetClass = (fUML.Syntax.Classes.Kernel.Class_)targetType;
+
+            String implObjectClassName = FumlConfiguration.getInstance().findExecutionClassName(
+                    libraryObjectClassName);
             if (implObjectClassName == null)
                 return; // not mapped - we're not interested
 
-            UmlClassifier implClassifier = metadata.findClassifier(implObjectClassName);
-            if (implClassifier == null)
-            {
-                throw new AssemblyException("no classifier found for mapped class '"
-                        + implObjectClassName + "'");
-                // FIXME: get rid of or validate the config on startup so this can't happen
-                //return;
+            Classifier implClassifier = metadata.getClassifierByQualifiedName(implObjectClassName);
+            if (implClassifier == null) {
+            	if (log.isDebugEnabled())
+                    log.debug("(expected) no classifier found for mapped library class '"
+                        + implObjectClassName + "' for library class, " 
+                        + libraryObjectClassName);
             }
-            if (metadata.isAbstract(implClassifier))
-            {
-                log.warn("abstract classifier found for mapped class '"
-                        + implObjectClassName + "' - ignoring");
-                return;
-            }
-            log.info("mapped " + c.name + " to " + implClassifier.getName());
-            String implObjectPackageName = metadata.findPackageForClass(implObjectClassName);
-            String qualifiedName = implObjectPackageName + "." + implObjectClassName;
-            Object object = this.instanceForName(qualifiedName);
+            log.info("mapped " + targetType.name + " to " + implObjectClassName);
+            
+            Object object = ReflectionUtils.instanceForName(implObjectClassName);
 
-            if (object instanceof ImplementationObject)
-            {
-                ImplementationObject execution = (ImplementationObject)object;
-                execution.types.add(c);
+            if (object instanceof ImplementationObject) {
+                ImplementationObject execution = (ImplementationObject) object;
+                execution.types.add(targetClass);
                 log.info("adding to locus: " + execution.getClass().getName());
                 Environment.getInstance().locus.add(execution);
-            }
-            else if (object instanceof OpaqueBehaviorExecution)
-            {
-                OpaqueBehaviorExecution execution = (OpaqueBehaviorExecution)object;
-                execution.types.add(c);
+            } else if (object instanceof OpaqueBehaviorExecution) {
+                OpaqueBehaviorExecution execution = (OpaqueBehaviorExecution) object;
+                execution.types.add(targetClass);
                 Environment.getInstance().locus.factory.addPrimitiveBehaviorPrototype(execution);
-            }
-            else
-                log.warn("unknown instance, "
-                    + object.getClass().getName());
-        }
-        catch (ClassNotFoundException e) {
+            } else
+                log.warn("unknown instance, " + object.getClass().getName());
+        } catch (ClassNotFoundException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             log.error(e.getCause().getMessage(), e.getCause());
             throw new AssemblyException(e.getCause());
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             if (e.getCause() != null)
                 log.error(e.getCause().getMessage(), e.getCause());
             else
@@ -307,132 +337,132 @@ public class ElementAssembler extends AssemblerNode
 
     // TODO: find the "opposite" property using metadata and value
     // that as well. Metadata will need to be enhanced to use associations.
-    public void associateElement(ElementAssembler other)
-    {
+    public void associateElement(ElementAssembler other) {
         try {
-            UmlProperty property = metadata.findAttribute((UmlClass)other.getPrototype(),
-                    this.getSource().getLocalName());
+            Property property = other.getPrototype().findProperty(this.getSource().getLocalName());
             if (property == null)
                 return; // we validate this elsewhere
 
-            if (!metadata.isSingular((UmlClass)other.getPrototype(), property))
-            {
+            if (!property.isSingular()) {
                 if (log.isDebugEnabled())
-                    log.debug("linking collection property: "
-                        + other.getPrototype().getName() + "." + this.getSource().getLocalName()
-                        + " with: " + this.getPrototype().getName());
+                    log.debug("linking collection property: " + other.getPrototype().getName() + "."
+                            + this.getSource().getLocalName() + " with: "
+                            + this.getPrototype().getName());
                 try {
-                    String methodName = "add" + this.getSource().getLocalName().substring(0,1).toUpperCase() +
-                        this.getSource().getLocalName().substring(1);
-                    Method adder = getMethod(
-                        other.getTargetClass(),
-                        methodName,
-                        this.getTargetClass());
+                    String methodName = "add"
+                            + this.getSource().getLocalName().substring(0, 1).toUpperCase()
+                            + this.getSource().getLocalName().substring(1);
+                    Method adder = ReflectionUtils.getMethod(other.getTargetClass(), methodName, this
+                            .getTargetClass());
                     Object[] args = { this.getTargetObject() };
                     adder.invoke(other.getTarget(), args);
-                }
-                catch (NoSuchMethodException e) {
+                } catch (NoSuchMethodException e) {
                     // try to get and add to the list field if exists
                     try {
-                        Field field = other.getTargetClass().getField(this.getSource().getLocalName());
+                        Field field = other.getTargetClass().getField(
+                                this.getSource().getLocalName());
                         Object list = field.get(other.getTargetObject());
-                        Method adder = getMethod(list.getClass(), "add",
-                            this.getTargetClass());
+                        Method adder = ReflectionUtils.getMethod(list.getClass(), "add", this.getTargetClass());
                         Object[] args = { this.getTargetObject() };
                         adder.invoke(list, args);
-                    }
-                    catch (NoSuchFieldException e2) {
+                    } catch (NoSuchFieldException e2) {
                         log.warn("no 'add' or 'List.add' method found for property, "
-                            + other.getPrototype().getName() + "." + this.getSource().getLocalName());
+                                        + other.getPrototype().getName() + "."
+                                        + this.getSource().getLocalName());
                     }
                 }
-            }
-            else {
+            } else {
                 if (log.isDebugEnabled())
-                    log.debug("linking singular property: "
-                        + other.getPrototype().getName() + "." + this.getSource().getLocalName()
-                        + " with: " + this.getPrototype().getName());
+                    log.debug("linking singular property: " + other.getPrototype().getName() + "."
+                            + this.getSource().getLocalName() + " with: "
+                            + this.getPrototype().getName());
                 try {
-                    String methodName = "set" + this.getSource().getLocalName().substring(0,1).toUpperCase() +
-                        this.getSource().getLocalName().substring(1);
-                    Method setter = getMethod(
-                        other.getTargetClass(),
-                        methodName,
-                        this.getTargetClass());
+                    String methodName = "set"
+                            + this.getSource().getLocalName().substring(0, 1).toUpperCase()
+                            + this.getSource().getLocalName().substring(1);
+                    Method setter = ReflectionUtils.getMethod(other.getTargetClass(), methodName, this
+                            .getTargetClass());
                     Object[] args = { this.getTargetObject() };
                     setter.invoke(other.getTarget(), args);
-                }
-                catch (NoSuchMethodException e) {
+                } catch (NoSuchMethodException e) {
                     // try to get and add to the list field if exists
                     try {
-                        Field field = other.getTargetClass().getField(this.getSource().getLocalName());
+                        Field field = other.getTargetClass().getField(
+                                this.getSource().getLocalName());
                         field.set(other.getTargetObject(), this.getTargetObject());
-                    }
-                    catch (NoSuchFieldException e2) {
+                    } catch (NoSuchFieldException e2) {
                         log.warn("no 'set' method or public field found for property, "
-                            + other.getPrototype().getName() + "." + this.getSource().getLocalName());
+                                        + other.getPrototype().getName() + "."
+                                        + this.getSource().getLocalName());
                     }
                 }
             }
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             log.error(e.getCause().getMessage(), e.getCause());
             throw new AssemblyException(e.getCause());
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
         }
     }
 
-    public void assemleFeatures()
-    {
+    public void assemleFeatures() {
         try {
-            StreamNode eventNode = (StreamNode)source;
+            NamespaceDomain domain = null; // only lookup as needed	            	
+            StreamNode eventNode = (StreamNode) source;
 
             Location loc = eventNode.getLocation();
             if (log.isDebugEnabled())
-                log.debug("element line/column: "
-                	+ loc.getLineNumber() + ":" + loc.getColumnNumber());
+                log.debug("element line/column: " + loc.getLineNumber() + ":"
+                        + loc.getColumnNumber());
 
             // look at XML attributes
             Iterator<Attribute> attributes = eventNode.getAttributes();
-            while (attributes != null && attributes.hasNext())
-            {
+            while (attributes != null && attributes.hasNext()) {
                 Attribute xmlAttrib = attributes.next();
 
                 QName name = xmlAttrib.getName();
                 String prefix = name.getPrefix();
                 if (prefix != null && prefix.length() > 0)
-                    continue; // not applicable to current element/association-end.
+                    continue; // not applicable to current
+                              // element/association-end.
                 if ("href".equals(name.getLocalPart()))
                     continue; // FIXME: find/write URI resolver
 
-                UmlProperty property = metadata.findAttribute((UmlClass)this.prototype,
-                        name.getLocalPart());
-                if (property == null)
-                    throw new ValidationException(new ValidationError(eventNode, name.getLocalPart(),
-                            ErrorCode.UNDEFINED_PROPERTY, ErrorSeverity.FATAL));
-                UmlClassifier type = metadata.getType(property);
+                Property property = this.prototype.findProperty(name.getLocalPart());
+                if (property == null) {
+                	if (domain == null)
+                		domain = FumlConfiguration.getInstance().findNamespaceDomain(source.getNamespaceURI());	
+	            	ValidationExemption exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+	            			this.prototype, name.getLocalPart(), source.getNamespaceURI(), domain);
+	            	if (exemption == null) {
+	                    throw new ValidationException(new ValidationError(eventNode, name
+	                            .getLocalPart(), ErrorCode.UNDEFINED_PROPERTY, ErrorSeverity.FATAL));
+	            	}
+	            	else {
+	    				if (log.isDebugEnabled())
+	    					log.debug("undefined property exemption found within domain '" 
+	    						+ exemption.getDomain().toString() + "' for property '"
+	    						+ this.prototype.getName() + "." + name.getLocalPart() + "' - ignoring error");
+	            		continue; // ignore attrib
+	            	}                
+                }    
+                Classifier type = property.getType();
 
-                if (this.modelSupport.isReferenceAttribute(property))
-                {
-        		    XmiReferenceAttribute reference = new XmiReferenceAttribute(source,
-            				xmlAttrib);
-            		this.addReference(reference);
-            		continue;
+                if (this.modelSupport.isReferenceAttribute(property)) {
+                    XmiReferenceAttribute reference = new XmiReferenceAttribute(source, xmlAttrib);
+                    this.addReference(reference);
+                    continue;
                 }
-
+                
                 String value = xmlAttrib.getValue();
-                if (value == null || value.length() == 0) // FIXME - ya this never happens
+                if (value == null || value.length() == 0) 
                 {
-                    String defaultValue = metadata.findAttributeDefault(property);
-                    if (defaultValue != null)
-                    {
+                    String defaultValue = property.findPropertyDefault();
+                    if (defaultValue != null) {
                         value = defaultValue;
                         if (log.isDebugEnabled())
                             log.debug("using default '" + String.valueOf(value)
@@ -444,19 +474,17 @@ public class ElementAssembler extends AssemblerNode
                 this.assembleNonReferenceFeature(property, value, type);
             }
 
-            // look at model properties
-            UmlProperty[] properties = metadata.getAttributes((UmlClass)this.prototype);
-            for (int i = 0; i < properties.length; i++)
-            {
+            // look at model properties not found in above attribute set
+            Property[] properties = this.prototype.getProperties();
+            for (int i = 0; i < properties.length; i++) {
                 QName name = new QName(properties[i].getName());
                 String value = eventNode.getAttributeValue(name);
                 if (value != null && value.trim().length() > 0)
                     continue; // handled above
 
-                String defaultValue = metadata.findAttributeDefault(properties[i]);
-                if (defaultValue != null)
-                {
-                    UmlClassifier type = metadata.getType(properties[i]);
+                String defaultValue = properties[i].findPropertyDefault();
+                if (defaultValue != null) {
+                    Classifier type = properties[i].getType();
                     if (log.isDebugEnabled())
                         log.debug("using default: '" + String.valueOf(defaultValue)
                                 + "' for enumeration feature <" + type.getName() + "> "
@@ -465,230 +493,206 @@ public class ElementAssembler extends AssemblerNode
                     continue;
                 }
 
-                if (!metadata.isRequired((UmlClass)this.prototype, properties[i]))
+                if (!properties[i].isRequired())
                     continue; // don't bother digging further for a value
 
                 if (eventNode.findChildByName(properties[i].getName()) != null)
                     continue; // it has such a child, let
 
-                if (this.modelSupport.isReferenceAttribute(properties[i]) &&
-                    FumlConfiguration.getInstance().hasReferenceMapping(this.prototype, properties[i]))
-                {
-                    ReferenceMappingType mappingType =
-                        FumlConfiguration.getInstance().getReferenceMappingType(
-                                this.prototype, properties[i]);
-                    if (mappingType == ReferenceMappingType.PARENT)
-                    {
-                        if (parent != null && parent.getXmiId() != null && parent.getXmiId().length() > 0)
-                        {
+                if (this.modelSupport.isReferenceAttribute(properties[i])
+                        && FumlConfiguration.getInstance().hasReferenceMapping(this.prototype,
+                                properties[i])) {
+                    ReferenceMappingType mappingType = FumlConfiguration.getInstance()
+                            .getReferenceMappingType(this.prototype, properties[i]);
+                    if (mappingType == ReferenceMappingType.PARENT) {
+                        if (parent != null && parent.getXmiId() != null
+                                && parent.getXmiId().length() > 0) {
                             XmiMappedReference reference = new XmiMappedReference(source,
-                                    properties[i].getName(),
-                                    new String[] { parent.getXmiId() });
+                                    properties[i].getName(), new String[] { parent.getXmiId() });
                             this.addReference(reference);
                             continue;
-                        }
-                        else
+                        } else
                             log.warn("no parent XMI id found, ignoring mapping for, "
-                                + this.prototype.getName() + "." + properties[i].getName());
-                    }
-                    else
-                        log.warn("unrecognized mapping type, "
-                            + mappingType.value() + " ignoring mapping for, "
-                            + this.prototype.getName() + "." + properties[i].getName());
+                                    + this.prototype.getName() + "." + properties[i].getName());
+                    } else
+                        log.warn("unrecognized mapping type, " + mappingType.value()
+                                + " ignoring mapping for, " + this.prototype.getName() + "."
+                                + properties[i].getName());
                 }
 
-                if (!metadata.isDerived((UmlClass)this.prototype, properties[i]))
-                {
-	                if (log.isDebugEnabled())
-	                    log.debug("throwing " + ErrorCode.PROPERTY_REQUIRED.toString()
-	                        + " error for " + this.prototype.getName() + "." + properties[i].getName());
-	                throw new ValidationException(new ValidationError(eventNode,
-	                        properties[i].getName(),
-	                        ErrorCode.PROPERTY_REQUIRED, ErrorSeverity.FATAL));
+                if (!properties[i].isDerived()) {
+                	if (domain == null)
+                		domain = FumlConfiguration.getInstance().findNamespaceDomain(source.getNamespaceURI());	
+	            	ValidationExemption exemption = findExemption(ValidationExemptionType.REQUIRED_PROPERTY,
+	            			this.prototype, name.getLocalPart(), source.getNamespaceURI(), domain);
+	            	if (exemption == null) {
+	                    if (log.isDebugEnabled())
+	                        log.debug("throwing " + ErrorCode.PROPERTY_REQUIRED.toString()
+	                                + " error for " + this.prototype.getName() + "." + properties[i].getName());
+	                    throw new ValidationException(new ValidationError(eventNode,
+	                            properties[i].getName(), ErrorCode.PROPERTY_REQUIRED, ErrorSeverity.FATAL));
+	            	}
+	            	else {
+	    				if (log.isDebugEnabled())
+	    					log.debug("required property exemption found within domain '" 
+	    						+ exemption.getDomain().toString() + "' for property '"
+	    						+ this.prototype.getName() + "." + name.getLocalPart() + "' - ignoring error");
+	            		continue; // ignore property
+	            	}                
                 }
             }
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             log.error(e.getCause().getMessage(), e.getCause());
             throw new AssemblyException(e.getCause());
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchFieldException e) {
+        } catch (NoSuchFieldException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
         }
     }
 
-    public void assembleReferenceFeatures()
-    {
+    public void assembleReferenceFeatures() {
         try {
-        	StreamNode eventNode = (StreamNode)source;
-        	if (references == null)
-        		return;
-        	Iterator<XmiReference> iter = references.iterator();
-        	while (iter.hasNext())
-        	{
-        		XmiReference reference = iter.next();
+            StreamNode eventNode = (StreamNode) source;
+            if (references == null)
+                return;
+            Iterator<XmiReference> iter = references.iterator();
+            while (iter.hasNext()) {
+                XmiReference reference = iter.next();
                 this.assembleReferenceFeature(reference);
-        	}
-        }
-        catch (ClassNotFoundException e) {
+            }
+        } catch (ClassNotFoundException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             log.error(e.getCause().getMessage(), e.getCause());
             throw new AssemblyException(e.getCause());
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
-        }
-        catch (NoSuchFieldException e) {
+        } catch (NoSuchFieldException e) {
             log.error(e.getMessage(), e);
             throw new AssemblyException(e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void assembleNonReferenceFeature(UmlProperty property,
-            String stringValue, UmlClassifier type)
-        throws ClassNotFoundException, NoSuchMethodException,
-        InvocationTargetException, IllegalAccessException, InstantiationException,
-        NoSuchFieldException
-    {
-        if (type instanceof UmlEnumeration)
-        {
+    private void assembleNonReferenceFeature(Property property, String stringValue, Classifier type)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
+        if (type.getDelegate() instanceof Enumeration) {
             if (log.isDebugEnabled())
-                log.debug("assembling enum feature <" + type.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName());
+                log.debug("assembling enum feature <" + type.getName() + "> " + this.getPrototype().getName()
+                        + "." + property.getName());
             Object value = toEnumerationValue(stringValue, type);
             assembleEnumerationFeature(property, value, type);
-        }
-        else if (type instanceof UmlDataType)
-        {
-            Class javaType = toJavaClass((UmlDataType)type);
-            Object value = toPrimitiveValue(stringValue, javaType);
+        } else if (type.getDelegate() instanceof DataType) {
+        	Class javaType = toPrimitiveJavaClass((DataType) type.getDelegate());
+            Object value = toPrimitiveJavaValue(stringValue, (DataType) type.getDelegate(), javaType);
 
             if (log.isDebugEnabled())
                 log.debug("assembling primitive feature <" + javaType.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName());
+                        + this.getPrototype().getName() + "." + property.getName());
 
-            if (metadata.isSingular((UmlClass)this.getPrototype(), property))
+            if (property.isSingular())
                 assembleSingularPrimitiveFeature(property, value, javaType);
             else
                 assembleCollectionPrimitiveFeature(property, value, javaType);
-        }
-        else if (type instanceof UmlClass)
-        {
-            if (UnlimitedNatural.class.getSimpleName().equals(type.getName()))
-            {
+        } else if (type.getDelegate() instanceof fUML.Syntax.Classes.Kernel.Class_) {
+            if (UnlimitedNatural.class.getSimpleName().equals(type.getName())) {
                 UnlimitedNatural value = new UnlimitedNatural();
                 if ("*".equals(stringValue))
                     value.naturalValue = -1;
                 else
                     try {
                         value.naturalValue = Integer.parseInt(stringValue);
+                    } catch (NumberFormatException e) {
+                        //log.error("could not parse string value '" + stringValue + "'", e);
+                        throw new AssemblyException(e);
                     }
-                    catch (NumberFormatException e) {
-                        log.error("could not parse string value '" + stringValue + "'", e);
-                    }
-                    if (log.isDebugEnabled())
-                        log.debug("assembling primitive feature <" + UnlimitedNatural.class.getSimpleName() + "> "
+                if (log.isDebugEnabled())
+                    log.debug("assembling primitive feature <"
+                            + UnlimitedNatural.class.getSimpleName() + "> "
                             + this.getPrototype().getName() + "." + property.getName());
-                if (metadata.isSingular((UmlClass)this.getPrototype(), property))
+                if (property.isSingular())
                     assembleSingularPrimitiveFeature(property, value, UnlimitedNatural.class);
                 else
                     assembleCollectionPrimitiveFeature(property, value, UnlimitedNatural.class);
-            }
-            else
-                throw new AssemblyException("unexpected UmlClass, "
-                    + type.getName());
-        }
-        else
-            throw new AssemblyException("unexpected instance, "
-                    + type.getClass().getName());
+            } else
+                throw new AssemblyException("unexpected Class_, " + type.getName());
+        } else
+            throw new AssemblyException("unexpected instance, " + type.getClass().getName());
     }
 
     @SuppressWarnings("unchecked")
-    private void assembleReferenceFeature(XmiReference reference)
-        throws ClassNotFoundException, NoSuchMethodException,
-        InvocationTargetException, IllegalAccessException, InstantiationException,
-        NoSuchFieldException
-    {
-    	StreamNode eventNode = (StreamNode)this.getSource();
+    private void assembleReferenceFeature(XmiReference reference) throws ClassNotFoundException,
+            NoSuchMethodException, InvocationTargetException, IllegalAccessException,
+            InstantiationException, NoSuchFieldException {
+        StreamNode eventNode = (StreamNode) this.getSource();
 
-        UmlProperty property = metadata.getAttribute((UmlClass)this.getPrototype(),
-        		reference.getLocalName());
-        UmlClassifier type = metadata.getType(property);
+        Property property = this.prototype.getProperty(reference.getLocalName());
+        Classifier type = property.getType();
 
-        if (type instanceof UmlEnumeration || type instanceof UmlDataType)
-            return; //handled these in pre-assembly
+        if (type.getDelegate() instanceof Enumeration || type.getDelegate() instanceof DataType)
+            return; // handled these in pre-assembly
 
-        String packageName = metadata.getPackageForClass(type.getName());
-        String qualifiedName = packageName + "." + type.getName();
-        Class fumlClass = Class.forName(qualifiedName);
-        if (!Element.class.isAssignableFrom(fumlClass))
-        {
-            log.warn("ignoring non-element feature <" + type.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName());
+        String instancecClassName = type.getName();
+        // TODO: We have a keyword map, but unclear whether upper-case 'Class' should be mapped. Definately 'class' is.
+        if ("Class".equals(instancecClassName))
+            instancecClassName = instancecClassName + "_"; 
+
+        String packageName = metadata.getJavaPackageNameForClass(type);
+        String qualifiedName = packageName + "." + instancecClassName;
+        Class fClass_ = Class.forName(qualifiedName);
+        if (!Element.class.isAssignableFrom(fClass_)) {
+            log.warn("ignoring non-element feature <" + type.getName() + "> " + this.getPrototype().getName()
+                    + "." + property.getName());
             return;
         }
 
-        if (metadata.isSingular((UmlClass)this.getPrototype(), property))
-        {
+        if (property.isSingular()) {
             if (log.isDebugEnabled())
                 log.debug("assembling singular reference feature <" + type.getName() + "> "
                         + this.getPrototype().getName() + "." + property.getName());
 
             if (reference.getReferenceCount() != 1)
-            	log.warn("expected single reference, not "
-            			+ String.valueOf(reference.getReferenceCount()));
+                log.warn("expected single reference, not "
+                        + String.valueOf(reference.getReferenceCount()));
 
-            String id = reference.getXmiIds().next(); // expect only one for singular prop
+            String id = reference.getXmiIds().next(); // expect only one for
+                                                      // singular prop
 
-            if (reference instanceof XmiExternalReferenceElement)
-            {
-                 if (assembleExternalReferences)
-                 {
-                     if (id == null || !id.startsWith("pathmap:")) // FIXME: resolve these references inside/outside of lib(s)
-                     {
-                         Element referent = Library.getInstance().lookup(id);
-                         if (referent == null)
-                                 throw new ValidationException(new ValidationError(reference, id,
-                                     ErrorCode.INVALID_EXTERNAL_REFERENCE,
-                                     ErrorSeverity.FATAL));
+            if (reference instanceof XmiExternalReferenceElement) {
+                if (assembleExternalReferences) {
+                	// FIXME: resolve these references inside/outside of lib(s)
+                    if (id == null || !id.startsWith("pathmap:")) 
+                    {
+                        Element referent = Library.getInstance().lookup(id);
+                        if (referent == null)
+                            throw new ValidationException(new ValidationError(reference, id,
+                                    ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
 
-                         this.assembleSingularReferenceFeature(referent, property,
-                             type);
-                     }
-                 }
-            }
-            else
-            {
+                        this.assembleSingularReferenceFeature(referent, property, type);
+                    }
+                }
+            } else {
                 Element target = null;
 
                 ElementAssembler referencedAssembler = this.assemblerMap.get(id);
@@ -698,53 +702,39 @@ public class ElementAssembler extends AssemblerNode
                     target = Environment.getInstance().findElementById(id);
 
                 if (target != null)
-                    this.assembleSingularReferenceFeature(target, property,
-                            type);
+                    this.assembleSingularReferenceFeature(target, property, type);
                 else
-                 	throw new ValidationException(new ValidationError(reference, id,
-                    	ErrorCode.INVALID_REFERENCE,
-                    	ErrorSeverity.FATAL));
+                    throw new ValidationException(new ValidationError(reference, id,
+                            ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));
             }
-        }
-        else
-        {
+        } else {
             if (log.isDebugEnabled())
                 log.debug("assembling collection reference feature <" + type.getName() + "> "
                         + this.getPrototype().getName() + "." + property.getName());
 
             Iterator<String> iter = reference.getXmiIds();
-            while (iter.hasNext())
-            {
-            	String id = iter.next();
-                if (reference instanceof XmiExternalReferenceElement)
-                {
-                    if (assembleExternalReferences)
-                    {
-                        if (id == null || !id.startsWith("pathmap:")) // FIXME: resolve these references inside/outside of lib(s)
+            while (iter.hasNext()) {
+                String id = iter.next();
+                if (reference instanceof XmiExternalReferenceElement) {
+                    if (assembleExternalReferences) {
+                    	// FIXME: resolve these references inside/outside of lib(s)
+                        if (id == null || !id.startsWith("pathmap:")) 
                         {
                             Element referent = Library.getInstance().lookup(id);
-                            if (referent == null)
-                            {
+                            if (referent == null) {
                                 ValidationError error = new ValidationError(reference, id,
-                                         ErrorCode.INVALID_EXTERNAL_REFERENCE,
-                                         ErrorSeverity.FATAL);
+                                        ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL);
                                 throw new ValidationException(error);
                             }
-                            this.assembleCollectionReferenceFeature(
-                                     referent, property,
-                                     type);
+                            this.assembleCollectionReferenceFeature(referent, property, type);
                         }
                     }
-                }
-                else
-                {
+                } else {
                     ElementAssembler referencedAssembler = this.assemblerMap.get(id);
                     if (referencedAssembler == null)
-                    	throw new ValidationException(new ValidationError(reference, id,
-                    			ErrorCode.INVALID_REFERENCE,
-                        		ErrorSeverity.FATAL));
-                    this.assembleCollectionReferenceFeature(
-                            referencedAssembler.getTarget(),
+                        throw new ValidationException(new ValidationError(reference, id,
+                                ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));
+                    this.assembleCollectionReferenceFeature(referencedAssembler.getTargetObject(),
                             property, type);
                 }
             }
@@ -752,172 +742,149 @@ public class ElementAssembler extends AssemblerNode
     }
 
     @SuppressWarnings("unchecked")
-    private void assembleEnumerationFeature(
-            UmlProperty property, Object value, UmlClassifier type)
-        throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException
-    {
+    private void assembleEnumerationFeature(Property property, Object value, Classifier type)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException {
         try {
             Class[] types = { value.getClass() };
-            String methodName = "set" + property.getName().substring(0,1).toUpperCase() +
-                property.getName().substring(1);
+            String methodName = "set" + property.getName().substring(0, 1).toUpperCase()
+                    + property.getName().substring(1);
             Method setter = this.getTarget().getClass().getMethod(methodName, types);
             Object[] args = { value };
             setter.invoke(this.getTarget(), args);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             try {
                 Field field = this.getTargetClass().getField(property.getName());
                 field.set(this.getTargetObject(), value);
-            }
-            catch (NoSuchFieldException e2) {
+            } catch (NoSuchFieldException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") setter method or public field found for enumeration feature "
-                    + "<" + type.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") setter method or public field found for enumeration feature " + "<"
+                        + type.getName() + "> " + this.getPrototype().getName() + "." + property.getName();
                 log.warn(msg);
             }
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void assembleSingularPrimitiveFeature(
-            UmlProperty property, Object value, Class javaType)
-        throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException,
-            NoSuchFieldException
-    {
-        String methodName = "set" + property.getName().substring(0,1).toUpperCase() +
-            property.getName().substring(1);
+    private void assembleSingularPrimitiveFeature(Property property, Object value, Class javaType)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
+        String methodName = "set" + property.getName().substring(0, 1).toUpperCase()
+                + property.getName().substring(1);
         Object[] args = { value };
         try {
-            Method setter = this.getTargetClass().getMethod(methodName,
-                    new Class[] { javaType });
+            Method setter = this.getTargetClass().getMethod(methodName, new Class[] { javaType });
             setter.invoke(this.getTargetObject(), args);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             try {
                 Object targetObject = this.getTargetObject();
                 Class targetClass = targetObject.getClass();
                 Field field = targetClass.getField(property.getName());
                 field.set(targetObject, value);
-            }
-            catch (NoSuchFieldException e2) {
+            } catch (NoSuchFieldException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") setter method or public field found for primitive feature "
-                    + "<" + javaType.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") setter method or public field found for primitive feature " + "<"
+                        + javaType.getName() + "> " + this.getPrototype().getName() + "."
+                        + property.getName();
                 log.warn(msg);
             }
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void assembleCollectionPrimitiveFeature(
-            UmlProperty property, Object value, Class javaType)
-        throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException,
-            NoSuchFieldException
-    {
-        String methodName = "add" + property.getName().substring(0,1).toUpperCase() +
-            property.getName().substring(1);
+    private void assembleCollectionPrimitiveFeature(Property property, Object value, Class javaType)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
+        String methodName = "add" + property.getName().substring(0, 1).toUpperCase()
+                + property.getName().substring(1);
         try {
             Object[] args = { value };
-            Method adder = this.getTargetClass().getMethod(methodName,
-                    new Class[] { javaType });
+            Method adder = this.getTargetClass().getMethod(methodName, new Class[] { javaType });
             adder.invoke(this.getTargetObject(), args);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             try {
                 Field field = this.getTargetClass().getField(property.getName());
                 Object list = field.get(this.getTargetObject());
-                Method adder = findMethod(list.getClass(), "add",
-                        value.getClass());
+                Method adder = ReflectionUtils.getMethod(list.getClass(), "add", value.getClass());
                 Object[] args = { value };
                 adder.invoke(list, args);
-            }
-            catch (NoSuchMethodException e2) {
+            } catch (NoSuchMethodException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") add method or public field found for primitive collection property "
-                    + "<" + javaType.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") add method or public field found for primitive collection property "
+                        + "<" + javaType.getName() + "> " + this.getPrototype().getName() + "."
+                        + property.getName();
                 log.warn(msg);
-            }
-            catch (NoSuchFieldException e2) {
+            } catch (NoSuchFieldException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") add method or public field found for primitive collection property "
-                    + "<" + javaType.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") add method or public field found for primitive collection property "
+                        + "<" + javaType.getName() + "> " + this.getPrototype().getName() + "."
+                        + property.getName();
                 log.warn(msg);
             }
         }
     }
 
-    private void assembleSingularReferenceFeature(Element target,
-            UmlProperty property, UmlClassifier type)
-        throws NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException
-    {
+    private void assembleSingularReferenceFeature(FumlObject target, Property property, Classifier type)
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException,
+            InstantiationException {
         try {
-            String methodName = "set" + property.getName().substring(0,1).toUpperCase() +
-            property.getName().substring(1);
-            Method setter = getMethod(
-            		this.getTarget().getClass(),
-                methodName,
-                target.getClass());
+            String methodName = "set" + property.getName().substring(0, 1).toUpperCase()
+                    + property.getName().substring(1);
+            Method setter = ReflectionUtils.getMethod(this.getTarget().getClass(), methodName, target.getClass());
             Object[] args = { target };
             setter.invoke(this.getTarget(), args);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             try {
                 Field field = this.getTargetClass().getField(property.getName());
                 field.set(this.getTargetObject(), target);
-            }
-            catch (NoSuchFieldException e2) {
+            } catch (NoSuchFieldException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") setter method or public field found for singular property "
-                    + "<" + type.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") setter method or public field found for singular property " + "<"
+                        + type.getName() + "> " + this.getPrototype().getName() + "." + property.getName();
                 log.warn(msg);
             }
         }
     }
 
-    private void assembleCollectionReferenceFeature(Element target,
-            UmlProperty property, UmlClassifier type)
-        throws NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException,
-            NoSuchFieldException
-    {
+    private void assembleCollectionReferenceFeature(FumlObject target, Property property,
+            Classifier type) throws NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
         try {
-            String methodName = "add" + property.getName().substring(0,1).toUpperCase() +
-                property.getName().substring(1);
-            Method adder = getMethod(
-            		this.getTargetObject().getClass(),
-                    methodName,
-                    target.getClass());
+            String methodName = "add" + property.getName().substring(0, 1).toUpperCase()
+                    + property.getName().substring(1);
+            Method adder = ReflectionUtils.getMethod(this.getTargetObject().getClass(), methodName, target
+                    .getClass());
             Object[] args = { target };
             adder.invoke(this.getTarget(), args);
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             try {
                 Field field = this.getTargetClass().getField(property.getName());
                 Object list = field.get(this.getTargetObject());
-                Method adder = findMethod(list.getClass(), "add",
-                        target.getClass());
+                Method adder = ReflectionUtils.findMethod(list.getClass(), "add", target.getClass());
                 Object[] args = { target };
                 adder.invoke(list, args);
-            }
-            catch (NoSuchMethodException e2) {
+            } catch (NoSuchMethodException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                    + ") add method or public field found for collection property "
-                    + "<" + type.getName() + "> "
-                    + this.getPrototype().getName() + "." + property.getName();
+                        + ") add method or public field found for collection property " + "<"
+                        + type.getName() + "> " + this.getPrototype().getName() + "." + property.getName();
                 log.warn(msg);
             }
         }
     }
 
+
+    /**
+     * Returns the Java class associated with the given primitive type. 
+     * 
+     * Note: A primitive type defines 
+     * a predefined data type, without any relevant substructure (i.e., it has no defined parts in 
+     * the UML/MOF Infrastructure). So a Property who's datatype is a PrimitiveType cannot be treated as
+     * a reference Property, e.g. reference to UnlimitedNatural, because the internal structure of UnlimitedNatural
+     * is not defined.    
+     * 
+     * @param dataType the dataType to convert.
+     * @return the Java Class
+     */
     @SuppressWarnings("unchecked")
     private Class toJavaClass(UmlDataType dataType)
     {
@@ -967,49 +934,63 @@ public class ElementAssembler extends AssemblerNode
     	}
     }
 
+    /**
+     * Returns the Java value associated with the given String value in the context of the given
+     * primitive type and Java type. 
+     * 
+     * Note: A primitive type defines 
+     * a predefined data type, without any relevant substructure (i.e., it has no defined parts in 
+     * the UML/MOF Infrastructure). So a Property who's datatype is a PrimitiveType cannot be treated as
+     * a reference Property, e.g. reference to UnlimitedNatural, because the internal structure of UnlimitedNatural
+     * is not defined.    
+     * 
+     * @param value the value to convert.
+     * @param dataType the data type under which to evaluate the the String value.
+     * @param javaType the Java type under which to evaluate the the String value.
+     * @return the value
+     */
     @SuppressWarnings("unchecked")
-    private Object toPrimitiveValue(String value, Class javaType)
-    {
+    private Object toPrimitiveJavaValue(String value, DataType dataType, Class javaType) {
         if (javaType.equals(java.lang.String.class))
             return value;
         else if (javaType.equals(java.lang.Integer.class))
             try {
                 return Integer.valueOf(value);
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 if (value == null || value.length() == 0)
                     return new Integer(0);
+                else if (UnlimitedNatural.class.getSimpleName().equals(dataType.name) && "*".equals(value))
+                	return new Integer(-1);	
                 else
                     throw e;
             }
         else if (javaType.equals(int.class))
             try {
                 return Integer.valueOf(value).intValue();
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 if (value == null || value.length() == 0)
                     return 0;
+                else if (UnlimitedNatural.class.getSimpleName().equals(dataType.name) && "*".equals(value))
+                	return -1;	
                 else
                     throw e;
             }
         else if (javaType.equals(java.lang.Boolean.class))
             return Boolean.valueOf(value);
         else if (javaType.equals(boolean.class))
-            return (boolean)Boolean.valueOf(value).booleanValue();
+            return (boolean) Boolean.valueOf(value).booleanValue();
         else
             return value;
     }
 
-    private Object toEnumerationValue(String value, UmlClassifier type)
-        throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException
-    {
-        String pkg = metadata.getPackageForClass(type.getName());
+    private Object toEnumerationValue(String value, Classifier type) throws ClassNotFoundException,
+            NoSuchMethodException, InvocationTargetException, IllegalAccessException,
+            InstantiationException {
+        String pkg = metadata.getJavaPackageNameForClass(type);
         String qualifiedName = pkg + "." + type.getName();
         Class enumClass = Class.forName(qualifiedName);
         if (!enumClass.isEnum())
-            throw new AssemblyException("expected class as enum, "
-                    + enumClass.getName());
+            throw new AssemblyException("expected class as enum, " + enumClass.getName());
 
         Method valueOf = enumClass.getMethod("valueOf", new Class[] { String.class });
 
@@ -1018,75 +999,38 @@ public class ElementAssembler extends AssemblerNode
         Object enumValue = valueOf.invoke(enumClass, value);
         return enumValue;
     }
-
-    @SuppressWarnings("unchecked")
-    private Method findMethod(Class target, String name, Class arg)
-        throws NoSuchMethodException
-    {
-        return findMethod(target.getMethods(), name, arg);
-    }
-
-    @SuppressWarnings("unchecked")
-    private Method getMethod(Class target, String name, Class arg)
-        throws NoSuchMethodException
-    {
-        Method method = findMethod(target.getMethods(), name, arg);
-        if (method == null)
-            throw new NoSuchMethodException(target.getName() + "." + name);
-        return method;
-    }
-
-    @SuppressWarnings("unchecked")
-    private Method findMethod(Method[] methods, String name, Class arg)
-    {
-        for (int i = 0; i < methods.length; i++)
-        {
-            if (!methods[i].getName().equals(name))
-                continue;
-            Class[] types = methods[i].getParameterTypes();
-            if (types != null && types.length == 1)
-            {
-                if (types[0].isAssignableFrom(arg))
-                    return methods[i];
-            }
+    
+	private ValidationExemption findExemption(ValidationExemptionType type, 
+			Classifier classifier, String propertyName, String namespaceURI, NamespaceDomain domain) {
+        ValidationExemption result = null;
+        if (domain != null) {
+	    	List<ValidationExemption> exemptions = FumlConfiguration.getInstance().findValidationExemptionByClassifierName(classifier.getName());
+	    	if (exemptions != null)
+	    		for (ValidationExemption exemption : exemptions)
+	    			if (exemption.getPropertyName().equals(propertyName) &&
+	    				exemption.getDomain().ordinal() == domain.ordinal() &&
+	    				exemption.getType().ordinal() == type.ordinal()) {
+	    				result = exemption;
+	    				break;
+	    			}
         }
-        return null;
-    }
-
-    @SuppressWarnings("unchecked")
-    private Object instanceForName(String qualifiedName)
-        throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException
-    {
-        Class targetClass = Class.forName(qualifiedName);
-        Class[] types = new Class[0];
-        Object[] args = new Object[0];
-        int mods = targetClass.getModifiers();
-        if (Modifier.isAbstract(mods))
-        	throw new AssemblyException("attempt to instantiate abstract class, " +
-        			qualifiedName);
-        if (!Modifier.isPublic(mods))
-        	throw new AssemblyException("attempt to instantiate non-public class, " +
-        			qualifiedName);
-
-        Constructor defaultConstructor = targetClass.getConstructor(types);
-        Object object = defaultConstructor.newInstance(args);
-        return object;
-    }
-
-    public String getXmiId()
-    {
-        if (xmiId != null)
-            return xmiId.getValue();
         else
-            return null;
+            if (log.isDebugEnabled())
+        	    log.debug("could not lookup validation exemption for namespace URI '"
+        	    		+ "namespaceURI");
+    	return result;
+	}
+	
+
+    public String getXmiId() {
+        return this.getTargetObject().getXmiId();
     }
 
     public Element getTarget() {
         return target;
     }
 
-    public Object getTargetObject() {
+    public FumlObject getTargetObject() {
         if (target != null)
             return target;
         else
@@ -1104,7 +1048,7 @@ public class ElementAssembler extends AssemblerNode
         return targetComment;
     }
 
-    public UmlClassifier getPrototype() {
+    public Class_ getPrototype() {
         return prototype;
     }
 
@@ -1118,7 +1062,7 @@ public class ElementAssembler extends AssemblerNode
 
     public void addReference(XmiReference ref) {
         if (references == null)
-        	references = new ArrayList<XmiReference>();
+            references = new ArrayList<XmiReference>();
         references.add(ref);
     }
 

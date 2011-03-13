@@ -19,34 +19,35 @@ import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.bind.BindingValidationEventHandler;
 
 /**
- * Default handler, simply logging validation error events.  
+ * Default handler, simply logging validation error events.
  * 
  * @author Scott Cinnamond
  */
 public class XmiValidationEventHandler implements BindingValidationEventHandler {
-	
+
     private static Log log = LogFactory.getLog(XmiValidationEventHandler.class);
     private int errorCount;
     private boolean cumulative = true;
-	
-	public int getErrorCount() {
-		return errorCount;
-	}
 
-	public XmiValidationEventHandler() {}	
-	public XmiValidationEventHandler(boolean cumulative) {
-		this.cumulative = cumulative;
-	}	
-	
+    public int getErrorCount() {
+        return errorCount;
+    }
+
+    public XmiValidationEventHandler() {
+    }
+
+    public XmiValidationEventHandler(boolean cumulative) {
+        this.cumulative = cumulative;
+    }
+
     public boolean handleEvent(ValidationEvent ve) {
         boolean result = this.cumulative;
-        this.errorCount++;        
+        this.errorCount++;
         ValidationEventLocator vel = ve.getLocator();
-        
-        String message = "Line:Col:Offset[" + vel.getLineNumber() + ":" + vel.getColumnNumber() + ":" 
-            + String.valueOf(vel.getOffset())
-            + "] - " + ve.getMessage();
-        
+
+        String message = "Line:Col:Offset[" + vel.getLineNumber() + ":" + vel.getColumnNumber()
+                + ":" + String.valueOf(vel.getOffset()) + "] - " + ve.getMessage();
+
         switch (ve.getSeverity()) {
         case ValidationEvent.WARNING:
             log.warn(message);
@@ -62,10 +63,9 @@ public class XmiValidationEventHandler implements BindingValidationEventHandler 
         }
         return result;
     }
-    
-    public void reset()
-    {
-    	this.errorCount = 0;
+
+    public void reset() {
+        this.errorCount = 0;
     }
 
 }

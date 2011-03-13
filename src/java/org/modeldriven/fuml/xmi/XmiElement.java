@@ -21,7 +21,9 @@ package org.modeldriven.fuml.xmi;
  */
 public interface XmiElement {
 
-    public String getLocalName();
+	public String getNamespaceURI();
+	public String getPrefix();
+	public String getLocalName();
     public String getData();
     public String getXmiType();
     public boolean hasXmiType();

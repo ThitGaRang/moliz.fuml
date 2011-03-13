@@ -14,13 +14,11 @@ package org.modeldriven.fuml.environment;
 
 import java.util.Iterator;
 
-import fUML.Debug;
-
-import fUML.Syntax.Classes.Kernel.Comment;
-import fUML.Syntax.Activities.IntermediateActivities.Activity;
-
-import org.modeldriven.fuml.FumlException;
 import org.modeldriven.fuml.assembly.ElementStubAssembler;
+
+import fUML.Debug;
+import fUML.Syntax.Activities.IntermediateActivities.Activity;
+import fUML.Syntax.Classes.Kernel.Comment;
 
 public class ActivityExecution extends fUML.Semantics.Activities.IntermediateActivities.ActivityExecution {
 
@@ -34,7 +32,7 @@ public class ActivityExecution extends fUML.Semantics.Activities.IntermediateAct
             comments.next(); // skip the "stub" comment
             while (comments.hasNext())
                 Debug.println("[execute] error: " + comments.next().body);
-            throw new FumlException("cannot execute invalid activity '" + activity.name
+            throw new InvalidExecutionTargetException("cannot execute invalid activity '" + activity.name
                     + "' - see above errors");
         }
         super.execute();

@@ -2,34 +2,23 @@ package org.modeldriven.fuml.test.validation;
 
 
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Iterator;
 
-import javax.xml.bind.JAXBElement;
+import junit.framework.Test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.test.FUMLTest;
 import org.modeldriven.fuml.test.FUMLTestSetup;
-import org.modeldriven.fuml.xmi.BindingXmiReader;
-import org.modeldriven.fuml.xmi.XmiDataBinding;
 import org.modeldriven.fuml.xmi.XmiNode;
-import org.modeldriven.fuml.xmi.XmiReader;
-import org.modeldriven.fuml.xmi.XmiValidationEventHandler;
 import org.modeldriven.fuml.xmi.stream.StreamReader;
 import org.modeldriven.fuml.xmi.validation.ErrorCode;
 import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
 import org.modeldriven.fuml.xmi.validation.ValidationError;
 import org.modeldriven.fuml.xmi.validation.ValidationErrorCollector;
-
-import junit.framework.Test;
 
 /**
  * 
@@ -45,41 +34,46 @@ public class ValidateTestCase extends FUMLTest {
         
     public void setUp() throws Exception {
         if (collector == null)
-            collector = validate("./test/uml/magicdraw/copier-validate.uml");
+            collector = validate("./test/mdxml/copier-validate.mdxml");
     }
 
     public void testDuplicateReference() throws Exception {
         log.info("testDuplicateReference");
-        assertTrue("expected 1 duplicate-reference error", 
-                collector.getErrorCount(ErrorCode.DUPLICATE_REFERENCE) == 1);
+        int count = collector.getErrorCount(ErrorCode.DUPLICATE_REFERENCE);
+        assertTrue("expected 1 duplicate-reference error, not " + count, 
+        		count == 1);
         log.info("done");
     }
 
     public void testInvalidReference() throws Exception {
         log.info("testInvalidReference");
-        assertTrue("expected 1 invalid-reference error", 
+        int count = collector.getErrorCount(ErrorCode.INVALID_REFERENCE);
+        assertTrue("expected 1 invalid-reference error, not " + count, 
                 collector.getErrorCount(ErrorCode.INVALID_REFERENCE) == 1);
         log.info("testInvalidReference");
     }
 
     public void testUndefinedClass() throws Exception {
         log.info("testUndefinedClass");
-        assertTrue("expected 1 undefined-class error", 
+        int count = collector.getErrorCount(ErrorCode.UNDEFINED_CLASS);
+        assertTrue("expected 1 undefined-class error, not " + count, 
                 collector.getErrorCount(ErrorCode.UNDEFINED_CLASS) == 1);
         log.info("testUndefinedClass");
     }
 
     public void testUndefinedProperty() throws Exception {
         log.info("testUndefinedProperty");
-        assertTrue("expected 1 undefined-property error", 
+        int count = collector.getErrorCount(ErrorCode.UNDEFINED_PROPERTY);
+        assertTrue("expected 1 undefined-property error, not " + count, 
                 collector.getErrorCount(ErrorCode.UNDEFINED_PROPERTY) == 1);
         log.info("testUndefinedProperty");
     }
 
     public void testAbstractClass() throws Exception {
         log.info("testAbstractClass");
-        assertTrue("expected 1 abstract class error", 
-                collector.getErrorCount(ErrorCode.ABSTRACT_CLASS_INSTANTIATION) == 1);
+        int count = collector.getErrorCount(ErrorCode.ABSTRACT_CLASS_INSTANTIATION);
+        assertTrue("expected 1 abstract class error not " + count, 
+                count == 1);
         log.info("testAbstractClass");
     }
     

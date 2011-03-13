@@ -24,20 +24,27 @@ import javax.xml.bind.UnmarshalException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.FumlException;
+import org.modeldriven.fuml.FumlSystemProperty;
 import org.modeldriven.fuml.bind.DefaultValidationEventHandler;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
-import org.modeldriven.fuml.model.uml2.UmlProperty;
 import org.xml.sax.SAXException;
+
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Property;
 
 public class FumlConfiguration {
 
     private static Log log = LogFactory.getLog(FumlConfiguration.class);
     private static FumlConfiguration instance = null;
-    private static String defaultConfigFileName = "FumlConfig.xml";  
+    private static String defaultConfigFileName = "DefaultFumlConfig.xml";  
     private Map<String, BehaviorExecutionMapping> executions = 
         new HashMap<String, BehaviorExecutionMapping>();
-    private Map<String, ImportElement> importElements = new HashMap<String, ImportElement>();
+    /** maps import exemptions to XML element local names */
+    private Map<String, ImportExemption> importExemptions = new HashMap<String, ImportExemption>();
     private Map<String, ImportAdapter> importAdapters = new HashMap<String, ImportAdapter>();
+    
+    /** maps validation exemptions to classifier names */
+    private Map<String, List<ValidationExemption>> validationExemptions = new HashMap<String, List<ValidationExemption>>();
+    
     private String activeConfigFileName;
     
     private Configuration config;
@@ -49,36 +56,46 @@ public class FumlConfiguration {
             FumlConfigDataBinding configBinding = new FumlConfigDataBinding(
 	        		new DefaultValidationEventHandler());
 	        
-            activeConfigFileName = defaultConfigFileName; // TODO: add command line support for this            
+            activeConfigFileName = System.getProperty(FumlSystemProperty.CONFIG.getProperty(), 
+            		defaultConfigFileName);
+                        
+            log.info("loading configuration, " + activeConfigFileName);
             config = unmarshalConfig(activeConfigFileName, configBinding);
 	        
-            Iterator<BehaviorExecutionMapping> mappings = config.getMappingConfiguration().getBehaviorExecutionMapping().iterator();
-            while (mappings.hasNext())
-            {
-                BehaviorExecutionMapping mapping = mappings.next();
-                executions.put(mapping.getClassName(), mapping);
-            }
+            if (config.getMappingConfiguration().getBehaviorExecutionMapping() != null)
+                for (BehaviorExecutionMapping mapping : config.getMappingConfiguration().getBehaviorExecutionMapping())
+                {
+                    executions.put(mapping.getClassName(), mapping);
+                    Class.forName(mapping.getExecutionClassName()); // execution classes must exist on the classpath
+                }
 
-            Iterator<ImportElement> elements = 
-                config.getImportConfiguration().getElement().iterator();  
-            while (elements.hasNext())
-            {
-                ImportElement elem = elements.next();
-                importElements.put(elem.getLocalName(), elem);
-            }
+            if (config.getImportConfiguration().getExemption() != null)
+                for (ImportExemption e : config.getImportConfiguration().getExemption())
+                	importExemptions.put(e.getLocalName(), e);
         
-            Iterator<ImportAdapter> adapters = 
-                config.getImportConfiguration().getAdapter().iterator();  
-            while (adapters.hasNext())
-            {
-                ImportAdapter adapter = adapters.next();
-                importAdapters.put(adapter.getClassName(), adapter);
-            }        
+            if (config.getImportConfiguration().getAdapter() != null)  
+                for (ImportAdapter adapter : config.getImportConfiguration().getAdapter())
+                    importAdapters.put(adapter.getClassName(), adapter);
+            
+            if (config.getValidationConfiguration().getExemption() != null)
+                for (ValidationExemption exemption : config.getValidationConfiguration().getExemption())
+                {
+                	List<ValidationExemption> list = validationExemptions.get(exemption.getClassifierName());
+                    if (list == null) {
+                    	list = new ArrayList<ValidationExemption>();
+                    	validationExemptions.put(exemption.getClassifierName(), list);
+                    }                    
+                    list.add(exemption);
+                }
+            
         }
         catch (SAXException e) {
             throw new FumlException(e);
         }
         catch (JAXBException e) {
+            throw new FumlException(e);
+        }
+        catch (ClassNotFoundException e) {
             throw new FumlException(e);
         }
     }
@@ -87,9 +104,12 @@ public class FumlConfiguration {
     private Configuration unmarshalConfig(String configFileName, FumlConfigDataBinding binding)
     {
     	try {
-	        InputStream stream = FumlConfiguration.class.getResourceAsStream(configFileName);
+	        InputStream stream = FumlConfiguration.class.getClassLoader().getResourceAsStream(configFileName);
 	        if (stream == null)
-	            throw new FumlException("cannot find resource '" + configFileName + "'");
+                stream = FumlConfiguration.class.getResourceAsStream(configFileName);
+	        if (stream == null)
+	            throw new FumlException("cannot find resource '" + configFileName + "' on current classpath");
+	        
 	        JAXBElement root = (JAXBElement)binding.validate(stream);
 	        
 	        Configuration result = (Configuration)root.getValue();
@@ -139,6 +159,15 @@ public class FumlConfiguration {
         list.toArray(results);
         return results;
     }
+
+    public NamespaceDomain getNamespaceDomain(String namespaceUri)
+    {
+    	NamespaceDomain result = findNamespaceDomain(namespaceUri);
+    	if (result == null)
+    		throw new FumlException("no namespace domain found for URI '" 
+                    + namespaceUri + "' - please add this URI to the set of supported namespaces for the appropriate domain"); 
+    	return result;
+    }
     
     public NamespaceDomain findNamespaceDomain(String namespaceUri)
     {
@@ -153,7 +182,7 @@ public class FumlConfiguration {
         return null;
     }
     
-    public boolean hasReferenceMapping(UmlClassifier classifier, UmlProperty property)
+    public boolean hasReferenceMapping(Classifier classifier, Property property)
     {
         Iterator<ReferenceMapping> mappings = 
             getConfig().getMappingConfiguration().getReferenceMapping().iterator();  
@@ -167,7 +196,7 @@ public class FumlConfiguration {
         return false;
     }
     
-    public ReferenceMappingType getReferenceMappingType(UmlClassifier classifier, UmlProperty property)
+    public ReferenceMappingType getReferenceMappingType(Classifier classifier, Property property)
     {
         Iterator<ReferenceMapping> mappings = 
             getConfig().getMappingConfiguration().getReferenceMapping().iterator();  
@@ -194,12 +223,26 @@ public class FumlConfiguration {
         return activeConfigFileName;
     }
     
-    public ImportElement findImportElement(String name) {
-        return this.importElements.get(name);
+    /**
+     * Return the import exception for the goven element local name, if exists
+     * @param localName the element local name
+     * @return the import exception or null if not exists
+     */
+    public ImportExemption findImportExemptionByElement(String localName) {
+        return this.importExemptions.get(localName);
     }
     
     public ImportAdapter findImportAdapter(String name) {
         return this.importAdapters.get(name);
+    }
+ 
+    /**
+     * Returns the list of validation exemptions for the given classifier name.
+     * @param classifierName the unqualified classifier name
+     * @return the validation exemptions or 
+     */
+    public List<ValidationExemption> findValidationExemptionByClassifierName(String classifierName) {
+        return this.validationExemptions.get(classifierName);
     }
     
 }

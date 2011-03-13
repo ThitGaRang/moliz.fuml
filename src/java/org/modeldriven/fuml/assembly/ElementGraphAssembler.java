@@ -18,9 +18,10 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.modeldriven.fuml.model.Model;
-import org.modeldriven.fuml.model.uml2.UmlClass;
-import org.modeldriven.fuml.model.uml2.UmlClassifier;
+import org.modeldriven.fuml.FumlObject;
+import org.modeldriven.fuml.repository.Class_;
+import org.modeldriven.fuml.repository.Classifier;
+import org.modeldriven.fuml.repository.Repository;
 import org.modeldriven.fuml.xmi.AbstractXmiNodeVisitor;
 import org.modeldriven.fuml.xmi.XmiExternalReferenceElement;
 import org.modeldriven.fuml.xmi.XmiInternalReferenceElement;
@@ -32,285 +33,286 @@ import org.modeldriven.fuml.xmi.validation.ErrorCode;
 import org.modeldriven.fuml.xmi.validation.ErrorSeverity;
 import org.modeldriven.fuml.xmi.validation.ValidationError;
 
-import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Element;
+import fUML.Syntax.Classes.Kernel.PrimitiveType;
 
-public class ElementGraphAssembler extends AbstractXmiNodeVisitor
-    implements XmiNodeVisitor 
-{    
+public class ElementGraphAssembler extends AbstractXmiNodeVisitor 
+    implements XmiNodeVisitor, AssemblerResults {
     private static Log log = LogFactory.getLog(ElementGraphAssembler.class);
-    private Model metadata = Model.getInstance();
-    private Map<String, ElementAssembler> assemblerMap = new HashMap<String, ElementAssembler>();
-    private Map<String, ElementAssembler> resultsElements = new HashMap<String, ElementAssembler>();
-    private ElementAssembler root;
-    private AssemblerResultsProfile resultsProfile;
+    private Repository metadata = Repository.INSTANCE;
+    private Map<XmiNode, ElementAssembler> xmiNodeToAssemblerMap = new HashMap<XmiNode, ElementAssembler>();
+    private Map<String, ElementAssembler> resultsAssemblerMap = new HashMap<String, ElementAssembler>();
+    private List<ElementAssembler> roots = new ArrayList<ElementAssembler>();
     private boolean assembleExternalReferences = true;
-    
-    @SuppressWarnings("unused")
-    private ElementGraphAssembler() {}
+    private List<ElementAssemblerEventListener> eventListeners;
 
-    public ElementGraphAssembler(XmiNode xmiRoot, AssemblerResultsProfile resultsProfile, 
-            boolean assembleExternalReferences) {
-        
-        super(xmiRoot);
-        this.resultsProfile = resultsProfile;
-        this.assembleExternalReferences = assembleExternalReferences;
-        
-        // create an assembler hierarchy
-        xmiRoot.accept(this);
-        
-        root.acceptBreadthFirst(new ReferenceFeatureAssembler());
-        root.acceptBreadthFirst(new ElementLinker());               
-        root.acceptBreadthFirst(new LibraryRegistration()); // TODO: move to library package              
+    @SuppressWarnings("unused")
+    private ElementGraphAssembler() {
     }
-    
-    public ElementGraphAssembler(XmiNode xmiRoot, AssemblerResultsProfile resultsProfile) {
-        this(xmiRoot, resultsProfile, true);
+
+    public ElementGraphAssembler(XmiNode xmiRoot, boolean assembleExternalReferences) {
+        super(xmiRoot);
+        this.assembleExternalReferences = assembleExternalReferences;
     }
     
     public ElementGraphAssembler(XmiNode xmiRoot) {
-        
-        // by default look only for Activities as assembler results
-    	this(xmiRoot, 
-    	    new AssemblerResultsProfile(
-                new UmlClass[] { 
-                        (UmlClass)Model.getInstance().getClassifier(Activity.class.getSimpleName())                 
-                    }
-                ), true);    	    	
+        this(xmiRoot, true);
+    }
+    
+    public void start() {
+
+        // create an assembler hierarchy
+        super.xmiRoot.accept(this);
+
+        for (ElementAssembler root : roots)
+            root.acceptBreadthFirst(new ReferenceFeatureAssembler());
+        for (ElementAssembler root : roots)
+            root.acceptBreadthFirst(new ElementLinker());
+        for (ElementAssembler root : roots)
+            root.acceptBreadthFirst(new LibraryRegistration()); // TODO: move to
+                                                            // library package      
+        for (ElementAssembler root : roots)
+            root.acceptBreadthFirst(new NotifyEventListeners());
+              
+        if (eventListeners != null)
+        	for (ElementAssemblerEventListener listener : eventListeners)
+        		listener.elementGraphAssembled(
+        				new ElementAssemblerResultsEvent(this));            	
     }
 
-    public ElementGraphAssembler(XmiNode xmiRoot, 
-            boolean assembleExternalReferences) {
-        
-        // by default look only for Activities as assembler results
-        this(xmiRoot, 
-            new AssemblerResultsProfile(
-                new UmlClass[] { 
-                        (UmlClass)Model.getInstance().getClassifier(Activity.class.getSimpleName())                 
-                    }
-                ), assembleExternalReferences);               
-    }
-    
     public void clear() {
-        this.assemblerMap.clear();
+        this.xmiNodeToAssemblerMap.clear();
         this.classifierMap.clear();
         this.references.clear();
-        this.resultsElements.clear();
-        this.root = null;
+        this.resultsAssemblerMap.clear();
+        this.roots.clear();
     }
     
-    public void visit(XmiNode target, XmiNode source, 
-            String sourceKey, XmiNodeVisitorStatus status, int level)
-    {
+    public void addEventListener(ElementAssemblerEventListener eventListener) {
+    	if (eventListeners == null)
+    		eventListeners = new ArrayList<ElementAssemblerEventListener>();
+    	this.eventListeners.add(eventListener);
+    }
+    
+    public void removeEventListener(ElementAssemblerEventListener eventListener) {
+    	if (eventListeners == null)
+    		return;
+    	this.eventListeners.remove(eventListener);
+    }
+
+    public void visit(XmiNode target, XmiNode sourceXmiNode, String sourceKey,
+            XmiNodeVisitorStatus status, int level) {
+    	
+    	// The XMI root is just packaging, not something we want to assemble, so for
+    	// models with one or more profiles applied, the XMI root has multiple
+    	// child nodes as direct descendants, creating effectively a set of graphs. We ignore
+    	// the XMI root here making it's direct descendants actual root assemblers.
+    	if (sourceXmiNode == null && "XMI".equals(target.getLocalName())) {
+            if (log.isDebugEnabled())
+                log.debug("ignoring root XMI node");
+    		return;
+    	}	
+    	
+    	XmiNode source = sourceXmiNode;
+    	if (source != null && "XMI".equals(source.getLocalName())) {
+    		source = null;
+            if (log.isDebugEnabled())
+                log.debug("ignoring source XMI node as parent");
+    	}
+    			
         if (log.isDebugEnabled())
             if (source != null)
-                log.debug("visit: " + target.getLocalName() 
-                    + " \t\tsource: " + source.getLocalName());
+                log.debug("visit: " + target.getLocalName() + " \t\tsource: "
+                        + source.getLocalName());
             else
                 log.debug("visit: " + target.getLocalName());
-        
-        StreamNode eventNode = (StreamNode)target;
-                        
-        UmlClassifier classifier = this.findClassifier(target, source);
+
+        StreamNode eventNode = (StreamNode) target;
+
+        Classifier classifier = this.findClassifier(target, source);
         if (classifier == null)
-        {
-        	ValidationError error = new ValidationError(eventNode, 
-    				ErrorCode.UNDEFINED_CLASS, ErrorSeverity.WARN);
-        	log.warn(error.toString());
-        	String xmiType = target.getXmiType();
+        	classifier = findClassifierFromImportAdapter(target);
+        if (classifier == null) {
+            ValidationError error = new ValidationError(eventNode, ErrorCode.UNDEFINED_CLASS,
+                    ErrorSeverity.WARN);
+            log.warn(error.toString());
+            String xmiType = target.getXmiType();
             if (xmiType != null && xmiType.length() > 0)
                 log.warn("ignoring element, " + xmiType);
-            else    
+            else
                 log.warn("ignoring element, " + target.getLocalName());
             return;
         }
-    	if (log.isDebugEnabled())
-    		log.debug("identified element '" + target.getLocalName() + "' as classifier, "
-    			+ classifier.getName());
-    	classifierMap.put(target, classifier);
-    	
-        if (metadata.isIgnoredClassifier(classifier))
-        {    
-            if (!"OpaqueExpression".equals(classifier.getName()))
-                return; // FIXME; HACK for MagicDraw
-            else
-                log.warn("assembling non-fUML element '" + classifier.getName() + "'");
-        }
-    	
-        boolean hasAttributes = eventNode.hasAttributes();
-    	if (isPrimitiveTypeElement(target, classifier, hasAttributes))
-    		return; // must be an attribute, handled in ElementAssembler 
-    	
-    	ElementAssembler sourceAssembler = null;
-    	if (source != null && source.getXmiId() != null)
-            sourceAssembler = assemblerMap.get(source.getXmiId());      
+        if (log.isDebugEnabled())
+            log.debug("identified element '" + target.getLocalName() + "' as classifier, "
+                    + classifier.getName());
+        classifierMap.put(target, classifier);
 
-    	// If the element is a "child" and represents just a reference, we don't need an assembler
-    	// for it. Just add it as a reference to the parent for later lookup. 
-    	if (sourceAssembler != null)
-    	{    
-        	if (isInternalReferenceElement(eventNode, classifier, hasAttributes))
-        	{
-        		sourceAssembler.addReference(new XmiInternalReferenceElement(eventNode)); 
-            	return; 
-        	}	
-    
-            if (isExternalReferenceElement(eventNode, classifier, hasAttributes))
-            {
-                sourceAssembler.addReference(new XmiExternalReferenceElement(eventNode)); 
-                return; 
+        // PrimitiveType elements have no attributes or content
+        if (classifier.getDelegate() instanceof PrimitiveType) {
+        	return;
+        }
+        
+        boolean hasAttributes = eventNode.hasAttributes();
+        if (isPrimitiveTypeElement(target, classifier, hasAttributes))
+            return; // must be an attribute, handled in ElementAssembler
+
+        ElementAssembler sourceAssembler = null;
+        if (source != null)
+            sourceAssembler = xmiNodeToAssemblerMap.get(source);
+
+        // If the element is a "child" and represents just a reference, we don't
+        // need an assembler
+        // for it. Just add it as a reference to the parent for later lookup.
+        if (sourceAssembler != null) {
+            if (isInternalReferenceElement(eventNode, classifier, hasAttributes)) {
+                sourceAssembler.addReference(new XmiInternalReferenceElement(eventNode));
+                return;
             }
-    	}
-    	
-        ElementAssembler assembler = new ElementAssembler(target, source,
-                classifier, assemblerMap);
+
+            if (isExternalReferenceElement(eventNode, classifier, hasAttributes)) {
+                sourceAssembler.addReference(new XmiExternalReferenceElement(eventNode));
+                return;
+            }
+        }
+
+        ElementAssembler assembler = new ElementAssembler(target, source, 
+        		(Class_)classifier, this.resultsAssemblerMap);
         assembler.setAssembleExternalReferences(this.assembleExternalReferences);
         assembler.assembleElementClass();
         assembler.assemleFeatures();
-        if (resultsProfile.isResultClass(assembler.getPrototype()))
-            this.resultsElements.put(target.getXmiId(), assembler);
         
-        if (target.getXmiId() != null)
-            assemblerMap.put(target.getXmiId(), assembler);
-        
+        this.resultsAssemblerMap.put(assembler.getXmiId(), assembler);
+        this.xmiNodeToAssemblerMap.put(target, assembler);
+
         // build an assembler hierarchy
-        if (sourceAssembler != null)
-        {	
-        	sourceAssembler.add(assembler);
-        	assembler.setParentAssembler(sourceAssembler);
+        if (sourceAssembler != null) {
+            sourceAssembler.add(assembler);
+            assembler.setParentAssembler(sourceAssembler);
         }
-        
-        if (source == null)
-        {
-            if (root != null)
-                throw new AssemblyException("cannot replace root, "
-                    + root.getTargetObject().getClass().getSimpleName()
-                    + "(" +  root.getXmiId() + ") with, "
-                    + assembler.getTargetObject().getClass().getSimpleName()
-                    + "(" +  assembler.getXmiId() + ")");
-            root = assembler; 
-        }         
+
+        if (source == null) {
+            roots.add(assembler);
+        }
     }
 
-    public List<Element> getResults()
-    {
-        List<Element> results = new ArrayList<Element>();
-        Iterator<String> keys = resultsElements.keySet().iterator();
+    public List<FumlObject> getResults() {
+        List<FumlObject> results = new ArrayList<FumlObject>();
+        Iterator<String> keys = resultsAssemblerMap.keySet().iterator();
         while (keys.hasNext()) {
             String key = keys.next();
-            ElementAssembler assembler = resultsElements.get(key);
-            results.add(assembler.getTarget());
+            ElementAssembler assembler = resultsAssemblerMap.get(key);
+            results.add(assembler.getTargetObject());
         }
         return results;
     }
- 
-    public List<String> getResultsXmiIds()
-    {
+
+    public List<String> getResultsXmiIds() {
         List<String> results = new ArrayList<String>();
-        Iterator<String> keys = resultsElements.keySet().iterator();
+        Iterator<String> keys = resultsAssemblerMap.keySet().iterator();
         while (keys.hasNext()) {
             String key = keys.next();
             results.add(key);
         }
         return results;
     }
-    
-    public Element lookupResult(String xmiId)
-    {
-        return resultsElements.get(xmiId).getTarget();   
+
+    public FumlObject lookupResult(String xmiId) {
+        return resultsAssemblerMap.get(xmiId).getTargetObject();
     }
-    
-    class ReferenceFeatureAssembler implements AssemblerVisitor
-    {
+
+    class ReferenceFeatureAssembler implements AssemblerVisitor {
         private Log log = LogFactory.getLog(ReferenceFeatureAssembler.class);
-        
-        public void begin(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            ElementAssembler targetAssembler = (ElementAssembler)target;
-            ElementAssembler sourceAssembler = (ElementAssembler)source;
-            
+
+        public void begin(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+            ElementAssembler targetAssembler = (ElementAssembler) target;
+            ElementAssembler sourceAssembler = (ElementAssembler) source;
+
             if (log.isDebugEnabled())
                 if (source != null)
-                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName() 
-                        + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
+                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName()
+                            + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
                 else
                     log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName());
             if (log.isDebugEnabled())
-                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName() + ")" + " " 
-                        + targetAssembler.getPrototype().getName());
-               
+                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName()
+                        + ")" + " " + targetAssembler.getPrototype().getName());
+
             targetAssembler.assembleReferenceFeatures();
         }
-        
-        public void end(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            
+
+        public void end(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+
         }
-        
+
     }
- 
-    class ElementLinker implements AssemblerVisitor
-    {
+
+    class ElementLinker implements AssemblerVisitor {
         private Log log = LogFactory.getLog(ElementLinker.class);
-        
-        public void begin(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            ElementAssembler targetAssembler = (ElementAssembler)target;
-            ElementAssembler sourceAssembler = (ElementAssembler)source;
+
+        public void begin(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+            ElementAssembler targetAssembler = (ElementAssembler) target;
+            ElementAssembler sourceAssembler = (ElementAssembler) source;
             if (log.isDebugEnabled())
                 if (source != null)
-                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName() 
-                        + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
+                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName()
+                            + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
                 else
                     log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName());
             if (log.isDebugEnabled())
-                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName() + ")" + " " 
-                        + targetAssembler.getPrototype().getName());
+                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName()
+                        + ")" + " " + targetAssembler.getPrototype().getName());
 
-            
             if (sourceAssembler != null)
                 targetAssembler.associateElement(sourceAssembler);
 
         }
-        
-        public void end(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            
-        }       
+
+        public void end(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+
+        }
     }
- 
-    class LibraryRegistration implements AssemblerVisitor
-    {
+
+    class LibraryRegistration implements AssemblerVisitor {
         private Log log = LogFactory.getLog(LibraryRegistration.class);
-        
-        public void begin(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            ElementAssembler targetAssembler = (ElementAssembler)target;
-            ElementAssembler sourceAssembler = (ElementAssembler)source;
+
+        public void begin(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+            ElementAssembler targetAssembler = (ElementAssembler) target;
+            ElementAssembler sourceAssembler = (ElementAssembler) source;
             if (log.isDebugEnabled())
                 if (source != null)
-                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName() 
-                        + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
+                    log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName()
+                            + " \t\tsource: " + sourceAssembler.getTargetClass().getSimpleName());
                 else
                     log.debug("begin: " + targetAssembler.getTargetClass().getSimpleName());
             if (log.isDebugEnabled())
-                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName() + ")" + " " 
-                        + targetAssembler.getPrototype().getName());
+                log.debug("postassemble: (" + targetAssembler.getTargetClass().getSimpleName()
+                        + ")" + " " + targetAssembler.getPrototype().getName());
 
-            targetAssembler.registerElement();            
+            targetAssembler.registerElement();
         }
-        
-        public void end(AssemblerNode target, AssemblerNode source, 
-                String sourceKey, int level)
-        {
-            
-        }       
+
+        public void end(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+
+        }
     }
+    
+    class NotifyEventListeners implements AssemblerVisitor {
+        private Log log = LogFactory.getLog(LibraryRegistration.class);
+
+        public void begin(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+            ElementAssembler targetAssembler = (ElementAssembler) target;
+            if (eventListeners != null)
+            	for (ElementAssemblerEventListener listener : eventListeners)
+            		listener.elementAssembled(
+            				new ElementAssemblerEvent(targetAssembler.getTarget()));
+        }
+
+        public void end(AssemblerNode target, AssemblerNode source, String sourceKey, int level) {
+
+        }
+    }
+    
 
     public boolean isAssembleExternalReferences() {
         return assembleExternalReferences;
@@ -319,5 +321,5 @@ public class ElementGraphAssembler extends AbstractXmiNodeVisitor
     public void setAssembleExternalReferences(boolean assembleExternalReferences) {
         this.assembleExternalReferences = assembleExternalReferences;
     }
-    
+
 }

@@ -42,7 +42,9 @@ public class StreamContext {
     
     private Namespace[] namespaces;
     private Namespace defaultNamespace;
-    private Map<NamespaceDomain, Namespace> namespaceMap = new HashMap<NamespaceDomain, Namespace>();
+    private Map<NamespaceDomain, Namespace> namespaceDomainMap = new HashMap<NamespaceDomain, Namespace>();
+    private Map<String, Namespace> namespaceLocalNameMap = new HashMap<String, Namespace>();
+    private Map<String, Namespace> namespaceURIMap = new HashMap<String, Namespace>();
 
 	@SuppressWarnings("unused")
 	private StreamContext() {}
@@ -73,20 +75,23 @@ public class StreamContext {
     		if (!XmiConstants.NAMESPACE_PREFIX.equals(name.getPrefix()))
     		    continue; //not a namespace
         		    
+    		namespaceLocalNameMap.put(name.getLocalPart(), namespace);
+    		namespaceURIMap.put(namespace.getNamespaceURI(), namespace);
+    		
     		NamespaceDomain domain = FumlConfiguration.getInstance().findNamespaceDomain(uri);
     		if (domain == null)
     		{    
-    		    log.debug("cannot find domain for namespace, " + uri);
+    		    log.debug("could not find domain for namespace '" + uri + "' - mapping only by local name");
     		    continue;
     		}
     		
-    		Namespace existing = this.namespaceMap.get(domain);
+    		Namespace existing = this.namespaceDomainMap.get(domain);
     		if (existing != null)
     		    throw new XmiException("multiple " + domain.value() + " namespaces ("
                         + existing.getNamespaceURI() + ", "
                         + namespace.getNamespaceURI() + ")");
     		
-    		this.namespaceMap.put(domain, namespace);
+    		this.namespaceDomainMap.put(domain, namespace);
     		
     	} // while()
     	
@@ -121,11 +126,11 @@ public class StreamContext {
 	}
 
 	public Namespace getXmiNamespace() {
-		return namespaceMap.get(NamespaceDomain.XMI);
+		return namespaceDomainMap.get(NamespaceDomain.XMI);
 	}
 
 	public Namespace getUmlNamespace() {
-        return namespaceMap.get(NamespaceDomain.UML);
+        return namespaceDomainMap.get(NamespaceDomain.UML);
 	}
 
     public Namespace getDefaultNamespace() {
@@ -133,11 +138,19 @@ public class StreamContext {
     }
 	
 	public Namespace getEcoreNamespace() {
-        return namespaceMap.get(NamespaceDomain.ECORE);
+        return namespaceDomainMap.get(NamespaceDomain.ECORE);
     }
 
     public Namespace getMagicdrawNamespace() {
-        return namespaceMap.get(NamespaceDomain.MAGICDRAW);
+        return namespaceDomainMap.get(NamespaceDomain.MAGICDRAW);
+    }
+    
+    public Namespace getNamespaceByLocalName(String localName) {
+    	return this.namespaceLocalNameMap.get(localName);
+    }
+    
+    public Namespace getNamespaceByURI(String uri) {
+    	return this.namespaceURIMap.get(uri);
     }
 
     public Namespace[] getNamespaces() {

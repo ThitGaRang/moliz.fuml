@@ -15,21 +15,15 @@
 package org.modeldriven.fuml.environment;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import org.modeldriven.fuml.repository.Repository;
 
 import fUML.Syntax.Classes.Kernel.Element;
-import fUML.Syntax.Classes.Kernel.NamedElement;
+import fUML.Syntax.Classes.Kernel.PrimitiveType;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 import fUML.Test.TestEnvironment;
 
 public class Environment extends TestEnvironment {
     private static Environment instance = null;
-    private Map<String, NamedElement> elementNameMap = new HashMap<String, NamedElement>();
-    private Map<String, Element> elementIdMap = new HashMap<String, Element>();
 
     private Environment() {
 
@@ -40,13 +34,6 @@ public class Environment extends TestEnvironment {
 		this.locus.factory
 				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
 		this.locus.factory.setStrategy(new fUML.Semantics.Loci.LociL1.FirstChoiceStrategy());
-/*
-		this.primitiveTypes = new fUML.Library.PrimitiveTypes(this.locus.factory);
-		this.addElement(this.primitiveTypes.Boolean);
-		this.addElement(this.primitiveTypes.Integer);
-		this.addElement(this.primitiveTypes.String);
-		this.addElement(this.primitiveTypes.UnlimitedNatural);
-*/
 	}
 
     public static Environment getInstance()
@@ -62,57 +49,53 @@ public class Environment extends TestEnvironment {
             instance = new Environment();
     }
 
-    public void add(NamedElement element)
-    {
-        elementNameMap.put(element.name, element);
-    }
-
-    public void add(String id, Element element)
-    {
-        if (element instanceof NamedElement)
-        {
-            NamedElement namedElement = (NamedElement)element;
-            elementNameMap.put(namedElement.name, namedElement);
-        }
-        elementIdMap.put(id, element);
-    }
-
     public Behavior findBehavior(String name)
     {
-        return (Behavior)elementNameMap.get(name); // FIXME: HACK
+    	org.modeldriven.fuml.repository.Element elem = Repository.INSTANCE.findElementByName(name);
+    	if (elem != null) {
+    		if (elem.getDelegate() instanceof Behavior)
+    		    return (Behavior)elem.getDelegate();
+    		else
+    			throw new EnvironmentException("Element '" + name + "' is not a Behavior, it is a '"
+    					+ elem.getDelegate().getClass().getSimpleName() + "'");
+    	}
+    	else
+    		return null;
     }
 
     public Element findElementById(String id)
     {
-        return elementIdMap.get(id);
+    	org.modeldriven.fuml.repository.Element elem = Repository.INSTANCE.findElementById(id);
+        if (elem != null)
+        	return elem.getDelegate();
+        else
+    	    return null;
     }
 
     public int getBehaviorCount()
     {
-        int result = 0;
-        Iterator<String> keys = elementNameMap.keySet().iterator();
-        while (keys.hasNext())
-        {
-            Element element = elementNameMap.get(keys.next());
-            if (element instanceof Behavior)
-                result++;
-        }
-        return result;
+    	return Repository.INSTANCE.getElementCount(Behavior.class);
     }
 
     public String[] getBehaviorNames()
     {
-        List<String> list = new ArrayList<String>();
-        Iterator<String> keys = elementNameMap.keySet().iterator();
-        while (keys.hasNext())
-        {
-            Element element = elementNameMap.get(keys.next());
-            if (element instanceof Behavior)
-                list.add(((Behavior)element).name);
-        }
-        String[] result = new String[list.size()];
-        list.toArray(result);
-        return result;
+    	return Repository.INSTANCE.getElementNames(Behavior.class);
+    }
+    
+    public PrimitiveType getBoolean() {
+    	return this.primitiveTypes.Boolean;
+    }
+    
+    public PrimitiveType getString() {
+    	return this.primitiveTypes.String;
+    }
+    
+    public PrimitiveType getInteger() {
+    	return this.primitiveTypes.Integer;
+    }
+    
+    public PrimitiveType getUnlimitedNatural() {
+    	return this.primitiveTypes.UnlimitedNatural;
     }
 
 }
