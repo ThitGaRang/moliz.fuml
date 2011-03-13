@@ -2,9 +2,8 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except
  * as stated in the file entitled Licensing-Information.
  *
- * All modifications copyright 2009 Data Access Technologies, Inc.
- *
- * All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License version 3.0
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * (Model Driven Solutions). Licensed under the Academic Free License version 3.0
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
  * in the file entitled Licensing-Information.
  *
@@ -41,6 +40,7 @@ import org.modeldriven.fuml.config.ValidationExemption;
 import org.modeldriven.fuml.config.ValidationExemptionType;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.library.Library;
+import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
 import org.modeldriven.fuml.repository.Class_;
 import org.modeldriven.fuml.repository.Classifier;
 import org.modeldriven.fuml.repository.Repository;
@@ -59,7 +59,6 @@ import org.modeldriven.fuml.xmi.validation.ValidationError;
 import org.modeldriven.fuml.xmi.validation.ValidationException;
 
 import UMLPrimitiveTypes.UnlimitedNatural;
-import fUML.Library.LibraryClassImplementation.ImplementationObject;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.DataType;
