@@ -186,7 +186,10 @@
       <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Namespace.java" />
       <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Type.java" />
       
-      
+      <!-- Replace generated Property source file with on that includes defaultValue. -->
+      <!-- The replacement for this files must be found in the ${src.java.dir} tree. -->
+      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Property.java" />
+     
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 
         debug="on"> 
