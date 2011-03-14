@@ -11887,6 +11887,7 @@ return false;&#xD;
               <ownedComment xmi:id="_2lgMa5cdEdq-Nv2ZQ5bhIQ" annotatedElement="_2lgMapcdEdq-Nv2ZQ5bhIQ">
                 <body>Indicates whether a parameter is being sent into or out of a behavioral element.</body>
               </ownedComment>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_PwO01m_uEd2dGPXl6bl1XwZ" value="in"/>
             </ownedAttribute>
             <ownedAttribute xmi:id="_2lgMbZcdEdq-Nv2ZQ5bhIQ" name="operation" type="_2lgL4JcdEdq-Nv2ZQ5bhIQ" subsettedProperty="_UqrBQmVGEdu0rvs8Gf_wjA" association="_2lp9z5cdEdq-Nv2ZQ5bhIQ">
               <ownedComment xmi:id="_2lgMcJcdEdq-Nv2ZQ5bhIQ" annotatedElement="_2lgMbZcdEdq-Nv2ZQ5bhIQ">
