@@ -15,6 +15,9 @@
 package org.modeldriven.fuml.environment;
 
 
+
+import org.modeldriven.fuml.common.uuid.UUID;
+import org.modeldriven.fuml.common.uuid.UUIDGenerator;
 import org.modeldriven.fuml.repository.Repository;
 
 import fUML.Syntax.Classes.Kernel.Element;
@@ -34,7 +37,16 @@ public class Environment extends TestEnvironment {
 		this.locus.factory
 				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
 		this.locus.factory.setStrategy(new fUML.Semantics.Loci.LociL1.FirstChoiceStrategy());
-	}
+	
+        // The fUML execution environment requires a single instance
+        // of these primitive types to be used for execution purposes.
+		// Give these types a "synthetic" XMI id such that they CAN be mapped
+		// by XMI id by various repository implementations.
+		this.primitiveTypes.Boolean.setXmiId(UUIDGenerator.instance().getIdString36());
+		this.primitiveTypes.String.setXmiId(UUIDGenerator.instance().getIdString36());
+		this.primitiveTypes.Integer.setXmiId(UUIDGenerator.instance().getIdString36());
+		this.primitiveTypes.UnlimitedNatural.setXmiId(UUIDGenerator.instance().getIdString36());
+    }
 
     public static Environment getInstance()
     {

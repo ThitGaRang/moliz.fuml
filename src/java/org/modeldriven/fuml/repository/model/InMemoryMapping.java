@@ -20,6 +20,7 @@ import UMLPrimitiveTypes.UnlimitedNatural;
 import fUML.Syntax.Classes.Kernel.Association;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Classifier;
+import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.EnumerationLiteral;
@@ -523,6 +524,46 @@ public class InMemoryMapping implements RepositoryMapping
                 + "#" + t.name, classifier);        
         elementIdToElementMap.put("http://schema.omg.org/spec/UML/2.2/uml.xml" 
                 + "#" + t.name, classifier);        
+    }
+    
+    public void mapDataType(DataType t, String currentPackageName, RepositoryArtifact artifact) {
+    	
+    	if (log.isDebugEnabled())
+            log.debug("mapping datatype, " + artifact.getURN() + "#" + currentPackageName + "." + t.getClass().getSimpleName());
+        
+        org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Classifier(t, artifact);
+        if (t.name != null && currentPackageName != null) {
+            qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + t.name, classifier);
+            classifierNameToPackageNameMap.put(t.name, currentPackageName);
+            qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + t.name,
+                currentPackageName);
+        }
+        
+        
+        if (elementIdToElementMap.get(t.getXmiId()) != null)
+        	throw new RepositorylException("found existing datatype, '"
+        			+ t.getXmiId() + ".");
+        elementIdToElementMap.put(t.getXmiId(), classifier);
+        String globalId = artifact.getURN() + "#" + t.getXmiId();
+        if (elementIdToElementMap.get(globalId) != null)
+        	throw new RepositorylException("found existing datatype, '"
+        			+ globalId + ".");
+        elementIdToElementMap.put(globalId, classifier); 
+        if (t.name != null) {
+            if (artifact.getNamespaceURI() != null) {
+    	        String artifactNamespaceQualifiedName = artifact.getNamespaceURI()
+    	            + "#" + t.name;
+    	        if (qualifiedClassifierNameToClassifierMap.get(artifactNamespaceQualifiedName) != null)
+    	        	if (log.isDebugEnabled())
+    	        	    log.debug("found existing datatype by artifact qualified name, '"
+    	        			+ artifactNamespaceQualifiedName + "' while mapping artifact, "
+    	        			+ artifact.getURN());
+    	        qualifiedClassifierNameToClassifierMap.put(artifactNamespaceQualifiedName, classifier);
+            }
+            else
+        	    log.warn("missing artifact URI - could not map datatype '"
+        			+ t.name + "' as externally referencable by artifact URI");
+        }
     }
 
     public void mapEnumeration(Enumeration e, String currentPackageName, RepositoryArtifact artifact) {

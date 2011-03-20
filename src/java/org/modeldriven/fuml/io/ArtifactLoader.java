@@ -180,18 +180,13 @@ public class ArtifactLoader
             		!(fumlObject instanceof Enumeration)) {
         		if (!(fumlObject instanceof PrimitiveType)) {
         			// datatypes
-        			Classifier classifier = (Classifier)fumlObject;
-        			if (classifier.name != null && classifier.name.length() > 0) {
-	                   	if (classifier.package_ != null)
-		            	    Repository.INSTANCE.getMapping().mapClassifier(classifier, 
-		            	    		classifier.package_.name, artifact);
-		            	else
-		            		Repository.INSTANCE.getMapping().mapClassifier(classifier, 
-		                			null, artifact);
-        			}
-        			else // FIXME: M1 datatype elements which are really just references(??)
-        				log.warn("ignoring unnamed classifier of type " + 
-        						classifier.getClass().getName());
+        			DataType datatype = (DataType)fumlObject;        			
+                   	if (datatype.package_ != null)
+	            	    Repository.INSTANCE.getMapping().mapDataType(datatype, 
+	            	    		datatype.package_.name, artifact);
+	            	else
+	            		Repository.INSTANCE.getMapping().mapDataType(datatype, 
+	                			null, artifact);
         		}
             }
             else if (fumlObject instanceof Property)

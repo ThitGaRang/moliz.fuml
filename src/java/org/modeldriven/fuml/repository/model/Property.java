@@ -2,6 +2,8 @@ package org.modeldriven.fuml.repository.model;
 
 import java.util.List;
 
+import org.modeldriven.fuml.assembly.AssemblyException;
+import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.repository.Element;
 import org.modeldriven.fuml.repository.Class_;
 import org.modeldriven.fuml.repository.Classifier;

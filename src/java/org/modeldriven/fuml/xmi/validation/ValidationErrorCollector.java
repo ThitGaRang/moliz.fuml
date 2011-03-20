@@ -137,8 +137,9 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 
         if (target.getXmiId() != null)
         {
-            if (this.nodeMap.get(target.getXmiId()) == null)
+            if (this.nodeMap.get(target.getXmiId()) == null) {
         	    this.nodeMap.put(target.getXmiId(), target);
+            }
             else
                 addError(ErrorCode.DUPLICATE_REFERENCE,
                         ErrorSeverity.FATAL, eventNode);

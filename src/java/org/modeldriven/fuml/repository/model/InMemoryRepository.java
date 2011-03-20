@@ -31,6 +31,7 @@ import org.modeldriven.fuml.bind.DefaultValidationEventHandler;
 import org.modeldriven.fuml.common.reflect.ReflectionUtils;
 import org.modeldriven.fuml.config.ExtensionPackage;
 import org.modeldriven.fuml.config.FumlConfiguration;
+import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.repository.config.Artifact;
 import org.modeldriven.fuml.repository.config.IgnoredClass;
 import org.modeldriven.fuml.repository.config.IgnoredPackage;
@@ -79,13 +80,50 @@ public class InMemoryRepository extends InMemoryMapping
             RepositoryConfigDataBinding configBinding = new RepositoryConfigDataBinding(
                     new DefaultValidationEventHandler());
             config = unmarshalConfig(configFileName, configBinding);
-
+            
         } catch (SAXException e) {
             throw new RepositorylException(e);
         } catch (JAXBException e) {
             throw new RepositorylException(e);
         }
 
+        // The fUML execution environment requires a single instance
+        // of these primitive types to be used for execution purposes.
+        // Consequently they are "assembled" into M1 models. As a repository, 
+        // we need to map these at bootstrap time as repository interface
+        // instances for later lookup.
+        org.modeldriven.fuml.repository.model.Classifier primitiveTypeClassifier = 
+        	new org.modeldriven.fuml.repository.model.Classifier(
+        	    Environment.getInstance().getInteger(), null);
+        if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)
+        	throw new IllegalStateException("expected XMI ID for fUML primitive type");
+        elementIdToElementMap.put(primitiveTypeClassifier.getXmiId(), primitiveTypeClassifier);
+        classifierNameToClassifierMap.put("Integer", primitiveTypeClassifier);
+
+        primitiveTypeClassifier = 
+        	new org.modeldriven.fuml.repository.model.Classifier(
+        	    Environment.getInstance().getString(), null);
+        if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)
+        	throw new IllegalStateException("expected XMI ID for fUML primitive type");
+        elementIdToElementMap.put(primitiveTypeClassifier.getXmiId(), primitiveTypeClassifier);
+        classifierNameToClassifierMap.put("String", primitiveTypeClassifier);
+
+        primitiveTypeClassifier = 
+        	new org.modeldriven.fuml.repository.model.Classifier(
+        	    Environment.getInstance().getBoolean(), null);
+        if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)
+        	throw new IllegalStateException("expected XMI ID for fUML primitive type");
+        elementIdToElementMap.put(primitiveTypeClassifier.getXmiId(), primitiveTypeClassifier);
+        classifierNameToClassifierMap.put("Boolean", primitiveTypeClassifier);
+
+        primitiveTypeClassifier = 
+        	new org.modeldriven.fuml.repository.model.Classifier(
+        	    Environment.getInstance().getUnlimitedNatural(), null);
+        if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)
+        	throw new IllegalStateException("expected XMI ID for fUML primitive type");
+        elementIdToElementMap.put(primitiveTypeClassifier.getXmiId(), primitiveTypeClassifier);
+        classifierNameToClassifierMap.put("UnlimitedNatural", primitiveTypeClassifier);
+        
         Iterator<IgnoredPackage> packages = config.getIgnoredPackage().iterator();
         while (packages.hasNext()) {
             IgnoredPackage pkg = packages.next();
