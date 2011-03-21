@@ -5,6 +5,7 @@ import org.modeldriven.fuml.repository.ext.Stereotype;
 import fUML.Syntax.Classes.Kernel.Association;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.Classes.Kernel.Classifier;
+import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.EnumerationLiteral;
@@ -27,5 +28,5 @@ public interface RepositoryMapping {
 	public void mapEnumeration(Enumeration e, String currentPackageName, RepositoryArtifact artifact);
 	public void mapEnumerationLiteral(EnumerationLiteral literal, String currentPackageName, RepositoryArtifact artifact);
 	public void mapAssociation(Association assoc, String currentPackageName, RepositoryArtifact artifact);
-	
+	public void mapDataType(DataType t, String currentPackageName, RepositoryArtifact artifact);
 }
