@@ -1,6 +1,8 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
+ * entitled Licensing-Information. 
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -11,90 +13,56 @@
 
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.common.Status;
 import org.modeldriven.fuml.library.libraryclass.ImplementationObject;
 import org.modeldriven.fuml.library.libraryclass.OperationExecution;
 
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 import fUML.Semantics.Classes.Kernel.StringValue;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::ChannelImplementation::ChannelObject</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ChannelObject#getName <em>getName</em>}</li>
- * <li>{@link ChannelObject#open <em>open</em>}</li>
- * <li>{@link ChannelObject#close <em>close</em>}</li>
- * <li>{@link ChannelObject#isOpen <em>isOpen</em>}</li>
- * <li>{@link ChannelObject#execute <em>execute</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class ChannelObject extends ImplementationObject {
-
-    // Attributes
-
-    // Operations of the class
-    /**
-     * operation getName <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	
+	protected Status status = new Status("ChannelObject");
 
     public abstract String getName();
-
-    /**
-     * operation open <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public abstract void open();
-
-    /**
-     * operation close <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public abstract void close();
-
-    /**
-     * operation isOpen <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
+    public abstract void open(Status errorStatus);
+    public abstract void close(Status errorStatus);
     public abstract boolean isOpen();
-
-    /**
-     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+    
+    public Status getStatus() {
+    	return this.status;
+    }
+    
+    public void updateStatus(OperationExecution execution, Status status) {
+        if (!status.isNormal()) {
+        	execution.setParameterValue("errorStatus", status.getValue());
+        }
+        this.status = status;
+    }
 
     public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
+        
+        Status status = new Status("ChannelObject");
 
         if (name.equals("getName")) {
             StringValue nameValue = new StringValue();
             nameValue.value = this.getName();
-            execution.setParameterValue("result", nameValue);
+            execution.setReturnParameterValue(nameValue);
         } else if (name.equals("open")) {
-            this.open();
+            this.open(status);
+            this.updateStatus(execution, status);
         } else if (name.equals("close")) {
-            this.close();
+            this.close(status);
+            this.updateStatus(execution, status);
         } else if (name.equals("isOpen")) {
             BooleanValue isOpenValue = new BooleanValue();
             isOpenValue.value = this.isOpen();
-            execution.setParameterValue("result", isOpenValue);
-        }
-
+            execution.setReturnParameterValue(isOpenValue);
+        } else if (name.equals("getStatus")) {
+        	Status result = this.getStatus();        	
+            execution.setReturnParameterValue(result.getValue());
+        }        
     }
 
 } // ChannelObject

@@ -1,6 +1,8 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
+ * entitled Licensing-Information. 
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -9,69 +11,44 @@
  *
  */
 
-
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.common.Status;
 import org.modeldriven.fuml.library.libraryclass.OperationExecution;
 
 import fUML.Semantics.Classes.Kernel.BooleanValue;
-
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::ChannelImplementation::InputChannelObject</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link InputChannelObject#hasMore <em>hasMore</em>}</li>
- * <li>{@link InputChannelObject#read <em>read</em>}</li>
- * <li>{@link InputChannelObject#execute <em>execute</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
+import fUML.Semantics.Classes.Kernel.Value;
 
 public abstract class InputChannelObject extends ChannelObject {
 
-    // Attributes
-
-    // Operations of the class
-    /**
-     * operation hasMore <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
     public abstract boolean hasMore();
-
-    /**
-     * operation read <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public abstract fUML.Semantics.Classes.Kernel.Value read();
-
-    /**
-     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+    public abstract Value read(Status errorStatus);
+    public abstract Value peek(Status errorStatus);
 
     public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
+        
+        Status status = new Status("InputChannel");
 
         if (name.equals("hasMore")) {
             BooleanValue hasMoreValue = new BooleanValue();
             hasMoreValue.value = this.hasMore();
-            execution.setParameterValue("result", hasMoreValue);
+            execution.setReturnParameterValue(hasMoreValue);
         } else if (name.equals("read")) {
-            execution.setParameterValue("value", this.read());
+        	Value value = this.read(status);
+        	if (value != null) {
+        		execution.setParameterValue("value", value);
+        	}
+            this.updateStatus(execution, status);
+        } else if (name.equals("peek")) {
+        	Value value = this.peek(status);
+        	if (value != null) {
+        		execution.setParameterValue("value", value);
+        	}
+            this.updateStatus(execution, status);
         } else {
             super.execute(execution);
         }
-
     }
 
 } // InputChannelObject

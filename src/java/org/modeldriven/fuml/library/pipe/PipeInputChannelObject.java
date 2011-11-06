@@ -12,132 +12,67 @@
 
 package org.modeldriven.fuml.library.pipe;
 
+import org.modeldriven.fuml.library.common.Status;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::PipeImplementation::PipeInputChannelObject</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link PipeInputChannelObject#hasMore <em>hasMore</em>}</li>
- * <li>{@link PipeInputChannelObject#read <em>read</em>}</li>
- * <li>{@link PipeInputChannelObject#receive <em>receive</em>}</li>
- * <li>{@link PipeInputChannelObject#open <em>open</em>}</li>
- * <li>{@link PipeInputChannelObject#close <em>close</em>}</li>
- * <li>{@link PipeInputChannelObject#isOpen <em>isOpen</em>}</li>
- * <li>{@link PipeInputChannelObject#getName <em>getName</em>}</li>
- * <li>{@link PipeInputChannelObject#PipeInputChannelObject <em>
- * PipeInputChannelObject</em>}</li>
- * <li>{@link PipeInputChannelObject#values <em>values</em>}</li>
- * <li>{@link PipeInputChannelObject#opened <em>opened</em>}</li>
- * <li>{@link PipeInputChannelObject#name <em>name</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
+import fUML.Semantics.Classes.Kernel.Value;
+import fUML.Semantics.Classes.Kernel.ValueList;
 
 public class PipeInputChannelObject extends org.modeldriven.fuml.library.channel.InputChannelObject {
 
-    // Attributes
-    private fUML.Semantics.Classes.Kernel.ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
+    private ValueList values = new fUML.Semantics.Classes.Kernel.ValueList();
     private boolean opened = false;
     private String name = new String();
-
-    // Operations of the class
-    /**
-     * operation hasMore <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
 
     public boolean hasMore() {
         return this.isOpen() && !(this.values.size() == 0);
 
     }
 
-    /**
-     * operation read <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public fUML.Semantics.Classes.Kernel.Value read() {
+    public Value read(Status errorStatus) {
         if (this.hasMore()) {
-            fUML.Semantics.Classes.Kernel.Value value = this.values.getValue(0);
+            Value value = this.values.getValue(0);
             this.values.remove(0);
             return value;
         } else {
             return null;
         }
-
     }
 
-    /**
-     * operation receive <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	@Override
+	public Value peek(Status errorStatus) {
+        if (this.hasMore()) {
+            Value value = this.values.getValue(0);
+            return value;
+        } else {
+            return null;
+        }
+	}
 
-    public void receive(fUML.Semantics.Classes.Kernel.Value value) {
+    public void receive(Value value) {
         this.values.addValue(value);
 
     }
 
-    /**
-     * operation open <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public void open() {
+    public void open(Status errorStatus) {
         opened = true;
     }
 
-    /**
-     * operation close <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public void close() {
+    public void close(Status errorStatus) {
         opened = false;
-
     }
-
-    /**
-     * operation isOpen <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
 
     public boolean isOpen() {
         return opened;
 
     }
 
-    /**
-     * operation getName <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
     public String getName() {
         return name;
     }
 
-    /**
-     * operation PipeInputChannelObject <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
-
     public PipeInputChannelObject(String name) {
         this.name = name;
         this.opened = true;
-
     }
 
 } // PipeInputChannelObject

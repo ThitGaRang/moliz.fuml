@@ -1,6 +1,8 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
+ * entitled Licensing-Information. 
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * Licensed under the Academic Free License 
  * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
@@ -8,64 +10,30 @@
  *   MDS - initial API and implementation
  *
  */
+
 package org.modeldriven.fuml.library.channel;
 
+import org.modeldriven.fuml.library.common.Status;
 import org.modeldriven.fuml.library.libraryclass.OperationExecution;
 
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::ChannelImplementation::OutputChannelObject</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link OutputChannelObject#write <em>write</em>}</li>
- * <li>{@link OutputChannelObject#isFull <em>isFull</em>}</li>
- * <li>{@link OutputChannelObject#execute <em>execute</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class OutputChannelObject extends ChannelObject {
 
-    // Attributes
-
-    // Operations of the class
-    /**
-     * operation write <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
-    public abstract void write(fUML.Semantics.Classes.Kernel.Value value);
-
-    /**
-     * operation isFull <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-
+    public abstract void write(fUML.Semantics.Classes.Kernel.Value value, Status errorStatus);
     public abstract boolean isFull();
-
-    /**
-     * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
 
     public void execute(OperationExecution execution) {
         String name = execution.getOperationName();
 
         if (name.equals("write")) {
-            this.write(execution.getParameterValue("value").values.getValue(0));
+        	Status status = new Status("OutputChannelObject");
+            this.write(execution.getParameterValue("value").values.getValue(0), status);
+            this.updateStatus(execution, status);
         } else if (name.equals("isFull")) {
             BooleanValue isFullValue = new BooleanValue();
             isFullValue.value = this.isFull();
-            execution.setParameterValue("result", isFullValue);
+            execution.setReturnParameterValue(isFullValue);
         } else {
             super.execute(execution);
         }
