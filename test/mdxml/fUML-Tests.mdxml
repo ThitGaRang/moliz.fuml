@@ -5168,13 +5168,11 @@
 				<weight xmi:type='uml:LiteralInteger' xmi:id='_15_5_1_1a900482_1227851538125_176992_4780' visibility='public' value='1'/>
 			</edge>
 		</packagedElement>
-		<!--
 		<packagedElement xmi:type='uml:Package' href='UML_Standard_Profile.xml#magicdraw_uml_standard_profile_v_0001'>
 			<xmi:Extension extender='MagicDraw UML 16.0' extenderID='MagicDraw UML 16.0'>
 				<referenceExtension referentPath='UML Standard Profile' referentType='Package'/>
 			</xmi:Extension>
 		</packagedElement>
-		-->
 		<packagedElement xmi:type='uml:Package' href='fUML_Library.xmi#PrimitiveBehaviors'>
 			<xmi:Extension extender='MagicDraw UML 16.0' extenderID='MagicDraw UML 16.0'>
 				<referenceExtension referentPath='PrimitiveBehaviors' referentType='Package'/>

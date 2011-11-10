@@ -465,8 +465,27 @@
               <report format="frames" todir="${test.output.dir}"/>
             </junitreport>
      </target>
+	
+	<target name="javadoc">
     
-
+       <javadoc destdir="${target.dir}/docs/api"
+	       author="true"
+	       version="true"
+	       use="true"
+	       windowtitle="SDO API"
+	       additionalparam="-breakiterator">
+	       <packageset dir="${gen.java.dir}" defaultexcludes="yes">
+	           <include name="fUML/**"/>
+	           <include name="org/modeldriven/**"/>
+	       </packageset>
+	       <packageset dir="${src.java.dir}" defaultexcludes="yes">
+	           <include name="fUML/**"/>
+	           <include name="org/modeldriven/**"/>
+	       </packageset>
+	
+	       <classpath refid="cp"/>
+       </javadoc>    
+   </target>
   
 </project>
 

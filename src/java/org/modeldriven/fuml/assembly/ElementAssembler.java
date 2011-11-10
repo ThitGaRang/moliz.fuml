@@ -172,13 +172,17 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                     // indicated by a URI depends on the run-time binding of the path variable. Thus, different 
                     // environments can work with the same resource URIs even though the 
                     // resources are stored in different physical locations.
-                    if (object.getHref().endsWith("Integer"))
+                    
+                    int idx = object.getHref().lastIndexOf("#");
+                    String suffix = object.getHref().substring(idx+1);
+
+                    if (suffix.equals("Integer"))
                         this.target = Environment.getInstance().getInteger();
-                    else if (object.getHref().endsWith("String"))
+                    else if (suffix.equals("String"))
                         this.target = Environment.getInstance().getString();
-                    else if (object.getHref().endsWith("Boolean"))
+                    else if (suffix.equals("Boolean"))
                         this.target = Environment.getInstance().getBoolean();
-                    else if (object.getHref().endsWith("UnlimitedNatural"))
+                    else if (suffix.equals("UnlimitedNatural"))
                         this.target = Environment.getInstance().getUnlimitedNatural();
                     else
                         throw new AssemblyException("unknown type, " + object.getHref());
@@ -432,7 +436,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 if (property == null) {
                 	if (domain == null)
                 		domain = FumlConfiguration.getInstance().findNamespaceDomain(source.getNamespaceURI());	
-	            	ValidationExemption exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+	            	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByProperty(ValidationExemptionType.UNDEFINED_PROPERTY,
 	            			this.prototype, name.getLocalPart(), source.getNamespaceURI(), domain);
 	            	if (exemption == null) {
 	                    throw new ValidationException(new ValidationError(eventNode, name
@@ -471,62 +475,62 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             }
 
             // look at model properties not found in above attribute set
-            Property[] properties = this.prototype.getProperties();
-            for (int i = 0; i < properties.length; i++) {
-                QName name = new QName(properties[i].getName());
+            List<Property> properties = this.prototype.getNamedProperties();
+            for (Property property : properties) {
+                QName name = new QName(property.getName());
                 String value = eventNode.getAttributeValue(name);
                 if (value != null && value.trim().length() > 0)
                     continue; // handled above
 
-                String defaultValue = properties[i].findPropertyDefault();
+                String defaultValue = property.findPropertyDefault();
                 if (defaultValue != null) {
-                    Classifier type = properties[i].getType();
+                    Classifier type = property.getType();
                     if (log.isDebugEnabled())
                         log.debug("using default: '" + String.valueOf(defaultValue)
                                 + "' for enumeration feature <" + type.getName() + "> "
-                                + this.getPrototype().getName() + "." + properties[i].getName());
-                    this.assembleNonReferenceFeature(properties[i], defaultValue, type);
+                                + this.getPrototype().getName() + "." + property.getName());
+                    this.assembleNonReferenceFeature(property, defaultValue, type);
                     continue;
                 }
 
-                if (!properties[i].isRequired())
+                if (!property.isRequired())
                     continue; // don't bother digging further for a value
 
-                if (eventNode.findChildByName(properties[i].getName()) != null)
+                if (eventNode.findChildByName(property.getName()) != null)
                     continue; // it has such a child, let
 
-                if (this.modelSupport.isReferenceAttribute(properties[i])
+                if (this.modelSupport.isReferenceAttribute(property)
                         && FumlConfiguration.getInstance().hasReferenceMapping(this.prototype,
-                                properties[i])) {
+                        		property)) {
                     ReferenceMappingType mappingType = FumlConfiguration.getInstance()
-                            .getReferenceMappingType(this.prototype, properties[i]);
+                            .getReferenceMappingType(this.prototype, property);
                     if (mappingType == ReferenceMappingType.PARENT) {
                         if (parent != null && parent.getXmiId() != null
                                 && parent.getXmiId().length() > 0) {
                             XmiMappedReference reference = new XmiMappedReference(source,
-                                    properties[i].getName(), new String[] { parent.getXmiId() });
+                            		property.getName(), new String[] { parent.getXmiId() });
                             this.addReference(reference);
                             continue;
                         } else
                             log.warn("no parent XMI id found, ignoring mapping for, "
-                                    + this.prototype.getName() + "." + properties[i].getName());
+                                    + this.prototype.getName() + "." + property.getName());
                     } else
                         log.warn("unrecognized mapping type, " + mappingType.value()
                                 + " ignoring mapping for, " + this.prototype.getName() + "."
-                                + properties[i].getName());
+                                + property.getName());
                 }
 
-                if (!properties[i].isDerived()) {
+                if (!property.isDerived()) {
                 	if (domain == null)
                 		domain = FumlConfiguration.getInstance().findNamespaceDomain(source.getNamespaceURI());	
-	            	ValidationExemption exemption = findExemption(ValidationExemptionType.REQUIRED_PROPERTY,
+	            	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByProperty(ValidationExemptionType.REQUIRED_PROPERTY,
 	            			this.prototype, name.getLocalPart(), source.getNamespaceURI(), domain);
 	            	if (exemption == null) {
 	                    if (log.isDebugEnabled())
 	                        log.debug("throwing " + ErrorCode.PROPERTY_REQUIRED.toString()
-	                                + " error for " + this.prototype.getName() + "." + properties[i].getName());
+	                                + " error for " + this.prototype.getName() + "." + property.getName());
 	                    throw new ValidationException(new ValidationError(eventNode,
-	                            properties[i].getName(), ErrorCode.PROPERTY_REQUIRED, ErrorSeverity.FATAL));
+	                    		property.getName(), ErrorCode.PROPERTY_REQUIRED, ErrorSeverity.FATAL));
 	            	}
 	            	else {
 	    				if (log.isDebugEnabled())
@@ -643,6 +647,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             InstantiationException, NoSuchFieldException {
         StreamNode eventNode = (StreamNode) this.getSource();
 
+        NamespaceDomain domain = null; // only lookup as needed
         Property property = this.prototype.getProperty(reference.getLocalName());
         Classifier type = property.getType();
 
@@ -681,11 +686,20 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                     if (id == null || !id.startsWith("pathmap:")) 
                     {
                         Element referent = Library.getInstance().lookup(id);
-                        if (referent == null)
-                            throw new ValidationException(new ValidationError(reference, id,
-                                    ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
+                        if (referent == null) {                        	
+                        	if (domain == null)
+                        		domain = FumlConfiguration.getInstance().findNamespaceDomain(eventNode.getNamespaceURI());	            	
 
-                        this.assembleSingularReferenceFeature(referent, property, type);
+                        	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByReference(ValidationExemptionType.EXTERNAL_REFERENCE,
+                        			reference.getClassifier(), id, eventNode.getNamespaceURI(), domain);
+                        	if (exemption == null) {
+                                throw new ValidationException(new ValidationError(reference, id,
+                                        ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
+                        	}
+                        	// otherwise don't attempt to assemble
+                        }
+                        else
+                            this.assembleSingularReferenceFeature(referent, property, type);
                     }
                 }
             } else {
@@ -718,11 +732,19 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                         {
                             Element referent = Library.getInstance().lookup(id);
                             if (referent == null) {
-                                ValidationError error = new ValidationError(reference, id,
-                                        ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL);
-                                throw new ValidationException(error);
+                            	if (domain == null)
+                            		domain = FumlConfiguration.getInstance().findNamespaceDomain(eventNode.getNamespaceURI());	            	
+
+                            	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByReference(ValidationExemptionType.EXTERNAL_REFERENCE,
+                            			reference.getClassifier(), id, eventNode.getNamespaceURI(), domain);
+                            	if (exemption == null) {
+                                    throw new ValidationException(new ValidationError(reference, id,
+                                            ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL));
+                            	}
+                            	// otherwise don't attempt to assemble
                             }
-                            this.assembleCollectionReferenceFeature(referent, property, type);
+                            else
+                                this.assembleCollectionReferenceFeature(referent, property, type);
                         }
                     }
                 } else {
@@ -983,28 +1005,6 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         return enumValue;
     }
     
-	private ValidationExemption findExemption(ValidationExemptionType type, 
-			Classifier classifier, String propertyName, String namespaceURI, NamespaceDomain domain) {
-        ValidationExemption result = null;
-        if (domain != null) {
-	    	List<ValidationExemption> exemptions = FumlConfiguration.getInstance().findValidationExemptionByClassifierName(classifier.getName());
-	    	if (exemptions != null)
-	    		for (ValidationExemption exemption : exemptions)
-	    			if (exemption.getPropertyName().equals(propertyName) &&
-	    				exemption.getDomain().ordinal() == domain.ordinal() &&
-	    				exemption.getType().ordinal() == type.ordinal()) {
-	    				result = exemption;
-	    				break;
-	    			}
-        }
-        else
-            if (log.isDebugEnabled())
-        	    log.debug("could not lookup validation exemption for namespace URI '"
-        	    		+ "namespaceURI");
-    	return result;
-	}
-	
-
     public String getXmiId() {
         return this.getTargetObject().getXmiId();
     }

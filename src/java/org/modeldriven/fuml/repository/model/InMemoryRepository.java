@@ -66,8 +66,8 @@ public class InMemoryRepository extends InMemoryMapping
 
     private RepositoryConfig config;
 
-    protected Map<String, Map<String, Property>> classNameToAttributeMap = new HashMap<String, Map<String, Property>>();
-    protected Map<String, Map<String, Operation>> classNameToOperationMap = new HashMap<String, Map<String, Operation>>();
+    //private Map<String, Map<String, Property>> classNameToAttributeMap = new HashMap<String, Map<String, Property>>();
+    //protected Map<String, Map<String, Operation>> classNameToOperationMap = new HashMap<String, Map<String, Operation>>();
     
     private Map<String, IgnoredPackage> ignoredPackageNameMap = new HashMap<String, IgnoredPackage>();
     private Map<String, IgnoredClass> ignoredClassNameMap = new HashMap<String, IgnoredClass>();
@@ -169,13 +169,13 @@ public class InMemoryRepository extends InMemoryMapping
     }
     
     private void construct(Class_ clss, String className) {
-        Map<String, Property> attributes = new HashMap<String, Property>();
+        List<Property> attributes = new ArrayList<Property>();
         collectAttributes(clss, attributes);
-        classNameToAttributeMap.put(className, attributes);
+        //classNameToAttributeMap.put(className, attributes);
 
-        Map<String, Operation> operations = new HashMap<String, Operation>();
+        List<Operation> operations = new ArrayList<Operation>();
         collectOperations(clss, operations);
-        classNameToOperationMap.put(className, operations);   	
+        //classNameToOperationMap.put(className, operations);   	
 
         org.modeldriven.fuml.repository.model.Class_ implClass = (org.modeldriven.fuml.repository.model.Class_)clss;
         implClass.setAttributes(attributes);
@@ -358,7 +358,7 @@ public class InMemoryRepository extends InMemoryMapping
     }
 
     
-    protected void collectAttributes(Class_ clss, Map<String, Property> attributes) {
+    protected void collectAttributes(Class_ clss, List<Property> attributes) {
         fUML.Syntax.Classes.Kernel.Property[] props = new fUML.Syntax.Classes.Kernel.Property[clss.getDelegate().ownedAttribute.size()];
         clss.getDelegate().ownedAttribute.toArray(props);
         for (int i = 0; i < props.length; i++)
@@ -366,7 +366,7 @@ public class InMemoryRepository extends InMemoryMapping
         	fUML.Syntax.Classes.Kernel.Property fumlProperty = props[i];        	
     		Property property = new org.modeldriven.fuml.repository.model.Property(fumlProperty, clss.getArtifact());
     		
-            attributes.put(property.getName(), property);
+            attributes.add(property);
         }      	
         
         for (Classifier generalization : clss.getGeneralization()) {
@@ -383,11 +383,11 @@ public class InMemoryRepository extends InMemoryMapping
 
     }
 
-    protected void collectOperations(Class_ clss, Map<String, Operation> operations) {
+    protected void collectOperations(Class_ clss, List<Operation> operations) {
         Iterator<Operation> iter = clss.getDelegate().ownedOperation.iterator();
         while (iter.hasNext()) {
             Operation oper = iter.next();
-            operations.put(oper.name, oper);
+            operations.add(oper);
         }
 
         for (Classifier generalization : clss.getGeneralization()) {
@@ -457,6 +457,22 @@ public class InMemoryRepository extends InMemoryMapping
     		return result;
     	else
     		return new ArrayList<Stereotype>();
+    }
+    
+    public List<Stereotype> getStereotypes(Class<?> clss) {
+    	List<Stereotype> result = this.classToStereotypeListMap.get(clss);
+    	if (result != null)
+    		return result;
+    	else
+    		return new ArrayList<Stereotype>();
+    }
+    
+    public List<Stereotype> getAllStereotypes() {
+    	List<Stereotype> result = new ArrayList<Stereotype>();
+    	for (List<Stereotype> sublist : this.elementToStereotypeListMap.values()) {
+    		result.addAll(sublist);
+    	}
+    	return result;
     }
     
     public String getJavaPackageNameForClass(Classifier classifier) {

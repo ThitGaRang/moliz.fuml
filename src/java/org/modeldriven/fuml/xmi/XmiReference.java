@@ -13,6 +13,8 @@ package org.modeldriven.fuml.xmi;
 
 import java.util.Iterator;
 
+import org.modeldriven.fuml.repository.Classifier;
+
 /**
  * This interface is used to abstract away differences between the various 
  * types of XMI references allowed within the XMI format. XMI references are 
@@ -47,4 +49,6 @@ public interface XmiReference {
     public int getColumnNumber();
 	public int getReferenceCount();
     public Iterator<String> getXmiIds();
+    public XmiNode getXmiNode();
+    public Classifier getClassifier();
 }

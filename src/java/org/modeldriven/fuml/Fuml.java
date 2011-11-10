@@ -29,21 +29,44 @@ public class Fuml {
     @SuppressWarnings("unused")
 	private Fuml() {}
     
+    /**
+     * Loads the given model-file and executes the behavior 
+     * found within the given model-file. If more than one top-level behavior
+     * is found within the given model-file, an error is thrown.
+     * @param file the model-file
+     * @param namespaceURI the runtime-environment specific namespace URI 
+     * for the given model-file
+     */
     public Fuml(File file, String namespaceURI) {
         execute(file, namespaceURI, null);
     }
 
+    /**
+     * Loads the given model-file and executes the given target behavior 
+     * found within the given model-file
+     * @param file the model-file to load
+     * @param namespaceURI the runtime-environment specific namespace URI 
+     * for the given model-file
+     * @param target the name for the given target behavior to execute 
+     */
     public Fuml(File file, String namespaceURI, String target) {
         execute(file, namespaceURI, target);
     }
 
+    /**
+     * Executes the given previously loaded target behavior.
+     * @param namespaceURI the runtime-environment specific namespace URI 
+     * for the given target behavior to execute. 
+     * @param target the name for the given target behavior to execute 
+     */
     public Fuml(String namespaceURI, String target) {
         execute(namespaceURI, target);
     }
 
     /**
      * Reads and loads the given file as a model artifact.
-     * @param file the file to load
+     * @param file the model-file to load
+     * @param namespaceURI the runtime-environment specific namespace URI
      */
     public static void load(File file, String namespaceURI) {
         try {
@@ -58,7 +81,7 @@ public class Fuml {
 
     /**
      * Reads and loads the given file as a model artifact.
-     * @param file the file to load
+     * @param fileArtifact the FileArtifact to load
      */
     public static void load(FileArtifact fileArtifact) {
         try {
@@ -75,6 +98,7 @@ public class Fuml {
      * Reads and loads the given file as a model artifact using an incremental
      * loading scheme.
      * @param file the file to load
+     * @param namespaceURI the runtime-environment specific namespace URI
      */
     public static void loadIncrementally(File file, String namespaceURI) {
         try {

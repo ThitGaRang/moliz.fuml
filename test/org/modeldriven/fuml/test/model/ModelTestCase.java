@@ -2,6 +2,8 @@ package org.modeldriven.fuml.test.model;
 
 
 
+import java.util.List;
+
 import junit.framework.Test;
 
 import org.apache.commons.logging.Log;
@@ -185,9 +187,8 @@ public class ModelTestCase extends FUMLTest {
         Property type = nodeClassifier.findProperty("type");
         assertTrue("No ownedAttribute 'type' found for class 'ActivityParameterNode'", type != null);
         
-        Property[] props = nodeClassifier.getProperties();
-        for (int i = 0; i < props.length; i++) {
-        	Property prop = props[i];
+        List<Property> props = nodeClassifier.getNamedProperties();
+        for (Property prop : props) {
         	Property opposite = prop.getOpposite();
             if (opposite != null)
             	log.info(prop.getClass_().getName() + "." + prop.getName() + "->" 
@@ -234,9 +235,8 @@ public class ModelTestCase extends FUMLTest {
    
     
     private void logProperties(Class_ classifier) {
-        Property[] props = classifier.getProperties();
-        for (int i = 0; i < props.length; i++) {
-        	Property prop = props[i];
+        List<Property> props = classifier.getNamedProperties();
+        for (Property prop : props) {
         	log.info(classifier.getName() + ": " + prop.getClass_().getName() + "." + prop.getName() 
         			+ " (required=" + String.valueOf(
         					prop.isRequired()) 
@@ -295,9 +295,8 @@ public class ModelTestCase extends FUMLTest {
         assertTrue(nestingPackageOpposite.getClass_().getName().equals("Package"));
         assertTrue(nestingPackageOpposite.getName().equals("nestedPackage"));
         
-        Property[] props = pkg.getProperties();
-        for (int i = 0; i < props.length; i++) {
-        	Property prop = props[i];
+        List<Property> props = pkg.getNamedProperties();
+        for (Property prop : props) {
         	Property opposite = prop.getOpposite();
             if (opposite != null)
             	log.info(prop.getClass_().getName() + "." + prop.getName() + "->" 

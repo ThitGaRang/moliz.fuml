@@ -162,15 +162,22 @@ public class ModelSupport {
                 String hrefValue = node.getAttributeValue(href);
                 if (hrefValue == null)
                     return true;
+                                
+                // FIXME: support Primitive Type references found in an href attribute
+                // as external references. 
+                int idx = hrefValue.lastIndexOf("#");
+                String suffix = hrefValue.substring(idx+1);
                 
-                if (hrefValue.startsWith("pathmap:") || // FIXME: is this pathmap stuff a valid XMI external reference or not!!
-                    hrefValue.endsWith("Integer") ||
-                    hrefValue.endsWith("String") ||
-                    hrefValue.endsWith("Boolean") || 
-                    hrefValue.endsWith("UnlimitedNatural"))
+                if (suffix.equals("Integer") ||
+                	suffix.equals("String") ||
+                	suffix.equals("Boolean") || 
+                	suffix.equals("UnlimitedNatural")) {               	
+                
                     return false;
-                else
+                }
+                else {
                     return true;
+                }               
             }
         }
         return result;

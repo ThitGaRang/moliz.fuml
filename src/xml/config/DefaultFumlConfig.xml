@@ -63,6 +63,9 @@
     <Exemption type="undefinedProperty" domain="uml" classifierName="JoinNode" propertyName="joinSpec"/>    
     <Exemption type="undefinedProperty" domain="uml" classifierName="ControlFlow" propertyName="weight"/>    
     
+    <!-- MagicDraw adds a package href to its own profile on every edit/save even though likely not used --> 
+    <Exemption type="externalReference" domain="uml" classifierName="Package" 
+        href="UML_Standard_Profile.xml#magicdraw_uml_standard_profile_v_0001"/>    
     
     
   </ValidationConfiguration>

@@ -245,4 +245,46 @@ public class FumlConfiguration {
         return this.validationExemptions.get(classifierName);
     }
     
+    public ValidationExemption findValidationExemptionByProperty(ValidationExemptionType type, 
+			Classifier classifier, String propertyName, String namespaceURI, NamespaceDomain domain) {
+        ValidationExemption result = null;
+        if (domain != null) {
+	    	List<ValidationExemption> exemptions = findValidationExemptionByClassifierName(classifier.getName());
+	    	if (exemptions != null)
+	    		for (ValidationExemption exemption : exemptions)
+	    			if (exemption.getPropertyName().equals(propertyName) &&
+	    				exemption.getDomain().ordinal() == domain.ordinal() &&
+	    				exemption.getType().ordinal() == type.ordinal()) {
+	    				result = exemption;
+	    				break;
+	    			}
+        }
+        else
+            if (log.isDebugEnabled())
+        	    log.debug("could not lookup validation exemption for namespace URI '"
+        	    		+ "namespaceURI");
+    	return result;
+	}
+
+    public ValidationExemption findValidationExemptionByReference(ValidationExemptionType type, 
+			Classifier classifier, String reference, String namespaceURI, NamespaceDomain domain) {
+        ValidationExemption result = null;
+        if (domain != null) {
+	    	List<ValidationExemption> exemptions = findValidationExemptionByClassifierName(classifier.getName());
+	    	if (exemptions != null)
+	    		for (ValidationExemption exemption : exemptions)
+	    			if (exemption.getHref().equals(reference) &&
+	    				exemption.getDomain().ordinal() == domain.ordinal() &&
+	    				exemption.getType().ordinal() == type.ordinal()) {
+	    				result = exemption;
+	    				break;
+	    			}
+        }
+        else
+            if (log.isDebugEnabled())
+        	    log.debug("could not lookup validation exemption for namespace URI '"
+        	    		+ "namespaceURI");
+    	return result;
+	}	
+    
 }

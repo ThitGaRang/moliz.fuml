@@ -18,6 +18,7 @@ import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.repository.Classifier;
 import org.modeldriven.fuml.xmi.stream.StreamNode;
 
 /**
@@ -36,8 +37,8 @@ public class XmiInternalReferenceElement extends XmiReferenceElement implements 
 
     private static Log log = LogFactory.getLog(XmiInternalReferenceElement.class);
 		
-	public XmiInternalReferenceElement(XmiNode node) {
-		super(node);	
+	public XmiInternalReferenceElement(XmiNode node, Classifier classifier) {
+		super(node, classifier);	
 		construct();
 	}
 	

@@ -143,9 +143,14 @@ binary or source distribution (see above).
 2. To load a UML model file (XMI 2.1 format) and execute one or more behaviors
 (activities), use the following command:
 
-    fuml <model-file> [<behavior-name> <behavior-name> <behavior-name> \<...>]
+    fuml <model-file> <namespace-URI> [<behavior-name> <behavior-name> <behavior-name> \<...>]
 
-The named behaviors must all be in the top-level namespace of the model (though
+Where:
+     <model-file> is UML model file (XMI 2.1 format)
+     <namespace-URI> is a runtime-environment specific namespace for the model-file being executed
+     <behavior-name> is a named behavior within the model-file
+
+The named behaviors must all be in the runtime-environment specific namespace of the model (though
 there may reference model elements in nested packages). If no behavior name is
 given, then there should be only a single behavior model in the top-level
 namespace of the model, and this is what is executed.

@@ -2,8 +2,11 @@ package org.modeldriven.fuml.repository.model;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.modeldriven.fuml.assembly.AssemblyException;
 import org.modeldriven.fuml.environment.Environment;
+import org.modeldriven.fuml.io.ArtifactLoader;
 import org.modeldriven.fuml.repository.Element;
 import org.modeldriven.fuml.repository.Class_;
 import org.modeldriven.fuml.repository.Classifier;
@@ -27,6 +30,7 @@ public class Property extends NamedElement
     implements org.modeldriven.fuml.repository.Property{
 
 
+    private static Log log = LogFactory.getLog(Property.class);
 	private fUML.Syntax.Classes.Kernel.Property property;
 	    
     public Property(fUML.Syntax.Classes.Kernel.Property property,
@@ -55,7 +59,7 @@ public class Property extends NamedElement
 		}
 		
 		if (property.owningAssociation == null) {
-			fUML.Syntax.Classes.Kernel.Property otherEnd = getOtherEnd(this.property);
+			fUML.Syntax.Classes.Kernel.Property otherEnd = getOtherEnd(this);
 
 			if (otherEnd != null && otherEnd.owningAssociation == null) {
 				this.property.opposite = otherEnd;
@@ -214,19 +218,28 @@ public class Property extends NamedElement
         }
     }
     
-	private static fUML.Syntax.Classes.Kernel.Property getOtherEnd(fUML.Syntax.Classes.Kernel.Property property) {
-		Association association = property.association;
+	private static fUML.Syntax.Classes.Kernel.Property getOtherEnd(org.modeldriven.fuml.repository.Property property) {
+		Association association = property.getAssociation();
 
 		if (association != null) {
-			List memberEnds = association.memberEnd;
+			List<?> memberEnds = association.memberEnd;
 
 			if (memberEnds.size() == 2) {
-				int index = memberEnds.indexOf(property);
+				int index = memberEnds.indexOf(property.getDelegate());
 
 				if (index != -1) {
 					return (fUML.Syntax.Classes.Kernel.Property) memberEnds.get(Math.abs(index - 1));
 				}
 			}
+			else if (log.isDebugEnabled())
+				log.debug("expected exactly 2 (not " 
+						+ memberEnds.size() + ") member-end elements for association ("
+						+ association.getXmiId() + ") linking property " 
+						+ property.getClass_().getQualifiedName() + "." + property.getName()
+						+ " - ignoring any association owned-end property as not applicable as property opposite");
+			// Note where one end (Property) of an association is linked to a read-only class, tools (MagicDraw)
+			// will necessarily create an association owned-end as it cannot modify the target read-only class. This
+			// can be the case when imported read-only modules are used.
 		}
 
 		return null;

@@ -198,12 +198,17 @@
             </xsd:annotation>                                 
         </xsd:attribute>
 
-        <xsd:attribute name="propertyName" type="xsd:string" use="required">
+        <xsd:attribute name="propertyName" type="xsd:string" use="optional">
             <xsd:annotation>                                  
                 <xsd:documentation>The property name</xsd:documentation>       
             </xsd:annotation>                                 
         </xsd:attribute>
 
+        <xsd:attribute name="href" type="xsd:string" use="optional">
+            <xsd:annotation>                                  
+                <xsd:documentation>The XMI href for an external reference</xsd:documentation>       
+            </xsd:annotation>                                 
+        </xsd:attribute>
 
     </xsd:complexType>
 
@@ -220,6 +225,7 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="requiredProperty" />
             <xsd:enumeration value="undefinedProperty" />
+            <xsd:enumeration value="externalReference" />
         </xsd:restriction>
     </xsd:simpleType>
 

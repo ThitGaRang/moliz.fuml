@@ -25,6 +25,8 @@ public interface Repository {
 	public boolean isIgnoredClassifier(Classifier classifier);
     public List<Extension> getExtensions(Element element);
     public List<Stereotype> getStereotypes(Element element);
+    public List<Stereotype> getStereotypes(Class<?> clss);
+    public List<Stereotype> getAllStereotypes();
 	
 	public RepositoryMapping getMapping();
 	public void loadClass(Class_ clss);

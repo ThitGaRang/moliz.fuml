@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.config.FumlConfiguration;
+import org.modeldriven.fuml.config.NamespaceDomain;
 import org.modeldriven.fuml.repository.RepositoryArtifact;
 import org.modeldriven.fuml.repository.RepositoryMapping;
 import org.modeldriven.fuml.repository.RepositorylException;
@@ -66,7 +68,10 @@ public class InMemoryMapping implements RepositoryMapping
     // Stereotype and extension maps
     protected Map<String, List<org.modeldriven.fuml.repository.Extension>> elementToExtensionListMap = new HashMap<String, List<org.modeldriven.fuml.repository.Extension>>();
     protected Map<String, List<org.modeldriven.fuml.repository.Stereotype>> elementToStereotypeListMap = new HashMap<String, List<org.modeldriven.fuml.repository.Stereotype>>();
+    protected Map<Class<?>, List<org.modeldriven.fuml.repository.Stereotype>> classToStereotypeListMap = new HashMap<Class<?>, List<org.modeldriven.fuml.repository.Stereotype>>();
       
+    
+    
     protected InMemoryMapping() {}
     
 	public org.modeldriven.fuml.repository.Element getElementById(String id) 
@@ -395,12 +400,21 @@ public class InMemoryMapping implements RepositoryMapping
 				        }
 				        list.add(new org.modeldriven.fuml.repository.model.Extension(extension, artifact));	
 				        
-				        List<org.modeldriven.fuml.repository.Stereotype> list2 = elementToStereotypeListMap.get(targetElement.getXmiId());
-				        if (list2 == null) {
-				        	list2 = new ArrayList<org.modeldriven.fuml.repository.Stereotype>();
-				        	elementToStereotypeListMap.put(targetElement.getXmiId(), list2);
+				        List<org.modeldriven.fuml.repository.Stereotype> elementStereotypeList = elementToStereotypeListMap.get(targetElement.getXmiId());
+				        if (elementStereotypeList == null) {
+				        	elementStereotypeList = new ArrayList<org.modeldriven.fuml.repository.Stereotype>();
+				        	elementToStereotypeListMap.put(targetElement.getXmiId(), elementStereotypeList);
 				        }
-				        list2.add(new org.modeldriven.fuml.repository.model.Stereotype(stereotype, artifact));	
+				        org.modeldriven.fuml.repository.model.Stereotype repoStereotype = new org.modeldriven.fuml.repository.model.Stereotype(stereotype, artifact);
+				        elementStereotypeList.add(repoStereotype);	
+				        
+				        List<org.modeldriven.fuml.repository.Stereotype> classStereotypeList = classToStereotypeListMap.get(repoStereotype.getDelegate().getClass());
+				        if (classStereotypeList == null) {
+				        	classStereotypeList = new ArrayList<org.modeldriven.fuml.repository.Stereotype>();
+				        	classToStereotypeListMap.put(repoStereotype.getDelegate().getClass(), classStereotypeList);
+				        }
+				        classStereotypeList.add(repoStereotype);
+				        
 	        		} catch (SecurityException e) {
 						throw new RepositorylException(e);
 					} catch (NoSuchFieldException e) {
@@ -519,10 +533,16 @@ public class InMemoryMapping implements RepositoryMapping
         			+ globalId + ".");
         elementIdToElementMap.put(globalId, classifier);
         
-        // FIXME: HACK - where is this types document??
+        // FIXME: Path map variables allow for portability of URIs. The actual location 
+        // indicated by a URI depends on the run-time binding of the path variable. Thus, different 
+        // environments can work with the same resource URIs even though the 
+        // resources are stored in different physical locations.
         elementIdToElementMap.put("pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml" 
-                + "#" + t.name, classifier);        
-        elementIdToElementMap.put("http://schema.omg.org/spec/UML/2.2/uml.xml" 
+                + "#" + t.name, classifier);  
+        
+        String[] uris = FumlConfiguration.getInstance().getSupportedNamespaceURIsForDomain(NamespaceDomain.UML);
+        for (String uri : uris)
+            elementIdToElementMap.put(uri + "/" + "uml.xml" 
                 + "#" + t.name, classifier);        
     }
     
@@ -569,7 +589,7 @@ public class InMemoryMapping implements RepositoryMapping
     public void mapEnumeration(Enumeration e, String currentPackageName, RepositoryArtifact artifact) {
         if (log.isDebugEnabled())
             log.debug("mapping enumeration, " + currentPackageName + "." + e.name);
-        org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Classifier(e, artifact);
+        org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Enumeration(e, artifact);
         classifierNameToClassifierMap.put(e.name, classifier); // FIXME: why are we doing this flat mapping??
         qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + e.name, classifier);
         classifierNameToPackageNameMap.put(e.name, currentPackageName);
@@ -587,7 +607,7 @@ public class InMemoryMapping implements RepositoryMapping
         if (elementIdToElementMap.get(literal.getXmiId()) != null)
         	throw new RepositorylException("found existing enumeration literal, '"
         			+ literal.getXmiId() + ".");
-        org.modeldriven.fuml.repository.NamedElement namedElement = new org.modeldriven.fuml.repository.model.NamedElement(literal, artifact);
+        org.modeldriven.fuml.repository.NamedElement namedElement = new org.modeldriven.fuml.repository.model.EnumerationLiteral(literal, artifact);
         elementIdToElementMap.put(literal.getXmiId(), namedElement);
     }   
     

@@ -15,7 +15,7 @@ pushd %DIRNAME%..
 set FUML_HOME=%CD%
 popd
 
-set FUML_LIB_DIR=%FUML_HOME%/lib
+set FUML_LIB_DIR=../lib
 
 if not "%JAVA_HOME%" == "" goto ADD_TOOLS
 
@@ -37,7 +37,7 @@ set JAVAC_JAR=%JAVA_HOME%\lib\tools.jar
 
 :SKIP_TOOLS
 
-set FUML_CLASSPATH=../lib/fuml.jar
+set FUML_CLASSPATH=%FUML_LIB_DIR%/fuml.jar
 set FUML_CLASSPATH=%FUML_CLASSPATH%;%FUML_LIB_DIR%/activation.jar
 set FUML_CLASSPATH=%FUML_CLASSPATH%;%FUML_LIB_DIR%/commons-logging.jar
 set FUML_CLASSPATH=%FUML_CLASSPATH%;%FUML_LIB_DIR%/log4j.jar
@@ -85,7 +85,7 @@ echo ===========================================================================
 echo.
 
 :RESTART
-"%JAVA%" %JAVA_OPTS% "-Djava.endorsed.dirs=%FUML_ENDORSED_DIRS%" -classpath "%FUML_CLASSPATH%" -Dlog4j.configuration=file:log4j.properties org.modeldriven.fuml.Fuml %*
+"%JAVA%" %JAVA_OPTS% "-Djava.endorsed.dirs=%FUML_ENDORSED_DIRS%" -classpath "%FUML_CLASSPATH%" -Dlog4j.debug=false -Dlog4j.configuration=file:log4j.properties org.modeldriven.fuml.Fuml %*
 if ERRORLEVEL 10 goto RESTART
 
 :END

@@ -15,6 +15,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.repository.Classifier;
 
 /**
  * This class is an XmiReference implementation holding XMI external reference data 
@@ -29,8 +30,8 @@ public class XmiExternalReferenceElement extends XmiReferenceElement  {
 
     private static Log log = LogFactory.getLog(XmiExternalReferenceElement.class);	
 	
-	public XmiExternalReferenceElement(XmiNode node) {
-		super(node);	
+	public XmiExternalReferenceElement(XmiNode node, Classifier classifier) {
+		super(node, classifier);	
 		construct();
 	}
 	

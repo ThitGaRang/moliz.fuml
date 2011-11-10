@@ -166,12 +166,12 @@ public class ElementGraphAssembler extends AbstractXmiNodeVisitor
         // for it. Just add it as a reference to the parent for later lookup.
         if (sourceAssembler != null) {
             if (isInternalReferenceElement(eventNode, classifier, hasAttributes)) {
-                sourceAssembler.addReference(new XmiInternalReferenceElement(eventNode));
+                sourceAssembler.addReference(new XmiInternalReferenceElement(eventNode, classifier));
                 return;
             }
 
             if (isExternalReferenceElement(eventNode, classifier, hasAttributes)) {
-                sourceAssembler.addReference(new XmiExternalReferenceElement(eventNode));
+                sourceAssembler.addReference(new XmiExternalReferenceElement(eventNode, classifier));
                 return;
             }
         }

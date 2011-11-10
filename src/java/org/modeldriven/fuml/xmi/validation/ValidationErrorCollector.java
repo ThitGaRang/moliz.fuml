@@ -184,13 +184,13 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 
     	if (isInternalReferenceElement(eventNode, classifier, hasAttributes))
     	{
-    		references.add(new XmiInternalReferenceElement(eventNode));
+    		references.add(new XmiInternalReferenceElement(eventNode, classifier));
         	return;
     	}
 
         if (isExternalReferenceElement(eventNode, classifier, hasAttributes))
         {
-            references.add(new XmiExternalReferenceElement(eventNode));
+            references.add(new XmiExternalReferenceElement(eventNode, classifier));
             return;
         }
         
@@ -210,7 +210,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	                NamespaceDomain domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	            		               
 	            	ValidationExemption exemption = null;
 	            	if (domain != null)
-	            		exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+	            		exemption = FumlConfiguration.getInstance().findValidationExemptionByProperty(ValidationExemptionType.UNDEFINED_PROPERTY,
 	            			sourceClassifier, target.getLocalName(), target.getNamespaceURI(), domain);
 	            	if (exemption == null) {
 	                    addError(ErrorCode.UNDEFINED_PROPERTY,
@@ -258,7 +258,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             	if (domain == null)
             		domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	            	
 
-            	ValidationExemption exemption = findExemption(ValidationExemptionType.UNDEFINED_PROPERTY,
+            	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByProperty(ValidationExemptionType.UNDEFINED_PROPERTY,
             			classifier, name.getLocalPart(), target.getNamespaceURI(), domain);
             	if (exemption == null) {
                     addError(ErrorCode.UNDEFINED_PROPERTY,
@@ -311,51 +311,29 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 	        Class_ classifier)
 	{
         NamespaceDomain domain = null; // only lookup as needed	            	
-        Property[] properties = classifier.getProperties();
-        for (int i = 0; i < properties.length; i++)
-        {
-        	if (properties[i].isRequired()) {
-	            if (checkRequiredPropertyError(target, source, classifier, properties[i])) {
+        List<Property> properties = classifier.getNamedProperties();
+        for (Property prop : properties) {
+        	if (prop.isRequired()) {
+	            if (checkRequiredPropertyError(target, source, classifier, prop)) {
 	            	if (domain == null)
 	            		domain = FumlConfiguration.getInstance().findNamespaceDomain(target.getNamespaceURI());	
-	            	ValidationExemption exemption = findExemption(ValidationExemptionType.REQUIRED_PROPERTY,
-	            			classifier, properties[i].getName(), target.getNamespaceURI(), domain);
+	            	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByProperty(ValidationExemptionType.REQUIRED_PROPERTY,
+	            			classifier, prop.getName(), target.getNamespaceURI(), domain);
 	            	if (exemption == null) {
 	                    addError(ErrorCode.PROPERTY_REQUIRED,
-	                        ErrorSeverity.FATAL, target, properties[i].getName());
+	                        ErrorSeverity.FATAL, target, prop.getName());
 	            	}
 	            	else {
 	    				if (log.isDebugEnabled())
 	    					log.debug("required property exemption found within domain '" 
 	    						+ exemption.getDomain().toString() + "' for property '"
-	    						+ classifier.getName() + "." + properties[i].getName() + "' - ignoring error");
+	    						+ classifier.getName() + "." + prop.getName() + "' - ignoring error");
 	            		
 	            	}
 	            }
 	        }
         	// other checks??
         }
-	}
-
-	private ValidationExemption findExemption(ValidationExemptionType type, 
-			Classifier classifier, String propertyName, String namespaceURI, NamespaceDomain domain) {
-        ValidationExemption result = null;
-        if (domain != null) {
-	    	List<ValidationExemption> exemptions = FumlConfiguration.getInstance().findValidationExemptionByClassifierName(classifier.getName());
-	    	if (exemptions != null)
-	    		for (ValidationExemption exemption : exemptions)
-	    			if (exemption.getPropertyName().equals(propertyName) &&
-	    				exemption.getDomain().ordinal() == domain.ordinal() &&
-	    				exemption.getType().ordinal() == type.ordinal()) {
-	    				result = exemption;
-	    				break;
-	    			}
-        }
-        else
-            if (log.isDebugEnabled())
-        	    log.debug("could not lookup validation exemption for namespace URI '"
-        	    		+ "namespaceURI");
-    	return result;
 	}
 	
 	private boolean checkRequiredPropertyError(StreamNode target, XmiNode source,
@@ -414,6 +392,8 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
 
 	private void validateReferences()
 	{
+        NamespaceDomain domain = null; // only lookup as needed
+
         // validate references post traversal
         Iterator<XmiReference> iter =  references.iterator();
         while (iter.hasNext())
@@ -436,8 +416,17 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                     else
                         continue;
 
-                    addError(ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL, 
-                    		reference, id);
+                    StreamNode streamNode = (StreamNode)reference.getXmiNode();
+                	if (domain == null)
+                		domain = FumlConfiguration.getInstance().findNamespaceDomain(streamNode.getNamespaceURI());	            	
+
+                	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByReference(ValidationExemptionType.EXTERNAL_REFERENCE,
+                			reference.getClassifier(), id, streamNode.getNamespaceURI(), domain);
+                	if (exemption == null) {
+                        addError(ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL, 
+                        		reference, id);
+                	}                	
+
                 }
                 else // internal reference
                 {

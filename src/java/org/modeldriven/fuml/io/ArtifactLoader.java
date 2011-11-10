@@ -24,6 +24,7 @@ import org.modeldriven.fuml.xmi.validation.ValidationEventListener;
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Classifier;
 import fUML.Syntax.Classes.Kernel.Class_;
+import fUML.Syntax.Classes.Kernel.EnumerationLiteral;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.DataType;
@@ -53,7 +54,7 @@ public class ArtifactLoader
         
     public void read(FileArtifact artifact) {
     	    	
-    	log.info("reading " + artifact.getURN());
+    	log.debug("reading " + artifact.getURN());
     	this.artifact = artifact;
     	
         StreamReader reader = new StreamReader();
@@ -159,9 +160,10 @@ public class ArtifactLoader
             	Class_ clss = (Class_)fumlObject;
             	classList.add(clss);
             	if (!(clss instanceof Stereotype)) {
-                	if (clss.package_ != null)
+                	if (clss.package_ != null) {
                 	    Repository.INSTANCE.getMapping().mapClass(clss, 
-                	    		clss.package_.name, artifact);
+                	    		getQualifiedPackageName(clss.package_), artifact);
+                	}
                 	else
                 		Repository.INSTANCE.getMapping().mapClass(clss, 
                     			null, artifact);
@@ -170,20 +172,28 @@ public class ArtifactLoader
             		Stereotype stereotype = (Stereotype)clss;
                 	if (stereotype.package_ != null)
                 	    Repository.INSTANCE.getMapping().mapStereotype(stereotype, 
-                	    		stereotype.package_.name, artifact);
+                	    		getQualifiedPackageName(stereotype.package_), artifact);
                 	else
                 		Repository.INSTANCE.getMapping().mapStereotype(stereotype, 
                     			null, artifact);
             	}            		
             }  
-            else if (fumlObject instanceof DataType && 
-            		!(fumlObject instanceof Enumeration)) {
+            else if (fumlObject instanceof Enumeration) {
+            	Enumeration enumeration = (Enumeration)fumlObject;        			
+               	if (enumeration.package_ != null)
+            	    Repository.INSTANCE.getMapping().mapEnumeration(enumeration, 
+            	    		getQualifiedPackageName(enumeration.package_), artifact);
+            	else
+            		Repository.INSTANCE.getMapping().mapEnumeration(enumeration, 
+                			null, artifact);
+            }
+            else if (fumlObject instanceof DataType) {
         		if (!(fumlObject instanceof PrimitiveType)) {
         			// datatypes
         			DataType datatype = (DataType)fumlObject;        			
                    	if (datatype.package_ != null)
 	            	    Repository.INSTANCE.getMapping().mapDataType(datatype, 
-	            	    		datatype.package_.name, artifact);
+	            	    		getQualifiedPackageName(datatype.package_), artifact);
 	            	else
 	            		Repository.INSTANCE.getMapping().mapDataType(datatype, 
 	                			null, artifact);
@@ -194,6 +204,12 @@ public class ArtifactLoader
             	Property property = (Property)fumlObject;
         	    Repository.INSTANCE.getMapping().mapProperty(property.class_,
         	    		property, this.artifact);
+            }
+            else if (fumlObject instanceof EnumerationLiteral)
+            {
+            	EnumerationLiteral literal = (EnumerationLiteral)fumlObject;
+              	Repository.INSTANCE.getMapping().mapEnumerationLiteral(literal, 
+                			null, artifact);
             }
             else if (fumlObject instanceof NamedElement)
             {
@@ -274,6 +290,24 @@ public class ArtifactLoader
     		Repository.INSTANCE.loadClass(clss);
     	}
     		
+	}
+	
+	private String getQualifiedPackageName(fUML.Syntax.Classes.Kernel.Package pkg) {
+		List<fUML.Syntax.Classes.Kernel.Package> list = new ArrayList<fUML.Syntax.Classes.Kernel.Package>();
+		fUML.Syntax.Classes.Kernel.Package p = pkg;
+		while (p != null) {
+			list.add(p);
+			p = p.nestingPackage;
+		}
+		
+		StringBuilder buf = new StringBuilder();
+		for (int i = list.size()-1; i >= 0; i--) {
+			if (i < list.size()-1)
+				buf.append(".");
+			buf.append(list.get(i).name);
+		}
+		
+		return buf.toString();
 	}
 
 }

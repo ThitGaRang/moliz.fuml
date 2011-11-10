@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.repository.Classifier;
 
 /**
  * This abstract class is an XmiReference implementation serving as a 
@@ -30,13 +31,23 @@ public abstract class XmiReferenceElement implements XmiReference {
 
     private static Log log = LogFactory.getLog(XmiReferenceElement.class);
 	protected XmiNode node;
+	protected Classifier classifier;
 	protected List<String> ids = new ArrayList<String>();
 	
 	@SuppressWarnings("unused")
 	private XmiReferenceElement() {}
 	
-	public XmiReferenceElement(XmiNode node) {
-		this.node = node;	
+	public XmiReferenceElement(XmiNode node, Classifier classifier) {
+		this.node = node;
+		this.classifier = classifier;
+	}
+	
+	public XmiNode getXmiNode() {
+		return this.node;
+	}
+	
+	public Classifier getClassifier() {
+	    return this.classifier;	
 	}
 	
 	public String getLocalName() {

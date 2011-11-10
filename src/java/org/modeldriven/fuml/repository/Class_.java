@@ -1,5 +1,9 @@
 package org.modeldriven.fuml.repository;
 
+import java.util.List;
+
+import org.modeldriven.fuml.repository.model.OpaqueBehavior;
+
 
 public interface Class_ extends Classifier {
 
@@ -7,7 +11,10 @@ public interface Class_ extends Classifier {
 	    
 	public Property getProperty(String name);
 	public Property findProperty(String name);
-    public Property[] getProperties();
+    public List<Property> getNamedProperties();
+    public List<Property> getAllProperties();
+    public List<Property> getDeclaredProperties();
+    public List<OpaqueBehavior> getOpaqueBehaviors();
     
     
 } // Class_
