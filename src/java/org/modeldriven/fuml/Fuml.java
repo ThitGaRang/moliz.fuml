@@ -34,25 +34,34 @@ public class Fuml {
      * found within the given model-file. If more than one top-level behavior
      * is found within the given model-file, an error is thrown.
      * @param file the model-file
-     * @param namespaceURI the runtime-environment specific namespace URI 
      * for the given model-file
      */
-    public Fuml(File file, String namespaceURI) {
-        execute(file, namespaceURI, null);
+    public Fuml(File file) {
+        execute(file, file.getName(), null);
     }
 
     /**
      * Loads the given model-file and executes the given target behavior 
      * found within the given model-file
      * @param file the model-file to load
-     * @param namespaceURI the runtime-environment specific namespace URI 
-     * for the given model-file
+     * @param uri the runtime-environment specific file or document URI 
+     * for the given model-file. If null the name of the file is used.
      * @param target the name for the given target behavior to execute 
      */
-    public Fuml(File file, String namespaceURI, String target) {
-        execute(file, namespaceURI, target);
+    public Fuml(File file, String uri, String target) {
+        execute(file, uri != null ? uri : file.getName(), target);
     }
-
+    
+    /**
+     * Loads the given model-file and executes the given target behavior 
+     * found within the given model-file
+     * @param file the model-file to load
+     * @param target the name for the given target behavior to execute 
+     */
+    public Fuml(File file, String target) {
+        execute(file, file.getName(), target);
+    }
+    
     /**
      * Executes the given previously loaded target behavior.
      * @param namespaceURI the runtime-environment specific namespace URI 
@@ -66,13 +75,13 @@ public class Fuml {
     /**
      * Reads and loads the given file as a model artifact.
      * @param file the model-file to load
-     * @param namespaceURI the runtime-environment specific namespace URI
+     * @param uri the runtime-environment specific document URI
      */
-    public static void load(File file, String namespaceURI) {
+    public static void load(File file, String uri) {
         try {
         	log.info("loading artifact, " + file.getName());
         	ArtifactLoader reader = new ArtifactLoader();
-        	reader.read(new FileArtifact(file, namespaceURI));
+        	reader.read(new FileArtifact(file, uri));
         } catch (Throwable t) {
             log.error(t.getMessage(), t);
             throw new FumlException(t);
@@ -98,13 +107,13 @@ public class Fuml {
      * Reads and loads the given file as a model artifact using an incremental
      * loading scheme.
      * @param file the file to load
-     * @param namespaceURI the runtime-environment specific namespace URI
+     * @param uri the runtime-environment specific document URI
      */
-    public static void loadIncrementally(File file, String namespaceURI) {
+    public static void loadIncrementally(File file, String uri) {
         try {
         	log.info("reading artifact, " + file.getName());
         	IncrementalArtifactLoader reader = new IncrementalArtifactLoader();
-        	reader.read(new FileArtifact(file, namespaceURI));
+        	reader.read(new FileArtifact(file, uri));
         } catch (Throwable t) {
             log.error(t.getMessage(), t);
             throw new FumlException(t);
@@ -142,7 +151,7 @@ public class Fuml {
         }
     }
     
-    private void execute(String namespaceURI, String target) {
+    private void execute(String uri, String target) {
         try {
             Environment environment = Environment.getInstance();
             Behavior behavior = environment.findBehavior(target);
@@ -157,11 +166,11 @@ public class Fuml {
         }
     }
 
-    private void execute(File file, String namespaceURI, String target) {
+    private void execute(File file, String uri, String target) {
         try {
         	log.info("loading artifact, " + file.getName());
         	IncrementalArtifactLoader reader = new IncrementalArtifactLoader();
-        	reader.read(new FileArtifact(file, namespaceURI));
+        	reader.read(new FileArtifact(file, uri));
 
             Environment environment = Environment.getInstance();
             Behavior behavior = null;
@@ -209,22 +218,24 @@ public class Fuml {
     
     private static void printUsage() {
         log.info("====================================================================");
-        log.info("USAGE: fuml <model-file-name> <namespace-URI> [<behavior-name> <behavior-name> <behavior-name> <...>]");
+        log.info("USAGE: fuml <model-file-name> [<behavior-name> <behavior-name> <behavior-name> <...>]");
         log.info("====================================================================");
     }
 
     public static void main(String[] args) {
-        if (args.length < 2) {
+        if (args.length < 1) {
             printUsage();
             System.exit(1);
         }
 
-        if (args.length == 2) {
-            new Fuml(new File(args[0]), args[1]);
-        } else {
-            Fuml.loadIncrementally(new File(args[0]), args[1]);
+        File modelFile = new File(args[0]);
+        if (args.length == 1) {
+        	new Fuml(modelFile);
+        } 
+        else {
+            Fuml fuml = new Fuml(modelFile, args[1]);
             for (int i = 2; i < args.length; i++)
-                new Fuml(args[1], args[i]);
+            	fuml.execute(modelFile.getName(), args[i]);
         }
     }
 }
