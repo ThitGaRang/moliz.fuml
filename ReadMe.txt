@@ -36,8 +36,7 @@ Building
 
 The implementation build requires the following to be installed:
 
-    Sun Microsystems, Java Version 6 or above 
-                               - see http://java.sun.com/javase/6/
+    Oracle Java Version 6 or above - see http://java.oracle.com/
     Apache Ant Version 1.7.0 or above - see http://ant.apache.org/
 
 To build from the command line:
@@ -118,8 +117,8 @@ Deploying
 ---------
 
 1. In a Windows/DOS command window, navigate to the 'root' reference
-implementation directory.
-This directory is where the Apache Ant 'build.xml' file can be found.
+implementation directory. This directory is where the Apache Ant 'build.xml' 
+file can be found.
 
 2. Use the following command:
 
@@ -149,8 +148,8 @@ Where:
      <model-file> is UML model file (XMI 2.1 format)
      <behavior-name> is a named behavior within the model-file
 
-If no behavior name is given, then there should be only a single behavior in the top-level
-namespace of the model, and this is what is executed.
+If no behavior name is given, then there should be only a single behavior in the
+top-level namespace of the model, and this is what is executed.
 
 3. The execution trace will print to the console. This may be redirected to a
 file if desired (e.g., by appending '> trace.txt' to the command above).
