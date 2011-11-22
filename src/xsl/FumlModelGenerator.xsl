@@ -141,6 +141,7 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
     private void constructClasses()
     {
         Package pkg = null;
+        String packageId = null;
         Class_ clss = null;
     <xsl:for-each select="//packagedElement[@xmi:type = 'uml:Class']">
         <xsl:variable name="classVar"
@@ -153,8 +154,11 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
             <xsl:with-param name="clss" select="."/>       
           </xsl:call-template>                                                    
         </xsl:variable>                                                  
+        packageId = this.artifact.getUrn() + "#" + "<xsl:value-of select="../@xmi:id"/>";   
+                      
         // <xsl:value-of select="$packageName" />.<xsl:value-of select="@name" /> 
-        pkg = model.getPackageByQualifiedName("<xsl:value-of select="$packageName" />").getDelegate();       
+        pkg = (Package)model.getElementById(packageId).getDelegate();       
+        //pkg = model.getPackageByQualifiedName("<xsl:value-of select="$packageName" />").getDelegate();       
     	clss  = factory.createClass("<xsl:value-of select="@name" />", "<xsl:value-of select="@xmi:id" />", pkg);
     	clss.isAbstract = <xsl:value-of select="boolean(@isAbstract)" />;
     	((Classifier)clss).isAbstract = <xsl:value-of select="boolean(@isAbstract)" />;
@@ -268,6 +272,7 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
     private void constructAssociations()
     {
         Package pkg = null;
+        String packageId = null;
         Association assoc = null;
         Property prop = null;
         
@@ -278,8 +283,10 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
             <xsl:with-param name="clss" select="."/>       
           </xsl:call-template>                                                    
         </xsl:variable>                                                  
+        packageId = this.artifact.getUrn() + "#" + "<xsl:value-of select="../@xmi:id"/>";   
+                      
         // <xsl:value-of select="$packageName" />.<xsl:value-of select="@name" /> 
-        pkg = model.getPackageByQualifiedName("<xsl:value-of select="$packageName" />").getDelegate();       
+        pkg = (Package)model.getElementById(packageId).getDelegate();       
      	assoc  = factory.createAssociation("<xsl:value-of select="@name" />", "<xsl:value-of select="@xmi:id" />");
         mapping.mapAssociation(assoc, "<xsl:value-of select="$packageName" />", this);
         // create owned ends

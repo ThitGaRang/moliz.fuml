@@ -277,7 +277,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
             if (isReferenceAttribute(property))
             {
     		    XmiReferenceAttribute reference = new XmiReferenceAttribute(target,
-        				xmlAttrib);
+        				xmlAttrib, classifier);
         		this.references.add(reference);
             }
             // TODO: when this error is commented out, an erroneous 'invalid internal reference' validation

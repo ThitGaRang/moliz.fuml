@@ -453,7 +453,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 Classifier type = property.getType();
 
                 if (this.modelSupport.isReferenceAttribute(property)) {
-                    XmiReferenceAttribute reference = new XmiReferenceAttribute(source, xmlAttrib);
+                    XmiReferenceAttribute reference = new XmiReferenceAttribute(source, xmlAttrib, this.getPrototype());
                     this.addReference(reference);
                     continue;
                 }
@@ -508,7 +508,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                         if (parent != null && parent.getXmiId() != null
                                 && parent.getXmiId().length() > 0) {
                             XmiMappedReference reference = new XmiMappedReference(source,
-                            		property.getName(), new String[] { parent.getXmiId() });
+                            		property.getName(), new String[] { parent.getXmiId() },
+                            		this.prototype);
                             this.addReference(reference);
                             continue;
                         } else
@@ -801,7 +802,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 field.set(targetObject, value);
             } catch (NoSuchFieldException e2) {
                 String msg = "no fUML (" + this.getTargetObject().getClass().getName()
-                        + ") setter method or public field found for primitive feature " + "<"
+                        + ") setter method named '"+methodName+"' or public field found for primitive feature " + "<"
                         + javaType.getName() + "> " + this.getPrototype().getName() + "."
                         + property.getName();
                 log.warn(msg);

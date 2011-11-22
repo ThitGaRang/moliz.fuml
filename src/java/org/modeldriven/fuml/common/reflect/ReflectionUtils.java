@@ -1,11 +1,16 @@
 package org.modeldriven.fuml.common.reflect;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class ReflectionUtils {
+    private static Log log = LogFactory.getLog(ReflectionUtils.class);
 
     @SuppressWarnings("unchecked")
     public static Method findMethod(Class target, String name, Class arg) throws NoSuchMethodException {
@@ -58,4 +63,52 @@ public class ReflectionUtils {
         return object;
     }
     
+    public static Object invokePublicGetterOrField(Object target, String propertyName) 
+        throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
+	{
+	    String methodName = "get" + propertyName.substring(0, 1).toUpperCase()
+	        + propertyName.substring(1);
+		Object[] args = { };
+		try {
+		    Method getter = target.getClass().getMethod(methodName, new Class[] { });
+		    return getter.invoke(target, args);
+		} catch (NoSuchMethodException e) {
+		    try {
+		        Field field = target.getClass().getField(propertyName);
+		        field.get(target);
+		    } catch (NoSuchFieldException e2) {
+		        String msg = "no (" + target.getClass().getName()
+	                + ") getter method named '" + methodName 
+	                + "' or public field found for primitive feature " 
+	                + target.getClass().getName() + "."
+	                + propertyName;
+		        log.warn(msg);
+		    }
+		}
+		return null;
+	}
+    
+    
+    public static void invokePublicSetterOrField(Object target, String propertyName, Class javaType, Object value) 
+        throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
+    {
+        String methodName = "set" + propertyName.substring(0, 1).toUpperCase()
+            + propertyName.substring(1);
+		Object[] args = { value };
+		try {
+		    Method setter = target.getClass().getMethod(methodName, new Class[] { javaType });
+		    setter.invoke(target, args);
+		} catch (NoSuchMethodException e) {
+		    try {
+		        Field field = target.getClass().getField(propertyName);
+		        field.set(target, value);
+		    } catch (NoSuchFieldException e2) {
+		        String msg = "no (" + target.getClass().getName()
+		                + ") setter method named '"+methodName+"' or public field found for primitive feature " + "<"
+		                + javaType.getName() + "> " + target.getClass().getName() + "."
+		                + propertyName;
+		        log.warn(msg);
+		    }
+		}
+    }
 }

@@ -1,6 +1,7 @@
 package org.modeldriven.fuml.repository.model;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.common.reflect.ReflectionUtils;
 import org.modeldriven.fuml.config.FumlConfiguration;
 import org.modeldriven.fuml.config.NamespaceDomain;
 import org.modeldriven.fuml.repository.RepositoryArtifact;
@@ -208,19 +210,22 @@ public class InMemoryMapping implements RepositoryMapping
     	String qualifiedName = null;
         if (currentPackageName != null)
         	qualifiedName = currentPackageName + "." + p.name;
-        else
-        	qualifiedName = p.name;   	
+        //else
+        //	qualifiedName = p.name;   	
     	
         if (log.isDebugEnabled())
-            log.debug("mapping package, " + artifact.getURN() + "#" + qualifiedName);
+            log.debug("mapping package, " + artifact.getURN() + "#" + p.name);
 
-        if (qualifiedPackageNameToPackageMap.get(qualifiedName) != null)
-        	throw new RepositorylException("found existing package, '"
-        			+ qualifiedName + ".");
 
 		org.modeldriven.fuml.repository.Package pkg = new org.modeldriven.fuml.repository.model.Package(p, artifact);
         
-        qualifiedPackageNameToPackageMap.put(qualifiedName, pkg);
+		if (qualifiedName != null) {
+            if (qualifiedPackageNameToPackageMap.get(qualifiedName) != null)
+        	    throw new RepositorylException("found existing package, '"
+        			+ qualifiedName + ".");
+            qualifiedPackageNameToPackageMap.put(qualifiedName, pkg);
+		}
+		
         List<org.modeldriven.fuml.repository.Package> artifactPackages = artifactURIToPackagesMap.get(artifact.getURN());
         if (artifactPackages == null)
         {
@@ -384,8 +389,17 @@ public class InMemoryMapping implements RepositoryMapping
 	        		String targetClassAttributeName = prop.name;
 	        		
 	        		try {
-						Field targetClassField = stereotype.getClass().getField(targetClassAttributeName);
-						Element targetElement = (Element)targetClassField.get(stereotype);
+	        			
+	        			Element targetElement = null;
+						try {
+							targetElement = (Element)ReflectionUtils.invokePublicGetterOrField(
+									stereotype, targetClassAttributeName);
+						} catch (InvocationTargetException e) {
+						}
+	        			
+						//Field targetClassField = stereotype.getClass().getField(targetClassAttributeName);
+						
+	        			//Element targetElement = (Element)targetClassField.get(stereotype);
 				        if (targetElement == null)
 				        	throw new RepositorylException("no target element found linked to Stereotype instance, '"
 				        			+ stereotype.getXmiId() + "' by field '" 
@@ -416,8 +430,6 @@ public class InMemoryMapping implements RepositoryMapping
 				        classStereotypeList.add(repoStereotype);
 				        
 	        		} catch (SecurityException e) {
-						throw new RepositorylException(e);
-					} catch (NoSuchFieldException e) {
 						throw new RepositorylException(e);
 					} catch (IllegalArgumentException e) {
 						throw new RepositorylException(e);

@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.repository.Classifier;
 
 /**
  * This class is an XmiReference implementation holding derived XMI internal
@@ -34,18 +35,25 @@ public class XmiMappedReference implements XmiReference {
     private XmiNode node;
     private String name;
     private List<String> ids = new ArrayList<String>();
+	protected Classifier classifier;
 
     @SuppressWarnings("unused")
     private XmiMappedReference() {
     }
 
-    public XmiMappedReference(XmiNode node, String name, String[] values) {
+    public XmiMappedReference(XmiNode node, String name, String[] values,
+    		Classifier classifier) {
         this.node = node;
         this.name = name;
+        this.classifier = classifier;
         construct(values);
     }
 
-    private void construct(String[] values) {
+	public Classifier getClassifier() {
+	    return this.classifier;	
+	}
+	
+	private void construct(String[] values) {
         for (int i = 0; i < values.length; i++)
             ids.add(values[i]);
     }
@@ -69,5 +77,9 @@ public class XmiMappedReference implements XmiReference {
     public Iterator<String> getXmiIds() {
         return ids.iterator();
     }
+
+	public XmiNode getXmiNode() {
+		return this.node;
+	}
 
 }

@@ -31,6 +31,7 @@ import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.NamedElement;
 import fUML.Syntax.Classes.Kernel.Property;
+import fUML.Syntax.Classes.Kernel.Package;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior;
 
 public class ArtifactLoader 
@@ -210,6 +211,14 @@ public class ArtifactLoader
             	EnumerationLiteral literal = (EnumerationLiteral)fumlObject;
               	Repository.INSTANCE.getMapping().mapEnumerationLiteral(literal, 
                 			null, artifact);
+            }
+            else if (fumlObject instanceof Package)
+            {
+            	Package pkg = (Package)fumlObject;
+              	Repository.INSTANCE.getMapping().mapPackage(pkg, 
+            			null, artifact);
+            	//Repository.INSTANCE.getMapping().mapElementByName(namedElement, this.artifact);
+        	    //Repository.INSTANCE.getMapping().mapElementById(namedElement, this.artifact);
             }
             else if (fumlObject instanceof NamedElement)
             {

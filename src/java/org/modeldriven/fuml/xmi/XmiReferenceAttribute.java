@@ -20,6 +20,7 @@ import javax.xml.stream.events.Attribute;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.modeldriven.fuml.repository.Classifier;
 
 /**
  * This class is an XmiReference implementation holding reference data and 
@@ -38,14 +39,24 @@ public class XmiReferenceAttribute implements XmiReference {
 	private XmiNode node;
 	private Attribute attribute;
 	private List<String> ids = new ArrayList<String>();
+	protected Classifier classifier;
 	
 	@SuppressWarnings("unused")
 	private XmiReferenceAttribute() {}
 	
-	public XmiReferenceAttribute(XmiNode node, Attribute attribute) {
+	public XmiReferenceAttribute(XmiNode node, Attribute attribute, Classifier classifier) {
 		this.node = node;	
 		this.attribute = attribute;
+        this.classifier = classifier;
 		construct();
+	}
+	
+	public Classifier getClassifier() {
+	    return this.classifier;	
+	}
+	
+	public XmiNode getXmiNode() {
+		return this.node;
 	}
 	
 	private void construct()
