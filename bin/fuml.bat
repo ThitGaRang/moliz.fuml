@@ -29,7 +29,7 @@ goto SKIP_TOOLS
 
 set JAVA=%JAVA_HOME%\bin\java
 
-rem A full JDK with toos.jar is not required.
+rem A full JDK with tools.jar is not required.
 if not exist "%JAVA_HOME%\lib\tools.jar" goto SKIP_TOOLS
 
 rem If exists, point to the JDK javac compiler.
