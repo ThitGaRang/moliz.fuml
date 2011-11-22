@@ -38,7 +38,7 @@
     <property name="unzip.dir" value="${target.dir}/temp"/>
     
     <property environment="env"/>
-    <property name="release.suffix" value="SNAPSHOT-11-2011"/>        
+    <property name="release.suffix" value="1.0.0"/>        
    
     <target name="all" depends="init, compile-common, generate, compile, copy-resources" description="build the components for dev"/>
 
@@ -302,8 +302,8 @@
     <target name="pack" depends="dist">
       <echo message="packing..."/>
       <mkdir dir="${dist.dir}"/>
-        
-      <zip destfile="${dist.dir}/fuml-${release.suffix}.zip">
+    	
+      <zip destfile="${dist.dir}/fuml-RI-${release.suffix}.zip">
         <zipfileset dir="." includes="*.txt" prefix="fuml-${release.suffix}"/>
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/lib" />
@@ -311,7 +311,7 @@
         <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/doc" />
       </zip>                
 
-      <zip destfile="${dist.dir}/fuml-${release.suffix}-src.zip">
+      <zip destfile="${dist.dir}/fuml-RI-${release.suffix}-src.zip">
         <zipfileset dir="." includes="*.txt,*.xml,*.properties,*.project,*.classpath" prefix="fuml-${release.suffix}/fUML-Reference-Implementation" />
         <zipfileset dir="./.externalToolBuilders" includes="*.launch" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/.externalToolBuilders" />
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib" />
@@ -319,13 +319,13 @@
         <zipfileset dir="${dist.dir}" includes="*.jar" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/lib" />
         <zipfileset dir="${bin.dir}" includes="*.bat,*.sh,*.properties,*.txt" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/bin" />
         <zipfileset dir="${src.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src" />
-        <zipfileset dir="${gen.java.dir}/fUML" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src/java/fUML" />
-        <zipfileset dir="${gen.java.dir}/UMLPrimitiveTypes" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/src/java/UMLPrimitiveTypes" />
+        <zipfileset dir="${gen.java.dir}/fUML" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/target/fuml/src/fUML" />
+        <zipfileset dir="${gen.java.dir}/UMLPrimitiveTypes" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/target/fuml/src/UMLPrimitiveTypes" />
         <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/test" />
         <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/doc" />
       </zip>                
 
-      <zip destfile="${dist.dir}/fuml-${release.suffix}-plugin.zip">
+      <zip destfile="${dist.dir}/fuml-RI-${release.suffix}-plugin.zip">
         <zipfileset dir="." includes="*.txt" prefix="org.modeldriven.fuml.execution"/>
         <zipfileset dir="${bin.dir}" includes="*.properties" prefix="org.modeldriven.fuml.execution" />
         <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
@@ -339,7 +339,7 @@
     <target name="deploy" depends="dist,pack">
       <echo message="deploying..."/>
         
-      <unzip src="${dist.dir}/fuml-${release.suffix}.zip" dest="/">
+      <unzip src="${dist.dir}/fuml-RI-${release.suffix}.zip" dest="/">
       </unzip>
                 
     </target>
