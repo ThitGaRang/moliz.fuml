@@ -1,7 +1,9 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * entitled Licensing-Information. 
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
@@ -69,8 +71,7 @@ public class ExecutionEnvironment {
         }
     }
     
-    protected fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList createDefaultInputValues(
-            fUML.Syntax.Classes.Kernel.ParameterList parameters) {
+    protected ParameterValueList createDefaultInputValues(ParameterList parameters) {
         
         if (log.isDebugEnabled())
             log.debug("creating " + parameters.size() + " parameter(s):");
