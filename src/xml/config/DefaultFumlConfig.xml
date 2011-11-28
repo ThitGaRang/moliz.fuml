@@ -73,7 +73,8 @@
   <MappingConfiguration>
     <ReferenceMapping type="parent" className="Generalization" propertyName="specific"/>   
     
-    <BehaviorExecutionMapping className="FoundationalModelLibrary.BasicInputOutput-StandardOutputChannel" executionClassName="org.modeldriven.fuml.library.channel.StandardOutputChannelObject"/>
+    <BehaviorExecutionMapping className="FoundationalModelLibrary.BasicInputOutput.StandardInputChannel" executionClassName="org.modeldriven.fuml.library.channel.StandardInputChannelObject"/>
+    <BehaviorExecutionMapping className="FoundationalModelLibrary.BasicInputOutput.StandardOutputChannel" executionClassName="org.modeldriven.fuml.library.channel.StandardOutputChannelObject"/>
 
     <BehaviorExecutionMapping className="FoundationalModelLibrary.PrimitiveBehaviors.IntegerFunctions.Div" executionClassName="org.modeldriven.fuml.library.integerfunctions.IntegerDivideFunctionBehaviorExecution"/>
     <BehaviorExecutionMapping className="FoundationalModelLibrary.PrimitiveBehaviors.IntegerFunctions.*" executionClassName="org.modeldriven.fuml.library.integerfunctions.IntegerTimesFunctionBehaviorExecution"/>
