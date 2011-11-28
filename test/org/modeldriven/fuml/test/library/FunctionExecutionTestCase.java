@@ -76,6 +76,12 @@ public class FunctionExecutionTestCase extends FUMLTest {
         log.info("done");
     }
     
+    public void testHelloWorld() throws Exception {
+        log.info("testHelloWorld");
+        execute("HelloWorld");
+        log.info("done");
+    }
+    
     private void execute(String activityName)
     {
         Behavior behavior = environment.findBehavior(activityName);
