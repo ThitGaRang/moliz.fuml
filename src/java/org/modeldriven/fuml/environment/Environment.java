@@ -43,7 +43,6 @@ import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
-import fUML.Syntax.Classes.Kernel.PropertyList;
 import fUML.Syntax.Classes.Kernel.StructuralFeature;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 import fUML.Syntax.CommonBehaviors.Communications.Signal;
