@@ -27,6 +27,8 @@ public class Debug {
 		if (message.length()>=7 && message.substring(0,7).equals("[event]")) {
 			log.info(message.substring(8,message.length()));
 			// System.out.println(message.substring(8,message.length()));
+		} else if (message.length()>=7 && message.substring(0,7).equals("[error]")) {
+			log.error(message.substring(8,message.length()));
 		} else {
 			log.debug(message);
 		}
