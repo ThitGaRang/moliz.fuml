@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="EVS-MDS-Laptop" name="org.modeldriven.fuml.test.builtin.SignalSendTestCase" tests="1" time="0.281" timestamp="2012-01-16T00:21:31">
+  <properties>
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="lib.dir" value="./lib" />
+    <property name="md.lib.dir" value="./lib/magicdraw" />
+    <property name="env.VS90COMNTOOLS" value="C:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools\" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="/C:/ModelPro/eclipse/plugins/org.eclipse.pde.build_3.4.1.R34x_v20081217/templates/" />
+    <property name="env.TVT" value="C:\Program Files\Lenovo" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="env.SHADOW_COMDIR" value="C:\Documents and Settings\Ed Seidewitz\ItsShadow\ComDir" />
+    <property name="env.PROMPT" value="$P$G" />
+    <property name="os.name" value="Windows XP" />
+    <property name="env.FP_NO_HOST_CHECK" value="NO" />
+    <property name="sun.boot.class.path" value="C:\ModelPro\eclipse\jre\lib\resources.jar;C:\ModelPro\eclipse\jre\lib\rt.jar;C:\ModelPro\eclipse\jre\lib\sunrsasign.jar;C:\ModelPro\eclipse\jre\lib\jsse.jar;C:\ModelPro\eclipse\jre\lib\jce.jar;C:\ModelPro\eclipse\jre\lib\charsets.jar;C:\ModelPro\eclipse\jre\classes" />
+    <property name="release.suffix" value="1.0.0" />
+    <property name="env.COMPUTERNAME" value="EVS-MDS-LAPTOP" />
+    <property name="schema.config.dir" value="./src/xsd/config" />
+    <property name="env.ALLUSERSPROFILE" value="C:\Documents and Settings\All Users" />
+    <property name="sun.desktop" value="windows" />
+    <property name="env.WS" value="C:\work\WS" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910" />
+    <property name="java.runtime.version" value="1.6.0_07-b06" />
+    <property name="unzip.dir" value="./target/fuml/temp" />
+    <property name="src.java.dir" value="./src/java" />
+    <property name="env.HOMEPATH" value="\Documents and Settings\Ed Seidewitz" />
+    <property name="test.java.dir" value="./test" />
+    <property name="env.TPCCommon" value="C:\PROGRA~1\THINKV~1\PrdCtr" />
+    <property name="user.name" value="Ed Seidewitz" />
+    <property name="env.SWSHARE" value="C:\SWSHARE" />
+    <property name="xmi.dir" value="./src/xmi" />
+    <property name="env.QTJAVA" value="C:\Program Files\Java\jre6\lib\ext\QTJava.zip" />
+    <property name="build.dir" value="./target/fuml" />
+    <property name="uml.dir" value="./src/uml" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="C:\ModelPro\eclipse\jre\bin" />
+    <property name="doc.dir" value="./doc" />
+    <property name="ant.project.name" value="fuml" />
+    <property name="java.version" value="1.6.0_07" />
+    <property name="env.PROCESSOR_IDENTIFIER" value="x86 Family 6 Model 15 Stepping 11, GenuineIntel" />
+    <property name="user.timezone" value="" />
+    <property name="schema.catalog.dir" value="./src/xsd/catalog" />
+    <property name="env.asl.log" value="Destination=file;OnFirstLog=command,environment" />
+    <property name="env.TEMP" value="C:\DOCUME~1\EDSEID~1\LOCALS~1\Temp" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="schema.model.dir" value="./src/xsd/model" />
+    <property name="java.endorsed.dirs" value="C:\ModelPro\eclipse\jre\lib\endorsed" />
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" />
+    <property name="template.dir" value="./src/xsl" />
+    <property name="env.HOMEDRIVE" value="C:" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="env.TVTPYDIR" value="C:\Program Files\Common Files\Lenovo\Python24" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="classes.dir" value="./target/fuml/classes" />
+    <property name="java.class.version" value="50.0" />
+    <property name="test.output.dir" value="./target/fuml/testoutput" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="C:\ModelPro\eclipse\jre" />
+    <property name="dist.dir" value="./target/fuml/dist" />
+    <property name="env.APPDATA" value="C:\Documents and Settings\Ed Seidewitz\Application Data" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="env.ComSpec" value="C:\WINDOWS\system32\cmd.exe" />
+    <property name="env.XML_CATALOG_FILES" value="C:/Program%20Files/Artisan%20Software%20Tools/Artisan%20Real-time%20Studio/System/Publisher/XMLCatalog/docgen.xml" />
+    <property name="env.OS" value="Windows_NT" />
+    <property name="env.CommonProgramFiles" value="C:\Program Files\Common Files" />
+    <property name="ant.file" value="C:\ModelPro\workspace\fUML-Reference-Implementation\build.xml" />
+    <property name="os.version" value="5.1" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="10.0-b23" />
+    <property name="user.variant" value="" />
+    <property name="env.APR_ICONV1_PATH" value="C:\Program Files\CollabNet\Subversion Server\httpd\bin\iconv" />
+    <property name="env.TVTCOMMON" value="C:\Program Files\Common Files\Lenovo" />
+    <property name="env.USERPROFILE" value="C:\Documents and Settings\Ed Seidewitz" />
+    <property name="ant.library.dir" value="C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib" />
+    <property name="uml.library.dir" value="./src/uml/library" />
+    <property name="env.JAVA_HOME" value="C:\Program Files\Java\jdk1.6.0_10" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="env.TMP" value="C:\DOCUME~1\EDSEID~1\LOCALS~1\Temp" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="test.xmi.dir" value="./test/xmi" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="eclipse.pdebuild.scripts" value="/C:/ModelPro/eclipse/plugins/org.eclipse.pde.build_3.4.1.R34x_v20081217/scripts/" />
+    <property name="xml.model.dir" value="./src/xml/model" />
+    <property name="user.home" value="C:\Documents and Settings\Ed Seidewitz" />
+    <property name="env.SESSIONNAME" value="Console" />
+    <property name="env.CLASSPATH" value=".;C:\Program Files\Java\jre6\lib\ext\QTJava.zip" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="test" value="org.modeldriven.fuml.test.builtin.SignalSendTestCase" />
+    <property name="test.dir" value="./test" />
+    <property name="xml.dir" value="./src/xml" />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="java.library.path" value="C:\ModelPro\eclipse;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/ModelPro/eclipse/jre/bin/client;C:/ModelPro/eclipse/jre/bin;C:\Program Files\CollabNet\Subversion Server;C:\Program Files\CollabNet\Subversion Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Intel\Wireless\Bin\;C:\Program Files\Diskeeper Corporation\Diskeeper\;C:\Program Files\ThinkPad\ConnectUtilities;C:\Program Files\Common Files\Lenovo;C:\Program Files\Lenovo\Client Security Solution;C:\Program Files\TortoiseSVN\bin;C:\Program Files\javacc-5.0\bin;C:\Program Files\Java\jdk1.6.0_10\bin;C:\Program Files\Apache\apache-ant-1.7.1\bin;C:\Artisan\Enabler\Server\Bin;C:\Program Files\Artisan Software Tools\Artisan Real-time Studio\ItsShadow\Exe;C:\Program Files\Java\jdk1.6.0_10\bin;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Astaro\Astaro SSL VPN Client\bin;C:\ModelPro\eclipse\configuration\org.eclipse.osgi\bundles\99\1\.cp" />
+    <property name="env.NUMBER_OF_PROCESSORS" value="2" />
+    <property name="env.SMA" value="C:\Program Files\ThinkVantage\SMA\" />
+    <property name="bin.dir" value="./bin" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.version" value="Apache Ant version 1.7.0 compiled on December 13 2006" />
+    <property name="java.class.path" value="C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-antlr.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-bcel.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-bsf.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-log4j.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-oro.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-regexp.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-apache-resolver.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-commons-logging.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-commons-net.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-jai.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-javamail.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-jdepend.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-jmf.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-jsch.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-junit.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-launcher.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-netrexx.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-nodeps.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-starteam.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-stylebook.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-swing.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-trax.jar;C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant-weblogic.jar;C:\ModelPro\eclipse\configuration\org.eclipse.osgi\bundles\187\1\.cp\lib\remoteAnt.jar;C:\Program Files\Java\jdk1.6.0_10\lib\tools.jar;C:\ModelPro\eclipse\plugins\org.eclipse.swt.win32.win32.x86_3.4.1.v3452b.jar" />
+    <property name="env.JBOSS_HOME" value="C:\Program Files\NexJ\jboss-5.1.0.GA\" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="xml.config.dir" value="./src/xml/config" />
+    <property name="env.windir" value="C:\WINDOWS" />
+    <property name="env.LOGONSERVER" value="\\EVS-MDS-LAPTOP" />
+    <property name="env.PROCESSOR_ARCHITECTURE" value="x86" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="Service Pack 3" />
+    <property name="env.ANT_HOME" value="C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910" />
+    <property name="env.ProgramFiles" value="C:\Program Files" />
+    <property name="java.io.tmpdir" value="C:\DOCUME~1\EDSEID~1\LOCALS~1\Temp\" />
+    <property name="eclipse.pdebuild.home" value="/C:/ModelPro/eclipse/plugins/org.eclipse.pde.build_3.4.1.R34x_v20081217/./" />
+    <property name="env.PROCESSOR_REVISION" value="0f0b" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="env.SystemRoot" value="C:\WINDOWS" />
+    <property name="env.SHADOWTDK_COMDIR" value="C:\Documents and Settings\Ed Seidewitz\ItsShadow\TdkComDir" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="os.arch" value="x86" />
+    <property name="java.ext.dirs" value="C:\ModelPro\eclipse\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="user.dir" value="C:\ModelPro\workspace\fUML-Reference-Implementation" />
+    <property name="xmi.library.dir" value="./src/xmi/library" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH" />
+    <property name="env.Path" value="C:/ModelPro/eclipse/jre/bin/client;C:/ModelPro/eclipse/jre/bin;C:\Program Files\CollabNet\Subversion Server;C:\Program Files\CollabNet\Subversion Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Intel\Wireless\Bin\;C:\Program Files\Diskeeper Corporation\Diskeeper\;C:\Program Files\ThinkPad\ConnectUtilities;C:\Program Files\Common Files\Lenovo;C:\Program Files\Lenovo\Client Security Solution;C:\Program Files\TortoiseSVN\bin;C:\Program Files\javacc-5.0\bin;C:\Program Files\Java\jdk1.6.0_10\bin;C:\Program Files\Apache\apache-ant-1.7.1\bin;C:\Artisan\Enabler\Server\Bin;C:\Program Files\Artisan Software Tools\Artisan Real-time Studio\ItsShadow\Exe;C:\Program Files\Java\jdk1.6.0_10\bin;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Astaro\Astaro SSL VPN Client\bin" />
+    <property name="basedir" value="C:\ModelPro\workspace\fUML-Reference-Implementation" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="ant.core.lib" value="C:\ModelPro\eclipse\plugins\org.apache.ant_1.7.0.v200803061910\lib\ant.jar" />
+    <property name="env.USERNAME" value="Ed Seidewitz" />
+    <property name="schema.dir" value="./src/xsd" />
+    <property name="env.JBOSS_BIN" value="C:\Program Files\NexJ\jboss-5.1.0.GA\bin" />
+    <property name="env.SystemDrive" value="C:" />
+    <property name="ant.file.fuml" value="C:\ModelPro\workspace\fUML-Reference-Implementation\build.xml" />
+    <property name="file.encoding" value="iso-8859-1" />
+    <property name="target.dir" value="./target/fuml" />
+    <property name="env.RR" value="C:\Program Files\Lenovo\Rescue and Recovery" />
+    <property name="env.USERDOMAIN" value="EVS-MDS-LAPTOP" />
+    <property name="gen.java.dir" value="./target/fuml/src" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="env.SonicCentral" value="C:\Program Files\Common Files\Sonic Shared\Sonic Central\" />
+    <property name="src.dir" value="./src" />
+    <property name="env.PROCESSOR_LEVEL" value="6" />
+  </properties>
+  <testcase classname="org.modeldriven.fuml.test.builtin.SignalSendTestCase" name="testSignalSend" time="0.062" />
+  <system-out><![CDATA[15 Jan 2012 19:21:31,859 INFO  builtin.SignalSendTestCase testSignalSend
+15 Jan 2012 19:21:31,875 DEBUG fUML.Debug [testSignalSend] Setting up...
+15 Jan 2012 19:21:31,875 DEBUG fUML.Debug [testSignalSend] Testing...
+15 Jan 2012 19:21:31,875 DEBUG fUML.Debug 
+15 Jan 2012 19:21:31,875 DEBUG fUML.Debug [testExecute] Executing the behavior...
+15 Jan 2012 19:21:31,875 DEBUG fUML.Debug [execute] Activity TestSignalSender...
+15 Jan 2012 19:21:31,875 INFO  fUML.Debug Execute activity=TestSignalSender
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Create(TestSignalAccepter)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Create(TestSignalAccepter).result...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Fork(accepterActivity)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Start...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Start.object...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Send(TestSignal)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Send(TestSignal).target...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Destroy(TestSignalAccepter)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Destroy(TestSignalAccepter).target...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Create(TestSignalAccepter).result to Fork(accepterActivity).
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Fork(accepterActivity) to Start.object.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Fork(accepterActivity) to Send(TestSignal).target.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Fork(accepterActivity) to Destroy(TestSignalAccepter).target.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Start to Send(TestSignal).
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Send(TestSignal) to Destroy(TestSignalAccepter).
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Create(TestSignalAccepter)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Create(TestSignalAccepter).result
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Fork(accepterActivity)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Start
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Anonymous activation of type fUML.Semantics.Activities.IntermediateActivities.ForkNodeActivation
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Start.object
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Send(TestSignal)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Anonymous activation of type fUML.Semantics.Activities.IntermediateActivities.ForkNodeActivation
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Send(TestSignal).target
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Destroy(TestSignalAccepter)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] node = Destroy(TestSignalAccepter).target
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking for enabled nodes...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Create(TestSignalAccepter)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Node Create(TestSignalAccepter) is enabled.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Create(TestSignalAccepter).result...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Fork(accepterActivity)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Start...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Start.object...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Send(TestSignal)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Send(TestSignal).target...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Destroy(TestSignalAccepter)...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Checking node Destroy(TestSignalAccepter).target...
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [run] Sending offer to node Create(TestSignalAccepter).
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [receiveOffer] node = Create(TestSignalAccepter)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [fire] Action Create(TestSignalAccepter)...
+15 Jan 2012 19:21:31,890 INFO  fUML.Debug Fire activity=TestSignalSender action=Create(TestSignalAccepter)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [putToken] node = Create(TestSignalAccepter)
+15 Jan 2012 19:21:31,890 DEBUG fUML.Debug [addToken] node = Create(TestSignalAccepter).result
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] node = Fork(accepterActivity)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Fork node Fork(accepterActivity)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [addToken] node = Fork(accepterActivity)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] node = Start
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Pin Start.object...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [addToken] node = Start.object
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [removeToken] node = Create(TestSignalAccepter).result
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Action Start...
+15 Jan 2012 19:21:31,906 INFO  fUML.Debug Fire activity=TestSignalSender action=Start
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [takeTokens] node = Start, pin = Start.object
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [removeToken] node = Start.object
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [startBehavior] Starting behavior for all classifiers...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [startBehavior] Starting behavior for TestSignalAccepter...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [execute] Activity TestSignalAccepter...
+15 Jan 2012 19:21:31,906 INFO  fUML.Debug Execute activity=TestSignalAccepter
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Accept(TestSignal)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Accept(TestSignal).result...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [createNodeActivations] Creating a node activation for Output(signal)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [createEdgeInstances] Creating an edge instance from Accept(TestSignal).result to Output(signal).
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] node = Accept(TestSignal)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] node = Accept(TestSignal).result
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] node = Output(signal)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Checking for enabled nodes...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Checking node Accept(TestSignal)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Node Accept(TestSignal) is enabled.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Checking node Accept(TestSignal).result...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Checking node Output(signal)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [run] Sending offer to node Accept(TestSignal).
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] node = Accept(TestSignal)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Action Accept(TestSignal)...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [register] object = (fUML.Semantics.Activities.IntermediateActivities.ActivityExecution@d23e53: TestSignalAccepter)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [register] accepter = fUML.Semantics.Actions.CompleteActions.AcceptEventActionEventAccepter@f9f91d
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [execute] Activity TestSignalAccepter completed.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [addToken] node = Start
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Anonymous fork node.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [addToken] ...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] node = Send(TestSignal)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [fire] Checking if Start should fire again...
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [receiveOffer] node = Send(TestSignal)
+15 Jan 2012 19:21:31,906 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Start
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] ...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Pin Send(TestSignal).target...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] node = Send(TestSignal).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Action Send(TestSignal)...
+15 Jan 2012 19:21:31,921 INFO  fUML.Debug Fire activity=TestSignalSender action=Send(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [takeTokens] node = Send(TestSignal), pin = Send(TestSignal).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Send(TestSignal).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [dispatchNextEvent] signalInstance = (fUML.Semantics.CommonBehaviors.Communications.SignalInstance@b6a6d6: TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [accept] action = Accept(TestSignal), signalinstance = (fUML.Semantics.CommonBehaviors.Communications.SignalInstance@b6a6d6: TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [putToken] node = Accept(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] node = Accept(TestSignal).result
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] node = Output(signal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Output activity parameter node Output(signal)...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] node = Output(signal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Accept(TestSignal).result
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Checking if Accept(TestSignal) should fire again...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] node = Accept(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Action Accept(TestSignal)...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [register] object = (fUML.Semantics.Activities.IntermediateActivities.ActivityExecution@d23e53: TestSignalAccepter)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [register] accepter = fUML.Semantics.Actions.CompleteActions.AcceptEventActionEventAccepter@f9f91d
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] node = Send(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Anonymous fork node.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] ...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] node = Destroy(TestSignalAccepter)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Checking if Send(TestSignal) should fire again...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] node = Destroy(TestSignalAccepter)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [receiveOffer] Firing.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Send(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] ...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Pin Destroy(TestSignalAccepter).target...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [addToken] node = Destroy(TestSignalAccepter).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Fork(accepterActivity)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Action Destroy(TestSignalAccepter)...
+15 Jan 2012 19:21:31,921 INFO  fUML.Debug Fire activity=TestSignalSender action=Destroy(TestSignalAccepter)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [takeTokens] node = Destroy(TestSignalAccepter), pin = Destroy(TestSignalAccepter).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [removeToken] node = Destroy(TestSignalAccepter).target
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [destroy] object = fUML.Semantics.Activities.IntermediateActivities.ActivityExecution@d23e53
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [terminateAll] Terminating activation group for activity TestSignalAccepter.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [terminate] node = Accept(TestSignal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [unregister] object = (fUML.Semantics.Activities.IntermediateActivities.ActivityExecution@d23e53: TestSignalAccepter)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [unregister] accepter = fUML.Semantics.Actions.CompleteActions.AcceptEventActionEventAccepter@f9f91d
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [terminate] node = Accept(TestSignal).result
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [terminate] node = Output(signal)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Checking if Destroy(TestSignalAccepter) should fire again...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [fire] Checking if Create(TestSignalAccepter) should fire again...
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_beginIsolation] Begin isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [_endIsolation] End isolation.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [execute] Activity TestSignalSender completed.
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [destroy] object = fUML.Semantics.Activities.IntermediateActivities.ActivityExecution@144b9ff
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug 
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug [testSignalSend] Done!
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug 
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug 18 element(s)
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug ---------
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug Boolean: fUML.Syntax.Classes.Kernel.PrimitiveType
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug Integer: fUML.Syntax.Classes.Kernel.PrimitiveType
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug String: fUML.Syntax.Classes.Kernel.PrimitiveType
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug UnlimitedNatural: fUML.Syntax.Classes.Kernel.PrimitiveType
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerPlus: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerMinus: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerTimes: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerDivide: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerNegate: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug IntegerGreater: fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug WriteLine: fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug Channel: fUML.Syntax.Classes.Kernel.Class_
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug OutputChannel: fUML.Syntax.Classes.Kernel.Class_
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug TextOutputChannel: fUML.Syntax.Classes.Kernel.Class_
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug StandardOutputChannel: fUML.Syntax.Classes.Kernel.Class_
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug TestSignal: fUML.Syntax.CommonBehaviors.Communications.Signal
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug TestSignalAccepter: fUML.Syntax.Activities.IntermediateActivities.Activity
+15 Jan 2012 19:21:31,921 DEBUG fUML.Debug TestSignalSender: fUML.Syntax.Activities.IntermediateActivities.Activity
+15 Jan 2012 19:21:31,921 INFO  builtin.SignalSendTestCase done
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,7 +1,9 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
  * entitled Licensing-Information. 
- * All modifications copyright 2009-2011 Data Access Technologies, Inc. 
+ * 
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc. 
+ * 
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
@@ -22,6 +24,7 @@ import fUML.Semantics.Classes.Kernel.ValueList;
 public class ListSizeFunctionBehaviorExecution extends
         fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
 
+	@Override
     public void doBody(
             fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
             fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
@@ -35,6 +38,7 @@ public class ListSizeFunctionBehaviorExecution extends
     	// Return the size in an IntegerValue object
     	IntegerValue result = new IntegerValue();
     	result.value = size;
+    	result.type = this.locus.factory.getBuiltInType("Integer");
 
         Debug.println("[doBody] List Size, result=" + result.value);
 
@@ -42,6 +46,7 @@ public class ListSizeFunctionBehaviorExecution extends
 		LibraryFunctions.addValueToOutputList(result, outputParameters);
     }
     
+	@Override
     public fUML.Semantics.Classes.Kernel.Value new_() {
         // Create a new instance of this kind of function behavior execution.
         return new ListSizeFunctionBehaviorExecution();

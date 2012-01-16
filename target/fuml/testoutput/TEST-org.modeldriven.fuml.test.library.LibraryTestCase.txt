@@ -1,0 +1,62 @@
+Testsuite: org.modeldriven.fuml.test.library.LibraryTestCase
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 2.516 sec
+------------- Standard Output ---------------
+15 Jan 2012 19:21:33,656 INFO  library.Library initializing...
+15 Jan 2012 19:21:33,656 INFO  config.FumlConfiguration initializing...
+15 Jan 2012 19:21:33,656 INFO  config.FumlConfigDataBinding loading schema chain...
+15 Jan 2012 19:21:34,078 INFO  config.FumlConfiguration loading configuration, DefaultFumlConfig.xml
+15 Jan 2012 19:21:34,171 INFO  library.Library loading library artifact, fUML_Library.xmi
+15 Jan 2012 19:21:34,187 INFO  io.ArtifactLoader reading fUML_Library.xmi
+15 Jan 2012 19:21:34,421 INFO  model.InMemoryRepository initializing...
+15 Jan 2012 19:21:34,421 INFO  repository.RepositoryConfigDataBinding loading schema chain...
+15 Jan 2012 19:21:34,562 INFO  model.InfrastructureAssembler initializing...
+15 Jan 2012 19:21:34,656 INFO  model.SuperstructureAssembler initializing...
+15 Jan 2012 19:21:34,734 INFO  model.fUML_SyntaxAssembler initializing...
+15 Jan 2012 19:21:34,750 INFO  model.InMemoryRepository performing package merge...
+15 Jan 2012 19:21:34,781 INFO  model.InMemoryRepository cacheing classifier attributes and operations...
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ListSize to org.modeldriven.fuml.library.listfunctions.ListSizeFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ListGet to org.modeldriven.fuml.library.listfunctions.ListGetFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToString to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalToStringFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Min to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalMinFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Max to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalMaxFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToInteger to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalToIntegerFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToUnlimitedNatural to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped >= to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalGreaterThanEqualFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped <= to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalLessThanEqualFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped > to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalGreaterThanFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped < to org.modeldriven.fuml.library.unlimitednaturalfunctions.UnlimitedNaturalLessThanFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Div to org.modeldriven.fuml.library.integerfunctions.IntegerDivideFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToString to org.modeldriven.fuml.library.integerfunctions.IntegerToStringFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped < to org.modeldriven.fuml.library.integerfunctions.IntegerLessThanFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToUnlimitedNatural to org.modeldriven.fuml.library.integerfunctions.IntegerToUnlimitedNaturalFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped > to org.modeldriven.fuml.library.integerfunctions.IntegerGreaterThanFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToInteger to org.modeldriven.fuml.library.integerfunctions.IntegerToIntegerFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Max to org.modeldriven.fuml.library.integerfunctions.IntegerMaxFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped + to org.modeldriven.fuml.library.integerfunctions.IntegerPlusFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Abs to org.modeldriven.fuml.library.integerfunctions.IntegerAbsFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped <= to org.modeldriven.fuml.library.integerfunctions.IntegerLessThanEqualFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped * to org.modeldriven.fuml.library.integerfunctions.IntegerTimesFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped >= to org.modeldriven.fuml.library.integerfunctions.IntegerGreaterThanEqualFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Neg to org.modeldriven.fuml.library.integerfunctions.IntegerNegateFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Min to org.modeldriven.fuml.library.integerfunctions.IntegerMinFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Mod to org.modeldriven.fuml.library.integerfunctions.IntegerModFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped - to org.modeldriven.fuml.library.integerfunctions.IntegerMinusFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Xor to org.modeldriven.fuml.library.booleanfunctions.BooleanXorFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Not to org.modeldriven.fuml.library.booleanfunctions.BooleanNotFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Implies to org.modeldriven.fuml.library.booleanfunctions.BooleanImpliesFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToString to org.modeldriven.fuml.library.booleanfunctions.BooleanToStringFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped ToBoolean to org.modeldriven.fuml.library.booleanfunctions.BooleanToBooleanFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Or to org.modeldriven.fuml.library.booleanfunctions.BooleanOrFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped And to org.modeldriven.fuml.library.booleanfunctions.BooleanAndFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Concat to org.modeldriven.fuml.library.stringfunctions.StringConcatFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Size to org.modeldriven.fuml.library.stringfunctions.StringSizeFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped Substring to org.modeldriven.fuml.library.stringfunctions.StringSubstringFunctionBehaviorExecution
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped StandardOutputChannel to org.modeldriven.fuml.library.channel.StandardOutputChannelObject
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler adding to locus: org.modeldriven.fuml.library.channel.StandardOutputChannelObject
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler mapped StandardInputChannel to org.modeldriven.fuml.library.channel.StandardInputChannelObject
+15 Jan 2012 19:21:35,937 INFO  assembly.ElementAssembler adding to locus: org.modeldriven.fuml.library.channel.StandardInputChannelObject
+15 Jan 2012 19:21:35,953 INFO  library.Library completed library artifact, fUML_Library.xmi
+15 Jan 2012 19:21:35,953 INFO  library.LibraryTestCase done
+------------- ---------------- ---------------
+
+Testcase: testLoadLibraries took 2.297 sec

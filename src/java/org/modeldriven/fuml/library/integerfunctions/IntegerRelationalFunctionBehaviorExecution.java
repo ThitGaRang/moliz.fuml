@@ -1,14 +1,17 @@
 /*
  * Copyright 2008 Lockheed Martin Corporation, except as stated in the file 
- * entitled Licensing-Information. All modifications copyright 2009 Data Access Technologies, Inc. Licensed under the Academic Free License 
- * version 3.0 (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
+ * 
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
  *
  * Contributors:
  *   MDS - initial API and implementation
  *
  */
-
 
 package org.modeldriven.fuml.library.integerfunctions;
 
@@ -19,33 +22,8 @@ import fUML.Debug;
 import fUML.Semantics.Classes.Kernel.BooleanValue;
 import fUML.Semantics.Classes.Kernel.IntegerValue;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>org::modeldriven::fuml::library::integerfunctions::IntegerFunctionBehaviorExecution_ReturnBoolean</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link IntegerFunctionBehaviorExecution#doBody <em>doBody</em>}</li>
- * <li>{@link IntegerFunctionBehaviorExecution#doIntegerFunction <em>
- * doIntegerFunction</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
-public abstract class IntegerFunctionBehaviorExecution_ReturnBoolean extends
+public abstract class IntegerRelationalFunctionBehaviorExecution extends
         fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
-
-    // Attributes
-
-    // Operations of the class
-    /**
-     * operation doBody <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
 
     public void doBody(
             fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
@@ -62,18 +40,13 @@ public abstract class IntegerFunctionBehaviorExecution_ReturnBoolean extends
 
         BooleanValue result = new BooleanValue();
         result.value = this.doIntegerFunction(integerArguments);
+        result.type = this.locus.factory.getBuiltInType("Boolean");
 
         Debug.println("[doBody] result = " + result.value);
 
 		// Add output to the outputParameters list
 		LibraryFunctions.addValueToOutputList(result, outputParameters);
     }
-
-    /**
-     * operation doIntegerFunction <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
 
     public abstract boolean doIntegerFunction(UMLPrimitiveTypes.intList arguments);
 } // IntegerFunctionBehaviorExecution_ReturnBoolean

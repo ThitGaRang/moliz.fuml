@@ -1,0 +1,98 @@
+15 Jan 2012 19:21:26,328 INFO  model.ModelTestCase testClass
+15 Jan 2012 19:21:26,375 INFO  model.InMemoryRepository initializing...
+15 Jan 2012 19:21:26,390 INFO  repository.RepositoryConfigDataBinding loading schema chain...
+15 Jan 2012 19:21:27,390 INFO  model.InfrastructureAssembler initializing...
+15 Jan 2012 19:21:27,406 INFO  config.FumlConfiguration initializing...
+15 Jan 2012 19:21:27,406 INFO  config.FumlConfigDataBinding loading schema chain...
+15 Jan 2012 19:21:27,609 INFO  config.FumlConfiguration loading configuration, DefaultFumlConfig.xml
+15 Jan 2012 19:21:27,968 INFO  model.SuperstructureAssembler initializing...
+15 Jan 2012 19:21:28,156 INFO  model.fUML_SyntaxAssembler initializing...
+15 Jan 2012 19:21:28,171 INFO  model.InMemoryRepository performing package merge...
+15 Jan 2012 19:21:28,218 INFO  model.InMemoryRepository cacheing classifier attributes and operations...
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase testCreateModel
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase returned an instance
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,234 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,250 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,250 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,250 INFO  model.ModelTestCase testParameter
+15 Jan 2012 19:21:28,250 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,250 INFO  model.ModelTestCase testCallBehaviorAction
+15 Jan 2012 19:21:28,265 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,265 INFO  model.ModelTestCase testLiteralInteger
+15 Jan 2012 19:21:28,265 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,265 INFO  model.ModelTestCase testLiteralUnlimitedNatural
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase testTypedElement
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase testTypedElement
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase testFeature
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,281 INFO  model.ModelTestCase testActivityParameterNode
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase ActivityNode.incoming->ActivityEdge.target
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Element.ownedElement->Element.owner
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase ActivityNode.outgoing->ActivityEdge.source
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase NamedElement.namespace->Namespace.ownedMember
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Element.owner->Element.ownedElement
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase ActivityNode.inStructuredNode->StructuredActivityNode.node
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase ActivityNode.activity->Activity.node
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase testProperty
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: MultiplicityElement.isOrdered (required=true)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: MultiplicityElement.upperValue (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: MultiplicityElement.lower (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Property.opposite (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Property.isDerived (required=true)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: NamedElement.visibility (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Element.ownedComment (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: RedefinableElement.redefinitionContext (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: TypedElement.type (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Feature.featuringClassifier (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: opposite: Feature.featuringClassifier->Classifier.feature
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Property.owningAssociation (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: opposite: Property.owningAssociation->Association.ownedEnd
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: NamedElement.namespace (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: opposite: NamedElement.namespace->Namespace.ownedMember
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: MultiplicityElement.upper (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: MultiplicityElement.isUnique (required=true)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: RedefinableElement.isLeaf (required=true)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: NamedElement.name (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: StructuralFeature.isReadOnly (required=true)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Property.defaultValue (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: Property.association (required=false)
+15 Jan 2012 19:21:28,296 INFO  model.ModelTestCase Property: opposite: Property.association->Association.memberEnd
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: NamedElement.qualifiedName (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Element.ownedElement (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: opposite: Element.ownedElement->Element.owner
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Property.class (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: opposite: Property.class->Class.ownedAttribute
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Property.isComposite (required=true)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: MultiplicityElement.lowerValue (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Property.aggregation (required=true)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Feature.isStatic (required=true)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: RedefinableElement.redefinedElement (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Element.owner (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: opposite: Element.owner->Element.ownedElement
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Property.datatype (required=false)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: opposite: Property.datatype->DataType.ownedAttribute
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Property: Property.isDerivedUnion (required=true)
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase testObjectNode
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase testExpansionRegion
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase done
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase testClass
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Package.nestingPackage->Package.nestedPackage
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Namespace.elementImport->ElementImport.importingNamespace
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Element.ownedElement->Element.owner
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase NamedElement.namespace->Namespace.ownedMember
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Element.owner->Element.ownedElement
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Namespace.ownedMember->NamedElement.namespace
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Package.ownedType->Type.package
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Package.nestedPackage->Package.nestingPackage
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase Namespace.packageImport->PackageImport.importingNamespace
+15 Jan 2012 19:21:28,312 INFO  model.ModelTestCase done
+
