@@ -193,7 +193,9 @@
       <!-- Replace (temporarily) generated source files with corrected ones. -->
       <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/DecisionNodeActivation.java" />
+      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActions/RemoveStructuralFeatureValueActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />
+      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/RemoveStructuralFeatureValueActionActivation.java" />
        
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 

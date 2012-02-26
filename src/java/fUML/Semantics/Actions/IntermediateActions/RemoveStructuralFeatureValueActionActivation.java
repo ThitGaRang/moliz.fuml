@@ -149,7 +149,8 @@ public class RemoveStructuralFeatureValueActionActivation
 				}
 
 			} else {
-				if (featureValue.values.size() <= removeAt) {
+				// Corrected "<=" to ">="
+				if (featureValue.values.size() >= removeAt) {
 					featureValue.values.remove(removeAt - 1);
 				}
 			}
