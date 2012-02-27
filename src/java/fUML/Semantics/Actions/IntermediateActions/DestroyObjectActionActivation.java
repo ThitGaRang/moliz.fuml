@@ -156,6 +156,8 @@ public class DestroyObjectActionActivation extends
 					& ((Property) featureValue.feature).aggregation == AggregationKind.composite) {
 				isComposite = true;
 			}
+			// Corrected to add the following statement.
+			i = i + 1;
 		}
 
 		return isComposite;
