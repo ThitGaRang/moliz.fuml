@@ -57,6 +57,7 @@ public class ForkedToken extends
 
 	public fUML.Semantics.Activities.IntermediateActivities.Token baseToken = null;
 	public int remainingOffersCount = 0;
+	public boolean baseTokenIsWithdrawn = false;
 
 	/**
 	 * operation isControl <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -80,8 +81,13 @@ public class ForkedToken extends
 		// When the remaining number of offers is zero, then remove this token
 		// from its holder.
 
-		if (!this.baseToken.isWithdrawn()) {
+		if (!this.baseTokenIsWithdrawn & !this.baseToken.isWithdrawn()) {
 			this.baseToken.withdraw();
+			
+			// NOTE: This keeps a base token that is a forked token from being
+			// withdrawn more than once, since withdrawing a forked token may
+			// not actually remove it from its fork node holder.
+			this.baseTokenIsWithdrawn = true;
 		}
 
 		if (this.remainingOffersCount > 0) {
