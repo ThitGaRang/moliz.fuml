@@ -423,16 +423,22 @@ public class ActivityNodeActivationGroup extends
 	public fUML.Semantics.Activities.IntermediateActivities.ActivityParameterNodeActivationList getOutputParameterNodeActivations() {
 		// Return the set of all activations in this group of activity parameter
 		// nodes for output (inout, out and return) parameters.
+		
+		// Should be for activity parameter nodes with incoming edges. Note that
+		// inout parameters will have two activity parameter nodes.
 
 		ActivityParameterNodeActivationList parameterNodeActivations = new ActivityParameterNodeActivationList();
 		ActivityNodeActivationList nodeActivations = this.nodeActivations;
 		for (int i = 0; i < nodeActivations.size(); i++) {
 			ActivityNodeActivation activation = nodeActivations.getValue(i);
 			if (activation instanceof ActivityParameterNodeActivation) {
+				/*
 				ParameterDirectionKind direction = ((ActivityParameterNode) (activation.node)).parameter.direction;
 				if ((direction.equals(ParameterDirectionKind.inout))
 						| (direction.equals(ParameterDirectionKind.out))
 						| (direction.equals(ParameterDirectionKind.return_))) {
+				*/
+				if (activation.incomingEdges.size() > 0) {
 					parameterNodeActivations
 							.addValue((ActivityParameterNodeActivation) activation);
 				}

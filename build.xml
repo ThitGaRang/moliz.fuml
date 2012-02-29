@@ -192,6 +192,7 @@
      
       <!-- Replace (temporarily) generated source files with corrected ones. -->
       <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
+      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ActivityNodeActivationGroup.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/DecisionNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkedToken.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />
