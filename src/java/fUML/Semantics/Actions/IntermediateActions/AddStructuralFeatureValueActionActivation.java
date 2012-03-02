@@ -84,50 +84,50 @@ public class AddStructuralFeatureValueActionActivation
 		if (action.insertAt != null) {
 			insertAt = ((UnlimitedNaturalValue) this
 					.takeTokens(action.insertAt).getValue(0)).value.naturalValue;
+			if (insertAt == 0) {
+				insertAt = 1;
+			}
 		}
 
 		if (association != null) {
 			LinkList links = this.getMatchingLinks(association, feature, value);
-
-			Property oppositeEnd = this.getOppositeEnd(association, feature);
-			int position = 0;
-			if (oppositeEnd.multiplicityElement.isOrdered) {
-				position = -1;
-			}
 
 			if (action.isReplaceAll) {
 				for (int i = 0; i < links.size(); i++) {
 					Link link = links.getValue(i);
 					link.destroy();
 				}
-			} else if (feature.multiplicityElement.isUnique) {
-				for (int i = 0; i < links.size(); i++) {
-					Link link = links.getValue(i);
-					FeatureValue featureValue = link.getFeatureValue(feature);
-					if (featureValue.values.getValue(0).equals(inputValue)) {
-						position = link.getFeatureValue(oppositeEnd).position;
-						if (insertAt > 0 & featureValue.position < insertAt) {
-							insertAt = insertAt - 1;
+			} else {
+				if (feature.multiplicityElement.isUnique) {
+					int i = 1;
+					boolean destroyed = false;
+					while (!destroyed & i <= links.size()) {
+						Link link = links.getValue(i - 1);
+						FeatureValue featureValue = link.getFeatureValue(feature);
+						if (featureValue.values.getValue(0).equals(inputValue)) {
+							link.destroy();
+							destroyed = true;
 						}
-						link.destroy();
+						i = i + 1;
 					}
 				}
 			}
 
 			Link newLink = new Link();
 			newLink.type = association;
-
-			// This necessary when setting a feature value with an insertAt
-			// position
-			newLink.locus = this.getExecutionLocus();
-
 			newLink.setFeatureValue(feature, inputValues, insertAt);
+
+			Property oppositeEnd = this.getOppositeEnd(association, feature);
+			int position = 0;
+			if (oppositeEnd.multiplicityElement.isOrdered) {
+				position = this.getMatchingLinks(association, oppositeEnd, inputValue).size() + 1;
+			}
 
 			ValueList oppositeValues = new ValueList();
 			oppositeValues.addValue(value);
 			newLink.setFeatureValue(oppositeEnd, oppositeValues, position);
 
-			newLink.locus.add(newLink);
+			newLink.addTo(this.getExecutionLocus());
 
 		} else if (value instanceof StructuredValue) {
 			StructuredValue structuredValue = (StructuredValue) value;
@@ -152,14 +152,11 @@ public class AddStructuralFeatureValueActionActivation
 					int j = position(inputValue, featureValue.values, 1);
 					if (j > 0) {
 						featureValue.values.remove(j - 1);
-						if (insertAt > 0 & j < insertAt) {
-							insertAt = insertAt - 1;
-						}
 					}
 				}
 
-				if (insertAt <= 0) { // Note: insertAt = -1 indicates an
-										// unlimited value of "*"
+				// Note: insertAt = -1 indicates an unlimited value of "*"
+				if (insertAt <= 0 | insertAt > featureValue.values.size()) { 
 					featureValue.values.addValue(inputValue);
 				} else {
 					featureValue.values.addValue(insertAt - 1, inputValue);

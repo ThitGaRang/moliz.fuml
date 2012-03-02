@@ -24,6 +24,7 @@ import fUML.Syntax.Classes.Kernel.*;
 
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
+import fUML.Semantics.Loci.LociL1.Locus;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -48,6 +49,79 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
 	public fUML.Syntax.Classes.Kernel.Association type = null;
 
+	public boolean isMatchingLink(ExtensionalValue link, Property end) {
+		// Test whether the given link matches the values of this link on all
+		// ends other than the given end.
+		
+		PropertyList ends = this.type.memberEnd;
+		
+		boolean matches = true;
+		int i = 1;
+		while (matches & i <= ends.size()) {
+			Property otherEnd = ends.getValue(i - 1);
+			if (otherEnd != end &
+					!this.getFeatureValue(otherEnd).values.getValue(0).equals(
+					link.getFeatureValue(otherEnd).values.getValue(0))) {
+				matches = false;
+			}
+			i = i + 1;
+		}
+		
+		return matches;
+	}
+	
+	public FeatureValueList getOtherFeatureValues(ExtensionalValueList extent, Property end) {
+		// Return all feature values for the given end of links in the given
+		// extent whose other ends match this link.
+		
+		FeatureValueList featureValues = new FeatureValueList();
+		for (int i = 0; i < extent.size(); i++) {
+			ExtensionalValue link = extent.getValue(i);
+			if (link != this) {
+				if (isMatchingLink(link, end)) {
+					featureValues.addValue(link.getFeatureValue(end));
+				}
+			}
+		}
+		return featureValues;
+	}
+	
+	public void addTo(Locus locus) {
+		// Add this link to the extent of its association at the given locus.
+		// Shift the positions of ends of other links, as appropriate, for ends
+		// that are ordered.
+		
+		Debug.println("[add] link = " + this.objectId());
+
+		PropertyList ends = this.type.memberEnd;
+		ExtensionalValueList extent = locus.getExtent(this.type);
+		
+		for (int i = 0; i < ends.size(); i++) {
+			Property end = ends.getValue(i);
+			if (end.multiplicityElement.isOrdered) {
+				FeatureValue featureValue = this.getFeatureValue(end);
+				FeatureValueList otherFeatureValues = 
+					this.getOtherFeatureValues(extent, end);
+				int n = otherFeatureValues.size();
+				if (featureValue.position < 0 | featureValue.position > n) {
+					featureValue.position = n + 1;
+				} else {
+					if (featureValue.position == 0) {
+						featureValue.position = 1;
+					}
+					for (int j = 0; j < otherFeatureValues.size(); j++) {
+						FeatureValue otherFeatureValue = featureValues.getValue(j);
+						if (featureValue.position <= otherFeatureValue.position) {
+							otherFeatureValue.position = otherFeatureValue.position + 1;
+						}
+					}
+				}
+			}
+		}
+		
+		locus.add(this);
+	}
+
 	/**
 	 * operation destroy <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -62,16 +136,16 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
 		PropertyList ends = this.type.memberEnd;
 		ExtensionalValueList extent = this.locus.getExtent(this.type);
-
-		for (int i = 0; i < extent.size(); i++) {
-			ExtensionalValue otherLink = extent.getValue(i);
-			for (int j = 0; j < ends.size(); j++) {
-				Property end = ends.getValue(j);
-				if (end.multiplicityElement.isOrdered) {
-					FeatureValue featureValue = otherLink.getFeatureValue(end);
-					if (this.getFeatureValue(end).position < featureValue.position) {
-						featureValue.position = featureValue.position - 1;
-					}
+		
+		for (int i = 0; i < ends.size(); i++) {
+			Property end = ends.getValue(i);
+			FeatureValue featureValue = this.getFeatureValue(end);
+			FeatureValueList otherFeatureValues = 
+				this.getOtherFeatureValues(extent, end);
+			for (int j = 0; j < otherFeatureValues.size(); j++) {
+				FeatureValue otherFeatureValue = featureValues.getValue(j);
+				if (featureValue.position < otherFeatureValue.position) {
+					otherFeatureValue.position = otherFeatureValue.position - 1;
 				}
 			}
 		}
@@ -127,12 +201,13 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 		return types;
 
 	} // getTypes
-
+	
 	/**
 	 * operation setFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
+	/*
 	public void setFeatureValue(
 			fUML.Syntax.Classes.Kernel.StructuralFeature feature,
 			fUML.Semantics.Classes.Kernel.ValueList values, int position) {
@@ -153,5 +228,6 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
 		super.setFeatureValue(feature, values, position);
 	} // setFeatureValue
+	*/
 
 } // Link

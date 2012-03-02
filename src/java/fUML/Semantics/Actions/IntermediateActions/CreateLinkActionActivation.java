@@ -87,8 +87,9 @@ public class CreateLinkActionActivation extends
 
 			boolean match = true;
 			boolean destroy = false;
-			for (int j = 0; j < endDataList.size(); j++) {
-				LinkEndCreationData endData = endDataList.getValue(j);
+			int j = 1;
+			while (j <= endDataList.size()) {
+				LinkEndCreationData endData = endDataList.getValue(j - 1);
 				if (this.endMatchesEndData(link, endData)) {
 					if (endData.isReplaceAll) {
 						destroy = true;
@@ -96,6 +97,7 @@ public class CreateLinkActionActivation extends
 				} else {
 					match = false;
 				}
+				j = j + 1;
 			}
 			if (destroy | unique & match ) {
 				link.destroy();
@@ -105,24 +107,20 @@ public class CreateLinkActionActivation extends
 		Link newLink = new Link();
 		newLink.type = linkAssociation;
 
-		// This is necessary when setting a feature value with an insertAt position.
-		newLink.locus = this.getExecutionLocus();
-
 		for (int i = 0; i < endDataList.size(); i++) {
 			LinkEndCreationData endData = endDataList.getValue(i);
 
-			int insertAt;
-			if (endData.insertAt == null) {
-				insertAt = 0;
-			} else {
+			int insertAt = 0;
+			if (endData.insertAt != null) {
 				insertAt = ((UnlimitedNaturalValue) (this
 						.takeTokens(endData.insertAt).getValue(0))).value.naturalValue;
 			}
+			
 			newLink.setFeatureValue(endData.end,
 					this.takeTokens(endData.value), insertAt);
 		}
 
-		this.getExecutionLocus().add(newLink);
+		newLink.addTo(this.getExecutionLocus());
 	} // doAction
 
 } // CreateLinkActionActivation
