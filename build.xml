@@ -196,6 +196,7 @@
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/DecisionNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkedToken.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />
+      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/CreateLinkActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/DestroyObjectActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/RemoveStructuralFeatureValueActionActivation.java" />
        

@@ -61,40 +61,51 @@ public class CreateLinkActionActivation extends
 		// which a link is being created.
 		// Destroy all links that have a value for any end for which
 		// isReplaceAll is true.
+		// If the association has any unique ends, then destroy an existing link
+		// that matches all ends of the link being created.
 		// Create a new link for the association, at the current locus, with the
 		// given end data values,
 		// inserted at the given insertAt position (for ordered ends).
 
 		CreateLinkAction action = (CreateLinkAction) (this.node);
 		LinkEndCreationDataList endDataList = action.endData;
-
+		
 		Association linkAssociation = this.getAssociation();
 		ExtensionalValueList extent = this.getExecutionLocus().getExtent(
 				linkAssociation);
 
-		Link oldLink = null;
+		boolean unique = false;
+		for (int i = 0; i < endDataList.size(); i++) {
+			if (endDataList.getValue(i).end.multiplicityElement.isUnique) {
+				unique = true;
+			}
+		}
+		
 		for (int i = 0; i < extent.size(); i++) {
 			ExtensionalValue value = extent.getValue(i);
 			Link link = (Link) value;
 
-			boolean noMatch = true;
-			int j = 1;
-			while (noMatch & j <= endDataList.size()) {
-				LinkEndCreationData endData = endDataList.getValue(j - 1);
-				if (endData.isReplaceAll
-						& this.endMatchesEndData(link, endData)) {
-					oldLink = link;
-					link.destroy();
-					noMatch = false;
+			boolean match = true;
+			boolean destroy = false;
+			for (int j = 0; j < endDataList.size(); j++) {
+				LinkEndCreationData endData = endDataList.getValue(j);
+				if (this.endMatchesEndData(link, endData)) {
+					if (endData.isReplaceAll) {
+						destroy = true;
+					} 
+				} else {
+					match = false;
 				}
-				j = j + 1;
+			}
+			if (destroy | unique & match ) {
+				link.destroy();
 			}
 		}
 
 		Link newLink = new Link();
 		newLink.type = linkAssociation;
 
-		// This necessary when setting a feature value with an insertAt position
+		// This is necessary when setting a feature value with an insertAt position.
 		newLink.locus = this.getExecutionLocus();
 
 		for (int i = 0; i < endDataList.size(); i++) {
@@ -106,11 +117,6 @@ public class CreateLinkActionActivation extends
 			} else {
 				insertAt = ((UnlimitedNaturalValue) (this
 						.takeTokens(endData.insertAt).getValue(0))).value.naturalValue;
-				if (oldLink != null) {
-					if (oldLink.getFeatureValue(endData.end).position < insertAt) {
-						insertAt = insertAt - 1;
-					}
-				}
 			}
 			newLink.setFeatureValue(endData.end,
 					this.takeTokens(endData.value), insertAt);
