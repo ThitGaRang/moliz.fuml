@@ -64,7 +64,7 @@ public class CreateLinkActionActivation extends
 		// If the association has any unique ends, then destroy an existing link
 		// that matches all ends of the link being created.
 		// Create a new link for the association, at the current locus, with the
-		// given end data values,
+		// given end data values, 
 		// inserted at the given insertAt position (for ordered ends).
 
 		CreateLinkAction action = (CreateLinkAction) (this.node);
