@@ -199,7 +199,6 @@
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/AddStructuralFeatureValueActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/CreateLinkActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/DestroyLinkActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/DestroyObjectActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/RemoveStructuralFeatureValueActionActivation.java" />
        

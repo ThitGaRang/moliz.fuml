@@ -92,6 +92,12 @@ public class AddStructuralFeatureValueActionActivation
 		if (association != null) {
 			LinkList links = this.getMatchingLinks(association, feature, value);
 
+			Property oppositeEnd = this.getOppositeEnd(association, feature);
+			int position = 0;
+			if (oppositeEnd.multiplicityElement.isOrdered) {
+				position = this.getMatchingLinks(association, oppositeEnd, inputValue).size() + 1;
+			}
+
 			if (action.isReplaceAll) {
 				for (int i = 0; i < links.size(); i++) {
 					Link link = links.getValue(i);
@@ -105,6 +111,7 @@ public class AddStructuralFeatureValueActionActivation
 						Link link = links.getValue(i - 1);
 						FeatureValue featureValue = link.getFeatureValue(feature);
 						if (featureValue.values.getValue(0).equals(inputValue)) {
+							position = link.getFeatureValue(oppositeEnd).position;
 							link.destroy();
 							destroyed = true;
 						}
@@ -116,12 +123,6 @@ public class AddStructuralFeatureValueActionActivation
 			Link newLink = new Link();
 			newLink.type = association;
 			newLink.setFeatureValue(feature, inputValues, insertAt);
-
-			Property oppositeEnd = this.getOppositeEnd(association, feature);
-			int position = 0;
-			if (oppositeEnd.multiplicityElement.isOrdered) {
-				position = this.getMatchingLinks(association, oppositeEnd, inputValue).size() + 1;
-			}
 
 			ValueList oppositeValues = new ValueList();
 			oppositeValues.addValue(value);
