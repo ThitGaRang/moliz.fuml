@@ -104,7 +104,7 @@
        <mkdir dir="${gen.java.dir}"/>
        <antcall target="generate-config"/>
        <antcall target="generate-model-config"/>
-       <antcall target="generate-metadata"/>
+       <!--<antcall target="generate-metadata"/>-->
     </target>
     
     <target name="generate-model-config">
