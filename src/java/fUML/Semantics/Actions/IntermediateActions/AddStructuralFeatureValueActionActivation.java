@@ -131,8 +131,14 @@ public class AddStructuralFeatureValueActionActivation
 			newLink.addTo(this.getExecutionLocus());
 
 		} else if (value instanceof StructuredValue) {
-			StructuredValue structuredValue = (StructuredValue) value;
+			// If the value is a data value, then it must be copied before
+			// any change is made.
+			if (!(value instanceof Reference)) {
+				value = value.copy();
+			}
 
+			StructuredValue structuredValue = (StructuredValue) value;
+			
 			if (action.isReplaceAll) {
 				structuredValue.setFeatureValue(feature, inputValues, 0);
 			} else {

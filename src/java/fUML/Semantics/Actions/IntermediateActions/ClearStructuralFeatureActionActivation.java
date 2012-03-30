@@ -79,8 +79,13 @@ public class ClearStructuralFeatureActionActivation
 				link.destroy();
 			}
 		} else if (value instanceof StructuredValue) {
-			((StructuredValue) value).setFeatureValue(action.structuralFeature,
-					new ValueList(), 0);
+			// If the value is a data value, then it must be copied before
+			// any change is made.
+			if (!(value instanceof Reference)) {
+				value = value.copy();
+			}
+
+			((StructuredValue) value).setFeatureValue(feature, new ValueList(), 0);
 		}
 
 		if (action.result != null) {

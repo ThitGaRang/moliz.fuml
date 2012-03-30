@@ -448,4 +448,15 @@ public class ActivityNodeActivationGroup extends
 		return parameterNodeActivations;
 	} // getOutputParameterNodeActivations
 
+	public boolean hasSourceFor(ActivityEdgeInstance edgeInstance) {
+		boolean hasSource = false;
+		ActivityNodeActivationList activations = this.nodeActivations;
+		int i = 1;
+		while (!hasSource & i <= activations.size()) {
+			hasSource = activations.getValue(i-1).isSourceFor(edgeInstance);
+			i = i + 1;
+		}
+		return hasSource;
+	}
+
 } // ActivityNodeActivationGroup

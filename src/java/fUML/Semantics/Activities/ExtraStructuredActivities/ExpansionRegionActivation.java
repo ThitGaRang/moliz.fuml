@@ -139,6 +139,8 @@ public class ExpansionRegionActivation extends
 		InputPinList inputPins = region.input;
 		ExpansionNodeList inputElements = region.inputElement;
 		ExpansionNodeList outputElements = region.outputElement;
+		
+		this.activationGroups.clear();
 
 		int n = this.inputExpansionTokens.getValue(0).tokens.size();
 		int k = 1;

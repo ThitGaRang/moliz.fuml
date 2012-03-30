@@ -275,5 +275,13 @@ public class StructuredActivityNodeActivation extends
 		this.activationGroup
 				.createEdgeInstances(((StructuredActivityNode) (this.node)).edge);
 	} // createEdgeInstances
+	
+	public boolean isSourceFor(ActivityEdgeInstance edgeInstance) {
+		boolean isSource = super.isSourceFor(edgeInstance);
+		if (!isSource) {
+			isSource = this.activationGroup.hasSourceFor(edgeInstance);
+		}
+		return isSource;
+	}
 
 } // StructuredActivityNodeActivation

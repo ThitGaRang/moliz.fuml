@@ -122,6 +122,12 @@ public class RemoveStructuralFeatureValueActionActivation
 			}
 
 		} else if (value instanceof StructuredValue) {
+			// If the value is a data value, then it must be copied before
+			// any change is made.
+			if (!(value instanceof Reference)) {
+				value = value.copy();
+			}
+
 			FeatureValue featureValue = ((StructuredValue) value)
 					.getFeatureValue(action.structuralFeature);
 
