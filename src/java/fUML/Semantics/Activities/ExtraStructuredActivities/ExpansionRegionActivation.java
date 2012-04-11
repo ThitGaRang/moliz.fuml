@@ -86,14 +86,22 @@ public class ExpansionRegionActivation extends
 			this.inputTokens.addValue(tokenSet);
 		}
 
+		int n = this.numberOfValues(); // Added
 		for (int i = 0; i < inputElements.size(); i++) {
 			ExpansionNode inputElement = inputElements.getValue(i);
 			ExpansionNodeActivation expansionNodeActivation = this
 					.getExpansionNodeActivation(inputElement);
 			expansionNodeActivation.fire(expansionNodeActivation
 					.takeOfferedTokens());
+			TokenList tokens = expansionNodeActivation.takeTokens(); // Added
 			TokenSet tokenSet = new TokenSet();
-			tokenSet.tokens = expansionNodeActivation.takeTokens();
+			// Added
+			int j = 1;
+			while (j <= n) {
+				tokenSet.tokens.add(tokens.getValue(j-1));
+				j = j + 1;
+			}
+			//
 			this.inputExpansionTokens.addValue(tokenSet);
 		}
 
@@ -238,13 +246,15 @@ public class ExpansionRegionActivation extends
 	 * 
 	 * @generated
 	 */
+	/*
 	public boolean isReady() {
 		// In addition to the usual ready checks for an action, check that all
 		// expansion nodes have the same number of inputs (greater than zero).
 
 		ExpansionRegion region = (ExpansionRegion) (this.node);
 
-		boolean ready = super.isReady();
+		boolean ready = super.isReady() && this.numberOfValues() > 0;
+		
 		if (ready) {
 			int n = this.numberOfValues(); // This gets the number of values on
 											// the first expansion node.
@@ -261,10 +271,11 @@ public class ExpansionRegionActivation extends
 				}
 			}
 		}
-
+		
 		return ready;
 
 	} // isReady
+	*/
 
 	/**
 	 * operation sendOffers <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -320,8 +331,10 @@ public class ExpansionRegionActivation extends
 			OutputPinActivation groupInput = activationGroup.groupInputs
 					.getValue(j);
 			groupInput.clearTokens();
-			groupInput.addToken(tokenSet.tokens
-					.getValue(activationGroup.index - 1));
+			if (tokenSet.tokens.size() >= activationGroup.index) {
+				groupInput.addToken(tokenSet.tokens
+						.getValue(activationGroup.index - 1));
+			}
 			groupInput.sendUnofferedTokens();
 		}
 
@@ -365,11 +378,32 @@ public class ExpansionRegionActivation extends
 		// Return the number of values on the first input expansion node of the
 		// expansion region of this activation.
 		// (The region is required to have at least one input expansion node.)
+		
+		// Return the number of values to be acted on by the expansion region of
+		// this activation, which is the minimum of the number of values offered 
+		// to each of the input expansion nodes of the activation.
 
 		ExpansionRegion region = (ExpansionRegion) (this.node);
+		ExpansionNodeList inputElements = region.inputElement;
+		
+		int n = this.getExpansionNodeActivation(inputElements.getValue(0))
+				.countOfferedValues();
+		int i = 2;
+		while (i <= inputElements.size()) {
+			int count = this.getExpansionNodeActivation(
+					inputElements.getValue(i - 1)).countOfferedValues();
+			if (count < n) {
+				n = count;
+			}
+			i = i + 1;
+		}
+		
+		return n;
 
+		/*
 		return this.getExpansionNodeActivation(region.inputElement.getValue(0))
 				.countOfferedValues();
+		*/
 	} // numberOfValues
 
 } // ExpansionRegionActivation
