@@ -63,9 +63,11 @@
        <include name="jsr173_api.jar"/> <!-- only for Java 1.5 -->
     </fileset>  
     
+	<!--
     <fileset id="java.core.tools" dir="${env.JAVA_HOME}/lib">
        <include name="tools.jar"/>   
     </fileset>
+    -->
 
     <fileset id="magicdraw.libs" dir="${lib.dir}/magicdraw">
        <include name="*.jar"/>   
@@ -78,7 +80,7 @@
     <path id="cp">
        <pathelement location="." />       
        <pathelement location="${classes.dir}" />       
-       <fileset refid="java.core.tools"/>
+       <!-- <fileset refid="java.core.tools"/> -->
        <fileset refid="local.libs"/>
        <fileset refid="jaxb.libs"/>
        <fileset refid="stax.libs"/>

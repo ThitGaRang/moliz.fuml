@@ -29,4 +29,10 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>JAVA_HOME</name>
+			<value>file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home</value>
+		</variable>
+	</variableList>
 </projectDescription>
