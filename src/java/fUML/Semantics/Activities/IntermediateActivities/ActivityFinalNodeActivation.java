@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -60,7 +60,15 @@ public class ActivityFinalNodeActivation extends
 
 		Debug.println("[fire] Activity final node " + this.node.name + "...");
 
-		this.group.terminateAll();
+		if (incomingTokens.size() > 0 | this.incomingEdges.size() == 0) {
+			if (this.group.activityExecution != null) {
+				this.group.activityExecution.terminate();
+			} else {
+				this.group.containingNodeActivation.terminate();
+			}
+		}
+		
+		// this.group.terminateAll();
 	} // fire
 
 } // ActivityFinalNodeActivation
