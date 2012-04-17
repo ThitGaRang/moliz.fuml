@@ -298,8 +298,6 @@ public class StructuredActivityNodeActivation extends
 	
 	public TokenList completeAction() {
 		TokenList incomingTokens = new TokenList();
-		Debug.println("[completeAction] node=" + this.node.name);
-		Debug.println("[completeAction] isSuspended=" + this.isSuspended());
 		if (!this.isSuspended()) {
 			incomingTokens = super.completeAction();
 		}
