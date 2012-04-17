@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -97,8 +97,10 @@ public class AcceptEventActionActivation extends
 
 		this.getExecutionContext().register(this.eventAccepter);
 		this.waiting = true;
-
 		this.firing = false;
+		
+		// NEW
+		this.suspend();
 	} // fire
 
 	/**
@@ -175,13 +177,16 @@ public class AcceptEventActionActivation extends
 			this.sendOffers();
 
 			this.waiting = false;
-
+			
 			Debug.println("[fire] Checking if " + this.node.name
 					+ " should fire again...");
 			// if (this.isReady()) {
 			// this.fire();
 			// }
 			this.receiveOffer();
+			
+			// NEW
+			this.resume();
 		}
 
 	} // accept

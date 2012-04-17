@@ -127,11 +127,19 @@ public class StructuredActivityNodeActivation extends
 	public void terminate() {
 		// Terminate the execution of all contained node activations (which
 		// completes the performance of the structured activity node
-		// activation).
+		// activation), and then terminate this node itself.
 
-		this.activationGroup.terminateAll();
+		this.terminateAll();
 		super.terminate();
 	} // terminate
+	
+	public void terminateAll() {
+		// Terminate the execution of all contained node activations (which
+		// completes the performance of the structured activity node
+		// activation).
+		
+		this.activationGroup.terminateAll();
+	}
 
 	/**
 	 * operation getNodeActivation <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -282,6 +290,30 @@ public class StructuredActivityNodeActivation extends
 			isSource = this.activationGroup.hasSourceFor(edgeInstance);
 		}
 		return isSource;
+	}
+	
+	public boolean isSuspended() {
+		return this.activationGroup.isSuspended();
+	}
+	
+	public TokenList completeAction() {
+		TokenList incomingTokens = new TokenList();
+		Debug.println("[completeAction] node=" + this.node.name);
+		Debug.println("[completeAction] isSuspended=" + this.isSuspended());
+		if (!this.isSuspended()) {
+			incomingTokens = super.completeAction();
+		}
+		return incomingTokens;
+	}
+	
+	public void resume() {
+		TokenList incomingTokens = super.completeAction();
+		if (incomingTokens.size() > 0) {
+			this.fire(incomingTokens);
+		}
+		if (!this.isSuspended()) {
+			super.resume();
+		}
 	}
 
 } // StructuredActivityNodeActivation

@@ -495,5 +495,13 @@ public abstract class ActivityNodeActivation extends
 
 		return tokens;
 	} // getTokens
+	
+	public void suspend() {
+		this.group.suspend(this);
+	}
+	
+	public void resume() {
+		this.group.resume(this);
+	}
 
 } // ActivityNodeActivation

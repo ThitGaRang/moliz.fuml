@@ -260,7 +260,7 @@ public class LoopNodeActivation
 
 	} // makeLoopVariableList
 	
-	public void terminate() {
+	public void terminateAll() {
 		OutputPinList resultPins = ((LoopNode)this.node).result;
 
 		for (int i = 0; i < bodyOutputLists.size(); i++) {
@@ -269,7 +269,7 @@ public class LoopNodeActivation
 			this.putTokens(resultPin, bodyOutputList.values);
 		}
 		
-		super.terminate();
+		super.terminateAll();
 	}
 
 } // LoopNodeActivation

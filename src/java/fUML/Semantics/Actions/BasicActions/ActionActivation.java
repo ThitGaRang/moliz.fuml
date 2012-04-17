@@ -153,10 +153,10 @@ public abstract class ActionActivation extends
 		// being
 		// offered to it.
 
-		Action action = (Action) this.node;
-		InputPinList inputPins = action.input;
+		// Action action = (Action) this.node;
+		// InputPinList inputPins = action.input;
 
-		boolean fireAgain = false;
+		// boolean fireAgain = false;
 		do {
 
 			Debug.println("[fire] Action " + this.node.name + "...");
@@ -165,23 +165,30 @@ public abstract class ActionActivation extends
 					+ " action=" + this.node.name);
 
 			this.doAction();
-			this.sendOffers();
+			incomingTokens = this.completeAction();
 
-			Debug.println("[fire] Checking if " + this.node.name
-					+ " should fire again...");
-
-			_beginIsolation();
-			fireAgain = false;
-			this.firing = false;
-			if (this.isReady()) {
-				incomingTokens = this.takeOfferedTokens();
-				fireAgain = incomingTokens.size() > 0;
-				this.firing = this.isFiring() & fireAgain;
-			}
-			_endIsolation();
-
-		} while (fireAgain);
+		} while (incomingTokens.size() > 0);
 	} // fire
+	
+	public TokenList completeAction() {
+		this.sendOffers();
+
+		Debug.println("[fire] Checking if " + this.node.name
+				+ " should fire again...");
+
+		_beginIsolation();
+		// boolean fireAgain = false;
+		TokenList incomingTokens = new TokenList();
+		this.firing = false;
+		if (this.isReady()) {
+			incomingTokens = this.takeOfferedTokens();
+			// fireAgain = incomingTokens.size() > 0;
+			this.firing = this.isFiring() & incomingTokens.size() > 0;
+		}
+		_endIsolation();
+		
+		return incomingTokens;
+	}
 
 	/**
 	 * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -64,7 +64,7 @@ public class ActivityFinalNodeActivation extends
 			if (this.group.activityExecution != null) {
 				this.group.activityExecution.terminate();
 			} else {
-				this.group.containingNodeActivation.terminate();
+				this.group.containingNodeActivation.terminateAll();
 			}
 		}
 		

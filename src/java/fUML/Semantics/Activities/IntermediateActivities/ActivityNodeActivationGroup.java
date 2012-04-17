@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -32,6 +32,7 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
+import fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation;
 import fUML.Semantics.Loci.*;
 
 /**
@@ -83,6 +84,8 @@ public class ActivityNodeActivationGroup extends
 	public fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList nodeActivations = new fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList();
 	public fUML.Semantics.Activities.IntermediateActivities.ActivityExecution activityExecution = null;
 	public fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation containingNodeActivation = null;
+	
+	public fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList suspendedActivations = new fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationList();
 
 	/**
 	 * operation run <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -246,6 +249,8 @@ public class ActivityNodeActivationGroup extends
 			ActivityNodeActivation nodeActivation = nodeActivations.getValue(i);
 			nodeActivation.terminate();
 		}
+		
+		this.suspendedActivations.clear();
 
 	} // terminateAll
 
@@ -457,6 +462,38 @@ public class ActivityNodeActivationGroup extends
 			i = i + 1;
 		}
 		return hasSource;
+	}
+	
+	public boolean isSuspended() {
+		return this.suspendedActivations.size() > 0;
+	}
+	
+	public void suspend(ActivityNodeActivation activation) {
+		if (!this.isSuspended()) {
+			StructuredActivityNodeActivation containingNodeActivation = this.containingNodeActivation;
+			if (containingNodeActivation != null) {
+				containingNodeActivation.suspend();
+			}
+		}
+		this.suspendedActivations.addValue(activation);
+	}
+	
+	public void resume(ActivityNodeActivation activation) {
+		boolean found = false;
+		int i = 1;
+		while (!found & i <= this.suspendedActivations.size()) {
+			if (this.suspendedActivations.get(i-1) == activation) {
+				this.suspendedActivations.removeValue(i-1);
+				found = true;
+			}
+			i = i + 1;
+		}
+		if (!this.isSuspended()) {
+			StructuredActivityNodeActivation containingNodeActivation = this.containingNodeActivation;
+			if (containingNodeActivation != null) {
+				containingNodeActivation.resume();
+			}
+		}
 	}
 
 } // ActivityNodeActivationGroup
