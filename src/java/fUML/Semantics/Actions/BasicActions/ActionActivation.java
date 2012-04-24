@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -147,16 +147,10 @@ public abstract class ActionActivation extends
 	public void fire(
 			fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
 		// Do the main action behavior then concurrently fire all output pin
-		// activations
-		// and offer a single control token. Then activate the action again,
-		// if it is still ready to fire and has at least one token actually
-		// being
-		// offered to it.
+		// activations and offer a single control token. Then activate the
+		// action again, if it is still ready to fire and has at least one token
+		// actually being offered to it.
 
-		// Action action = (Action) this.node;
-		// InputPinList inputPins = action.input;
-
-		// boolean fireAgain = false;
 		do {
 
 			Debug.println("[fire] Action " + this.node.name + "...");
@@ -171,18 +165,20 @@ public abstract class ActionActivation extends
 	} // fire
 	
 	public TokenList completeAction() {
+		// Concurrently fire all output pin activations and offer a single
+		// control token. Then check if the action should fire again
+		// and, if so, return additional incoming tokens for this.
+		
 		this.sendOffers();
 
 		Debug.println("[fire] Checking if " + this.node.name
 				+ " should fire again...");
 
 		_beginIsolation();
-		// boolean fireAgain = false;
 		TokenList incomingTokens = new TokenList();
 		this.firing = false;
 		if (this.isReady()) {
 			incomingTokens = this.takeOfferedTokens();
-			// fireAgain = incomingTokens.size() > 0;
 			this.firing = this.isFiring() & incomingTokens.size() > 0;
 		}
 		_endIsolation();

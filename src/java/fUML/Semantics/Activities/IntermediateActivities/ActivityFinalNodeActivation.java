@@ -56,7 +56,8 @@ public class ActivityFinalNodeActivation extends
 	 */
 	public void fire(
 			fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
-		// Terminate the group containing this activation.
+		// Terminate the activity execution or structured node activation 
+		// containing this activation.
 
 		Debug.println("[fire] Activity final node " + this.node.name + "...");
 
@@ -68,7 +69,6 @@ public class ActivityFinalNodeActivation extends
 			}
 		}
 		
-		// this.group.terminateAll();
 	} // fire
 
 } // ActivityFinalNodeActivation

@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2011 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -202,32 +202,4 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
 	} // getTypes
 	
-	/**
-	 * operation setFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	/*
-	public void setFeatureValue(
-			fUML.Syntax.Classes.Kernel.StructuralFeature feature,
-			fUML.Semantics.Classes.Kernel.ValueList values, int position) {
-		// If a position is given, before setting the given feature value,
-		// adjust the position values of the ends of other links for this same
-		// feature.
-
-		if (position > 0) {
-			ExtensionalValueList extent = this.locus.getExtent(this.type);
-			for (int i = 0; i < extent.size(); i++) {
-				ExtensionalValue value = extent.getValue(i);
-				FeatureValue featureValue = value.getFeatureValue(feature);
-				if (featureValue.position >= position) {
-					featureValue.position = featureValue.position + 1;
-				}
-			}
-		}
-
-		super.setFeatureValue(feature, values, position);
-	} // setFeatureValue
-	*/
-
 } // Link

@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -261,6 +261,9 @@ public class LoopNodeActivation
 	} // makeLoopVariableList
 	
 	public void terminateAll() {
+		// Copy the values of the body outputs to the loop outputs, and then
+		// terminate all activations in the loop.
+		
 		OutputPinList resultPins = ((LoopNode)this.node).result;
 
 		for (int i = 0; i < bodyOutputLists.size(); i++) {

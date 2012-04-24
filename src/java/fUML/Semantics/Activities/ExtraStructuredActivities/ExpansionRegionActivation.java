@@ -1,5 +1,19 @@
-package fUML.Semantics.Activities.ExtraStructuredActivities;
+/*
+ * Initial version copyright 2008 Lockheed Martin Corporation, except  
+ * as stated in the file entitled Licensing-Information. 
+ * 
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
+ *
+ * Licensed under the Academic Free License version 3.0 
+ * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
+ * in the file entitled Licensing-Information. 
+ *
+ * Contributors:
+ *   MDS - initial API and implementation
+ *
+ */
 
+package fUML.Semantics.Activities.ExtraStructuredActivities;
 
 import fUML.Debug;
 import UMLPrimitiveTypes.*;
@@ -242,42 +256,6 @@ public class ExpansionRegionActivation extends
 	} // terminate
 
 	/**
-	 * operation isReady <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	/*
-	public boolean isReady() {
-		// In addition to the usual ready checks for an action, check that all
-		// expansion nodes have the same number of inputs (greater than zero).
-
-		ExpansionRegion region = (ExpansionRegion) (this.node);
-
-		boolean ready = super.isReady() && this.numberOfValues() > 0;
-		
-		if (ready) {
-			int n = this.numberOfValues(); // This gets the number of values on
-											// the first expansion node.
-
-			if (n < 1) {
-				return false;
-			} else {
-				int i = 1;
-				while (ready & i <= region.inputElement.size()) {
-					ready = (this.getExpansionNodeActivation(
-							region.inputElement.getValue(i - 1))
-							.countOfferedValues() == n);
-					i = i + 1;
-				}
-			}
-		}
-		
-		return ready;
-
-	} // isReady
-	*/
-
-	/**
 	 * operation sendOffers <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -369,16 +347,7 @@ public class ExpansionRegionActivation extends
 
 	} // getExpansionNodeActivation
 
-	/**
-	 * operation numberOfValues <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public int numberOfValues() {
-		// Return the number of values on the first input expansion node of the
-		// expansion region of this activation.
-		// (The region is required to have at least one input expansion node.)
-		
 		// Return the number of values to be acted on by the expansion region of
 		// this activation, which is the minimum of the number of values offered 
 		// to each of the input expansion nodes of the activation.
@@ -399,11 +368,6 @@ public class ExpansionRegionActivation extends
 		}
 		
 		return n;
-
-		/*
-		return this.getExpansionNodeActivation(region.inputElement.getValue(0))
-				.countOfferedValues();
-		*/
 	} // numberOfValues
 
 } // ExpansionRegionActivation

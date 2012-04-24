@@ -437,12 +437,6 @@ public class ActivityNodeActivationGroup extends
 		for (int i = 0; i < nodeActivations.size(); i++) {
 			ActivityNodeActivation activation = nodeActivations.getValue(i);
 			if (activation instanceof ActivityParameterNodeActivation) {
-				/*
-				ParameterDirectionKind direction = ((ActivityParameterNode) (activation.node)).parameter.direction;
-				if ((direction.equals(ParameterDirectionKind.inout))
-						| (direction.equals(ParameterDirectionKind.out))
-						| (direction.equals(ParameterDirectionKind.return_))) {
-				*/
 				if (activation.incomingEdges.size() > 0) {
 					parameterNodeActivations
 							.addValue((ActivityParameterNodeActivation) activation);
@@ -454,6 +448,9 @@ public class ActivityNodeActivationGroup extends
 	} // getOutputParameterNodeActivations
 
 	public boolean hasSourceFor(ActivityEdgeInstance edgeInstance) {
+		// Returns true if this activation group has a node activation
+		// corresponding to the source of the given edge instance.
+
 		boolean hasSource = false;
 		ActivityNodeActivationList activations = this.nodeActivations;
 		int i = 1;
@@ -465,10 +462,17 @@ public class ActivityNodeActivationGroup extends
 	}
 	
 	public boolean isSuspended() {
+		// Check if this activation group has any suspended activations and is,
+		// therefore, itself suspended.
+		
 		return this.suspendedActivations.size() > 0;
 	}
 	
 	public void suspend(ActivityNodeActivation activation) {
+		// Suspend the given activation in this activation group. If this is
+		// the only suspended activation, and the activation group has a
+		// containing node activation, then suspend that containing activation.
+		
 		if (!this.isSuspended()) {
 			StructuredActivityNodeActivation containingNodeActivation = this.containingNodeActivation;
 			if (containingNodeActivation != null) {
@@ -479,6 +483,11 @@ public class ActivityNodeActivationGroup extends
 	}
 	
 	public void resume(ActivityNodeActivation activation) {
+		// Resume the given activation by removing it from the suspended
+		// activation list for this activation group. If this is the last
+		// suspended activation, and the activation group has a containing
+		// node activation, then resume that containing activation.
+		
 		boolean found = false;
 		int i = 1;
 		while (!found & i <= this.suspendedActivations.size()) {

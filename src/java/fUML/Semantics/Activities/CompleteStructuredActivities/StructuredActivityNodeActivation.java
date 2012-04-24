@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -285,6 +285,10 @@ public class StructuredActivityNodeActivation extends
 	} // createEdgeInstances
 	
 	public boolean isSourceFor(ActivityEdgeInstance edgeInstance) {
+		// Returns true if this node is either the source for the given
+		// edgeInstance itself or if it contains the source in its
+		// activation group.
+
 		boolean isSource = super.isSourceFor(edgeInstance);
 		if (!isSource) {
 			isSource = this.activationGroup.hasSourceFor(edgeInstance);
@@ -293,10 +297,15 @@ public class StructuredActivityNodeActivation extends
 	}
 	
 	public boolean isSuspended() {
+		// Check if the activation group for this node is suspended.
+		
 		return this.activationGroup.isSuspended();
 	}
 	
 	public TokenList completeAction() {
+		// Only actually complete this structured activity node if it is not
+		// suspended.
+		
 		TokenList incomingTokens = new TokenList();
 		if (!this.isSuspended()) {
 			incomingTokens = super.completeAction();
@@ -305,6 +314,11 @@ public class StructuredActivityNodeActivation extends
 	}
 	
 	public void resume() {
+		// When this structured activity node is resumed after being suspended,
+		// then complete its prior firing and, if there are more incoming
+		// tokens, fire it again. If, after that, the node is not suspended,
+	    // then finish its resumption.
+		
 		TokenList incomingTokens = super.completeAction();
 		if (incomingTokens.size() > 0) {
 			this.fire(incomingTokens);

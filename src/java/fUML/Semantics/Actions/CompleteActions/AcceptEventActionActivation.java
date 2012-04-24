@@ -99,7 +99,6 @@ public class AcceptEventActionActivation extends
 		this.waiting = true;
 		this.firing = false;
 		
-		// NEW
 		this.suspend();
 	} // fire
 
@@ -180,12 +179,8 @@ public class AcceptEventActionActivation extends
 			
 			Debug.println("[fire] Checking if " + this.node.name
 					+ " should fire again...");
-			// if (this.isReady()) {
-			// this.fire();
-			// }
 			this.receiveOffer();
 			
-			// NEW
 			this.resume();
 		}
 

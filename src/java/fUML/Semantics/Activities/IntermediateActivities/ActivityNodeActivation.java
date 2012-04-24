@@ -3,7 +3,7 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
@@ -497,10 +497,14 @@ public abstract class ActivityNodeActivation extends
 	} // getTokens
 	
 	public void suspend() {
+		// Suspend this activation within the activation group that contains it.
+		
 		this.group.suspend(this);
 	}
 	
 	public void resume() {
+		// Resume this activation within the activation group that contains it.
+		
 		this.group.resume(this);
 	}
 
