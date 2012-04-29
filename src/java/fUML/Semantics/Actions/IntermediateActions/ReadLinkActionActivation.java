@@ -94,7 +94,11 @@ public class ReadLinkActionActivation extends
 						k = k + 1;
 						continueSearching = featureValues.getValue(k - 1).position < n;
 					}
-					featureValues.addValue(k - 1, featureValue);
+					if (continueSearching) {
+						featureValues.addValue(featureValue);
+					} else {
+						featureValues.addValue(k - 1, featureValue);
+					}
 				}
 			}
 		}
