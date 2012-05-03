@@ -56,7 +56,7 @@ directory.
 To build using Eclipse:
 
 1. Checkout the source from SVN or download and unzip the source '.zip' file
-into a local directory called 'fUML-Reference-Implemetation'. This name reflects
+into a local directory called 'fUML-Reference-Implementation'. This name reflects
 the current SVN folder name. 
 
 	Note: For Eclipse with an integrated Ant build certain restrictions
@@ -65,7 +65,7 @@ the current SVN folder name.
 	the RI.
 
 2. Launch Eclipse and Create a Workspace. In the "Select a Workspace" prompt,
-browse to the parent folder of the 'fUML-Reference-Implemetation' folder above.
+browse to the parent folder of the 'fUML-Reference-Implementation' folder above.
 
 3. Import the fUML RI Project Into the Workspace. Select File->Import->
 General->Existing Projects Into Workspace. Select 'Next>>'. Select the 'Select
@@ -128,7 +128,7 @@ A binary deployment 'zip' file will be created and expanded onto the current
 drive's root directory. The deployment directory will be called: 
 'fuml-[version string]' 
 
-Note: pre-packaged deployment archives can be found in under the
+Note: Pre-packaged deployment archives can be found under the
 'dist' directory. These can be manually un-archived to the desired location.
 
 

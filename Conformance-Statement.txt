@@ -33,7 +33,7 @@ model for loci.
    b. All extensional values are persisted at the execution locus, so long as
    this locus exists.
 
-   c. Single instance of the classes StandardInputChanngel and
+   c. Single instances of the classes StandardInputChanngel and
    StandardOutputChannel are pre-instantiated at the execution locus.
 
 6. Semantic Conformance: The Reference Implementation implements the entire fUML
