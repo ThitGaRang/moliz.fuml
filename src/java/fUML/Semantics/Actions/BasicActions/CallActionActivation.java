@@ -98,11 +98,25 @@ public abstract class CallActionActivation extends
 
 			ParameterValueList outputParameterValues = callExecution
 					.getOutputParameterValues();
-			for (int j = 0; j < outputParameterValues.size(); j++) {
-				ParameterValue outputParameterValue = outputParameterValues
-						.getValue(j);
-				OutputPin resultPin = resultPins.getValue(j);
-				this.putTokens(resultPin, outputParameterValue.values);
+			
+			pinNumber = 1;
+			i = 1;
+			while (i <= parameters.size()) {
+				Parameter parameter = parameters.getValue(i - 1);
+				if ((parameter.direction == ParameterDirectionKind.inout)
+						| (parameter.direction == ParameterDirectionKind.out)
+						| (parameter.direction == ParameterDirectionKind.return_)) {
+					for (int j = 0; j < outputParameterValues.size(); j++) {
+						ParameterValue outputParameterValue = outputParameterValues
+								.getValue(j);
+						if (outputParameterValue.parameter == parameter) {
+							OutputPin resultPin = resultPins.getValue(pinNumber - 1);
+							this.putTokens(resultPin, outputParameterValue.values);
+						}
+					}
+					pinNumber = pinNumber + 1;
+				}
+				i = i + 1;
 			}
 
 			callExecution.destroy();
