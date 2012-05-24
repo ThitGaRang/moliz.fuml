@@ -30,6 +30,7 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
+import fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroup;
 import fUML.Semantics.Loci.*;
 
 /**
@@ -64,8 +65,10 @@ public class ActivityFinalNodeActivation extends
 		if (incomingTokens.size() > 0 | this.incomingEdges.size() == 0) {
 			if (this.group.activityExecution != null) {
 				this.group.activityExecution.terminate();
-			} else {
+			} else if (this.group.containingNodeActivation != null) {
 				this.group.containingNodeActivation.terminateAll();
+			} else if (this.group instanceof ExpansionActivationGroup){
+				((ExpansionActivationGroup)this.group).regionActivation.terminate();
 			}
 		}
 		

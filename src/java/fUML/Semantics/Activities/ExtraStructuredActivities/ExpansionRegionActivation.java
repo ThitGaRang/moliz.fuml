@@ -249,7 +249,18 @@ public class ExpansionRegionActivation extends
 		for (int i = 0; i < activationGroups.size(); i++) {
 			ExpansionActivationGroup activationGroup = this.activationGroups
 					.getValue(i);
+			
+			// Added
+			OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
+			_beginIsolation();
+			for (int j = 0; j < groupOutputs.size(); j++) {
+				OutputPinActivation groupOutput = groupOutputs.getValue(j);
+				groupOutput.fire(groupOutput.takeOfferedTokens());
+			}
+			//
+
 			activationGroup.terminateAll();
+			_endIsolation();
 		}
 
 		super.terminate();
@@ -289,42 +300,46 @@ public class ExpansionRegionActivation extends
 		// Set up the inputs for the group with the given index, run the group
 		// and then fire the group outputs.
 
-		Debug.println("[runGroup] groupInput[0] = "
-				+ this.inputExpansionTokens.getValue(0).tokens.getValue(
-						activationGroup.index - 1).getValue());
-
-		TokenSetList inputTokens = this.inputTokens;
-		for (int j = 0; j < inputTokens.size(); j++) {
-			TokenSet tokenSet = inputTokens.getValue(j);
-			OutputPinActivation regionInput = activationGroup.regionInputs
-					.getValue(j);
-			regionInput.clearTokens();
-			regionInput.addTokens(tokenSet.tokens);
-			regionInput.sendUnofferedTokens();
-		}
-
-		TokenSetList inputExpansionTokens = this.inputExpansionTokens;
-		for (int j = 0; j < inputExpansionTokens.size(); j++) {
-			TokenSet tokenSet = inputExpansionTokens.getValue(j);
-			OutputPinActivation groupInput = activationGroup.groupInputs
-					.getValue(j);
-			groupInput.clearTokens();
-			if (tokenSet.tokens.size() >= activationGroup.index) {
-				groupInput.addToken(tokenSet.tokens
-						.getValue(activationGroup.index - 1));
+		if (this.isRunning()) { // Added
+			Debug.println("[runGroup] groupInput[0] = "
+					+ this.inputExpansionTokens.getValue(0).tokens.getValue(
+							activationGroup.index - 1).getValue());
+	
+			TokenSetList inputTokens = this.inputTokens;
+			for (int j = 0; j < inputTokens.size(); j++) {
+				TokenSet tokenSet = inputTokens.getValue(j);
+				OutputPinActivation regionInput = activationGroup.regionInputs
+						.getValue(j);
+				regionInput.clearTokens();
+				regionInput.addTokens(tokenSet.tokens);
+				regionInput.sendUnofferedTokens();
 			}
-			groupInput.sendUnofferedTokens();
+	
+			TokenSetList inputExpansionTokens = this.inputExpansionTokens;
+			for (int j = 0; j < inputExpansionTokens.size(); j++) {
+				TokenSet tokenSet = inputExpansionTokens.getValue(j);
+				OutputPinActivation groupInput = activationGroup.groupInputs
+						.getValue(j);
+				groupInput.clearTokens();
+				if (tokenSet.tokens.size() >= activationGroup.index) {
+					groupInput.addToken(tokenSet.tokens
+							.getValue(activationGroup.index - 1));
+				}
+				groupInput.sendUnofferedTokens();
+			}
+	
+			activationGroup.run(activationGroup.nodeActivations);
+
+			if (this.isRunning()) { // Added
+				OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
+				for (int i = 0; i < groupOutputs.size(); i++) {
+					OutputPinActivation groupOutput = groupOutputs.getValue(i);
+					groupOutput.fire(groupOutput.takeOfferedTokens());
+				}
+		
+				activationGroup.terminateAll();
+			}
 		}
-
-		activationGroup.run(activationGroup.nodeActivations);
-
-		OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
-		for (int i = 0; i < groupOutputs.size(); i++) {
-			OutputPinActivation groupOutput = groupOutputs.getValue(i);
-			groupOutput.fire(groupOutput.takeOfferedTokens());
-		}
-
-		activationGroup.terminateAll();
 	} // runGroup
 
 	/**
