@@ -88,16 +88,22 @@ public class ReduceActionActivation extends
 			while (i <= parameters.size()) {
 				Parameter parameter = parameters.getValue(i - 1);
 				if (parameter.direction == ParameterDirectionKind.in) {
-					if (input1 != null) {
+					if (input1 == null) { //Changed != to ==
 						input1 = parameter;
 					} else {
 						input2 = parameter;
 					}
-				} else if (parameter.direction == ParameterDirectionKind.out) {
+				} else if (parameter.direction == ParameterDirectionKind.out |
+						parameter.direction == ParameterDirectionKind.return_) { // Added
 					output = parameter;
 				}
 				i = i + 1;
 			}
+			
+			System.out.println("[doAction] reducer=" + action.reducer);
+			System.out.println("[doAction] input1=" + input1);
+			System.out.println("[doAction] input2=" + input2);
+			System.out.println("[doAction] output=" + output);
 
 			ParameterValue parameterValue1 = new ParameterValue();
 			parameterValue1.parameter = input1;
@@ -105,7 +111,8 @@ public class ReduceActionActivation extends
 			parameterValue1.values.addValue(values.getValue(0));
 
 			int j = 2;
-			while (j <= values.size()) {
+			// Added condition on parameterValue1
+			while (j <= values.size() & !parameterValue1.values.isEmpty()) { 
 				this.currentExecution = this.getExecutionLocus().factory
 						.createExecution(action.reducer, this
 								.getExecutionContext());
@@ -120,10 +127,18 @@ public class ReduceActionActivation extends
 
 				this.currentExecution.execute();
 
-				parameterValue1 = this.currentExecution
-						.getParameterValue(output);
+				parameterValue1.values = this.currentExecution // Changed to just set values.
+						.getParameterValue(output).values;
 
 				j = j + 1;
+				
+				// Added
+				if (parameterValue1.values.isEmpty() & j <= values.size()) {
+					parameterValue1.values.add(values.getValue(j - 1));
+					j = j + 1;
+				}
+				//
+				
 			}
 
 			this.putTokens(action.result, parameterValue1.values);
