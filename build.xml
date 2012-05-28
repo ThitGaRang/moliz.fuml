@@ -200,6 +200,7 @@
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/DecisionNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkedToken.java" />
+      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ObjectNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/CompleteStructuredActivities/StructuredActivityNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/CompleteStructuredActivities/LoopNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />

@@ -92,7 +92,11 @@ public abstract class ObjectNodeActivation extends
 		// Otherwise, offer the given tokens as usual.
 
 		if (tokens.size() == 0) {
-			tokens.addValue(new ObjectToken());
+			// Added
+			ObjectToken token = new ObjectToken();
+			token.holder = this;
+			//
+			tokens.addValue(token); // Changed "new ObjectToken()" to "token".
 		}
 
 		super.sendOffers(tokens);
