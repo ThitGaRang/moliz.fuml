@@ -100,11 +100,6 @@ public class ReduceActionActivation extends
 				i = i + 1;
 			}
 			
-			System.out.println("[doAction] reducer=" + action.reducer);
-			System.out.println("[doAction] input1=" + input1);
-			System.out.println("[doAction] input2=" + input2);
-			System.out.println("[doAction] output=" + output);
-
 			ParameterValue parameterValue1 = new ParameterValue();
 			parameterValue1.parameter = input1;
 			parameterValue1.values = new ValueList();
