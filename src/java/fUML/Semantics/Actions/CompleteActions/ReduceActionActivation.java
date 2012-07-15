@@ -106,8 +106,7 @@ public class ReduceActionActivation extends
 			parameterValue1.values.addValue(values.getValue(0));
 
 			int j = 2;
-			// Added condition on parameterValue1
-			while (j <= values.size() & !parameterValue1.values.isEmpty()) { 
+			while (j <= values.size()) { 
 				this.currentExecution = this.getExecutionLocus().factory
 						.createExecution(action.reducer, this
 								.getExecutionContext());
