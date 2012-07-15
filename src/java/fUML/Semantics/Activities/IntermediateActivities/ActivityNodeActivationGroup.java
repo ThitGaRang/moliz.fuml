@@ -472,7 +472,9 @@ public class ActivityNodeActivationGroup extends
 		// Suspend the given activation in this activation group. If this is
 		// the only suspended activation, and the activation group has a
 		// containing node activation, then suspend that containing activation.
-		
+
+		Debug.println("[suspend] node=" + (activation.node == null? "null": activation.node.name));
+
 		if (!this.isSuspended()) {
 			StructuredActivityNodeActivation containingNodeActivation = this.containingNodeActivation;
 			if (containingNodeActivation != null) {
@@ -487,6 +489,8 @@ public class ActivityNodeActivationGroup extends
 		// activation list for this activation group. If this is the last
 		// suspended activation, and the activation group has a containing
 		// node activation, then resume that containing activation.
+		
+		Debug.println("[resume] node=" + (activation.node == null? "null": activation.node.name));
 		
 		boolean found = false;
 		int i = 1;
