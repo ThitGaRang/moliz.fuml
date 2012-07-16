@@ -255,10 +255,14 @@ public class ObjectActivation extends org.modeldriven.fuml.FumlObject {
 	 * 
 	 * @generated
 	 */
+	int signalCount = 0;
 	public void _startObjectBehavior() {
 		// *** This should start the EventDispatchLoop ***
 
-		return;
+		while (this.signalCount > 0) {
+			this.dispatchNextEvent();
+			signalCount = signalCount - 1;
+		}
 	} // _startObjectBehavior
 
 	/**
@@ -272,7 +276,12 @@ public class ObjectActivation extends org.modeldriven.fuml.FumlObject {
 
 		// *** This should send an ArrivalSignal to the EventDispatchLoop to do
 		// the following asynchronously. ***
-		this.dispatchNextEvent();
+		this.signalCount = this.signalCount + 1;
+		if (this.signalCount == 1) {
+			this._startObjectBehavior();
+		}
 	} // _send
+	
+	
 
 } // ObjectActivation
