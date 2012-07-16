@@ -66,6 +66,8 @@ public class ConditionalNodeActivation
 
 	public fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList clauseActivations = new fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList();
 	public fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList selectedClauses = new fUML.Syntax.Activities.CompleteStructuredActivities.ClauseList();
+	
+	public Clause selectedClause = null; // Added
 
 	/**
 	 * operation doStructuredActivity <!-- begin-user-doc --> <!-- end-user-doc
@@ -135,14 +137,14 @@ public class ConditionalNodeActivation
 			// non-deterministically. ***
 			int i = ((ChoiceStrategy) this.getExecutionLocus().factory
 					.getStrategy("choice")).choose(this.selectedClauses.size());
-			Clause selectedClause = this.selectedClauses.getValue(i - 1);
+			this.selectedClause = this.selectedClauses.getValue(i - 1);
 
 			Debug.println("[doStructuredActivity] Running selectedClauses[" + i
-					+ "] = " + selectedClause);
+					+ "] = " + this.selectedClause);
 
 			for (int j = 0; j < clauses.size(); j++) {
 				Clause clause = clauses.getValue(j);
-				if (clause != selectedClause) {
+				if (clause != this.selectedClause) {
 					ExecutableNodeList testNodes = clause.test;
 					for (int k = 0; k < testNodes.size(); k++) {
 						ExecutableNode testNode = testNodes.getValue(k);
@@ -153,8 +155,9 @@ public class ConditionalNodeActivation
 			}
 
 			this.activationGroup.runNodes(this
-					.makeActivityNodeList(selectedClause.body));
-
+					.makeActivityNodeList(this.selectedClause.body));
+			
+			/*
 			OutputPinList resultPins = node.result;
 			OutputPinList bodyOutputPins = selectedClause.bodyOutput;
 			for (int k = 0; k < resultPins.size(); k++) {
@@ -162,10 +165,51 @@ public class ConditionalNodeActivation
 				OutputPin bodyOutputPin = bodyOutputPins.getValue(k);
 				this.putTokens(resultPin, this.getPinValues(bodyOutputPin));
 			}
-		}
+			*/
+		} 
 
-		this.activationGroup.terminateAll();
+		// this.activationGroup.terminateAll();
+
 	} // doStructuredActivity
+	
+	// Added
+	public void completeBody() {
+		// Complete the activation of the body of a conditional note by
+		// copying the outputs of the selected clause (if any) to the output
+		// pins of the node and terminating the activation of all nested nodes.
+		
+		if (this.selectedClause != null) {
+			ConditionalNode node = (ConditionalNode) (this.node);
+			OutputPinList resultPins = node.result;
+			OutputPinList bodyOutputPins = this.selectedClause.bodyOutput;
+			for (int k = 0; k < resultPins.size(); k++) {
+				OutputPin resultPin = resultPins.getValue(k);
+				OutputPin bodyOutputPin = bodyOutputPins.getValue(k);
+				this.putTokens(resultPin, this.getPinValues(bodyOutputPin));
+			}
+		}
+		this.activationGroup.terminateAll();
+	}
+	
+	public TokenList completeAction() {
+		// Only complete the conditional node if it is not suspended.
+		
+		if (!this.isSuspended()) {
+			completeBody();
+		}
+		return super.completeAction();
+	}
+	
+	public void resume() {
+		// When this conditional node is resumed after being suspended, complete
+		// its body and then resume it as a structured activity node.
+		// [Note that this presumes that accept event actions are not allowed
+		// in the test part of a clause of a conditional node.]
+		
+		completeBody();
+		super.resume();
+	}
+	// Added
 
 	/**
 	 * operation getClauseActivation <!-- begin-user-doc --> <!-- end-user-doc

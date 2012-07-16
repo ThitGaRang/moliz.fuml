@@ -74,6 +74,8 @@ public class ExpansionRegionActivation extends
 	public fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList activationGroups = new fUML.Semantics.Activities.ExtraStructuredActivities.ExpansionActivationGroupList();
 	public fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputTokens = new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList();
 	public fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList inputExpansionTokens = new fUML.Semantics.Activities.ExtraStructuredActivities.TokenSetList();
+	
+	public int next; // Added
 
 	/**
 	 * operation takeOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -203,25 +205,35 @@ public class ExpansionRegionActivation extends
 			k = k + 1;
 		}
 
-		ExpansionActivationGroupList activationGroups = this.activationGroups;
+		// ExpansionActivationGroupList activationGroups = this.activationGroups;
 
 		if (region.mode == ExpansionKind.iterative) {
 			Debug.println("[doStructuredActivity] Expansion mode = iterative");
+			this.next = 1; // Added
+			this.runIterative(); // Added
+			/*
 			for (int i = 0; i < activationGroups.size(); i++) {
 				ExpansionActivationGroup activationGroup = activationGroups
 						.getValue(i);
 				this.runGroup(activationGroup);
 			}
+			*/
 		} else if (region.mode == ExpansionKind.parallel) {
 			Debug.println("[doStructuredActivity] Expansion mode = parallel");
+			this.runParallel(); // Added
+			/*
 			// *** Activate all groups concurrently. ***
 			for (Iterator i = activationGroups.iterator(); i.hasNext();) {
 				ExpansionActivationGroup activationGroup = (ExpansionActivationGroup) i
 						.next();
 				this.runGroup(activationGroup);
 			}
+			*/
 		}
+		
+		this.doOutput(); // Added
 
+		/*
 		for (int i = 0; i < activationGroups.size(); i++) {
 			ExpansionActivationGroup activationGroup = activationGroups
 					.getValue(i);
@@ -233,8 +245,60 @@ public class ExpansionRegionActivation extends
 						groupOutput.takeTokens());
 			}
 		}
+		*/
 
 	} // doStructuredActivity
+	
+	// Added
+	public void runIterative() {
+		// Run the body of the region iteratively, either until all activation
+		// groups have run or until the region is suspended.
+		
+		ExpansionActivationGroupList activationGroups = this.activationGroups;
+		
+		while (this.next <= activationGroups.size() & !this.isSuspended()) {
+			ExpansionActivationGroup activationGroup = activationGroups
+					.getValue(this.next-1);
+			this.runGroup(activationGroup);
+			this.next = this.next + 1;
+		}
+	}
+	
+	public void runParallel() {
+		// Run the body of the region concurrently.
+		
+		ExpansionActivationGroupList activationGroups = this.activationGroups;
+		
+		// *** Activate all groups concurrently. ***
+		for (Iterator i = activationGroups.iterator(); i.hasNext();) {
+			ExpansionActivationGroup activationGroup = (ExpansionActivationGroup) i
+					.next();
+			this.runGroup(activationGroup);
+		}
+	}
+	
+	public void doOutput() {
+		ExpansionRegion region = (ExpansionRegion) this.node;
+		ExpansionNodeList outputElements = region.outputElement;
+		
+		Debug.println("[doOutput] Expansion region " + region.name + " is " + 
+				(this.isSuspended()? "suspended.": "completed."));
+		
+		if (!this.isSuspended()) {
+			for (int i = 0; i < activationGroups.size(); i++) {
+				ExpansionActivationGroup activationGroup = activationGroups
+						.getValue(i);
+				OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
+				for (int j = 0; j < groupOutputs.size(); j++) {
+					OutputPinActivation groupOutput = groupOutputs.getValue(j);
+					ExpansionNode outputElement = outputElements.getValue(j);
+					this.getExpansionNodeActivation(outputElement).addTokens(
+							groupOutput.takeTokens());
+				}
+			}
+		}
+	}
+	//
 
 	/**
 	 * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -329,7 +393,10 @@ public class ExpansionRegionActivation extends
 			}
 	
 			activationGroup.run(activationGroup.nodeActivations);
+			
+			this.terminateGroup(activationGroup); // Added
 
+			/*
 			if (this.isRunning()) { // Added
 				OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
 				for (int i = 0; i < groupOutputs.size(); i++) {
@@ -339,8 +406,23 @@ public class ExpansionRegionActivation extends
 		
 				activationGroup.terminateAll();
 			}
+			*/
 		}
 	} // runGroup
+	
+	// Added
+	public void terminateGroup(ExpansionActivationGroup activationGroup) {
+		if (this.isRunning() & !this.isSuspended()) {
+			OutputPinActivationList groupOutputs = activationGroup.groupOutputs;
+			for (int i = 0; i < groupOutputs.size(); i++) {
+				OutputPinActivation groupOutput = groupOutputs.getValue(i);
+				groupOutput.fire(groupOutput.takeOfferedTokens());
+			}
+	
+			activationGroup.terminateAll();
+		}
+	}
+	//
 
 	/**
 	 * operation getExpansionNodeActivation <!-- begin-user-doc --> <!--
@@ -384,5 +466,38 @@ public class ExpansionRegionActivation extends
 		
 		return n;
 	} // numberOfValues
+	
+	// Added
+	public boolean isSuspended() {
+		// Check if the activation group for this node is suspended.
+		
+		boolean suspended = false;
+		int i = 1;
+		while (i <= this.activationGroups.size() & !suspended) {
+			ActivityNodeActivationGroup group = this.activationGroups.get(i-1);
+			suspended = group.isSuspended();
+			i = i + 1;
+		}
+		
+		return suspended;
+	}
+	
+	public void resume(ExpansionActivationGroup activationGroup) {
+		// Resume an expansion region after the suspension of the given
+		// activation group. If the region is iterative, then continue with the 
+		// iteration. If the region is parallel, and there are no more suspended 
+		// activation groups, then generate the expansion node output.
+		
+		ExpansionRegion region = (ExpansionRegion) this.node;
+		
+		this.resume();
+		this.terminateGroup(activationGroup);
+		if (region.mode == ExpansionKind.iterative) {
+			this.runIterative();
+		}
+		
+		this.doOutput();
+	}
+	//
 
 } // ExpansionRegionActivation

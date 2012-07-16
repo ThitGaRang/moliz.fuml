@@ -135,5 +135,29 @@ public class ExpansionActivationGroup
 
 		return this.regionActivation.getActivityExecution();
 	} // getActivityExecution
+	
+	// Added
+	public void suspend(ActivityNodeActivation activation) {
+		// Suspend the given activation in this activation group. If this is
+		// the only suspended activation, then suspend the associated region 
+		// activation.
+		
+		if (!this.isSuspended()) {
+			this.regionActivation.suspend();
+		}
+		super.suspend(activation);
+	}
+	
+	public void resume(ActivityNodeActivation activation) {
+		// Resume the given activation in this activation group. If this is the 
+		// last suspended activation, then resume the associated region
+		// activation.
+		
+		super.resume(activation);
+		if (!this.isSuspended()) {
+			this.regionActivation.resume(this);
+		}
+	}
+	//
 
 } // ExpansionActivationGroup
