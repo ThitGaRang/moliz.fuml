@@ -76,6 +76,12 @@ public class ExecutionFactoryL2 extends
 		else if (element instanceof ActivityFinalNode) {
 			visitor = new ActivityFinalNodeActivation();
 		}
+		
+		// Added
+		else if (element instanceof FlowFinalNode) {
+			visitor = new FlowFinalNodeActivation();
+		}
+		//
 
 		else if (element instanceof JoinNode) {
 			visitor = new JoinNodeActivation();

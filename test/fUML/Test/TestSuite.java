@@ -102,6 +102,7 @@ public class TestSuite extends fUML.Test.Test {
 		this.activityFactory.createDecisionJoin();
 		this.activityFactory.createForkMerge();
 		this.activityFactory.createForkMergeData();
+		this.activityFactory.createFlowFinal(); // Added
 		this.activityFactory.createSelfReader();
 
 		Debug.println("[testSimpleActivities] Testing...");
@@ -114,6 +115,7 @@ public class TestSuite extends fUML.Test.Test {
 		this.executorTest.testExecute("DecisionJoin");
 		this.executorTest.testExecute("ForkMerge");
 		this.executorTest.testExecute("ForkMergeData");
+		this.executorTest.testExecute("FlowFinal"); // Added
 		this.executorTest.testExecute("SelfReader");
 
 		Debug.println("[testSimpleActivities] Done!");

@@ -925,6 +925,36 @@ public class ActivityFactory extends fUML.Test.Test {
 
 		this.environment.addElement(forkMergeActivity);
 	} // createForkMergeData
+	
+	// Added
+	public void createFlowFinal() {
+		Activity flowFinalActivity = new Activity();
+		flowFinalActivity.setName("FlowFinal");
+		
+		ValueSpecificationAction actionA = new ValueSpecificationAction();
+		actionA.setName("Action_A");
+		actionA.setValue(this.createLiteralInteger("", 0));
+		actionA.setResult(this.makeOutputPin(actionA.name + ".result", 1, 1));
+		this.addNode(flowFinalActivity, actionA);
+
+		ValueSpecificationAction actionB = new ValueSpecificationAction();
+		actionB.setName("Action_B");
+		actionB.setValue(this.createLiteralInteger("", 1));
+		actionB.setResult(this.makeOutputPin(actionB.name + ".result", 1, 1));
+		this.addNode(flowFinalActivity, actionB);
+		
+		FlowFinalNode finalNode = new FlowFinalNode();
+		finalNode.setName("FlowFinalNode");
+		this.addNode(flowFinalActivity, finalNode);
+		
+		this.addEdge(flowFinalActivity, new ObjectFlow(), actionA.result, finalNode, null);
+		this.addEdge(flowFinalActivity, new ObjectFlow(), actionB.result, finalNode, null);
+		this.addEdge(flowFinalActivity, new ControlFlow(), actionA, actionB, null);
+		this.addEdge(flowFinalActivity, new ControlFlow(), actionB, finalNode, null);
+		
+		this.environment.addElement(flowFinalActivity);
+	}
+	//
 
 	/**
 	 * operation createExtentReader <!-- begin-user-doc --> <!-- end-user-doc
