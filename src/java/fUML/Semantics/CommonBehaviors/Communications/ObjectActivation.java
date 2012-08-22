@@ -273,9 +273,8 @@ public class ObjectActivation extends org.modeldriven.fuml.FumlObject {
 	public void _send(
 			fUML.Semantics.CommonBehaviors.Communications.ArrivalSignal signal) {
 		// Signal the arrival of a new signal instance in the event pool.
-
-		// *** This should send an ArrivalSignal to the EventDispatchLoop to do
-		// the following asynchronously. ***
+		// *** This should send an ArrivalSignal to the EventDispatchLoop. ***
+		
 		this.signalCount = this.signalCount + 1;
 		if (this.signalCount == 1) {
 			this._startObjectBehavior();
