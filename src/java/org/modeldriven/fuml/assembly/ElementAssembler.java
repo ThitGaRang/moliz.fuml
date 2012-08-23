@@ -63,6 +63,7 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
+import fUML.Syntax.Classes.Kernel.NamedElement;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
 import fUML.Syntax.Classes.Kernel.Type;
@@ -601,7 +602,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         if (type.getDelegate() instanceof Enumeration) {
             if (log.isDebugEnabled())
                 log.debug("assembling enum feature <" + type.getName() + "> " + this.getPrototype().getName()
-                        + "." + property.getName());
+                        + "." + property.getName() + " = " + stringValue);
             Object value = toEnumerationValue(stringValue, type);
             assembleEnumerationFeature(property, value, type);
         } else if (type.getDelegate() instanceof DataType) {
@@ -610,7 +611,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
 
             if (log.isDebugEnabled())
                 log.debug("assembling primitive feature <" + javaType.getName() + "> "
-                        + this.getPrototype().getName() + "." + property.getName());
+                        + this.getPrototype().getName() + "." + property.getName() + " = " + stringValue);
 
             if (property.isSingular())
                 assembleSingularPrimitiveFeature(property, value, javaType);
@@ -631,7 +632,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 if (log.isDebugEnabled())
                     log.debug("assembling primitive feature <"
                             + UnlimitedNatural.class.getSimpleName() + "> "
-                            + this.getPrototype().getName() + "." + property.getName());
+                            + this.getPrototype().getName() + "." + property.getName() + " = " + stringValue);
                 if (property.isSingular())
                     assembleSingularPrimitiveFeature(property, value, UnlimitedNatural.class);
                 else
@@ -749,12 +750,19 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                         }
                     }
                 } else {
+                	FumlObject target = null;
+                	
                     ElementAssembler referencedAssembler = this.assemblerMap.get(id);
-                    if (referencedAssembler == null)
+                    if (referencedAssembler != null)
+                        target = referencedAssembler.getTargetObject();
+                    else
+                        target = Environment.getInstance().findElementById(id);
+
+                    if (target != null)
+                        this.assembleCollectionReferenceFeature(target, property, type);
+                    else
                         throw new ValidationException(new ValidationError(reference, id,
                                 ErrorCode.INVALID_REFERENCE, ErrorSeverity.FATAL));
-                    this.assembleCollectionReferenceFeature(referencedAssembler.getTargetObject(),
-                            property, type);
                 }
             }
         }

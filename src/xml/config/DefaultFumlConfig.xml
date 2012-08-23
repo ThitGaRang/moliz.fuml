@@ -47,6 +47,8 @@
     <Exemption type="requiredProperty" domain="uml" classifierName="Extension" propertyName="metaclass"/>    
     <Exemption type="requiredProperty" domain="uml" classifierName="Extension" propertyName="relatedElement"/>    
     <Exemption type="requiredProperty" domain="uml" classifierName="Association" propertyName="endType"/>    
+
+    <Exemption type="requiredProperty" domain="uml" classifierName="Slot" propertyName="owningInstance"/>
     
     <!-- fUML Property (superclass of ExtensionEnd) does not support aggregation attribute -->
     <Exemption type="undefinedProperty" domain="uml" classifierName="ExtensionEnd" propertyName="aggregation"/>    
