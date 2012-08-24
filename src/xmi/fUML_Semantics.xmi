@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- EVS 08/23/2012
+       - added class definition for fUML::Syntax::IntermediateActivities::FlowFinalNode.
+       - added class definition for fUML::Semantics::IntermediateActivities::FlowFinalNodeActivation.
+-->
 <xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:uml="http://www.omg.org/spec/UML/20090901" xmi:version="2.1">
@@ -4550,6 +4554,14 @@
               xmi:id="Syntax-Activities-IntermediateActivities-ActivityFinalNode-_generalization.0"
               general="Syntax-Activities-IntermediateActivities-FinalNode"
               specific="Syntax-Activities-IntermediateActivities-ActivityFinalNode"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class"
+            xmi:id="Syntax-Activities-IntermediateActivities-FlowFinalNode"
+            name="FlowFinalNode">
+            <generalization xmi:type="uml:Generalization"
+              xmi:id="Syntax-Activities-IntermediateActivities-FlowFinalNode-_generalization.0"
+              general="Syntax-Activities-IntermediateActivities-FinalNode"
+              specific="Syntax-Activities-IntermediateActivities-FlowFinalNode"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class"
             xmi:id="Syntax-Activities-IntermediateActivities-ActivityNode" name="ActivityNode"
@@ -15466,6 +15478,14 @@
                   this.activationGroup.terminateAll();&#xD; </body>
               </ownedComment>
             </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class"
+            xmi:id="Semantics-Activities-IntermediateActivities-FlowFinalNodeActivation"
+            name="FlowFinalNodeActivation">
+            <generalization xmi:type="uml:Generalization"
+              xmi:id="Semantics-Activities-IntermediateActivities-FlowFinalNodeActivation-_generalization.0"
+              general="Semantics-Activities-IntermediateActivities-ControlNodeActivation"
+              specific="Semantics-Activities-IntermediateActivities-FlowFinalNodeActivation"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class"
             xmi:id="Semantics-Activities-IntermediateActivities-ActivityFinalNodeActivation"

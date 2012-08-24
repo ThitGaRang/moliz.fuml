@@ -8,6 +8,9 @@
 <!-- S.C. 10/17/2010 
        - added definition for Syntax-Classes-Kernel-Property-defaultValue 
 -->
+<!-- EVS 08/23/2012
+       - added class definition for FlowFinalNode.
+-->
 
 <xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Standard="http://schema.omg.org/spec/UML/2.2/StandardProfileL2" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://schema.omg.org/spec/UML/2.2" xsi:schemaLocation="http://schema.omg.org/spec/UML/2.2/StandardProfileL2 http://schema.omg.org/spec/UML/2.2/StandardProfileL2.xmi#_yzU58YinEdqtvbnfB2L_5w http://schema.omg.org/spec/UML/2.2 http://www.eclipse.org/uml2/3.0.0/UML">
   <uml:Model xmi:id="_0" name="fUML">
@@ -2921,6 +2924,12 @@ this.navigableOwnedEnd.addValue(navigableOwnedEnd);&#xD;
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="Syntax-Activities-IntermediateActivities-ActivityFinalNode-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
             </xmi:Extension>
             <generalization xmi:type="uml:Generalization" xmi:id="Syntax-Activities-IntermediateActivities-ActivityFinalNode-_generalization.0" general="Syntax-Activities-IntermediateActivities-FinalNode" specific="Syntax-Activities-IntermediateActivities-ActivityFinalNode"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="Syntax-Activities-IntermediateActivities-FlowFinalNode" name="FlowFinalNode">
+            <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="Syntax-Activities-IntermediateActivities-FlowFinalNode-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+            </xmi:Extension>
+            <generalization xmi:type="uml:Generalization" xmi:id="Syntax-Activities-IntermediateActivities-FlowFinalNode-_generalization.0" general="Syntax-Activities-IntermediateActivities-FinalNode" specific="Syntax-Activities-IntermediateActivities-FlowFinalNode"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="Syntax-Activities-IntermediateActivities-ActivityNode" name="ActivityNode" isAbstract="true">
             <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
