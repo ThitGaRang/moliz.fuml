@@ -63,7 +63,7 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution;
 import fUML.Syntax.Classes.Kernel.Comment;
 import fUML.Syntax.Classes.Kernel.DataType;
 import fUML.Syntax.Classes.Kernel.Element;
-import fUML.Syntax.Classes.Kernel.NamedElement;
+import fUML.Syntax.Classes.Kernel.Generalization;
 import fUML.Syntax.Classes.Kernel.Enumeration;
 import fUML.Syntax.Classes.Kernel.PrimitiveType;
 import fUML.Syntax.Classes.Kernel.Type;
@@ -78,6 +78,10 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
     private boolean assembleExternalReferences = true;
 
     private ElementAssembler parentAssembler; // FIXME: re-factor ASAP!!
+
+    // Generalizations deferred until element linking is complete, keyed to the
+    // specific classifier.
+    private List<Generalization> deferredGeneralizations;
 
     /** XMI source */
     private XmiNode source;
@@ -94,7 +98,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
     /** fUML class target(s) */
     private Element target;
     private Comment targetComment;
-
+    
     @SuppressWarnings("unused")
     private ElementAssembler() {
         // nope
@@ -129,8 +133,24 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
     public void setParentAssembler(ElementAssembler parentAssembler) {
         this.parentAssembler = parentAssembler;
     }
+    
+    public List<Generalization> getDeferredGeneralizations() {
+    	return this.deferredGeneralizations;
+    }
+    
+    public void addDeferredGeneralization(Generalization generalization) {
+    	// Record deferred generalizations only in root assemblers.
+    	ElementAssembler parent = this.getParentAssembler();
+    	if (parent == null) {
+    		if (this.deferredGeneralizations == null) {
+    			this.deferredGeneralizations = new ArrayList<Generalization>();
+    		}
+    		this.deferredGeneralizations.add(generalization);
+    	} else {
+    		parent.addDeferredGeneralization(generalization);
+    	}
+    }
 
-    @SuppressWarnings("unchecked")
     public void assembleElementClass() {
         try {
         	
@@ -240,7 +260,6 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
     // will
     // need to be enhanced to find opposite properties using associations.
     // 
-    @SuppressWarnings("unchecked")
     public void registerElement() {
         try {
             if (!(this.target instanceof Type))
@@ -344,6 +363,15 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             if (property == null)
                 return; // we validate this elsewhere
 
+            // If the target property is "generalization", then defer associating it with the source.
+            // This is necessary to ensure that the general classifier is fully assembled before
+            // it is added as a generalization of the specific classifier. Otherwise, the
+            // inherited members of the specific classifier will not be set properly.
+            if ("generalization".equals(this.source.getLocalName())) {
+            	this.addDeferredGeneralization((Generalization)this.getTargetObject());
+            	return;
+            }
+            
             if (!property.isSingular()) {
                 if (log.isDebugEnabled())
                     log.debug("linking collection property: " + other.getPrototype().getName() + "."
@@ -410,7 +438,30 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         }
     }
 
-    public void assemleFeatures() {
+    public void associateDeferredGeneralizations() {
+		List<Generalization> deferredGeneralizations = this.getDeferredGeneralizations();
+		if (deferredGeneralizations != null) {
+			while (!deferredGeneralizations.isEmpty()) {
+				int i = 0;
+				while (i < deferredGeneralizations.size()) {
+					Generalization deferredGeneralization = deferredGeneralizations.get(i);
+					// Only associate a deferred generalization with its specific classifier
+					// if there are no generalizations still deferred for the general
+					// classifier.
+					for (Generalization generalization: deferredGeneralizations) {
+						if (generalization.specific == deferredGeneralization.general) {
+							i++;
+							continue;
+						}
+					}
+					deferredGeneralization.specific.addGeneralization(deferredGeneralization);
+					deferredGeneralizations.remove(deferredGeneralization);
+				}
+			}
+		}
+	}
+    
+	public void assembleFeatures() {
         try {
             NamespaceDomain domain = null; // only lookup as needed	            	
             StreamNode eventNode = (StreamNode) source;
@@ -566,10 +617,9 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
 
     public void assembleReferenceFeatures() {
         try {
-            StreamNode eventNode = (StreamNode) source;
-            if (references == null)
+            if (this.references == null)
                 return;
-            Iterator<XmiReference> iter = references.iterator();
+            Iterator<XmiReference> iter = this.references.iterator();
             while (iter.hasNext()) {
                 XmiReference reference = iter.next();
                 this.assembleReferenceFeature(reference);
@@ -595,7 +645,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void assembleNonReferenceFeature(Property property, String stringValue, Classifier type)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
@@ -643,7 +693,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             throw new AssemblyException("unexpected instance, " + type.getClass().getName());
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void assembleReferenceFeature(XmiReference reference) throws ClassNotFoundException,
             NoSuchMethodException, InvocationTargetException, IllegalAccessException,
             InstantiationException, NoSuchFieldException {
@@ -768,7 +818,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void assembleEnumerationFeature(Property property, Object value, Classifier type)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             IllegalAccessException, InstantiationException {
@@ -792,7 +842,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void assembleSingularPrimitiveFeature(Property property, Object value, Class javaType)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
@@ -818,7 +868,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void assembleCollectionPrimitiveFeature(Property property, Object value, Class javaType)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
@@ -898,8 +948,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             }
         }
     }
-
-
+    
     /**
      * Returns the Java class associated with the given primitive type. 
      * 
@@ -912,7 +961,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
      * @param dataType the dataType to convert.
      * @return the Java Class
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
 	private Class toPrimitiveJavaClass(DataType dataType) {
         if (PrimitiveType.class.isAssignableFrom(dataType.getClass())) {
             if (dataType.name != null && dataType.name.trim().length() > 0) {
@@ -963,7 +1012,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
      * @param javaType the Java type under which to evaluate the the String value.
      * @return the value
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private Object toPrimitiveJavaValue(String value, DataType dataType, Class javaType) {
         if (javaType.equals(java.lang.String.class))
             return value;
@@ -997,7 +1046,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             return value;
     }
 
-    private Object toEnumerationValue(String value, Classifier type) throws ClassNotFoundException,
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private Object toEnumerationValue(String value, Classifier type) throws ClassNotFoundException,
             NoSuchMethodException, InvocationTargetException, IllegalAccessException,
             InstantiationException {
         String pkg = metadata.getJavaPackageNameForClass(type);
@@ -1029,7 +1079,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             return targetComment;
     }
 
-    public Class getTargetClass() {
+    @SuppressWarnings("rawtypes")
+	public Class getTargetClass() {
         if (target != null)
             return target.getClass();
         else

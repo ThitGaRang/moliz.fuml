@@ -1,7 +1,5 @@
 package org.modeldriven.fuml.test;
 
-
-
 import java.io.File;
 
 import junit.framework.Test;
@@ -12,7 +10,10 @@ import org.modeldriven.fuml.Fuml;
 import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.environment.ExecutionEnvironment;
 
+import fUML.Semantics.Classes.Kernel.ExtensionalValueList;
+import fUML.Semantics.Classes.Kernel.Object_;
 import fUML.Syntax.Activities.IntermediateActivities.Activity;
+import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
 /**
@@ -102,6 +103,16 @@ public class ExecutionTestCase extends FUMLTest {
     public void testTestClassAttributeWriter() throws Exception {
         execute("TestClassAttributeWriter");
         log.info("done");
+    }
+    
+    public void testTestGeneralizationAssembly() throws Exception {
+    	execute("TestGeneralizationAssembly");
+    	log.info("done");
+    	
+    	Class_ specificClass = (Class_) environment.findElementById("TestGeneralizationAssembly-Specific");
+    	ExtensionalValueList extent = environment.locus.getExtent(specificClass);
+
+    	assertTrue("Specific should have two properties", extent.size() == 1 && extent.get(0).featureValues.size() == 2);
     }
 /*
  -- infinite loop !!    

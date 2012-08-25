@@ -27,6 +27,38 @@
 		<ownedComment xmi:type='uml:Comment' xmi:id='_12_1_f00036a_1173877897794_142091_98' body='Author:Ed Seidewitz.&#10;Created:10/31/08 6:46 PM.&#10;Title:.&#10;Comment:.&#10;'>
 			<annotatedElement xmi:idref='eee_1045467100313_135436_1'/>
 		</ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="TestGeneralizationAssembly-Specific"
+        name="Specific">
+        <generalization xmi:type="uml:Generalization"
+            xmi:id="TestGeneralizationAssembly-Specific-generalization"
+            general="TestGeneralizationAssembly-General"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="TestGeneralizationAssembly-Specific-x"
+            name="x"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="TestGeneralizationAssembly-General" name="General">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="TestGeneralizationAssembly-General-y"
+            name="y" type="TestGeneralizationAssembly-Specific-x"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="TestGeneralizationAssembly-Create"
+        name="TestGeneralizationAssembly">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="TestGeneralizationAssembly-Create-result"
+            name="result"/>
+        <node xmi:type="uml:CreateObjectAction"
+            xmi:id="TestGeneralizationAssembly-Create-CreateObjectAction" name="CreateObjectAction"
+            classifier="TestGeneralizationAssembly-Specific">
+            <result xmi:type="uml:OutputPin"
+                xmi:id="TestGeneralizationAssembly-Create-CreateObjectAction-result"
+                name="CreateObjectAction.result"
+                outgoing="TestGeneralizationAssembly-Create-edge"/>
+        </node>
+        <node xmi:type="uml:ActivityParameterNode"
+            xmi:id="TestGeneralizationAssembly-Create-ActivityParameterNode"
+            name="ActivityParameterNode" parameter="TestGeneralizationAssembly-Create-result"
+            incoming="TestGeneralizationAssembly-Create-edge"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="TestGeneralizationAssembly-Create-edge"
+            source="TestGeneralizationAssembly-Create-CreateObjectAction-result"
+            target="TestGeneralizationAssembly-Create-ActivityParameterNode"/>
+    </packagedElement>
 		<packagedElement xmi:type='uml:Activity' xmi:id='_15_5_1_1a900482_1225597989562_591303_1935' name='TestClassWriterReader' visibility='public'>
 			<ownedParameter xmi:type='uml:Parameter' xmi:id='_15_5_1_1a900482_1225598849906_199111_2260' name='x' visibility='public' direction='out'>
 				<type xmi:type='uml:PrimitiveType' href='http://schema.omg.org/spec/UML/2.2/uml.xml#Integer'>
