@@ -11,8 +11,6 @@ import org.modeldriven.fuml.environment.Environment;
 import org.modeldriven.fuml.environment.ExecutionEnvironment;
 
 import fUML.Semantics.Classes.Kernel.ExtensionalValueList;
-import fUML.Semantics.Classes.Kernel.Object_;
-import fUML.Syntax.Activities.IntermediateActivities.Activity;
 import fUML.Syntax.Classes.Kernel.Class_;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
@@ -114,13 +112,12 @@ public class ExecutionTestCase extends FUMLTest {
 
     	assertTrue("Specific should have two properties", extent.size() == 1 && extent.get(0).featureValues.size() == 2);
     }
-/*
- -- infinite loop !!    
+
     public void testTestSimpleActivities() throws Exception {
         execute("TestSimpleActivities");
         log.info("done");
     }
-*/    
+    
     private void execute(String activityName)
     {
         Behavior behavior = environment.findBehavior(activityName);
