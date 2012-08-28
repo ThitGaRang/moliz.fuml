@@ -129,6 +129,7 @@ public class ConditionalNodeActivation
 			clauseActivation.receiveControl();
 		}
 
+		this.selectedClause = null; // Added
 		if (this.selectedClauses.size() > 0 & this.isRunning()) {
 			Debug.println("[doStructuredActivity] "
 					+ this.selectedClauses.size() + " clause(s) selected.");
