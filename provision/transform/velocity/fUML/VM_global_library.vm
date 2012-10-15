@@ -1,6 +1,4 @@
 
-
-
 #macro( javaDoc $element )
 /**
  * <!-- begin-user-doc -->
@@ -63,7 +61,7 @@
  */
 #end
 
-#macro( imports)
+#macro( imports )
 ${commonImports}
 #foreach ( $classifier in ${genClasses} )
 import ${classifier.rawInstanceClassName};
@@ -85,14 +83,15 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 #macro( name $name )${name}#if (${name}=="Class"||${name}=="Object"||${name}=="class"||${name}=="public"||${name}=="private"||${name}=="protected"||${name}=="package"||${name}=="return")_#end#end
 #macro( qualifiedName $element )#qualifiedPackageName(${element.owner}).#name(${element.name})#end
 #macro( qualifiedPackageName $element )${element.qualifiedName.replace("::",".")}#end
-#macro( primitiveName $primitive )#if(${primitive.name}=="Boolean")boolean#elseif(${primitive.name}=="Integer")int#else#name(${primitive.name})#end#end
+#macro( primitiveName $primitive )#if(${primitive.name}=="Boolean")boolean#elseif(${primitive.name}=="Integer")int#elseif(${primitive.name}=="Real")float#else#name(${primitive.name})#end#end
 
 
 #macro( defaultValue $feature)
-#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end${feature.default}##
+#if(${feature.default})#if(${feature.type.eClass().name}=="Enumeration")#type(${feature}).#end#name(${feature.default})##
 #elseif(${feature.upper}!=1)new #type(${feature})()##
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
+#elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Real")0.0f##
 #elseif(${feature.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
 ## #elseif(${feature.type.name}=="TypedElement"||${feature.type.name}=="MultiplicityElement")new #type(${feature})()##
 #else null##
@@ -142,19 +141,38 @@ import ${definitionPackage}.${classifier.classifierAccessorName};
 #end  
 #end
 
+#macro( commentcontent $element )
+#foreach( $comment in $element.ownedComments )
+#set( $foundBody = true )
+#foreach( $stereotype in $comment.appliedStereotypes )
+#if( ${stereotype.name} == "Documentation" )
+#set( $foundBody = false )
+#end
+#end
+#if( ${foundBody} )
+${comment.body}
+#end
+#end
+#end
+
 #macro( bodycontent $operation)
 #set( $foundBody = false )
-#foreach ( $comment in ${operation.ownedComments} )
-#foreach ( $stereotype in ${comment.appliedStereotypes} )
-#if(${stereotype.name}=="java")
-${comment.body}##
+#foreach( $method in ${operation.methods} )
+#foreach( $body in ${method.bodies} )
+${body}##
 #set( $foundBody = true )
 #end
 #end
+#if(${operation.eClass().name}=="Operation"&&!${foundBody}&&${operation.type})
+	return #if(${operation.upper}!=1)new #type(${feature})()##
+#elseif(${operation.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Boolean")false##
+#elseif(${operation.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Integer")0##
+#elseif(${operation.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="Real")0.0f##
+#elseif(${operation.type.eClass().name}=="PrimitiveType"&&${feature.type.name}=="String")""##
+#else null##
+;
 #end
-#if(${operation.eClass().name}=="Operation"&&!${foundBody})
-// call out to operation
-#if(${operation.returnResult})return #end fUML.utility.operations.#name(${operation.owner.name})Operations.#name(${operation.name})(this#operationParameterNames(${operation}));
+## #if(${operation.returnResult})return #end fUML.utility.operations.#name(${operation.owner.name})Operations.#name(${operation.name})(this#operationParameterNames(${operation}));
 #end		    
 #end
 	

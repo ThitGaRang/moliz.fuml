@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Actions.CompleteActions;
@@ -36,31 +32,9 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Actions::CompleteActions::ReadIsClassifiedObjectActionActivation</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ReadIsClassifiedObjectActionActivation#doAction <em>doAction</em>}
- * </li>
- * <li>{@link ReadIsClassifiedObjectActionActivation#checkAllParents <em>
- * checkAllParents</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ReadIsClassifiedObjectActionActivation extends
 		fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-	/**
-	 * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void doAction() {
 		// Get the value on the object input pin and determine if it is
 		// classified by the classifier specified in the action.
@@ -97,11 +71,6 @@ public class ReadIsClassifiedObjectActionActivation extends
 		this.putTokens(action.result, values);
 	} // doAction
 
-	/**
-	 * operation checkAllParents <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean checkAllParents(fUML.Syntax.Classes.Kernel.Classifier type,
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		// Check if the given classifier matches any of the direct or indirect

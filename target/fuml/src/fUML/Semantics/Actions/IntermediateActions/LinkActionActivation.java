@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Actions.IntermediateActions;
@@ -34,33 +30,9 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Actions::IntermediateActions::LinkActionActivation</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link LinkActionActivation#linkMatchesEndData <em>linkMatchesEndData
- * </em>}</li>
- * <li>{@link LinkActionActivation#endMatchesEndData <em>endMatchesEndData</em>}
- * </li>
- * <li>{@link LinkActionActivation#getAssociation <em>getAssociation</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class LinkActionActivation extends
 		fUML.Semantics.Actions.BasicActions.ActionActivation {
 
-	/**
-	 * operation linkMatchesEndData <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public boolean linkMatchesEndData(fUML.Semantics.Classes.Kernel.Link link,
 			fUML.Syntax.Actions.IntermediateActions.LinkEndDataList endDataList) {
 		// Test whether the given link matches the given end data.
@@ -75,11 +47,6 @@ public abstract class LinkActionActivation extends
 		return matches;
 	} // linkMatchesEndData
 
-	/**
-	 * operation endMatchesEndData <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean endMatchesEndData(fUML.Semantics.Classes.Kernel.Link link,
 			fUML.Syntax.Actions.IntermediateActions.LinkEndData endData) {
 		// Test whether the appropriate end of the given link matches the given
@@ -114,11 +81,6 @@ public abstract class LinkActionActivation extends
 		return matches;
 	} // endMatchesEndData
 
-	/**
-	 * operation getAssociation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.Association getAssociation() {
 		// Get the association for the link action of this activation.
 

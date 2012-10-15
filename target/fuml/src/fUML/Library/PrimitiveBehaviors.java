@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library;
@@ -22,36 +18,9 @@ import UMLPrimitiveTypes.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::PrimitiveBehaviors</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link PrimitiveBehaviors#createPrimitiveBehavior <em>
- * createPrimitiveBehavior</em>}</li>
- * <li>{@link PrimitiveBehaviors#createInputParameter <em>createInputParameter
- * </em>}</li>
- * <li>{@link PrimitiveBehaviors#createReturnParameter <em>createReturnParameter
- * </em>}</li>
- * <li>{@link PrimitiveBehaviors#setMultiplicity <em>setMultiplicity</em>}</li>
- * <li>{@link PrimitiveBehaviors#addPrimitiveBehavior <em>addPrimitiveBehavior
- * </em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class PrimitiveBehaviors extends
 		org.modeldriven.fuml.FumlObject {
 
-	/**
-	 * operation createPrimitiveBehavior <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior createPrimitiveBehavior(
 			String name,
 			fUML.Syntax.Classes.Kernel.ParameterList parameters,
@@ -65,12 +34,6 @@ public abstract class PrimitiveBehaviors extends
 
 	} // createPrimitiveBehavior
 
-	/**
-	 * operation createInputParameter <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.Classes.Kernel.Parameter createInputParameter(
 			String name, fUML.Syntax.Classes.Kernel.Classifier type, int lower,
 			int upper) {
@@ -87,12 +50,6 @@ public abstract class PrimitiveBehaviors extends
 		return parameter;
 	} // createInputParameter
 
-	/**
-	 * operation createReturnParameter <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.Classes.Kernel.Parameter createReturnParameter(
 			fUML.Syntax.Classes.Kernel.Classifier type, int lower, int upper) {
 		// Create a return parameter with the given type and multiplicity
@@ -108,11 +65,6 @@ public abstract class PrimitiveBehaviors extends
 		return parameter;
 	} // createReturnParameter
 
-	/**
-	 * operation setMultiplicity <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected void setMultiplicity(
 			fUML.Syntax.Classes.Kernel.MultiplicityElement element, int lower,
 			int upper) {
@@ -123,12 +75,6 @@ public abstract class PrimitiveBehaviors extends
 		element.upper = unlimitedNatural;
 	} // setMultiplicity
 
-	/**
-	 * operation addPrimitiveBehavior <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior addPrimitiveBehavior(
 			String name,
 			fUML.Syntax.Classes.Kernel.ParameterList parameters,

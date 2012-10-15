@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library.LibraryClassImplementation;
@@ -25,35 +21,9 @@ import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::LibraryClassImplementation::OperationExecution</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link OperationExecution#set <em>set</em>}</li>
- * <li>{@link OperationExecution#new_ <em>new_</em>}</li>
- * <li>{@link OperationExecution#execute <em>execute</em>}</li>
- * <li>{@link OperationExecution#getOperationName <em>getOperationName</em>}</li>
- * <li>{@link OperationExecution#getParameter <em>getParameter</em>}</li>
- * <li>{@link OperationExecution#getParameterValue <em>getParameterValue</em>}</li>
- * <li>{@link OperationExecution#setParameterValue <em>setParameterValue</em>}</li>
- * <li>{@link OperationExecution#setParameterValue <em>setParameterValue</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class OperationExecution extends
 		fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution {
 
-	/**
-	 * operation set <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void set(
 			fUML.Library.LibraryClassImplementation.ImplementationObject context,
 			fUML.Syntax.Classes.Kernel.Operation operation) {
@@ -75,38 +45,18 @@ public class OperationExecution extends
 		this.types.addValue(method);
 	} // set
 
-	/**
-	 * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value new_() {
 		return (Value) (new OperationExecution());
 	} // new_
 
-	/**
-	 * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void execute() {
 		((ImplementationObject) (this.context)).execute(this);
 	} // execute
 
-	/**
-	 * operation getOperationName <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public String getOperationName() {
 		return this.getBehavior().specification.name;
 	} // getOperationName
 
-	/**
-	 * operation getParameter <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.Parameter getParameter(
 			String parameterName) {
 		// MexSystem.println("[getParameter] parameterName = " + parameterName);
@@ -125,21 +75,11 @@ public class OperationExecution extends
 		return null;
 	} // getParameter
 
-	/**
-	 * operation getParameterValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue getParameterValue(
 			String parameterName) {
 		return this.getParameterValue(this.getParameter(parameterName));
 	} // getParameterValue
 
-	/**
-	 * operation setParameterValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setParameterValue(String parameterName,
 			fUML.Semantics.Classes.Kernel.ValueList values) {
 		ParameterValue parameterValue = new ParameterValue();
@@ -149,11 +89,6 @@ public class OperationExecution extends
 		this.setParameterValue(parameterValue);
 	} // setParameterValue
 
-	/**
-	 * operation setParameterValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setParameterValue(String parameterName,
 			fUML.Semantics.Classes.Kernel.Value value) {
 		ValueList valueList = new ValueList();

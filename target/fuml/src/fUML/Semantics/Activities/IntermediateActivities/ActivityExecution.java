@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
@@ -32,34 +28,11 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Activities::IntermediateActivities::ActivityExecution</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ActivityExecution#execute <em>execute</em>}</li>
- * <li>{@link ActivityExecution#copy <em>copy</em>}</li>
- * <li>{@link ActivityExecution#new_ <em>new_</em>}</li>
- * <li>{@link ActivityExecution#terminate <em>terminate</em>}</li>
- * <li>{@link ActivityExecution#activationGroup <em>activationGroup</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ActivityExecution extends
 		fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution {
 
 	public fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivationGroup activationGroup = null;
 
-	/**
-	 * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void execute() {
 		// Execute the activity for this execution by creating an activity node
 		// activation group and activating all the activity nodes in the
@@ -110,11 +83,6 @@ public class ActivityExecution extends
 		Debug.println("[execute] Activity " + activity.name + " completed.");
 	} // execute
 
-	/**
-	 * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value copy() {
 		// Create a new activity execution that is a copy of this execution.
 		// [Note: This currently just returns a non-executing execution for the
@@ -123,22 +91,12 @@ public class ActivityExecution extends
 		return super.copy();
 	} // copy
 
-	/**
-	 * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value new_() {
 		// Create a new activity execution with empty properties.
 
 		return new ActivityExecution();
 	} // new_
 
-	/**
-	 * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void terminate() {
 		// Terminate all node activations (which will ultimately result in the
 		// activity execution completing).

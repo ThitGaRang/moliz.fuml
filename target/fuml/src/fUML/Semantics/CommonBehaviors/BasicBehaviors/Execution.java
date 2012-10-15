@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.CommonBehaviors.BasicBehaviors;
@@ -27,58 +23,19 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::CommonBehaviors::BasicBehaviors::Execution</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Execution#execute <em>execute</em>}</li>
- * <li>{@link Execution#terminate <em>terminate</em>}</li>
- * <li>{@link Execution#copy <em>copy</em>}</li>
- * <li>{@link Execution#new_ <em>new_</em>}</li>
- * <li>{@link Execution#setParameterValue <em>setParameterValue</em>}</li>
- * <li>{@link Execution#getParameterValue <em>getParameterValue</em>}</li>
- * <li>{@link Execution#getOutputParameterValues <em>getOutputParameterValues
- * </em>}</li>
- * <li>{@link Execution#getBehavior <em>getBehavior</em>}</li>
- * <li>{@link Execution#context <em>context</em>}</li>
- * <li>{@link Execution#parameterValues <em>parameterValues</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class Execution extends fUML.Semantics.Classes.Kernel.Object_ {
 
 	public fUML.Semantics.Classes.Kernel.Object_ context = null;
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList parameterValues = new fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList();
 
-	/**
-	 * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract void execute();
 
-	/**
-	 * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void terminate() {
 		// Terminate an ongoing execution. By default, do nothing.
 
 		return;
 	} // terminate
 
-	/**
-	 * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value copy() {
 		// Create a new execution that has the same behavior and parameterValues
 		// as this execution.
@@ -100,18 +57,8 @@ public abstract class Execution extends fUML.Semantics.Classes.Kernel.Object_ {
 		return newValue;
 	} // copy
 
-	/**
-	 * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract fUML.Semantics.Classes.Kernel.Value new_();
 
-	/**
-	 * operation setParameterValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setParameterValue(
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue parameterValue) {
 		// Set the given parameter value for this execution.
@@ -133,11 +80,6 @@ public abstract class Execution extends fUML.Semantics.Classes.Kernel.Object_ {
 
 	} // setParameterValue
 
-	/**
-	 * operation getParameterValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValue getParameterValue(
 			fUML.Syntax.Classes.Kernel.Parameter parameter) {
 		// Get the parameter value of this execution corresponding to the given
@@ -156,12 +98,6 @@ public abstract class Execution extends fUML.Semantics.Classes.Kernel.Object_ {
 
 	} // getParameterValue
 
-	/**
-	 * operation getOutputParameterValues <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList getOutputParameterValues() {
 		// Return the parameter values for output (in-out, out and return)
 		// parameters.
@@ -181,11 +117,6 @@ public abstract class Execution extends fUML.Semantics.Classes.Kernel.Object_ {
 		return outputs;
 	} // getOutputParameterValues
 
-	/**
-	 * operation getBehavior <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getBehavior() {
 		// Get the behavior that is the type of this execution.
 

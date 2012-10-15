@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Syntax.Activities.CompleteStructuredActivities;
@@ -19,33 +15,8 @@ package fUML.Syntax.Activities.CompleteStructuredActivities;
 import fUML.Debug;
 import UMLPrimitiveTypes.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::Activities::CompleteStructuredActivities::StructuredActivityNode</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link StructuredActivityNode#setMustIsolate <em>setMustIsolate</em>}</li>
- * <li>{@link StructuredActivityNode#addNode <em>addNode</em>}</li>
- * <li>{@link StructuredActivityNode#addEdge <em>addEdge</em>}</li>
- * <li>{@link StructuredActivityNode#addStructuredNodeOutput <em>
- * addStructuredNodeOutput</em>}</li>
- * <li>{@link StructuredActivityNode#addStructuredNodeInput <em>
- * addStructuredNodeInput</em>}</li>
- * <li>{@link StructuredActivityNode#node <em>node</em>}</li>
- * <li>{@link StructuredActivityNode#activity <em>activity</em>}</li>
- * <li>{@link StructuredActivityNode#mustIsolate <em>mustIsolate</em>}</li>
- * <li>{@link StructuredActivityNode#edge <em>edge</em>}</li>
- * <li>{@link StructuredActivityNode#structuredNodeOutput <em>
- * structuredNodeOutput</em>}</li>
- * <li>{@link StructuredActivityNode#structuredNodeInput <em>structuredNodeInput
- * </em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
+import fUML.Syntax.Activities.IntermediateActivities.*;
+import fUML.Syntax.Actions.BasicActions.*;
 
 public class StructuredActivityNode extends
 		fUML.Syntax.Actions.BasicActions.Action {
@@ -57,59 +28,47 @@ public class StructuredActivityNode extends
 	public fUML.Syntax.Actions.BasicActions.OutputPinList structuredNodeOutput = new fUML.Syntax.Actions.BasicActions.OutputPinList();
 	public fUML.Syntax.Actions.BasicActions.InputPinList structuredNodeInput = new fUML.Syntax.Actions.BasicActions.InputPinList();
 
-	/**
-	 * operation setMustIsolate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setMustIsolate(boolean mustIsolate) {
 		this.mustIsolate = mustIsolate;
 	} // setMustIsolate
 
-	/**
-	 * operation addNode <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addNode(
 			fUML.Syntax.Activities.IntermediateActivities.ActivityNode node) {
 		this.node.addValue(node);
-		node.inStructuredNode = this;
+		node._setInStructuredNode(this);
 	} // addNode
 
-	/**
-	 * operation addEdge <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addEdge(
 			fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge) {
 		this.edge.addValue(edge);
-		edge.inStructuredNode = this;
+		edge._setInStructuredNode(this);
 	} // addEdge
 
-	/**
-	 * operation addStructuredNodeOutput <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addStructuredNodeOutput(
 			fUML.Syntax.Actions.BasicActions.OutputPin structuredNodeOutput) {
 		this.addOutput(structuredNodeOutput);
 		this.structuredNodeOutput.addValue(structuredNodeOutput);
 	} // addStructuredNodeOutput
 
-	/**
-	 * operation addStructuredNodeInput <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addStructuredNodeInput(
 			fUML.Syntax.Actions.BasicActions.InputPin structuredNodeInput) {
 		this.addInput(structuredNodeInput);
 		this.structuredNodeInput.addValue(structuredNodeInput);
 	} // addStructuredNodeInput
+
+	public void _setContext(fUML.Syntax.Classes.Kernel.Classifier context) {
+		super._setContext(context);
+		for (ActivityNode node : this.node) {
+			if (node instanceof Action) {
+				((Action) node)._setContext(context);
+			}
+		}
+	} // _setContext
+
+	public void _setActivity(
+			fUML.Syntax.Activities.IntermediateActivities.Activity activity) {
+		super._setActivity(activity);
+		this.activity = activity;
+	} // _setActivity
 
 } // StructuredActivityNode

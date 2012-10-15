@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Actions.CompleteActions;
@@ -36,33 +32,11 @@ import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Actions.IntermediateActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Actions::CompleteActions::AcceptEventActionEventAccepter</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link AcceptEventActionEventAccepter#accept <em>accept</em>}</li>
- * <li>{@link AcceptEventActionEventAccepter#match <em>match</em>}</li>
- * <li>{@link AcceptEventActionEventAccepter#actionActivation <em>
- * actionActivation</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class AcceptEventActionEventAccepter extends
 		fUML.Semantics.CommonBehaviors.Communications.EventAccepter {
 
 	public fUML.Semantics.Actions.CompleteActions.AcceptEventActionActivation actionActivation = null;
 
-	/**
-	 * operation accept <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void accept(
 			fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance) {
 		// Accept a signal occurance for the given signal instance.
@@ -71,11 +45,6 @@ public class AcceptEventActionEventAccepter extends
 		this.actionActivation.accept(signalInstance);
 	} // accept
 
-	/**
-	 * operation match <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean match(
 			fUML.Semantics.CommonBehaviors.Communications.SignalInstance signalInstance) {
 		// Return true if the given signal instance matches a trigger of the

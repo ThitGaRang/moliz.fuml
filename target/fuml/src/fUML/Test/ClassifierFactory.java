@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Test;
@@ -29,49 +25,12 @@ import fUML.Syntax.Actions.BasicActions.*;
 import fUML.Syntax.Actions.IntermediateActions.*;
 import fUML.Syntax.Actions.CompleteActions.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Test::ClassifierFactory</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ClassifierFactory#ClassifierFactory <em>ClassifierFactory</em>}</li>
- * <li>{@link ClassifierFactory#createEnumerationType <em>createEnumerationType
- * </em>}</li>
- * <li>{@link ClassifierFactory#createDataType <em>createDataType</em>}</li>
- * <li>{@link ClassifierFactory#createClass <em>createClass</em>}</li>
- * <li>{@link ClassifierFactory#createSignal <em>createSignal</em>}</li>
- * <li>{@link ClassifierFactory#createAssociation <em>createAssociation</em>}</li>
- * <li>{@link ClassifierFactory#addAttribute <em>addAttribute</em>}</li>
- * <li>{@link ClassifierFactory#addEnd <em>addEnd</em>}</li>
- * <li>{@link ClassifierFactory#addClassifierBehavior <em>addClassifierBehavior
- * </em>}</li>
- * <li>{@link ClassifierFactory#addOperation <em>addOperation</em>}</li>
- * <li>{@link ClassifierFactory#addGeneralization <em>addGeneralization</em>}</li>
- * <li>{@link ClassifierFactory#getOperation <em>getOperation</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ClassifierFactory extends fUML.Test.Test {
 
-	/**
-	 * operation ClassifierFactory <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public ClassifierFactory(fUML.Test.TestEnvironment environment) {
 		this.environment = environment;
 	} // ClassifierFactory
 
-	/**
-	 * operation createEnumerationType <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void createEnumerationType(String typeName, int numberOfLiterals) {
 		Enumeration type = new Enumeration();
 
@@ -87,55 +46,30 @@ public class ClassifierFactory extends fUML.Test.Test {
 		environment.addElement(type);
 	} // createEnumerationType
 
-	/**
-	 * operation createDataType <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createDataType(String name) {
 		DataType dataType = new DataType();
 		dataType.setName(name);
 		environment.addElement(dataType);
 	} // createDataType
 
-	/**
-	 * operation createClass <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createClass(String name) {
 		Class_ class_ = new Class_();
 		class_.setName(name);
 		environment.addElement(class_);
 	} // createClass
 
-	/**
-	 * operation createSignal <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createSignal(String name) {
 		Signal signal = new Signal();
 		signal.setName(name);
 		this.environment.addElement(signal);
 	} // createSignal
 
-	/**
-	 * operation createAssociation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createAssociation(String name) {
 		Association association = new Association();
 		association.setName(name);
 		environment.addElement(association);
 	} // createAssociation
 
-	/**
-	 * operation addAttribute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addAttribute(String classifierName, String attributeName,
 			String attributeTypeName, boolean isComposite) {
 		Classifier type = environment.getType(classifierName);
@@ -180,11 +114,6 @@ public class ClassifierFactory extends fUML.Test.Test {
 		}
 	} // addAttribute
 
-	/**
-	 * operation addEnd <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addEnd(String associationName, String endName,
 			String endTypeName, boolean isComposite) {
 		Classifier type = environment.getType(associationName);
@@ -223,12 +152,6 @@ public class ClassifierFactory extends fUML.Test.Test {
 
 	} // addEnd
 
-	/**
-	 * operation addClassifierBehavior <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void addClassifierBehavior(String className, String behaviorName) {
 		NamedElement element = this.environment.getElement(className);
 
@@ -256,11 +179,6 @@ public class ClassifierFactory extends fUML.Test.Test {
 
 	} // addClassifierBehavior
 
-	/**
-	 * operation addOperation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addOperation(String className, String baseClassName,
 			String operationName, String methodName) {
 		NamedElement element = this.environment.getElement(className);
@@ -320,11 +238,6 @@ public class ClassifierFactory extends fUML.Test.Test {
 
 	} // addOperation
 
-	/**
-	 * operation addGeneralization <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addGeneralization(String subtypeName, String supertypeName) {
 		Classifier subtype = this.environment.getType(subtypeName);
 
@@ -347,11 +260,6 @@ public class ClassifierFactory extends fUML.Test.Test {
 		subtype.addGeneralization(generalization);
 	} // addGeneralization
 
-	/**
-	 * operation getOperation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.Classes.Kernel.Operation getOperation(
 			fUML.Syntax.Classes.Kernel.Class_ class_, String operationName) {
 		for (int i = 0; i < class_.member.size(); i++) {

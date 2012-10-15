@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library;
@@ -22,35 +18,9 @@ import UMLPrimitiveTypes.*;
 import fUML.Syntax.Classes.Kernel.*;
 import fUML.Syntax.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::PrimitiveFunctions</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link PrimitiveFunctions#createBinaryOperator <em>createBinaryOperator
- * </em>}</li>
- * <li>{@link PrimitiveFunctions#createUnaryOperator <em>createUnaryOperator
- * </em>}</li>
- * <li>{@link PrimitiveFunctions#createComparisonOperator <em>
- * createComparisonOperator</em>}</li>
- * <li>{@link PrimitiveFunctions#createPrimitiveFunction <em>
- * createPrimitiveFunction</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class PrimitiveFunctions extends
 		fUML.Library.PrimitiveBehaviors {
 
-	/**
-	 * operation createBinaryOperator <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior createBinaryOperator(
 			String name,
 			fUML.Syntax.Classes.Kernel.Classifier type,
@@ -67,12 +37,6 @@ public abstract class PrimitiveFunctions extends
 				factory);
 	} // createBinaryOperator
 
-	/**
-	 * operation createUnaryOperator <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior createUnaryOperator(
 			String name,
 			fUML.Syntax.Classes.Kernel.Classifier type,
@@ -88,12 +52,6 @@ public abstract class PrimitiveFunctions extends
 				factory);
 	} // createUnaryOperator
 
-	/**
-	 * operation createComparisonOperator <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior createComparisonOperator(
 			String name,
 			fUML.Syntax.Classes.Kernel.Classifier type,
@@ -111,12 +69,6 @@ public abstract class PrimitiveFunctions extends
 				factory);
 	} // createComparisonOperator
 
-	/**
-	 * operation createPrimitiveFunction <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.CommonBehaviors.BasicBehaviors.FunctionBehavior createPrimitiveFunction(
 			String name,
 			fUML.Syntax.Classes.Kernel.ParameterList parameters,

@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Test;
@@ -28,41 +24,12 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Test::ExecutorTest</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ExecutorTest#ExecutorTest <em>ExecutorTest</em>}</li>
- * <li>{@link ExecutorTest#createDefaultInputValues <em>createDefaultInputValues
- * </em>}</li>
- * <li>{@link ExecutorTest#testEvaluate <em>testEvaluate</em>}</li>
- * <li>{@link ExecutorTest#testExecute <em>testExecute</em>}</li>
- * <li>{@link ExecutorTest#testStart <em>testStart</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ExecutorTest extends fUML.Test.Test {
 
-	/**
-	 * operation ExecutorTest <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public ExecutorTest(fUML.Test.TestEnvironment environment) {
 		this.environment = environment;
 	} // ExecutorTest
 
-	/**
-	 * operation createDefaultInputValues <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList createDefaultInputValues(
 			fUML.Syntax.Classes.Kernel.ParameterList parameters) {
 		// Debug.println("[createDefaultParameterValues] " + parameters.size() +
@@ -102,11 +69,6 @@ public class ExecutorTest extends fUML.Test.Test {
 		return parameterValues;
 	} // createDefaultInputValues
 
-	/**
-	 * operation testEvaluate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void testEvaluate(String typeName) {
 		Debug.println("");
 
@@ -142,11 +104,6 @@ public class ExecutorTest extends fUML.Test.Test {
 
 	} // testEvaluate
 
-	/**
-	 * operation testExecute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void testExecute(String behaviorName) {
 		Debug.println("");
 
@@ -195,11 +152,6 @@ public class ExecutorTest extends fUML.Test.Test {
 		Debug.println("");
 	} // testExecute
 
-	/**
-	 * operation testStart <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void testStart(String typeName) {
 		Debug.println("");
 

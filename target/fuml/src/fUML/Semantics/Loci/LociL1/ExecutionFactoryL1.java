@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Loci.LociL1;
@@ -25,30 +21,9 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Loci::LociL1::ExecutionFactoryL1</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ExecutionFactoryL1#instantiateVisitor <em>instantiateVisitor</em>}
- * </li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ExecutionFactoryL1 extends
 		fUML.Semantics.Loci.LociL1.ExecutionFactory {
 
-	/**
-	 * operation instantiateVisitor <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Loci.LociL1.SemanticVisitor instantiateVisitor(
 			fUML.Syntax.Classes.Kernel.Element element) {
 		// Instantiate a visitor object for the given element (at Conformance
@@ -78,6 +53,10 @@ public class ExecutionFactoryL1 extends
 
 		else if (element instanceof fUML.Syntax.Classes.Kernel.LiteralInteger) {
 			visitor = new LiteralIntegerEvaluation();
+		}
+
+		else if (element instanceof LiteralReal) {
+			visitor = new LiteralRealEvaluation();
 		}
 
 		return visitor;

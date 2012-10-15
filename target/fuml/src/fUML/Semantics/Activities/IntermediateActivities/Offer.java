@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
@@ -32,35 +28,10 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Activities::IntermediateActivities::Offer</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Offer#countOfferedValues <em>countOfferedValues</em>}</li>
- * <li>{@link Offer#getOfferedTokens <em>getOfferedTokens</em>}</li>
- * <li>{@link Offer#removeOfferedValues <em>removeOfferedValues</em>}</li>
- * <li>{@link Offer#removeWithdrawnTokens <em>removeWithdrawnTokens</em>}</li>
- * <li>{@link Offer#hasTokens <em>hasTokens</em>}</li>
- * <li>{@link Offer#offeredTokens <em>offeredTokens</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class Offer extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Semantics.Activities.IntermediateActivities.TokenList offeredTokens = new fUML.Semantics.Activities.IntermediateActivities.TokenList();
 
-	/**
-	 * operation countOfferedValues <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public int countOfferedValues() {
 		// Return the number of values being offered on object tokens.
 		// Remove any tokens that have already been withdrawn and don't include
@@ -78,11 +49,6 @@ public class Offer extends org.modeldriven.fuml.FumlObject {
 		return count;
 	} // countOfferedValues
 
-	/**
-	 * operation getOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.IntermediateActivities.TokenList getOfferedTokens() {
 		// Get the offered tokens, removing any that have been withdrawn.
 
@@ -101,12 +67,6 @@ public class Offer extends org.modeldriven.fuml.FumlObject {
 
 	} // getOfferedTokens
 
-	/**
-	 * operation removeOfferedValues <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void removeOfferedValues(int count) {
 		// Remove the given number of non-null object tokens from those in this
 		// offer.
@@ -123,12 +83,6 @@ public class Offer extends org.modeldriven.fuml.FumlObject {
 		}
 	} // removeOfferedValues
 
-	/**
-	 * operation removeWithdrawnTokens <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void removeWithdrawnTokens() {
 		// Remove any tokens that have already been consumed.
 
@@ -143,11 +97,6 @@ public class Offer extends org.modeldriven.fuml.FumlObject {
 		}
 	} // removeWithdrawnTokens
 
-	/**
-	 * operation hasTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean hasTokens() {
 		// Check whether this offer has any tokens that have not been withdrawn.
 

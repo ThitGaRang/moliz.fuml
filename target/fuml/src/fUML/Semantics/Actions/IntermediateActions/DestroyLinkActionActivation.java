@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Actions.IntermediateActions;
@@ -34,28 +30,9 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.LociL1.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Actions::IntermediateActions::DestroyLinkActionActivation</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link DestroyLinkActionActivation#doAction <em>doAction</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class DestroyLinkActionActivation extends
 		fUML.Semantics.Actions.IntermediateActions.WriteLinkActionActivation {
 
-	/**
-	 * operation doAction <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void doAction() {
 		// Get the extent, at the current execution locus, of the association
 		// for which links are being destroyed.

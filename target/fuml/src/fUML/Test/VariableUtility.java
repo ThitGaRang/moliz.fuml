@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Test;
@@ -24,50 +20,12 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Test::VariableUtility</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link VariableUtility#VariableUtility <em>VariableUtility</em>}</li>
- * <li>{@link VariableUtility#setValue <em>setValue</em>}</li>
- * <li>{@link VariableUtility#setValue <em>setValue</em>}</li>
- * <li>{@link VariableUtility#setValue <em>setValue</em>}</li>
- * <li>{@link VariableUtility#clearValue <em>clearValue</em>}</li>
- * <li>{@link VariableUtility#copyValue <em>copyValue</em>}</li>
- * <li>{@link VariableUtility#setEnumerationValue <em>setEnumerationValue</em>}</li>
- * <li>{@link VariableUtility#setDefaultValue <em>setDefaultValue</em>}</li>
- * <li>{@link VariableUtility#printVariables <em>printVariables</em>}</li>
- * <li>{@link VariableUtility#printVariable <em>printVariable</em>}</li>
- * <li>{@link VariableUtility#copyToAttribute <em>copyToAttribute</em>}</li>
- * <li>{@link VariableUtility#setAttributeValue <em>setAttributeValue</em>}</li>
- * <li>{@link VariableUtility#setAttributeValue <em>setAttributeValue</em>}</li>
- * <li>{@link VariableUtility#setAttributeValue <em>setAttributeValue</em>}</li>
- * <li>{@link VariableUtility#setAttributeValue <em>setAttributeValue</em>}</li>
- * <li>{@link VariableUtility#run <em>run</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class VariableUtility extends fUML.Test.Test {
 
-	/**
-	 * operation VariableUtility <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public VariableUtility(fUML.Test.TestEnvironment environment) {
 		this.environment = environment;
 	} // VariableUtility
 
-	/**
-	 * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setValue(String variable, boolean value) {
 		BooleanValue newValue = new BooleanValue();
 		newValue.type = environment.primitiveTypes.Boolean;
@@ -75,11 +33,6 @@ public class VariableUtility extends fUML.Test.Test {
 		environment.setVariable(variable, newValue);
 	} // setValue
 
-	/**
-	 * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setValue(String variable, int value) {
 		IntegerValue newValue = new IntegerValue();
 		newValue.type = environment.primitiveTypes.Integer;
@@ -87,11 +40,6 @@ public class VariableUtility extends fUML.Test.Test {
 		environment.setVariable(variable, newValue);
 	} // setValue
 
-	/**
-	 * operation setValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setValue(String variable, String value) {
 		StringValue newValue = new StringValue();
 		newValue.type = environment.primitiveTypes.String;
@@ -99,21 +47,11 @@ public class VariableUtility extends fUML.Test.Test {
 		environment.setVariable(variable, newValue);
 	} // setValue
 
-	/**
-	 * operation clearValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void clearValue(String variable) {
 		environment.setVariable(variable, null);
 
 	} // clearValue
 
-	/**
-	 * operation copyValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void copyValue(String target, String source) {
 		Variable sourceVariable = environment.getVariable(source);
 
@@ -126,12 +64,6 @@ public class VariableUtility extends fUML.Test.Test {
 
 	} // copyValue
 
-	/**
-	 * operation setEnumerationValue <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void setEnumerationValue(String variable, String typeName,
 			String literalName) {
 		NamedElement element = environment.getElement(typeName);
@@ -161,11 +93,6 @@ public class VariableUtility extends fUML.Test.Test {
 		}
 	} // setEnumerationValue
 
-	/**
-	 * operation setDefaultValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setDefaultValue(String variable, String typeName) {
 		Classifier type = environment.getType(typeName);
 
@@ -181,11 +108,6 @@ public class VariableUtility extends fUML.Test.Test {
 		Debug.println(value.toString());
 	} // setDefaultValue
 
-	/**
-	 * operation printVariables <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void printVariables() {
 		Debug.println("");
 		Debug.println(this.environment.variables.size() + " variable(s)");
@@ -215,11 +137,6 @@ public class VariableUtility extends fUML.Test.Test {
 		Debug.println("");
 	} // printVariables
 
-	/**
-	 * operation printVariable <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void printVariable(String variableName) {
 		Variable variable = this.environment.getVariable(variableName);
 
@@ -233,11 +150,6 @@ public class VariableUtility extends fUML.Test.Test {
 		Debug.println(variableName + " = " + variable.value);
 	} // printVariable
 
-	/**
-	 * operation copyToAttribute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void copyToAttribute(String target, String attributeName,
 			String source) {
 		Variable sourceVariable = this.environment.getVariable(source);
@@ -252,11 +164,6 @@ public class VariableUtility extends fUML.Test.Test {
 
 	} // copyToAttribute
 
-	/**
-	 * operation setAttributeValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setAttributeValue(String target, String attributeName,
 			fUML.Semantics.Classes.Kernel.Value sourceValue) {
 		Variable targetVariable = this.environment.getVariable(target);
@@ -299,11 +206,6 @@ public class VariableUtility extends fUML.Test.Test {
 		targetValue.setFeatureValue(attribute, values, 0);
 	} // setAttributeValue
 
-	/**
-	 * operation setAttributeValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setAttributeValue(String target, String attributeName, int value) {
 		IntegerValue integerValue = new IntegerValue();
 		integerValue.value = value;
@@ -312,11 +214,6 @@ public class VariableUtility extends fUML.Test.Test {
 
 	} // setAttributeValue
 
-	/**
-	 * operation setAttributeValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setAttributeValue(String target, String attributeName,
 			boolean value) {
 		BooleanValue booleanValue = new BooleanValue();
@@ -325,11 +222,6 @@ public class VariableUtility extends fUML.Test.Test {
 		this.setAttributeValue(target, attributeName, booleanValue);
 	} // setAttributeValue
 
-	/**
-	 * operation setAttributeValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setAttributeValue(String target, String attributeName,
 			String value) {
 		StringValue stringValue = new StringValue();
@@ -338,11 +230,6 @@ public class VariableUtility extends fUML.Test.Test {
 		this.setAttributeValue(target, attributeName, stringValue);
 	} // setAttributeValue
 
-	/**
-	 * operation run <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void run(String variableName) {
 		Variable variable = this.environment.getVariable(variableName);
 

@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Loci.LociL1;
@@ -27,36 +23,6 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Loci::LociL1::ExecutionFactory</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ExecutionFactory#createExecution <em>createExecution</em>}</li>
- * <li>{@link ExecutionFactory#createEvaluation <em>createEvaluation</em>}</li>
- * <li>{@link ExecutionFactory#instantiateVisitor <em>instantiateVisitor</em>}</li>
- * <li>{@link ExecutionFactory#instantiateOpaqueBehaviorExecution <em>
- * instantiateOpaqueBehaviorExecution</em>}</li>
- * <li>{@link ExecutionFactory#addPrimitiveBehaviorPrototype <em>
- * addPrimitiveBehaviorPrototype</em>}</li>
- * <li>{@link ExecutionFactory#addBuiltInType <em>addBuiltInType</em>}</li>
- * <li>{@link ExecutionFactory#getBuiltInType <em>getBuiltInType</em>}</li>
- * <li>{@link ExecutionFactory#setStrategy <em>setStrategy</em>}</li>
- * <li>{@link ExecutionFactory#getStrategy <em>getStrategy</em>}</li>
- * <li>{@link ExecutionFactory#getStrategyIndex <em>getStrategyIndex</em>}</li>
- * <li>{@link ExecutionFactory#locus <em>locus</em>}</li>
- * <li>{@link ExecutionFactory#primitiveBehaviorPrototypes <em>
- * primitiveBehaviorPrototypes</em>}</li>
- * <li>{@link ExecutionFactory#builtInTypes <em>builtInTypes</em>}</li>
- * <li>{@link ExecutionFactory#strategies <em>strategies</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Semantics.Loci.LociL1.Locus locus = null;
@@ -64,11 +30,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 	public fUML.Syntax.Classes.Kernel.PrimitiveTypeList builtInTypes = new fUML.Syntax.Classes.Kernel.PrimitiveTypeList();
 	public fUML.Semantics.Loci.LociL1.SemanticStrategyList strategies = new fUML.Semantics.Loci.LociL1.SemanticStrategyList();
 
-	/**
-	 * operation createExecution <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.Execution createExecution(
 			fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior behavior,
 			fUML.Semantics.Classes.Kernel.Object_ context) {
@@ -100,11 +61,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		return execution;
 	} // createExecution
 
-	/**
-	 * operation createEvaluation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Evaluation createEvaluation(
 			fUML.Syntax.Classes.Kernel.ValueSpecification specification) {
 		// Create an evaluation object for a given value specification.
@@ -120,21 +76,9 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 
 	} // createEvaluation
 
-	/**
-	 * operation instantiateVisitor <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public abstract fUML.Semantics.Loci.LociL1.SemanticVisitor instantiateVisitor(
 			fUML.Syntax.Classes.Kernel.Element element);
 
-	/**
-	 * operation instantiateOpaqueBehaviorExecution <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution instantiateOpaqueBehaviorExecution(
 			fUML.Syntax.CommonBehaviors.BasicBehaviors.OpaqueBehavior behavior) {
 		// Return a copy of the prototype for the primitive behavior execution
@@ -162,12 +106,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		return execution;
 	} // instantiateOpaqueBehaviorExecution
 
-	/**
-	 * operation addPrimitiveBehaviorPrototype <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addPrimitiveBehaviorPrototype(
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution execution) {
 		// Add an opaque behavior execution to use as a prototype for
@@ -178,11 +116,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		this.primitiveBehaviorPrototypes.addValue(execution);
 	} // addPrimitiveBehaviorPrototype
 
-	/**
-	 * operation addBuiltInType <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addBuiltInType(fUML.Syntax.Classes.Kernel.PrimitiveType type) {
 		// Add the given primitive type as a built-in type.
 		// Precondition: No built-in type with the same name should already
@@ -191,11 +124,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		this.builtInTypes.addValue(type);
 	} // addBuiltInType
 
-	/**
-	 * operation getBuiltInType <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.PrimitiveType getBuiltInType(String name) {
 		// Return the built-in type with the given name.
 
@@ -212,11 +140,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		return type;
 	} // getBuiltInType
 
-	/**
-	 * operation setStrategy <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setStrategy(fUML.Semantics.Loci.LociL1.SemanticStrategy strategy) {
 		// Set the strategy for a semantic variation point. Any existing
 		// strategy for the same SVP is replaced.
@@ -230,11 +153,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		this.strategies.addValue(strategy);
 	} // setStrategy
 
-	/**
-	 * operation getStrategy <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Loci.LociL1.SemanticStrategy getStrategy(String name) {
 		// Get the strategy with the given name.
 
@@ -248,11 +166,6 @@ public abstract class ExecutionFactory extends org.modeldriven.fuml.FumlObject {
 		return strategy;
 	} // getStrategy
 
-	/**
-	 * operation getStrategyIndex <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public int getStrategyIndex(String name) {
 		// Get the index of the strategy with the given name.
 		// If there is no such strategy, return the size of the strategies list.

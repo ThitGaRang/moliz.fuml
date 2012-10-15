@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Activities.CompleteStructuredActivities;
@@ -36,39 +32,11 @@ import fUML.Semantics.Activities.IntermediateActivities.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Activities::CompleteStructuredActivities::ClauseActivation</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ClauseActivation#receiveControl <em>receiveControl</em>}</li>
- * <li>{@link ClauseActivation#isReady <em>isReady</em>}</li>
- * <li>{@link ClauseActivation#runTest <em>runTest</em>}</li>
- * <li>{@link ClauseActivation#selectBody <em>selectBody</em>}</li>
- * <li>{@link ClauseActivation#getDecision <em>getDecision</em>}</li>
- * <li>{@link ClauseActivation#getPredecessors <em>getPredecessors</em>}</li>
- * <li>{@link ClauseActivation#getSuccessors <em>getSuccessors</em>}</li>
- * <li>{@link ClauseActivation#conditionalNodeActivation <em>
- * conditionalNodeActivation</em>}</li>
- * <li>{@link ClauseActivation#clause <em>clause</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ClauseActivation extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Semantics.Activities.CompleteStructuredActivities.ConditionalNodeActivation conditionalNodeActivation = null;
 	public fUML.Syntax.Activities.CompleteStructuredActivities.Clause clause = null;
 
-	/**
-	 * operation receiveControl <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void receiveControl() {
 		// If all predecessors to the clause for this activation have run their
 		// tests and failed, then run the test for this clause.
@@ -106,11 +74,6 @@ public class ClauseActivation extends org.modeldriven.fuml.FumlObject {
 		}
 	} // receiveControl
 
-	/**
-	 * operation isReady <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean isReady() {
 		// Test if all predecessors to this clause activation have failed.
 
@@ -137,33 +100,18 @@ public class ClauseActivation extends org.modeldriven.fuml.FumlObject {
 
 	} // isReady
 
-	/**
-	 * operation runTest <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void runTest() {
 		// Run the test of the clause for this clause activation.
 
 		this.conditionalNodeActivation.runTest(this.clause);
 	} // runTest
 
-	/**
-	 * operation selectBody <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void selectBody() {
 		// Select the body of the clause for this clause activation.
 
 		this.conditionalNodeActivation.selectBody(this.clause);
 	} // selectBody
 
-	/**
-	 * operation getDecision <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.BooleanValue getDecision() {
 		// Get the value (if any) on the decider pin of the clause for this
 		// clause activation.
@@ -179,11 +127,6 @@ public class ClauseActivation extends org.modeldriven.fuml.FumlObject {
 		return deciderValue;
 	} // getDecision
 
-	/**
-	 * operation getPredecessors <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList getPredecessors() {
 		// Return the clause activations for the predecessors of the clause for
 		// this clause activation.
@@ -200,11 +143,6 @@ public class ClauseActivation extends org.modeldriven.fuml.FumlObject {
 		return predecessors;
 	} // getPredecessors
 
-	/**
-	 * operation getSuccessors <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.CompleteStructuredActivities.ClauseActivationList getSuccessors() {
 		// Return the clause activations for the successors of the clause for
 		// this clause activation.

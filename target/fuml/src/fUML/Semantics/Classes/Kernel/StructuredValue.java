@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Classes.Kernel;
@@ -25,32 +21,9 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Classes::Kernel::StructuredValue</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link StructuredValue#specify <em>specify</em>}</li>
- * <li>{@link StructuredValue#getFeatureValue <em>getFeatureValue</em>}</li>
- * <li>{@link StructuredValue#setFeatureValue <em>setFeatureValue</em>}</li>
- * <li>{@link StructuredValue#getFeatureValues <em>getFeatureValues</em>}</li>
- * <li>{@link StructuredValue#createFeatureValues <em>createFeatureValues</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class StructuredValue extends
 		fUML.Semantics.Classes.Kernel.Value {
 
-	/**
-	 * operation specify <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.ValueSpecification specify() {
 		// Return an instance value that specifies this structured value.
 
@@ -89,36 +62,15 @@ public abstract class StructuredValue extends
 		return instanceValue;
 	} // specify
 
-	/**
-	 * operation getFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract fUML.Semantics.Classes.Kernel.FeatureValue getFeatureValue(
 			fUML.Syntax.Classes.Kernel.StructuralFeature feature);
 
-	/**
-	 * operation setFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract void setFeatureValue(
 			fUML.Syntax.Classes.Kernel.StructuralFeature feature,
 			fUML.Semantics.Classes.Kernel.ValueList values, int position);
 
-	/**
-	 * operation getFeatureValues <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract fUML.Semantics.Classes.Kernel.FeatureValueList getFeatureValues();
 
-	/**
-	 * operation createFeatureValues <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void createFeatureValues() {
 		// Create empty feature values for all structural features, direct and
 		// inherited, of the types of this structured value.

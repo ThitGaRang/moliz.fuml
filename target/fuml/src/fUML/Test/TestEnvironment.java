@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Test;
@@ -27,40 +23,6 @@ import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.LociL1.*;
 import fUML.Semantics.Loci.LociL3.ExecutionFactoryL3;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Test::TestEnvironment</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link TestEnvironment#TestEnvironment <em>TestEnvironment</em>}</li>
- * <li>{@link TestEnvironment#makePrimitiveValue <em>makePrimitiveValue</em>}</li>
- * <li>{@link TestEnvironment#makeEnumerationValue <em>makeEnumerationValue
- * </em>}</li>
- * <li>{@link TestEnvironment#makeStructuredValue <em>makeStructuredValue</em>}</li>
- * <li>{@link TestEnvironment#makeValue <em>makeValue</em>}</li>
- * <li>{@link TestEnvironment#addElement <em>addElement</em>}</li>
- * <li>{@link TestEnvironment#getElement <em>getElement</em>}</li>
- * <li>{@link TestEnvironment#removeElement <em>removeElement</em>}</li>
- * <li>{@link TestEnvironment#setVariable <em>setVariable</em>}</li>
- * <li>{@link TestEnvironment#getVariable <em>getVariable</em>}</li>
- * <li>{@link TestEnvironment#getType <em>getType</em>}</li>
- * <li>{@link TestEnvironment#printElements <em>printElements</em>}</li>
- * <li>{@link TestEnvironment#printExtent <em>printExtent</em>}</li>
- * <li>{@link TestEnvironment#removeElement <em>removeElement</em>}</li>
- * <li>{@link TestEnvironment#variables <em>variables</em>}</li>
- * <li>{@link TestEnvironment#primitiveTypes <em>primitiveTypes</em>}</li>
- * <li>{@link TestEnvironment#elements <em>elements</em>}</li>
- * <li>{@link TestEnvironment#locus <em>locus</em>}</li>
- * <li>{@link TestEnvironment#integerFunctions <em>integerFunctions</em>}</li>
- * <li>{@link TestEnvironment#systemIO <em>systemIO</em>}</li>
- * <li>{@link TestEnvironment#standardIO <em>standardIO</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Test.VariableList variables = new fUML.Test.VariableList();
@@ -71,11 +33,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 	public fUML.Library.SystemIO systemIO = null;
 	public fUML.Library.StandardIOClasses standardIO = null;
 
-	/**
-	 * operation TestEnvironment <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public TestEnvironment() {
 		try {
 
@@ -145,12 +102,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 
 	} // TestEnvironment
 
-	/**
-	 * operation makePrimitiveValue <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.PrimitiveValue makePrimitiveValue(
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		PrimitiveType type = (PrimitiveType) classifier;
@@ -181,12 +132,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		return primitiveValue;
 	} // makePrimitiveValue
 
-	/**
-	 * operation makeEnumerationValue <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.EnumerationValue makeEnumerationValue(
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		Enumeration type = (Enumeration) classifier;
@@ -198,12 +143,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		return enumerationValue;
 	} // makeEnumerationValue
 
-	/**
-	 * operation makeStructuredValue <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.StructuredValue makeStructuredValue(
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		StructuredValue structuredValue = null;
@@ -241,11 +180,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 
 	} // makeStructuredValue
 
-	/**
-	 * operation makeValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value makeValue(
 			fUML.Syntax.Classes.Kernel.Classifier type) {
 		// if (type == null) {
@@ -265,11 +199,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // makeValue
 
-	/**
-	 * operation addElement <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addElement(fUML.Syntax.Classes.Kernel.NamedElement element) {
 		if (this.getElement(element.name) == null) {
 			this.elements.addValue(element);
@@ -279,11 +208,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // addElement
 
-	/**
-	 * operation getElement <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.NamedElement getElement(String name) {
 		for (int i = 0; i < elements.size(); i++) {
 			if (elements.getValue(i).name.equals(name))
@@ -292,11 +216,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		return null;
 	} // getElement
 
-	/**
-	 * operation removeElement <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void removeElement(fUML.Syntax.Classes.Kernel.NamedElement element) {
 		for (int i = 0; i < this.elements.size(); i++) {
 			if (this.elements.getValue(i) == element) {
@@ -306,11 +225,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // removeElement
 
-	/**
-	 * operation setVariable <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setVariable(String name,
 			fUML.Semantics.Classes.Kernel.Value value) {
 		Variable variable = this.getVariable(name);
@@ -324,11 +238,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		variable.value = value;
 	} // setVariable
 
-	/**
-	 * operation getVariable <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Test.Variable getVariable(String name) {
 		for (int i = 0; i < this.variables.size(); i++) {
 			if (this.variables.getValue(i).name.equals(name)) {
@@ -339,11 +248,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		return null;
 	} // getVariable
 
-	/**
-	 * operation getType <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.Classes.Kernel.Classifier getType(String typeName) {
 		NamedElement element = this.getElement(typeName);
 
@@ -354,11 +258,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // getType
 
-	/**
-	 * operation printElements <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void printElements() {
 		Debug.println("");
 		Debug.println(elements.size() + " element(s)");
@@ -370,11 +269,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // printElements
 
-	/**
-	 * operation printExtent <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void printExtent(String classifierName) {
 		Element element = this.getElement(classifierName);
 
@@ -401,11 +295,6 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		}
 	} // printExtent
 
-	/**
-	 * operation removeElement <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void removeElement(String elementName) {
 		NamedElement element = this.getElement(elementName);
 

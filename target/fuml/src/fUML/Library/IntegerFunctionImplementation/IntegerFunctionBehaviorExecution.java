@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library.IntegerFunctionImplementation;
@@ -21,30 +17,9 @@ import UMLPrimitiveTypes.*;
 
 import fUML.Semantics.Classes.Kernel.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::IntegerFunctionImplementation::IntegerFunctionBehaviorExecution</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link IntegerFunctionBehaviorExecution#doBody <em>doBody</em>}</li>
- * <li>{@link IntegerFunctionBehaviorExecution#doIntegerFunction <em>
- * doIntegerFunction</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class IntegerFunctionBehaviorExecution extends
 		fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
 
-	/**
-	 * operation doBody <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void doBody(
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
@@ -70,10 +45,6 @@ public abstract class IntegerFunctionBehaviorExecution extends
 
 	} // doBody
 
-	/**
-	 * operation doIntegerFunction <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public abstract int doIntegerFunction(UMLPrimitiveTypes.intList arguments);
+
 } // IntegerFunctionBehaviorExecution

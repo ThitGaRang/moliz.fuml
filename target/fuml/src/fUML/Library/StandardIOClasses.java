@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library;
@@ -21,34 +17,6 @@ import UMLPrimitiveTypes.*;
 
 import fUML.Syntax.Classes.Kernel.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::StandardIOClasses</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link StandardIOClasses#StandardIOClasses <em>StandardIOClasses</em>}</li>
- * <li>{@link StandardIOClasses#createChannelClass <em>createChannelClass</em>}</li>
- * <li>{@link StandardIOClasses#createOutputChannelClass <em>
- * createOutputChannelClass</em>}</li>
- * <li>{@link StandardIOClasses#createTextOutputChannelClass <em>
- * createTextOutputChannelClass</em>}</li>
- * <li>{@link StandardIOClasses#createStandardOutputChannelClass <em>
- * createStandardOutputChannelClass</em>}</li>
- * <li>{@link StandardIOClasses#createInputChannelClass <em>
- * createInputChannelClass</em>}</li>
- * <li>{@link StandardIOClasses#Channel <em>Channel</em>}</li>
- * <li>{@link StandardIOClasses#OutputChannel <em>OutputChannel</em>}</li>
- * <li>{@link StandardIOClasses#TextOutputChannel <em>TextOutputChannel</em>}</li>
- * <li>{@link StandardIOClasses#StandardOutputChannel <em>StandardOutputChannel
- * </em>}</li>
- * <li>{@link StandardIOClasses#InputChannel <em>InputChannel</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class StandardIOClasses extends fUML.Library.Classes {
 
 	public fUML.Syntax.Classes.Kernel.Class_ Channel = null;
@@ -57,11 +25,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 	public fUML.Syntax.Classes.Kernel.Class_ StandardOutputChannel = null;
 	public fUML.Syntax.Classes.Kernel.Class_ InputChannel = null;
 
-	/**
-	 * operation StandardIOClasses <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public StandardIOClasses(fUML.Library.PrimitiveTypes primitiveTypes) {
 		this.createChannelClass(primitiveTypes);
 		this.createOutputChannelClass(primitiveTypes);
@@ -71,12 +34,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 
 	} // StandardIOClasses
 
-	/**
-	 * operation createChannelClass <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void createChannelClass(fUML.Library.PrimitiveTypes primitiveTypes) {
 		// MexSystem.println("[createChannelClass] Start...");
 
@@ -97,12 +54,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 
 	} // createChannelClass
 
-	/**
-	 * operation createOutputChannelClass <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createOutputChannelClass(
 			fUML.Library.PrimitiveTypes primitiveTypes) {
 		// MexSystem.println("[createOutputChannelClass] Start...");
@@ -121,12 +72,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 				ParameterDirectionKind.return_, primitiveTypes.Boolean);
 	} // createOutputChannelClass
 
-	/**
-	 * operation createTextOutputChannelClass <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createTextOutputChannelClass(
 			fUML.Library.PrimitiveTypes primitiveTypes) {
 		// MexSystem.println("[createTextOutputChannelClass] Start...");
@@ -163,12 +108,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 
 	} // createTextOutputChannelClass
 
-	/**
-	 * operation createStandardOutputChannelClass <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createStandardOutputChannelClass(
 			fUML.Library.PrimitiveTypes primitiveTypes) {
 		// MexSystem.println("[createStandardOutputChannelClass] Start...");
@@ -179,12 +118,6 @@ public class StandardIOClasses extends fUML.Library.Classes {
 				this.TextOutputChannel);
 	} // createStandardOutputChannelClass
 
-	/**
-	 * operation createInputChannelClass <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void createInputChannelClass(
 			fUML.Library.PrimitiveTypes primitiveTypes) {
 		this.InputChannel = this.createClass("InputChannel", true);

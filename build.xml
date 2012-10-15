@@ -192,8 +192,14 @@
       <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
       <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Property.java" />
      
-      <!-- Replace (temporarily) generated source files with corrected ones. -->
+      <!-- Replace generated behavior source files with ones that simulate classifier behaviors. -->
+      <!-- The replacement for these files must be found in the ${src.java.dir} tree. -->
+      <delete file="${gen.java.dir}/fUML/Semantics/CommonBehaviors/Communications/ClassifierBehaviorExecution_Behavior.java" />
+      <delete file="${gen.java.dir}/fUML/Semantics/CommonBehaviors/Communications/ObjectActivation_Behavior.java" />
+
+	  <!-- Replace (temporarily) generated source files with corrected ones. -->
       <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
+      <!--
       <delete file="${gen.java.dir}/fUML/Semantics/Classes/Kernel/Link.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ActivityFinalNodeActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ActivityNodeActivationGroup.java" />
@@ -214,6 +220,7 @@
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/StructuralFeatureActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/CompleteActions/AcceptEventActionActivation.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/Actions/CompleteActions/ReduceActionActivation.java" />
+      -->
        
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 

@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Loci.LociL1;
@@ -27,39 +23,12 @@ import fUML.Semantics.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Loci::LociL1::Locus</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Locus#setExecutor <em>setExecutor</em>}</li>
- * <li>{@link Locus#setFactory <em>setFactory</em>}</li>
- * <li>{@link Locus#getExtent <em>getExtent</em>}</li>
- * <li>{@link Locus#add <em>add</em>}</li>
- * <li>{@link Locus#remove <em>remove</em>}</li>
- * <li>{@link Locus#instantiate <em>instantiate</em>}</li>
- * <li>{@link Locus#conforms <em>conforms</em>}</li>
- * <li>{@link Locus#executor <em>executor</em>}</li>
- * <li>{@link Locus#factory <em>factory</em>}</li>
- * <li>{@link Locus#extensionalValues <em>extensionalValues</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class Locus extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Semantics.Loci.LociL1.Executor executor = null;
 	public fUML.Semantics.Loci.LociL1.ExecutionFactory factory = null;
 	public fUML.Semantics.Classes.Kernel.ExtensionalValueList extensionalValues = new fUML.Semantics.Classes.Kernel.ExtensionalValueList();
 
-	/**
-	 * operation setExecutor <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setExecutor(fUML.Semantics.Loci.LociL1.Executor executor) {
 		// Set the executor for this locus.
 
@@ -67,11 +36,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		this.executor.locus = this;
 	} // setExecutor
 
-	/**
-	 * operation setFactory <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setFactory(fUML.Semantics.Loci.LociL1.ExecutionFactory factory) {
 		// Set the factory for this locus.
 
@@ -79,11 +43,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		this.factory.locus = this;
 	} // setFactory
 
-	/**
-	 * operation getExtent <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.ExtensionalValueList getExtent(
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		// Return the set of extensional values at this locus which have the
@@ -111,11 +70,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		return extent;
 	} // getExtent
 
-	/**
-	 * operation add <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void add(fUML.Semantics.Classes.Kernel.ExtensionalValue value) {
 		// Add the given extensional value to this locus
 
@@ -123,11 +77,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		this.extensionalValues.addValue(value);
 	} // add
 
-	/**
-	 * operation remove <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void remove(fUML.Semantics.Classes.Kernel.ExtensionalValue value) {
 		// Remove the given extensional value from this locus.
 
@@ -144,11 +93,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		}
 	} // remove
 
-	/**
-	 * operation instantiate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Object_ instantiate(
 			fUML.Syntax.Classes.Kernel.Class_ type) {
 		// Instantiate the given class at this locus.
@@ -168,11 +112,6 @@ public class Locus extends org.modeldriven.fuml.FumlObject {
 		return object;
 	} // instantiate
 
-	/**
-	 * operation conforms <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean conforms(fUML.Syntax.Classes.Kernel.Classifier type,
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		// Test if a type conforms to a given classifier, that is, the type is

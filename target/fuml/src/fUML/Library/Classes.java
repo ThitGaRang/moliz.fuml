@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Library;
@@ -21,31 +17,8 @@ import UMLPrimitiveTypes.*;
 
 import fUML.Syntax.Classes.Kernel.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Library::Classes</b></em>'. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Classes#createClass <em>createClass</em>}</li>
- * <li>{@link Classes#addAttribute <em>addAttribute</em>}</li>
- * <li>{@link Classes#addOperation <em>addOperation</em>}</li>
- * <li>{@link Classes#addParameter <em>addParameter</em>}</li>
- * <li>{@link Classes#setMultiplicity <em>setMultiplicity</em>}</li>
- * <li>{@link Classes#addGeneralization <em>addGeneralization</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class Classes extends org.modeldriven.fuml.FumlObject {
 
-	/**
-	 * operation createClass <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.Classes.Kernel.Class_ createClass(String name,
 			boolean isAbstract) {
 		Class_ newClass = new Class_();
@@ -55,11 +28,6 @@ public class Classes extends org.modeldriven.fuml.FumlObject {
 		return newClass;
 	} // createClass
 
-	/**
-	 * operation addAttribute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected void addAttribute(fUML.Syntax.Classes.Kernel.Class_ owner,
 			String name, fUML.Syntax.Classes.Kernel.Type type,
 			fUML.Syntax.Classes.Kernel.VisibilityKind visibility,
@@ -96,11 +64,6 @@ public class Classes extends org.modeldriven.fuml.FumlObject {
 
 	} // addAttribute
 
-	/**
-	 * operation addOperation <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected fUML.Syntax.Classes.Kernel.Operation addOperation(
 			fUML.Syntax.Classes.Kernel.Class_ owner, String name,
 			fUML.Syntax.Classes.Kernel.VisibilityKind visibility) {
@@ -123,11 +86,6 @@ public class Classes extends org.modeldriven.fuml.FumlObject {
 		return operation;
 	} // addOperation
 
-	/**
-	 * operation addParameter <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected void addParameter(fUML.Syntax.Classes.Kernel.Operation operation,
 			String name,
 			fUML.Syntax.Classes.Kernel.ParameterDirectionKind direction,
@@ -146,11 +104,6 @@ public class Classes extends org.modeldriven.fuml.FumlObject {
 		}
 	} // addParameter
 
-	/**
-	 * operation setMultiplicity <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected void setMultiplicity(
 			fUML.Syntax.Classes.Kernel.MultiplicityElement element, int lower,
 			int upper) {
@@ -163,11 +116,6 @@ public class Classes extends org.modeldriven.fuml.FumlObject {
 		element.isUnique = true;
 	} // setMultiplicity
 
-	/**
-	 * operation addGeneralization <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	protected void addGeneralization(
 			fUML.Syntax.Classes.Kernel.Class_ specific,
 			fUML.Syntax.Classes.Kernel.Class_ general) {

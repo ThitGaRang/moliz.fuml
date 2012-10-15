@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Classes.Kernel;
@@ -27,30 +23,9 @@ import fUML.Semantics.*;
 import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Classes::Kernel::RedefinitionBasedDispatchStrategy</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link RedefinitionBasedDispatchStrategy#getMethod <em>getMethod</em>}</li>
- * <li>{@link RedefinitionBasedDispatchStrategy#operationsMatch <em>
- * operationsMatch</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class RedefinitionBasedDispatchStrategy extends
 		fUML.Semantics.Classes.Kernel.DispatchStrategy {
 
-	/**
-	 * operation getMethod <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Syntax.CommonBehaviors.BasicBehaviors.Behavior getMethod(
 			fUML.Semantics.Classes.Kernel.Object_ object,
 			fUML.Syntax.Classes.Kernel.Operation operation) {
@@ -81,11 +56,6 @@ public class RedefinitionBasedDispatchStrategy extends
 		return method;
 	} // getMethod
 
-	/**
-	 * operation operationsMatch <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean operationsMatch(
 			fUML.Syntax.Classes.Kernel.Operation ownedOperation,
 			fUML.Syntax.Classes.Kernel.Operation baseOperation) {

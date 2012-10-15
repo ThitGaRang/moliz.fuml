@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.CommonBehaviors.Communications;
@@ -29,27 +25,6 @@ import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::CommonBehaviors::Communications::ClassifierBehaviorExecution</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ClassifierBehaviorExecution#execute <em>execute</em>}</li>
- * <li>{@link ClassifierBehaviorExecution#terminate <em>terminate</em>}</li>
- * <li>{@link ClassifierBehaviorExecution#_startObjectBehavior <em>
- * _startObjectBehavior</em>}</li>
- * <li>{@link ClassifierBehaviorExecution#execution <em>execution</em>}</li>
- * <li>{@link ClassifierBehaviorExecution#classifier <em>classifier</em>}</li>
- * <li>{@link ClassifierBehaviorExecution#objectActivation <em>objectActivation
- * </em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ClassifierBehaviorExecution extends
 		org.modeldriven.fuml.FumlObject {
 
@@ -57,11 +32,6 @@ public class ClassifierBehaviorExecution extends
 	public fUML.Syntax.Classes.Kernel.Class_ classifier = null;
 	public fUML.Semantics.CommonBehaviors.Communications.ObjectActivation objectActivation = null;
 
-	/**
-	 * operation execute <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void execute(
 			fUML.Syntax.Classes.Kernel.Class_ classifier,
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputs) {
@@ -99,11 +69,6 @@ public class ClassifierBehaviorExecution extends
 		_startObjectBehavior();
 	} // execute
 
-	/**
-	 * operation terminate <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void terminate() {
 		// Terminate the associated execution.
 		// If the execution is not itself the object of the object activation,
@@ -120,16 +85,11 @@ public class ClassifierBehaviorExecution extends
 
 	} // terminate
 
-	/**
-	 * operation _startObjectBehavior <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
+	private ClassifierBehaviorExecution_Behavior behavior = new ClassifierBehaviorExecution_Behavior(
+			this);
+
 	public void _startObjectBehavior() {
-		// *** This should start the asynchronous
-		// ClassifierBehaviorExecutionActivity to do the following. ***
-		this.execution.execute();
-	} // _startObjectBehavior
+		this.behavior._startObjectBehavior();
+	}
 
 } // ClassifierBehaviorExecution

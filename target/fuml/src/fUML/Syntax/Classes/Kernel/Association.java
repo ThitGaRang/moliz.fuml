@@ -3,41 +3,17 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Syntax.Classes.Kernel;
 
 import fUML.Debug;
 import UMLPrimitiveTypes.*;
-
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Syntax::Classes::Kernel::Association</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link Association#addOwnedEnd <em>addOwnedEnd</em>}</li>
- * <li>{@link Association#addNavigableOwnedEnd <em>addNavigableOwnedEnd</em>}</li>
- * <li>{@link Association#isDerived <em>isDerived</em>}</li>
- * <li>{@link Association#ownedEnd <em>ownedEnd</em>}</li>
- * <li>{@link Association#endType <em>endType</em>}</li>
- * <li>{@link Association#memberEnd <em>memberEnd</em>}</li>
- * <li>{@link Association#navigableOwnedEnd <em>navigableOwnedEnd</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
 
 public class Association extends fUML.Syntax.Classes.Kernel.Classifier {
 
@@ -47,30 +23,31 @@ public class Association extends fUML.Syntax.Classes.Kernel.Classifier {
 	public fUML.Syntax.Classes.Kernel.PropertyList memberEnd = new fUML.Syntax.Classes.Kernel.PropertyList();
 	public fUML.Syntax.Classes.Kernel.PropertyList navigableOwnedEnd = new fUML.Syntax.Classes.Kernel.PropertyList();
 
-	/**
-	 * operation addOwnedEnd <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void addOwnedEnd(fUML.Syntax.Classes.Kernel.Property ownedEnd) {
 		super.addFeature(ownedEnd);
 		super.addOwnedMember(ownedEnd);
 
 		this.ownedEnd.addValue(ownedEnd);
-		ownedEnd.owningAssociation = this;
+		ownedEnd._setOwningAssociation(this);
 
 		this.memberEnd.addValue(ownedEnd);
-		ownedEnd.association = this;
+		ownedEnd._setAssociation(this);
 
-		this.endType.addValue(ownedEnd.typedElement.type);
+		if (ownedEnd.typedElement.type != null) {
+			this.endType.addValue(ownedEnd.typedElement.type);
+		}
+
+		if (this.memberEnd.size() == 2) {
+			Property opposite = this.memberEnd.get(0);
+			ownedEnd._setOpposite(opposite);
+			opposite._setOpposite(ownedEnd);
+		} else if (this.memberEnd.size() > 2) {
+			for (Property memberEnd : this.memberEnd) {
+				memberEnd._setOpposite(null);
+			}
+		}
 	} // addOwnedEnd
 
-	/**
-	 * operation addNavigableOwnedEnd <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void addNavigableOwnedEnd(
 			fUML.Syntax.Classes.Kernel.Property navigableOwnedEnd) {
 		// Note: A navigable end must also be set as an owned end using

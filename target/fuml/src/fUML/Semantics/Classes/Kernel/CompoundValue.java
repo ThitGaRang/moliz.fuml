@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Classes.Kernel;
@@ -25,37 +21,11 @@ import fUML.Syntax.Classes.Kernel.*;
 import fUML.Semantics.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Classes::Kernel::CompoundValue</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link CompoundValue#equals <em>equals</em>}</li>
- * <li>{@link CompoundValue#copy <em>copy</em>}</li>
- * <li>{@link CompoundValue#getFeatureValue <em>getFeatureValue</em>}</li>
- * <li>{@link CompoundValue#setFeatureValue <em>setFeatureValue</em>}</li>
- * <li>{@link CompoundValue#getFeatureValues <em>getFeatureValues</em>}</li>
- * <li>{@link CompoundValue#removeFeatureValues <em>removeFeatureValues</em>}</li>
- * <li>{@link CompoundValue#toString <em>toString</em>}</li>
- * <li>{@link CompoundValue#featureValues <em>featureValues</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public abstract class CompoundValue extends
 		fUML.Semantics.Classes.Kernel.StructuredValue {
 
 	public fUML.Semantics.Classes.Kernel.FeatureValueList featureValues = new fUML.Semantics.Classes.Kernel.FeatureValueList();
 
-	/**
-	 * operation equals <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean equals(fUML.Semantics.Classes.Kernel.Value otherValue) {
 		// Test if this data value is equal to the otherValue.
 		// To be equal, the otherValue must also be a compund value with the
@@ -103,11 +73,6 @@ public abstract class CompoundValue extends
 		return isEqual;
 	} // equals
 
-	/**
-	 * operation copy <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.Value copy() {
 		// Create a new data value with the same featureValues as this data
 		// value.
@@ -123,11 +88,6 @@ public abstract class CompoundValue extends
 		return newValue;
 	} // copy
 
-	/**
-	 * operation getFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.FeatureValue getFeatureValue(
 			fUML.Syntax.Classes.Kernel.StructuralFeature feature) {
 		// Get the value(s) of the member of featureValues for the given
@@ -145,11 +105,6 @@ public abstract class CompoundValue extends
 		return featureValue;
 	} // getFeatureValue
 
-	/**
-	 * operation setFeatureValue <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setFeatureValue(
 			fUML.Syntax.Classes.Kernel.StructuralFeature feature,
 			fUML.Semantics.Classes.Kernel.ValueList values, int position) {
@@ -169,11 +124,6 @@ public abstract class CompoundValue extends
 
 	} // setFeatureValue
 
-	/**
-	 * operation getFeatureValues <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Classes.Kernel.FeatureValueList getFeatureValues() {
 		// Return the feature values for this compound value.
 
@@ -181,12 +131,6 @@ public abstract class CompoundValue extends
 
 	} // getFeatureValues
 
-	/**
-	 * operation removeFeatureValues <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public void removeFeatureValues(
 			fUML.Syntax.Classes.Kernel.Classifier classifier) {
 		// Remove all feature values for features whose type is the given
@@ -202,11 +146,6 @@ public abstract class CompoundValue extends
 		}
 	} // removeFeatureValues
 
-	/**
-	 * operation toString <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public String toString() {
 		String buffer = "(" + this.objectId() + ":";
 

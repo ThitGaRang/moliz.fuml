@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
@@ -32,30 +28,9 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * 
- * <em><b>fUML::Semantics::Activities::IntermediateActivities::ActivityParameterNodeActivation</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ActivityParameterNodeActivation#fire <em>fire</em>}</li>
- * <li>{@link ActivityParameterNodeActivation#clearTokens <em>clearTokens</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ActivityParameterNodeActivation extends
 		fUML.Semantics.Activities.IntermediateActivities.ObjectNodeActivation {
 
-	/**
-	 * operation fire <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void fire(
 			fUML.Semantics.Activities.IntermediateActivities.TokenList incomingTokens) {
 		// If there are no incoming edges, this is an activation of an input
@@ -100,11 +75,6 @@ public class ActivityParameterNodeActivation extends
 
 	} // fire
 
-	/**
-	 * operation clearTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void clearTokens() {
 		// Clear all held tokens only if this is an input parameter node.
 

@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Activities.IntermediateActivities;
@@ -32,33 +28,6 @@ import fUML.Semantics.CommonBehaviors.BasicBehaviors.*;
 import fUML.Semantics.Actions.BasicActions.*;
 import fUML.Semantics.Loci.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Activities::IntermediateActivities::ActivityEdgeInstance</b></em>
- * '. <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ActivityEdgeInstance#sendOffer <em>sendOffer</em>}</li>
- * <li>{@link ActivityEdgeInstance#countOfferedValues <em>countOfferedValues
- * </em>}</li>
- * <li>{@link ActivityEdgeInstance#takeOfferedTokens <em>takeOfferedTokens</em>}
- * </li>
- * <li>{@link ActivityEdgeInstance#takeOfferedTokens <em>takeOfferedTokens</em>}
- * </li>
- * <li>{@link ActivityEdgeInstance#getOfferedTokens <em>getOfferedTokens</em>}</li>
- * <li>{@link ActivityEdgeInstance#hasOffer <em>hasOffer</em>}</li>
- * <li>{@link ActivityEdgeInstance#edge <em>edge</em>}</li>
- * <li>{@link ActivityEdgeInstance#group <em>group</em>}</li>
- * <li>{@link ActivityEdgeInstance#source <em>source</em>}</li>
- * <li>{@link ActivityEdgeInstance#target <em>target</em>}</li>
- * <li>{@link ActivityEdgeInstance#offers <em>offers</em>}</li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 
 	public fUML.Syntax.Activities.IntermediateActivities.ActivityEdge edge = null;
@@ -67,11 +36,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 	public fUML.Semantics.Activities.IntermediateActivities.ActivityNodeActivation target = null;
 	public fUML.Semantics.Activities.IntermediateActivities.OfferList offers = new fUML.Semantics.Activities.IntermediateActivities.OfferList();
 
-	/**
-	 * operation sendOffer <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void sendOffer(
 			fUML.Semantics.Activities.IntermediateActivities.TokenList tokens) {
 		// Send an offer from the source to the target.
@@ -93,12 +57,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 
 	} // sendOffer
 
-	/**
-	 * operation countOfferedValues <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public int countOfferedValues() {
 		// Return the number of values being offered in object tokens.
 
@@ -111,11 +69,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 		return count;
 	} // countOfferedValues
 
-	/**
-	 * operation takeOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.IntermediateActivities.TokenList takeOfferedTokens() {
 		// Take all the offered tokens and return them.
 
@@ -133,11 +86,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 		return tokens;
 	} // takeOfferedTokens
 
-	/**
-	 * operation takeOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.IntermediateActivities.TokenList takeOfferedTokens(
 			int maxCount) {
 		// Take all the offered tokens, up to the given maximum count of
@@ -171,11 +119,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 		return tokens;
 	} // takeOfferedTokens
 
-	/**
-	 * operation getOfferedTokens <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Activities.IntermediateActivities.TokenList getOfferedTokens() {
 		// Get the offered tokens (after which the tokens will still be
 		// offered).
@@ -193,11 +136,6 @@ public class ActivityEdgeInstance extends org.modeldriven.fuml.FumlObject {
 		return tokens;
 	} // getOfferedTokens
 
-	/**
-	 * operation hasOffer <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean hasOffer() {
 		// Return true if there are any pending offers.
 

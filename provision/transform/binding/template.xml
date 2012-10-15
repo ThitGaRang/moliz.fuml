@@ -18,6 +18,7 @@
 				$allGenClasses/uml:ownedAttribute[@upper!=1]/uml:type,
 				$allGenClasses/uml:ownedOperation/uml:ownedParameter[@upper!=1]/uml:type
 				)/."/>
+			<xsl:variable name="allActiveClasses" select="$allGenClasses[@isActive=true()]"/>
 			<xsl:variable name="allSyntaxClasses" select="/.."/>
 				<!-- select="$allGenClasses[uml:owner/uml:owner/uml:owner/@name='Syntax']"/> -->
 			<projectRef folder="fUML"/>							
@@ -32,6 +33,7 @@
 		<artifactContext name="ClassifierList" select="$allListClassifiers"/>
 		<artifactContext name="GenClass" select="$allGenClasses"/>
 		<artifactContext name="Enumeration" select="$allEnumerations"/>
+		<artifactContext name="ActiveClass" select="$allActiveClasses"/>
 		<artifactContext name="SyntaxClass" select="$allSyntaxClasses"/>
 	</artifactContexts>
 </templateBinding>		 	

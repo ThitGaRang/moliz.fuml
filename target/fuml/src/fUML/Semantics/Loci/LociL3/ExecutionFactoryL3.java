@@ -3,15 +3,11 @@
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
  * 
- * All modifications copyright 2009 Data Access Technologies, Inc.
+ * All modifications copyright 2009-2012 Data Access Technologies, Inc.
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated 
  * in the file entitled Licensing-Information. 
- *
- * Contributors:
- *   MDS - initial API and implementation
- *
  */
 
 package fUML.Semantics.Loci.LociL3;
@@ -31,30 +27,9 @@ import fUML.Semantics.Actions.CompleteActions.*;
 import fUML.Semantics.Loci.LociL1.*;
 import fUML.Semantics.Loci.LociL2.*;
 
-/**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>fUML::Semantics::Loci::LociL3::ExecutionFactoryL3</b></em>'. <!--
- * end-user-doc -->
- * <p>
- * The following features are implemented:
- * <ul>
- * <li>{@link ExecutionFactoryL3#instantiateVisitor <em>instantiateVisitor</em>}
- * </li>
- * </ul>
- * </p>
- * 
- * @generated
- */
-
 public class ExecutionFactoryL3 extends
 		fUML.Semantics.Loci.LociL2.ExecutionFactoryL2 {
 
-	/**
-	 * operation instantiateVisitor <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
 	public fUML.Semantics.Loci.LociL1.SemanticVisitor instantiateVisitor(
 			fUML.Syntax.Classes.Kernel.Element element) {
 		// Instantiate a visitor object for the given element (at Conformance
