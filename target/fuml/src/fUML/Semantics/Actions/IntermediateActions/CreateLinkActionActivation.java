@@ -81,23 +81,6 @@ public class CreateLinkActionActivation extends
 			}
 		}
 
-		for (int i = 0; i < extent.size(); i++) {
-			ExtensionalValue value = extent.getValue(i);
-			Link link = (Link) value;
-
-			boolean noMatch = true;
-			int j = 1;
-			while (noMatch & j <= endDataList.size()) {
-				LinkEndCreationData endData = endDataList.getValue(j - 1);
-				if (endData.isReplaceAll
-						& this.endMatchesEndData(link, endData)) {
-					link.destroy();
-					noMatch = false;
-				}
-				j = j + 1;
-			}
-		}
-
 		Link newLink = new Link();
 		newLink.type = linkAssociation;
 

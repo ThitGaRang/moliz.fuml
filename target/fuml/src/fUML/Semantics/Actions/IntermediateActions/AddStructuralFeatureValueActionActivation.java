@@ -67,7 +67,8 @@ public class AddStructuralFeatureValueActionActivation
 			Property oppositeEnd = this.getOppositeEnd(association, feature);
 			int position = 0;
 			if (oppositeEnd.multiplicityElement.isOrdered) {
-				position = -1;
+				position = this.getMatchingLinks(association, oppositeEnd,
+						inputValue).size() + 1;
 			}
 
 			if (action.isReplaceAll) {

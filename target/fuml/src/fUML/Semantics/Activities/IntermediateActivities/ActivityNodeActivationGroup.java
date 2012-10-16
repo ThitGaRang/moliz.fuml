@@ -177,6 +177,7 @@ public class ActivityNodeActivationGroup extends
 			nodeActivation.terminate();
 		}
 
+		this.suspendedActivations.clear();
 	} // terminateAll
 
 	public void createNodeActivations(
@@ -314,7 +315,6 @@ public class ActivityNodeActivationGroup extends
 		for (int i = 0; i < nodeActivations.size(); i++) {
 			ActivityNodeActivation activation = nodeActivations.getValue(i);
 			if (activation instanceof ActivityParameterNodeActivation) {
-				ParameterDirectionKind direction = ((ActivityParameterNode) (activation.node)).parameter.direction;
 				if (activation.incomingEdges.size() > 0) {
 					parameterNodeActivations
 							.addValue((ActivityParameterNodeActivation) activation);
@@ -354,6 +354,9 @@ public class ActivityNodeActivationGroup extends
 		// the only suspended activation, and the activation group has a
 		// containing node activation, then suspend that containing activation.
 
+		Debug.println("[suspend] node="
+				+ (activation.node == null ? "null" : activation.node.name));
+
 		if (!this.isSuspended()) {
 			StructuredActivityNodeActivation containingNodeActivation = this.containingNodeActivation;
 			if (containingNodeActivation != null) {
@@ -369,6 +372,9 @@ public class ActivityNodeActivationGroup extends
 		// activation list for this activation group. If this is the last
 		// suspended activation, and the activation group has a containing
 		// node activation, then resume that containing activation.
+
+		Debug.println("[resume] node="
+				+ (activation.node == null ? "null" : activation.node.name));
 
 		boolean found = false;
 		int i = 1;

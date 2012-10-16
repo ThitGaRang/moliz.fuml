@@ -103,10 +103,10 @@ public class ConditionalNodeActivation
 			// non-deterministically. ***
 			int i = ((ChoiceStrategy) this.getExecutionLocus().factory
 					.getStrategy("choice")).choose(this.selectedClauses.size());
-			Clause selectedClause = this.selectedClauses.getValue(i - 1);
+			this.selectedClause = this.selectedClauses.getValue(i - 1);
 
 			Debug.println("[doStructuredActivity] Running selectedClauses[" + i
-					+ "] = " + selectedClause);
+					+ "] = " + this.selectedClause);
 
 			for (int j = 0; j < clauses.size(); j++) {
 				Clause clause = clauses.getValue(j);
@@ -119,6 +119,9 @@ public class ConditionalNodeActivation
 					}
 				}
 			}
+
+			this.activationGroup.runNodes(this
+					.makeActivityNodeList(this.selectedClause.body));
 		}
 	} // doStructuredActivity
 

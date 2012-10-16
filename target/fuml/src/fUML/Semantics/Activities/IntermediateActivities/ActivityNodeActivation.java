@@ -57,9 +57,8 @@ public abstract class ActivityNodeActivation extends
 		// Receive an offer from an incoming edge.
 		// Check if all prerequisites have been satisfied. If so, fire.
 
-		if (this.node != null) {
-			Debug.println("[receiveOffer] node = " + this.node.name);
-		}
+		Debug.println("[receiveOffer] "
+				+ (this.node == null ? "..." : "node = " + this.node.name));
 
 		_beginIsolation();
 
