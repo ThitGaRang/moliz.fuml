@@ -30,14 +30,12 @@ public class UnlimitedNaturalToStringFunctionBehaviorExecution extends
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
 
-		// Get first UnlimitedNatural input argument
 		UnlimitedNaturalValue unv1 = (UnlimitedNaturalValue) inputParameters.getValue(0).values.getValue(0);
-		UnlimitedNatural un1 = unv1.value;
-		Debug.println("[doBody] argument = " + un1.naturalValue);
+		Debug.println("[doBody] argument = " + unv1.value.naturalValue);
 		
 		// Perform the toString operation.  If value is -1, return "*"
 		StringValue resultObj = new StringValue();
-		resultObj.value = un1.naturalValue < 0? "*": Integer.toString(un1.naturalValue);
+		resultObj.value = unv1.toString();
 		resultObj.type = this.locus.factory.getBuiltInType("String");
 
 		Debug.println("[doBody] Unlimited Natural ToString result = " + resultObj.value);

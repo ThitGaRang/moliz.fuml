@@ -21,7 +21,7 @@ import fUML.Debug;
 import fUML.Semantics.Classes.Kernel.RealValue;
 import fUML.Semantics.Classes.Kernel.StringValue;
 
-public class RealToStringFunctionBehaviorExecution1 extends
+public class RealToStringFunctionBehaviorExecution extends
         fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
 
     public void doBody(
@@ -29,12 +29,10 @@ public class RealToStringFunctionBehaviorExecution1 extends
             fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
     	
     	RealValue rv = (RealValue) inputParameters.getValue(0).values.getValue(0);
-    	float x = rv.value;
-        Debug.println("[doBody] argument = " + x);
+        Debug.println("[doBody] argument = " + rv.value);
     	
-    	String resultString = Float.toString(x);    	
     	StringValue result = new StringValue();
-    	result.value = resultString;
+    	result.value = rv.toString();
     	result.type = this.locus.factory.getBuiltInType("String");
 
         Debug.println("[doBody] Real ToString result = " + result.value);
@@ -44,7 +42,7 @@ public class RealToStringFunctionBehaviorExecution1 extends
     
     public fUML.Semantics.Classes.Kernel.Value new_() {
         // Create a new instance of this kind of function behavior execution.
-        return new RealToStringFunctionBehaviorExecution1();
+        return new RealToStringFunctionBehaviorExecution();
     }   
 
 } 

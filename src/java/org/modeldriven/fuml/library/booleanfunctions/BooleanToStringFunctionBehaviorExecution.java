@@ -29,21 +29,14 @@ public class BooleanToStringFunctionBehaviorExecution extends
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
 			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
 
-		// Extract single boolean input argument
 		BooleanValue bv1 = (BooleanValue) inputParameters.getValue(0).values.getValue(0);
-		boolean b1 = bv1.value;
-		Debug.println("[doBody] argument = " + b1);
+		Debug.println("[doBody] argument = " + bv1.value);
 
-		// Convert to String
-		String result = b1? "true": "false";
-
-		// Store result in StringValue object
 		StringValue resultObj = new StringValue();
-		resultObj.value = result;
+		resultObj.value = bv1.toString();
 		resultObj.type = this.locus.factory.getBuiltInType("String");
 		Debug.println("[doBody] Boolean ToString result = " + resultObj.value);
 		
-		// Add output to the outputParameters list
 		LibraryFunctions.addValueToOutputList(resultObj, outputParameters);
 	}
 
