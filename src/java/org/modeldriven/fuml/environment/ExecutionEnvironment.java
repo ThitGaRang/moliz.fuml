@@ -46,9 +46,6 @@ public class ExecutionEnvironment {
         if (log.isDebugEnabled())
             log.debug("executing the behavior...");
         
-        // FIXME: quick plugin demo hack
-        System.out.println("[execute] executing the behavior...");
-
         ParameterValueList outputParameterValues = this.environment.locus.executor.execute(
                 behavior, null, parameterValues);
 
@@ -57,15 +54,9 @@ public class ExecutionEnvironment {
             if (log.isDebugEnabled())
                 log.debug("output parameter '" + outputParameterValue.parameter.name
                     + "' has " + outputParameterValue.values.size() + " value(s)");
-            // FIXME: quick plugin demo hack
-            System.out.println("[execute] output parameter '" + outputParameterValue.parameter.name
-                    + "' has " + outputParameterValue.values.size() + " value(s)");
             for (int j = 0; j < outputParameterValue.values.size(); j++) {
                 if (log.isDebugEnabled())
                     log.debug("value [" + j + "] = "
-                        + outputParameterValue.values.getValue(j));
-                // FIXME: quick plugin demo hack
-                System.out.println("[execute] value [" + j + "] = "
                         + outputParameterValue.values.getValue(j));
             }
         }
@@ -75,8 +66,6 @@ public class ExecutionEnvironment {
         
         if (log.isDebugEnabled())
             log.debug("creating " + parameters.size() + " parameter(s):");
-        // FIXME: quick plugin demo hack
-        System.out.println("[execute] creating " + parameters.size() + " parameter(s):");
         ParameterValueList parameterValues = new ParameterValueList();
 
         for (int i = 0; i < parameters.size(); i++) {
@@ -91,9 +80,6 @@ public class ExecutionEnvironment {
                 if (log.isDebugEnabled())
                     log.debug("creating parameter value for parameter '"
                                 + parameters.getValue(i).name + "'");
-                // FIXME: quick plugin demo hack
-                System.out.println("[execute] creating parameter value for parameter '"
-                                + parameters.getValue(i).name + "'");
                 ParameterValue parameterValue = new ParameterValue();
                 parameterValue.parameter = parameters.getValue(i);
 
@@ -107,8 +93,6 @@ public class ExecutionEnvironment {
 
                 if (log.isDebugEnabled())
                     log.debug("value = " + value);
-                // FIXME: quick plugin demo hack
-                System.out.println("[execute] value = " + value);
                 parameterValue.values.addValue(value);
                 parameterValues.addValue(parameterValue);
             }
