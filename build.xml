@@ -318,13 +318,6 @@
       <echo message="archiving..."/>
       <mkdir dir="${dist.dir}"/>
         
-      <!--
-      <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/plugin/magicdraw">
-        <fileset dir="${src.dir}/images">                         
-            <include name="*.gif"/>     
-        </fileset>                            
-      </copy>
-      -->
       <jar destfile="${dist.dir}/fuml.jar">
         <fileset dir="${classes.dir}">
             <exclude name="**/**log4j.properties"/>      	
@@ -358,17 +351,6 @@
         <zipfileset dir="${test.dir}" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/test" />
         <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="fuml-${release.suffix}/fUML-Reference-Implementation/doc" />
       </zip>                
-
-      <!--
-      <zip destfile="${dist.dir}/fuml-RI-${release.suffix}-plugin.zip">
-        <zipfileset dir="." includes="*.txt" prefix="org.modeldriven.fuml.execution"/>
-        <zipfileset dir="${bin.dir}" includes="*.properties" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${lib.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution/lib" />
-        <zipfileset dir="${dist.dir}" includes="*.jar" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${xml.dir}/plugin" includes="*.xml" prefix="org.modeldriven.fuml.execution" />
-        <zipfileset dir="${doc.dir}" includes="Executable-fUML-*.doc" prefix="org.modeldriven.fuml.execution/doc" />
-      </zip>
-      -->              
 
     </target>
     
