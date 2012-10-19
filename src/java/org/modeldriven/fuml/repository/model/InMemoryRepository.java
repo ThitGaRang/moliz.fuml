@@ -117,6 +117,14 @@ public class InMemoryRepository extends InMemoryMapping
         classifierNameToClassifierMap.put("Boolean", primitiveTypeClassifier);
 
         primitiveTypeClassifier = 
+            	new org.modeldriven.fuml.repository.model.Classifier(
+            	    Environment.getInstance().getReal(), null);
+            if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)
+            	throw new IllegalStateException("expected XMI ID for fUML primitive type");
+            elementIdToElementMap.put(primitiveTypeClassifier.getXmiId(), primitiveTypeClassifier);
+            classifierNameToClassifierMap.put("Real", primitiveTypeClassifier);
+
+        primitiveTypeClassifier = 
         	new org.modeldriven.fuml.repository.model.Classifier(
         	    Environment.getInstance().getUnlimitedNatural(), null);
         if (primitiveTypeClassifier.getXmiId() == null || primitiveTypeClassifier.getXmiId().length() == 0)

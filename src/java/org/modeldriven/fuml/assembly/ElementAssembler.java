@@ -203,6 +203,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                         this.target = Environment.getInstance().getString();
                     else if (suffix.equals("Boolean"))
                         this.target = Environment.getInstance().getBoolean();
+                    else if (suffix.equals("Real"))
+                        this.target = Environment.getInstance().getReal();
                     else if (suffix.equals("UnlimitedNatural"))
                         this.target = Environment.getInstance().getUnlimitedNatural();
                     else

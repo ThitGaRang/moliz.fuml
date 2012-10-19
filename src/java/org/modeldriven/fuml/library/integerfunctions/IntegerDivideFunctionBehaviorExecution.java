@@ -15,39 +15,46 @@
 
 package org.modeldriven.fuml.library.integerfunctions;
 
+import org.modeldriven.fuml.library.LibraryFunctions;
+
 import fUML.Debug;
+import fUML.Semantics.Classes.Kernel.IntegerValue;
+import fUML.Semantics.Classes.Kernel.RealValue;
 
 public class IntegerDivideFunctionBehaviorExecution extends
-        org.modeldriven.fuml.library.integerfunctions.IntegerFunctionBehaviorExecution {
+		fUML.Semantics.CommonBehaviors.BasicBehaviors.OpaqueBehaviorExecution {
 
-    public Integer doIntegerFunction(UMLPrimitiveTypes.intList arguments) {
-        // Compute the integer divide function.
-    	
-    	int arg1 = arguments.getValue(0);
-    	int arg2 = arguments.getValue(1);
+	@Override
+	public void doBody(
+			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList inputParameters,
+			fUML.Semantics.CommonBehaviors.BasicBehaviors.ParameterValueList outputParameters) {
+		// Extract integer arguments and perform an integer function on them.
 
-    	// Check for illegal divide by zero
-    	if (arg2 == 0) {
-        	Debug.println("[doBody] Integer Divide, divide by zero not allowed");    		
-    		return null;
-    	}
+		int arg1 = ((IntegerValue) (inputParameters.getValue(0)).values
+				.getValue(0)).value;
+		int arg2 = ((IntegerValue) (inputParameters.getValue(1)).values
+				.getValue(0)).value;
 
-    	// Perform Divide function
-    	int i = arg1/arg2;
-    	Debug.println("[doBody] Integer Divide result = " + i);
-    	return i;
-    }
+		// Check for illegal divide by zero
+		if (arg2 == 0) {
+			Debug.println("[doBody] Integer Divide, divide by zero not allowed");
+			LibraryFunctions.addEmptyValueListToOutputList(outputParameters);
+		}
 
-    /**
-     * operation new_ <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+		// Perform Divide function
+		float x = ((float) arg1) / ((float) arg2);
+		Debug.println("[doBody] Integer Divide result = " + x);
 
-    public fUML.Semantics.Classes.Kernel.Value new_() {
-        // Create a new instance of this kind of function behavior execution.
+		RealValue result = new RealValue();
+		result.value = x;
+		result.type = this.locus.factory.getBuiltInType("Real");
+		LibraryFunctions.addValueToOutputList(result, outputParameters);
+	}
 
-        return new IntegerDivideFunctionBehaviorExecution();
-    }
+	public fUML.Semantics.Classes.Kernel.Value new_() {
+		// Create a new instance of this kind of function behavior execution.
+
+		return new IntegerDivideFunctionBehaviorExecution();
+	}
 
 } // IntegerDivideFunctionBehaviorExecution

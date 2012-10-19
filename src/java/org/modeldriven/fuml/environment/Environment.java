@@ -28,6 +28,7 @@ import fUML.Semantics.Classes.Kernel.EnumerationValue;
 import fUML.Semantics.Classes.Kernel.FeatureValueList;
 import fUML.Semantics.Classes.Kernel.IntegerValue;
 import fUML.Semantics.Classes.Kernel.PrimitiveValue;
+import fUML.Semantics.Classes.Kernel.RealValue;
 import fUML.Semantics.Classes.Kernel.Reference;
 import fUML.Semantics.Classes.Kernel.StringValue;
 import fUML.Semantics.Classes.Kernel.StructuredValue;
@@ -55,6 +56,7 @@ public class Environment {
 	private PrimitiveType Boolean = null;
 	private PrimitiveType String = null;
 	private PrimitiveType Integer = null;
+	private PrimitiveType Real = null;
 	private PrimitiveType UnlimitedNatural = null;
  
 	private Environment() {
@@ -73,6 +75,7 @@ public class Environment {
 		this.Boolean = this.createBuiltInType("Boolean");
 		this.String = this.createBuiltInType("String");
 		this.Integer = this.createBuiltInType("Integer");
+		this.Real = this.createBuiltInType("Real");
 		this.UnlimitedNatural = this.createBuiltInType("UnlimitedNatural");
 
 		// The fUML execution environment requires a single instance
@@ -82,6 +85,7 @@ public class Environment {
 		this.Boolean.setXmiId(UUIDGenerator.instance().getIdString36());
 		this.String.setXmiId(UUIDGenerator.instance().getIdString36());
 		this.Integer.setXmiId(UUIDGenerator.instance().getIdString36());
+		this.Real.setXmiId(UUIDGenerator.instance().getIdString36());
 		this.UnlimitedNatural.setXmiId(UUIDGenerator.instance().getIdString36());
     }
 
@@ -150,6 +154,10 @@ public class Environment {
     	return this.Integer;
     }
     
+    public PrimitiveType getReal() {
+    	return this.Real;
+    }
+    
     public PrimitiveType getUnlimitedNatural() {
     	return this.UnlimitedNatural;
     }
@@ -162,6 +170,8 @@ public class Environment {
 			primitiveValue = new BooleanValue();
 		} else if (type == this.Integer) {
 			primitiveValue = new IntegerValue();
+		} else if (type == this.Real) {
+			primitiveValue = new RealValue();
 		} else if (type == this.String) {
 			primitiveValue = new StringValue();
 		} else if (type == this.UnlimitedNatural) {
