@@ -20,7 +20,6 @@
     <property name="schema.model.dir" value="${schema.dir}/model"/>
     <property name="schema.catalog.dir" value="${schema.dir}/catalog"/>
     <property name="uml.dir" value="${src.dir}/uml"/>
-    <property name="uml.library.dir" value="${src.dir}/uml/library"/>
     <property name="xmi.dir" value="${src.dir}/xmi"/>
     <property name="xmi.library.dir" value="${src.dir}/xmi/library"/>
     <property name="template.dir" value="${src.dir}/xsl"/>
@@ -155,18 +154,7 @@
             <param name="file.name" value="fUML_Syntax.xmi"/>
             <param name="target.name" value="fUML_SyntaxAssembler"/>
         </antcall>
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${xmi.dir}"/>
-            <param name="file.name" value="fUML_Semantics.xmi"/>
-            <param name="target.name" value="fUML_SemanticsAssembler"/>
-        </antcall>
-        <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="fUML-LibraryImplementation.uml"/>
-            <param name="target.name" value="fUML_LibraryImplementationAssembler"/>
-        </antcall>
-    	
-    	
+        
     </target>        
 
     <target name="compile-common" depends="init">
@@ -197,31 +185,6 @@
       <delete file="${gen.java.dir}/fUML/Semantics/CommonBehaviors/Communications/ClassifierBehaviorExecution_Behavior.java" />
       <delete file="${gen.java.dir}/fUML/Semantics/CommonBehaviors/Communications/ObjectActivation_Behavior.java" />
 
-	  <!-- Replace (temporarily) generated source files with corrected ones. -->
-      <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
-      <!--
-      <delete file="${gen.java.dir}/fUML/Semantics/Classes/Kernel/Link.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ActivityFinalNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ActivityNodeActivationGroup.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/DecisionNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ForkedToken.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/IntermediateActivities/ObjectNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/CompleteStructuredActivities/StructuredActivityNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/CompleteStructuredActivities/LoopNodeActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Activities/ExtraStructuredActivities/ExpansionRegionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/BasicActions/ActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/BasicActions/CallActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/AddStructuralFeatureValueActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/ClearStructuralFeatureActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/CreateLinkActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/DestroyObjectActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/RemoveStructuralFeatureValueActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/IntermediateActions/StructuralFeatureActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/CompleteActions/AcceptEventActionActivation.java" />
-      <delete file="${gen.java.dir}/fUML/Semantics/Actions/CompleteActions/ReduceActionActivation.java" />
-      -->
-       
       <mkdir dir="${classes.dir}"/>
       <javac destdir="${classes.dir}" 
         debug="on"> 
@@ -251,9 +214,6 @@
             </fileset>                                             
        </copy>
        <copy overwrite="yes" todir="${classes.dir}/org/modeldriven/fuml/library">
-            <fileset dir="${uml.library.dir}">                         
-                <include name="*.uml"/>     
-            </fileset>                                             
             <fileset dir="${xmi.library.dir}">                         
                 <include name="*.xmi"/>     
             </fileset>                                             
