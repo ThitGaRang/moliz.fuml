@@ -56,16 +56,27 @@ public class ModelSupport {
     	// abstract class being used based on default
     	// type determination below. 
     	String xmiType = target.getXmiType();
-        if (xmiType != null && xmiType.length() > 0)
-        {    
-            return findClassifierByNamespace(target, xmiType);
-        }
-        
-        Property property = sourceClassifier.findProperty(target.getLocalName());
-        if (property != null)
-        {
-            Classifier type = property.getType();
-            result = Repository.INSTANCE.getClassifier(type.getName());    
+        if (xmiType != null && xmiType.length() > 0) {    
+            result = findClassifierByNamespace(target, xmiType);
+            
+        } else {        
+	        Property property = sourceClassifier.findProperty(target.getLocalName());
+	        if (property != null) {
+	            Classifier type = property.getType();
+	            if (type != null) {
+	            	String name = type.getName();
+	            	result = Repository.INSTANCE.getClassifier(name);
+	            	// If the property type is Type or Classifier, and the target is
+	            	// not an internal or external reference, then it must be a
+	            	// reference to a standard PrimitiveType without an xmi:type
+	            	// given.
+	            	if ((name.equals("Type") || name.equals("Classifier")) &&
+	            			!isInternalReferenceElement((StreamNode)target, result, false) &&
+	            			!isExternalReferenceElement((StreamNode)target, result, false)) {
+	                    result = Repository.INSTANCE.getClassifier("PrimitiveType");
+	            	}
+	            }
+	        }
         }
         return result;
     }
@@ -155,7 +166,6 @@ public class ModelSupport {
         
         if (!isPrimitiveTypeElement(node, classifier, hasAttributes))
         {
-            StreamNode eventNode = (StreamNode)node;
             QName href = new QName(XmiConstants.ATTRIBUTE_XMI_HREF);
             if (node.hasAttribute(href))
             {
@@ -169,6 +179,7 @@ public class ModelSupport {
                 String suffix = hrefValue.substring(idx+1);
                 
                 if (suffix.equals("Integer") ||
+                	suffix.equals("Real") ||
                 	suffix.equals("String") ||
                 	suffix.equals("Boolean") || 
                 	suffix.equals("UnlimitedNatural")) {               	

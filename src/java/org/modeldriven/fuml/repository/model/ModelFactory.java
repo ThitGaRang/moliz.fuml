@@ -340,6 +340,22 @@ public class ModelFactory
             }    
             valueSpec = literalInteger;
         }
+        else if (LiteralUnlimitedNatural.class.getSimpleName().equals(typeName))
+        {
+        	LiteralUnlimitedNatural literalUnlimitedNatural = new LiteralUnlimitedNatural();                
+            if (type != null)
+                literalUnlimitedNatural.type = type;
+            else
+                literalUnlimitedNatural.type = model.getClassifierByName("UnlimitedNatural").getDelegate();
+            if (value instanceof UnlimitedNatural) {            	
+                literalUnlimitedNatural.value = (UnlimitedNatural)value;
+            }    
+            else
+            {    
+                literalUnlimitedNatural.value = new UnlimitedNatural();
+            }    
+            valueSpec = literalUnlimitedNatural;
+        }
         else if ("OpaqueExpression".equals(typeName))
         {
         	if (value == null)

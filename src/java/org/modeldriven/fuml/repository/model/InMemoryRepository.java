@@ -264,9 +264,9 @@ public class InMemoryRepository extends InMemoryMapping
         }    	
     }
     
-    private Package getPackage(org.modeldriven.fuml.repository.RepositoryArtifact aftifact, String qualifiedName) {
+    private Package getPackage(org.modeldriven.fuml.repository.RepositoryArtifact artifact, String qualifiedName) {
     	
-        List<Package> artifactPackages = artifactURIToPackagesMap.get(aftifact.getURN());
+        List<Package> artifactPackages = artifactURIToPackagesMap.get(artifact.getURN());
    	    Iterator<Package> iter = artifactPackages.iterator();	
     	while (iter.hasNext())
     	{   			

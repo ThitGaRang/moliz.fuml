@@ -140,13 +140,18 @@
     <target name="generate-metadata">
         
         <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="Infrastructure.uml"/>
+            <param name="file.dir" value="${xmi.dir}"/>
+            <param name="file.name" value="PrimitiveTypes.xmi"/>
+            <param name="target.name" value="PrimitiveTypesAssembler"/>
+        </antcall>
+        <antcall target="generate-model-factory">
+            <param name="file.dir" value="${xmi.dir}"/>
+            <param name="file.name" value="Infrastructure.xmi"/>
             <param name="target.name" value="InfrastructureAssembler"/>
         </antcall>
         <antcall target="generate-model-factory">
-            <param name="file.dir" value="${uml.dir}"/>
-            <param name="file.name" value="Superstructure.uml"/>
+            <param name="file.dir" value="${xmi.dir}"/>
+            <param name="file.name" value="Superstructure.xmi"/>
             <param name="target.name" value="SuperstructureAssembler"/>
         </antcall>
         <antcall target="generate-model-factory">

@@ -1,6 +1,5 @@
 package org.modeldriven.fuml.repository.model;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -852,7 +851,8 @@ public class InMemoryMapping implements RepositoryMapping
         else if (LiteralNull.class.isAssignableFrom(valueSpec.getClass()))
             return null; //((LiteralNull)valueSpec).;		
         else if (LiteralUnlimitedNatural.class.isAssignableFrom(valueSpec.getClass())) {
-            return ((LiteralString)valueSpec).value;		
+        	int naturalValue = ((LiteralUnlimitedNatural)valueSpec).value.naturalValue;
+            return naturalValue == -1? "*": String.valueOf(naturalValue);		
         } else if (InstanceValue.class.isAssignableFrom(valueSpec.getClass())) {
             return valueSpec.name;
         } else {
@@ -871,7 +871,7 @@ public class InMemoryMapping implements RepositoryMapping
         //else if (LiteralNull.class.isAssignableFrom(valueSpec.getClass()))        	 	
         else if (LiteralUnlimitedNatural.class.isAssignableFrom(valueSpec.getClass())) {
         	UnlimitedNatural un = new UnlimitedNatural();
-        	un.naturalValue = Integer.parseInt(value);
+        	un.naturalValue = value.equals("*")? -1: Integer.parseInt(value);
         	((LiteralUnlimitedNatural)valueSpec).value = un;
         } else if (InstanceValue.class.isAssignableFrom(valueSpec.getClass())) {
             valueSpec.setName(value);

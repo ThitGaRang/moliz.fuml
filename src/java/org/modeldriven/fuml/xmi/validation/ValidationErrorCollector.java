@@ -408,25 +408,23 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
                 {
                     if (validateExternalReferences)
                     {
-                        if (Library.getInstance().lookup(id) != null)
-                            continue; // happy
-                        else if (id != null && id.startsWith("pathmap:")) // FIXME: resolve these references inside/outside of lib(s)
-                            continue;
+                        if (Library.getInstance().lookup(id) != null) {
+                            // happy
+                        } else if (id != null && id.startsWith("pathmap:")) {
+                        	// FIXME: resolve these references inside/outside of lib(s)
+                        } else {
+                            StreamNode streamNode = (StreamNode)reference.getXmiNode();
+                        	if (domain == null)
+                        		domain = FumlConfiguration.getInstance().findNamespaceDomain(streamNode.getNamespaceURI());	            	
+
+                        	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByReference(ValidationExemptionType.EXTERNAL_REFERENCE,
+                        			reference.getClassifier(), id, streamNode.getNamespaceURI(), domain);
+                        	if (exemption == null) {
+                                addError(ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL, 
+                                		reference, id);
+                        	}                	
+                        }
                     }
-                    else
-                        continue;
-
-                    StreamNode streamNode = (StreamNode)reference.getXmiNode();
-                	if (domain == null)
-                		domain = FumlConfiguration.getInstance().findNamespaceDomain(streamNode.getNamespaceURI());	            	
-
-                	ValidationExemption exemption = FumlConfiguration.getInstance().findValidationExemptionByReference(ValidationExemptionType.EXTERNAL_REFERENCE,
-                			reference.getClassifier(), id, streamNode.getNamespaceURI(), domain);
-                	if (exemption == null) {
-                        addError(ErrorCode.INVALID_EXTERNAL_REFERENCE, ErrorSeverity.FATAL, 
-                        		reference, id);
-                	}                	
-
                 }
                 else // internal reference
                 {

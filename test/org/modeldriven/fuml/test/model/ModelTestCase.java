@@ -284,7 +284,7 @@ public class ModelTestCase extends FUMLTest {
     }
 
     public void testPackage() throws Exception {    
-        log.info("testClass");
+        log.info("testPackage");
         Class_ pkg = (Class_)Repository.INSTANCE.findClassifier("Package");
         assertTrue("could not find class for 'Package'", pkg != null);
 

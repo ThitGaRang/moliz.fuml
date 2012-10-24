@@ -4,8 +4,8 @@
 <xsl:stylesheet version="2.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:lxslt="http://xml.apache.org/xslt"
-  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
-  xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML"
+  xmlns:xmi="http://www.omg.org/spec/XMI/20110701"
+  xmlns:uml="http://www.omg.org/spec/UML/20110701"
   xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
 
 <xsl:output method="text"
@@ -318,7 +318,14 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
         factory.createUpperValue(prop, <xsl:value-of select="$hasUpperValue" />, "<xsl:value-of select="normalize-space(upperValue/@value)" />");
     	mapping.mapProperty(assoc, prop, this);
     	</xsl:for-each>    
+        <xsl:choose>
+            <xsl:when  test="@memberEnd">
         factory.createAssociationEnds(assoc, "<xsl:value-of select="@memberEnd" />");
+            </xsl:when>
+            <xsl:otherwise>
+        factory.createAssociationEnds(assoc, "<xsl:for-each select="./memberEnd/@xmi:idref"><xsl:value-of select="concat(.,' ')"/> </xsl:for-each>");
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:for-each>
     }
 

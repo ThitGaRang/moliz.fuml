@@ -33,6 +33,25 @@ public class Library {
     private LibraryConfiguration config;
 
     private Library() {
+    }
+    
+    public static Library getInstance() throws LibraryException {
+        if (instance == null)
+            initializeInstance();
+        return instance;
+    }
+
+    private static synchronized void initializeInstance() {
+    	if (instance == null) {
+    		// NOTE: Separating initialization from construction avoids the
+    		// possibility of an infinite loop if an attempt is made to 
+    		// access the library instance during initialization.
+    		instance = new Library();
+    		instance.initialize();
+    	}
+    }
+
+    private void initialize() {
         log.info("initializing...");
         config = FumlConfiguration.getInstance().getConfig().getLibraryConfiguration();
         if (config != null && config.getLibraryImport() != null) {
@@ -41,17 +60,6 @@ public class Library {
 	            load(libraryImports.next());
 	        }
         }
-    }
-
-    public static Library getInstance() throws LibraryException {
-        if (instance == null)
-            initializeInstance();
-        return instance;
-    }
-
-    private static synchronized void initializeInstance() {
-        if (instance == null)
-            instance = new Library();
     }
 
     @SuppressWarnings("unchecked")
