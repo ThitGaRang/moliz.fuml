@@ -22,6 +22,7 @@
     <SupportedNamespace domain="magicdraw" uri="http:///schemas/MagicDrawProfile/_GIVXUJo8Ed2jetuWwvgiOQ/0" />
     <SupportedNamespace domain="magicdraw" uri="http:///schemas/MagicDrawProfile/_CBbZgLKVEd6YC-l_D9264g/0" />
     <SupportedNamespace domain="magicdraw" uri="http://www.magicdraw.com/schemas/MagicDraw_Profile.xmi" />
+    <SupportedNamespace domain="magicdraw" uri="http://www.omg.org/spec/UML/20110701/MagicDrawProfile" />
 
   
     <!-- ignored elements -->
