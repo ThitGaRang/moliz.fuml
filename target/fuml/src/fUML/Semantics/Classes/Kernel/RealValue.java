@@ -88,8 +88,8 @@ public class RealValue extends fUML.Semantics.Classes.Kernel.PrimitiveValue {
 				}
 			}
 
-			// This gives 10 significant digits in the mantissa.
-			for (int i = 0; i < 10; i++) {
+			// This gives 9 significant digits in the mantissa.
+			for (int i = 0; i < 9; i++) {
 				positiveValue = positiveValue * 10;
 			}
 
