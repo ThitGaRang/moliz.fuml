@@ -1,4 +1,3 @@
-
 /*
  * Initial version copyright 2008 Lockheed Martin Corporation, except  
  * as stated in the file entitled Licensing-Information. 
@@ -141,8 +140,7 @@ public class ExpansionRegionActivation extends
 			while (j <= outputElements.size()) {
 				OutputPinActivation groupOutput = new OutputPinActivation();
 				groupOutput.run();
-				activationGroup.groupOutputs
-						.addValue(new OutputPinActivation());
+				activationGroup.groupOutputs.addValue(groupOutput);
 				j = j + 1;
 			}
 
@@ -153,7 +151,7 @@ public class ExpansionRegionActivation extends
 			k = k + 1;
 		}
 
-		ExpansionActivationGroupList activationGroups = this.activationGroups;
+		// ExpansionActivationGroupList activationGroups = this.activationGroups;
 
 		if (region.mode == ExpansionKind.iterative) {
 			Debug.println("[doStructuredActivity] Expansion mode = iterative");
