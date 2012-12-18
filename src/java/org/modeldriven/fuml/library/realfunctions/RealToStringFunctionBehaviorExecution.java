@@ -32,7 +32,7 @@ public class RealToStringFunctionBehaviorExecution extends
         Debug.println("[doBody] argument = " + rv.value);
     	
     	StringValue result = new StringValue();
-    	result.value = rv.toString();
+    	result.value = Float.toString(rv.value);
     	result.type = this.locus.factory.getBuiltInType("String");
 
         Debug.println("[doBody] Real ToString result = " + result.value);
