@@ -52,6 +52,18 @@ public class FunctionExecutionTestCase extends FUMLTest {
         log.info("done");
     }
             
+    public void testTestRealFunctions() throws Exception {
+        log.info("testTestRealFunctions");
+        execute("TestRealFunctions");
+        log.info("done");
+    }
+   
+    public void testTestRealComparisonFunctions() throws Exception {
+        log.info("testTestRealComparisonFunctions");
+        execute("TestRealComparisonFunctions");
+        log.info("done");
+    }
+            
     public void testTestBooleanFunctions() throws Exception {
         log.info("testTestBooleanFunctions");
         execute("TestBooleanFunctions");
