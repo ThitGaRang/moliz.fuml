@@ -975,6 +975,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                     return boolean.class;
                 else if (UnlimitedNatural.class.getSimpleName().equals(dataType.name))
                     return int.class; 
+                else if ("Real".equals(dataType.name))
+                    return float.class;
                 else
                     throw new AssemblyException("unknown dataType ("
                             + dataType.getClass().getName() + ") name: '" + dataType.name + "'");
@@ -986,6 +988,8 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 else if (dataType.getHref().endsWith(Boolean.class.getSimpleName()))
                     return boolean.class;
                 else if (dataType.getHref().endsWith(UnlimitedNatural.class.getSimpleName()))
+                    return int.class;
+                else if (dataType.getHref().endsWith("Real"))
                     return int.class;
                 else
                     throw new AssemblyException("unknown dataType ("
@@ -1044,6 +1048,9 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             return Boolean.valueOf(value);
         else if (javaType.equals(boolean.class))
             return (boolean) Boolean.valueOf(value).booleanValue();
+        else if (javaType.equals(float.class)) {
+        	return (float)Float.valueOf(value).floatValue();
+        }
         else
             return value;
     }
