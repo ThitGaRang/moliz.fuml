@@ -35,7 +35,8 @@ public class LoopNodeActivation
 		fUML.Semantics.Activities.CompleteStructuredActivities.StructuredActivityNodeActivation {
 
 	public fUML.Semantics.Activities.CompleteStructuredActivities.ValuesList bodyOutputLists = new fUML.Semantics.Activities.CompleteStructuredActivities.ValuesList();
-
+	public boolean isTerminateAll = false;
+	
 	public void doStructuredActivity() {
 		// Set the initial values for the body outputs to the values of the loop
 		// variable input pins.
@@ -53,10 +54,11 @@ public class LoopNodeActivation
 
 		LoopNode loopNode = (LoopNode) (this.node);
 		InputPinList loopVariableInputs = loopNode.loopVariableInput;
-		OutputPinList loopVariables = loopNode.loopVariable;
-		OutputPinList resultPins = loopNode.result;
+		// OutputPinList loopVariables = loopNode.loopVariable;
+		// OutputPinList resultPins = loopNode.result;
 
-		ValuesList bodyOutputLists = this.bodyOutputLists;
+		// ValuesList bodyOutputLists = this.bodyOutputLists;
+		this.bodyOutputLists.clear();
 		for (int i = 0; i < loopVariableInputs.size(); i++) {
 			InputPin loopVariableInput = loopVariableInputs.getValue(i);
 			Values bodyOutputList = new Values();
@@ -64,6 +66,7 @@ public class LoopNodeActivation
 			this.bodyOutputLists.addValue(bodyOutputList);
 		}
 
+		this.isTerminateAll = false;
 		this.doLoop(true);
 	} // doStructuredActivity
 
@@ -118,7 +121,7 @@ public class LoopNodeActivation
 				}
 			}
 
-			if (this.isRunning() && !this.isSuspended()) {
+			if (!this.isTerminateAll & this.isRunning() & !this.isSuspended()) {
 				this.activationGroup.terminateAll();
 			} else {
 				continuing = false;
@@ -130,7 +133,7 @@ public class LoopNodeActivation
 
 		}
 
-		if (this.isRunning() && !this.isSuspended()) {
+		if (!this.isTerminateAll & this.isRunning() & !this.isSuspended()) {
 			for (int i = 0; i < bodyOutputLists.size(); i++) {
 				Values bodyOutputList = bodyOutputLists.getValue(i);
 				OutputPin resultPin = resultPins.getValue(i);
@@ -227,6 +230,8 @@ public class LoopNodeActivation
 		// Copy the values of the body outputs to the loop outputs, and then
 		// terminate all activations in the loop.
 
+		this.isTerminateAll = true;
+		
 		OutputPinList resultPins = ((LoopNode) this.node).result;
 
 		for (int i = 0; i < bodyOutputLists.size(); i++) {
@@ -247,12 +252,14 @@ public class LoopNodeActivation
 
 		this.saveBodyOutputs();
 
-		if (loopNode.mustIsolate) {
-			_beginIsolation();
-			this.continueLoop();
-			_endIsolation();
-		} else {
-			this.continueLoop();
+		if (!this.isTerminateAll) {
+			if (loopNode.mustIsolate) {
+				_beginIsolation();
+				this.continueLoop();
+				_endIsolation();
+			} else {
+				this.continueLoop();
+			}
 		}
 
 		if (this.isSuspended()) {
