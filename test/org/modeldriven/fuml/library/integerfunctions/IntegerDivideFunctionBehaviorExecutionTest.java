@@ -40,7 +40,7 @@ public class IntegerDivideFunctionBehaviorExecutionTest extends TestCase {
 	 */
 	public void testDoBody() throws Exception {
 		IntegerConversion.insertTwoIntegersIntoParameterValueList(12, 4, inputParameters);
-		IntegerDivideFunctionBehaviorExecution obj = new IntegerDivideFunctionBehaviorExecution();
+		IntegerDivFunctionBehaviorExecution obj = new IntegerDivFunctionBehaviorExecution();
 		obj.doBody(inputParameters, outputParameters);
 		assertEquals(3, IntegerConversion.extractIntegerFromParameterValueList(outputParameters));
 	}
@@ -52,7 +52,7 @@ public class IntegerDivideFunctionBehaviorExecutionTest extends TestCase {
 	 */
 	public void testDoBody_divideByZero() throws Exception {
 		IntegerConversion.insertTwoIntegersIntoParameterValueList(10, 0, inputParameters);
-		IntegerDivideFunctionBehaviorExecution obj = new IntegerDivideFunctionBehaviorExecution();
+		IntegerDivFunctionBehaviorExecution obj = new IntegerDivFunctionBehaviorExecution();
 		obj.doBody(inputParameters, outputParameters);
 		// Verify empty list indicating invalid input
 		assertEquals(0, outputParameters.getValue(0).values.size());
@@ -65,7 +65,7 @@ public class IntegerDivideFunctionBehaviorExecutionTest extends TestCase {
 	 */
 	public void testDoBody_remainder() throws Exception {
 		IntegerConversion.insertTwoIntegersIntoParameterValueList(12, 5, inputParameters);
-		IntegerDivideFunctionBehaviorExecution obj = new IntegerDivideFunctionBehaviorExecution();
+		IntegerDivFunctionBehaviorExecution obj = new IntegerDivFunctionBehaviorExecution();
 		obj.doBody(inputParameters, outputParameters);
 		assertEquals(2, IntegerConversion.extractIntegerFromParameterValueList(outputParameters));
 	}
@@ -77,7 +77,7 @@ public class IntegerDivideFunctionBehaviorExecutionTest extends TestCase {
 	 */
 	public void testDoBody_negative() throws Exception {
 		IntegerConversion.insertTwoIntegersIntoParameterValueList(12, -4, inputParameters);
-		IntegerDivideFunctionBehaviorExecution obj = new IntegerDivideFunctionBehaviorExecution();
+		IntegerDivFunctionBehaviorExecution obj = new IntegerDivFunctionBehaviorExecution();
 		obj.doBody(inputParameters, outputParameters);
 		assertEquals(-3, IntegerConversion.extractIntegerFromParameterValueList(outputParameters));
 	}	
