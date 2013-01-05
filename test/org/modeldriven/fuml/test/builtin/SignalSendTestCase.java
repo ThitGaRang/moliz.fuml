@@ -31,21 +31,21 @@ public class SignalSendTestCase extends BuiltInTest {
         log.info("testSignalSend");
         initTestEnv.testSuite.testSignalSend();
         
-        initTestEnv.environment.printElements();
+        // initTestEnv.environment.printElements();
 
         // see if there is one
         Element element = findElement("TestSignal");
         assertTrue(element != null);
         assertTrue(element instanceof Signal);
         Signal signal = (Signal)element;
-        this.assertTrue("TestSignal".equals(signal.name));
+        assertTrue("TestSignal".equals(signal.name));
 
         
         element = findElement("TestSignalAccepter");
         assertTrue(element != null);
         assertTrue(element instanceof Activity);
         Activity accepter = (Activity)element;
-         
+        assertTrue("TestSignalAccepter".equals(accepter.name));
         
         log.info("done");
     }

@@ -21,7 +21,8 @@ import fUML.Syntax.CommonBehaviors.Communications.*;
 import fUML.Semantics.Classes.Kernel.*;
 import fUML.Semantics.CommonBehaviors.Communications.*;
 import fUML.Semantics.Loci.LociL1.*;
-import fUML.Semantics.Loci.LociL3.ExecutionFactoryL3;
+
+import org.modeldriven.fuml.environment.ExecutionFactory;
 
 public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 
@@ -37,7 +38,7 @@ public class TestEnvironment extends org.modeldriven.fuml.FumlObject {
 		try {
 
 			this.locus = new Locus();
-			this.locus.setFactory(new ExecutionFactoryL3());
+			this.locus.setFactory(new ExecutionFactory());
 			this.locus.setExecutor(new Executor());
 
 			this.locus.factory
