@@ -165,8 +165,12 @@ public abstract class CompoundValue extends
 
 			int j = 1;
 			while (j <= featureValue.values.size()) {
-				buffer = buffer + " "
-						+ featureValue.values.getValue(j - 1).toString();
+				Value value = featureValue.values.getValue(j - 1);
+				if (value instanceof Reference) {
+					buffer = buffer + " Reference to " + value.objectId();
+				} else {
+					buffer = buffer + " " + value.toString();
+				}
 				j = j + 1;
 			}
 
