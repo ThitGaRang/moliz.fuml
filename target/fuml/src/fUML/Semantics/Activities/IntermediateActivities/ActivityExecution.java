@@ -101,7 +101,9 @@ public class ActivityExecution extends
 		// Terminate all node activations (which will ultimately result in the
 		// activity execution completing).
 
-		this.activationGroup.terminateAll();
+		if (this.activationGroup != null) {
+			this.activationGroup.terminateAll();
+		}
 	} // terminate
 
 } // ActivityExecution
