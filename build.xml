@@ -349,6 +349,17 @@
         <antcall target="test-signal-send"/>
         <antcall target="test-super-call"/>
         <antcall target="test-polymorphic-call"/>
+        <antcall target="test-is-classified"/>
+        <antcall target="test-link-creator"/>
+        <antcall target="test-link-destroyer"/>
+        <antcall target="test-link-reader"/>
+        <antcall target="test-link-remover"/>
+        <antcall target="test-link-writer"/>
+        <antcall target="test-writer-reader"/>
+        <antcall target="test-structured-node"/>
+        <antcall target="test-conditional-node"/>
+        <antcall target="test-loop-node"/>
+        <antcall target="test-expansion-region"/>
     </target>
     
     <target name="test-simple-activities">
@@ -381,6 +392,72 @@
         </antcall>
     </target>
      
+    <target name="test-is-classified">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.IsClassifiedTestCase"/>
+        </antcall>
+    </target>
+     
+    <target name="test-link-creator">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LinkCreatorTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-link-destroyer">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LinkDestroyerTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-link-reader">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LinkReaderTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-link-remover">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LinkRemoverTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-link-writer">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LinkWriterTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-writer-reader">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.WriterReaderTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-structured-node">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.StructuredNodeTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-conditional-node">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.ConditionalNodeTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-loop-node">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.LoopNodeTestCase"/>
+        </antcall>
+    </target>
+         
+    <target name="test-expansion-region">
+        <antcall target="run-test">
+            <param name="test" value="org.modeldriven.fuml.test.builtin.ExpansionRegionTestCase"/>
+        </antcall>
+    </target>
+         
     <target name="test-binding-unmarshal" depends="copy-resources">
         <antcall target="run-test">
             <param name="test" value="org.modeldriven.fuml.test.UnmarshalTestCase"/>
