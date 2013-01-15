@@ -26,7 +26,7 @@ public class IntegerDivideFunctionBehaviorExecution
 	} // doIntegerFunction
 
 	public fUML.Semantics.Classes.Kernel.Value new_() {
-		return null;
+		return new IntegerDivideFunctionBehaviorExecution();
 	} // new_
 
 } // IntegerDivideFunctionBehaviorExecution

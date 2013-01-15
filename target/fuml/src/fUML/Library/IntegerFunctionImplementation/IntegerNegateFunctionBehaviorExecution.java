@@ -26,7 +26,7 @@ public class IntegerNegateFunctionBehaviorExecution
 	} // doIntegerFunction
 
 	public fUML.Semantics.Classes.Kernel.Value new_() {
-		return null;
+		return new IntegerNegateFunctionBehaviorExecution();
 	} // new_
 
 } // IntegerNegateFunctionBehaviorExecution

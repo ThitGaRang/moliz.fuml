@@ -26,7 +26,7 @@ public class IntegerMinusFunctionBehaviorExecution
 	} // doIntegerFunction
 
 	public fUML.Semantics.Classes.Kernel.Value new_() {
-		return null;
+		return new IntegerMinusFunctionBehaviorExecution();
 	} // new_
 
 } // IntegerMinusFunctionBehaviorExecution
