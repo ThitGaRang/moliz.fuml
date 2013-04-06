@@ -88,7 +88,7 @@ public class ReduceActionActivation extends
 			while (i <= parameters.size()) {
 				Parameter parameter = parameters.getValue(i - 1);
 				if (parameter.direction == ParameterDirectionKind.in) {
-					if (input1 != null) {
+					if (input1 == null) {
 						input1 = parameter;
 					} else {
 						input2 = parameter;
@@ -120,10 +120,15 @@ public class ReduceActionActivation extends
 
 				this.currentExecution.execute();
 
-				parameterValue1 = this.currentExecution
-						.getParameterValue(output);
+				parameterValue1.values = this.currentExecution
+						.getParameterValue(output).values;
 
 				j = j + 1;
+				
+				if (parameterValue1.values.isEmpty() & j <= values.size()) {
+					parameterValue1.values.add(values.getValue(j - 1));
+					j = j + 1;
+				}
 			}
 
 			this.putTokens(action.result, parameterValue1.values);
