@@ -32,7 +32,7 @@ public abstract class Namespace extends
 		this.addOwnedElement(ownedMember);
 
 		this.ownedMember.addValue(ownedMember);
-		ownedMember.namespace = this;
+		ownedMember._setNamespace(this);
 
 		this.addMember(ownedMember);
 	} // addOwnedMember
@@ -53,7 +53,7 @@ public abstract class Namespace extends
 		this.addOwnedElement(elementImport);
 
 		this.elementImport.addValue(elementImport);
-		elementImport.importingNamespace = this;
+		elementImport._setImportingNamespace(this);
 
 		this.addImportedMember(elementImport.importedElement);
 	} // addElementImport
@@ -63,7 +63,7 @@ public abstract class Namespace extends
 		this.addOwnedElement(packageImport);
 
 		this.packageImport.addValue(packageImport);
-		packageImport.importingNamespace = this;
+		packageImport._setImportingNamespace(this);
 
 		PackageableElementList importedElements = packageImport.importedPackage
 				.visibleMembers();
