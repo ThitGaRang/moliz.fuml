@@ -129,7 +129,7 @@ public class RemoveStructuralFeatureValueActionActivation
 				int j = this.position(inputValue, featureValue.values, 1);
 				while (j > 0) {
 					featureValue.values.remove(j - 1);
-					j = this.position(inputValue, featureValue.values, j);
+					j = this.position(inputValue, featureValue.values, j+1);
 				}
 
 			} else if (action.removeAt == null) {
@@ -137,7 +137,7 @@ public class RemoveStructuralFeatureValueActionActivation
 				int j = this.position(inputValue, featureValue.values, 1);
 				while (j > 0) {
 					positions.addValue(j);
-					j = this.position(inputValue, featureValue.values, j);
+					j = this.position(inputValue, featureValue.values, j+1);
 				}
 
 				if (positions.size() > 0) {
