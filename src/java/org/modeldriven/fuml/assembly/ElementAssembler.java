@@ -185,9 +185,7 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
             object.setXmiNamespace(this.xmiNamespace);
 
             if (object instanceof Element) {
-                if (object instanceof PrimitiveType) {
-                    if (object.getHref() == null)
-                        throw new AssemblyException("expected 'href' attribute for primitive type");
+                if (object instanceof PrimitiveType && object.getHref() != null) {
                     // FIXME; gotta be a better way! URI resolver??
                     // Note: Path map variables allow for portability of URIs. The actual location 
                     // indicated by a URI depends on the run-time binding of the path variable. Thus, different 
