@@ -100,22 +100,23 @@ public class ModelSupport {
         return result;
     }
     
-    public boolean isPrimitiveTypeElement(XmiNode node, Classifier classifier,
+    public boolean isNotReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
-		boolean result = false;
-    	// if non-reference primitive type property element
-    	if (PrimitiveType.class.isAssignableFrom(classifier.getDelegate().getClass()))
+    	// if non-reference primitive or enumeration type property element
+		Class<?> class_ = classifier.getDelegate().getClass();
+    	if (PrimitiveType.class.isAssignableFrom(class_) ||
+    		Enumeration.class.isAssignableFrom(class_))
     	{
     		if (node.getNodes() != null && node.getNodes().size() > 0)
-    			log.warn("found child nodes(s) under primitive type, " 
+    			log.warn("found child nodes(s) under primitive type or enumertion, " 
     					+ classifier.getName());
     		if (hasAttributes)
-    			log.warn("found attribute(s) for primitive type, " 
+    			log.warn("found attribute(s) for primitive type or enumeration, " 
     					+ classifier.getName());
-    		result = true; // it's a non-reference property, "can't" have attributes 
+    		return true; // it's a non-reference property, "can't" have attributes 
     	} 
-    	return result;
+    	return false;
 	}
 
     /**
@@ -129,16 +130,13 @@ public class ModelSupport {
     public boolean isInternalReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
-		boolean result = false;
-		
-		if (!isPrimitiveTypeElement(node, classifier, hasAttributes))
+		if (!isNotReferenceElement(node, classifier, hasAttributes))
 		{
         	if (node.hasCharacters())
         	{
         		if (hasAttributes)
         			log.warn("found attribute(s) for characters node of type, " 
         					+ classifier.getName());
-        		result = true; // characters node    		
         	}
         	else {
                 StreamNode eventNode = (StreamNode)node;                
@@ -148,7 +146,7 @@ public class ModelSupport {
                     return true;
             }
 		}
-    	return result;
+    	return false;
 	}
 
     /**
@@ -164,7 +162,7 @@ public class ModelSupport {
         // has to be a ref
         boolean result = false;
         
-        if (!isPrimitiveTypeElement(node, classifier, hasAttributes))
+        if (!isNotReferenceElement(node, classifier, hasAttributes))
         {
             QName href = new QName(XmiConstants.ATTRIBUTE_XMI_HREF);
             if (node.hasAttribute(href))

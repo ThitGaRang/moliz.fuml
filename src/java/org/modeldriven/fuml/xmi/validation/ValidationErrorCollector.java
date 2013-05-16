@@ -179,7 +179,7 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     	classifierMap.put(target, classifier);
     	
         boolean hasAttributes = eventNode.hasAttributes();
-    	if (isPrimitiveTypeElement(eventNode, classifier, hasAttributes))
+    	if (isNotReferenceElement(eventNode, classifier, hasAttributes))
     		return;
 
     	if (isInternalReferenceElement(eventNode, classifier, hasAttributes))
@@ -228,10 +228,12 @@ public class ValidationErrorCollector extends AbstractXmiNodeVisitor
     	    // else source is an undefined class, and we handled that previously
     	}
     	
-    	if (eventNode.hasAttributes())
-    	    validateAttributes(eventNode, source, (Class_)classifier, eventNode.getAttributes());
-
-    	validateAttributesAgainstModel(eventNode, source, (Class_)classifier);
+    	if (classifier instanceof Class_) {
+	    	if (eventNode.hasAttributes())
+	    	    validateAttributes(eventNode, source, (Class_)classifier, eventNode.getAttributes());
+	
+	    	validateAttributesAgainstModel(eventNode, source, (Class_)classifier);
+    	}
 	}
 
 	private void validateAttributes(StreamNode target, XmiNode source,

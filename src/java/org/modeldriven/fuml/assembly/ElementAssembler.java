@@ -534,6 +534,14 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
                 if (value != null && value.trim().length() > 0)
                     continue; // handled above
 
+                XmiNode childNode = eventNode.findChildByName(property.getName());
+                if (childNode != null) {
+                	if (!this.modelSupport.isReferenceAttribute(property)) {
+                 		this.assembleNonReferenceFeature(property, childNode.getData(), property.getType());
+                	}
+                	continue;
+                }
+
                 String defaultValue = property.findPropertyDefault();
                 if (defaultValue != null) {
                     Classifier type = property.getType();
@@ -547,9 +555,6 @@ public class ElementAssembler extends AssemblerNode implements XmiIdentity, Asse
 
                 if (!property.isRequired())
                     continue; // don't bother digging further for a value
-
-                if (eventNode.findChildByName(property.getName()) != null)
-                    continue; // it has such a child, let
 
                 if (this.modelSupport.isReferenceAttribute(property)
                         && FumlConfiguration.getInstance().hasReferenceMapping(this.prototype,

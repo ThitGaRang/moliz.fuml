@@ -91,10 +91,10 @@ public abstract class AbstractXmiNodeVisitor {
         return classifier;
 	}
 		
-	protected boolean isPrimitiveTypeElement(XmiNode node, Classifier classifier,
+	protected boolean isNotReferenceElement(XmiNode node, Classifier classifier,
 			boolean hasAttributes)
 	{
-		return modelSupport.isPrimitiveTypeElement(node, classifier, hasAttributes);
+		return modelSupport.isNotReferenceElement(node, classifier, hasAttributes);
 	}
 
 	protected boolean isInternalReferenceElement(XmiNode node, Classifier classifier,

@@ -156,7 +156,7 @@ public class ElementGraphAssembler extends AbstractXmiNodeVisitor
         }
         
         boolean hasAttributes = eventNode.hasAttributes();
-        if (isPrimitiveTypeElement(target, classifier, hasAttributes))
+        if (isNotReferenceElement(target, classifier, hasAttributes))
             return; // must be an attribute, handled in ElementAssembler
 
         ElementAssembler sourceAssembler = null;
