@@ -93,7 +93,13 @@ public class RemoveStructuralFeatureValueActionActivation
 
 		if (association != null) {
 			LinkList links = this.getMatchingLinks(association, feature, value);
-
+			
+			if(inputValue != null) {
+				Property oppositeEnd = this.getOppositeEnd(association, feature);
+				LinkList linksMatchingInputValue = this.getMatchingLinks(association, oppositeEnd, inputValue);
+				links = linksMatchingInputValue;
+			}
+			
 			if (action.isRemoveDuplicates) {
 				for (int i = 0; i < links.size(); i++) {
 					Link link = links.getValue(i);
@@ -161,5 +167,5 @@ public class RemoveStructuralFeatureValueActionActivation
 		}
 
 	} // doAction
-
+	
 } // RemoveStructuralFeatureValueActionActivation
