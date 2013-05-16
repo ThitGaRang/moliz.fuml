@@ -118,12 +118,13 @@ public class RemoveStructuralFeatureValueActionActivation
 			} else {
 				boolean notFound = true;
 				int i = 1;
-				while (notFound & i < links.size()) {
+				while (notFound & i <= links.size()) {
 					Link link = links.getValue(i - 1);
 					if (link.getFeatureValue(feature).position == removeAt) {
 						notFound = false;
-						link.destroy();
+						link.destroy();						
 					}
+					++i;
 				}
 			}
 
