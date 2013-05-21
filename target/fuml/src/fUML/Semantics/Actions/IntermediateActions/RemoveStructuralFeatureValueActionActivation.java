@@ -97,7 +97,7 @@ public class RemoveStructuralFeatureValueActionActivation
 			if(inputValue != null) {
 				Property oppositeEnd = this.getOppositeEnd(association, feature);
 				LinkList linksMatchingInputValue = this.getMatchingLinks(association, oppositeEnd, inputValue);
-				links = linksMatchingInputValue;
+				links.retainAll(linksMatchingInputValue);
 			}
 			
 			if (action.isRemoveDuplicates) {
