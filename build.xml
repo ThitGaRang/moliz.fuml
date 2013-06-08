@@ -185,6 +185,10 @@
       <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
       <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/Property.java" />
      
+      <!-- Replace generated PackageableElement source file with one that properly initializes the superclass visibility attribute. -->
+      <!-- The replacement for this file must be found in the ${src.java.dir} tree. -->
+      <delete file="${gen.java.dir}/fUML/Syntax/Classes/Kernel/PackageableElement.java" />
+ 
       <!-- Replace generated behavior source files with ones that simulate classifier behaviors. -->
       <!-- The replacement for these files must be found in the ${src.java.dir} tree. -->
       <delete file="${gen.java.dir}/fUML/Semantics/CommonBehaviors/Communications/ClassifierBehaviorExecution_Behavior.java" />
