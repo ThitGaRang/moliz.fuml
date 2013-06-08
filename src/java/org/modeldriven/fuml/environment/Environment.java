@@ -59,10 +59,10 @@ public class Environment {
 	private PrimitiveType Real = null;
 	private PrimitiveType UnlimitedNatural = null;
  
-	private Environment() {
+	private Environment(ExecutionFactory factory) {
 
 		this.locus = new Locus();
-		this.locus.setFactory(new ExecutionFactory());  // Uses local subclass for ExecutionFactory
+		this.locus.setFactory(factory);  // Uses local subclass for ExecutionFactory
 		this.locus.setExecutor(new Executor());
 
 		this.locus.factory
@@ -96,19 +96,23 @@ public class Environment {
 		return type;
 	}
 	
-    public static Environment getInstance()
+	public static Environment getInstance() {
+		return getInstance(new ExecutionFactory());
+	}
+	
+    public static Environment getInstance(ExecutionFactory factory)
     {
         if (instance == null)
-            initializeInstance();
+            initializeInstance(factory);
         return instance;
     }
 
-    private static synchronized void initializeInstance()
+    private static synchronized void initializeInstance(ExecutionFactory factory)
     {
         if (instance == null)
-            instance = new Environment();
+            instance = new Environment(factory);
     }
-
+    
     public Behavior findBehavior(String name)
     {
     	org.modeldriven.fuml.repository.Element elem = Repository.INSTANCE.findElementByName(name);
