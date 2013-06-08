@@ -202,6 +202,8 @@ public class InMemoryMapping implements RepositoryMapping
 			elementNameToElementMap.put(element.name, elem);				
 			if (element.qualifiedName != null) 
 				qualifiedElementNameToElementMap.put(element.qualifiedName, elem);
+			else 
+				qualifiedElementNameToElementMap.put(element.name, elem);
 		}
 	}
 	
@@ -209,8 +211,8 @@ public class InMemoryMapping implements RepositoryMapping
     	String qualifiedName = null;
         if (currentPackageName != null)
         	qualifiedName = currentPackageName + "." + p.name;
-        //else
-        //	qualifiedName = p.name;   	
+        else
+        	qualifiedName = p.name;   	
     	
         if (log.isDebugEnabled())
             log.debug("mapping package, " + artifact.getURN() + "#" + p.name);
