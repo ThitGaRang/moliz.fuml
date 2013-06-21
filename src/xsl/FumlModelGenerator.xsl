@@ -76,7 +76,7 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
     private void constructPackages()
     {
         Package pkg = null;
-     <xsl:for-each select="//packagedElement[@xmi:type = 'uml:Package']">
+     <xsl:for-each select="//*[@xmi:type = 'uml:Package']">
         <xsl:variable name="packageName">                 
           <xsl:call-template name="findPackageName">                    
             <xsl:with-param name="pkg" select="''"/>       
@@ -124,7 +124,9 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
 
     private void constructPrimitiveTypes()
     {
-        PrimitiveType type = null;
+    Package pkg = null;
+    String packageId = null;
+    PrimitiveType type = null;
     <xsl:for-each select="//packagedElement[@xmi:type = 'uml:PrimitiveType']">
         <xsl:variable name="packageName">                 
           <xsl:call-template name="findPackageName">                    
@@ -132,8 +134,13 @@ public class <xsl:value-of select="$cls" /> extends ModelAssembler
             <xsl:with-param name="clss" select="."/>       
           </xsl:call-template>                                                    
         </xsl:variable>                                                  
+        packageId = this.artifact.getUrn() + "#" + "<xsl:value-of select="../@xmi:id"/>";   
+        
+        // <xsl:value-of select="$packageName" />.<xsl:value-of select="@name" /> 
+        pkg = (Package)model.getElementById(packageId).getDelegate();       
+        
         // <xsl:value-of select="@name" />
-    	type  = factory.createPrimitiveType("<xsl:value-of select="@name" />", "<xsl:value-of select="@xmi:id" />");
+    	type  = factory.createPrimitiveType("<xsl:value-of select="@name" />", "<xsl:value-of select="@xmi:id" />", pkg);
     	mapping.mapPrimitiveType(type, "<xsl:value-of select="$packageName" />", this); 
     </xsl:for-each>
     }   
