@@ -220,12 +220,14 @@ public class InMemoryMapping implements RepositoryMapping
 
 		org.modeldriven.fuml.repository.Package pkg = new org.modeldriven.fuml.repository.model.Package(p, artifact);
         
-		if (qualifiedName != null) {
-            if (qualifiedPackageNameToPackageMap.get(qualifiedName) != null)
-        	    throw new RepositorylException("found existing package, '"
-        			+ qualifiedName + ".");
-            qualifiedPackageNameToPackageMap.put(qualifiedName, pkg);
-		}
+		if (qualifiedPackageNameToPackageMap.get(qualifiedName) != null)
+			throw new RepositorylException("found existing package, '"
+					+ qualifiedName + ".");
+		qualifiedPackageNameToPackageMap.put(qualifiedName, pkg);
+		
+		// NOTE: This is to provide a consistent way to resolve library element
+		// names, for add-on functionality.
+        qualifiedElementNameToElementMap.put(qualifiedName, pkg);
 		
         List<org.modeldriven.fuml.repository.Package> artifactPackages = artifactURIToPackagesMap.get(artifact.getURN());
         if (artifactPackages == null)
@@ -531,11 +533,16 @@ public class InMemoryMapping implements RepositoryMapping
         
         org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Classifier(t, artifact);
         
+        String qualifiedName = currentPackageName + "." + t.name;
         classifierNameToClassifierMap.put(t.name, classifier);
-        qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + t.name, classifier);
+        qualifiedClassifierNameToClassifierMap.put(qualifiedName, classifier);
         classifierNameToPackageNameMap.put(t.name, currentPackageName);
-        qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + t.name,
-                currentPackageName);
+        qualifiedClassifierNameToPackageNameMap.put(qualifiedName, currentPackageName);
+        
+        // NOTE: This is to provide a consistent way to resolve library element
+        // names, for add-on functionality.
+        qualifiedElementNameToElementMap.put(qualifiedName, classifier);
+
         if (elementIdToElementMap.get(t.getXmiId()) != null)
         	throw new RepositorylException("found existing primitive type, '"
         			+ t.getXmiId() + ".");
@@ -566,11 +573,15 @@ public class InMemoryMapping implements RepositoryMapping
         
         org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Classifier(t, artifact);
         if (t.name != null && currentPackageName != null) {
-            qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + t.name, classifier);
+        	String qualifiedName = currentPackageName + "." + t.name;
+            qualifiedClassifierNameToClassifierMap.put(qualifiedName, classifier);
             classifierNameToPackageNameMap.put(t.name, currentPackageName);
-            qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + t.name,
-                currentPackageName);
-        }
+            qualifiedClassifierNameToPackageNameMap.put(qualifiedName, currentPackageName);
+            
+            // NOTE: This is to provide a consistent way to resolve library element
+            // names, for add-on functionality.
+            qualifiedElementNameToElementMap.put(qualifiedName, classifier);
+       }
         
         
         if (elementIdToElementMap.get(t.getXmiId()) != null)
@@ -604,10 +615,16 @@ public class InMemoryMapping implements RepositoryMapping
             log.debug("mapping enumeration, " + currentPackageName + "." + e.name);
         org.modeldriven.fuml.repository.Classifier classifier = new org.modeldriven.fuml.repository.model.Enumeration(e, artifact);
         classifierNameToClassifierMap.put(e.name, classifier); // FIXME: why are we doing this flat mapping??
-        qualifiedClassifierNameToClassifierMap.put(currentPackageName + "." + e.name, classifier);
+        
+        String qualifiedName = currentPackageName + "." + e.name;
+        qualifiedClassifierNameToClassifierMap.put(qualifiedName, classifier);
         classifierNameToPackageNameMap.put(e.name, currentPackageName);
-        qualifiedClassifierNameToPackageNameMap.put(currentPackageName + "." + e.name,
-                currentPackageName);
+        qualifiedClassifierNameToPackageNameMap.put(qualifiedName, currentPackageName);
+        
+        // NOTE: This is to provide a consistent way to resolve library element
+        // names, for add-on functionality.
+        qualifiedElementNameToElementMap.put(qualifiedName, classifier);
+        
         if (elementIdToElementMap.get(e.getXmiId()) != null)
         	throw new RepositorylException("found existing enumeration, '"
         			+ e.getXmiId() + ".");
