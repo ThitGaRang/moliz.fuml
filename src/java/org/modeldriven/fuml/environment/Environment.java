@@ -1,8 +1,10 @@
 /*
- * Copyright 2008 Lockheed Martin Corporation, except as stated in the file
- * entitled Licensing-Information.
+ * Initial version copyright 2008 Lockheed Martin Corporation, except
+ * as stated in the file entitled Licensing-Information.
  *
- * All modifications copyright 2009-2011 Data Access Technologies, Inc.
+ * Modifications:
+ * Copyright 2009 Data Access Technologies, Inc.
+ * Copyright 2013 Ivar Jacobson International SA
  *
  * Licensed under the Academic Free License version 3.0 
  * (http://www.opensource.org/licenses/afl-3.0.php), except as stated
@@ -10,13 +12,11 @@
  *
  * Contributors:
  *   MDS - initial API and implementation
+ *   IJI
  *
  */
 package org.modeldriven.fuml.environment;
 
-
-
-import org.modeldriven.fuml.common.uuid.UUIDGenerator;
 import org.modeldriven.fuml.repository.Repository;
 
 import UMLPrimitiveTypes.UnlimitedNatural;
@@ -62,7 +62,7 @@ public class Environment {
 	private Environment(ExecutionFactory factory) {
 
 		this.locus = new Locus();
-		this.locus.setFactory(factory);  // Uses local subclass for ExecutionFactory
+		this.locus.setFactory(factory);
 		this.locus.setExecutor(new Executor());
 
 		this.locus.factory
@@ -71,33 +71,24 @@ public class Environment {
 				.setStrategy(new fUML.Semantics.CommonBehaviors.Communications.FIFOGetNextEventStrategy());
 		this.locus.factory
 				.setStrategy(new fUML.Semantics.Loci.LociL1.FirstChoiceStrategy());
-	
-		this.Boolean = this.createBuiltInType("Boolean");
-		this.String = this.createBuiltInType("String");
-		this.Integer = this.createBuiltInType("Integer");
-		this.Real = this.createBuiltInType("Real");
-		this.UnlimitedNatural = this.createBuiltInType("UnlimitedNatural");
+		
+		this.Boolean = this.addBuiltInType("Boolean");
+		this.String = this.addBuiltInType("String");
+		this.Integer = this.addBuiltInType("Integer");
+		this.Real = this.addBuiltInType("Real");
+		this.UnlimitedNatural = this.addBuiltInType("UnlimitedNatural");
 
-		// The fUML execution environment requires a single instance
-        // of these primitive types to be used for execution purposes.
-		// Give these types a "synthetic" XMI id such that they CAN be mapped
-		// by XMI id by various repository implementations.
-		this.Boolean.setXmiId(UUIDGenerator.instance().getIdString36());
-		this.String.setXmiId(UUIDGenerator.instance().getIdString36());
-		this.Integer.setXmiId(UUIDGenerator.instance().getIdString36());
-		this.Real.setXmiId(UUIDGenerator.instance().getIdString36());
-		this.UnlimitedNatural.setXmiId(UUIDGenerator.instance().getIdString36());
-    }
+	}
 
-	private PrimitiveType createBuiltInType(String name) {
-		PrimitiveType type = new PrimitiveType();
-		type.name = name;
+	private PrimitiveType addBuiltInType(String name) {
+		PrimitiveType type = (PrimitiveType)Repository.INSTANCE.
+				getClassifierByName(name).getDelegate();
 		this.locus.factory.addBuiltInType(type);
 		return type;
 	}
 	
 	public static Environment getInstance() {
-		return getInstance(new ExecutionFactory());
+		return getInstance(new ExecutionFactory()); // Uses local subclass for ExecutionFactory
 	}
 	
     public static Environment getInstance(ExecutionFactory factory)
