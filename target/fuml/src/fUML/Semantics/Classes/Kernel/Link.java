@@ -136,16 +136,16 @@ public class Link extends fUML.Semantics.Classes.Kernel.ExtensionalValue {
 
 		PropertyList ends = this.type.memberEnd;
 		ExtensionalValueList extent = this.locus.getExtent(this.type);
-		
-		for (int i = 0; i < ends.size(); i++) {
-			Property end = ends.getValue(i);
-			FeatureValue featureValue = this.getFeatureValue(end);
-			FeatureValueList otherFeatureValues = 
-				this.getOtherFeatureValues(extent, end);
-			for (int j = 0; j < otherFeatureValues.size(); j++) {
-				FeatureValue otherFeatureValue = featureValues.getValue(j);
-				if (featureValue.position < otherFeatureValue.position) {
-					otherFeatureValue.position = otherFeatureValue.position - 1;
+
+		for (int i = 0; i < extent.size(); i++) {
+			ExtensionalValue otherLink = extent.getValue(i);
+			for (int j = 0; j < ends.size(); j++) {
+				Property end = ends.getValue(j);
+				if (end.multiplicityElement.isOrdered) {
+					FeatureValue featureValue = otherLink.getFeatureValue(end);
+					if (this.getFeatureValue(end).position < featureValue.position) {
+						featureValue.position = featureValue.position - 1;
+					}
 				}
 			}
 		}
